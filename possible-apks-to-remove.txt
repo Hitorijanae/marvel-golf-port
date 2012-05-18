@@ -1,0 +1,12 @@
+possible removable sense apps
+LMW.apk = low storage mode wizard / not needed when managing through settings
+MySketcher.apk = sort of quick note app, writing with your finger
+MyTask.apk + MyTAskWidget.apk = to do app from HTC with location reminding / Maybe integrated with Sense account?
+SetupWizard.apk = not needed on HTC ROMS, HTCSetupWizard does the thing
+Trimit.apk = trim your custom ringtones (not really necessary for me, do this on your pc)
+HTCRingToneTrimmer.apk = WTF, same as previous
+Updater.apk = OTA HTC updates, not needed when porting I guess
+Videos.apk = also in CM9, create home videos
+ChromeBookmarkSyncadapter.apk = sync bookmarks with google chrome browser on your computer
+ShowMe.apk = HTC online video and book store?
+
