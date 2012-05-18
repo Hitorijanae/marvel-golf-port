@@ -10,3 +10,5 @@ Videos.apk = also in CM9, create home videos
 ChromeBookmarkSyncadapter.apk = sync bookmarks with google chrome browser on your computer
 ShowMe.apk = HTC online video and book store?
 
+totally around 11,3 MB
+
