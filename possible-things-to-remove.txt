@@ -11,6 +11,23 @@ ChromeBookmarkSyncadapter.apk = sync bookmarks with google chrome browser on you
 ShowMe.apk = HTC online video and book store?
 What about keyboard dictionaries? together around 10 MB
 
+____________________________________
+Jmz recommends:
+Removing:
+AppSharing.apk
+Flickr.apk
+HtcStore.apk
+MyDropbox.apk
+MyHTC.apk
+MyReportAgent.apk
+MySkydrive.apk
+
+There are a lot of apks you can move to /data
+***You can also symlink some stuff from /data to /system*** this will prolly be the best option
+Move all languages to /data IMEXT9*.apk
+What you have now from this list is most likely a managable rom size. 
+--------------------------------------
+
 totally around 11,3 MB without the keyboard stuff
 
 possible removable libs
