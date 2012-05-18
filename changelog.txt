@@ -1,0 +1,6 @@
+Changelog - say here what you have done after each change 
+if needed it is easier to revert to previous change, Henry_01 has a backup of the original ROM
+
+Henry_01: upload of the Golf RUU
+Henry_01: removing some crap: 	website thumbnails found in customize folder
+				useless gapps (gmail, youtube, maps, google plus) and Soundhound, Facebook, Adobe Reader, ...
