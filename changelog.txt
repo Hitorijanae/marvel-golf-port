@@ -6,3 +6,4 @@ if needed it is easier to revert to previous change, Henry_01 has a backup of th
 - removed libnativedocviewer.so needed for PolarisOffice
 - removed libadobereader.so needed for adobe reader
 - deodexed and pngcrushed /system/apps to reduce size from 189.1MB to 104.0MB
+- removed unnecessary LDPI, HDPI and XHDPI files from the apks in /system/apps to reduce size from 104.0MB to 99.9MB
