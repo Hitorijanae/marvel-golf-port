@@ -1,0 +1,16 @@
+Possible apps that could be moved to /data/app
+
+Facebook.apk
+Flickr.apk
+GoogleQuickSearchBox.apk 
+All of the IMEXT9[languagename].apk's - totaling 6.5MB 
+MyDropbox.apk
+MyHTC.apk
+MySkydrive.apk
+HtcStore.apk
+install_flash_player.apk
+MyTask.apk
+MyTaskWidget.apk
+PicoTts.apk
+TrimIt.apk
+
