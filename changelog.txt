@@ -5,5 +5,6 @@ if needed it is easier to revert to previous change, Henry_01 has a backup of th
 - removing some crap: website thumbnails, useless gapps (gmail, youtube, maps, google plus) and PolarisOffice, Soundhound, Facebook, Adobe Reader, Talkback, …
 - removed libnativedocviewer.so needed for PolarisOffice
 - removed libadobereader.so needed for adobe reader
-- deodexed and pngcrushed /system/apps to reduce size from 189.1MB to 104.0MB
-- removed unnecessary LDPI, HDPI and XHDPI files from the apks in /system/apps to reduce size from 104.0MB to 99.9MB
+- deodexed and pngcrushed /system/app to reduce size from 189.1MB to 104.0MB
+- removed unnecessary LDPI, HDPI and XHDPI files from the apks in /system/app to reduce size from 104.0MB to 99.9MB
+- undone pngcrush for SystemUI.apk; Rosie.apk; Phonesky.apk and fusion.apk. /system/app size is now 107.4MB
