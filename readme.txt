@@ -8,3 +8,8 @@ Two notes:
 -system partition is around 270 MB on the WFS without partitioning.
 -deodexing apes/jars may reduce size of these files, but gives you on sense 2.1 around 80 MB on data partition which goes away. 
 Deodexing should be a last attempt!
+
+
+.......................
+
+All other notes have been moved to notes/

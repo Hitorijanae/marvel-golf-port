@@ -1,0 +1,31 @@
+possible removable sense apps
+
+[confirmed] MyTask.apk + MyTAskWidget.apk = to do app from HTC with location reminding / Maybe integrated with Sense account?
+[do not delete] ChromeBookmarkSyncadapter.apk = sync bookmarks with google chrome browser on your computer
+[confirmed] ShowMe.apk = HTC online video and book store?
+[move to data] What about keyboard dictionaries? together around 10 MB
+
+Jmz recommends:
+Removing:
+[do not delete] Flickr.apk [needed by gallery]
+HtcStore.apk
+MyDropbox.apk
+MyHTC.apk
+MySkydrive.apk
+
+There are a lot of apks you can move to /data
+***You can also symlink some stuff from /data to /system*** this will prolly be the best option (do you mean the other way around, that is a good option though)
+Move all languages to /data IMEXT9*.apk (didn't I say that?)
+
+possible removable libs
+see changelog what I've removed, can it go further? CM9 contains way less.
+::: CM9 IS NOT SENSE - REMEMBER TO MARK WHAT YOU DELETE, AND BACK IT UP :::
+
+possible removable sounds
+ringtones folder is 20 MB, we could strip 10 MB from it, BTW: sense roms allow your own ringtones I remembered. So only keep the best ones.
+
+possible removable framework files
+for now stay away. One question: what's purpose of framework-htc-res.apk?
+A. Images
+
+(edited by Benjamin)
