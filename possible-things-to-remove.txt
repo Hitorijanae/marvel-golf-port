@@ -1,34 +1,21 @@
 possible removable sense apps
-LMW.apk = low storage mode wizard / not needed when managing through settings
-MySketcher.apk = sort of quick note app, writing with your finger
+
 MyTask.apk + MyTAskWidget.apk = to do app from HTC with location reminding / Maybe integrated with Sense account?
-SetupWizard.apk = not needed on HTC ROMS, HTCSetupWizard does the thing
-Trimit.apk = trim your custom ringtones (not really necessary for me, do this on your pc)
-HTCRingToneTrimmer.apk = WTF, same as previous
-Updater.apk = OTA HTC updates, not needed when porting I guess
-Videos.apk = also in CM9, create home videos
 ChromeBookmarkSyncadapter.apk = sync bookmarks with google chrome browser on your computer
 ShowMe.apk = HTC online video and book store?
 What about keyboard dictionaries? together around 10 MB
 
-____________________________________
 Jmz recommends:
 Removing:
-AppSharing.apk
 Flickr.apk
 HtcStore.apk
 MyDropbox.apk
 MyHTC.apk
-MyReportAgent.apk
 MySkydrive.apk
 
 There are a lot of apks you can move to /data
 ***You can also symlink some stuff from /data to /system*** this will prolly be the best option
 Move all languages to /data IMEXT9*.apk
-What you have now from this list is most likely a managable rom size. 
---------------------------------------
-
-totally around 11,3 MB without the keyboard stuff
 
 possible removable libs
 see changelog what I've removed, can it go further? CM9 contains way less.
@@ -38,9 +25,6 @@ ringtones folder is 20 MB, we could strip 10 MB from it, BTW: sense roms allow y
 
 possible removable framework files
 for now stay away. One question: what's purpose of framework-htc-res.apk?
-
-What about xmls in MNS folder in customize folder? I know its for first setup wizard. It auto detects country based on network and applies language, keyboard language, calendar and time layout, APN settings etc … Just keep the default one?
-
 
 
 
