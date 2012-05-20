@@ -1,3 +1,12 @@
+:::::
+::::: THIS FILE IS UNNEEDED, PLEASE SEE THE "COMMIT" SECTION ON
+::::: GITHUB, IT SHOWS YOU ALL CHANGES TO EVERY LINE OF CODE,
+::::: DELETION AND ADDTION IN EXTREME DETAIL.
+:::::
+::::: Thanks, Benjamin.
+:::::
+
+
 Changelog - say here what you have done after each change 
 if needed it is easier to revert to previous change, Henry_01 has a backup of the original ROM
 

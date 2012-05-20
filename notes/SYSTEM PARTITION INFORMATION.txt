@@ -8,7 +8,7 @@
 : /data       : 1024mb[d2sd]: 52mb                          : yes              :
 : /devicelog  : 10mb        : 1mb                           : yes              :
 : /sd-card    : ----mb      : ----mb                        : yes              :
-: /system     : 269mb       : unknown (showed as 269mb used): yes              : <--- THIS IS GOOD!
+: /system     : 269mb       : unknown (showed as 269mb used): yes              : <--- THIS IS VERY, VERY GOOD!
 : /boot       : UNKOWN      : UNKNOWN (aprox. 6mb)          : yes              :
 --------------------------------------------------------------------------------
 
