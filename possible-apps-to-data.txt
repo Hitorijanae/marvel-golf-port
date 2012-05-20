@@ -1,19 +1,10 @@
 Possible apps that could be moved to /data/app
+Note: this will bring in need for SD Card partitioning
 
-Facebook.apk
-Flickr.apk
-GoogleQuickSearchBox.apk 
-All of the IMEXT9[languagename].apk's - totaling 6.5MB
+Facebook.apk and facebookEngine.apk
+GoogleQuickSearchBox.apk
 MyDropbox.apk
 MyHTC.apk
 MySkydrive.apk
 HtcStore.apk
---DELETE-- install_flash_player.apk
-L
-L We must replace this with an install_flash_player.apk
-L from a Sense 2.1 ROM designed for our armv6 phones.
-MyTask.apk
-MyTaskWidget.apk
-PicoTts.apk
-TrimIt.apk
-Some (if not all) non-default widgets
+PicoTts.apk => doesn't take much space

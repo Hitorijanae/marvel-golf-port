@@ -1,0 +1,9 @@
+:::WARNING:::
+
+Camera and contacts (or whatever HtcContacts+CRC_GolfU.odex) will not work because framework has been deodexed. They will only work if they are deodexed too.
+
+:::SOLOUTION:::
+
+a) Retry using different tools, other than dsixda's kitchen
+b) Use the two APK's from PRIMO RUU
+c) Do manually using this guide: http://forum.xda-developers.com/showthread.php?t=1208320
