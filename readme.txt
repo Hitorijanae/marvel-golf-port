@@ -6,10 +6,5 @@ The WFSDev Team will work together over here. Update changelog after changes!
 
 Two notes:
 -system partition is around 270 MB on the WFS without partitioning.
--deodexing apes/jars may reduce size of these files, but gives you on sense 2.1 around 80 MB on data partition which goes away.
-- This is not a problem, we can use app2sd or data2whatever to give the user more space.
+-debloat as much so we shouldn't use data2sd and partitioning
 
-
-.......................
-
-All other notes have been moved to notes/

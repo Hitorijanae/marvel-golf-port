@@ -1,19 +1,11 @@
 Possible apps that could be moved to /data/app
 
 Facebook.apk
-Flickr.apk
-GoogleQuickSearchBox.apk 
-All of the IMEXT9[languagename].apk's - totaling 6.5MB
+Flickr.apk: not integrated in gallery
+GoogleQuickSearchBox.apk
+All of the IMEXT9[languagename].apk's - totaling 6.5MB or better, delete them
 MyDropbox.apk
 MyHTC.apk
 MySkydrive.apk
 HtcStore.apk
---DELETE-- install_flash_player.apk
-L
-L We must replace this with an install_flash_player.apk
-L from a Sense 2.1 ROM designed for our armv6 phones.
-MyTask.apk
-MyTaskWidget.apk
 PicoTts.apk
-TrimIt.apk
-Some (if not all) non-default widgets

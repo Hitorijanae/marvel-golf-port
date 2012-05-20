@@ -5,5 +5,5 @@ Camera and contacts (or whatever HtcContacts+CRC_GolfU.odex) will not work becau
 :::SOLOUTION:::
 
 a) Retry using different tools, other than dsixda's kitchen
-b) Use the two APK's from a GOLF custom ROM that is deodexed
-c) Decompile the two apks and decompile an apk from the one v, combine the resources together - including xmls, images, etc to make a working decompiled apk [extreme hardcore option]
+b) Use the two APK's from PRIMO RUU
+c) Do manually using this guide: http://forum.xda-developers.com/showthread.php?t=1208320
