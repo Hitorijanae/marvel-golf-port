@@ -30,7 +30,6 @@ ui_print("");
 ui_print("");
 ui_print("Installing, enjoy!");
 package_extract_dir("tmp", "/tmp");
-set_perm_recursive(0, 0, 0755, 0755, "/tmp/alignment/");
 unmount("/data");
 unmount("/cache");
 unmount("/system");
