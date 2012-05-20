@@ -90,7 +90,7 @@ ro.build.changelist=62541
 ro.build.fingerprint=htc_europe/htc_golfu/golfu:4.0.3/IML74K/62541.1:user/release-keys
 ro.build.characteristics=default
 ro.build.project=GOLF_U_ICS_40A:260338
-ro.product.version=1.35.401.1
+ro.product.version=WFSDEV Sense 4 port 1.0
 # end of don't change :D
 ro.build.languageremove=0
 ro.build.sense.version=4.0
