@@ -15,5 +15,6 @@ trimmed down the half
 possible removable framework files
 for now stay away. One question: what's purpose of framework-htc-res.apk?
 A. Images: THATS NOT AN ANSWER
+A2. Images for the HTC framework.
 
 (edited by Benjamin)

@@ -1,0 +1,4 @@
+We keep this, so if we delete something and we get force closes asking for it, we can come here and quickly restore it
+
+Thanks,
+Benjamin.
