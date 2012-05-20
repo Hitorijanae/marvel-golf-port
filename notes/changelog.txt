@@ -1,0 +1,6 @@
+Please delete this file, what is changed is located at https://github.com/wfsdev/marvel-golf-port/commits/master
+
+Click on the commit to see the stuff changed
+
+Thanks,
+- Benjamin
