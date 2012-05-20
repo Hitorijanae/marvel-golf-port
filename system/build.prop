@@ -158,8 +158,8 @@ ro.telephony.default_network = 0
 # View configuration for QVGA
 view.fading_edge_length = 8
 view.touch_slop = 15
-view.minimum_fling_velocity = 25
-view.scroll_friction = 0.008
+view.minimum_fling_velocity = 90
+view.scroll_friction = 0.000
 
 # For SD storage insert notification sound
 persist.service.mount.playsnd = 1
