@@ -1,21 +1,7 @@
 ui_print("");
-ui_print("");
-ui_print("");
-ui_print("");
-ui_print("");
-ui_print("");
-ui_print("");
-ui_print("");
-ui_print("");
-ui_print("");
-ui_print("");
 ui_print("WFSDEV presents...");
 ui_print("HTC Sense 4.0 for the Wildfire S");
 ui_print("");
-ui_print("");
-ui_print("Information: ");
-ui_print("");
-ui_print("Sense 4.0 from the Golf");
 ui_print("Testing edition, expect stuff not to work");
 ui_print("");
 ui_print("Credits/who worked on this ROM: ");
@@ -23,10 +9,7 @@ ui_print("benjamingwynn");
 ui_print("Henry_01");
 ui_print("dudeman1996");
 ui_print("And obviously HTC");
-ui_print("");
-ui_print("Installing, enjoy!");
-ui_print("");
-ui_print("");
+ui_print("installing ROM");
 package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 set_perm(0, 0, 0777, "/tmp/backuptool.sh");
 run_program("/tmp/backuptool.sh", "backup");
@@ -36,6 +19,7 @@ mount("yaffs2", "MTD", "system", "/system");
 package_extract_dir("recovery", "/system");
 package_extract_dir("system", "/system");
 package_extract_dir("data", "/data");
+ui_print("symlinking");
 symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
         "/system/xbin/arp", "/system/xbin/ash", "/system/xbin/awk",
         "/system/xbin/base64", "/system/xbin/basename", "/system/xbin/bbconfig",
@@ -125,6 +109,7 @@ symlink("toolbox", "/system/bin/cat", "/system/bin/cmp",
         "/system/bin/sync", "/system/bin/top", "/system/bin/uptime",
         "/system/bin/vmstat", "/system/bin/watchprops",
         "/system/bin/wipe");
+ui_print("setting permissions");
 set_perm_recursive(0, 0, 0755, 0644, "/system");
 set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
 set_perm(0, 3003, 02750, "/system/bin/netcfg");
@@ -165,8 +150,10 @@ package_extract_file("system/bin/verify_cache_partition_size.sh", "/tmp/verify_c
 set_perm(0, 0, 0777, "/tmp/verify_cache_partition_size.sh");
 run_program("/tmp/verify_cache_partition_size.sh");
 show_progress(0.200000, 10);
+ui_print("installing kernel");
 assert(package_extract_file("boot.img", "/tmp/boot.img"),
        write_raw_image("/tmp/boot.img", "boot"),
        delete("/tmp/boot.img"));
 show_progress(0.100000, 0);
+ui_print("done, reboot phone");
 unmount("/system");

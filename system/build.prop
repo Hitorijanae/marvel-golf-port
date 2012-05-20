@@ -310,8 +310,7 @@ ro.htc.framework.screencapture = true
 
 # Extend key dispatching timeout
 keydispatchtimeout = 15000
-
-# For QC perf binary hooks
+_ary hooks
 # src:vendor/qcom/proprietary/android-perf/release/lib/<CPU arch>/libqc-opt.so
 ro.vendor.extension_library=/system/lib/libqc-opt.so
 
@@ -331,8 +330,8 @@ ro.framework.gestureservice=1
 #
 # ADDITIONAL_BUILD_PROPERTIES
 #
-ro.config.notification_sound=OnTheHunt.ogg
-ro.config.alarm_alert=Alarm_Classic.ogg
+ro.config.notification_sound=Notice.mp3
+ro.config.alarm_alert=12th_hour.mp3
 drm.service.enabled=true
 ro.setupwizard.mode=DISABLED
 ro.com.google.gmsversion=4.0_r2
