@@ -6,5 +6,8 @@ The WFSDev Team will work together over here. Update changelog after changes!
 
 Two notes:
 - system partition is around 270 MB on the WFS without partitioning.
+====> 269MB exactly
 - debloat as much so we shouldn't use data2sd and partitioning
+====> Don't do that! It fits, don't change any more!
 ====> result from Henry: system folder 312 MB without data/app
+====> Around 265mb now (Benjamin)
