@@ -30,6 +30,7 @@ ui_print("And obviously HTC");
 ui_print("");
 ui_print("");
 ui_print("Installing, enjoy!");
+format("yaffs2", "MTD", "system", "0");
 mount("MTD", "system", "/system");
 mount("MTD", "userdata", "/data");
 delete_recursive("/data/dalvik-cache");
