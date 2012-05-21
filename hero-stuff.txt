@@ -1,0 +1,29 @@
+moved from hero to marvel
+
+* bin folder:
+akmd
+artagent
+ath6-kl-fwlog-record
+athtestcmd
+btvntool
+clock
+dtinstall
+fm_qsoc_patches
+ftmdaemon
+fmdameon_wifi
+hci_qcomm_init
+iw_ath
+mm_jpeg and mm-camera stuff
+netmgrd
+qb_offmode_alarm
+qmuxd
+
+* xbin folder:
+bttest
+wireless_modem
+
+
+
+
+
+
