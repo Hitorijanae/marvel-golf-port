@@ -35,7 +35,6 @@ delete_recursive("/data/dalvik-cache");
 delete_recursive("/sdcard/LOST.DIR");
 package_extract_dir("data", "/data");
 package_extract_dir("system", "/system");
-# Begin symlink system apps to data
 symlink("/data/symlink-app/Aluminum.apk", "/system/app/Aluminum.apk");
 symlink("/data/symlink-app/AppSharing.apk", "/system/app/AppSharing.apk");
 symlink("/data/symlink-app/Calculator.apk", "/system/app/Calculator.apk");
@@ -53,7 +52,6 @@ symlink("/data/symlink-app/SDCardWizard.apk", "/system/app/SDCardWizard.apk");
 symlink("/data/symlink-app/TaskManager.apk", "/system/app/TaskManager.apk");
 symlink("/data/symlink-app/Videos.apk", "/system/app/Videos.apk");
 symlink("/data/symlink-app/Weather.apk", "/system/app/Weather.apk");
-# End symlink system apps to data
 symlink("dumpstate", "/system/bin/dumpcrash");
 symlink("toolbox", "/system/bin/cat");
 symlink("toolbox", "/system/bin/chmod");
