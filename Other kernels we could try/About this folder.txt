@@ -1,4 +1,10 @@
 This folder is designed for us to simply put the boot.img's we could use in here if another one does not work. Simple - Please note what kernel you change bellow. DO NOT DELETE KERNELS! Move them here
 
+.----------------------------------------.
+: Number : Name of kernel : Designed for :
+:----------------------------------------:
+: 1      : idodgx's kernel: Sense 3.5    :
+------------------------------------------
+
 Thanks,
 - Benjamin

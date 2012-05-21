@@ -81,7 +81,7 @@ ro.product.locale.language=mdpi
 ro.wifi.channels=
 ro.board.platform=msm7k
 # ro.build.product is obsolete; use ro.product.device
-ro.build.product=golfu
+ro.build.product=marvel
 # Do not try to parse ro.build.description or .fingerprint
 # more dont change ;)
 ro.build.description=1.35.401.1 CL62541 release-keys
@@ -158,8 +158,8 @@ ro.telephony.default_network = 0
 # View configuration for QVGA
 view.fading_edge_length = 8
 view.touch_slop = 15
-view.minimum_fling_velocity = 90
-view.scroll_friction = 0.000
+view.minimum_fling_velocity = 25
+view.scroll_friction = 0.008
 
 # For SD storage insert notification sound
 persist.service.mount.playsnd = 1
