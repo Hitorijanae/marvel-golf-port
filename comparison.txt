@@ -30,6 +30,8 @@ artagent
 ath6-kl-fwlog-record
 athtestcmd
 btvnvtool
+chka
+
 
 - found in marvel port
 btld
