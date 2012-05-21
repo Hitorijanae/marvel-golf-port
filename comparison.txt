@@ -33,12 +33,10 @@ btvnvtool
 clock
 dtinstall
 fm_qsoc_patches
-fsck_msdos
 ftmdaemon
 fmdameon_wifi
 hci_qcomm_init
 iw_ath
-lcs_camera
 mm_jpeg and mm-camera stuff
 netmgrd
 qb_offmode_alarm
