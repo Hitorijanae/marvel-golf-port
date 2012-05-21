@@ -148,7 +148,7 @@ set_perm(1000, 1000, 0755, "/system/xbin/openvpn");
 set_perm(1000, 1000, 0771, "/data");
 set_perm_recursive(1000, 1000, 0771, 0644, "/data/app");
 show_progress(0.100000, 0);
-assert(package_extract_file("boot.img", "/tmp/boot.img"), write_raw_image("/tmp/boot.img", "boot"), delete("/tmp/boot.img"));
+package_extract_file("boot.img", "/tmp/boot.img");write_raw_image("/tmp/boot.img", "boot");
 unmount("/data");
 unmount("/system");
 ui_print("Install complete. Enjoy Sense 4!");
