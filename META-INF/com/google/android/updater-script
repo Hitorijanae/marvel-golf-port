@@ -25,6 +25,7 @@ ui_print("Credits/who worked on this ROM:");
 ui_print("benjamingwynn");
 ui_print("Henry_01");
 ui_print("dudeman1996");
+ui_print("OliverG96");
 ui_print("And obviously HTC");
 ui_print("");
 ui_print("");
