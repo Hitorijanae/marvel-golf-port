@@ -30,12 +30,26 @@ artagent
 ath6-kl-fwlog-record
 athtestcmd
 btvnvtool
-chka
-
+clock
+dtinstall
+fm_qsoc_patches
+fsck_msdos
+ftmdaemon
+fmdameon_wifi
+hci_qcomm_init
+iw_ath
+lcs_camera
+mm_jpeg and mm-camera stuff
+netmgrd
+qb_offmode_alarm
+qmuxd
 
 - found in marvel port
 btld
-
+dhd
+snd3254sysro
+sysrw
+sound7by30
 
 
 
