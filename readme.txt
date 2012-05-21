@@ -4,9 +4,11 @@ The port is based on a HTC Desire C RUU: RUU_GOLF_U_ICS_40A_HTC_Europe_1.35.401.
 
 The WFSDev Team will work together over here. Update changelog after changes!
 
-Two notes:
+Some notes:
 - system partition is 269 MB on the WFS without partitioning.
 ====> ROM around 265mb now (Benjamin)
 
 - maybe useful guide (not for sense 4, but could be useful)
   http://forum.xda-developers.com/showthread.php?t=1222746
+
+- for updater script: symlink bin folder toolbox and the roboto fonts only.
