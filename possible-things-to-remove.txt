@@ -1,20 +1,14 @@
 possible removable sense apps, updated!!
 
-[do not delete] Flickr.apk [needed by gallery]
 HtcStore.apk
-MyDropbox.apk
 MyHTC.apk
 MySkydrive.apk
 
 possible removable libs
-Changelog what's removed
+...
 
 possible removable sounds
-trimmed down the half
+trimmed down a bit already
 
 possible removable framework files
-for now stay away. One question: what's purpose of framework-htc-res.apk?
-A. Images: THATS NOT AN ANSWER
-A2. Images for the HTC framework.
-
-(edited by Benjamin)
+Stay away.
