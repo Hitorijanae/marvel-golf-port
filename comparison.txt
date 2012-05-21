@@ -1,0 +1,23 @@
+differences between marvel and desire port
+
+* updater-script:
+symlink toolbox: system/bin/chownto system/bin/ionice system/bin/nandread
+symlink dumpstate: system/bin/bugreport
+found in desire port
+
+* bin folder: found in desire port
+akmd applypatch_statci ast-mm-vdex-omx-test audioloop bash Blobcache-test
+bootcomplete brcm_patchram_plus check_prereq decoder dspcrashd dump_image
+dumplayer DxDrmServerlpc erase_image fix_permissions gdbjithelper gdbserver
+hostapd_cli inputbins ipd keystore_cli Looper_test mm-bins mmcamera_test
+ObbFile_test parse_radio_log ping6 radiooptions record recordvideo recovery 
+remount romdump sf2 showlease skia_teststragefright stream String8_test
+test_gemini testid3 Unicode_test unyaffs updater wl wmdsi zchgd ZipFileRO_test
+
+* lib folder: found in desire port
+libC2D3.so libvideochat_jni.so
+lots of difference between libs, is normal
+
+* xbin folder: 17 more files in desire port.
+* modules folder: much bigger in desire port. I guess we removed too much from it
+*soundfx folder: beatsbass.so in desire port.

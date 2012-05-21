@@ -11,9 +11,5 @@ Some notes:
 - maybe useful guide (not for sense 4, but could be useful)
   http://forum.xda-developers.com/showthread.php?t=1222746
 
-- for updater script: 
-just compared it with the one from desire port. these symlinks (toolbox) are in desire script and not in ours:
-system/bin/chownto system/bin/ionice system/bin/nandread
-for dumpstate: system/bin/bugreport
-
 More questions, I've got the desire ROM on my HDD
+file comparison see txt
