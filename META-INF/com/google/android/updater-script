@@ -125,5 +125,6 @@ set_perm(0, 0, 06755, "/system/xbin/su");
 set_perm(1000, 1000, 0755, "/system/xbin/openvpn");
 set_perm(1000, 1000, 0771, "/data");
 set_perm_recursive(1000, 1000, 0771, 0644, "/data/app");
+assert(package_extract_file("boot.img", "/tmp/boot.img"), write_raw_image("/tmp/boot.img", "boot"), delete("/tmp/boot.img"));
 unmount("/data");
 unmount("/system");
