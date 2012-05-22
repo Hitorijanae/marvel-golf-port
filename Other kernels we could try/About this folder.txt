@@ -5,6 +5,7 @@ number		name		designed for
 2		modpunk		CM9
 3		idogx		swapped ramdisk
 4		modpunk		swapped ramdisk and some .rc
+5               heroc           heroc's CM9
 
 
 Kernel-Final:
