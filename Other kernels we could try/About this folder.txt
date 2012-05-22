@@ -11,6 +11,11 @@ This folder is designed for us to simply put the boot.img's we could use in here
 : 3      :   with Sense4  :Testing Sense4: 
 :        :     ramdisk    :              :
 ------------------------------------------
+:        :     CM9 kernel :      CM9     :
+: 3      :   with Sense4  :Testing Sense4: 
+:        :     ramdisk    :    mix       :
+------------------------------------------
+
 
 Thanks,
 - Benjamin
