@@ -1,0 +1,1631 @@
+Starting recovery on Tue May 22 08:38:23 2012
+can't open /dev/tty0: No such file or directory
+framebuffer: fd 3 (320 x 480)
+CWM-based Recovery v5.0.2.6
+recovery filesystem table
+=========================
+  0 /tmp ramdisk (null) (null)
+  1 /boot mtd boot (null)
+  2 /cache yaffs2 cache (null)
+  3 /data yaffs2 userdata (null)
+  4 /misc mtd misc (null)
+  5 /recovery mtd recovery (null)
+  6 /sdcard vfat /dev/block/mmcblk0p1 /dev/block/mmcblk0
+  7 /system yaffs2 system (null)
+  8 /sd-ext auto /dev/block/mmcblk0p2 (null)
+
+I:Completed outputting fstab.
+I:Processing arguments.
+Fixing execute permissions for /cache
+mtd: successfully wrote block at c6de400000000
+I:Set boot command "boot-recovery"
+I:Checking arguments.
+I:device_recovery_start()
+Command: "/sbin/recovery"
+
+ro.secure=0
+ro.allow.mock.location=1
+ro.debuggable=1
+persist.service.adb.enable=1
+ro.build.id=GRI40
+ro.build.display.id=GRJ90
+ro.build.version.incremental=eng.alquez.20111010.014632
+ro.build.version.sdk=10
+ro.build.version.codename=REL
+ro.build.version.release=2.3.7
+ro.build.date=pon, 10 paź 2011, 01:47:33 CEST
+ro.build.date.utc=0
+ro.build.type=eng
+ro.build.user=alquez
+ro.build.host=Gear2ng
+ro.build.tags=test-keys
+ro.product.model=HTC Wildfire S
+ro.product.brand=htc_wwe
+ro.product.name=htc_marvel
+ro.product.device=marvel
+ro.product.board=marvel
+ro.product.cpu.abi=armeabi-v6j
+ro.product.cpu.abi2=armeabi
+ro.product.manufacturer=HTC
+ro.product.locale.language=mdpi
+ro.product.locale.region=
+ro.wifi.channels=
+ro.board.platform=msm7k
+ro.build.product=marvel
+ro.build.description=passion-user 2.3.3 GRI40 102588 release-keys
+ro.build.fingerprint=google/passion/passion:2.3.3/GRI40/102588:user/release-keys
+ro.sf.lcd_density=160
+view.fading_edge_length=8
+view.touch_slop=15
+view.minimum_fling_velocity=25
+view.scroll_friction=0.008
+rild.libpath=/system/lib/libhtc_ril.so
+ro.ril.hep=1
+ro.ril.enable.dtm=0
+ro.ril.ecc.HTC-WWE=999
+ro.ril.ecc.HTC-ELL=92,93,94
+ro.ril.enable.a52.HTC-ITA=1
+ro.ril.enable.a53.HTC-ITA=1
+ro.ril.enable.a52=0
+ro.ril.enable.a53=1
+ro.ril.vmail.23415=1571,BT
+ro.ril.hsdpa.category=8
+ro.ril.htcmaskw1.bitmask=4294967295
+ro.ril.htcmaskw1=14449
+ro.ril.def.agps.mode=2
+ro.ril.gprsclass=12
+ro.ril.disable.power.collapse=1
+ro.gsm.2nd_data_retry_config=max_retries=3, 2000, 2000, 2000
+wifi.interface=eth0
+wifi.supplicant_scan_interval=15
+mobiledata.interfaces=rmnet0,rmnet1,rmnet2,gprs,ppp0
+ro.tether.denied=false
+ro.telephony.default_network=0
+ro.com.google.locationfeatures=1
+ro.opengles.version=131072
+sys.checkfs.fat=false
+dalvik.vm.execution-mode=int:jit
+dalvik.vm.heapsize=24m
+persist.sys.use_dithering=1
+persist.sys.purgeable_assets=0
+htc.audio.alc.enable=true
+ro.product.processor=600MHz
+ro.product.ram=512MB
+ro.product.display_resolution=3.2 inch HVGA resolution
+ro.product.main_camera=5M
+ro.product.front_camera=NA
+ro.product.bluetooth=3.0
+ro.product.wifi=802.11 b/g/n
+ro.ril.update.acoustic.table=1
+ro.media.dec.jpeg.memcap=20000000
+ro.ril.hsupa.category=5
+ro.ril.disable.fd.plmn.prefix=23402,23410,23411
+ro.ril.hsxpa=2
+keyguard.no_require_sim=true
+ro.rommanager.developerid=cyanogenmod
+ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html
+ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html
+ro.com.google.clientidbase=android-google
+ro.com.android.wifi-watchlist=GoogleGuest
+ro.setupwizard.enterprise_mode=1
+ro.com.android.dateformat=MM-dd-yyyy
+ro.com.android.dataroaming=false
+ro.config.ringtone=Playa.ogg
+ro.config.notification_sound=regulus.ogg
+ro.config.alarm_alert=Alarm_Beep_03.ogg
+ro.modversion=CyanogenMod-7.1.0-RC1-marvel-KANG
+ro.kernel.android.checkjni=1
+ro.setupwizard.mode=OPTIONAL
+net.bt.name=Android
+net.change=net.bt.name
+dalvik.vm.stack-trace-file=/data/anr/traces.txt
+ro.factorytest=0
+ro.serialno=HT14VTR00823
+ro.bootmode=recovery
+ro.baseband=7.57.39.01M
+ro.carrier=ALL
+ro.bootloader=1.09.0099
+ro.hardware=marvel
+ro.revision=128
+init.svc.recovery=running
+init.svc.adbd=running
+
+I:Checking for extendedcommand...
+I:Skipping execution of extendedcommand, file not found...
+mtd: successfully wrote block at c6de400000000
+I:Set boot command ""
+mtd: successfully wrote block at c6de400000000
+I:Set boot command ""
+mtd: successfully wrote block at c6de400000000
+I:Set boot command ""
+mtd: successfully wrote block at c6de400000000
+I:Set boot command ""
+mtd: successfully wrote block at c6de400000000
+I:Set boot command ""
+
+-- Installing: /sdcard/Sense4.zip
+mtd: successfully wrote block at c6de400000000
+I:Set boot command "boot-recovery"
+Finding update package...
+I:Update location: /sdcard/Sense4.zip
+Opening update package...
+Installing update...
+line 9 col 23: syntax error, unexpected STRING, expecting ',' or ')'
+1 parse errors
+E:Error in /sdcard/Sense4.zip
+(Status 6)
+Installation aborted.
+mtd: successfully wrote block at c6de400000000
+I:Set boot command ""
+mtd: successfully wrote block at c6de400000000
+I:Set boot command ""
+Formatting /system...
+Done.
+mtd: successfully wrote block at c6de400000000
+I:Set boot command ""
+
+-- Wiping data...
+Formatting /data...
+mtd: not erasing bad block at 0x00fc0000
+mtd: not erasing bad block at 0x01ec0000
+Formatting /cache...
+Formatting /sd-ext...
+I:Formatting unknown device.
+No app2sd partition found. Skipping format of /sd-ext.
+Formatting /sdcard/.android_secure...
+I:Formatting unknown device.
+rm: can't remove '.' or '..'
+rm: can't remove '.' or '..'
+Data wipe complete.
+Fixing execute permissions for /cache
+mtd: successfully wrote block at c6de400000000
+I:Set boot command ""
+
+-- Installing: /sdcard/Sense4.zip
+mtd: successfully wrote block at c6de400000000
+I:Set boot command "boot-recovery"
+Finding update package...
+I:Update location: /sdcard/Sense4.zip
+Opening update package...
+Installing update...
+script aborted: mount() expects 4 args, got 3
+Installing
+mount() expects 4 args, got 3
+E:Error in /sdcard/Sense4.zip
+(Status 7)
+Installation aborted.
+mtd: successfully wrote block at c6de400000000
+I:Set boot command ""
+mtd: successfully wrote block at c6de400000000
+I:Set boot command ""
+
+-- Installing: /sdcard/Sense4.zip
+mtd: successfully wrote block at c6de400000000
+I:Set boot command "boot-recovery"
+Finding update package...
+I:Update location: /sdcard/Sense4.zip
+Opening update package...
+Installing update...
+script aborted: mount() expects 4 args, got 3
+Installing
+mount() expects 4 args, got 3
+E:Error in /sdcard/Sense4.zip
+(Status 7)
+Installation aborted.
+mtd: successfully wrote block at c6de400000000
+I:Set boot command ""
+Starting recovery on Tue May 22 08:52:17 2012
+can't open /dev/tty0: No such file or directory
+framebuffer: fd 3 (320 x 480)
+CWM-based Recovery v5.0.2.6
+recovery filesystem table
+=========================
+  0 /tmp ramdisk (null) (null)
+  1 /boot mtd boot (null)
+  2 /cache yaffs2 cache (null)
+  3 /data yaffs2 userdata (null)
+  4 /misc mtd misc (null)
+  5 /recovery mtd recovery (null)
+  6 /sdcard vfat /dev/block/mmcblk0p1 /dev/block/mmcblk0
+  7 /system yaffs2 system (null)
+  8 /sd-ext auto /dev/block/mmcblk0p2 (null)
+
+I:Completed outputting fstab.
+I:Processing arguments.
+mtd: successfully wrote block at c6de400000000
+I:Set boot command "boot-recovery"
+I:Checking arguments.
+I:device_recovery_start()
+Command: "/sbin/recovery"
+
+ro.secure=0
+ro.allow.mock.location=1
+ro.debuggable=1
+persist.service.adb.enable=1
+ro.build.id=GRI40
+ro.build.display.id=GRJ90
+ro.build.version.incremental=eng.alquez.20111010.014632
+ro.build.version.sdk=10
+ro.build.version.codename=REL
+ro.build.version.release=2.3.7
+ro.build.date=pon, 10 paź 2011, 01:47:33 CEST
+ro.build.date.utc=0
+ro.build.type=eng
+ro.build.user=alquez
+ro.build.host=Gear2ng
+ro.build.tags=test-keys
+ro.product.model=HTC Wildfire S
+ro.product.brand=htc_wwe
+ro.product.name=htc_marvel
+ro.product.device=marvel
+ro.product.board=marvel
+ro.product.cpu.abi=armeabi-v6j
+ro.product.cpu.abi2=armeabi
+ro.product.manufacturer=HTC
+ro.product.locale.language=mdpi
+ro.product.locale.region=
+ro.wifi.channels=
+ro.board.platform=msm7k
+ro.build.product=marvel
+ro.build.description=passion-user 2.3.3 GRI40 102588 release-keys
+ro.build.fingerprint=google/passion/passion:2.3.3/GRI40/102588:user/release-keys
+ro.sf.lcd_density=160
+view.fading_edge_length=8
+view.touch_slop=15
+view.minimum_fling_velocity=25
+view.scroll_friction=0.008
+rild.libpath=/system/lib/libhtc_ril.so
+ro.ril.hep=1
+ro.ril.enable.dtm=0
+ro.ril.ecc.HTC-WWE=999
+ro.ril.ecc.HTC-ELL=92,93,94
+ro.ril.enable.a52.HTC-ITA=1
+ro.ril.enable.a53.HTC-ITA=1
+ro.ril.enable.a52=0
+ro.ril.enable.a53=1
+ro.ril.vmail.23415=1571,BT
+ro.ril.hsdpa.category=8
+ro.ril.htcmaskw1.bitmask=4294967295
+ro.ril.htcmaskw1=14449
+ro.ril.def.agps.mode=2
+ro.ril.gprsclass=12
+ro.ril.disable.power.collapse=1
+ro.gsm.2nd_data_retry_config=max_retries=3, 2000, 2000, 2000
+wifi.interface=eth0
+wifi.supplicant_scan_interval=15
+mobiledata.interfaces=rmnet0,rmnet1,rmnet2,gprs,ppp0
+ro.tether.denied=false
+ro.telephony.default_network=0
+ro.com.google.locationfeatures=1
+ro.opengles.version=131072
+sys.checkfs.fat=false
+dalvik.vm.execution-mode=int:jit
+dalvik.vm.heapsize=24m
+persist.sys.use_dithering=1
+persist.sys.purgeable_assets=0
+htc.audio.alc.enable=true
+ro.product.processor=600MHz
+ro.product.ram=512MB
+ro.product.display_resolution=3.2 inch HVGA resolution
+ro.product.main_camera=5M
+ro.product.front_camera=NA
+ro.product.bluetooth=3.0
+ro.product.wifi=802.11 b/g/n
+ro.ril.update.acoustic.table=1
+ro.media.dec.jpeg.memcap=20000000
+ro.ril.hsupa.category=5
+ro.ril.disable.fd.plmn.prefix=23402,23410,23411
+ro.ril.hsxpa=2
+keyguard.no_require_sim=true
+ro.rommanager.developerid=cyanogenmod
+ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html
+ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html
+ro.com.google.clientidbase=android-google
+ro.com.android.wifi-watchlist=GoogleGuest
+ro.setupwizard.enterprise_mode=1
+ro.com.android.dateformat=MM-dd-yyyy
+ro.com.android.dataroaming=false
+ro.config.ringtone=Playa.ogg
+ro.config.notification_sound=regulus.ogg
+ro.config.alarm_alert=Alarm_Beep_03.ogg
+ro.modversion=CyanogenMod-7.1.0-RC1-marvel-KANG
+ro.kernel.android.checkjni=1
+ro.setupwizard.mode=OPTIONAL
+net.bt.name=Android
+net.change=net.bt.name
+dalvik.vm.stack-trace-file=/data/anr/traces.txt
+ro.factorytest=0
+ro.serialno=HT14VTR00823
+ro.bootmode=recovery
+ro.baseband=7.57.39.01M
+ro.carrier=ALL
+ro.bootloader=1.09.0099
+ro.hardware=marvel
+ro.revision=128
+init.svc.recovery=running
+init.svc.adbd=running
+
+I:Checking for extendedcommand...
+I:Skipping execution of extendedcommand, file not found...
+mtd: successfully wrote block at c6de400000000
+I:Set boot command ""
+
+-- Installing: /sdcard/Sense4.zip
+mtd: successfully wrote block at c6de400000000
+I:Set boot command "boot-recovery"
+Finding update package...
+I:Update location: /sdcard/Sense4.zip
+Opening update package...
+Installing update...
+InstallingFailed to mount /dev/block/mtdblock3 on /system: No such device
+mtd mount of system failed: No such device
+minzip: Extracted file "/system/app/ApplicationsProvider.apk"
+minzip: Extracted file "/system/app/BackupRestoreConfirmation.apk"
+
+minzip: Extracted file "/system/app/Bluetooth.apk"
+minzip: Extracted file "/system/app/Browser.apk"
+minzip: Extracted file "/system/app/Calculator.apk"
+minzip: Extracted file "/system/app/Calendar.apk"
+minzip: Extracted file "/system/app/CalendarProvider.apk"
+minzip: Extracted file "/system/app/Camera.apk"
+minzip: Extracted file "/system/app/CertInstaller.apk"
+minzip: Extracted file "/system/app/CheckinProvider.apk"
+minzip: Extracted file "/system/app/ChromeBookmarksSyncAdapter.apk"
+minzip: Extracted file "/system/app/ContactsProvider.apk"
+minzip: Extracted file "/system/app/CustomizationSettingsProvider.apk"
+minzip: Extracted file "/system/app/CustomizationSetup.apk"
+minzip: Extracted file "/system/app/DefaultContainerService.apk"
+minzip: Extracted file "/system/app/DownloadProvider.apk"
+minzip: Extracted file "/system/app/DownloadProviderUi.apk"
+minzip: Extracted file "/system/app/DrmProvider.apk"
+minzip: Extracted file "/system/app/FMRadioService.apk"
+minzip: Extracted file "/system/app/FM_Radio.apk"
+minzip: Extracted file "/system/app/Facebook.apk"
+minzip: Extracted file "/system/app/FacebookEngine.apk"
+minzip: Extracted file "/system/app/FilePicker.apk"
+minzip: Extracted file "/system/app/Flickr.apk"
+minzip: Extracted file "/system/app/FlickrEngine.apk"
+minzip: Extracted file "/system/app/FriendStream.apk"
+minzip: Extracted file "/system/app/GSD.apk"
+minzip: Extracted file "/system/app/GoogleBackupTransport.apk"
+minzip: Extracted file "/system/app/GoogleCalendarSyncAdapter.apk"
+minzip: Extracted file "/system/app/GoogleContactsSyncAdapter.apk"
+minzip: Extracted file "/system/app/GoogleFeedback.apk"
+minzip: Extracted file "/system/app/GoogleLoginService.apk"
+minzip: Extracted file "/system/app/GooglePartnerSetup.apk"
+minzip: Extracted file "/system/app/GoogleQuickSearchBox.apk"
+minzip: Extracted file "/system/app/GoogleServicesFramework.apk"
+minzip: Extracted file "/system/app/HTCAlbum.apk"
+minzip: Extracted file "/system/app/HTCMediaAutoUploadSetting.apk"
+minzip: Extracted file "/system/app/HTCSetupWizard.apk"
+minzip: Extracted file "/system/app/HTCSync.apk"
+minzip: Extracted file "/system/app/HTCWifiService.apk"
+minzip: Extracted file "/system/app/HTC_IME.apk"
+minzip: Extracted file "/system/app/HTMLViewer.apk"
+minzip: Extracted file "/system/app/HomePersonalize.apk"
+minzip: Extracted file "/system/app/HtcBeatsNotify.apk"
+minzip: Extracted file "/system/app/HtcCalendarWidgets.apk"
+minzip: Extracted file "/system/app/HtcClockWidget.apk"
+minzip: Extracted file "/system/app/HtcCompressViewer.apk"
+minzip: Extracted file "/system/app/HtcContactWidgets.apk"
+minzip: Extracted file "/system/app/HtcContacts.apk"
+minzip: Extracted file "/system/app/HtcContacts.odex"
+minzip: Extracted file "/system/app/HtcDialer.apk"
+minzip: Extracted file "/system/app/HtcDropboxGLRPlugin.apk"
+minzip: Extracted file "/system/app/HtcFeedback.apk"
+minzip: Extracted file "/system/app/HtcFriendStreamWidget.apk"
+minzip: Extracted file "/system/app/HtcLinkifyDispatcher.apk"
+minzip: Extracted file "/system/app/HtcLocationService.apk"
+minzip: Extracted file "/system/app/HtcLockScreenLite.apk"
+minzip: Extracted file "/system/app/HtcMailWidgets.apk"
+minzip: Extracted file "/system/app/HtcMediaCacheService.apk"
+minzip: Extracted file "/system/app/HtcMediaUploader.apk"
+minzip: Extracted file "/system/app/HtcMessageProvider.apk"
+minzip: Extracted file "/system/app/HtcMessageUploader.apk"
+minzip: Extracted file "/system/app/HtcMsgWidgets.apk"
+minzip: Extracted file "/system/app/HtcMusic.apk"
+minzip: Extracted file "/system/app/HtcMusicEnhancer.apk"
+minzip: Extracted file "/system/app/HtcMusicWidget.apk"
+minzip: Extracted file "/system/app/HtcPhotoEnhancer.apk"
+minzip: Extracted file "/system/app/HtcPhotoWidget.apk"
+minzip: Extracted file "/system/app/HtcResetNotify.apk"
+minzip: Extracted file "/system/app/HtcSettingWidgets.apk"
+minzip: Extracted file "/system/app/HtcSettingsProvider.apk"
+minzip: Extracted file "/system/app/HtcSkydriveGLRPlugin.apk"
+minzip: Extracted file "/system/app/HtcSoundEnhancerSetting.apk"
+minzip: Extracted file "/system/app/HtcSoundRecorder.apk"
+minzip: Extracted file "/system/app/HtcStreamPlayer.apk"
+minzip: Extracted file "/system/app/HtcVideoPlayer.apk"
+minzip: Extracted file "/system/app/IMEXT9Bulgaria.apk"
+minzip: Extracted file "/system/app/IMEXT9Croatian.apk"
+minzip: Extracted file "/system/app/IMEXT9Czech.apk"
+minzip: Extracted file "/system/app/IMEXT9Danish.apk"
+minzip: Extracted file "/system/app/IMEXT9Dutch.apk"
+minzip: Extracted file "/system/app/IMEXT9English.apk"
+minzip: Extracted file "/system/app/IMEXT9Estonian.apk"
+minzip: Extracted file "/system/app/IMEXT9Finnish.apk"
+minzip: Extracted file "/system/app/IMEXT9French.apk"
+minzip: Extracted file "/system/app/IMEXT9German.apk"
+minzip: Extracted file "/system/app/IMEXT9Greek.apk"
+minzip: Extracted file "/system/app/IMEXT9Hungarian.apk"
+minzip: Extracted file "/system/app/IMEXT9Italian.apk"
+minzip: Extracted file "/system/app/IMEXT9Latvian.apk"
+minzip: Extracted file "/system/app/IMEXT9Lithuanian.apk"
+minzip: Extracted file "/system/app/IMEXT9Norwegian.apk"
+minzip: Extracted file "/system/app/IMEXT9Polish.apk"
+minzip: Extracted file "/system/app/IMEXT9Portuguese.apk"
+minzip: Extracted file "/system/app/IMEXT9Romanian.apk"
+minzip: Extracted file "/system/app/IMEXT9Russian.apk"
+minzip: Extracted file "/system/app/IMEXT9Serbian.apk"
+minzip: Extracted file "/system/app/IMEXT9Slovak.apk"
+minzip: Extracted file "/system/app/IMEXT9Slovanian.apk"
+minzip: Extracted file "/system/app/IMEXT9Spanish.apk"
+minzip: Extracted file "/system/app/IMEXT9Swedish.apk"
+minzip: Extracted file "/system/app/IMEXT9Turkish.apk"
+minzip: Extracted file "/system/app/KeyChain.apk"
+minzip: Extracted file "/system/app/LMW.apk"
+minzip: Extracted file "/system/app/LocationPicker.apk"
+minzip: Extracted file "/system/app/Mail.apk"
+minzip: Extracted file "/system/app/MediaProvider.apk"
+minzip: Extracted file "/system/app/MediaUploader.apk"
+minzip: Extracted file "/system/app/Message.apk"
+minzip: Extracted file "/system/app/MyDropbox.apk"
+minzip: Extracted file "/system/app/MyGoogleTaskPlugin.apk"
+minzip: Extracted file "/system/app/MyHTC.apk"
+minzip: Extracted file "/system/app/MyProvisioning.apk"
+minzip: Extracted file "/system/app/NetworkLocation.apk"
+minzip: Extracted file "/system/app/OneTimeInitializer.apk"
+minzip: Extracted file "/system/app/PCSC.apk"
+minzip: Extracted file "/system/app/PackageInstaller.apk"
+minzip: Extracted file "/system/app/Phone.apk"
+minzip: Extracted file "/system/app/Picasa_GLRplugin.apk"
+minzip: Extracted file "/system/app/PicoTts.apk"
+minzip: Extracted file "/system/app/PluginManager.apk"
+minzip: Extracted file "/system/app/Rosie.apk"
+minzip: Extracted file "/system/app/SDCardWizard.apk"
+minzip: Extracted file "/system/app/Settings.apk"
+minzip: Extracted file "/system/app/SettingsProvider.apk"
+minzip: Extracted file "/system/app/SetupWizard.apk"
+minzip: Extracted file "/system/app/SharedStorageBackup.apk"
+minzip: Extracted file "/system/app/SocialManager.apk"
+minzip: Extracted file "/system/app/SoundSetDownloadManager.apk"
+minzip: Extracted file "/system/app/Stk.apk"
+minzip: Extracted file "/system/app/Superuser.apk"
+minzip: Extracted file "/system/app/SystemUI.apk"
+minzip: Extracted file "/system/app/TelephonyProvider.apk"
+minzip: Extracted file "/system/app/TwitterEngine.apk"
+minzip: Extracted file "/system/app/Usage.apk"
+minzip: Extracted file "/system/app/UserDictionaryProvider.apk"
+minzip: Extracted file "/system/app/VpnDialogs.apk"
+minzip: Extracted file "/system/app/Weather.apk"
+minzip: Extracted file "/system/app/WeatherProvider.apk"
+minzip: Extracted file "/system/app/WeatherSyncProvider.apk"
+minzip: Extracted file "/system/app/WeatherWidget.apk"
+minzip: Extracted file "/system/app/WifiRouter.apk"
+minzip: Extracted file "/system/app/WorldClock.apk"
+minzip: Extracted file "/system/bin/adb"
+minzip: Extracted file "/system/bin/akmd"
+minzip: Extracted file "/system/bin/am"
+minzip: Extracted file "/system/bin/aparse"
+minzip: Extracted file "/system/bin/app_process"
+minzip: Extracted file "/system/bin/applypatch"
+minzip: Extracted file "/system/bin/artagent"
+minzip: Extracted file "/system/bin/ath6kl-fwlog-record"
+minzip: Extracted file "/system/bin/athtestcmd"
+minzip: Extracted file "/system/bin/awb_camera"
+minzip: Extracted file "/system/bin/badblocks"
+minzip: Extracted file "/system/bin/bluetoothd"
+minzip: Extracted file "/system/bin/bma150_usr"
+minzip: Extracted file "/system/bin/bmgr"
+minzip: Extracted file "/system/bin/bootanimation"
+minzip: Extracted file "/system/bin/btld"
+minzip: Extracted file "/system/bin/btnvtool"
+minzip: Extracted file "/system/bin/bu"
+minzip: Extracted file "/system/bin/bugreport"
+minzip: Extracted file "/system/bin/cam_ins_spmo"
+minzip: Extracted file "/system/bin/charging"
+minzip: Extracted file "/system/bin/clockd"
+minzip: Extracted file "/system/bin/dalvikvm"
+minzip: Extracted file "/system/bin/dbus-daemon"
+minzip: Extracted file "/system/bin/debuggerd"
+minzip: Extracted file "/system/bin/dexopt"
+minzip: Extracted file "/system/bin/dhcpcd"
+minzip: Extracted file "/system/bin/dhd"
+minzip: Extracted file "/system/bin/dnsmasq"
+minzip: Extracted file "/system/bin/drmserver"
+minzip: Extracted file "/system/bin/dtinstall"
+minzip: Extracted file "/system/bin/dumpstate"
+minzip: Extracted file "/system/bin/dumpsys"
+minzip: Extracted file "/system/bin/e2fsck"
+minzip: Extracted file "/system/bin/flash_camera"
+minzip: Extracted file "/system/bin/fm_qsoc_patches"
+minzip: Extracted file "/system/bin/fsck_msdos"
+minzip: Extracted file "/system/bin/ftmdaemon"
+minzip: Extracted file "/system/bin/ftmdaemon_wifi"
+minzip: Extracted file "/system/bin/gzip"
+minzip: Extracted file "/system/bin/hci_qcomm_init"
+minzip: Extracted file "/system/bin/hciattach"
+minzip: Extracted file "/system/bin/hostapd"
+minzip: Extracted file "/system/bin/htc_ebdlogd"
+minzip: Extracted file "/system/bin/htcfs"
+minzip: Extracted file "/system/bin/ime"
+minzip: Extracted file "/system/bin/input"
+minzip: Extracted file "/system/bin/installd"
+minzip: Extracted file "/system/bin/ip"
+minzip: Extracted file "/system/bin/ip6tables"
+minzip: Extracted file "/system/bin/iptables"
+minzip: Extracted file "/system/bin/iw_ath"
+minzip: Extracted file "/system/bin/keystore"
+minzip: Extracted file "/system/bin/linker"
+minzip: Extracted file "/system/bin/logcat"
+minzip: Extracted file "/system/bin/logcat2"
+minzip: Extracted file "/system/bin/logwrapper"
+minzip: Extracted file "/system/bin/lsc_camera"
+minzip: Extracted file "/system/bin/make_ext4fs"
+minzip: Extracted file "/system/bin/mediaserver"
+minzip: Extracted file "/system/bin/mke2fs"
+minzip: Extracted file "/system/bin/mksh" => problems here!!
+minzip: Extracted file "/system/bin/mm-jpeg-dec-test"
+minzip: Extracted file "/system/bin/mm-jpeg-enc-test"
+minzip: Extracted file "/system/bin/mm-qcamera-daemon"
+minzip: Extracted file "/system/bin/mm-qcamera-test"
+minzip: Extracted file "/system/bin/mm-qcamera-testsuite-client"
+minzip: Extracted file "/system/bin/mm-vdec-omx-test"
+minzip: Extracted file "/system/bin/mm-venc-omx-test720p"
+minzip: Extracted file "/system/bin/mm-video-driver-test"
+minzip: Extracted file "/system/bin/mm-video-encdrv-test"
+minzip: Extracted file "/system/bin/monkey"
+minzip: Extracted file "/system/bin/mtpd"
+minzip: Extracted file "/system/bin/ndc"
+minzip: Extracted file "/system/bin/netcfg"
+minzip: Extracted file "/system/bin/netd"
+minzip: Extracted file "/system/bin/netmgrd"
+minzip: Extracted file "/system/bin/netsharing"
+minzip: Extracted file "/system/bin/omx_tests"
+minzip: Extracted file "/system/bin/pand"
+minzip: Extracted file "/system/bin/ping"
+minzip: Extracted file "/system/bin/pm"
+minzip: Extracted file "/system/bin/pppd"
+minzip: Extracted file "/system/bin/qb_offmode_alarm"
+minzip: Extracted file "/system/bin/qmuxd"
+minzip: Extracted file "/system/bin/racoon"
+minzip: Extracted file "/system/bin/reboot"
+minzip: Extracted file "/system/bin/resize2fs"
+minzip: Extracted file "/system/bin/rild"
+minzip: Extracted file "/system/bin/rmt_storage"
+minzip: Extracted file "/system/bin/run-as"
+minzip: Extracted file "/system/bin/schedtest"
+minzip: Extracted file "/system/bin/screencap"
+minzip: Extracted file "/system/bin/screenshot"
+minzip: Extracted file "/system/bin/sdcard"
+minzip: Extracted file "/system/bin/sdptool"
+minzip: Extracted file "/system/bin/sensorservice"
+minzip: Extracted file "/system/bin/service"
+minzip: Extracted file "/system/bin/servicemanager"
+minzip: Extracted file "/system/bin/shutdown"
+minzip: Extracted file "/system/bin/simg2img"
+minzip: Extracted file "/system/bin/snd"
+minzip: Extracted file "/system/bin/snd3254"
+minzip: Extracted file "/system/bin/sound"
+minzip: Extracted file "/system/bin/sound7x30"
+minzip: Extracted file "/system/bin/surfaceflinger"
+minzip: Extracted file "/system/bin/svc"
+minzip: Extracted file "/system/bin/sysinit"
+minzip: Extracted file "/system/bin/sysro"
+minzip: Extracted file "/system/bin/sysrw"
+minzip: Extracted file "/system/bin/system_server"
+minzip: Extracted file "/system/bin/tc"
+minzip: Extracted file "/system/bin/toolbox"
+minzip: Extracted file "/system/bin/tune2fs"
+minzip: Extracted file "/system/bin/udhcpd"
+minzip: Extracted file "/system/bin/vdc"
+minzip: Extracted file "/system/bin/vold"
+minzip: Extracted file "/system/bin/wpa_supplicant"
+minzip: Extracted file "/system/bin/zcb"
+minzip: Extracted file "/system/bin/zimmer"
+minzip: Extracted file "/system/bin/zipalign"
+minzip: Extracted file "/system/build.prop"
+minzip: Extracted file "/system/customize/CID/HTC__001.xml"
+minzip: Extracted file "/system/customize/CID/HTC__016.xml"
+minzip: Extracted file "/system/customize/CID/HTC__032.xml"
+minzip: Extracted file "/system/customize/CID/HTC__102.xml"
+minzip: Extracted file "/system/customize/CID/HTC__203.xml"
+minzip: Extracted file "/system/customize/CID/HTC__304.xml"
+minzip: Extracted file "/system/customize/CID/HTC__405.xml"
+minzip: Extracted file "/system/customize/CID/HTC__A07.xml"
+minzip: Extracted file "/system/customize/CID/HTC__A48.xml"
+minzip: Extracted file "/system/customize/CID/HTC__E11.xml"
+minzip: Extracted file "/system/customize/CID/HTC__J15.xml"
+minzip: Extracted file "/system/customize/CID/HTC__M27.xml"
+minzip: Extracted file "/system/customize/CID/HTC__N34.xml"
+minzip: Extracted file "/system/customize/CID/HTC__Y13.xml"
+minzip: Extracted file "/system/customize/CID/default.xml"
+minzip: Extracted file "/system/customize/MNS/20201.xml"
+minzip: Extracted file "/system/customize/MNS/20205.xml"
+minzip: Extracted file "/system/customize/MNS/20210.xml"
+minzip: Extracted file "/system/customize/MNS/20404.xml"
+minzip: Extracted file "/system/customize/MNS/20601.xml"
+minzip: Extracted file "/system/customize/MNS/20810.xml"
+minzip: Extracted file "/system/customize/MNS/214.xml"
+minzip: Extracted file "/system/customize/MNS/21401.xml"
+minzip: Extracted file "/system/customize/MNS/21403.xml"
+minzip: Extracted file "/system/customize/MNS/21404.xml"
+minzip: Extracted file "/system/customize/MNS/21406.xml"
+minzip: Extracted file "/system/customize/MNS/21407.xml"
+minzip: Extracted file "/system/customize/MNS/21408.xml"
+minzip: Extracted file "/system/customize/MNS/21416.xml"
+minzip: Extracted file "/system/customize/MNS/21419.xml"
+minzip: Extracted file "/system/customize/MNS/21910.xml"
+minzip: Extracted file "/system/customize/MNS/22201.xml"
+minzip: Extracted file "/system/customize/MNS/22288.xml"
+minzip: Extracted file "/system/customize/MNS/23210.xml"
+minzip: Extracted file "/system/customize/MNS/234.xml"
+minzip: Extracted file "/system/customize/MNS/23407.xml"
+minzip: Extracted file "/system/customize/MNS/23410.xml"
+minzip: Extracted file "/system/customize/MNS/23420.xml"
+minzip: Extracted file "/system/customize/MNS/23801.xml"
+minzip: Extracted file "/system/customize/MNS/23802.xml"
+minzip: Extracted file "/system/customize/MNS/23806.xml"
+minzip: Extracted file "/system/customize/MNS/24001.xml"
+minzip: Extracted file "/system/customize/MNS/24002.xml"
+minzip: Extracted file "/system/customize/MNS/24007.xml"
+minzip: Extracted file "/system/customize/MNS/24008.xml"
+minzip: Extracted file "/system/customize/MNS/24201.xml"
+minzip: Extracted file "/system/customize/MNS/24801.xml"
+minzip: Extracted file "/system/customize/MNS/250.xml"
+minzip: Extracted file "/system/customize/MNS/255.xml"
+minzip: Extracted file "/system/customize/MNS/26003.xml"
+minzip: Extracted file "/system/customize/MNS/262.xml"
+minzip: Extracted file "/system/customize/MNS/268.xml"
+minzip: Extracted file "/system/customize/MNS/26801.xml"
+minzip: Extracted file "/system/customize/MNS/26803.xml"
+minzip: Extracted file "/system/customize/MNS/26806.xml"
+minzip: Extracted file "/system/customize/MNS/27205.xml"
+minzip: Extracted file "/system/customize/MNS/28001.xml"
+minzip: Extracted file "/system/customize/MNS/28010.xml"
+minzip: Extracted file "/system/customize/MNS/28020.xml"
+minzip: Extracted file "/system/customize/MNS/286.xml"
+minzip: Extracted file "/system/customize/MNS/63102.xml"
+minzip: Extracted file "/system/customize/MNS/65501.xml"
+minzip: Extracted file "/system/customize/MNS/65502.xml"
+minzip: Extracted file "/system/customize/MNS/65507.xml"
+minzip: Extracted file "/system/customize/MNS/65510.xml"
+minzip: Extracted file "/system/customize/MNS/default.xml"
+minzip: Extracted file "/system/customize/cid_map.xml"
+minzip: Extracted file "/system/customize/mns_map.xml"
+minzip: Extracted file "/system/customize/resource/CCInfo.txt"
+minzip: Extracted file "/system/customize/resource/ConfigH.bin"
+minzip: Extracted file "/system/customize/resource/ConfigP.bin"
+minzip: Extracted file "/system/customize/resource/Thumbs.db"
+minzip: Extracted file "/system/customize/resource/abraham_lake_winter_scape.jpg"
+minzip: Extracted file "/system/customize/resource/aluminum.jpg"
+minzip: Extracted file "/system/customize/resource/aspens_in_the_snow.jpg"
+minzip: Extracted file "/system/customize/resource/beats.jpg"
+minzip: Extracted file "/system/customize/resource/bird_of_a_feather.jpg"
+minzip: Extracted file "/system/customize/resource/bonsai.jpg"
+minzip: Extracted file "/system/customize/resource/fairytail_falls.jpg"
+minzip: Extracted file "/system/customize/resource/fracture.jpg"
+minzip: Extracted file "/system/customize/resource/golf_u_187x370.png"
+minzip: Extracted file "/system/customize/resource/golf_u_32x58.png"
+minzip: Extracted file "/system/customize/resource/hTC_bootup.zip"
+minzip: Extracted file "/system/customize/resource/htc_boot.mp3"
+minzip: Extracted file "/system/customize/resource/htc_downanimation.zip"
+minzip: Extracted file "/system/customize/resource/icon_launcher_active_sync.png"
+minzip: Extracted file "/system/customize/resource/icon_launcher_gmail.png"
+minzip: Extracted file "/system/customize/resource/icon_launcher_hotmail.png"
+minzip: Extracted file "/system/customize/resource/icon_launcher_mail.png"
+minzip: Extracted file "/system/customize/resource/icon_launcher_yahoo.png"
+minzip: Extracted file "/system/customize/resource/infinite.jpg"
+minzip: Extracted file "/system/customize/resource/matte.jpg"
+minzip: Extracted file "/system/customize/resource/nostalgia.jpg"
+minzip: Extracted file "/system/customize/resource/pathway_to_the_peaks.jpg"
+minzip: Extracted file "/system/customize/resource/scene_wallpaper_htc_default.jpg"
+minzip: Extracted file "/system/customize/resource/scene_wallpaper_play.jpg"
+minzip: Extracted file "/system/customize/resource/scene_wallpaper_social.jpg"
+minzip: Extracted file "/system/customize/resource/scene_wallpaper_travel.jpg"
+minzip: Extracted file "/system/customize/resource/scene_wallpaper_work.jpg"
+minzip: Extracted file "/system/customize/resource/scenes_picker_1.png"
+minzip: Extracted file "/system/customize/resource/serene.jpg"
+minzip: Extracted file "/system/customize/resource/shasta_lavender.jpg"
+minzip: Extracted file "/system/customize/resource/surreal_canyons_of_the_west.jpg"
+minzip: Extracted file "/system/customize/resource/wallpaper_02.jpg"
+minzip: Extracted file "/system/customize/resource/wallpaper_03.jpg"
+minzip: Extracted file "/system/customize/resource/wallpaper_04.jpg"
+minzip: Extracted file "/system/etc/AudioFilter.csv"
+minzip: Extracted file "/system/etc/AudioPara4.csv"
+minzip: Extracted file "/system/etc/AudioPara4_WB.csv"
+minzip: Extracted file "/system/etc/AudioPreProcess.csv"
+minzip: Extracted file "/system/etc/NOTICE.html.gz"
+minzip: Extracted file "/system/etc/PCTOOL.ISO"
+minzip: Extracted file "/system/etc/agps_rm"
+minzip: Extracted file "/system/etc/audio_effects.conf"
+minzip: Extracted file "/system/etc/basimage_gec.bin"
+minzip: Extracted file "/system/etc/basimage_gec_bt.bin"
+minzip: Extracted file "/system/etc/basimage_gec_x.bin"
+minzip: Extracted file "/system/etc/basimage_ibeats.bin"
+minzip: Extracted file "/system/etc/basimage_ibeats_pro.bin"
+minzip: Extracted file "/system/etc/basimage_ibeats_solo.bin"
+minzip: Extracted file "/system/etc/basimage_ibeats_solo_x.bin"
+minzip: Extracted file "/system/etc/basimage_ibeats_studio.bin"
+minzip: Extracted file "/system/etc/basimage_ibeats_x.bin"
+minzip: Extracted file "/system/etc/bluetooth/audio.conf"
+minzip: Extracted file "/system/etc/bluetooth/auto_pairing.conf"
+minzip: Extracted file "/system/etc/bluetooth/blacklist.conf"
+minzip: Extracted file "/system/etc/bluetooth/input.conf"
+minzip: Extracted file "/system/etc/bluetooth/iop_device_list.conf"
+minzip: Extracted file "/system/etc/bluetooth/main.conf"
+minzip: Extracted file "/system/etc/bluetooth/network.conf"
+minzip: Extracted file "/system/etc/dbus.conf"
+minzip: Extracted file "/system/etc/dhcpcd/dhcpcd-hooks/20-dns.conf"
+minzip: Extracted file "/system/etc/dhcpcd/dhcpcd-hooks/95-configured"
+minzip: Extracted file "/system/etc/dhcpcd/dhcpcd-run-hooks"
+minzip: Extracted file "/system/etc/dynimage_gec.bin"
+minzip: Extracted file "/system/etc/dynimage_gec_bt.bin"
+minzip: Extracted file "/system/etc/dynimage_gec_x.bin"
+minzip: Extracted file "/system/etc/dynimage_ibeats.bin"
+minzip: Extracted file "/system/etc/dynimage_ibeats_pro.bin"
+minzip: Extracted file "/system/etc/dynimage_ibeats_solo.bin"
+minzip: Extracted file "/system/etc/dynimage_ibeats_solo_x.bin"
+minzip: Extracted file "/system/etc/dynimage_ibeats_studio.bin"
+minzip: Extracted file "/system/etc/dynimage_ibeats_x.bin"
+minzip: Extracted file "/system/etc/event-log-tags"
+minzip: Extracted file "/system/etc/fallback_fonts.xml"
+minzip: Extracted file "/system/etc/firmware/ath6k/AR6003/hw2.1.1/athtcmd_ram.bin"
+minzip: Extracted file "/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.bin"
+minzip: Extracted file "/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.bin1"
+minzip: Extracted file "/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.bin2"
+minzip: Extracted file "/system/etc/firmware/ath6k/AR6003/hw2.1.1/bdata.bin3"
+minzip: Extracted file "/system/etc/firmware/ath6k/AR6003/hw2.1.1/fw-3.bin"
+minzip: Extracted file "/system/etc/firmware/ath6k/AR6003/hw2.1.1/nullTestFlow.bin"
+minzip: Extracted file "/system/etc/firmware/ath6k/AR6003/hw2.1.1/utf.bin"
+minzip: Extracted file "/system/etc/firmware/bahama.txt"
+minzip: Extracted file "/system/etc/firmware/yamato_pfp.fw"
+minzip: Extracted file "/system/etc/firmware/yamato_pm4.fw"
+minzip: Extracted file "/system/etc/gps.conf"
+minzip: Extracted file "/system/etc/hosts"
+minzip: Extracted file "/system/etc/htcfs.conf"
+minzip: Extracted file "/system/etc/init.goldfish.sh"
+minzip: Extracted file "/system/etc/init.qcom.bt.sh"
+minzip: Extracted file "/system/etc/init.qcom.fm.sh"
+minzip: Extracted file "/system/etc/init.qcom.post_boot.sh"
+minzip: Extracted file "/system/etc/media_profiles.xml"
+minzip: Extracted file "/system/etc/mkshrc"
+minzip: Extracted file "/system/etc/peqimage_gec.bin"
+minzip: Extracted file "/system/etc/peqimage_gec_bt.bin"
+minzip: Extracted file "/system/etc/peqimage_gec_x.bin"
+minzip: Extracted file "/system/etc/peqimage_ibeats.bin"
+minzip: Extracted file "/system/etc/peqimage_ibeats_pro.bin"
+minzip: Extracted file "/system/etc/peqimage_ibeats_solo.bin"
+minzip: Extracted file "/system/etc/peqimage_ibeats_solo_x.bin"
+minzip: Extracted file "/system/etc/peqimage_ibeats_studio.bin"
+minzip: Extracted file "/system/etc/peqimage_ibeats_x.bin"
+minzip: Extracted file "/system/etc/permissions/android.hardware.bluetooth.xml"
+minzip: Extracted file "/system/etc/permissions/android.hardware.camera.xml"
+minzip: Extracted file "/system/etc/permissions/android.hardware.location.gps.xml"
+minzip: Extracted file "/system/etc/permissions/android.hardware.sensor.accelerometer.xml"
+minzip: Extracted file "/system/etc/permissions/android.hardware.sensor.light.xml"
+minzip: Extracted file "/system/etc/permissions/android.hardware.sensor.proximity.xml"
+minzip: Extracted file "/system/etc/permissions/android.hardware.telephony.gsm.xml"
+minzip: Extracted file "/system/etc/permissions/android.hardware.touchscreen.multitouch.xml"
+minzip: Extracted file "/system/etc/permissions/android.hardware.usb.accessory.xml"
+minzip: Extracted file "/system/etc/permissions/android.hardware.wifi.xml"
+minzip: Extracted file "/system/etc/permissions/android.software.live_wallpaper.xml"
+minzip: Extracted file "/system/etc/permissions/android.software.sip.voip.xml"
+minzip: Extracted file "/system/etc/permissions/com.android.location.provider.xml"
+minzip: Extracted file "/system/etc/permissions/com.cisco.anyconnect.permissions.patch.htc.xml"
+minzip: Extracted file "/system/etc/permissions/com.google.android.maps.xml"
+minzip: Extracted file "/system/etc/permissions/com.google.android.media.effects.xml"
+minzip: Extracted file "/system/etc/permissions/com.google.widevine.software.drm.xml"
+minzip: Extracted file "/system/etc/permissions/com.htc.android.rosie.xml"
+minzip: Extracted file "/system/etc/permissions/com.htc.fusion.fx.xml"
+minzip: Extracted file "/system/etc/permissions/com.htc.lockscreen.fusion.xml"
+minzip: Extracted file "/system/etc/permissions/com.orange.authentication.simcard.xml"
+minzip: Extracted file "/system/etc/permissions/handheld_core_hardware.xml"
+minzip: Extracted file "/system/etc/permissions/platform.xml"
+minzip: Extracted file "/system/etc/ppp/ip-up-vpn"
+minzip: Extracted file "/system/etc/sdk/sdkinfo.xml"
+minzip: Extracted file "/system/etc/security/FotaSign_PubKey.der"
+minzip: Extracted file "/system/etc/security/KeyServer_PubKey.der"
+minzip: Extracted file "/system/etc/security/cacerts/00673b5b.0"
+minzip: Extracted file "/system/etc/security/cacerts/03e16f6c.0"
+minzip: Extracted file "/system/etc/security/cacerts/0481cb65.0"
+minzip: Extracted file "/system/etc/security/cacerts/052e396b.0"
+minzip: Extracted file "/system/etc/security/cacerts/08aef7bb.0"
+minzip: Extracted file "/system/etc/security/cacerts/0c364b2d.0"
+minzip: Extracted file "/system/etc/security/cacerts/0d188d89.0"
+minzip: Extracted file "/system/etc/security/cacerts/0dbd0096.0"
+minzip: Extracted file "/system/etc/security/cacerts/0e82f83a.0"
+minzip: Extracted file "/system/etc/security/cacerts/10531352.0"
+minzip: Extracted file "/system/etc/security/cacerts/111e6273.0"
+minzip: Extracted file "/system/etc/security/cacerts/1155c94b.0"
+minzip: Extracted file "/system/etc/security/cacerts/119afc2e.0"
+minzip: Extracted file "/system/etc/security/cacerts/11a09b38.0"
+minzip: Extracted file "/system/etc/security/cacerts/11f154d6.0"
+minzip: Extracted file "/system/etc/security/cacerts/12d55845.0"
+minzip: Extracted file "/system/etc/security/cacerts/17b51fe6.0"
+minzip: Extracted file "/system/etc/security/cacerts/1920cacb.0"
+minzip: Extracted file "/system/etc/security/cacerts/19899da5.0"
+minzip: Extracted file "/system/etc/security/cacerts/1d657651.0"
+minzip: Extracted file "/system/etc/security/cacerts/1dac3003.0"
+minzip: Extracted file "/system/etc/security/cacerts/1dbdda5b.0"
+minzip: Extracted file "/system/etc/security/cacerts/1dcd6f4c.0"
+minzip: Extracted file "/system/etc/security/cacerts/1df5ec47.0"
+minzip: Extracted file "/system/etc/security/cacerts/1e8e7201.0"
+minzip: Extracted file "/system/etc/security/cacerts/1eb37bdf.0"
+minzip: Extracted file "/system/etc/security/cacerts/219d9499.0"
+minzip: Extracted file "/system/etc/security/cacerts/23f4c490.0"
+minzip: Extracted file "/system/etc/security/cacerts/27af790d.0"
+minzip: Extracted file "/system/etc/security/cacerts/2afc57aa.0"
+minzip: Extracted file "/system/etc/security/cacerts/2e8714cb.0"
+minzip: Extracted file "/system/etc/security/cacerts/2edf7016.0"
+minzip: Extracted file "/system/etc/security/cacerts/2fa87019.0"
+minzip: Extracted file "/system/etc/security/cacerts/2fb1850a.0"
+minzip: Extracted file "/system/etc/security/cacerts/33815e15.0"
+minzip: Extracted file "/system/etc/security/cacerts/343eb6cb.0"
+minzip: Extracted file "/system/etc/security/cacerts/34d760b2.0"
+minzip: Extracted file "/system/etc/security/cacerts/399e7759.0"
+minzip: Extracted file "/system/etc/security/cacerts/3a3b02ce.0"
+minzip: Extracted file "/system/etc/security/cacerts/3ad48a91.0"
+minzip: Extracted file "/system/etc/security/cacerts/3c58f906.0"
+minzip: Extracted file "/system/etc/security/cacerts/3c860d51.0"
+minzip: Extracted file "/system/etc/security/cacerts/3d441de8.0"
+minzip: Extracted file "/system/etc/security/cacerts/3e3744fd.0"
+minzip: Extracted file "/system/etc/security/cacerts/3e7271e8.0"
+minzip: Extracted file "/system/etc/security/cacerts/412bea73.0"
+minzip: Extracted file "/system/etc/security/cacerts/418595b9.0"
+minzip: Extracted file "/system/etc/security/cacerts/455f1b52.0"
+minzip: Extracted file "/system/etc/security/cacerts/46b2fd3b.0"
+minzip: Extracted file "/system/etc/security/cacerts/48478734.0"
+minzip: Extracted file "/system/etc/security/cacerts/4d654d1d.0"
+minzip: Extracted file "/system/etc/security/cacerts/4e18c148.0"
+minzip: Extracted file "/system/etc/security/cacerts/4f19d2b4.0"
+minzip: Extracted file "/system/etc/security/cacerts/4fbd6bfa.0"
+minzip: Extracted file "/system/etc/security/cacerts/5021a0a2.0"
+minzip: Extracted file "/system/etc/security/cacerts/5046c355.0"
+minzip: Extracted file "/system/etc/security/cacerts/524d9b43.0"
+minzip: Extracted file "/system/etc/security/cacerts/56b8a0b6.0"
+minzip: Extracted file "/system/etc/security/cacerts/57692373.0"
+minzip: Extracted file "/system/etc/security/cacerts/58a44af1.0"
+minzip: Extracted file "/system/etc/security/cacerts/594f1775.0"
+minzip: Extracted file "/system/etc/security/cacerts/5a3f0ff8.0"
+minzip: Extracted file "/system/etc/security/cacerts/5a5372fc.0"
+minzip: Extracted file "/system/etc/security/cacerts/5cf9d536.0"
+minzip: Extracted file "/system/etc/security/cacerts/5e4e69e7.0"
+minzip: Extracted file "/system/etc/security/cacerts/60afe812.0"
+minzip: Extracted file "/system/etc/security/cacerts/613f892a.0"
+minzip: Extracted file "/system/etc/security/cacerts/635ccfd5.0"
+minzip: Extracted file "/system/etc/security/cacerts/67495436.0"
+minzip: Extracted file "/system/etc/security/cacerts/69105f4f.0"
+minzip: Extracted file "/system/etc/security/cacerts/6adf0799.0"
+minzip: Extracted file "/system/etc/security/cacerts/6e8bf996.0"
+minzip: Extracted file "/system/etc/security/cacerts/6fcc125d.0"
+minzip: Extracted file "/system/etc/security/cacerts/709afd2b.0"
+minzip: Extracted file "/system/etc/security/cacerts/72f369af.0"
+minzip: Extracted file "/system/etc/security/cacerts/72fa7371.0"
+minzip: Extracted file "/system/etc/security/cacerts/74c26bd0.0"
+minzip: Extracted file "/system/etc/security/cacerts/75680d2e.0"
+minzip: Extracted file "/system/etc/security/cacerts/7651b327.0"
+minzip: Extracted file "/system/etc/security/cacerts/76579174.0"
+minzip: Extracted file "/system/etc/security/cacerts/7999be0d.0"
+minzip: Extracted file "/system/etc/security/cacerts/7a481e66.0"
+minzip: Extracted file "/system/etc/security/cacerts/7a819ef2.0"
+minzip: Extracted file "/system/etc/security/cacerts/7d3cd826.0"
+minzip: Extracted file "/system/etc/security/cacerts/7d453d8f.0"
+minzip: Extracted file "/system/etc/security/cacerts/81b9768f.0"
+minzip: Extracted file "/system/etc/security/cacerts/8470719d.0"
+minzip: Extracted file "/system/etc/security/cacerts/84cba82f.0"
+minzip: Extracted file "/system/etc/security/cacerts/85cde254.0"
+minzip: Extracted file "/system/etc/security/cacerts/86212b19.0"
+minzip: Extracted file "/system/etc/security/cacerts/87753b0d.0"
+minzip: Extracted file "/system/etc/security/cacerts/87d3cf09.0"
+minzip: Extracted file "/system/etc/security/cacerts/882de061.0"
+minzip: Extracted file "/system/etc/security/cacerts/895cad1a.0"
+minzip: Extracted file "/system/etc/security/cacerts/89c02a45.0"
+minzip: Extracted file "/system/etc/security/cacerts/8ccb5f6d.0"
+minzip: Extracted file "/system/etc/security/cacerts/8f7b96c4.0"
+minzip: Extracted file "/system/etc/security/cacerts/9339512a.0"
+minzip: Extracted file "/system/etc/security/cacerts/95aff9e3.0"
+minzip: Extracted file "/system/etc/security/cacerts/9685a493.0"
+minzip: Extracted file "/system/etc/security/cacerts/9772ca32.0"
+minzip: Extracted file "/system/etc/security/cacerts/9d6523ce.0"
+minzip: Extracted file "/system/etc/security/cacerts/9dbefe7b.0"
+minzip: Extracted file "/system/etc/security/cacerts/9ec3a561.0"
+minzip: Extracted file "/system/etc/security/cacerts/9f533518.0"
+minzip: Extracted file "/system/etc/security/cacerts/9fae0770.0"
+minzip: Extracted file "/system/etc/security/cacerts/a0bc6fbb.0"
+minzip: Extracted file "/system/etc/security/cacerts/a15b3b6b.0"
+minzip: Extracted file "/system/etc/security/cacerts/a2df7ad7.0"
+minzip: Extracted file "/system/etc/security/cacerts/a3896b44.0"
+minzip: Extracted file "/system/etc/security/cacerts/a7605362.0"
+minzip: Extracted file "/system/etc/security/cacerts/a7d2cf64.0"
+minzip: Extracted file "/system/etc/security/cacerts/aaa45464.0"
+minzip: Extracted file "/system/etc/security/cacerts/ab5346f4.0"
+minzip: Extracted file "/system/etc/security/cacerts/add67345.0"
+minzip: Extracted file "/system/etc/security/cacerts/b0f3e76e.0"
+minzip: Extracted file "/system/etc/security/cacerts/b413391d.0"
+minzip: Extracted file "/system/etc/security/cacerts/b5f329fa.0"
+minzip: Extracted file "/system/etc/security/cacerts/b7db1890.0"
+minzip: Extracted file "/system/etc/security/cacerts/bc3f2570.0"
+minzip: Extracted file "/system/etc/security/cacerts/bcdd5959.0"
+minzip: Extracted file "/system/etc/security/cacerts/bda4cc84.0"
+minzip: Extracted file "/system/etc/security/cacerts/bdacca6f.0"
+minzip: Extracted file "/system/etc/security/cacerts/bf64f35b.0"
+minzip: Extracted file "/system/etc/security/cacerts/c19d42c7.0"
+minzip: Extracted file "/system/etc/security/cacerts/c215bc69.0"
+minzip: Extracted file "/system/etc/security/cacerts/c33a80d4.0"
+minzip: Extracted file "/system/etc/security/cacerts/c527e4ab.0"
+minzip: Extracted file "/system/etc/security/cacerts/c7e2a638.0"
+minzip: Extracted file "/system/etc/security/cacerts/c8763593.0"
+minzip: Extracted file "/system/etc/security/cacerts/ccb919f9.0"
+minzip: Extracted file "/system/etc/security/cacerts/ccc52f49.0"
+minzip: Extracted file "/system/etc/security/cacerts/cdaebb72.0"
+minzip: Extracted file "/system/etc/security/cacerts/cf701eeb.0"
+minzip: Extracted file "/system/etc/security/cacerts/d0081655.0"
+minzip: Extracted file "/system/etc/security/cacerts/d16a5865.0"
+minzip: Extracted file "/system/etc/security/cacerts/d2adc77d.0"
+minzip: Extracted file "/system/etc/security/cacerts/d537fba6.0"
+minzip: Extracted file "/system/etc/security/cacerts/d64f06f3.0"
+minzip: Extracted file "/system/etc/security/cacerts/d777342d.0"
+minzip: Extracted file "/system/etc/security/cacerts/d78a75c7.0"
+minzip: Extracted file "/system/etc/security/cacerts/d8274e24.0"
+minzip: Extracted file "/system/etc/security/cacerts/dbc54cab.0"
+minzip: Extracted file "/system/etc/security/cacerts/ddc328ff.0"
+minzip: Extracted file "/system/etc/security/cacerts/e268a4c5.0"
+minzip: Extracted file "/system/etc/security/cacerts/e48193cf.0"
+minzip: Extracted file "/system/etc/security/cacerts/e60bf0c0.0"
+minzip: Extracted file "/system/etc/security/cacerts/e775ed2d.0"
+minzip: Extracted file "/system/etc/security/cacerts/e7b8d656.0"
+minzip: Extracted file "/system/etc/security/cacerts/e8651083.0"
+minzip: Extracted file "/system/etc/security/cacerts/ea169617.0"
+minzip: Extracted file "/system/etc/security/cacerts/eb375c3e.0"
+minzip: Extracted file "/system/etc/security/cacerts/ed049835.0"
+minzip: Extracted file "/system/etc/security/cacerts/ed524cf5.0"
+minzip: Extracted file "/system/etc/security/cacerts/ed62f4e3.0"
+minzip: Extracted file "/system/etc/security/cacerts/ee7cd6fb.0"
+minzip: Extracted file "/system/etc/security/cacerts/f0a38a80.0"
+minzip: Extracted file "/system/etc/security/cacerts/f19ec625.0"
+minzip: Extracted file "/system/etc/security/cacerts/f4996e82.0"
+minzip: Extracted file "/system/etc/security/cacerts/f58a60fe.0"
+minzip: Extracted file "/system/etc/security/cacerts/f61bff45.0"
+minzip: Extracted file "/system/etc/security/cacerts/f80cc7f6.0"
+minzip: Extracted file "/system/etc/security/cacerts/fac084d7.0"
+minzip: Extracted file "/system/etc/security/cacerts/facacbc6.0"
+minzip: Extracted file "/system/etc/security/cacerts/fde84897.0"
+minzip: Extracted file "/system/etc/security/cacerts/ff783690.0"
+minzip: Extracted file "/system/etc/security/cwcerts.zip"
+minzip: Extracted file "/system/etc/security/otacerts.zip"
+minzip: Extracted file "/system/etc/soundimage/srs_bypass.cfg"
+minzip: Extracted file "/system/etc/soundimage/srs_geq10.cfg"
+minzip: Extracted file "/system/etc/soundimage/srs_global.cfg"
+minzip: Extracted file "/system/etc/soundimage/srsfx_trumedia_51.cfg"
+minzip: Extracted file "/system/etc/soundimage/srsfx_trumedia_movie.cfg"
+minzip: Extracted file "/system/etc/soundimage/srsfx_trumedia_music.cfg"
+minzip: Extracted file "/system/etc/soundimage/srsfx_trumedia_voice.cfg"
+minzip: Extracted file "/system/etc/spn-conf.xml"
+minzip: Extracted file "/system/etc/system_fonts.xml"
+minzip: Extracted file "/system/etc/timezones.db"
+minzip: Extracted file "/system/etc/updatecmds/google_generic_update.txt"
+minzip: Extracted file "/system/etc/voicemail-conf.xml"
+minzip: Extracted file "/system/etc/vold.fstab"
+minzip: Extracted file "/system/etc/wifi/wpa_supplicant.conf"
+minzip: Extracted file "/system/etc/wifioffloadpkg.xml"
+minzip: Extracted file "/system/fonts/ARDJ-KK.ttf"
+minzip: Extracted file "/system/fonts/AndroidClock.ttf"
+minzip: Extracted file "/system/fonts/AndroidClock_Highlight.ttf"
+minzip: Extracted file "/system/fonts/AndroidClock_Solid.ttf"
+minzip: Extracted file "/system/fonts/Clockopia.ttf"
+minzip: Extracted file "/system/fonts/DroidNaskh-Regular.ttf"
+minzip: Extracted file "/system/fonts/DroidSans-Bold.ttf"
+minzip: Extracted file "/system/fonts/DroidSans.ttf"
+minzip: Extracted file "/system/fonts/DroidSansArmenian.ttf"
+minzip: Extracted file "/system/fonts/DroidSansEthiopic-Regular.ttf"
+minzip: Extracted file "/system/fonts/DroidSansFallback.ttf"
+minzip: Extracted file "/system/fonts/DroidSansGeorgian.ttf"
+minzip: Extracted file "/system/fonts/DroidSansHebrew-Bold.ttf"
+minzip: Extracted file "/system/fonts/DroidSansHebrew-Regular.ttf"
+minzip: Extracted file "/system/fonts/DroidSansMono.ttf"
+minzip: Extracted file "/system/fonts/DroidSansThai.ttf"
+minzip: Extracted file "/system/fonts/DroidSerif-Bold.ttf"
+minzip: Extracted file "/system/fonts/DroidSerif-BoldItalic.ttf"
+minzip: Extracted file "/system/fonts/DroidSerif-Italic.ttf"
+minzip: Extracted file "/system/fonts/DroidSerif-Regular.ttf"
+minzip: Extracted file "/system/fonts/HTCHand.otf"
+minzip: Extracted file "/system/fonts/HelveticaNeueLTPro-Cn.otf"
+minzip: Extracted file "/system/fonts/HelveticaNeueLTPro35Th.ttf"
+minzip: Extracted file "/system/fonts/HelveticaNeueOTS.ttf"
+minzip: Extracted file "/system/fonts/Lohit-Bengali.ttf"
+minzip: Extracted file "/system/fonts/Lohit-Devanagari.ttf"
+minzip: Extracted file "/system/fonts/Lohit-Tamil.ttf"
+minzip: Extracted file "/system/fonts/Roboto-Bold.ttf"
+minzip: Extracted file "/system/fonts/Roboto-BoldItalic.ttf"
+minzip: Extracted file "/system/fonts/Roboto-Italic.ttf"
+minzip: Extracted file "/system/fonts/Roboto-Regular.ttf"
+minzip: Extracted file "/system/fonts/gcsh00d-hkscs.ttf"
+minzip: Extracted file "/system/fonts/ucsh00d_c.ttf"
+minzip: Extracted file "/system/framework/HTCDev.jar"
+minzip: Extracted file "/system/framework/HTCExtension.jar"
+minzip: Extracted file "/system/framework/am.jar"
+minzip: Extracted file "/system/framework/android.policy.jar"
+minzip: Extracted file "/system/framework/android.test.runner.jar"
+minzip: Extracted file "/system/framework/apache-xml.jar"
+minzip: Extracted file "/system/framework/bmgr.jar"
+minzip: Extracted file "/system/framework/bouncycastle.jar"
+minzip: Extracted file "/system/framework/bu.jar"
+minzip: Extracted file "/system/framework/com.android.future.usb.accessory.jar"
+minzip: Extracted file "/system/framework/com.android.location.provider.jar"
+minzip: Extracted file "/system/framework/com.google.android.maps.jar"
+minzip: Extracted file "/system/framework/com.google.android.media.effects.jar"
+minzip: Extracted file "/system/framework/com.google.widevine.software.drm.jar"
+minzip: Extracted file "/system/framework/com.htc.android.bluetooth.jar"
+minzip: Extracted file "/system/framework/com.htc.android.rosie.jar"
+minzip: Extracted file "/system/framework/com.htc.dummyskin.apk"
+minzip: Extracted file "/system/framework/com.htc.fusion.fx.jar"
+minzip: Extracted file "/system/framework/com.htc.lockscreen.fusion.jar"
+minzip: Extracted file "/system/framework/com.htc.resources.apk"
+minzip: Extracted file "/system/framework/com.orange.authentication.simcard.jar"
+minzip: Extracted file "/system/framework/com.scalado.caps.jar"
+minzip: Extracted file "/system/framework/com.scalado.util.ScaladoUtil.jar"
+minzip: Extracted file "/system/framework/core-junit.jar"
+minzip: Extracted file "/system/framework/core.jar"
+minzip: Extracted file "/system/framework/ext.jar"
+minzip: Extracted file "/system/framework/filterfw.jar"
+minzip: Extracted file "/system/framework/framework-htc-res.apk"
+minzip: Extracted file "/system/framework/framework-res.apk"
+minzip: Extracted file "/system/framework/framework.jar"
+minzip: Extracted file "/system/framework/framework2.jar"
+minzip: Extracted file "/system/framework/ime.jar"
+minzip: Extracted file "/system/framework/input.jar"
+minzip: Extracted file "/system/framework/javax.obex.jar"
+minzip: Extracted file "/system/framework/modemwarmup.jar"
+minzip: Extracted file "/system/framework/monkey.jar"
+minzip: Extracted file "/system/framework/pm.jar"
+minzip: Extracted file "/system/framework/services.jar"
+minzip: Extracted file "/system/framework/svc.jar"
+minzip: Extracted file "/system/framework/usbnet.jar"
+minzip: Extracted file "/system/framework/wimax.jar"
+minzip: Extracted file "/system/lib/addict.dat"
+minzip: Extracted file "/system/lib/bluez-plugin/audio.so"
+minzip: Extracted file "/system/lib/bluez-plugin/bluetooth-health.so"
+minzip: Extracted file "/system/lib/bluez-plugin/input.so"
+minzip: Extracted file "/system/lib/bluez-plugin/network.so"
+minzip: Extracted file "/system/lib/chiaddict.dat"
+minzip: Extracted file "/system/lib/drm/libdrmwvmplugin.so"
+minzip: Extracted file "/system/lib/egl/egl.cfg"
+minzip: Extracted file "/system/lib/egl/eglsubAndroid.so"
+minzip: Extracted file "/system/lib/egl/libEGL_adreno200.so"
+minzip: Extracted file "/system/lib/egl/libGLES_android.so"
+minzip: Extracted file "/system/lib/egl/libGLESv1_CM_adreno200.so"
+minzip: Extracted file "/system/lib/egl/libGLESv2_adreno200.so"
+minzip: Extracted file "/system/lib/egl/libq3dtools_adreno200.so"
+minzip: Extracted file "/system/lib/hw/audio.a2dp.default.so"
+minzip: Extracted file "/system/lib/hw/audio.primary.default.so"
+minzip: Extracted file "/system/lib/hw/audio.primary.marvel.so"
+minzip: Extracted file "/system/lib/hw/audio_policy.default.so"
+minzip: Extracted file "/system/lib/hw/audio_policy.marvel.so"
+minzip: Extracted file "/system/lib/hw/camera.goldfish.so"
+minzip: Extracted file "/system/lib/hw/camera.marvel.so"
+minzip: Extracted file "/system/lib/hw/copybit.msm7k.so"
+minzip: Extracted file "/system/lib/hw/copybit.msm7x27.so"
+minzip: Extracted file "/system/lib/hw/gps.goldfish.so"
+minzip: Extracted file "/system/lib/hw/gps.marvel.so"
+minzip: Extracted file "/system/lib/hw/gralloc.default.so"
+minzip: Extracted file "/system/lib/hw/gralloc.msm7k.so"
+minzip: Extracted file "/system/lib/hw/gralloc.msm7x27.so"
+minzip: Extracted file "/system/lib/hw/hwcomposer.default.so"
+minzip: Extracted file "/system/lib/hw/hwcomposer.msm7x27.so"
+minzip: Extracted file "/system/lib/hw/lights.goldfish.so"
+minzip: Extracted file "/system/lib/hw/lights.marvel.so"
+minzip: Extracted file "/system/lib/hw/lights.msm7k.so"
+minzip: Extracted file "/system/lib/hw/sensors.goldfish.so"
+minzip: Extracted file "/system/lib/hw/sensors.marvel.so"
+minzip: Extracted file "/system/lib/libAudioTrimmer.so"
+minzip: Extracted file "/system/lib/libEGL.so"
+minzip: Extracted file "/system/lib/libETC1.so"
+minzip: Extracted file "/system/lib/libFFTEm.so"
+minzip: Extracted file "/system/lib/libGLESv1_CM.so"
+minzip: Extracted file "/system/lib/libGLESv2.so"
+minzip: Extracted file "/system/lib/libGLESv2_dbg.so"
+minzip: Extracted file "/system/lib/libHTC_DIS.so"
+minzip: Extracted file "/system/lib/libMLTransition.so"
+minzip: Extracted file "/system/lib/libOlaEngine.so"
+minzip: Extracted file "/system/lib/libOlaEngineNew.so"
+minzip: Extracted file "/system/lib/libOmxCore.so"
+minzip: Extracted file "/system/lib/libOmxH264Dec.so"
+minzip: Extracted file "/system/lib/libOmxMpeg4Dec.so"
+minzip: Extracted file "/system/lib/libOmxVidEnc.so"
+minzip: Extracted file "/system/lib/libOpenMAXAL.so"
+minzip: Extracted file "/system/lib/libOpenSLES.so"
+minzip: Extracted file "/system/lib/libOpenVG.so"
+minzip: Extracted file "/system/lib/libQcomUI.so"
+minzip: Extracted file "/system/lib/libRS.so"
+minzip: Extracted file "/system/lib/libSR_AudioIn.so"
+minzip: Extracted file "/system/lib/libTRIM.so"
+minzip: Extracted file "/system/lib/libWVStreamControlAPI_L3.so"
+minzip: Extracted file "/system/lib/libWVphoneAPI.so"
+minzip: Extracted file "/system/lib/libaactag.so"
+minzip: Extracted file "/system/lib/libacc.so"
+minzip: Extracted file "/system/lib/libaddrsdetection.so"
+minzip: Extracted file "/system/lib/libalbum_util2e.so"
+minzip: Extracted file "/system/lib/libandroid.so"
+minzip: Extracted file "/system/lib/libandroid_runtime.so"
+minzip: Extracted file "/system/lib/libandroid_servers.so"
+minzip: Extracted file "/system/lib/libandroid_simlock.so"
+minzip: Extracted file "/system/lib/libaricentomxplugin.so"
+minzip: Extracted file "/system/lib/libaudioeffect_jni.so"
+minzip: Extracted file "/system/lib/libaudioeq.so"
+minzip: Extracted file "/system/lib/libaudioflinger.so"
+minzip: Extracted file "/system/lib/libbcc.so"
+minzip: Extracted file "/system/lib/libbcc.so.sha1"
+minzip: Extracted file "/system/lib/libbcinfo.so"
+minzip: Extracted file "/system/lib/libbinder.so"
+minzip: Extracted file "/system/lib/libbluedroid.so"
+minzip: Extracted file "/system/lib/libbluetooth.so"
+minzip: Extracted file "/system/lib/libbluetoothd.so"
+minzip: Extracted file "/system/lib/libbt-aptx-4.0.3.so"
+minzip: Extracted file "/system/lib/libbtio.so"
+minzip: Extracted file "/system/lib/libc.so"
+minzip: Extracted file "/system/lib/libcamera_client.so"
+minzip: Extracted file "/system/lib/libcameraface.so"
+minzip: Extracted file "/system/lib/libcamerapp.so"
+minzip: Extracted file "/system/lib/libcameraservice.so"
+minzip: Extracted file "/system/lib/libcapsjava.so"
+minzip: Extracted file "/system/lib/libcentralZoomTransition.so"
+minzip: Extracted file "/system/lib/libchromatix_imx074_default_video.so"
+minzip: Extracted file "/system/lib/libchromatix_imx074_preview.so"
+minzip: Extracted file "/system/lib/libchromatix_mt9t013_default_video.so"
+minzip: Extracted file "/system/lib/libchromatix_mt9t013_preview.so"
+minzip: Extracted file "/system/lib/libchromatix_ov2720_default_video.so"
+minzip: Extracted file "/system/lib/libchromatix_ov2720_preview.so"
+minzip: Extracted file "/system/lib/libchromatix_ov8810_default_video.so"
+minzip: Extracted file "/system/lib/libchromatix_ov8810_preview.so"
+minzip: Extracted file "/system/lib/libchromatix_s5k4e1_ar.so"
+minzip: Extracted file "/system/lib/libchromatix_s5k4e1_default_video.so"
+minzip: Extracted file "/system/lib/libchromatix_s5k4e1_preview.so"
+minzip: Extracted file "/system/lib/libchromium_net.so"
+minzip: Extracted file "/system/lib/libclcore.bc"
+minzip: Extracted file "/system/lib/libcontentZoomTransition.so"
+minzip: Extracted file "/system/lib/libcpt9.so"
+minzip: Extracted file "/system/lib/libcpt9core.so"
+minzip: Extracted file "/system/lib/libcpt9provider.so"
+minzip: Extracted file "/system/lib/libcrypto.so"
+minzip: Extracted file "/system/lib/libctest.so"
+minzip: Extracted file "/system/lib/libcubicRotateTransition.so"
+minzip: Extracted file "/system/lib/libcutils.so"
+minzip: Extracted file "/system/lib/libdbus.so"
+minzip: Extracted file "/system/lib/libdec.so"
+minzip: Extracted file "/system/lib/libdefcontainer_jni.so"
+minzip: Extracted file "/system/lib/libdiag.so"
+minzip: Extracted file "/system/lib/libdiskconfig.so"
+minzip: Extracted file "/system/lib/libdivxdrmdecrypt.so"
+minzip: Extracted file "/system/lib/libdl.so"
+minzip: Extracted file "/system/lib/libdnshostprio.so"
+minzip: Extracted file "/system/lib/libdrm1.so"
+minzip: Extracted file "/system/lib/libdrm1_jni.so"
+minzip: Extracted file "/system/lib/libdrmframework.so"
+minzip: Extracted file "/system/lib/libdrmframework_jni.so"
+minzip: Extracted file "/system/lib/libdsi_netctrl.so"
+minzip: Extracted file "/system/lib/libdsm.so"
+minzip: Extracted file "/system/lib/libdsutils.so"
+minzip: Extracted file "/system/lib/libdumppcm.so"
+minzip: Extracted file "/system/lib/libdvm.so"
+minzip: Extracted file "/system/lib/libeffects.so"
+minzip: Extracted file "/system/lib/libemoji.so"
+minzip: Extracted file "/system/lib/libexif.so"
+minzip: Extracted file "/system/lib/libexpat.so"
+minzip: Extracted file "/system/lib/libext2_blkid.so"
+minzip: Extracted file "/system/lib/libext2_com_err.so"
+minzip: Extracted file "/system/lib/libext2_e2p.so"
+minzip: Extracted file "/system/lib/libext2_profile.so"
+minzip: Extracted file "/system/lib/libext2_uuid.so"
+minzip: Extracted file "/system/lib/libext2fs.so"
+minzip: Extracted file "/system/lib/libext4_utils.so"
+minzip: Extracted file "/system/lib/libfilterfw.so"
+minzip: Extracted file "/system/lib/libfilterpack_facedetect.so"
+minzip: Extracted file "/system/lib/libfilterpack_imageproc.so"
+minzip: Extracted file "/system/lib/libfrsdk.so"
+minzip: Extracted file "/system/lib/libfuse.so"
+minzip: Extracted file "/system/lib/libgabi++.so"
+minzip: Extracted file "/system/lib/libgcomm_jni.so"
+minzip: Extracted file "/system/lib/libgenlock.so"
+minzip: Extracted file "/system/lib/libglib.so"
+minzip: Extracted file "/system/lib/libgsl.so"
+minzip: Extracted file "/system/lib/libgui.so"
+minzip: Extracted file "/system/lib/libhardware.so"
+minzip: Extracted file "/system/lib/libhardware_legacy.so"
+minzip: Extracted file "/system/lib/libharfbuzz.so"
+minzip: Extracted file "/system/lib/libhostapd_client.so"
+minzip: Extracted file "/system/lib/libhtc_acoustic.so"
+minzip: Extracted file "/system/lib/libhtc_ril.so"
+minzip: Extracted file "/system/lib/libhtcanipluginmanager.so"
+minzip: Extracted file "/system/lib/libhtccamera.so"
+minzip: Extracted file "/system/lib/libhtcqxdm2sd.so"
+minzip: Extracted file "/system/lib/libhtcsunny2engine.so"
+minzip: Extracted file "/system/lib/libhtcsunnyengine.so"
+minzip: Extracted file "/system/lib/libhwui.so"
+minzip: Extracted file "/system/lib/libicui18n.so"
+minzip: Extracted file "/system/lib/libicule.so"
+minzip: Extracted file "/system/lib/libiculx.so"
+minzip: Extracted file "/system/lib/libicuuc.so"
+minzip: Extracted file "/system/lib/libid3tag.so"
+minzip: Extracted file "/system/lib/libidl.so"
+minzip: Extracted file "/system/lib/libinput.so"
+minzip: Extracted file "/system/lib/libiprouteutil.so"
+minzip: Extracted file "/system/lib/libjnigraphics.so"
+minzip: Extracted file "/system/lib/libjpeg.so"
+minzip: Extracted file "/system/lib/liblog.so"
+minzip: Extracted file "/system/lib/liblz.so"
+minzip: Extracted file "/system/lib/libm.so"
+minzip: Extracted file "/system/lib/libmedia.so"
+minzip: Extracted file "/system/lib/libmedia_jni.so"
+minzip: Extracted file "/system/lib/libmediaplayerservice.so"
+minzip: Extracted file "/system/lib/libmemalloc.so"
+minzip: Extracted file "/system/lib/libmm-adspsvc.so"
+minzip: Extracted file "/system/lib/libmm-omxcore.so"
+minzip: Extracted file "/system/lib/libmmipl.so"
+minzip: Extracted file "/system/lib/libmmjpeg.so"
+minzip: Extracted file "/system/lib/libmmosal.so"
+minzip: Extracted file "/system/lib/libmmparser.so"
+minzip: Extracted file "/system/lib/libmmparser_divxdrmlib.so"
+minzip: Extracted file "/system/lib/libmode10.so"
+minzip: Extracted file "/system/lib/libmode10GLES20.so"
+minzip: Extracted file "/system/lib/libmode10fx.so"
+minzip: Extracted file "/system/lib/libmtp.so"
+minzip: Extracted file "/system/lib/libnativehelper.so"
+minzip: Extracted file "/system/lib/libnetlink.so"
+minzip: Extracted file "/system/lib/libnetmgr.so"
+minzip: Extracted file "/system/lib/libnetmonitor.so"
+minzip: Extracted file "/system/lib/libnetutils.so"
+minzip: Extracted file "/system/lib/libnfc_ndef.so"
+minzip: Extracted file "/system/lib/liboemcamera.so"
+minzip: Extracted file "/system/lib/liboma-drm1-fs.so"
+minzip: Extracted file "/system/lib/liboncrpc.so"
+minzip: Extracted file "/system/lib/liboverlay.so"
+minzip: Extracted file "/system/lib/libpagecurl.so"
+minzip: Extracted file "/system/lib/libpixelflinger.so"
+minzip: Extracted file "/system/lib/libpng.so"
+minzip: Extracted file "/system/lib/libpolarisoffice_Clipboard.so"
+minzip: Extracted file "/system/lib/libpower.so"
+minzip: Extracted file "/system/lib/libpowermanager.so"
+minzip: Extracted file "/system/lib/libpphwr.so"
+minzip: Extracted file "/system/lib/libpphwrcore.so"
+minzip: Extracted file "/system/lib/libpphwrprovider.so"
+minzip: Extracted file "/system/lib/libqc-opt.so"
+minzip: Extracted file "/system/lib/libqdi.so"
+minzip: Extracted file "/system/lib/libqdp.so"
+minzip: Extracted file "/system/lib/libqmi.so"
+minzip: Extracted file "/system/lib/libqmiservices.so"
+minzip: Extracted file "/system/lib/libqueue.so"
+minzip: Extracted file "/system/lib/librecentappZoomTransition.so"
+minzip: Extracted file "/system/lib/libril.so"
+minzip: Extracted file "/system/lib/librpc.so"
+minzip: Extracted file "/system/lib/librs_jni.so"
+minzip: Extracted file "/system/lib/librtp_jni.so"
+minzip: Extracted file "/system/lib/libsc-a2xx.so"
+minzip: Extracted file "/system/lib/libscalado_htcalbum2.so"
+minzip: Extracted file "/system/lib/libscaladoapi.so"
+minzip: Extracted file "/system/lib/libscaladoutil.so"
+minzip: Extracted file "/system/lib/libsensorservice.so"
+minzip: Extracted file "/system/lib/libskia.so"
+minzip: Extracted file "/system/lib/libsonivox.so"
+minzip: Extracted file "/system/lib/libsoundpool.so"
+minzip: Extracted file "/system/lib/libspeex_sh.so"
+minzip: Extracted file "/system/lib/libspeexresampler.so"
+minzip: Extracted file "/system/lib/libsqlite.so"
+minzip: Extracted file "/system/lib/libsqlite_jni.so"
+minzip: Extracted file "/system/lib/libsrec_jni.so"
+minzip: Extracted file "/system/lib/libsrscorehtc.so"
+minzip: Extracted file "/system/lib/libsrsprocessing.so"
+minzip: Extracted file "/system/lib/libssl.so"
+minzip: Extracted file "/system/lib/libstagefright.so"
+minzip: Extracted file "/system/lib/libstagefright_amrnb_common.so"
+minzip: Extracted file "/system/lib/libstagefright_avc_common.so"
+minzip: Extracted file "/system/lib/libstagefright_enc_common.so"
+minzip: Extracted file "/system/lib/libstagefright_foundation.so"
+minzip: Extracted file "/system/lib/libstagefright_omx.so"
+minzip: Extracted file "/system/lib/libstagefright_soft_aacdec.so"
+minzip: Extracted file "/system/lib/libstagefright_soft_amrdec.so"
+minzip: Extracted file "/system/lib/libstagefright_soft_g711dec.so"
+minzip: Extracted file "/system/lib/libstagefright_soft_h264dec.so"
+minzip: Extracted file "/system/lib/libstagefright_soft_mp3dec.so"
+minzip: Extracted file "/system/lib/libstagefright_soft_mpeg4dec.so"
+minzip: Extracted file "/system/lib/libstagefright_soft_vorbisdec.so"
+minzip: Extracted file "/system/lib/libstagefright_soft_vpxdec.so"
+minzip: Extracted file "/system/lib/libstagefright_yuv.so"
+minzip: Extracted file "/system/lib/libstagefrighthw.so"
+minzip: Extracted file "/system/lib/libstdc++.so"
+minzip: Extracted file "/system/lib/libstlport.so"
+minzip: Extracted file "/system/lib/libstream_core.so"
+minzip: Extracted file "/system/lib/libsurfaceflinger.so"
+minzip: Extracted file "/system/lib/libsurfaceflinger_client.so"
+minzip: Extracted file "/system/lib/libswipeCubicTransition.so"
+minzip: Extracted file "/system/lib/libsystem_server.so"
+minzip: Extracted file "/system/lib/libsysutils.so"
+minzip: Extracted file "/system/lib/libt9.so"
+minzip: Extracted file "/system/lib/libtcpfinaggr.so"
+minzip: Extracted file "/system/lib/libthread_db.so"
+minzip: Extracted file "/system/lib/libtilerenderer.so"
+minzip: Extracted file "/system/lib/libtipsani.so"
+minzip: Extracted file "/system/lib/libttscompat.so"
+minzip: Extracted file "/system/lib/libttspico.so"
+minzip: Extracted file "/system/lib/libtunein.dec.so"
+minzip: Extracted file "/system/lib/libtunein.ffmpeg.so"
+minzip: Extracted file "/system/lib/libtunein.mms.so"
+minzip: Extracted file "/system/lib/libtunein.oem.so"
+minzip: Extracted file "/system/lib/libui.so"
+minzip: Extracted file "/system/lib/libusbhost.so"
+minzip: Extracted file "/system/lib/libusbnetjni.so"
+minzip: Extracted file "/system/lib/libutils.so"
+minzip: Extracted file "/system/lib/libv8.so"
+minzip: Extracted file "/system/lib/libvariablespeed.so"
+minzip: Extracted file "/system/lib/libvideochat_stabilize.so"
+minzip: Extracted file "/system/lib/libvideoeditor_jni.so"
+minzip: Extracted file "/system/lib/libvideoeditorplayer.so"
+minzip: Extracted file "/system/lib/libvoicesearch.so"
+minzip: Extracted file "/system/lib/libvorbisidec.so"
+minzip: Extracted file "/system/lib/libwebcore.so"
+minzip: Extracted file "/system/lib/libwebrtc_audio_preprocessing.so"
+minzip: Extracted file "/system/lib/libwilhelm.so"
+minzip: Extracted file "/system/lib/libwpa_client.so"
+minzip: Extracted file "/system/lib/libwsp.so"
+minzip: Extracted file "/system/lib/libwsp_jni.so"
+minzip: Extracted file "/system/lib/libwvdrm_L3.so"
+minzip: Extracted file "/system/lib/libwvm.so"
+minzip: Extracted file "/system/lib/libz.so"
+minzip: Extracted file "/system/lib/libzoomTransition.so"
+minzip: Extracted file "/system/lib/modules/bcm4329.ko"
+minzip: Extracted file "/system/lib/modules/kineto_gan.ko"
+minzip: Extracted file "/system/lib/plugins/com.htc.flashliteplugin/libflashliteplugin.so"
+minzip: Extracted file "/system/lib/pp_proc_plugin.so"
+minzip: Extracted file "/system/lib/qnet-plugin.so"
+minzip: Extracted file "/system/lib/soundfx/libaudiopreprocessing.so"
+minzip: Extracted file "/system/lib/soundfx/libbundlewrapper.so"
+minzip: Extracted file "/system/lib/soundfx/libreverbwrapper.so"
+minzip: Extracted file "/system/lib/soundfx/libsrsfx.so"
+minzip: Extracted file "/system/lib/soundfx/libvisualizer.so"
+minzip: Extracted file "/system/lib/tcp-connections.so"
+minzip: Extracted file "/system/media/LMprec_508.emd"
+minzip: Extracted file "/system/media/PFFprec_600.emd"
+minzip: Extracted file "/system/media/audio/alarms/12th_hour.mp3"
+minzip: Extracted file "/system/media/audio/alarms/Pendulum.mp3"
+minzip: Extracted file "/system/media/audio/alarms/beeps.mp3"
+minzip: Extracted file "/system/media/audio/alarms/cape_breeze.mp3"
+minzip: Extracted file "/system/media/audio/alarms/chambered.mp3"
+minzip: Extracted file "/system/media/audio/alarms/classic.mp3"
+minzip: Extracted file "/system/media/audio/alarms/four_stringer.mp3"
+minzip: Extracted file "/system/media/audio/alarms/harp_arp.mp3"
+minzip: Extracted file "/system/media/audio/alarms/meniscus.mp3"
+minzip: Extracted file "/system/media/audio/alarms/snooze.mp3"
+minzip: Extracted file "/system/media/audio/alarms/tides.mp3"
+minzip: Extracted file "/system/media/audio/notifications/Content.mp3"
+minzip: Extracted file "/system/media/audio/notifications/Daybook.mp3"
+minzip: Extracted file "/system/media/audio/notifications/Hint.mp3"
+minzip: Extracted file "/system/media/audio/notifications/Notice.mp3"
+minzip: Extracted file "/system/media/audio/notifications/Venture.mp3"
+minzip: Extracted file "/system/media/audio/notifications/activate.mp3"
+minzip: Extracted file "/system/media/audio/notifications/ascending.mp3"
+minzip: Extracted file "/system/media/audio/notifications/chimes.mp3"
+minzip: Extracted file "/system/media/audio/notifications/ding.mp3"
+minzip: Extracted file "/system/media/audio/notifications/droplet.mp3"
+minzip: Extracted file "/system/media/audio/notifications/eve.mp3"
+minzip: Extracted file "/system/media/audio/notifications/flare.mp3"
+minzip: Extracted file "/system/media/audio/notifications/glockenspiel.mp3"
+minzip: Extracted file "/system/media/audio/notifications/harp_major.mp3"
+minzip: Extracted file "/system/media/audio/notifications/link.mp3"
+minzip: Extracted file "/system/media/audio/notifications/meta.mp3"
+minzip: Extracted file "/system/media/audio/notifications/new_game.mp3"
+minzip: Extracted file "/system/media/audio/notifications/nova.mp3"
+minzip: Extracted file "/system/media/audio/notifications/now.mp3"
+minzip: Extracted file "/system/media/audio/notifications/opto.mp3"
+minzip: Extracted file "/system/media/audio/notifications/out.mp3"
+minzip: Extracted file "/system/media/audio/notifications/sci_fi.mp3"
+minzip: Extracted file "/system/media/audio/notifications/si.mp3"
+minzip: Extracted file "/system/media/audio/notifications/simple_low.mp3"
+minzip: Extracted file "/system/media/audio/notifications/slider.mp3"
+minzip: Extracted file "/system/media/audio/notifications/stalactite.mp3"
+minzip: Extracted file "/system/media/audio/notifications/statements.mp3"
+minzip: Extracted file "/system/media/audio/notifications/stormy.mp3"
+minzip: Extracted file "/system/media/audio/notifications/stratus.mp3"
+minzip: Extracted file "/system/media/audio/notifications/striking.mp3"
+minzip: Extracted file "/system/media/audio/notifications/talkative.mp3"
+minzip: Extracted file "/system/media/audio/notifications/taptastic.mp3"
+minzip: Extracted file "/system/media/audio/notifications/twangster.mp3"
+minzip: Extracted file "/system/media/audio/notifications/warm_piano.mp3"
+minzip: Extracted file "/system/media/audio/notifications/wisdom.mp3"
+minzip: Extracted file "/system/media/audio/notifications/yep.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/8-bit_love.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/Sense.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/after_hours.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/air_candy.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/alki_drive.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/alvord.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/anthem.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/apartment.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/bass_dubbed.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/carry_on.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/chinchilla.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/cloud_level.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/color_wheel.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/contemplate.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/copperpot.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/cray_cray.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/crunched.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/curve.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/defined.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/docked.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/dream_boat.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/dusty_boots.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/fog_lifter.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/glider.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/grit_kit.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/harp_diminished.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/heat_seeking.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/heat_synth.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/hit_it.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/insight.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/kiddle.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/lexicon.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/lily_pad.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/magnifique.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/marched.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/modem.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/modulate.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/moments.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/moon_light.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/morse.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/multiverse.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/old_phone.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/portal.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/quietly_brilliant.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/rhododendron.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/riverrock.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/spyglass.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/standard_1.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/standard_2.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/standard_3.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/standard_4.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/standard_5.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/standard_6.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/standard_7.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/stop_start.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/summer_love.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/suspended.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/teleport.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/then_some.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/thistle.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/turnpike.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/uppy.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/valencia.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/vineyard.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/wind_chimes.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/woodblock.mp3"
+minzip: Extracted file "/system/media/audio/ringtones/zen.mp3"
+minzip: Extracted file "/system/media/audio/ui/Effect_Tick.ogg"
+minzip: Extracted file "/system/media/audio/ui/KeypressDelete.ogg"
+minzip: Extracted file "/system/media/audio/ui/KeypressReturn.ogg"
+minzip: Extracted file "/system/media/audio/ui/KeypressSpacebar.ogg"
+minzip: Extracted file "/system/media/audio/ui/KeypressStandard.ogg"
+minzip: Extracted file "/system/media/audio/ui/Lock.ogg"
+minzip: Extracted file "/system/media/audio/ui/LowBattery.ogg"
+minzip: Extracted file "/system/media/audio/ui/Unlock.ogg"
+minzip: Extracted file "/system/media/audio/ui/VideoRecord.ogg"
+minzip: Extracted file "/system/media/audio/ui/Volume-1.aac"
+minzip: Extracted file "/system/media/audio/ui/Volume-2.aac"
+minzip: Extracted file "/system/media/audio/ui/Volume-3.aac"
+minzip: Extracted file "/system/media/audio/ui/Volume-4.aac"
+minzip: Extracted file "/system/media/audio/ui/Volume-5.aac"
+minzip: Extracted file "/system/media/audio/ui/Volume-6.aac"
+minzip: Extracted file "/system/media/audio/ui/Volume-7.aac"
+minzip: Extracted file "/system/media/audio/ui/camera_click.ogg"
+minzip: Extracted file "/system/media/zchgd/batt_0.rle"
+minzip: Extracted file "/system/media/zchgd/batt_10.rle"
+minzip: Extracted file "/system/media/zchgd/batt_100.rle"
+minzip: Extracted file "/system/media/zchgd/batt_20.rle"
+minzip: Extracted file "/system/media/zchgd/batt_30.rle"
+minzip: Extracted file "/system/media/zchgd/batt_40.rle"
+minzip: Extracted file "/system/media/zchgd/batt_5.rle"
+minzip: Extracted file "/system/media/zchgd/batt_50.rle"
+minzip: Extracted file "/system/media/zchgd/batt_60.rle"
+minzip: Extracted file "/system/media/zchgd/batt_70.rle"
+minzip: Extracted file "/system/media/zchgd/batt_80.rle"
+minzip: Extracted file "/system/media/zchgd/batt_90.rle"
+minzip: Extracted file "/system/media/zchgd/batt_95.rle"
+minzip: Extracted file "/system/media/zchgd/charging_00.rle"
+minzip: Extracted file "/system/media/zchgd/charging_01.rle"
+minzip: Extracted file "/system/media/zchgd/charging_02.rle"
+minzip: Extracted file "/system/media/zchgd/charging_03.rle"
+minzip: Extracted file "/system/media/zchgd/charging_04.rle"
+minzip: Extracted file "/system/media/zchgd/charging_05.rle"
+minzip: Extracted file "/system/media/zchgd/charging_06.rle"
+minzip: Extracted file "/system/media/zchgd/charging_07.rle"
+minzip: Extracted file "/system/media/zchgd/charging_08.rle"
+minzip: Extracted file "/system/media/zchgd/charging_09.rle"
+minzip: Extracted file "/system/media/zchgd/error.rle"
+minzip: Extracted file "/system/usr/icu/icudt46l.dat"
+minzip: Extracted file "/system/usr/idc/atmel-touchscreen.idc"
+minzip: Extracted file "/system/usr/idc/cy8c-touchscreen.idc"
+minzip: Extracted file "/system/usr/idc/himax-touchscreen.idc"
+minzip: Extracted file "/system/usr/idc/qwerty.idc"
+minzip: Extracted file "/system/usr/idc/qwerty2.idc"
+minzip: Extracted file "/system/usr/idc/synaptics-rmi-touchscreen.idc"
+minzip: Extracted file "/system/usr/keychars/BT_HID.kcm.bin"
+minzip: Extracted file "/system/usr/keychars/Generic.kcm"
+minzip: Extracted file "/system/usr/keychars/Virtual.kcm"
+minzip: Extracted file "/system/usr/keychars/marvel-keypad.kcm.bin"
+minzip: Extracted file "/system/usr/keychars/qwerty.kcm"
+minzip: Extracted file "/system/usr/keychars/qwerty.kcm.bin"
+minzip: Extracted file "/system/usr/keychars/qwerty2.kcm"
+minzip: Extracted file "/system/usr/keychars/qwerty2.kcm.bin"
+minzip: Extracted file "/system/usr/keylayout/AVRCP.kl"
+minzip: Extracted file "/system/usr/keylayout/BT_HID.kl"
+minzip: Extracted file "/system/usr/keylayout/Generic.kl"
+minzip: Extracted file "/system/usr/keylayout/Vendor_045e_Product_028e.kl"
+minzip: Extracted file "/system/usr/keylayout/Vendor_046d_Product_c216.kl"
+minzip: Extracted file "/system/usr/keylayout/Vendor_046d_Product_c294.kl"
+minzip: Extracted file "/system/usr/keylayout/Vendor_046d_Product_c299.kl"
+minzip: Extracted file "/system/usr/keylayout/Vendor_046d_Product_c532.kl"
+minzip: Extracted file "/system/usr/keylayout/Vendor_054c_Product_0268.kl"
+minzip: Extracted file "/system/usr/keylayout/Vendor_05ac_Product_0239.kl"
+minzip: Extracted file "/system/usr/keylayout/Vendor_22b8_Product_093d.kl"
+minzip: Extracted file "/system/usr/keylayout/golfu-keypad.kl"
+minzip: Extracted file "/system/usr/keylayout/h2w_headset.kl"
+minzip: Extracted file "/system/usr/keylayout/himax-touchscreen.kl"
+minzip: Extracted file "/system/usr/keylayout/marvel-keypad.kl"
+minzip: Extracted file "/system/usr/keylayout/qwerty.kl"
+minzip: Extracted file "/system/usr/keylayout/synaptics-rmi-touchscreen.kl"
+minzip: Extracted file "/system/usr/share/bmd/RFFspeed_501.bmd"
+minzip: Extracted file "/system/usr/share/bmd/RFFstd_501.bmd"
+minzip: Extracted file "/system/usr/share/zoneinfo/zoneinfo.dat"
+minzip: Extracted file "/system/usr/share/zoneinfo/zoneinfo.idx"
+minzip: Extracted file "/system/usr/share/zoneinfo/zoneinfo.version"
+minzip: Extracted file "/system/usr/srec/config/en.us/baseline.par"
+minzip: Extracted file "/system/usr/srec/config/en.us/baseline11k.par"
+minzip: Extracted file "/system/usr/srec/config/en.us/baseline8k.par"
+minzip: Extracted file "/system/usr/srec/config/en.us/dictionary/basic.ok"
+minzip: Extracted file "/system/usr/srec/config/en.us/dictionary/cmu6plus.ok.zip"
+minzip: Extracted file "/system/usr/srec/config/en.us/dictionary/enroll.ok"
+minzip: Extracted file "/system/usr/srec/config/en.us/g2p/en-US-ttp.data"
+minzip: Extracted file "/system/usr/srec/config/en.us/grammars/VoiceDialer.g2g"
+minzip: Extracted file "/system/usr/srec/config/en.us/grammars/boolean.g2g"
+minzip: Extracted file "/system/usr/srec/config/en.us/grammars/phone_type_choice.g2g"
+minzip: Extracted file "/system/usr/srec/config/en.us/models/generic.swiarb"
+minzip: Extracted file "/system/usr/srec/config/en.us/models/generic11.lda"
+minzip: Extracted file "/system/usr/srec/config/en.us/models/generic11_f.swimdl"
+minzip: Extracted file "/system/usr/srec/config/en.us/models/generic11_m.swimdl"
+minzip: Extracted file "/system/usr/srec/config/en.us/models/generic8.lda"
+minzip: Extracted file "/system/usr/srec/config/en.us/models/generic8_f.swimdl"
+minzip: Extracted file "/system/usr/srec/config/en.us/models/generic8_m.swimdl"
+minzip: Extracted file "/system/vendor/firmware/hdcp.keys"
+minzip: Extracted file "/system/xbin/andrev_oc"
+minzip: Extracted file "/system/xbin/bttest"
+minzip: Extracted file "/system/xbin/busybox"
+minzip: Extracted file "/system/xbin/dexdump"
+minzip: Extracted file "/system/xbin/openvpn"
+minzip: Extracted file "/system/xbin/sqlite3"
+minzip: Extracted file "/system/xbin/su"
+minzip: Extracted file "/system/xbin/wireless_modem"
+about to run program [/system/xbin/busybox] with 4 args
+set_perm: chown of /system/etc/bluetooth/a2dp_avrcp.conf to 0 0 failed: No such file or directory unnecessary lines in updater-script
+set_perm: chmod of /system/etc/bluetooth/a2dp_avrcp.conf to 644 failed: No such file or directory
+set_perm: chown of /system/etc/install-recovery.sh to 0 2000 failed: No such file or directory
+set_perm: chmod of /system/etc/install-recovery.sh to 550 failed: No such file or directory
+set_perm: chown of /system/etc/init.qcom.sdio.sh to 1000 1000 failed: No such file or directory
+set_perm: chmod of /system/etc/init.qcom.sdio.sh to 555 failed: No such file or directory
+set_perm: chown of /system/etc/init.d to 0 0 failed: No such file or directory
+set_perm: chmod of /system/etc/init.d to 755 failed: No such file or directory
+mtd: successfully wrote block at 3a71000000000
+mtd: successfully wrote block at 3a71000040000
+mtd: successfully wrote block at 3a71000080000
+mtd: successfully wrote block at 3a710000c0000
+mtd: successfully wrote block at 3a71000100000
+mtd: successfully wrote block at 3a71000140000
+mtd: successfully wrote block at 3a71000180000
+mtd: successfully wrote block at 3a710001c0000
+mtd: successfully wrote block at 3a71000200000
+mtd: successfully wrote block at 3a71000240000
+mtd: successfully wrote block at 3a71000280000
+wrote boot partition
+unmount of /data failed; no such volume
+unmount of /system failed; no such volume
+script result was []
+
+Install from sdcard complete.

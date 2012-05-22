@@ -1,0 +1,7 @@
+- exec '/system/bin/sh' failed: No such file or directory (2) -
+
+Used CM9 boot image, symlinking seems not going well.
+Changed the updater-script to symlink("mksh", "/system/bin/sh")
+Still the same
+Renamed mksh to sh and removed symlink line in updater script
+still the same

@@ -11,5 +11,4 @@ Some notes:
 - maybe useful guide (not for sense 4, but could be useful)
   http://forum.xda-developers.com/showthread.php?t=1222746
 
-More questions, I've got the desire ROM on my HDD
-file comparison see txt
+More questions, I've got the hero, original golf and CM9 ROM on my HDD
