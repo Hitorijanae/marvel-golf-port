@@ -67,6 +67,12 @@ on boot
     # Load kineto_gan.ko while booting
     insmod /system/lib/modules/kineto_gan.ko
 
+    # for fonts move to data partition
+    mount yaffs2 mtd@system /system rw remount
+    chmod 0755 /data/fonts
+    symlink /data/fonts /system/fonts
+    mount yaffs2 mtd@system /system ro remount
+
     # Enable low memory killer to check file pages
     write /sys/module/lowmemorykiller/parameters/minfile 0,0,0,5120,5632,6144
     write /sys/module/lowmemorykiller/parameters/check_filepages 1

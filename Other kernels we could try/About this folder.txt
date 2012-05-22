@@ -3,13 +3,16 @@ This folder is designed for us to simply put the boot.img's we could use in here
 number		name		designed for
 1		idogx		sense 3.5
 2		modpunk		CM9
-3		idogx		swapped ramdisk
-4		modpunk		swapped ramdisk and some .rc
+3		idogx_		swapped ramdisk
+4		modpunk_	swapped ramdisk and some .rc
 5               heroc           heroc's CM9
 
 
-Kernel-Final:
+Final Kernel:
 Contains Sense 4, Sense 3.5 and CyanogenMod9 kernel sources.
 In marvel folder kernel to use.
 DONT DELETE THE ORIGINAL FOLDERS
 work in Build folder!
+
+This folder also contains the work benjamingwynn did to attempt
+to boot the thing to logcat by editing the ramdisk.
