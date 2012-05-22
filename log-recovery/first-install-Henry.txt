@@ -150,7 +150,7 @@ Finding update package...
 I:Update location: /sdcard/Sense4.zip
 Opening update package...
 Installing update...
-line 9 col 23: syntax error, unexpected STRING, expecting ',' or ')'
+line 9 col 23: syntax error, unexpected STRING, expecting ',' or ')' => forgot to remove symlink-app lines, I've putted all apks in system :D
 1 parse errors
 E:Error in /sdcard/Sense4.zip
 (Status 6)
@@ -188,7 +188,7 @@ Finding update package...
 I:Update location: /sdcard/Sense4.zip
 Opening update package...
 Installing update...
-script aborted: mount() expects 4 args, got 3
+script aborted: mount() expects 4 args, got 3	=> wrong system mount, added "yafss2"
 Installing
 mount() expects 4 args, got 3
 E:Error in /sdcard/Sense4.zip
@@ -361,7 +361,6 @@ InstallingFailed to mount /dev/block/mtdblock3 on /system: No such device
 mtd mount of system failed: No such device
 minzip: Extracted file "/system/app/ApplicationsProvider.apk"
 minzip: Extracted file "/system/app/BackupRestoreConfirmation.apk"
-
 minzip: Extracted file "/system/app/Bluetooth.apk"
 minzip: Extracted file "/system/app/Browser.apk"
 minzip: Extracted file "/system/app/Calculator.apk"
