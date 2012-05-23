@@ -137,9 +137,9 @@ wifi.supplicant_scan_interval = 15
 # appropriately. If this property is not defined, the default value is 160 dpi.
 ro.sf.lcd_density = 160
 
-debug.qctwa.preservebuf = 1
-debug.sf.hw = 1
-debug.composition.type = mdp
+# The OpenGL ES API level that is natively supported by this device.
+# This is a 16.16 fixed point number
+ro.opengles.version = 131072
 
 ro.com.google.locationfeatures=1
 
