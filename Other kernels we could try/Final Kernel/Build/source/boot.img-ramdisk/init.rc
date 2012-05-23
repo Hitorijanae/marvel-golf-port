@@ -1,7 +1,9 @@
 import init.usb.rc
 
 on early-init
+    # Set init and its forked children's oom_adj.
     write /proc/1/oom_adj -16
+
     start ueventd
 
 # create mountpoints
@@ -24,7 +26,7 @@ loglevel 3
     export EXTERNAL_STORAGE /mnt/sdcard
     export ASEC_MOUNTPOINT /mnt/asec
     export LOOP_MOUNTPOINT /mnt/obb
-    export BOOTCLASSPATH /system/framework/core.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/core-junit.jar:/system/framework/HTCDev.jar:/system/framework/HTCExtension.jar:/system/framework/com.htc.framework.jar:/system/framework/com.scalado.util.ScaladoUtil.jar:/system/framework/com.orange.authentication.simcard.jar:/system/framework/android.supl.jar:/system/framework/com.ecrio.sip.jar
+    export BOOTCLASSPATH /system/framework/core.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/framework2.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar:/system/framework/HTCDev.jar:/system/framework/HTCExtension.jar:/system/framework/filterfw.jar:/system/framework/com.htc.android.bluetooth.jar:/system/framework/wimax.jar:/system/framework/usbnet.jar:/system/framework/com.orange.authentication.simcard.jar
 
 # Backward compatibility
     symlink /system/etc /etc
@@ -35,22 +37,10 @@ loglevel 3
 # but someday that may change.
     symlink /system/vendor /vendor
 
-# create mountpoints
-    mkdir /mnt 0775 root system
-    mkdir /mnt/sdcard 0000 system system
-
 # Create cgroup mount point for cpu accounting
     mkdir /acct
     mount cgroup none /acct cpuacct
     mkdir /acct/uid
-
-    mkdir /system
-    mkdir /data 0771 system system
-    mkdir /cache 0770 system cache
-    mkdir /config 0500 root root
-
-# Backwards Compat - XXX: Going away in G*
-    symlink /mnt/sdcard /sdcard
 
     mkdir /system
     mkdir /data 0771 system system
@@ -103,6 +93,10 @@ loglevel 3
     # 5.0 %
     write /dev/cpuctl/bg_non_interactive/cpu.shares 52
 
+# Allow everybody to read the xt_qtaguid resource tracking misc dev.
+# This is needed by any process that uses socket tagging.
+    chmod 0644 /dev/xt_qtaguid
+
 on fs
 # mount mtd partitions
     # Mount /system rw first to give the filesystem a chance to save a checkpoint
@@ -117,37 +111,7 @@ on post-fs
     # once everything is setup, no need to modify /
     mount rootfs rootfs / ro remount
 
-    # We chown/chmod /data again so because mount is run as root + defaults
-    chown system system /data
-    chmod 0771 /data
-
-    # This may have been created by the recovery system with odd permissions
-    chown system cache /cache/recovery
-    chmod 0770 /cache/recovery
-
-    # create htcfs
-    mkdir /data/htcfs 0777 root root
-
-    # Create dump dir and collect dumps.
-    # Do this before we mount cache so eventually we can use cache for
-    # storing dumps on platforms which do not have a dedicated dump partition.
-   
-    mkdir /data/dontpanic
-    chown root log /data/dontpanic
-    chmod 0750 /data/dontpanic
-
-    # Collect apanic data, free resources and re-arm trigger
-    copy /proc/apanic_console /data/dontpanic/apanic_console
-    chown root log /data/dontpanic/apanic_console
-    chmod 0640 /data/dontpanic/apanic_console
-
-    copy /proc/apanic_threads /data/dontpanic/apanic_threads
-    chown root log /data/dontpanic/apanic_threads
-    chmod 0640 /data/dontpanic/apanic_threads
-
-    write /proc/apanic_console 1
-
-    # Same reason as /data above
+    # We chown/chmod /cache again so because mount is run as root + defaults
     chown system cache /cache
     chmod 0770 /cache
 
@@ -165,7 +129,34 @@ on post-fs
     chown root system /proc/sysrq-trigger
     chmod 0220 /proc/sysrq-trigger
 
-# create basic filesystem structure
+    # create the lost+found directories, so as to enforce our permissions
+    mkdir /cache/lost+found 0770 root root
+
+on post-fs-data
+    # We chown/chmod /data again so because mount is run as root + defaults
+    chown system system /data
+    chmod 0771 /data
+
+    # create htcfs
+    mkdir /data/htcfs 0777 root root
+
+    # Create dump dir and collect dumps.
+    # Do this before we mount cache so eventually we can use cache for
+    # storing dumps on platforms which do not have a dedicated dump partition.
+    mkdir /data/dontpanic 0750 root log
+
+    # Collect apanic data, free resources and re-arm trigger
+    copy /proc/apanic_console /data/dontpanic/apanic_console
+    chown root log /data/dontpanic/apanic_console
+    chmod 0640 /data/dontpanic/apanic_console
+
+    copy /proc/apanic_threads /data/dontpanic/apanic_threads
+    chown root log /data/dontpanic/apanic_threads
+    chmod 0640 /data/dontpanic/apanic_threads
+
+    write /proc/apanic_console 1
+
+    # create basic filesystem structure
     mkdir /data/misc 01771 system misc
     mkdir /data/misc/bluetoothd 0770 bluetooth bluetooth
     mkdir /data/misc/bluetooth 0770 system system
@@ -183,8 +174,8 @@ on post-fs
     mkdir /data/app 0771 system system
     mkdir /data/property 0700 root root
     mkdir /data/radio 0770 radio radio
-    
-    # create dalvRaik-cache, so as to enforce our permissions
+
+    # create dalvik-cache, so as to enforce our permissions
     mkdir /data/dalvik-cache 0771 system system
 
     # create resource-cache and double-check the perms
@@ -237,10 +228,8 @@ on post-fs
     # must uncomment this line, otherwise encrypted filesystems
     # won't work.
     # Set indication (checked by vold) that we have finished this action
-    # setprop vold.post_fs_data_done 1
+    setprop vold.post_fs_data_done 1
 
-
-on boot
 on boot
 # basic network init
     ifup lo
@@ -255,7 +244,7 @@ on boot
 # level system server to be able to adjust the kernel OOM driver
 # paramters to match how it is managing things.
     write /proc/sys/vm/overcommit_memory 1
-    write /proc/sys/vm/min_free_order_(Hshift 4
+    write /proc/sys/vm/min_free_order_shift 4
     write /proc/sys/vm/highmem_is_dirtyable 1
     write /proc/sys/vm/min_free_kbytes 4096
     chown root system /sys/module/lowmemorykiller/parameters/adj
@@ -264,7 +253,7 @@ on boot
     chmod 0664 /sys/module/lowmemorykiller/parameters/minfree
 
     # Tweak background writeout
-Oki    write /proc/sys/vm/dirty_expire_centisecs 200
+    write /proc/sys/vm/dirty_expire_centisecs 200
     write /proc/sys/vm/dirty_background_bytes 1024000
     write /proc/sys/vm/dirty_bytes 10240000
 
@@ -534,7 +523,7 @@ service dbus /system/bin/dbus-daemon --system --nofork
     user bluetooth
     group bluetooth net_bt_admin
 
-service bluetoothd /system/bin/loJIgwrapper /system/bin/bluetoothd -n -d
+service bluetoothd /system/bin/logwrapper /system/bin/bluetoothd -n -d
     class main
     socket bluetooth stream 660 bluetooth bluetooth
     socket dbus_bluetooth stream 660 bluetooth bluetooth
@@ -553,7 +542,7 @@ service bluetoothd_one /system/bin/bluetoothd -n
     disabled
     oneshot
 
-service installd /system/bin/instalThld
+service installd /system/bin/installd
     class main
     socket installd stream 600 system system
 
@@ -619,4 +608,4 @@ service bootcomplete /system/bin/bootcomplete
 
 service post-boot /system/bin/sh /system/etc/init.post_boot.sh
     user root
-    oneshotll
+    oneshot

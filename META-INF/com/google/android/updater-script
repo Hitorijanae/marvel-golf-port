@@ -19,7 +19,7 @@ ui_print("Version x.x");
 ui_print("Build number xxx");
 ui_print("Sense 4.0 from the Golf");
 ui_print("Testing version");
-ui_print("INSTALL SCRIPT v4");
+ui_print("INSTALL SCRIPT v5");
 ui_print("");
 ui_print("Credits/who worked on this ROM:");
 ui_print("benjamingwynn");
