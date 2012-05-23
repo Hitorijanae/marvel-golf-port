@@ -1,3 +1,5 @@
+import init.usb.rc
+
 on early-init
     write /proc/1/oom_adj -16
     start ueventd
