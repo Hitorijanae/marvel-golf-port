@@ -75,7 +75,7 @@ ro.product.brand=htc_europe
 ro.product.name=htc_marvel
 ro.product.device=marvel
 ro.product.board=marvel
-ro.product.cpu.abi=armeabi-v6
+ro.product.cpu.abi=armeabi
 ro.product.manufacturer=HTC
 ro.product.locale.language=mdpi
 ro.wifi.channels=
@@ -174,7 +174,7 @@ ro.workaround.noautofocus = 1
 
 # default value of brightness
 settings.display.brightness=143
-
+d
 # For HSDPA low throughput
 ro.ril.disable.power.collapse = 1
 
