@@ -327,18 +327,22 @@ ro.fm.mulinst.recording.support=false
 persist.sys.shutdown.mode = hibernate
 # AOLC
 htc.audio.alc.enable = 1
-htc.audio.swalt.enable = 1
+# was htc.audio.swalt.enable = 1
+htc.audio.swalt.enable = 0
 
 lpa.decode = false
 lpa.use-stagefright = false
-htc.audio.global.state = 0
-htc.audio.global.profile = 0
+# was htc.audio.global.state = 0
+htc.audio.global.state = 1
+# was htc.audio.global.profile = 0
+htc.audio.global.profile = 1
 htc.audio.beats.state = 1
 htc.audio.beats.config = 1
 
+### We will probably not use this, lets keep it disabled in case it is causing issues.
 #export for SoundHound
-persist.htc.audio.pcm.samplerate=44100
-persist.htc.audio.pcm.channels=2
+#persist.htc.audio.pcm.samplerate=44100
+#persist.htc.audio.pcm.channels=2
 
 # Following property will be reference by Settings.
 ro.product.processor=600MHz
