@@ -22,22 +22,7 @@
     searched, to ensure that a vendor-provided font will be used before another fallback font
     which happens to handle the same glyph.
 -->
-<familyset>    
-    <family>
-        <fileset>
-            <file>gcsh00d-hkscs.ttf</file>
-        </fileset>
-    </family>
-    <family>
-        <fileset>
-            <file>ucsh00d_c.ttf</file>
-        </fileset>
-    </family>
-    <family>
-        <fileset>
-            <file>ARDJ-KK.ttf</file>
-        </fileset>
-    </family>
+<familyset>
     <family>
         <fileset>
             <file>DroidNaskh-Regular.ttf</file>

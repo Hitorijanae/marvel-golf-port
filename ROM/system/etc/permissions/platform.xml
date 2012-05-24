@@ -70,14 +70,6 @@
         <group gid="net_admin" />
     </permission>
 
-    <permission name="android.permission.NET_RAW">
-        <group gid="net_raw" />
-    </permission>
-
-    <permission name="android.permission.VPN">
-        <group gid="vpn" />
-    </permission>
-
     <!-- The group that /cache belongs to, linked to the permission
          set on the applications that can access /cache -->
     <permission name="android.permission.ACCESS_CACHE_FILESYSTEM" >
@@ -100,26 +92,6 @@
     <!-- Group that can modify how network statistics are accounted -->
     <permission name="android.permission.MODIFY_NETWORK_ACCOUNTING">
         <group gid="net_bw_acct" />
-    </permission>
-
-    <!-- Group that can read write customization wizard folder /data/data/cw and /data/data/cwtemp -->
-    <permission name="android.permission.ACCESS_CW_FOLDER">
-        <group gid="cw_access" />
-    </permission>
-
-    <!-- Group that can read/write the folder of OMA DRM -->
-    <permission name="android.permission.READ_WRITE_OMA_DRM">
-        <group gid="oma_drm_group"/>
-    </permission>
-
-    <!-- Group that can read write recovery folder /data/data/recovery -->
-    <permission name="android.permission.ACCESS_RECOVERY_FOLDER">
-        <group gid="recvy_access" />
-    </permission>
-
-    <!-- Group that can read write customization wizard folder usb file node for autobot -->
-    <permission name="android.permission.ACCESS_AUTOBOT_FILENODE">
-        <group gid="autobot_access" />
     </permission>
 
     <!-- ================================================================== -->

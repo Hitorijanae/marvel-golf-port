@@ -76,13 +76,5 @@
             <file>DroidSansMono.ttf</file>
         </fileset>
     </family>
-	<family>
-		<nameset>
-			<name>HelveticaNeueLT Pro 35 Th</name>
-		</nameset>
-		<fileset>
-			<file>HelveticaNeueLTPro35Th.ttf</file>
-		</fileset>
-	</family>
 
 </familyset>

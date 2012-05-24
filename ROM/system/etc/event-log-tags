@@ -57,6 +57,8 @@
 3080 boot_progress_pms_data_scan_start (time|2|3)
 3090 boot_progress_pms_scan_end (time|2|3)
 3100 boot_progress_pms_ready (time|2|3)
+4000 calendar_upgrade_receiver (time|2|3)
+4100 contacts_upgrade_receiver (time|2|3)
 20003 dvm_lock_sample (process|3),(main|1|5),(thread|3),(time|1|3),(file|3),(line|1|5),(ownerfile|3),(ownerline|1|5),(sample_percent|1|6)
 30001 am_finish_activity (Token|1|5),(Task ID|1|5),(Component Name|3),(Reason|3)
 30002 am_task_to_front (Task|1|5)
@@ -93,7 +95,6 @@
 30037 am_process_start_timeout (PID|1|5),(UID|1|5),(Process Name|3)
 30039 am_crash (PID|1|5),(Process Name|3),(Flags|1|5),(Exception|3),(Message|3),(File|3),(Line|1|5)
 30040 am_wtf (PID|1|5),(Process Name|3),(Flags|1|5),(Tag|3),(Message|3)
-30050 am_customize_log (Message|3)
 31000 wm_no_surface_memory (Window|3),(PID|1|5),(Operation|3)
 32000 imf_force_reconnect_ime (IME|4),(Time Since Connect|2|3),(Showing|1|1)
 50000 menu_item_selected (Menu type where 0 is options and 1 is context|1|5),(Menu item title|3)
@@ -156,10 +157,24 @@
 70000 screen_toggled (screen_state|1|5)
 70101 browser_zoom_level_change (start level|1|5),(end level|1|5),(time|2|3)
 70102 browser_double_tap_duration (duration|1|3),(time|2|3)
+70103 browser_bookmark_added (url|3), (where|3)
+70104 browser_page_loaded (url|3), (time|2|3)
+70105 browser_timeonpage (url|3), (time|2|3)
 70150 browser_snap_center
 70151 browser_text_size_change (oldSize|1|5), (newSize|1|5)
 70200 aggregation (aggregation time|2|3)
 70201 aggregation_test (field1|1|2),(field2|1|2),(field3|1|2),(field4|1|2),(field5|1|2)
+70301 phone_ui_enter
+70302 phone_ui_exit
+70303 phone_ui_button_click (text|3)
+70304 phone_ui_ringer_query_elapsed
+70305 phone_ui_multiple_query
+71001 qsb_start (name|3),(version|1),(start_method|3),(latency|1|3),(search_source|3),(enabled_sources|3),(on_create_latency|1|3)
+71002 qsb_click (id|2),(suggestions|3),(queried_sources|3),(num_chars|1),(click_type|1)
+71003 qsb_search (search_source|3),(method|1),(num_chars|1)
+71004 qsb_voice_search (search_source|3)
+71005 qsb_exit (suggestions|3),(num_chars|1)
+71006 qsb_latency (corpus|3),(latency|1|3),(num_chars|1)
 75000 sqlite_mem_alarm_current (current|1|2)
 75001 sqlite_mem_alarm_max (max|1|2)
 75002 sqlite_mem_alarm_alloc_attempt (attempts|1|4)
@@ -167,6 +182,10 @@
 75004 sqlite_db_corrupt (Database file corrupt|3)
 76001 tts_speak_success (engine|3),(caller|3),(length|1),(locale|3),(rate|1),(pitch|1),(engine_latency|2|3),(engine_total|2|3),(audio_latency|2|3)
 76002 tts_speak_failure (engine|3),(caller|3),(length|1),(locale|3),(rate|1),(pitch|1)
+90000 nfc_first_share
+90001 nfc_share (size|1|2),(tnf|1),(type|3),(aar_present|1),(duration|1|3)
+90002 nfc_share_fail (size|1|2),(tnf|1),(type|3),(aar_present|1)
+90003 nfc_ndef_received (size|1|2),(tnf|1),(type|3),(aar_present|1)
 201001 system_update (status|1|5),(download_result|1|5),(bytes|2|2),(url|3)
 201002 system_update_user (action|3)
 202001 vending_reconstruct (changes|1)
