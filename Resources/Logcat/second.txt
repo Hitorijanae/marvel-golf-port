@@ -1,0 +1,8 @@
+#--------- That was with original idogx boot.img ---------#
+---------------------------------------------------------
+
+--------- beginning of /dev/log/main
+I/DEBUG   (   77): debuggerd: Apr 29 2012 17:12:57
+I/busybox (   73): link_image[1965]:    89 could not load needed library 'libcutils.so' for '/system/xbin/busybox' (reloc_library[1314]:    89 cannot locate '__system_property_set'...
+I/busybox (   73): )CANNOT LINK EXECUTABLE
+I/logwrapper(   73): /system/xbin/busybox terminated by exit(255)
