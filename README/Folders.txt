@@ -1,0 +1,22 @@
+. . . .-. .-. .-. .-. . . 
+| | | |-  `-. |  )|-  | | 
+`.'.' '   `-' `-' `-' `.' 
+
+
+  >=>>=>                                                           
+>=>    >=>                                                  >=>    
+ >=>         >==>    >==>>==>   >===>    >==>              >>=>    
+   >=>     >>   >=>   >=>  >=> >=>     >>   >=>           > >=>    
+      >=>  >>===>>=>  >=>  >=>   >==>  >>===>>=>        >=> >=>    
+>=>    >=> >>         >=>  >=>     >=> >>              >===>>=>>=>
+  >=>>=>    >====>   >==>  >=> >=> >=>  >====>              >=>   
+
+Folder layout : folders.txt : Made by benjamingwynn : Last edit by benjamingwynn : Last edited 24/05/12 
+---------------------------------------------------------------------------------------------------
+
+The ROM folder is where all needed ROM files are stored, you will need this folder, and this folder only to cook yourself some yummy Sense 4 goodness. You should use dsixda's kitchen for cooking Sense 4.
+
+The resource folder is where we store backups, logs, etc or whatever we may need/want for porting Sense 4. Some folders in that folder are not to be touched because I will probably want them how they are (these folders are marked and have readme's inside them saying this)
+
+Thanks
+- Benjamin

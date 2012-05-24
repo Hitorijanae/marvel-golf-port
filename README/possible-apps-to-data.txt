@@ -1,9 +1,0 @@
-Possible apps that could be moved to /data/app
-
-Facebook.apk and facebookEngine.apk
-GoogleQuickSearchBox.apk
-MyDropbox.apk
-MyHTC.apk
-MySkydrive.apk
-HtcStore.apk
-PicoTts.apk => doesn't take much space
