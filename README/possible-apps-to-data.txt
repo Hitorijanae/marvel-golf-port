@@ -1,5 +1,4 @@
 Possible apps that could be moved to /data/app
-Note: this will bring in need for SD Card partitioning
 
 Facebook.apk and facebookEngine.apk
 GoogleQuickSearchBox.apk
