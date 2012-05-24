@@ -30,7 +30,7 @@ ui_print("And obviously HTC");
 ui_print("");
 ui_print("");
 ui_print("Installing, enjoy!");
-show_progress(0.250000, 50);
+show_progress(0.500000, 80);
 format("MTD", "system");
 mount("MTD", "system", "/system");
 mount("MTD", "userdata", "/data");
