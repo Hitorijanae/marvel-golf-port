@@ -1,0 +1,3 @@
+How to unpack-->     java -jar baksmali.jar file.jar -o framework
+How to pack-->       java -jar smali.jar folder -o classes.dex
+How to repackage --> zip file.jar classes.dex
