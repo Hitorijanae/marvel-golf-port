@@ -203,7 +203,8 @@ ro.opengles.version = 131072
 dalvik.vm.heapstartsize=5m
 dalvik.vm.heapgrowthlimit=48m
 dalvik.vm.heapsize=128m
-dalvik.vm.dexopt-data-only=1
+### temp disable
+#dalvik.vm.dexopt-data-only=1
 
 # Default network type
 # 0 => WCDMA Preferred.
@@ -384,8 +385,7 @@ ro.vendor.extension_library=/system/lib/libqc-opt.so
 ### Wildfire S uses an SD card
 
 # Disable 3 fingers swipe on golf device
-ro.framework.gestureservice=1
-### lets enable it :D
+#ro.framework.gestureservice=1
 
 #
 # ADDITIONAL_BUILD_PROPERTIES
