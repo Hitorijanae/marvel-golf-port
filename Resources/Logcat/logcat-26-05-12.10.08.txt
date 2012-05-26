@@ -1,0 +1,645 @@
+--------- beginning of /dev/log/main
+I/DEBUG   (   77): debuggerd: Apr 29 2012 17:12:57
+D/AK8975  (   85): AK8975 daemon 1.1.0 Start
+D/AK8975  (   85): (Library version : 1.2.1.1125)
+--------- beginning of /dev/log/system
+I/Vold    (   75): Vold 2.1 (the revenge) firing up
+D/Vold    (   75): Volume sdcard state changing -1 (Initializing) -> 0 (No-Media)
+I/Netd    (   76): Netd 1.0 starting
+D/Vold    (   75): Volume sdcard state changing 0 (No-Media) -> 2 (Pending)
+D/DirectVolume(   75): DirectVolume::handlePartitionAdded -> MAJOR 179, MINOR 1, PARTN 1
+D/DirectVolume(   75): DirectVolume::handlePartitionAdded -> MAJOR 179, MINOR 2, PARTN 2
+D/Vold    (   75): Volume sdcard state changing 2 (Pending) -> 1 (Idle-Unmounted)
+F/libc    (   79): Fatal signal 11 (SIGSEGV) at 0x98800000 (code=1)
+F/libc    (   81): Fatal signal 4 (SIGILL) at 0x401551e0 (code=1)
+F/libc    (   80): Fatal signal 4 (SIGILL) at 0x405631e0 (code=1)
+I/DEBUG   (   77): *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+I/DEBUG   (   77): Build fingerprint: 'htc_europe/htc_golfu/golfu:4.0.3/IML74K/62541.1:user/release-keys'
+I/DEBUG   (   77): pid: 79, tid: 79  >>> /system/bin/surfaceflinger <<<
+I/DEBUG   (   77): signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 98800000
+I/DEBUG   (   77):  r0 fffffe49  r1 fffffe62  r2 98800000  r3 00000000
+I/DEBUG   (   77):  r4 00000000  r5 e7600000  r6 6c000000  r7 00000000
+I/DEBUG   (   77):  r8 00000000  r9 00000000  10 00000000  fp 00000000
+I/DEBUG   (   77):  ip 00000000  sp bed3c660  lr 401c036d  pc 401d1b18  cpsr 80000030
+I/DEBUG   (   77):  d0  0000000000000000  d1  0000000000000000
+I/DEBUG   (   77):  d2  0000000000000000  d3  0000000000000000
+I/DEBUG   (   77):  d4  0000000000000000  d5  0000000000000000
+I/DEBUG   (   77):  d6  0000000000000000  d7  0000000000000000
+I/DEBUG   (   77):  d8  0000000000000000  d9  0000000000000000
+I/DEBUG   (   77):  d10 0000000000000000  d11 0000000000000000
+I/DEBUG   (   77):  d12 0000000000000000  d13 0000000000000000
+I/DEBUG   (   77):  d14 0000000000000000  d15 0000000000000000
+I/DEBUG   (   77):  scr 00000000
+I/DEBUG   (   77): 
+I/DEBUG   (   77):          #00  pc 00000b18  /system/lib/libnetutils.so
+I/DEBUG   (   77):          #01  pc 00010368  /system/lib/libui.so
+I/DEBUG   (   77): 
+I/DEBUG   (   77): code around pc:
+I/DEBUG   (   77): 401d1af8 00000000 00000000 00000012 0000059c  ................
+I/DEBUG   (   77): 401d1b08 00000000 00000000 00000012 000005ab  ................
+I/DEBUG   (   77): 401d1b18 000051d0 00000000 00100010 000005b8  .Q..............
+I/DEBUG   (   77): 401d1b28 00005000 00000000 000b0010 000005c7  .P..............
+I/DEBUG   (   77): 401d1b38 00005008 00000000 000c0010 000005d6  .P..............
+I/DEBUG   (   77): 
+I/DEBUG   (   77): code around lr:
+I/DEBUG   (   77): 401c034c 4a1bd10d 601e2601 462858a5 efd4f7fa  ...J.&.`.X(F....
+I/DEBUG   (   77): 401c035c 49194818 44795822 f7fb4628 f8dfe804  .H.I"XyD(F......
+I/DEBUG   (   77): 401c036c 2100e05c 500ef854 f7fa4628 4811efc6  \..!T..P(F.....H
+I/DEBUG   (   77): 401c037c 58264913 46284479 f7fa4632 4b11eff4  .I&XyD(F2F.....K
+I/DEBUG   (   77): 401c038c 2200211c 462858e5 eefcf7fa c038f8df  .!.".X(F......8.
+I/DEBUG   (   77): 
+I/DEBUG   (   77): memory map around addr 98800000:
+I/DEBUG   (   77): 40351000-40352000 /system/lib/libgenlock.so
+I/DEBUG   (   77): (no map for address)
+I/DEBUG   (   77): ac900000-ac919000 /system/lib/libpixelflinger.so
+I/DEBUG   (   77): 
+I/DEBUG   (   77): stack:
+I/DEBUG   (   77):     bed3c620  000000f0  
+I/DEBUG   (   77):     bed3c624  bed3c70c  [stack]
+I/DEBUG   (   77):     bed3c628  b000a3c0  
+I/DEBUG   (   77):     bed3c62c  b000b0e0  
+I/DEBUG   (   77):     bed3c630  401b987e  /system/lib/libui.so
+I/DEBUG   (   77):     bed3c634  0e301a42  
+I/DEBUG   (   77):     bed3c638  b00094f0  /system/bin/linker
+I/DEBUG   (   77):     bed3c63c  b000a078  
+I/DEBUG   (   77):     bed3c640  0000023d  
+I/DEBUG   (   77):     bed3c644  00000216  
+I/DEBUG   (   77):     bed3c648  b00094fc  /system/bin/linker
+I/DEBUG   (   77):     bed3c64c  b0012da4  
+I/DEBUG   (   77):     bed3c650  b000b0e0  
+I/DEBUG   (   77):     bed3c654  00000000  
+I/DEBUG   (   77):     bed3c658  df0027ad  
+I/DEBUG   (   77):     bed3c65c  00000000  
+I/DEBUG   (   77): #01 bed3c660  401c6004  /system/lib/libui.so
+I/DEBUG   (   77):     bed3c664  00000005  
+I/DEBUG   (   77):     bed3c668  00000004  
+I/DEBUG   (   77):     bed3c66c  b0003a99  /system/bin/linker
+I/DEBUG   (   77):     bed3c670  b000b1c4  
+I/DEBUG   (   77):     bed3c674  b000b1c0  
+I/DEBUG   (   77):     bed3c678  b000990c  /system/bin/linker
+I/DEBUG   (   77):     bed3c67c  b00046eb  /system/bin/linker
+I/DEBUG   (   77):     bed3c680  b000b0e0  
+I/DEBUG   (   77):     bed3c684  b000b0e0  
+I/DEBUG   (   77):     bed3c688  b000b184  
+I/DEBUG   (   77):     bed3c68c  400103fc  /system/lib/libsurfaceflinger.so
+I/DEBUG   (   77):     bed3c690  00000016  
+I/DEBUG   (   77):     bed3c694  00000003  
+I/DEBUG   (   77):     bed3c698  00016000  
+I/DEBUG   (   77):     bed3c69c  b0012fa8  
+I/DEBUG   (   77):     bed3c6a0  401c7118  /system/lib/libui.so
+I/DEBUG   (   77):     bed3c6a4  b000b16c  
+I/DEBUG   (   77): tid 81 does not exist in pid 81. ignoring debug request
+I/DEBUG   (   77): tid 80 does not exist in pid 80. ignoring debug request
+I/Netd    (  116): Netd 1.0 starting
+F/libc    (  117): Fatal signal 11 (SIGSEGV) at 0x98800000 (code=1)
+F/libc    (  119): Fatal signal 4 (SIGILL) at 0x401551e0 (code=1)
+F/libc    (  118): Fatal signal 4 (SIGILL) at 0x405631e0 (code=1)
+I/DEBUG   (   77): *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+I/DEBUG   (   77): Build fingerprint: 'htc_europe/htc_golfu/golfu:4.0.3/IML74K/62541.1:user/release-keys'
+I/DEBUG   (   77): pid: 119, tid: 119  >>> /system/bin/mediaserver <<<
+I/DEBUG   (   77): signal 4 (SIGILL), code 1 (ILL_ILLOPC), fault addr 401551e0
+I/DEBUG   (   77):  r0 00000000  r1 015a0000  r2 4015433f  r3 4015b138
+I/DEBUG   (   77):  r4 000200ad  r5 00000005  r6 00000004  r7 20000000
+I/DEBUG   (   77):  r8 00000000  r9 00000000  10 00000000  fp 00000000
+I/DEBUG   (   77):  ip 00000000  sp bea633d4  lr 401551a7  pc 401551e0  cpsr 60000030
+I/DEBUG   (   77):  d0  0000000000000000  d1  0000000000000000
+I/DEBUG   (   77):  d2  0000000000000000  d3  0000000000000000
+I/DEBUG   (   77):  d4  0000000000000000  d5  0000000000000000
+I/DEBUG   (   77):  d6  0000000000000000  d7  0000000000000000
+I/DEBUG   (   77):  d8  0000000000000000  d9  0000000000000000
+I/DEBUG   (   77):  d10 0000000000000000  d11 0000000000000000
+I/DEBUG   (   77):  d12 0000000000000000  d13 0000000000000000
+I/DEBUG   (   77):  d14 0000000000000000  d15 0000000000000000
+I/DEBUG   (   77):  scr 00000000
+I/DEBUG   (   77): 
+I/DEBUG   (   77):          #00  pc 000111e0  /system/lib/libui.so (_ZN7android14InputPublisher18appendMotionSampleExPKNS_13PointerCoordsE)
+I/DEBUG   (   77):          #01  lr 401551a7  /system/lib/libui.so
+I/DEBUG   (   77): 
+I/DEBUG   (   77): code around pc:
+I/DEBUG   (   77): 401551c0 447a4479 93006803 46232006 ef20f7f9  yDzD.h... #F.. .
+I/DEBUG   (   77): 401551d0 f7f94628 f04fee88 e0004000 b0072000  (F....O..@... ..
+I/DEBUG   (   77): 401551e0 8b02ecbd bf00bdf0 80000002 0000312a  ............*1..
+I/DEBUG   (   77): 401551f0 00003327 000030d0 00003364 00003072  '3...0..d3..r0..
+I/DEBUG   (   77): 40155200 00003338 47f0e92d 460e7b07 4604b086  83..-..G.{.F...F
+I/DEBUG   (   77): 
+I/DEBUG   (   77): code around lr:
+I/DEBUG   (   77): 40155184 3640f92f 42956922 68a3d3f3 f8d36167  /.@6"i.B...hga..
+I/DEBUG   (   77): 40155194 1c5120cc 10ccf8c3 b1e87ba0 f7fa68a0  . Q......{...h..
+I/DEBUG   (   77): 401551a4 2800e95e 6821da18 4628ad03 f7f93108  ^..(..!h..(F.1..
+I/DEBUG   (   77): 401551b4 9c03eea4 e8f2f7fa 4a10490f 447a4479  .........I.JyDzD
+I/DEBUG   (   77): 401551c4 93006803 46232006 ef20f7f9 f7f94628  .h... #F.. .(F..
+I/DEBUG   (   77): 
+I/DEBUG   (   77): memory map around addr 401551e0:
+I/DEBUG   (   77): 4013e000-40144000 /system/lib/libbinder.so
+I/DEBUG   (   77): 40144000-4015a000 /system/lib/libui.so
+I/DEBUG   (   77): 4015a000-4015c000 /system/lib/libui.so
+I/DEBUG   (   77): 
+I/DEBUG   (   77): stack:
+I/DEBUG   (   77):     bea63394  b000a078  
+I/DEBUG   (   77):     bea63398  0000023d  
+I/DEBUG   (   77):     bea6339c  00000216  
+I/DEBUG   (   77):     bea633a0  b00094fc  /system/bin/linker
+I/DEBUG   (   77):     bea633a4  b0012da4  
+I/DEBUG   (   77):     bea633a8  b000ac80  
+I/DEBUG   (   77):     bea633ac  00000000  
+I/DEBUG   (   77):     bea633b0  00000000  
+I/DEBUG   (   77):     bea633b4  00000000  
+I/DEBUG   (   77):     bea633b8  4015a004  /system/lib/libui.so
+I/DEBUG   (   77):     bea633bc  00000005  
+I/DEBUG   (   77):     bea633c0  00000004  
+I/DEBUG   (   77):     bea633c4  b0003a99  /system/bin/linker
+I/DEBUG   (   77):     bea633c8  df0027ad  
+I/DEBUG   (   77):     bea633cc  00000000  
+I/DEBUG   (   77):     bea633d0  b000990c  /system/bin/linker
+I/DEBUG   (   77): #00 bea633d4  b00046eb  /system/bin/linker
+I/DEBUG   (   77):     bea633d8  b000ac80  
+I/DEBUG   (   77):     bea633dc  b000ac80  
+I/DEBUG   (   77):     bea633e0  b000ad24  
+I/DEBUG   (   77):     bea633e4  a901f259  /system/lib/libmedia.so
+I/DEBUG   (   77):     bea633e8  00000016  
+I/DEBUG   (   77):     bea633ec  00000003  
+I/DEBUG   (   77):     bea633f0  00016000  
+I/DEBUG   (   77):     bea633f4  b0012fa8  
+I/DEBUG   (   77):     bea633f8  4015b118  /system/lib/libui.so
+I/DEBUG   (   77):     bea633fc  b000ad0c  
+I/DEBUG   (   77):     bea63400  b000ac80  
+I/DEBUG   (   77):     bea63404  b000ad10  
+I/DEBUG   (   77):     bea63408  00000001  
+I/DEBUG   (   77):     bea6340c  b0005195  /system/bin/linker
+I/DEBUG   (   77):     bea63410  00000003  
+I/DEBUG   (   77):     bea63414  00016000  
+I/DEBUG   (   77):     bea63418  00000000  
+I/DEBUG   (   77): *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+I/DEBUG   (   77): Build fingerprint: 'htc_europe/htc_golfu/golfu:4.0.3/IML74K/62541.1:user/release-keys'
+I/DEBUG   (   77): pid: 117, tid: 117  >>> /system/bin/surfaceflinger <<<
+I/DEBUG   (   77): signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 98800000
+I/DEBUG   (   77):  r0 fffffe49  r1 fffffe62  r2 98800000  r3 00000000
+I/DEBUG   (   77):  r4 00000000  r5 e7600000  r6 6c000000  r7 00000000
+I/DEBUG   (   77):  r8 00000000  r9 00000000  10 00000000  fp 00000000
+I/DEBUG   (   77):  ip 00000000  sp bec51660  lr 401c036d  pc 401d1b18  cpsr 80000030
+I/DEBUG   (   77):  d0  0000000000000000  d1  0000000000000000
+I/DEBUG   (   77):  d2  0000000000000000  d3  0000000000000000
+I/DEBUG   (   77):  d4  0000000000000000  d5  0000000000000000
+I/DEBUG   (   77):  d6  0000000000000000  d7  0000000000000000
+I/DEBUG   (   77):  d8  0000000000000000  d9  0000000000000000
+I/DEBUG   (   77):  d10 0000000000000000  d11 0000000000000000
+I/DEBUG   (   77):  d12 0000000000000000  d13 0000000000000000
+I/DEBUG   (   77):  d14 0000000000000000  d15 0000000000000000
+I/DEBUG   (   77):  scr 00000000
+I/DEBUG   (   77): 
+I/DEBUG   (   77):          #00  pc 00000b18  /system/lib/libnetutils.so
+I/DEBUG   (   77):          #01  pc 00010368  /system/lib/libui.so
+I/DEBUG   (   77): 
+I/DEBUG   (   77): code around pc:
+I/DEBUG   (   77): 401d1af8 00000000 00000000 00000012 0000059c  ................
+I/DEBUG   (   77): 401d1b08 00000000 00000000 00000012 000005ab  ................
+I/DEBUG   (   77): 401d1b18 000051d0 00000000 00100010 000005b8  .Q..............
+I/DEBUG   (   77): 401d1b28 00005000 00000000 000b0010 000005c7  .P..............
+I/DEBUG   (   77): 401d1b38 00005008 00000000 000c0010 000005d6  .P..............
+I/DEBUG   (   77): 
+I/DEBUG   (   77): code around lr:
+I/DEBUG   (   77): 401c034c 4a1bd10d 601e2601 462858a5 efd4f7fa  ...J.&.`.X(F....
+I/DEBUG   (   77): 401c035c 49194818 44795822 f7fb4628 f8dfe804  .H.I"XyD(F......
+I/DEBUG   (   77): 401c036c 2100e05c 500ef854 f7fa4628 4811efc6  \..!T..P(F.....H
+I/DEBUG   (   77): 401c037c 58264913 46284479 f7fa4632 4b11eff4  .I&XyD(F2F.....K
+I/DEBUG   (   77): 401c038c 2200211c 462858e5 eefcf7fa c038f8df  .!.".X(F......8.
+I/DEBUG   (   77): 
+I/DEBUG   (   77): memory map around addr 98800000:
+I/DEBUG   (   77): 40351000-40352000 /system/lib/libgenlock.so
+I/DEBUG   (   77): (no map for address)
+I/DEBUG   (   77): ac900000-ac919000 /system/lib/libpixelflinger.so
+I/DEBUG   (   77): 
+I/DEBUG   (   77): stack:
+I/DEBUG   (   77):     bec51620  000000f0  
+I/DEBUG   (   77):     bec51624  bec5170c  [stack]
+I/DEBUG   (   77):     bec51628  b000a3c0  
+I/DEBUG   (   77):     bec5162c  b000b0e0  
+I/DEBUG   (   77):     bec51630  401b987e  /system/lib/libui.so
+I/DEBUG   (   77):     bec51634  0e301a42  
+I/DEBUG   (   77):     bec51638  b00094f0  /system/bin/linker
+I/DEBUG   (   77):     bec5163c  b000a078  
+I/DEBUG   (   77):     bec51640  0000023d  
+I/DEBUG   (   77):     bec51644  00000216  
+I/DEBUG   (   77):     bec51648  b00094fc  /system/bin/linker
+I/DEBUG   (   77):     bec5164c  b0012da4  
+I/DEBUG   (   77):     bec51650  b000b0e0  
+I/DEBUG   (   77):     bec51654  00000000  
+I/DEBUG   (   77):     bec51658  df0027ad  
+I/DEBUG   (   77):     bec5165c  00000000  
+I/DEBUG   (   77): #01 bec51660  401c6004  /system/lib/libui.so
+I/DEBUG   (   77):     bec51664  00000005  
+I/DEBUG   (   77):     bec51668  00000004  
+I/DEBUG   (   77):     bec5166c  b0003a99  /system/bin/linker
+I/DEBUG   (   77):     bec51670  b000b1c4  
+I/DEBUG   (   77):     bec51674  b000b1c0  
+I/DEBUG   (   77):     bec51678  b000990c  /system/bin/linker
+I/DEBUG   (   77):     bec5167c  b00046eb  /system/bin/linker
+I/DEBUG   (   77):     bec51680  b000b0e0  
+I/DEBUG   (   77):     bec51684  b000b0e0  
+I/DEBUG   (   77):     bec51688  b000b184  
+I/DEBUG   (   77):     bec5168c  400103fc  /system/lib/libsurfaceflinger.so
+I/DEBUG   (   77):     bec51690  00000016  
+I/DEBUG   (   77):     bec51694  00000003  
+I/DEBUG   (   77):     bec51698  00016000  
+I/DEBUG   (   77):     bec5169c  b0012fa8  
+I/DEBUG   (   77):     bec516a0  401c7118  /system/lib/libui.so
+I/DEBUG   (   77):     bec516a4  b000b16c  
+I/DEBUG   (   77): tid 118 does not exist in pid 118. ignoring debug request
+I/Netd    (  137): Netd 1.0 starting
+F/libc    (  138): Fatal signal 11 (SIGSEGV) at 0x98800000 (code=1)
+F/libc    (  140): Fatal signal 4 (SIGILL) at 0x401551e0 (code=1)
+F/libc    (  139): Fatal signal 4 (SIGILL) at 0x405631e0 (code=1)
+I/DEBUG   (   77): *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+I/DEBUG   (   77): Build fingerprint: 'htc_europe/htc_golfu/golfu:4.0.3/IML74K/62541.1:user/release-keys'
+I/DEBUG   (   77): pid: 138, tid: 138  >>> /system/bin/surfaceflinger <<<
+I/DEBUG   (   77): signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 98800000
+I/DEBUG   (   77):  r0 fffffe49  r1 fffffe62  r2 98800000  r3 00000000
+I/DEBUG   (   77):  r4 00000000  r5 e7600000  r6 6c000000  r7 00000000
+I/DEBUG   (   77):  r8 00000000  r9 00000000  10 00000000  fp 00000000
+I/DEBUG   (   77):  ip 00000000  sp bece9660  lr 401c036d  pc 401d1b18  cpsr 80000030
+I/DEBUG   (   77):  d0  0000000000000000  d1  0000000000000000
+I/DEBUG   (   77):  d2  0000000000000000  d3  0000000000000000
+I/DEBUG   (   77):  d4  0000000000000000  d5  0000000000000000
+I/DEBUG   (   77):  d6  0000000000000000  d7  0000000000000000
+I/DEBUG   (   77):  d8  0000000000000000  d9  0000000000000000
+I/DEBUG   (   77):  d10 0000000000000000  d11 0000000000000000
+I/DEBUG   (   77):  d12 0000000000000000  d13 0000000000000000
+I/DEBUG   (   77):  d14 0000000000000000  d15 0000000000000000
+I/DEBUG   (   77):  scr 00000000
+I/DEBUG   (   77): 
+I/DEBUG   (   77):          #00  pc 00000b18  /system/lib/libnetutils.so
+I/DEBUG   (   77):          #01  pc 00010368  /system/lib/libui.so
+I/DEBUG   (   77): 
+I/DEBUG   (   77): code around pc:
+I/DEBUG   (   77): 401d1af8 00000000 00000000 00000012 0000059c  ................
+I/DEBUG   (   77): 401d1b08 00000000 00000000 00000012 000005ab  ................
+I/DEBUG   (   77): 401d1b18 000051d0 00000000 00100010 000005b8  .Q..............
+I/DEBUG   (   77): 401d1b28 00005000 00000000 000b0010 000005c7  .P..............
+I/DEBUG   (   77): 401d1b38 00005008 00000000 000c0010 000005d6  .P..............
+I/DEBUG   (   77): 
+I/DEBUG   (   77): code around lr:
+I/DEBUG   (   77): 401c034c 4a1bd10d 601e2601 462858a5 efd4f7fa  ...J.&.`.X(F....
+I/DEBUG   (   77): 401c035c 49194818 44795822 f7fb4628 f8dfe804  .H.I"XyD(F......
+I/DEBUG   (   77): 401c036c 2100e05c 500ef854 f7fa4628 4811efc6  \..!T..P(F.....H
+I/DEBUG   (   77): 401c037c 58264913 46284479 f7fa4632 4b11eff4  .I&XyD(F2F.....K
+I/DEBUG   (   77): 401c038c 2200211c 462858e5 eefcf7fa c038f8df  .!.".X(F......8.
+I/DEBUG   (   77): 
+I/DEBUG   (   77): memory map around addr 98800000:
+I/DEBUG   (   77): 40351000-40352000 /system/lib/libgenlock.so
+I/DEBUG   (   77): (no map for address)
+I/DEBUG   (   77): ac900000-ac919000 /system/lib/libpixelflinger.so
+I/DEBUG   (   77): 
+I/DEBUG   (   77): stack:
+I/DEBUG   (   77):     bece9620  000000f0  
+I/DEBUG   (   77):     bece9624  bece970c  [stack]
+I/DEBUG   (   77):     bece9628  b000a3c0  
+I/DEBUG   (   77):     bece962c  b000b0e0  
+I/DEBUG   (   77):     bece9630  401b987e  /system/lib/libui.so
+I/DEBUG   (   77):     bece9634  0e301a42  
+I/DEBUG   (   77):     bece9638  b00094f0  /system/bin/linker
+I/DEBUG   (   77):     bece963c  b000a078  
+I/DEBUG   (   77):     bece9640  0000023d  
+I/DEBUG   (   77):     bece9644  00000216  
+I/DEBUG   (   77):     bece9648  b00094fc  /system/bin/linker
+I/DEBUG   (   77):     bece964c  b0012da4  
+I/DEBUG   (   77):     bece9650  b000b0e0  
+I/DEBUG   (   77):     bece9654  00000000  
+I/DEBUG   (   77):     bece9658  df0027ad  
+I/DEBUG   (   77):     bece965c  00000000  
+I/DEBUG   (   77): #01 bece9660  401c6004  /system/lib/libui.so
+I/DEBUG   (   77):     bece9664  00000005  
+I/DEBUG   (   77):     bece9668  00000004  
+I/DEBUG   (   77):     bece966c  b0003a99  /system/bin/linker
+I/DEBUG   (   77):     bece9670  b000b1c4  
+I/DEBUG   (   77):     bece9674  b000b1c0  
+I/DEBUG   (   77):     bece9678  b000990c  /system/bin/linker
+I/DEBUG   (   77):     bece967c  b00046eb  /system/bin/linker
+I/DEBUG   (   77):     bece9680  b000b0e0  
+I/DEBUG   (   77):     bece9684  b000b0e0  
+I/DEBUG   (   77):     bece9688  b000b184  
+I/DEBUG   (   77):     bece968c  400103fc  /system/lib/libsurfaceflinger.so
+I/DEBUG   (   77):     bece9690  00000016  
+I/DEBUG   (   77):     bece9694  00000003  
+I/DEBUG   (   77):     bece9698  00016000  
+I/DEBUG   (   77):     bece969c  b0012fa8  
+I/DEBUG   (   77):     bece96a0  401c7118  /system/lib/libui.so
+I/DEBUG   (   77):     bece96a4  b000b16c  
+I/DEBUG   (   77): tid 140 does not exist in pid 140. ignoring debug request
+I/DEBUG   (   77): tid 139 does not exist in pid 139. ignoring debug request
+I/Netd    (  158): Netd 1.0 starting
+F/libc    (  161): Fatal signal 4 (SIGILL) at 0x401551e0 (code=1)
+F/libc    (  159): Fatal signal 11 (SIGSEGV) at 0x98800000 (code=1)
+F/libc    (  160): Fatal signal 4 (SIGILL) at 0x405631e0 (code=1)
+I/DEBUG   (   77): *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+I/DEBUG   (   77): Build fingerprint: 'htc_europe/htc_golfu/golfu:4.0.3/IML74K/62541.1:user/release-keys'
+I/DEBUG   (   77): pid: 161, tid: 161  >>> /system/bin/mediaserver <<<
+I/DEBUG   (   77): signal 4 (SIGILL), code 1 (ILL_ILLOPC), fault addr 401551e0
+I/DEBUG   (   77):  r0 00000000  r1 015a0000  r2 4015433f  r3 4015b138
+I/DEBUG   (   77):  r4 000200ad  r5 00000005  r6 00000004  r7 20000000
+I/DEBUG   (   77):  r8 00000000  r9 00000000  10 00000000  fp 00000000
+I/DEBUG   (   77):  ip 00000000  sp beb1e3d4  lr 401551a7  pc 401551e0  cpsr 60000030
+I/DEBUG   (   77):  d0  0000000000000000  d1  0000000000000000
+I/DEBUG   (   77):  d2  0000000000000000  d3  0000000000000000
+I/DEBUG   (   77):  d4  0000000000000000  d5  0000000000000000
+I/DEBUG   (   77):  d6  0000000000000000  d7  0000000000000000
+I/DEBUG   (   77):  d8  0000000000000000  d9  0000000000000000
+I/DEBUG   (   77):  d10 0000000000000000  d11 0000000000000000
+I/DEBUG   (   77):  d12 0000000000000000  d13 0000000000000000
+I/DEBUG   (   77):  d14 0000000000000000  d15 0000000000000000
+I/DEBUG   (   77):  scr 00000000
+I/DEBUG   (   77): 
+I/DEBUG   (   77):          #00  pc 000111e0  /system/lib/libui.so (_ZN7android14InputPublisher18appendMotionSampleExPKNS_13PointerCoordsE)
+I/DEBUG   (   77):          #01  lr 401551a7  /system/lib/libui.so
+I/DEBUG   (   77): 
+I/DEBUG   (   77): code around pc:
+I/DEBUG   (   77): 401551c0 447a4479 93006803 46232006 ef20f7f9  yDzD.h... #F.. .
+I/DEBUG   (   77): 401551d0 f7f94628 f04fee88 e0004000 b0072000  (F....O..@... ..
+I/DEBUG   (   77): 401551e0 8b02ecbd bf00bdf0 80000002 0000312a  ............*1..
+I/DEBUG   (   77): 401551f0 00003327 000030d0 00003364 00003072  '3...0..d3..r0..
+I/DEBUG   (   77): 40155200 00003338 47f0e92d 460e7b07 4604b086  83..-..G.{.F...F
+I/DEBUG   (   77): 
+I/DEBUG   (   77): code around lr:
+I/DEBUG   (   77): 40155184 3640f92f 42956922 68a3d3f3 f8d36167  /.@6"i.B...hga..
+I/DEBUG   (   77): 40155194 1c5120cc 10ccf8c3 b1e87ba0 f7fa68a0  . Q......{...h..
+I/DEBUG   (   77): 401551a4 2800e95e 6821da18 4628ad03 f7f93108  ^..(..!h..(F.1..
+I/DEBUG   (   77): 401551b4 9c03eea4 e8f2f7fa 4a10490f 447a4479  .........I.JyDzD
+I/DEBUG   (   77): 401551c4 93006803 46232006 ef20f7f9 f7f94628  .h... #F.. .(F..
+I/DEBUG   (   77): 
+I/DEBUG   (   77): memory map around addr 401551e0:
+I/DEBUG   (   77): 4013e000-40144000 /system/lib/libbinder.so
+I/DEBUG   (   77): 40144000-4015a000 /system/lib/libui.so
+I/DEBUG   (   77): 4015a000-4015c000 /system/lib/libui.so
+I/DEBUG   (   77): 
+I/DEBUG   (   77): stack:
+I/DEBUG   (   77):     beb1e394  b000a078  
+I/DEBUG   (   77):     beb1e398  0000023d  
+I/DEBUG   (   77):     beb1e39c  00000216  
+I/DEBUG   (   77):     beb1e3a0  b00094fc  /system/bin/linker
+I/DEBUG   (   77):     beb1e3a4  b0012da4  
+I/DEBUG   (   77):     beb1e3a8  b000ac80  
+I/DEBUG   (   77):     beb1e3ac  00000000  
+I/DEBUG   (   77):     beb1e3b0  00000000  
+I/DEBUG   (   77):     beb1e3b4  00000000  
+I/DEBUG   (   77):     beb1e3b8  4015a004  /system/lib/libui.so
+I/DEBUG   (   77):     beb1e3bc  00000005  
+I/DEBUG   (   77):     beb1e3c0  00000004  
+I/DEBUG   (   77):     beb1e3c4  b0003a99  /system/bin/linker
+I/DEBUG   (   77):     beb1e3c8  df0027ad  
+I/DEBUG   (   77):     beb1e3cc  00000000  
+I/DEBUG   (   77):     beb1e3d0  b000990c  /system/bin/linker
+I/DEBUG   (   77): #00 beb1e3d4  b00046eb  /system/bin/linker
+I/DEBUG   (   77):     beb1e3d8  b000ac80  
+I/DEBUG   (   77):     beb1e3dc  b000ac80  
+I/DEBUG   (   77):     beb1e3e0  b000ad24  
+I/DEBUG   (   77):     beb1e3e4  a901f259  /system/lib/libmedia.so
+I/DEBUG   (   77):     beb1e3e8  00000016  
+I/DEBUG   (   77):     beb1e3ec  00000003  
+I/DEBUG   (   77):     beb1e3f0  00016000  
+I/DEBUG   (   77):     beb1e3f4  b0012fa8  
+I/DEBUG   (   77):     beb1e3f8  4015b118  /system/lib/libui.so
+I/DEBUG   (   77):     beb1e3fc  b000ad0c  
+I/DEBUG   (   77):     beb1e400  b000ac80  
+I/DEBUG   (   77):     beb1e404  b000ad10  
+I/DEBUG   (   77):     beb1e408  00000001  
+I/DEBUG   (   77):     beb1e40c  b0005195  /system/bin/linker
+I/DEBUG   (   77):     beb1e410  00000003  
+I/DEBUG   (   77):     beb1e414  00016000  
+I/DEBUG   (   77):     beb1e418  00000000  
+I/DEBUG   (   77): *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+I/DEBUG   (   77): Build fingerprint: 'htc_europe/htc_golfu/golfu:4.0.3/IML74K/62541.1:user/release-keys'
+I/DEBUG   (   77): pid: 159, tid: 159  >>> /system/bin/surfaceflinger <<<
+I/DEBUG   (   77): signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 98800000
+I/DEBUG   (   77):  r0 fffffe49  r1 fffffe62  r2 98800000  r3 00000000
+I/DEBUG   (   77):  r4 00000000  r5 e7600000  r6 6c000000  r7 00000000
+I/DEBUG   (   77):  r8 00000000  r9 00000000  10 00000000  fp 00000000
+I/DEBUG   (   77):  ip 00000000  sp bed88660  lr 401c036d  pc 401d1b18  cpsr 80000030
+I/DEBUG   (   77):  d0  0000000000000000  d1  0000000000000000
+I/DEBUG   (   77):  d2  0000000000000000  d3  0000000000000000
+I/DEBUG   (   77):  d4  0000000000000000  d5  0000000000000000
+I/DEBUG   (   77):  d6  0000000000000000  d7  0000000000000000
+I/DEBUG   (   77):  d8  0000000000000000  d9  0000000000000000
+I/DEBUG   (   77):  d10 0000000000000000  d11 0000000000000000
+I/DEBUG   (   77):  d12 0000000000000000  d13 0000000000000000
+I/DEBUG   (   77):  d14 0000000000000000  d15 0000000000000000
+I/DEBUG   (   77):  scr 00000000
+I/DEBUG   (   77): 
+I/DEBUG   (   77):          #00  pc 00000b18  /system/lib/libnetutils.so
+I/DEBUG   (   77):          #01  pc 00010368  /system/lib/libui.so
+I/DEBUG   (   77): 
+I/DEBUG   (   77): code around pc:
+I/DEBUG   (   77): 401d1af8 00000000 00000000 00000012 0000059c  ................
+I/DEBUG   (   77): 401d1b08 00000000 00000000 00000012 000005ab  ................
+I/DEBUG   (   77): 401d1b18 000051d0 00000000 00100010 000005b8  .Q..............
+I/DEBUG   (   77): 401d1b28 00005000 00000000 000b0010 000005c7  .P..............
+I/DEBUG   (   77): 401d1b38 00005008 00000000 000c0010 000005d6  .P..............
+I/DEBUG   (   77): 
+I/DEBUG   (   77): code around lr:
+I/DEBUG   (   77): 401c034c 4a1bd10d 601e2601 462858a5 efd4f7fa  ...J.&.`.X(F....
+I/DEBUG   (   77): 401c035c 49194818 44795822 f7fb4628 f8dfe804  .H.I"XyD(F......
+I/DEBUG   (   77): 401c036c 2100e05c 500ef854 f7fa4628 4811efc6  \..!T..P(F.....H
+I/DEBUG   (   77): 401c037c 58264913 46284479 f7fa4632 4b11eff4  .I&XyD(F2F.....K
+I/DEBUG   (   77): 401c038c 2200211c 462858e5 eefcf7fa c038f8df  .!.".X(F......8.
+I/DEBUG   (   77): 
+I/DEBUG   (   77): memory map around addr 98800000:
+I/DEBUG   (   77): 40351000-40352000 /system/lib/libgenlock.so
+I/DEBUG   (   77): (no map for address)
+I/DEBUG   (   77): ac900000-ac919000 /system/lib/libpixelflinger.so
+I/DEBUG   (   77): 
+I/DEBUG   (   77): stack:
+I/DEBUG   (   77):     bed88620  000000f0  
+I/DEBUG   (   77):     bed88624  bed8870c  [stack]
+I/DEBUG   (   77):     bed88628  b000a3c0  
+I/DEBUG   (   77):     bed8862c  b000b0e0  
+I/DEBUG   (   77):     bed88630  401b987e  /system/lib/libui.so
+I/DEBUG   (   77):     bed88634  0e301a42  
+I/DEBUG   (   77):     bed88638  b00094f0  /system/bin/linker
+I/DEBUG   (   77):     bed8863c  b000a078  
+I/DEBUG   (   77):     bed88640  0000023d  
+I/DEBUG   (   77):     bed88644  00000216  
+I/DEBUG   (   77):     bed88648  b00094fc  /system/bin/linker
+I/DEBUG   (   77):     bed8864c  b0012da4  
+I/DEBUG   (   77):     bed88650  b000b0e0  
+I/DEBUG   (   77):     bed88654  00000000  
+I/DEBUG   (   77):     bed88658  df0027ad  
+I/DEBUG   (   77):     bed8865c  00000000  
+I/DEBUG   (   77): #01 bed88660  401c6004  /system/lib/libui.so
+I/DEBUG   (   77):     bed88664  00000005  
+I/DEBUG   (   77):     bed88668  00000004  
+I/DEBUG   (   77):     bed8866c  b0003a99  /system/bin/linker
+I/DEBUG   (   77):     bed88670  b000b1c4  
+I/DEBUG   (   77):     bed88674  b000b1c0  
+I/DEBUG   (   77):     bed88678  b000990c  /system/bin/linker
+I/DEBUG   (   77):     bed8867c  b00046eb  /system/bin/linker
+I/DEBUG   (   77):     bed88680  b000b0e0  
+I/DEBUG   (   77):     bed88684  b000b0e0  
+I/DEBUG   (   77):     bed88688  b000b184  
+I/DEBUG   (   77):     bed8868c  400103fc  /system/lib/libsurfaceflinger.so
+I/DEBUG   (   77):     bed88690  00000016  
+I/DEBUG   (   77):     bed88694  00000003  
+I/DEBUG   (   77):     bed88698  00016000  
+I/DEBUG   (   77):     bed8869c  b0012fa8  
+I/DEBUG   (   77):     bed886a0  401c7118  /system/lib/libui.so
+I/DEBUG   (   77):     bed886a4  b000b16c  
+I/DEBUG   (   77): tid 160 does not exist in pid 160. ignoring debug request
+I/Netd    (  179): Netd 1.0 starting
+F/libc    (  180): Fatal signal 11 (SIGSEGV) at 0x98800000 (code=1)
+F/libc    (  182): Fatal signal 4 (SIGILL) at 0x401551e0 (code=1)
+F/libc    (  181): Fatal signal 4 (SIGILL) at 0x405631e0 (code=1)
+I/DEBUG   (   77): *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+I/DEBUG   (   77): Build fingerprint: 'htc_europe/htc_golfu/golfu:4.0.3/IML74K/62541.1:user/release-keys'
+I/DEBUG   (   77): pid: 180, tid: 180  >>> /system/bin/surfaceflinger <<<
+I/DEBUG   (   77): signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 98800000
+I/DEBUG   (   77):  r0 fffffe49  r1 fffffe62  r2 98800000  r3 00000000
+I/DEBUG   (   77):  r4 00000000  r5 e7600000  r6 6c000000  r7 00000000
+I/DEBUG   (   77):  r8 00000000  r9 00000000  10 00000000  fp 00000000
+I/DEBUG   (   77):  ip 00000000  sp becd3660  lr 401c036d  pc 401d1b18  cpsr 80000030
+I/DEBUG   (   77):  d0  0000000000000000  d1  0000000000000000
+I/DEBUG   (   77):  d2  0000000000000000  d3  0000000000000000
+I/DEBUG   (   77):  d4  0000000000000000  d5  0000000000000000
+I/DEBUG   (   77):  d6  0000000000000000  d7  0000000000000000
+I/DEBUG   (   77):  d8  0000000000000000  d9  0000000000000000
+I/DEBUG   (   77):  d10 0000000000000000  d11 0000000000000000
+I/DEBUG   (   77):  d12 0000000000000000  d13 0000000000000000
+I/DEBUG   (   77):  d14 0000000000000000  d15 0000000000000000
+I/DEBUG   (   77):  scr 00000000
+I/DEBUG   (   77): 
+I/DEBUG   (   77):          #00  pc 00000b18  /system/lib/libnetutils.so
+I/DEBUG   (   77):          #01  pc 00010368  /system/lib/libui.so
+I/DEBUG   (   77): 
+I/DEBUG   (   77): code around pc:
+I/DEBUG   (   77): 401d1af8 00000000 00000000 00000012 0000059c  ................
+I/DEBUG   (   77): 401d1b08 00000000 00000000 00000012 000005ab  ................
+I/DEBUG   (   77): 401d1b18 000051d0 00000000 00100010 000005b8  .Q..............
+I/DEBUG   (   77): 401d1b28 00005000 00000000 000b0010 000005c7  .P..............
+I/DEBUG   (   77): 401d1b38 00005008 00000000 000c0010 000005d6  .P..............
+I/DEBUG   (   77): 
+I/DEBUG   (   77): code around lr:
+I/DEBUG   (   77): 401c034c 4a1bd10d 601e2601 462858a5 efd4f7fa  ...J.&.`.X(F....
+I/DEBUG   (   77): 401c035c 49194818 44795822 f7fb4628 f8dfe804  .H.I"XyD(F......
+I/DEBUG   (   77): 401c036c 2100e05c 500ef854 f7fa4628 4811efc6  \..!T..P(F.....H
+I/DEBUG   (   77): 401c037c 58264913 46284479 f7fa4632 4b11eff4  .I&XyD(F2F.....K
+I/DEBUG   (   77): 401c038c 2200211c 462858e5 eefcf7fa c038f8df  .!.".X(F......8.
+I/DEBUG   (   77): 
+I/DEBUG   (   77): memory map around addr 98800000:
+I/DEBUG   (   77): 40351000-40352000 /system/lib/libgenlock.so
+I/DEBUG   (   77): (no map for address)
+I/DEBUG   (   77): ac900000-ac919000 /system/lib/libpixelflinger.so
+I/DEBUG   (   77): 
+I/DEBUG   (   77): stack:
+I/DEBUG   (   77):     becd3620  000000f0  
+I/DEBUG   (   77):     becd3624  becd370c  [stack]
+I/DEBUG   (   77):     becd3628  b000a3c0  
+I/DEBUG   (   77):     becd362c  b000b0e0  
+I/DEBUG   (   77):     becd3630  401b987e  /system/lib/libui.so
+I/DEBUG   (   77):     becd3634  0e301a42  
+I/DEBUG   (   77):     becd3638  b00094f0  /system/bin/linker
+I/DEBUG   (   77):     becd363c  b000a078  
+I/DEBUG   (   77):     becd3640  0000023d  
+I/DEBUG   (   77):     becd3644  00000216  
+I/DEBUG   (   77):     becd3648  b00094fc  /system/bin/linker
+I/DEBUG   (   77):     becd364c  b0012da4  
+I/DEBUG   (   77):     becd3650  b000b0e0  
+I/DEBUG   (   77):     becd3654  00000000  
+I/DEBUG   (   77):     becd3658  df0027ad  
+I/DEBUG   (   77):     becd365c  00000000  
+I/DEBUG   (   77): #01 becd3660  401c6004  /system/lib/libui.so
+I/DEBUG   (   77):     becd3664  00000005  
+I/DEBUG   (   77):     becd3668  00000004  
+I/DEBUG   (   77):     becd366c  b0003a99  /system/bin/linker
+I/DEBUG   (   77):     becd3670  b000b1c4  
+I/DEBUG   (   77):     becd3674  b000b1c0  
+I/DEBUG   (   77):     becd3678  b000990c  /system/bin/linker
+I/DEBUG   (   77):     becd367c  b00046eb  /system/bin/linker
+I/DEBUG   (   77):     becd3680  b000b0e0  
+I/DEBUG   (   77):     becd3684  b000b0e0  
+I/DEBUG   (   77):     becd3688  b000b184  
+I/DEBUG   (   77):     becd368c  400103fc  /system/lib/libsurfaceflinger.so
+I/DEBUG   (   77):     becd3690  00000016  
+I/DEBUG   (   77):     becd3694  00000003  
+I/DEBUG   (   77):     becd3698  00016000  
+I/DEBUG   (   77):     becd369c  b0012fa8  
+I/DEBUG   (   77):     becd36a0  401c7118  /system/lib/libui.so
+I/DEBUG   (   77):     becd36a4  b000b16c  
+I/DEBUG   (   77): tid 182 does not exist in pid 182. ignoring debug request
+I/DEBUG   (   77): tid 181 does not exist in pid 181. ignoring debug request
+I/Netd    (  200): Netd 1.0 starting
+F/libc    (  203): Fatal signal 4 (SIGILL) at 0x401551e0 (code=1)
+F/libc    (  201): Fatal signal 11 (SIGSEGV) at 0x98800000 (code=1)
+F/libc    (  202): Fatal signal 4 (SIGILL) at 0x405631e0 (code=1)
+I/DEBUG   (   77): *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+I/DEBUG   (   77): Build fingerprint: 'htc_europe/htc_golfu/golfu:4.0.3/IML74K/62541.1:user/release-keys'
+I/DEBUG   (   77): pid: 201, tid: 201  >>> /system/bin/surfaceflinger <<<
+I/DEBUG   (   77): signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 98800000
+I/DEBUG   (   77):  r0 fffffe49  r1 fffffe62  r2 98800000  r3 00000000
+I/DEBUG   (   77):  r4 00000000  r5 e7600000  r6 6c000000  r7 00000000
+I/DEBUG   (   77):  r8 00000000  r9 00000000  10 00000000  fp 00000000
+I/DEBUG   (   77):  ip 00000000  sp bec6e660  lr 401c036d  pc 401d1b18  cpsr 80000030
+I/DEBUG   (   77):  d0  0000000000000000  d1  0000000000000000
+I/DEBUG   (   77):  d2  0000000000000000  d3  0000000000000000
+I/DEBUG   (   77):  d4  0000000000000000  d5  0000000000000000
+I/DEBUG   (   77):  d6  0000000000000000  d7  0000000000000000
+I/DEBUG   (   77):  d8  0000000000000000  d9  0000000000000000
+I/DEBUG   (   77):  d10 0000000000000000  d11 0000000000000000
+I/DEBUG   (   77):  d12 0000000000000000  d13 0000000000000000
+I/DEBUG   (   77):  d14 0000000000000000  d15 0000000000000000
+I/DEBUG   (   77):  scr 00000000
+I/DEBUG   (   77): 
+I/DEBUG   (   77):          #00  pc 00000b18  /system/lib/libnetutils.so
+I/DEBUG   (   77):          #01  pc 00010368  /system/lib/libui.so
+I/DEBUG   (   77): 
+I/DEBUG   (   77): code around pc:
+I/DEBUG   (   77): 401d1af8 00000000 00000000 00000012 0000059c  ................
+I/DEBUG   (   77): 401d1b08 00000000 00000000 00000012 000005ab  ................
+I/DEBUG   (   77): 401d1b18 000051d0 00000000 00100010 000005b8  .Q..............
+I/DEBUG   (   77): 401d1b28 00005000 00000000 000b0010 000005c7  .P..............
+I/DEBUG   (   77): 401d1b38 00005008 00000000 000c0010 000005d6  .P..............
+I/DEBUG   (   77): 
+I/DEBUG   (   77): code around lr:
+I/DEBUG   (   77): 401c034c 4a1bd10d 601e2601 462858a5 efd4f7fa  ...J.&.`.X(F....
+I/DEBUG   (   77): 401c035c 49194818 44795822 f7fb4628 f8dfe804  .H.I"XyD(F......
+I/DEBUG   (   77): 401c036c 2100e05c 500ef854 f7fa4628 4811efc6  \..!T..P(F.....H
+I/DEBUG   (   77): 401c037c 58264913 46284479 f7fa4632 4b11eff4  .I&XyD(F2F.....K
+I/DEBUG   (   77): 401c038c 2200211c 462858e5 eefcf7fa c038f8df  .!.".X(F......8.
+I/DEBUG   (   77): 
+I/DEBUG   (   77): memory map around addr 98800000:
+I/DEBUG   (   77): 40351000-40352000 /system/lib/libgenlock.so
+I/DEBUG   (   77): (no map for address)
+I/DEBUG   (   77): ac900000-ac919000 /system/lib/libpixelflinger.so
+I/DEBUG   (   77): 
+I/DEBUG   (   77): stack:
+I/DEBUG   (   77):     bec6e620  000000f0  
+I/DEBUG   (   77):     bec6e624  bec6e70c  [stack]
+I/DEBUG   (   77):     bec6e628  b000a3c0  
+I/DEBUG   (   77):     bec6e62c  b000b0e0  
+I/DEBUG   (   77):     bec6e630  401b987e  /system/lib/libui.so
+I/DEBUG   (   77):     bec6e634  0e301a42  
+I/DEBUG   (   77):     bec6e638  b00094f0  /system/bin/linker
+I/DEBUG   (   77):     bec6e63c  b000a078  
+I/DEBUG   (   77):     bec6e640  0000023d  
+I/DEBUG   (   77):     bec6e644  00000216  
+I/DEBUG   (   77):     bec6e648  b00094fc  /system/bin/linker
+I/DEBUG   (   77):     bec6e64c  b0012da4  
+I/DEBUG   (   77):     bec6e650  b000b0e0  
+I/DEBUG   (   77):     bec6e654  00000000  
+I/DEBUG   (   77):     bec6e658  df0027ad  
+I/DEBUG   (   77):     bec6e65c  00000000  
+I/DEBUG   (   77): #01 bec6e660  401c6004  /system/lib/libui.so
+I/DEBUG   (   77):     bec6e664  00000005  
+I/DEBUG   (   77):     bec6e668  00000004  
+I/DEBUG   (   77):     bec6e66c  b0003a99  /system/bin/linker
+I/DEBUG   (   77):     bec6e670  b000b1c4  
+I/DEBUG   (   77):     bec6e674  b000b1c0  
+I/DEBUG   (   77):     bec6e678  b000990c  /system/bin/linker
+I/DEBUG   (   77):     bec6e67c  b00046eb  /system/bin/linker
+I/DEBUG   (   77):     bec6e680  b000b0e0  
+I/DEBUG   (   77):     bec6e684  b000b0e0  
+I/DEBUG   (   77):     bec6e688  b000b184  
+I/DEBUG   (   77):     bec6e68c  400103fc  /system/lib/libsurfaceflinger.so
+I/DEBUG   (   77):     bec6e690  00000016  
+I/DEBUG   (   77):     bec6e694  00000003  
+I/DEBUG   (   77):     bec6e698  00016000  
+I/DEBUG   (   77):     bec6e69c  b0012fa8  
+I/DEBUG   (   77):     bec6e6a0  401c7118  /system/lib/libui.so
+I/DEBUG   (   77):     bec6e6a4  b000b16c  
+I/DEBUG   (   77): tid 203 does not exist in pid 203. ignoring debug request
+I/DEBUG   (   77): tid 202 does not exist in pid 202. ignoring debug request
