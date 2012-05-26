@@ -80,7 +80,7 @@ ro.product.cpu.abi2=armeabi
 ro.product.manufacturer=HTC
 ro.product.locale.language=mdpi
 ro.wifi.channels=
-ro.board.platform=msm7k
+ro.board.platform=msm7x27
 # ro.build.product is obsolete; use ro.product.device
 ro.build.product=marvel
 # Do not try to parse ro.build.description or .fingerprint
