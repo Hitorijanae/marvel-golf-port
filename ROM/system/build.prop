@@ -203,14 +203,34 @@ ro.opengles.version = 131072
 
 # For ICS project, default 32m/48m
 
+## THESE ARE OUR STRINGS
+#- Start
+dalvik.vm.heapstartsize=5m
+#- Size / Max
+dalvik.vm.heapsize=32m
+#- Limit
+dalvik.vm.heapgrowthlimit=48m
+#- Only dexopt data?
+# (not set)
+
 ## THESE ARE SENSE 4s STRINGS
-dalvik.vm.heapsize=20m
-dalvik.vm.heapgrowthlimit=32m
+#- Start
+# (not set)
+#- Size / Max
+#dalvik.vm.heapsize=20m
+#- Limit
+#dalvik.vm.heapgrowthlimit=32m
+#- Only dexopt data?
+# (not set)
 
 ## THESE ARE CM9s STRINGS
+#- Start
 #dalvik.vm.heapstartsize=5m
-#dalvik.vm.heapgrowthlimit=48m
+#- Size / Max
 #dalvik.vm.heapsize=128m
+#- Limit
+#dalvik.vm.heapgrowthlimit=48m
+#- Only dexopt data?
 #dalvik.vm.dexopt-data-only=1
 
 # Default network type
