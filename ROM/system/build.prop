@@ -205,11 +205,11 @@ ro.opengles.version = 131072
 
 ## THESE ARE OUR STRINGS
 #- Start
-dalvik.vm.heapstartsize=5m
+#dalvik.vm.heapstartsize=5m
 #- Size / Max
-dalvik.vm.heapsize=32m
+#dalvik.vm.heapsize=32m
 #- Limit
-dalvik.vm.heapgrowthlimit=48m
+#dalvik.vm.heapgrowthlimit=48m
 #- Only dexopt data?
 # (not set)
 
@@ -225,11 +225,11 @@ dalvik.vm.heapgrowthlimit=48m
 
 ## THESE ARE CM9s STRINGS
 #- Start
-#dalvik.vm.heapstartsize=5m
+dalvik.vm.heapstartsize=5m
 #- Size / Max
-#dalvik.vm.heapsize=128m
+dalvik.vm.heapsize=128m
 #- Limit
-#dalvik.vm.heapgrowthlimit=48m
+dalvik.vm.heapgrowthlimit=48m
 #- Only dexopt data?
 #dalvik.vm.dexopt-data-only=1
 
