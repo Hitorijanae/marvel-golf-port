@@ -232,8 +232,6 @@ dalvik.vm.heapsize=128m
 dalvik.vm.heapgrowthlimit=48m
 #- Only dexopt data?
 dalvik.vm.dexopt-data-only=1
-#- UNKNOWN FLAG IN CM9
-dalvik.vm.dexopt-flags=m=y
 
 # Default network type
 # 0 => WCDMA Preferred.
