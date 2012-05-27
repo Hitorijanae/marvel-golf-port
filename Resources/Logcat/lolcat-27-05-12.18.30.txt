@@ -1,0 +1,131 @@
+--------- beginning of /dev/log/main
+I/DEBUG   (   77): debuggerd: Apr 29 2012 17:12:57
+D/AK8975  (   85): AK8975 daemon 1.1.0 Start
+D/AK8975  (   85): (Library version : 1.2.1.1125)
+--------- beginning of /dev/log/system
+I/Vold    (   75): Vold 2.1 (the revenge) firing up
+D/Vold    (   75): Volume sdcard state changing -1 (Initializing) -> 0 (No-Media)
+I/Netd    (   76): Netd 1.0 starting
+D/Vold    (   75): Volume sdcard state changing 0 (No-Media) -> 2 (Pending)
+D/DirectVolume(   75): DirectVolume::handlePartitionAdded -> MAJOR 179, MINOR 1, PARTN 1
+D/DirectVolume(   75): DirectVolume::handlePartitionAdded -> MAJOR 179, MINOR 2, PARTN 2
+D/Vold    (   75): Volume sdcard state changing 2 (Pending) -> 1 (Idle-Unmounted)
+D/AndroidRuntime(   80): 
+D/AndroidRuntime(   80): >>>>>> AndroidRuntime START com.android.internal.os.ZygoteInit <<<<<<
+D/AndroidRuntime(   80): CheckJNI is OFF
+E/dalvikvm(   80): Bad heap size parameters (start=5242880, max=33554432, limit=50331648)
+W/dalvikvm(   80): CreateJavaVM failed: dvmGcStartup failed
+E/AndroidRuntime(   80): JNI_CreateJavaVM failed
+I/SurfaceFlinger(   79): SurfaceFlinger is starting
+I/SurfaceFlinger(   79): SurfaceFlinger's main thread ready to run. Initializing graphics H/W...
+E/msm7x27.gralloc(   79): We support 3 buffers
+I/msm7x27.gralloc(   79): using (fd=12)
+I/msm7x27.gralloc(   79): id           = msmfb
+I/msm7x27.gralloc(   79): xres         = 320 px
+I/msm7x27.gralloc(   79): yres         = 480 px
+I/msm7x27.gralloc(   79): xres_virtual = 320 px
+I/msm7x27.gralloc(   79): yres_virtual = 1440 px
+I/msm7x27.gralloc(   79): bpp          = 32
+I/msm7x27.gralloc(   79): r            =  0:8
+I/msm7x27.gralloc(   79): g            =  8:8
+I/msm7x27.gralloc(   79): b            = 16:8
+I/msm7x27.gralloc(   79): width        = 51 mm (159.372543 dpi)
+I/msm7x27.gralloc(   79): height       = 76 mm (160.421051 dpi)
+I/msm7x27.gralloc(   79): refresh rate = 0.00 Hz
+E/        (   79): DEBUG_CALC_FPS: 0
+E/        (   79): period: 10
+E/        (   79): ignorethresh_us: 500000
+E/        (   79): DEBUG_CALC_FPS: 0
+E/        (   79): period: 10
+E/        (   79): ignorethresh_us: 500000
+D/FramebufferNativeWindow(   79): mNumBuffers = 3
+D/libEGL  (   79): loaded /system/lib/egl/libGLES_android.so
+D/libEGL  (   79): loaded /system/lib/egl/libEGL_adreno200.so
+D/libEGL  (   79): loaded /system/lib/egl/libGLESv1_CM_adreno200.so
+D/libEGL  (   79): loaded /system/lib/egl/libGLESv2_adreno200.so
+I/SurfaceFlinger(   79): EGL informations:
+I/SurfaceFlinger(   79): # of configs : 44
+I/SurfaceFlinger(   79): vendor    : Android
+I/SurfaceFlinger(   79): version   : 1.4 Android META-EGL
+I/SurfaceFlinger(   79): extensions: EGL_KHR_image EGL_KHR_image_base EGL_KHR_image_base EGL_KHR_fence_sync EGL_ANDROID_image_native_buffer EGL_ANDROID_image_native_buffer EGL_ANDROID_get_render_buffer 
+I/SurfaceFlinger(   79): Client API: OpenGL ES
+I/SurfaceFlinger(   79): EGLSurface: 8-8-8-8, config=0x3
+I/SurfaceFlinger(   79): OpenGL informations:
+I/SurfaceFlinger(   79): vendor    : Qualcomm
+I/SurfaceFlinger(   79): renderer  : Adreno (TM) 200
+I/SurfaceFlinger(   79): version   : OpenGL ES-CM 1.1
+I/SurfaceFlinger(   79): extensions: GL_AMD_compressed_ATC_texture GL_AMD_performance_monitor GL_APPLE_texture_2D_limited_npot GL_ARB_vertex_buffer_object GL_EXT_texture_filter_anisotropic GL_EXT_texture_format_BGRA8888 GL_EXT_texture_type_2_10_10_10_REV GL_OES_blend_equation_separate GL_OES_blend_func_separate GL_OES_blend_subtract GL_OES_compressed_ETC1_RGB8_texture GL_OES_compressed_paletted_texture GL_OES_depth_texture GL_OES_depth24 GL_OES_draw_texture GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_framebuffer_object GL_OES_matrix_palette GL_OES_packed_depth_stencil GL_OES_point_size_array GL_OES_point_sprite GL_OES_read_format GL_OES_rgb8_rgba8 GL_OES_stencil_wrap GL_OES_texture_cube_map GL_OES_texture_env_crossbar GL_OES_texture_float GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_texture_npot GL_OES_texture_mirrored_repeat GL_QCOM_binning_control GL_QCOM_extended_get GL_QCOM_tiled_rendering GL_AMD_compressed_3DC_texture 
+I/SurfaceFlinger(   79): GL_MAX_TEXTURE_SIZE = 4096
+I/SurfaceFlinger(   79): GL_MAX_VIEWPORT_DIMS = 4096 x 4096
+I/SurfaceFlinger(   79): flags = 00000000
+E/        (   79): DEBUG_CALC_FPS: 0
+E/        (   79): period: 10
+E/        (   79): ignorethresh_us: 500000
+D/libEGL  (  121): loaded /system/lib/egl/libGLES_android.so
+D/libEGL  (  121): loaded /system/lib/egl/libEGL_adreno200.so
+D/libEGL  (  121): loaded /system/lib/egl/libGLESv1_CM_adreno200.so
+D/libEGL  (  121): loaded /system/lib/egl/libGLESv2_adreno200.so
+D/memalloc(   79): init_pmem_area: Initializing pmem area
+D/memalloc(   79): init_pmem_area_locked: Opening master pmem FD
+D/memalloc(   79): init_pmem_area_locked: Total pmem size: 16777216
+D/memalloc(   79): /dev/pmem: Allocated buffer base:0x414d8000 size:614400 offset:0 fd:26
+D/memalloc(  121): /dev/pmem: Mapped buffer base:0x408cc000 size:614400 offset:0 fd:16
+D/memalloc(   79): /dev/pmem: Allocated buffer base:0x414d8000 size:614400 offset:614400 fd:29
+D/memalloc(  121): /dev/pmem: Mapped buffer base:0x40c3c000 size:1228800 offset:614400 fd:20
+D/memalloc(   79): /dev/pmem: Allocated buffer base:0x414d8000 size:614400 offset:1228800 fd:32
+D/memalloc(  121): /dev/pmem: Mapped buffer base:0x40e34000 size:1843200 offset:1228800 fd:23
+I/Netd    (  128): Netd 1.0 starting
+D/AndroidRuntime(  129): 
+D/AndroidRuntime(  129): >>>>>> AndroidRuntime START com.android.internal.os.ZygoteInit <<<<<<
+D/AndroidRuntime(  129): CheckJNI is OFF
+E/dalvikvm(  129): Bad heap size parameters (start=5242880, max=33554432, limit=50331648)
+W/dalvikvm(  129): CreateJavaVM failed: dvmGcStartup failed
+E/AndroidRuntime(  129): JNI_CreateJavaVM failed
+D/memalloc(  121): /dev/pmem: Unmapping buffer base:0x408cc000 size:614400 offset:0
+D/memalloc(  121): /dev/pmem: Unmapping buffer base:0x40c3c000 size:1228800 offset:614400
+D/memalloc(  121): /dev/pmem: Unmapping buffer base:0x40e34000 size:1843200 offset:1228800
+D/memalloc(   79): /dev/pmem: Freeing buffer base:0x414d8000 size:614400 offset:0 fd:26
+D/memalloc(   79): /dev/pmem: Freeing buffer base:0x4156e000 size:614400 offset:614400 fd:29
+D/memalloc(   79): /dev/pmem: Freeing buffer base:0x41604000 size:614400 offset:1228800 fd:32
+I/Netd    (  148): Netd 1.0 starting
+D/AndroidRuntime(  149): 
+D/AndroidRuntime(  149): >>>>>> AndroidRuntime START com.android.internal.os.ZygoteInit <<<<<<
+D/AndroidRuntime(  149): CheckJNI is OFF
+E/dalvikvm(  149): Bad heap size parameters (start=5242880, max=33554432, limit=50331648)
+W/dalvikvm(  149): CreateJavaVM failed: dvmGcStartup failed
+E/AndroidRuntime(  149): JNI_CreateJavaVM failed
+I/Netd    (  168): Netd 1.0 starting
+D/AndroidRuntime(  169): 
+D/AndroidRuntime(  169): >>>>>> AndroidRuntime START com.android.internal.os.ZygoteInit <<<<<<
+D/AndroidRuntime(  169): CheckJNI is OFF
+E/dalvikvm(  169): Bad heap size parameters (start=5242880, max=33554432, limit=50331648)
+W/dalvikvm(  169): CreateJavaVM failed: dvmGcStartup failed
+E/AndroidRuntime(  169): JNI_CreateJavaVM failed
+I/Netd    (  188): Netd 1.0 starting
+D/AndroidRuntime(  189): 
+D/AndroidRuntime(  189): >>>>>> AndroidRuntime START com.android.internal.os.ZygoteInit <<<<<<
+D/AndroidRuntime(  189): CheckJNI is OFF
+E/dalvikvm(  189): Bad heap size parameters (start=5242880, max=33554432, limit=50331648)
+W/dalvikvm(  189): CreateJavaVM failed: dvmGcStartup failed
+E/AndroidRuntime(  189): JNI_CreateJavaVM failed
+I/Netd    (  208): Netd 1.0 starting
+D/AndroidRuntime(  209): 
+D/AndroidRuntime(  209): >>>>>> AndroidRuntime START com.android.internal.os.ZygoteInit <<<<<<
+D/AndroidRuntime(  209): CheckJNI is OFF
+E/dalvikvm(  209): Bad heap size parameters (start=5242880, max=33554432, limit=50331648)
+W/dalvikvm(  209): CreateJavaVM failed: dvmGcStartup failed
+E/AndroidRuntime(  209): JNI_CreateJavaVM failed
+I/Netd    (  228): Netd 1.0 starting
+D/AndroidRuntime(  229): 
+D/AndroidRuntime(  229): >>>>>> AndroidRuntime START com.android.internal.os.ZygoteInit <<<<<<
+D/AndroidRuntime(  229): CheckJNI is OFF
+E/dalvikvm(  229): Bad heap size parameters (start=5242880, max=33554432, limit=50331648)
+W/dalvikvm(  229): CreateJavaVM failed: dvmGcStartup failed
+E/AndroidRuntime(  229): JNI_CreateJavaVM failed
+I/Netd    (  248): Netd 1.0 starting
+D/AndroidRuntime(  249): 
+D/AndroidRuntime(  249): >>>>>> AndroidRuntime START com.android.internal.os.ZygoteInit <<<<<<
+D/AndroidRuntime(  249): CheckJNI is OFF
+E/dalvikvm(  249): Bad heap size parameters (start=5242880, max=33554432, limit=50331648)
+W/dalvikvm(  249): CreateJavaVM failed: dvmGcStartup failed
+E/AndroidRuntime(  249): JNI_CreateJavaVM failed
