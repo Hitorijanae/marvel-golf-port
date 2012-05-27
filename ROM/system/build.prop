@@ -231,7 +231,7 @@ dalvik.vm.heapsize=128m
 #- Limit
 dalvik.vm.heapgrowthlimit=48m
 #- Only dexopt data?
-#dalvik.vm.dexopt-data-only=1
+dalvik.vm.dexopt-data-only=1
 
 # Default network type
 # 0 => WCDMA Preferred.
