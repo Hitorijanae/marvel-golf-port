@@ -102,6 +102,7 @@ ro.build.changelist=62541
 ro.build.fingerprint=htc_europe/htc_golfu/golfu:4.0.3/IML74K/62541.1:user/release-keys
 ro.build.characteristics=default
 ro.build.project=GOLF_U_ICS_40A:260338
+#- Sense version information
 ro.product.version=WFSDEV Sense 4 port for the marvel - Version 0.01
 ro.build.languageremove=0
 ro.build.sense.version=4.0
@@ -355,16 +356,12 @@ ro.fm.mulinst.recording.support=false
 persist.sys.shutdown.mode = hibernate
 # AOLC
 htc.audio.alc.enable = 1
-# was htc.audio.swalt.enable = 1
-htc.audio.swalt.enable = 0
+htc.audio.swalt.enable = 1
 
-## disabled
-#lpa.decode = false
-#lpa.use-stagefright = false
-# was htc.audio.global.state = 0
+lpa.decode = false
+lpa.use-stagefright = false
 htc.audio.global.state = 0
-# was htc.audio.global.profile = 0
-htc.audio.global.profile = 1
+htc.audio.global.profile = 0
 # Beats audio stuff
 htc.audio.beats.state = 1
 htc.audio.beats.config = 1
