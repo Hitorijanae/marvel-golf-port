@@ -358,13 +358,13 @@ persist.sys.shutdown.mode = hibernate
 #htc.audio.alc.enable = 1
 #htc.audio.swalt.enable = 1
 
-#lpa.decode = false
-#lpa.use-stagefright = false
-#htc.audio.global.state = 0
-#htc.audio.global.profile = 0
+lpa.decode = false
+lpa.use-stagefright = false
+htc.audio.global.state = 0
+htc.audio.global.profile = 0
 # Beats audio stuff
-#htc.audio.beats.state = 1
-#htc.audio.beats.config = 1
+htc.audio.beats.state = 1
+htc.audio.beats.config = 1
 
 #export for SoundHound
 persist.htc.audio.pcm.samplerate=44100
