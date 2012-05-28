@@ -1,4 +1,4 @@
---------- beginning of /dev/log/main
+--------- beginning of /dev/log/main				HENRY'S IDEAS: REMOVED LIBC LIBANDROIDRUNTIME AND LIBVDM FROM CM9?
 I/DEBUG   (   77): debuggerd: Apr 29 2012 17:12:57
 D/AK8975  (   85): AK8975 daemon 1.1.0 Start
 D/AK8975  (   85): (Library version : 1.2.1.1125)
