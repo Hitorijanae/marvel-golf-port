@@ -1,0 +1,1017 @@
+<6>[    0.000000] Initializing cgroup subsys cpu
+<5>[    0.000000] Linux version 2.6.35.13-cryptomilk-alquez.r12-gdb0809a (asn@magrathea) (gcc version 4.4.3 (GCC) ) #1 PREEMPT Sat May 12 11:14:47 CEST 2012
+<4>[    0.000000] CPU: ARMv6-compatible processor [4117b365] revision 5 (ARMv6TEJ), cr=00c5387f
+<4>[    0.000000] CPU: VIPT aliasing data cache, VIPT aliasing instruction cache
+<4>[    0.000000] Machine: marvel
+<7>[    0.000000] find the smi tag
+<7>[    0.000000] parse_tag_smi: smi size = 0
+<7>[    0.000000] find the hwid tag
+<7>[    0.000000] parse_tag_hwid: hwid = 0x0
+<7>[    0.000000] find the skuid tag
+<7>[    0.000000] parse_tag_skuid: hwid = 0x28806
+<7>[    0.000000] tag_panel_parsing: panel type = 3
+<7>[    0.000000] find the engineer tag
+<7>[    0.000000] parse_tag_engineerid: 0x0
+<4>[    0.000000] Ignoring unrecognised tag 0x4d534d76
+<7>[    0.000000] tag_tp_parsing: TS type = 0x1
+<4>[    0.000000] Ignoring unrecognised tag 0x5441000a
+<6>[    0.000000] CAM_AWB_CAL Data size = 1026 , 0x59504550, size = 2048
+<4>[    0.000000] Ignoring unrecognised tag 0x41387898
+<4>[    0.000000] BT Data size= 4, 0x43294329,18,87,96,0f,98,c0,00,00,
+<6>[    0.000000] parse_tag_ps_calibration: ps_kparam1 = 0x50530306, ps_kparam2 = 0x2080a0e
+<7>[    0.000000] parse_tag_gs_calibration: gs_kvalue = 0x6700f9ef
+<7>[    0.000000] find the memsize tag
+<7>[    0.000000] parse_tag_memsize: 0
+<6>[    0.000000] kmemleak: Kernel memory leak detector disabled
+<4>[    0.000000] Memory policy: ECC disabled, Data cache writeback
+<7>[    0.000000] On node 0 totalpages: 109568
+<7>[    0.000000] free_area_init_node: node 0, pgdat c055e60c, node_mem_map c066f000
+<7>[    0.000000]   Normal zone: 856 pages used for memmap
+<7>[    0.000000]   Normal zone: 0 pages reserved
+<7>[    0.000000]   Normal zone: 108712 pages, LIFO batch:31
+<4>[    0.000000] marvel_init_map_io()
+<3>[    0.000000] [SMD]smem_find(137, 64): wrong size 56
+<6>[    0.000000] cur_cpu 0x3, id 0x43
+<6>[    0.000000] socinfo_init: v2, id=67, ver=1.2, raw_id=961, raw_ver=2
+<6>[    0.000000] L210 cache controller enabled
+<6>[    0.000000] Marvel_init L2-cache latency 3 cyc for 7x27
+<4>[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 108712
+<5>[    0.000000] Kernel command line: board_marvel.disable_uart3=0 board_marvel.usb_h2w_sw=0 board_marvel.disable_sdcard=0 diag.enabled=0 board_marvel.debug_uart=0 smisize=0 userdata_sel=0 androidboot.emmc=false androidboot.pagesize=2048  androidboot.baseband=7.53.39.03M androidboot.cid=HTC__001 androidboot.batt_poweron=good_battery androidboot.carrier=HTC-WWE androidboot.mid=PG7610000 androidboot.keycaps=qwerty androidboot.mode=normal androidboot.serialno=SH1A7TR18510 androidboot.bootloader=1.08.0099 zygote_oneshot=off kmemleak=off no_console_suspend=1 console=null
+<6>[    0.000000] [USBDIAG] diag_set_enabled: 0
+<6>[    0.000000] board_bootloader_setup: 1.08.0099
+<6>[    0.000000] board_bootloader_setup: default ENG BUILD
+<6>[    0.000000] PID hash table entries: 2048 (order: 1, 8192 bytes)
+<6>[    0.000000] Dentry cache hash table entries: 65536 (order: 6, 262144 bytes)
+<6>[    0.000000] Inode-cache hash table entries: 32768 (order: 5, 131072 bytes)
+<6>[    0.000000] Memory: 428MB = 428MB total
+<5>[    0.000000] Memory: 427704k/427704k available, 10568k reserved, 0K highmem
+<5>[    0.000000] Virtual kernel memory layout:
+<5>[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+<5>[    0.000000]     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+<5>[    0.000000]     DMA     : 0xffa00000 - 0xffe00000   (   4 MB)
+<5>[    0.000000]     vmalloc : 0xdb000000 - 0xf8000000   ( 464 MB)
+<5>[    0.000000]     lowmem  : 0xc0000000 - 0xdac00000   ( 428 MB)
+<5>[    0.000000]     modules : 0xbf000000 - 0xc0000000   (  16 MB)
+<5>[    0.000000]       .init : 0xc0008000 - 0xc0034000   ( 176 kB)
+<5>[    0.000000]       .text : 0xc0034000 - 0xc0513000   (4988 kB)
+<5>[    0.000000]       .data : 0xc0514000 - 0xc055ec20   ( 300 kB)
+<6>[    0.000000] Hierarchical RCU implementation.
+<6>[    0.000000] 	RCU-based detection of stalled CPUs is disabled.
+<6>[    0.000000] 	Verbose stalled-CPUs detection is disabled.
+<6>[    0.000000] NR_IRQS:277
+<4>[    0.000000] marvel_init_irq()
+<6>[    0.000000] Calibrating delay loop... 599.65 BogoMIPS (lpj=2998272)
+<6>[    0.220214] pid_max: default: 32768 minimum: 301
+<4>[    0.220306] Mount-cache hash table entries: 512
+<6>[    0.220916] Initializing cgroup subsys debug
+<6>[    0.220947] Initializing cgroup subsys cpuacct
+<6>[    0.220977] Initializing cgroup subsys freezer
+<6>[    0.221069] CPU: Testing write buffer coherency: ok
+<6>[    0.224670] NET: Registered protocol family 16
+<4>[    0.225524] marvel_init() revision = 0x80
+<6>[    0.225585] Marvel show_skuid: 0x28806
+<6>[    0.225585] YoYo--BD_ADDRESS=18:87:96:0f:98:c0
+<6>[    5.596343] acpu_clock_init()
+<3>[    5.596405] [SMD]smem_find(137, 64): wrong size 56
+<6>[    5.596405] cur_cpu 0x3, id 0x43
+<6>[    5.596435] socinfo_init: v2, id=67, ver=1.2, raw_id=961, raw_ver=2
+<6>[    5.596527] ACPU running at 0 KHz
+<6>[    5.601959] ram_console: got buffer at 2ff1b000, size 20000
+<6>[    5.602142] ram_console: found existing buffer, size 46379, start 46379
+<6>[    5.835968] console [ram-1] enabled
+<6>[    5.836425] marvel_init_mmc
+<6>[    5.837158] [HS_BOARD] (marvel_init) system_rev = 128
+<6>[    5.837371] [HS_BOARD] (marvel_init) Set MEMS config
+<6>[    5.838623] Marvel: use BMA023
+<4>[    5.838867] [DISP] <6>marvel_init_panel: enter.
+<4>[    5.839141] [DISP] <6>marvel_init_panel: panel_id:1.
+<6>[    5.840118] marvel_wifi_init: start
+<4>[    5.855010] bio: create slab <bio-0> at 0
+<6>[    5.856475] [DISP]mdp_probe: initialized
+<6>[    5.857269] msm_i2c_probe
+<6>[    5.857635] msm_i2c_probe: clk_ctl 316, 384000 Hz
+<6>[    5.861267] Bluetooth: Core ver 2.15
+<6>[    5.861785] NET: Registered protocol family 31
+<6>[    5.861999] Bluetooth: HCI device and connection manager initialized
+<6>[    5.862396] Bluetooth: HCI socket layer initialized
+<6>[    5.862884] Switching to clocksource gp_timer
+<6>[    5.864959] [TPS65200]: Driver registration done
+<6>[    5.865905] NET: Registered protocol family 2
+<6>[    5.866271] IP route cache hash table entries: 4096 (order: 2, 16384 bytes)
+<6>[    5.867431] TCP established hash table entries: 16384 (order: 5, 131072 bytes)
+<6>[    5.868164] TCP bind hash table entries: 16384 (order: 4, 65536 bytes)
+<6>[    5.868865] TCP: Hash tables configured (established 16384 bind 16384)
+<6>[    5.869262] TCP reno registered
+<6>[    5.869476] UDP hash table entries: 256 (order: 0, 4096 bytes)
+<6>[    5.869689] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+<6>[    5.870300] NET: Registered protocol family 1
+<6>[    5.871185] Unpacking initramfs...
+<6>[    5.893859] Freeing initrd memory: 164K
+<6>[    5.895660] [SMD]smd_init()
+<6>[    5.895874] [SMD]smd_core_init()
+<6>[    5.896087] [SMD]phy addr of smd_info.state=0x104A70
+<6>[    5.896545] [SMD]smd_core_init() done
+<3>[    5.896789] msm_init_last_radio_log: last radio log is 6936 bytes long
+<6>[    5.898193] [SMD]smd_alloc_channel() cid=00 size=08192 'SMD_DS'
+<6>[    5.898742] [SMD]smd_alloc_channel() cid=01 size=08192 'SMD_DIAG'
+<6>[    5.899291] [SMD]smd_alloc_channel() cid=02 size=08192 'SMD_RPCCALL'
+<6>[    5.900329] [SMD]SMD: ch 2 0 -> 1
+<6>[    5.900756] [SMD]smd_alloc_channel() cid=07 size=32768 'SMD_DATA1'
+<6>[    5.901000] [SMD]SMD: ch 2 1 -> 2
+<6>[    5.901550] [SMD]smd_alloc_channel() cid=08 size=08192 'SMD_DATA2'
+<6>[    5.901916] [SMD]smd_alloc_channel() cid=09 size=08192 'SMD_DATA3'
+<6>[    5.902465] [SMD]smd_alloc_channel() cid=11 size=32768 'SMD_DATA5'
+<6>[    5.902832] [SMD]smd_alloc_channel() cid=12 size=32768 'SMD_DATA6'
+<6>[    5.905364] [SMD]smd_alloc_channel() cid=13 size=32768 'SMD_DATA7'
+<6>[    5.905761] [SMD]smd_alloc_channel() cid=15 size=08192 'SMD_DATA9'
+<6>[    5.906311] [SMD]smd_alloc_channel() cid=27 size=08192 'SMD_GPSNMEA'
+<6>[    5.906921] [SMD]smd_alloc_channel() cid=38 size=08192 'SMD_DAL00'
+<6>[    5.907653] [SMD]smd_alloc_channel() cid=39 size=08192 'SMD_DATA5_CNTL'
+<6>[    5.908020] [SMD]smd_alloc_channel() cid=40 size=08192 'SMD_DATA6_CNTL'
+<6>[    5.908386] [SMD]smd_alloc_channel() cid=41 size=08192 'SMD_DATA7_CNTL'
+<6>[    5.918365] Acquire 'boot-time' no_halt_lock 60s
+<6>[    5.919250] [HS_MGR] (headset_notifier_register) Register MIC_BIAS notifier
+<6>[    5.919647] [HS_MGR] (headset_notifier_update) HS_MGR driver is not ready
+<7>[    5.940063] Registered led device: flashlight
+<6>[    5.940460] [FLT]flashlight_probe: led_count = 0
+<6>[    5.940673] [FLT]flashlight_probe: The Flashlight Driver is ready
+<6>[    5.941253] [BATT] init over voltage interrupt detection. at 568328059 (1970-01-01 00:00:00.568084106 UTC)
+<6>[    5.949127] atmega-microp 0-0066: microp version [04][51]
+<3>[    5.950256] microp_function_check: No function 2 !!
+<3>[    5.951751] microp_function_check: No function 18 !!
+<6>[    5.952362] [HS_MGR] (htc_headset_mgr_probe) ++++++++++++++++++++
+<6>[    5.954254] input: h2w headset as /devices/virtual/input/input0
+<6>[    5.955627] [HS_MGR] (hs_notify_driver_ready) HS_MGR ready
+<6>[    5.956085] [HS_MGR] (htc_headset_mgr_probe) --------------------
+<6>[    5.956787] [HS_MICROP] (htc_headset_microp_probe) ++++++++++++++++++++
+<6>[    5.957183] [BATT] M2A_RPC: set_charging: 0 at 584247107 (1970-01-01 00:00:00.584033627 UTC)
+<6>[    5.957611] Switch charger OFF
+<6>[    5.961669] [HS_MGR] (headset_notifier_register) Register REMOTE_ADC notifier
+<6>[    5.961914] [HS_MGR] (headset_notifier_register) Register MIC_STATUS notifier
+<6>[    5.962310] [HS_MGR] (headset_notifier_register) Register KEY_INT_ENABLE notifier
+<6>[    5.962524] [HS_MGR] (hs_notify_driver_ready) HS_MICROP ready
+<6>[    5.963500] [HS_GPIO] (htc_headset_gpio_probe) ++++++++++++++++++++
+<6>[    5.964172] [HS_MGR] (headset_notifier_register) Register HPIN_GPIO notifier
+<6>[    5.964416] [HS_MGR] (hs_notify_driver_ready) HS_GPIO ready
+<6>[    5.964813] [HS_GPIO] (htc_headset_gpio_probe) --------------------
+<6>[    5.965026] [HS_MICROP] (htc_headset_microp_probe) --------------------
+<6>[    5.986999] [BATT] M2A_RPC: set_charging: 1 at 614044406 (1970-01-01 00:00:00.613800428 UTC)
+<6>[    5.987609] Switch charger ON (SLOW)
+<6>[    5.988403] ashmem: initialized
+<7>[    5.990844] yaffs built May 12 2012 11:13:50 Installing. 
+<6>[    5.991333] batt: Switch charger ON (SLOW): regh 0x03=83
+<6>[    5.992401] [BATT] M2A_RPC: cable_update: USB at 619442411 (1970-01-01 00:00:00.619228931 UTC)
+<6>[    5.993011] [BATT] htc_cable_status_update: 0 -> 1
+<6>[    5.993316] [USB] msm_hsusb_set_vbus_state: 1
+<6>[    5.994384] [BATT] A2M_RPC: get_batt_info: batt_id=1, batt_vol=3950, batt_temp=385, batt_current=0, level=90, charging_source=1, charging_enabled=1, full_bat=1230000, over_vchg=0 at 621821136 (1970-01-01 00:00:00.621211212 UTC)
+<6>[    6.014099] alg: No test for stdrng (krng)
+<6>[    6.014617] io scheduler noop registered
+<6>[    6.014831] io scheduler deadline registered
+<6>[    6.015045] io scheduler cfq registered (default)
+<6>[    6.015594] [DISP]mddi: init() base=0xdb014000 irq=16
+<7>[    6.016082] [DISP]mddi runs at 160000000
+<4>[    6.016632] [DISP] <7>panel_novatek_fixup: enter.
+<6>[    6.016845] [DISP]mddi: registering panel mddi_c_b9f6_5410
+<6>[    6.017242] [DISP]mddi: publish: 
+<4>[    6.020507] [DISP]mddi_novtec_5410_probe
+<6>[    6.020751] [DISP]CABC enabled
+<7>[    6.021728] Registered led device: lcd-backlight
+<6>[    6.022094] [DISP]vsync on gpio 97 now 1
+<6>[    6.022552] [DISP]setup_fb_info msmfb->xres 320, msmfb->yres 480
+<6>[    6.023315] [DISP]msmfb_probe() installing 320 x 480 panel
+<6>[    6.027893] [USBDIAG] diagchar_init:swapper(parent:swapper): tgid=1
+<6>[    6.028320] [USBDIAG] diagchar initializing ..
+<7>[    6.028839] [USBDIAG] usb_diag_open: 
+<6>[    6.029357] [SMD]SMD: ch 1 0 -> 1
+<6>[    6.029571] diag opened SMD port pdev->id=0; r = 0 ch=da8f4020
+<6>[    6.029785] [SMD]SMD: ch 1 1 -> 2
+<6>[    6.030639] [USBDIAG] diagchar initialized
+<6>[    6.040985] msm_serial_hs module loaded
+<6>[    6.041381] [BT]msm_serial_hs module loaded
+<6>[    6.043365] [BT]BCM chip
+<6>[    6.043701] msm_serial_hs_bcm.0: ttyHS0 at MMIO 0xa0200000 (irq = 45) is a MSM HS UART
+<6>[    6.044555] [BT]msm_serial_hs module loaded
+<6>[    6.045135] [BT]msm_serial_hs module loaded
+<6>[    6.057647] loop: module loaded
+<6>[    6.058227] pmem: 1 init
+<6>[    6.059997] pmem_adsp: 1 init
+<6>[    6.061431] spi_bma150_probe: G-sensor connect with microP: start initial, kvalue = 0x6700f9ef
+<6>[    6.071075] [GSNR] Gsensor disable
+<6>[    6.073608] msm_nand: allocated dma buffer at ffc52000, dma_addr 2d663000
+<6>[    6.074096] status: c03120
+<6>[    6.074310] nandid: 5590bcad maker ad device bc
+<6>[    6.074523] Found a supported NAND device
+<6>[    6.074920] NAND Id  : 0xBCAD
+<6>[    6.075103] Buswidth : 16 Bits 
+<6>[    6.075317] Density  : 512 MByte
+<6>[    6.075714] Pagesize : 2048 Bytes
+<6>[    6.075927] Erasesize: 131072 Bytes
+<6>[    6.076141] Oobsize  : 64 Bytes
+<6>[    6.076354] msm_nand: read CFG0 = aa5400c0, CFG1 = a7476
+<6>[    6.076751] CFG0 Init  : 0xe85408c0 
+<6>[    6.076965] CFG1 Init  : 0x000a7476 
+<6>[    6.077362] CFG0: cw/page=3 ud_sz=516 ecc_sz=10 spare_sz=0 num_addr_cycles=5
+<6>[    6.077606] DEV_CMD1: f00f3000
+<6>[    6.077819] <6>NAND_EBI2_ECC_BUF_CFG: 1ff
+<5>[    6.078216] Creating 7 MTD partitions on "msm_nand":
+<5>[    6.078460] 0x00001ff60000-0x000020000000 : "misc"
+<5>[    6.081756] 0x0000026c0000-0x000002bc0000 : "recovery"
+<5>[    6.086730] 0x000002bc0000-0x000002f00000 : "boot"
+<5>[    6.090911] 0x000002f00000-0x000013c60000 : "system"
+<5>[    6.227600] 0x000013c60000-0x000015f60000 : "cache"
+<5>[    6.248046] 0x000016960000-0x00001ff60000 : "userdata"
+<5>[    6.324890] 0x000015f60000-0x000016960000 : "devlog"
+<6>[    6.333068] PPP generic driver version 2.4.2
+<6>[    6.334472] PPP Deflate Compression module registered
+<6>[    6.334686] PPP BSD Compression module registered
+<6>[    6.337097] PPP MPPE Compression module registered
+<6>[    6.337493] NET: Registered protocol family 24
+<6>[    6.341156] tun: Universal TUN/TAP device driver, 1.6
+<6>[    6.341552] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+<6>[    6.346221] [USB] msm72k_probe
+<6>[    6.346649] [USB] accessory detect 1
+<6>[    6.346862] [USB] id_pin_gpio 19
+<6>[    6.347076] [USB] dock detect 0
+<6>[    6.347290] [USB] dock pin gpio 0
+<6>[    6.347747] [USB] msm72k_probe() io=db01c000, irq=47, dma=ffc53000(2d6e2000)
+<6>[    6.349060] android init
+<6>[    6.350341] android_probe pdata: c052a134
+<6>[    6.350860] android_bind
+<7>[    6.351074] android_bind_config
+<6>[    6.352386] android_usb gadget: android_usb ready
+<6>[    6.352813] [USB] msm72k_udc: registered gadget driver 'android_usb'
+<6>[    6.353149] f_adb init
+<6>[    6.353698] android_register_function adb
+<6>[    6.353912] f_mass_storage init
+<6>[    6.354125] android_register_function usb_mass_storage
+<6>[    6.354522] f_rndis init
+<6>[    6.354705] android_register_function rndis
+<6>[    6.354919] serial init
+<6>[    6.355133] android_register_function serial
+<6>[    6.355529] f_projector init
+<6>[    6.356201] android_register_function projector
+<6>[    6.356445] f_ecm init
+<6>[    6.356811] android_register_function cdc_ethernet
+<6>[    6.357025] f_accessory init
+<6>[    6.357238] android_register_function accessory
+<7>[    6.357635] [USBDIAG] usb_diag_init: 
+<6>[    6.357849] android_register_function diag
+<4>[    6.358123] android_usb gadget: using random self ethernet address
+<4>[    6.358520] android_usb gadget: using random host ethernet address
+<6>[    6.360473] usb0: MAC da:6b:3d:f4:8b:84
+<6>[    6.360717] usb0: HOST MAC fe:ed:cc:06:bf:ca
+<6>[    6.361083] rndis: allocated 0
+<6>[    6.361297] rndis: allocated 1
+<7>[    6.361724] [USB-EP] ep1in in use
+<7>[    6.362152] [USB-EP] ep1out in use
+<7>[    6.362365] [USB-EP] ep2in in use
+<6>[    6.362762] acc_bind_config
+<6>[    6.364135] accessory: allocated 2
+<7>[    6.364349] [USB-EP] ep3in in use
+<7>[    6.364776] [USB-EP] ep2out in use
+<6>[    6.365203] mass_storage_bind_config
+<6>[    6.365661] fsg_probe pdata: c052a9dc
+<6>[    6.367584] usb_mass_storage: allocated 3
+<7>[    6.368011] [USB-EP] ep4in in use
+<7>[    6.368408] [USB-EP] ep3out in use
+<6>[    6.368682] [USB] hsusb: IDLE -> ONLINE
+<6>[    6.369079] [USB] lpm exit
+<6>[    6.369415] [USB] hsusb: reset controller
+<6>[    6.369781] android_usb gadget: Number of LUNs=1
+<6>[    6.370178] adb_bind_config
+<6>[    6.372314] adb: allocated 4
+<7>[    6.372528] [USB-EP] ep5in in use
+<7>[    6.372924] [USB-EP] ep4out in use
+<6>[    6.374450] cdc_ethernet: allocated 5
+<6>[    6.374664] cdc_ethernet: allocated 6
+<7>[    6.375091] [USB-EP] ep6in in use
+<7>[    6.375671] [USB-EP] ep5out in use
+<7>[    6.375885] [USB-EP] ep7in in use
+<7>[    6.376129] [USBDIAG] diag_function_add: ret=11
+<7>[    6.376525] [USBDIAG] diag_function_add: dev->function.hidden =1
+<6>[    6.377563] [USBDIAG] diag_function_bind: dev=diag
+<6>[    6.377960] diag: allocated 7
+<7>[    6.378173] [USB-EP] ep8in in use
+<7>[    6.378570] [USB-EP] ep6out in use
+<6>[    6.379760] serial_bind_config
+<6>[    6.380310] modem: allocated 8
+<7>[    6.380523] [USB-EP] ep9in in use
+<7>[    6.380920] [USB-EP] ep7out in use
+<7>[    6.381317] [USB-EP] ep10in in use
+<6>[    6.382324] serial: allocated 9
+<7>[    6.382537] [USB-EP] ep11in in use
+<7>[    6.382934] [USB-EP] ep8out in use
+<7>[    6.383331] [USB-EP] ep12in in use
+<6>[    6.386413] projector_bind_config
+<6>[    6.386627] projector_touch_init: x=320 y=480
+<6>[    6.388732] input: projector_input as /devices/virtual/input/input1
+<6>[    6.388977] projector_touch_init OK 
+<6>[    6.390380] input: projector-Keypad as /devices/virtual/input/input2
+<6>[    6.390594] projector_keypad_init OK 
+<6>[    6.391021] projector: allocated 10
+<7>[    6.391418] [USB-EP] ep13in in use
+<7>[    6.391815] [USB-EP] ep9out in use
+<6>[    6.393737] usb: vendor_id=0xBB4
+<6>[    6.394134] usb: product_id=0xff9
+<6>[    6.396728] cy8c_ts_init: enter
+<7>[    6.397003] cy8c_ts_probe: enter
+<6>[    6.397216] marvel_ts_cy8c_power():
+<6>[    6.413391] msm_hsusb_phy_reset
+<6>[    6.453887] CY8CTMA340 0-0067: buf: 11, 0, 0, 15
+<6>[    6.454101] CY8CTMA340 0-0067: application verion = 15, x_channel = F, y_channel = A
+<6>[    6.563812] [USB] ulpi: write 0x2c to 0x31
+<6>[    6.564208] [USB] ulpi: write 0x08 to 0x32
+<6>[    6.564422] [USB] ulpi: write 0x1d to 0x0d
+<6>[    6.564636] [USB] ulpi: write 0x1d to 0x10
+<6>[    6.565032] [USB] handle_notify_offline: notify offline
+<6>[    6.565246] [USB] msm_hsusb: enable pullup
+<6>[    6.568450] [USB] suspend
+<6>[    6.583435] [USB] not AC charger
+<6>[    6.583648] [USB] accessory_detect_init: id pin 19
+<6>[    6.593475] CY8CTMA340 0-0067: orient: 0
+<6>[    6.594757] input_set_abs_params: mix_x 0, max_x 1023, min_y 0, max_y 940
+<6>[    6.595367] input: cy8c-touchscreen as /devices/virtual/input/input3
+<6>[    6.596069] CY8CTMA340 0-0067: Start touchscreen cy8c-touchscreen in interrupt mode
+<6>[    6.597595] atmel_ts_init():
+<6>[    6.600219] [KEY] GPIO Input Driver: Start gpio inputs for marvel-keypad in interrupt mode
+<6>[    6.601074] input: marvel-keypad as /devices/virtual/input/input4
+<6>[    6.602996] using input dev h2w headset for key reset
+<6>[    6.603271] using input dev marvel-keypad for key reset
+<6>[    6.606475] using rtc device, msm_rtc, for alarms
+<6>[    6.606719] rs30000048:00010004 rs30000048:00010004: rtc core: registered msm_rtc as rtc0
+<6>[    6.607391] AKM8973 compass driver: init
+<6>[    6.607696] [COMP][AKM8975] AKM8975 compass driver: init
+<6>[    6.608184] [COMP][AKM8975] akm8975_probe:
+<6>[    6.608703] [KEY] gpio_keys_scan_keys: key 1-116, 0 (20) changed to 0
+<6>[    6.609130] [KEY] gpio_keys_scan_keys: key 1-114, 1 (49) changed to 0
+<6>[    6.609344] [KEY] gpio_keys_scan_keys: key 1-115, 2 (92) changed to 0
+<6>[    6.611297] input: compass as /devices/virtual/input/input5
+<6>[    6.613983] BMA250 G-sensor driver: init
+<6>[    6.614471] [FLT]adp1650 Led Flash driver: init
+<6>[    6.614837] [PS][CM3628] cm3628_probe
+<6>[    6.615234] [PS][CM3628] cm3628_probe: is_cmd 0xd0, ps_adc_offset=0x3, ps_debounce=0x1
+<6>[    6.616607] input: lightsensor-level as /devices/virtual/input/input6
+<6>[    6.618560] input: proximity as /devices/virtual/input/input7
+<6>[    6.619171] [LS][CM3628] lightsensor_set_kvalue: ALS calibrated als_kadc=0x6da504c7
+<6>[    6.619567] [LS][CM3628] lightsensor_set_kvalue: als_kadc=0x4c7, als_gadc=0x554
+<6>[    6.619964] [LS][CM3628] lightsensor_update_table: Calibrated adc_table: data[0], 0
+<6>[    6.620178] [LS][CM3628] lightsensor_update_table: Calibrated adc_table: data[1], 2
+<6>[    6.620574] [LS][CM3628] lightsensor_update_table: Calibrated adc_table: data[2], 4
+<6>[    6.620971] [LS][CM3628] lightsensor_update_table: Calibrated adc_table: data[3], 25
+<6>[    6.621215] [LS][CM3628] lightsensor_update_table: Calibrated adc_table: data[4], 49
+<6>[    6.621612] [LS][CM3628] lightsensor_update_table: Calibrated adc_table: data[5], 3cc
+<6>[    6.622009] [LS][CM3628] lightsensor_update_table: Calibrated adc_table: data[6], 68f
+<6>[    6.622222] [LS][CM3628] lightsensor_update_table: Calibrated adc_table: data[7], 854
+<6>[    6.622619] [LS][CM3628] lightsensor_update_table: Calibrated adc_table: data[8], a18
+<6>[    6.623016] [LS][CM3628] lightsensor_update_table: Calibrated adc_table: data[9], ffff
+<6>[    6.623657] [PS][CM3628] psensor_set_kvalue: PS calibrated ps_kparam1 = 0x50530306, ps_kparam2 = 0x2080a0e
+<6>[    6.623870] [PS][CM3628] psensor_set_kvalue: PS calibrated inte_cancel_set = 0xe
+<7>[    6.624328] __capella_cm3628_power: Turn the capella_cm3628 power on
+<6>[    6.643493] [PS][CM3628] initial_cm3628, INTERRUPT GPIO val = 1
+<6>[    6.664794] [PS][CM3628] psensor_initial_cmd, finish
+<6>[    6.666870] [PS][CM3628] cm3628_probe: Probe success!
+<4>[    6.667175] [CAM]s5k4e1gx_init
+<4>[    6.667510] [CAM]__s5k4e1gx_probe
+<6>[    6.667907] [CAM]s5k4e1gx_vreg_enable camera vreg on
+<6>[    6.669158] [CAM]sctrl.node 0
+<4>[    6.669372] [CAM]s5k4e1gx_sensor_probe()
+<6>[    6.670593] [CAM]s5k4e1gx_probe called!
+<6>[    6.692901] [USB] reset
+<6>[    6.695190] [USB] portchange USB_SPEED_HIGH
+<6>[    6.721588] [CAM]s5k4e1gx_probe successed! rc = 0
+<6>[    6.721893] [CAM]s5k4e1gx s->node 0
+<6>[    6.767578] [CAM]s5k4e1gx_sensor_init(): reseting sensor.
+<6>[    6.768035] [USB] send connect type 1
+<6>[    6.768280] fsg_set_ums_state: 1
+<6>[    6.768493] ums: set state 1
+<6>[    6.769073] [BATT] online=1
+<6>[    6.769317] [CAM]sensor_lc_disable=0
+<6>[    6.769744] [BATT] Update SMEM: cable type 1 at 1396478314 (1970-01-01 00:00:01.396264771 UTC)
+<6>[    6.803588] set usb_connected = 1
+<6>[    6.803833] set usb_configuration = 0
+<6>[    6.808074] [USB] reset
+<6>[    6.810363] [USB] portchange USB_SPEED_HIGH
+<4>[    6.850555] [CAM]sensor evt version : 0x10
+<4>[    6.850769] [CAM]use analog_settings_evt3
+<6>[    6.861145] s5k4e1gx_sysfs_init : kobject_create_and_add
+<6>[    6.861389] s5k4e1gx_sysfs_init : sysfs_create_file
+<6>[    6.863677] [CAM]mt9v113_init
+<6>[    6.864105] device-mapper: uevent: version 1.0.3
+<6>[    6.864807] device-mapper: ioctl: 4.17.0-ioctl (2010-03-05) initialised: dm-devel@redhat.com
+<6>[    6.865203] Bluetooth: HCI UART driver ver 2.2
+<6>[    6.865417] Bluetooth: HCI H4 protocol initialized
+<6>[    6.865631] Bluetooth: HCILL protocol initialized
+<6>[    6.868957] mmc0: Qualcomm MSM SDCC at 0x00000000a0400000 irq 24,0 dma 8
+<6>[    6.869384] mmc0: Platform slot type: N/A
+<6>[    6.869598] mmc0: 4 bit data mode enabled
+<6>[    6.869995] mmc0: 8 bit data mode disabled
+<6>[    6.870208] mmc0: MMC clock 144000 -> 50000000 Hz, PCLK 100000000 Hz
+<6>[    6.870574] mmc0: Slot eject status = 1
+<6>[    6.870788] mmc0: Power save feature enable = 1
+<6>[    6.871002] mmc0: DM non-cached buffer at ffc55000, dma_addr 0x2d22b000
+<6>[    6.871398] mmc0: DM cmd busaddr 0x2d22b000, cmdptr busaddr 0x2d22b300
+<7>[    6.872009] msmsdcc_platform_status_irq: 102
+<6>[    6.872406] mmc1: Slot status change detected (0 -> 1)
+<6>[    6.874786] marvel_sdslot_switchvdd: Disabling SD slot power
+<6>[    6.876495] mmc1: Qualcomm MSM SDCC at 0x00000000a0500000 irq 26,102 dma 8
+<6>[    6.876708] mmc1: Platform slot type: SD
+<6>[    6.877105] mmc1: 4 bit data mode enabled
+<6>[    6.877319] mmc1: 8 bit data mode disabled
+<6>[    6.877532] mmc1: MMC clock 144000 -> 50000000 Hz, PCLK 100000000 Hz
+<6>[    6.877899] mmc1: Slot eject status = 0
+<6>[    6.878143] mmc1: Power save feature enable = 1
+<6>[    6.878540] mmc1: DM non-cached buffer at ffc56000, dma_addr 0x2d22d000
+<6>[    6.878753] mmc1: DM cmd busaddr 0x2d22d000, cmdptr busaddr 0x2d22d300
+<7>[    6.879821] Registered led device: amber
+<7>[    6.881103] Registered led device: green
+<7>[    6.882446] Registered led device: button-backlight
+<6>[    6.882720] microp_led_probe: succeeded
+<6>[    6.886169] logger: created 64K log 'log_main'
+<6>[    6.887603] logger: created 256K log 'log_events'
+<6>[    6.888031] logger: created 64K log 'log_radio'
+<6>[    6.888580] logger: created 64K log 'log_system'
+<6>[    6.889038] GACT probability NOT on
+<6>[    6.889251] Mirror/redirect action on
+<6>[    6.889648] u32 classifier
+<6>[    6.889862]     Actions configured
+<6>[    6.890075] Netfilter messages via NETLINK v0.30.
+<6>[    6.890594] nf_conntrack version 0.5.0 (6685 buckets, 26740 max)
+<4>[    6.891967] CONFIG_NF_CT_ACCT is deprecated and will be removed soon. Please use
+<4>[    6.892364] nf_conntrack.acct=1 kernel parameter, acct=1 nf_conntrack module option or
+<4>[    6.892578] sysctl net.netfilter.nf_conntrack_acct=1 to enable it.
+<6>[    6.893218] ctnetlink v0.93: registering with nfnetlink.
+<6>[    6.893646] NF_TPROXY: Transparent proxy support initialized, version 4.1.0
+<6>[    6.894042] NF_TPROXY: Copyright (c) 2006-2007 BalaBit IT Ltd.
+<6>[    6.896759] xt_time: kernel timezone is -0000
+<6>[    6.897430] ip_tables: (C) 2000-2006 Netfilter Core Team
+<6>[    6.898895] arp_tables: (C) 2002 David S. Miller
+<6>[    6.899444] TCP cubic registered
+<6>[    6.899688] NET: Registered protocol family 10
+<6>[    6.902770] lo: Disabled Privacy Extensions
+<6>[    6.906707] Mobile IPv6
+<6>[    6.907043] ip6_tables: (C) 2000-2006 Netfilter Core Team
+<6>[    6.907745] IPv6 over IPv4 tunneling driver
+<6>[    6.910705] sit0: Disabled Privacy Extensions
+<6>[    6.914825] ip6tnl0: Disabled Privacy Extensions
+<6>[    6.916473] NET: Registered protocol family 17
+<6>[    6.916748] NET: Registered protocol family 15
+<6>[    6.917236] Bluetooth: L2CAP ver 2.14
+<6>[    6.917449] Bluetooth: L2CAP socket layer initialized
+<6>[    6.917694] Bluetooth: SCO (Voice Link) ver 0.6
+<6>[    6.918060] Bluetooth: SCO socket layer initialized
+<6>[    6.918548] Bluetooth: RFCOMM TTY layer initialized
+<6>[    6.919006] Bluetooth: RFCOMM socket layer initialized
+<6>[    6.919219] Bluetooth: RFCOMM ver 1.11
+<6>[    6.919433] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+<6>[    6.919830] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+<6>[    6.920227] ######## bthid_init: ########
+<6>[    6.920898] ######## bthid_init: done ########
+<6>[    6.921508] clock_late_init() disabled 17 unused clocks
+<6>[    6.921752] [Port list] init()
+<6>[    6.921966] [Port list] Virtual Address for port_list: [f8185a60]
+<6>[    6.922180] [Port list] Physical Address for port_list: [185A60]
+<6>[    6.926757] VFP support v0.3: implementor 41 architecture 1 part 20 variant b rev 5
+<6>[    6.930450] rs30000048:00010004 rs30000048:00010004: setting system clock to 1980-01-06 00:21:57 UTC (315966117)
+<4>[    6.930847] Warning: unable to open an initial console.
+<6>[    6.931304] Freeing init memory: 176K
+<3>[    6.939056] init: could not import file /system/etc/init.local.rc
+<3>[    6.942443] init: /init.marvel.rc: 183: ignored duplicate definition of service 'ril-daemon'
+<6>[    6.950256] android_usb gadget: high speed config #1: android
+<6>[    6.953094] ums: set state 1
+<6>[    6.953430] set usb_configuration = 1
+<6>[    6.954010] set usb_connect2pc = 1
+<6>[    6.968841] marvel_sdslot_switchvdd: Setting level to 2900
+<6>[    7.077514] marvel_sdslot_switchvdd: Setting level to 2850
+<4>[    7.348663] mmc1: high speed mode but max_dtr = 50000000
+<4>[    7.349090] mmc1: host does not support reading read-only switch. assuming write-enable.
+<6>[    7.349517] mmc1: new high speed SDHC card at address 0002
+<6>[    7.354492] mmcblk0: mmc1:0002 00000 14.9 GiB 
+<6>[    7.355468]  mmcblk0: p1 p2
+<6>[    7.415435] yaffs: dev is 32505859 name is "mtdblock3" rw
+<6>[    7.415863] yaffs: passed flags ""
+<7>[    7.416076] yaffs: Attempting MTD mount of 31.3,"mtdblock3"
+<7>[    7.589294] yaffs: restored from checkpoint
+<7>[    7.590454] yaffs_read_super: isCheckpointed 1
+<6>[    7.594421] yaffs: dev is 32505861 name is "mtdblock5" rw
+<6>[    7.594818] yaffs: passed flags ""
+<7>[    7.595031] yaffs: Attempting MTD mount of 31.5,"mtdblock5"
+<7>[    7.616821] yaffs: restored from checkpoint
+<7>[    7.617401] yaffs_read_super: isCheckpointed 1
+<6>[    7.617919] yaffs: dev is 32505860 name is "mtdblock4" rw
+<6>[    7.618316] yaffs: passed flags ""
+<7>[    7.618530] yaffs: Attempting MTD mount of 31.4,"mtdblock4"
+<7>[    7.622253] yaffs: restored from checkpoint
+<7>[    7.622924] yaffs_read_super: isCheckpointed 1
+<3>[    7.742370] init: cannot find '/system/bin/drmserver', disabling 'drm'
+<3>[    7.752105] init: service 'console' requires console
+<7>[    7.774658] [USB] android_enable_function 'adb'=1(1)
+<7>[    7.775482] [USB] android_enable_function: vendor_id=BB4,product_id=CB0
+<6>[    7.776428] func_enable: set usb_configuration = 0
+<6>[    7.777587] [USB] hsusb: ONLINE -> RESET
+<6>[    7.777801] [USB] msm_hsusb: disable pullup
+<6>[    7.778015] [USB] hsusb: reset controller
+<6>[    7.788146] enabling adb
+<7>[    7.788909] [USB] android_enable_function 'adb'=1(0)
+<6>[    7.794219] adb_open
+<6>[    7.814056] msm_hsusb_phy_reset
+<6>[    7.964111] [USB] ulpi: write 0x2c to 0x31
+<6>[    7.964355] [USB] ulpi: write 0x08 to 0x32
+<6>[    7.964721] [USB] ulpi: write 0x1d to 0x0d
+<6>[    7.964935] [USB] ulpi: write 0x1d to 0x10
+<6>[    7.965179] [USB] handle_notify_offline: notify offline
+<6>[    7.965698] [USBDIAG] diag_function_disable: dev=diag
+<6>[    7.965972] [USB] msm_hsusb: enable pullup
+<6>[    7.966857] adb_release
+<6>[    7.967590] adb_open
+<6>[    7.968627] [USB] hsusb: RESET -> ONLINE
+<6>[    7.969390] [USB] suspend
+<6>[    8.006927] [COMP][AKM8975] akmd_open:
+<7>[    8.013336] [COMP][AKM8975] AKECS_GetOpenStatus:
+<6>[    8.092834] [USB] reset
+<6>[    8.095123] [USB] portchange USB_SPEED_HIGH
+<6>[    8.128173] warning: `rild' uses 32-bit capabilities (legacy support in use)
+<6>[    8.209045] [USB] reset
+<6>[    8.211181] [USB] portchange USB_SPEED_HIGH
+<6>[    8.211578] [SMD]SMD: ch 0 0 -> 1
+<6>[    8.211883] [SMD]SMD: ch 0 1 -> 2
+<6>[    8.351654] android_usb gadget: high speed config #1: android
+<6>[    8.353393] adb_function_set_alt: maxsize = 512
+<6>[    8.355438] ums: set state 1
+<6>[    8.355865] set usb_configuration = 1
+<6>[    9.335968] [DISP]msmfb: pan_update in state(1)
+<6>[    9.335998] [DISP]msmfb: full update starting
+<6>[    9.365051] [DISP]msmfb: full update completed
+<6>[    9.365356] [DISP]msmfb: turning on panel
+<4>[    9.365783] [DISP] <7>marvel_panel_unblank: enter.
+<7>[    9.416076] [BKL] turn on backlight
+<7>[    9.416320] [BKL] marvel_brightness_set = 100
+<6>[    9.540100] kgsl: initialized dev=0 mmu=on per_process_pagetable=on
+<6>[   10.633117] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[   10.634368] [AUD][snd.c:snd_rpc_thread] snd_rpc_thread() start
+<6>[   10.635803] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   10.637359] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[   10.640045] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   11.994750] [BATT] M2A_RPC: set_charging: 0 at 6620612477 (1980-01-06 00:22:02.554298071 UTC)
+<6>[   11.995391] Switch charger OFF
+<6>[   11.996704] [BATT] M2A_RPC: level_update: 90 at 6622535082 (1980-01-06 00:22:02.556251193 UTC)
+<6>[   11.997344] [BATT] power_supply_changed: battery at 6623175950 (1980-01-06 00:22:02.556922579 UTC)
+<6>[   12.998901] [BATT] M2A_RPC: set_charging: 1 at 7624914916 (1980-01-06 00:22:03.558447922 UTC)
+<6>[   12.999542] Switch charger ON (SLOW)
+<6>[   13.000457] batt: Switch charger ON (SLOW): regh 0x03=83
+<6>[   45.172271] request_suspend_state: wakeup (3->0) at 39797857906 (1980-01-06 00:22:35.731818158 UTC)
+<6>[   46.176208] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[   46.177215] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[   46.177764] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   46.178833] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   47.504608] request_suspend_state: wakeup (0->0) at 42130163816 (1980-01-06 00:22:38.064124068 UTC)
+<6>[   50.475463] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[   50.476531] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[   50.476898] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   50.478607] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   51.796173] request_suspend_state: wakeup (0->0) at 46421759275 (1980-01-06 00:22:42.355719527 UTC)
+<6>[   55.766754] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[   55.767913] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[   55.768310] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   55.769592] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   57.092254] request_suspend_state: wakeup (0->0) at 51717840818 (1980-01-06 00:22:47.651770552 UTC)
+<6>[   61.065368] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[   61.066558] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[   61.066955] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   61.068450] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   62.399566] request_suspend_state: wakeup (0->0) at 57025152829 (1980-01-06 00:22:52.959082564 UTC)
+<6>[   65.371917] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[   65.373077] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[   65.373565] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   65.375183] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   65.914459] Release 'boot-time' no_halt_lock
+<6>[   66.708770] request_suspend_state: wakeup (0->0) at 61334356932 (1980-01-06 00:22:57.268317184 UTC)
+<6>[   70.675231] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[   70.676177] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[   70.677398] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   70.679046] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   72.027435] request_suspend_state: wakeup (0->0) at 66653021482 (1980-01-06 00:23:02.586981734 UTC)
+<6>[   75.989685] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[   75.990692] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[   75.991302] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   75.992767] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   77.350921] request_suspend_state: wakeup (0->0) at 71976507809 (1980-01-06 00:23:07.910437543 UTC)
+<6>[   81.326873] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[   81.328063] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[   81.328552] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   81.330108] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   82.687652] request_suspend_state: wakeup (0->0) at 77313238768 (1980-01-06 00:23:13.247199020 UTC)
+<6>[   85.655242] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[   85.656402] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[   85.656860] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   85.658386] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   87.027252] request_suspend_state: wakeup (0->0) at 81652838375 (1980-01-06 00:23:17.586798627 UTC)
+<6>[   90.986968] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[   90.988098] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[   90.988616] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   90.990020] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   92.353088] request_suspend_state: wakeup (0->0) at 86978674557 (1980-01-06 00:23:22.912634809 UTC)
+<6>[   96.345336] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[   96.346405] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[   96.347686] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   96.348785] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[   97.679901] request_suspend_state: wakeup (0->0) at 92305487301 (1980-01-06 00:23:28.239447553 UTC)
+<6>[  100.679687] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  100.680694] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  100.681274] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  100.682739] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  102.023864] request_suspend_state: wakeup (0->0) at 96649450924 (1980-01-06 00:23:32.583380658 UTC)
+<6>[  106.006622] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  106.007781] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  106.008087] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  106.009826] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  107.367156] request_suspend_state: wakeup (0->0) at 101992743161 (1980-01-06 00:23:37.926703413 UTC)
+<6>[  111.331848] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  111.333190] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  111.333526] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  111.335357] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  112.696838] request_suspend_state: wakeup (0->0) at 107322424558 (1980-01-06 00:23:43.256384810 UTC)
+<6>[  116.662353] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  116.665740] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  116.666046] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  116.667968] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  118.025451] request_suspend_state: wakeup (0->0) at 112651037838 (1980-01-06 00:23:48.584967572 UTC)
+<6>[  122.025451] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  122.026794] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  122.027282] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  122.028717] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  123.367950] request_suspend_state: wakeup (0->0) at 117993536619 (1980-01-06 00:23:53.927496871 UTC)
+<6>[  127.347778] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  127.348815] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  127.349456] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  127.350769] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  128.696807] request_suspend_state: wakeup (0->0) at 123322394040 (1980-01-06 00:23:59.256354292 UTC)
+<6>[  132.675415] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  132.676666] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  132.677032] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  132.678253] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  134.033874] request_suspend_state: wakeup (0->0) at 128659460690 (1980-01-06 00:24:04.593420942 UTC)
+<6>[  138.015930] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  138.017639] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  138.018127] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  138.020019] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  139.370269] request_suspend_state: wakeup (0->0) at 133995855954 (1980-01-06 00:24:09.929816206 UTC)
+<6>[  142.385284] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  142.386474] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  142.386932] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  142.388366] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  143.708953] request_suspend_state: wakeup (0->0) at 138334540037 (1980-01-06 00:24:14.268500289 UTC)
+<6>[  147.711822] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  147.712951] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  147.714233] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  147.715393] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  149.055633] request_suspend_state: wakeup (0->0) at 143681219725 (1980-01-06 00:24:19.615179977 UTC)
+<6>[  153.031982] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  153.033264] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  153.033752] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  153.035217] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  154.389587] request_suspend_state: wakeup (0->0) at 149015173580 (1980-01-06 00:24:24.949133832 UTC)
+<6>[  155.980987] [BATT] M2A_RPC: level_update: 91 at 150607123027 (1980-01-06 00:24:26.540533963 UTC)
+<6>[  155.982055] [BATT] power_supply_changed: battery at 150608557353 (1980-01-06 00:24:26.541602078 UTC)
+<6>[  157.385131] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  157.386779] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  157.387420] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  157.390716] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  158.741516] request_suspend_state: wakeup (0->0) at 153367102293 (1980-01-06 00:24:29.301062545 UTC)
+<6>[  162.735931] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  162.736846] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  162.737457] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  162.738952] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  164.085693] request_suspend_state: wakeup (0->0) at 158711279538 (1980-01-06 00:24:34.645239790 UTC)
+<6>[  168.055297] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  168.056304] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  168.057159] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  168.058471] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  169.413543] request_suspend_state: wakeup (0->0) at 164039129879 (1980-01-06 00:24:39.973059613 UTC)
+<6>[  172.415740] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  172.416992] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  172.417846] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  172.418975] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  173.750335] request_suspend_state: wakeup (0->0) at 168375921872 (1980-01-06 00:24:44.309882124 UTC)
+<6>[  177.719726] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  177.721038] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  177.721374] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  177.723052] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  179.062072] request_suspend_state: wakeup (0->0) at 173687658933 (1980-01-06 00:24:49.621619185 UTC)
+<6>[  183.041870] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  183.043212] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  183.043731] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  183.044738] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  184.381317] request_suspend_state: wakeup (0->0) at 179006903318 (1980-01-06 00:24:54.940863570 UTC)
+<6>[  187.349609] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  187.350555] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  187.351196] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  187.352691] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  188.693511] request_suspend_state: wakeup (0->0) at 183319098142 (1980-01-06 00:24:59.253058394 UTC)
+<6>[  192.635833] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  192.637237] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  192.637756] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  192.639251] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  194.000488] request_suspend_state: wakeup (0->0) at 188626074461 (1980-01-06 00:25:04.560034713 UTC)
+<6>[  197.956634] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  197.957824] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  197.958709] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  197.959899] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  199.313110] request_suspend_state: wakeup (0->0) at 193938696530 (1980-01-06 00:25:09.872656782 UTC)
+<6>[  203.285278] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  203.286468] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  203.286956] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  203.288299] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  204.627410] request_suspend_state: wakeup (0->0) at 199252997068 (1980-01-06 00:25:15.186957320 UTC)
+<6>[  207.595458] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  207.596618] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  207.597076] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  207.598602] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  208.937194] request_suspend_state: wakeup (0->0) at 203562781004 (1980-01-06 00:25:19.496741256 UTC)
+<6>[  212.889648] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  212.890808] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  212.891296] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  212.893005] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  214.244812] request_suspend_state: wakeup (0->0) at 208870398191 (1980-01-06 00:25:24.804327926 UTC)
+<6>[  218.222625] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  218.224090] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  218.224853] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  218.226348] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  219.571716] request_suspend_state: wakeup (0->0) at 214197302486 (1980-01-06 00:25:30.131262738 UTC)
+<6>[  222.545715] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  222.546997] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  222.547882] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  222.549041] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  223.895690] request_suspend_state: wakeup (0->0) at 218521277096 (1980-01-06 00:25:34.455237348 UTC)
+<6>[  227.866882] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  227.868011] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  227.868469] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  227.869781] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  229.224243] request_suspend_state: wakeup (0->0) at 223849829342 (1980-01-06 00:25:39.783789594 UTC)
+<6>[  233.206298] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  233.207427] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  233.207916] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  233.209442] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  234.560394] request_suspend_state: wakeup (0->0) at 229185980465 (1980-01-06 00:25:45.119910200 UTC)
+<6>[  237.528503] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  237.529724] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  237.530242] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  237.531921] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  238.898529] request_suspend_state: wakeup (0->0) at 233524115231 (1980-01-06 00:25:49.458075483 UTC)
+<6>[  242.869995] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  242.871063] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  242.871948] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  242.873260] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  244.246276] request_suspend_state: wakeup (0->0) at 238871863034 (1980-01-06 00:25:54.805823286 UTC)
+<6>[  248.235321] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  248.238616] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  248.238952] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  248.240600] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  249.592926] request_suspend_state: wakeup (0->0) at 244218481686 (1980-01-06 00:26:00.152441938 UTC)
+<6>[  252.566223] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  252.567810] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  252.568176] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  252.569885] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  253.931884] request_suspend_state: wakeup (0->0) at 248557470943 (1980-01-06 00:26:04.491431195 UTC)
+<6>[  257.927520] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  257.929016] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  257.929382] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  257.930755] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  259.282226] request_suspend_state: wakeup (0->0) at 253907812739 (1980-01-06 00:26:09.841772991 UTC)
+<6>[  263.265258] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  263.266204] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  263.266876] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  263.268371] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  264.634704] request_suspend_state: wakeup (0->0) at 259260260252 (1980-01-06 00:26:15.194220504 UTC)
+<6>[  267.616699] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  267.617858] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  267.618347] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  267.619781] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  268.978088] request_suspend_state: wakeup (0->0) at 263603674558 (1980-01-06 00:26:19.537634810 UTC)
+<6>[  272.956726] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  272.958251] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  272.958892] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  272.959716] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  274.325012] request_suspend_state: wakeup (0->0) at 268950567869 (1980-01-06 00:26:24.884528121 UTC)
+<6>[  275.981018] [BATT] M2A_RPC: level_update: 92 at 270607550275 (1980-01-06 00:26:26.540564483 UTC)
+<6>[  275.982452] [BATT] power_supply_changed: battery at 270608557355 (1980-01-06 00:26:26.542029326 UTC)
+<6>[  278.311767] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  278.312683] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  278.313323] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  278.314849] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  279.655700] request_suspend_state: wakeup (0->0) at 274281286861 (1980-01-06 00:26:30.215247113 UTC)
+<6>[  282.657287] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  282.658630] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  282.659179] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  282.660583] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  284.006072] request_suspend_state: wakeup (0->0) at 278631659176 (1980-01-06 00:26:34.565619428 UTC)
+<6>[  288.005340] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  288.006500] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  288.007202] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  288.008422] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  289.353088] request_suspend_state: wakeup (0->0) at 283978644040 (1980-01-06 00:26:39.912604292 UTC)
+<6>[  293.338134] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  293.339355] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  293.340026] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  293.341156] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  294.700836] request_suspend_state: wakeup (0->0) at 289326422360 (1980-01-06 00:26:45.260352094 UTC)
+<6>[  297.715240] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  297.716247] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  297.717254] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  297.718414] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  299.061614] request_suspend_state: wakeup (0->0) at 293687201169 (1980-01-06 00:26:49.621161421 UTC)
+<6>[  303.045715] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  303.046905] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  303.047393] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  303.049072] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  304.416259] request_suspend_state: wakeup (0->0) at 299041845944 (1980-01-06 00:26:54.975775679 UTC)
+<6>[  307.416748] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  307.417846] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  307.418518] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  307.420104] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  308.750762] request_suspend_state: wakeup (0->0) at 303376349117 (1980-01-06 00:26:59.310309369 UTC)
+<6>[  312.735900] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  312.737548] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  312.739349] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  312.741088] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  314.091522] request_suspend_state: wakeup (0->0) at 308717108396 (1980-01-06 00:27:04.651068648 UTC)
+<6>[  318.085479] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  318.087219] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  318.087524] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  318.089202] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  319.433959] request_suspend_state: wakeup (0->0) at 314059546140 (1980-01-06 00:27:09.993475874 UTC)
+<6>[  322.406616] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  322.407745] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  322.408233] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  322.409698] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  323.747100] request_suspend_state: wakeup (0->0) at 318372687009 (1980-01-06 00:27:14.306647261 UTC)
+<6>[  327.709686] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  327.710601] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  327.711242] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  327.712768] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  329.056304] request_suspend_state: wakeup (0->0) at 323681860592 (1980-01-06 00:27:19.615820844 UTC)
+<6>[  333.019622] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  333.020538] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  333.021179] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  333.022766] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  334.369812] request_suspend_state: wakeup (0->0) at 328995398191 (1980-01-06 00:27:24.929358443 UTC)
+<6>[  337.339721] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  337.341064] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  337.341705] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  337.342620] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  338.685363] request_suspend_state: wakeup (0->0) at 333310949949 (1980-01-06 00:27:29.244879684 UTC)
+<6>[  342.655731] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  342.656951] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  342.657440] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  342.658630] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  343.996459] request_suspend_state: wakeup (0->0) at 338622046139 (1980-01-06 00:27:34.556006391 UTC)
+<6>[  347.975219] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  347.976196] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  347.977233] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  347.978393] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  349.308959] request_suspend_state: wakeup (0->0) at 343934546140 (1980-01-06 00:27:39.868475875 UTC)
+<6>[  353.275695] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  353.277130] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  353.277587] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  353.279266] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  354.625610] request_suspend_state: wakeup (0->0) at 349251196531 (1980-01-06 00:27:45.185126265 UTC)
+<6>[  357.605255] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  357.606231] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  357.606872] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  357.608459] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  358.936096] request_suspend_state: wakeup (0->0) at 353561682371 (1980-01-06 00:27:49.495612105 UTC)
+<6>[  362.905456] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  362.906890] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  362.907470] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  362.908294] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  364.254821] request_suspend_state: wakeup (0->0) at 358880407957 (1980-01-06 00:27:54.814368209 UTC)
+<6>[  368.225372] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  368.226562] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  368.227172] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  368.228363] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  369.578979] request_suspend_state: wakeup (0->0) at 364204565670 (1980-01-06 00:28:00.138525922 UTC)
+<6>[  372.551910] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  372.553039] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  372.553527] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  372.555023] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  373.905914] request_suspend_state: wakeup (0->0) at 368531500484 (1980-01-06 00:28:04.465460736 UTC)
+<6>[  377.881561] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  377.882507] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  377.883148] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  377.884704] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  379.224578] request_suspend_state: wakeup (0->0) at 373850165037 (1980-01-06 00:28:09.784125289 UTC)
+<6>[  383.195739] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  383.196899] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  383.197387] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  383.199157] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  384.558288] request_suspend_state: wakeup (0->0) at 379183874754 (1980-01-06 00:28:15.117835006 UTC)
+<6>[  387.535491] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  387.536743] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  387.537445] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  387.538696] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  388.888916] request_suspend_state: wakeup (0->0) at 383514471677 (1980-01-06 00:28:19.448431929 UTC)
+<6>[  392.865875] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  392.867126] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  392.867584] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  392.868804] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  394.233612] request_suspend_state: wakeup (0->0) at 388859198238 (1980-01-06 00:28:24.793127972 UTC)
+<6>[  395.981140] [BATT] M2A_RPC: level_update: 93 at 390607245114 (1980-01-06 00:28:26.540686567 UTC)
+<6>[  395.982574] [BATT] power_supply_changed: battery at 390608648922 (1980-01-06 00:28:26.542151411 UTC)
+<6>[  398.218872] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  398.219818] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  398.220703] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  398.222106] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  399.573272] request_suspend_state: wakeup (0->0) at 394198858884 (1980-01-06 00:28:30.132819136 UTC)
+<6>[  402.550659] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  402.552520] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  402.553649] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  402.555480] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  403.927124] request_suspend_state: wakeup (0->0) at 398552710202 (1980-01-06 00:28:34.486670454 UTC)
+<6>[  407.905670] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  407.906982] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  407.907806] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  407.908752] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  409.271850] request_suspend_state: wakeup (0->0) at 403897436764 (1980-01-06 00:28:39.831397016 UTC)
+<6>[  413.275665] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  413.277069] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  413.277557] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  413.279052] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  414.620544] request_suspend_state: wakeup (0->0) at 409246130613 (1980-01-06 00:28:45.180060347 UTC)
+<6>[  417.606079] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  417.607421] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  417.607910] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  417.609375] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  418.966430] request_suspend_state: wakeup (0->0) at 413592016842 (1980-01-06 00:28:49.525977094 UTC)
+<6>[  422.951751] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  422.952667] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  422.953582] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  422.954956] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  424.311340] request_suspend_state: wakeup (0->0) at 418936895994 (1980-01-06 00:28:54.870856246 UTC)
+<6>[  428.315704] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  428.317138] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  428.317474] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  428.319335] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  429.681579] request_suspend_state: wakeup (0->0) at 424307165769 (1980-01-06 00:29:00.241095503 UTC)
+<6>[  432.677917] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  432.679351] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  432.679687] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  432.681427] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  434.026947] request_suspend_state: wakeup (0->0) at 428652533199 (1980-01-06 00:29:04.586493451 UTC)
+<6>[  438.011505] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  438.012695] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  438.013336] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  438.014678] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  439.358459] request_suspend_state: wakeup (0->0) at 433984045652 (1980-01-06 00:29:09.918005904 UTC)
+<6>[  443.353881] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  443.354949] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  443.355590] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  443.356842] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  444.703979] request_suspend_state: wakeup (0->0) at 439329565669 (1980-01-06 00:29:15.263525921 UTC)
+<6>[  447.716796] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  447.718383] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  447.718811] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  447.720520] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  449.062133] request_suspend_state: wakeup (0->0) at 443687719968 (1980-01-06 00:29:19.621680220 UTC)
+<6>[  453.065338] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  453.066864] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  453.067169] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  453.069030] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  454.395538] request_suspend_state: wakeup (0->0) at 449021124509 (1980-01-06 00:29:24.955084761 UTC)
+<6>[  457.385375] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  457.386596] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  457.387298] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  457.388610] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  458.733764] request_suspend_state: wakeup (0->0) at 453359350827 (1980-01-06 00:29:29.293311079 UTC)
+<6>[  462.735351] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  462.736419] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  462.737060] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  462.738311] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  464.086059] request_suspend_state: wakeup (0->0) at 458711645749 (1980-01-06 00:29:34.645606001 UTC)
+<6>[  468.065277] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  468.066497] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  468.066986] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  468.068481] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  469.413848] request_suspend_state: wakeup (0->0) at 464039435055 (1980-01-06 00:29:39.973364790 UTC)
+<6>[  472.385345] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  472.386566] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  472.386871] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  472.388702] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  473.734283] request_suspend_state: wakeup (0->0) at 468359869626 (1980-01-06 00:29:44.293829878 UTC)
+<6>[  477.715209] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  477.716339] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  477.716827] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  477.718444] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  479.058441] request_suspend_state: wakeup (0->0) at 473684027341 (1980-01-06 00:29:49.617987593 UTC)
+<6>[  483.025726] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  483.027313] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  483.027618] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  483.029357] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  484.375610] request_suspend_state: wakeup (0->0) at 479001196531 (1980-01-06 00:29:54.935156783 UTC)
+<6>[  487.341888] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  487.342895] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  487.343505] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  487.344787] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  488.696502] request_suspend_state: wakeup (0->0) at 483322088865 (1980-01-06 00:29:59.256049117 UTC)
+<6>[  492.675231] [AUD][snd.c:snd_ioctl] snd_set_device 1 1 1
+<6>[  492.676208] [AUD][snd.c:snd_ioctl] snd_set_volume 256 0 5
+<6>[  492.676849] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
+<6>[  492.678131] [AUD][snd.c:snd_rpc_thread] snd: rpc_reply status 0
