@@ -1,0 +1,21 @@
+how to fix errors from lolcat-29-05-12.16.29
+
+* framework.jar
+Sqlitedatabase: 	look for that smali in CM9 and replace
+			or add field mCAnDumpMonitoredSql
+Socket:			add field mSocketMonitor or replace with CM9 small
+
+* android policy jar
+Settings:		add field Lockscreen-custom-app-icons from Sense3.5 or replace with that smali
+			add field Lockscreen-custom-app-activities from Sense3.5 or replace with that smali
+
+illegal method access (call Lcom/android/internal/widget/DigitalClock;.updateTime ()V from Lcom/android/internal/policy/impl/LockScreen;) => NO IDEA, look for digitalclock smali or lockscreen small and find something from sense 3.5 or 2.1
+
+* filterfw.jar
+PackageRedirectionMap		not found, get it from CM9
+SQLiteDatabase			same, replace or add field mCanDumpMontiredSql
+NetworkManagementSockeTagger	not found, get it from CM9
+
+OK, these are my ideas, don't blame me if it doesn't work. Try one fix at the time.
+TIP: 	adb pull/remove those files for faster logcatting or make an update.zip, 
+	so you should only replace the jars and mod the script a bit.
