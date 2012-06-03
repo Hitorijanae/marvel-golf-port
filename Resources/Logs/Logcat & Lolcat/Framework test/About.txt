@@ -1,0 +1,3 @@
+In this folder I have taken the logcat of various different Sense 4 roms framework.
+
+Please note that the pico rom is a Sense 3.5 ROM.
