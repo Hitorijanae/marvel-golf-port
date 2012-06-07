@@ -13,7 +13,7 @@ function precmd {
 	(( e )) && print -n "$e|"
 }
 PS1='$(precmd)$USER@$HOSTNAME:${PWD:-?} '"$PS1 "
-export HOME HOSTNAME MKSH PS1 SHELL TERM USER
+export HOME HOSTNAME MKSH SHELL TERM USER
 alias l='ls'
 alias la='l -a'
 alias ll='l -l'

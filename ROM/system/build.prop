@@ -152,17 +152,36 @@ debug.qctwa.preservebuf=1
 com.qc.hardware=true
 com.qc.hdmi_out=false
 
-# More RIL
+###################
+# USB
+###################
+
+###
+# USB Mount
+persist.sys.usb.config=mass_storage,adb
+persist.service.adb.enable=1
+
+# htc ril
+#
 ro.ril.ecc.HTC-GCC=999,112,997
 ro.ril.ecc.HTC-WWE=999
-ro.ril.ecc.HTC-ELL=92,93,94
+ro.ril.ecc.HTC-ITA=113,115,118
 ro.ril.enable.a52.HTC-ITA=1
 ro.ril.enable.a53.HTC-ITA=1
+ro.phone.min_match.HTC__016=7
 ro.ril.enable.a52=0
 ro.ril.enable.a53=1
-ro.ril.disable.fd.plmn.prefix=23402,23410,23411
+ro.ril.hsdpa.category=8
+ro.ril.hsxpa=1
+ro.ril.disable.fd.plmn.prefix=23402,23410,23411,23420
 ro.ril.enable.sdr=1
 ro.ril.enable.amr.wideband=0
+ro.ril.hep = 1
+ro.ril.enable.dtm = 0
+ro.ril.hsdpa.category = 8
+
+# Modify MMS APN retry timer from 5s to 2s.
+ro.gsm.2nd_data_retry_config = max_retries=3, 2000, 2000, 2000
 
 rild.libpath=/system/lib/libhtc_ril.so
 # RilLibPath for Ganlite by Godel_Chen
@@ -204,35 +223,11 @@ ro.opengles.version = 131072
 
 # For ICS project, default 32m/48m
 
-## THESE ARE OUR STRINGS
-#- Start
-#dalvik.vm.heapstartsize=5m
-#- Size / Max
-#dalvik.vm.heapsize=32m
-#- Limit
-#dalvik.vm.heapgrowthlimit=48m
-#- Only dexopt data?
-# (not set)
-
-## THESE ARE SENSE 4s STRINGS
-#- Start
-# (not set)
-#- Size / Max
-#dalvik.vm.heapsize=20m
-#- Limit
-#dalvik.vm.heapgrowthlimit=32m
-#- Only dexopt data?
-# (not set)
-
-## THESE ARE CM9s STRINGS
-#- Start
-dalvik.vm.heapstartsize=5m
-#- Size / Max
-dalvik.vm.heapsize=128m
-#- Limit
-dalvik.vm.heapgrowthlimit=48m
-#- Only dexopt data?
 dalvik.vm.dexopt-data-only=1
+dalvik.vm.heapstartsize=5m
+dalvik.vm.heapgrowthlimit=48m
+dalvik.vm.heapsize=128m
+dalvik.vm.dexopt-flags=m=y
 
 # Default network type
 # 0 => WCDMA Preferred.
@@ -355,8 +350,8 @@ ro.fm.mulinst.recording.support=false
 # For quick boot mode
 persist.sys.shutdown.mode = hibernate
 # AOLC
-#htc.audio.alc.enable = 1
-#htc.audio.swalt.enable = 1
+htc.audio.alc.enable = 1
+htc.audio.swalt.enable = 1
 
 lpa.decode = false
 lpa.use-stagefright = false
@@ -422,4 +417,6 @@ ro.setupwizard.mode=DISABLED
 ro.com.google.gmsversion=4.0_r2
 ro.vendor.extension_library=/system/lib/libqc-opt.so
 net.bt.name=Android
+dalvik.vm.stack-trace-file=/data/anr/traces.txt
+ro.htc.camerahack=msm7k
 dalvik.vm.stack-trace-file=/data/anr/traces.txt
