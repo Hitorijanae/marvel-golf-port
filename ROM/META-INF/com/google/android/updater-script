@@ -36,14 +36,12 @@ ui_print("alquez");
 ui_print("");
 ui_print("");
 ui_print("Installing, enjoy!");
-show_progress(0.500000, 80);
+show_progress(0.800000, 80);
 format("MTD", "system");
 mount("MTD", "system", "/system");
 mount("MTD", "userdata", "/data");
 package_extract_dir("system", "/system");
-show_progress(0.400000, 0);
 package_extract_dir("data", "/data");
-show_progress(0.300000, 0);
 symlink("toolbox", "/system/bin/sendevent");
 symlink("toolbox", "/system/bin/newfs_msdos");
 symlink("toolbox", "/system/bin/lsof");
@@ -113,11 +111,9 @@ set_perm(1014, 2000, 0550, "/system/etc/dhcpcd/dhcpcd-run-hooks");
 set_perm(0, 2000, 0550, "/system/etc/init.goldfish.sh");
 set_perm_recursive(0, 0, 0755, 0555, "/system/etc/ppp");
 set_perm_recursive(0, 2000, 0755, 0755, "/system/xbin");
-show_progress(0.100000, 0);
 assert(package_extract_file("boot.img", "/tmp/boot.img"),
        write_raw_image("/tmp/boot.img", "boot"),
        delete("/tmp/boot.img"));
 unmount("/system");
 unmount("/data");
-show_progress(0.100000, 0);
 ui_print("Install complete. Enjoy Sense 4!");
