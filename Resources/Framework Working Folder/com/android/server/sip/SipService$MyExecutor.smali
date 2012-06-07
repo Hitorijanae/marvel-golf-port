@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1223
+    .line 1217
     iput-object p1, p0, Lcom/android/server/sip/SipService$MyExecutor;->this$0:Lcom/android/server/sip/SipService;
 
-    .line 1224
+    .line 1218
     #calls: Lcom/android/server/sip/SipService;->createLooper()Landroid/os/Looper;
     invoke-static {}, Lcom/android/server/sip/SipService;->access$1800()Landroid/os/Looper;
 
@@ -38,7 +38,7 @@
 
     invoke-direct {p0, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 1225
+    .line 1219
     return-void
 .end method
 
@@ -47,14 +47,14 @@
     .parameter "task"
 
     .prologue
-    .line 1244
+    .line 1238
     :try_start_0
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
     :try_end_3
     .catchall {:try_start_0 .. :try_end_3} :catchall_2e
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_3} :catch_d
 
-    .line 1248
+    .line 1242
     iget-object v1, p0, Lcom/android/server/sip/SipService$MyExecutor;->this$0:Lcom/android/server/sip/SipService;
 
     #getter for: Lcom/android/server/sip/SipService;->mMyWakeLock:Lcom/android/server/sip/SipWakeLock;
@@ -65,14 +65,14 @@
     :goto_9
     invoke-virtual {v1, p1}, Lcom/android/server/sip/SipWakeLock;->release(Ljava/lang/Object;)V
 
-    .line 1250
+    .line 1244
     return-void
 
-    .line 1245
+    .line 1239
     :catch_d
     move-exception v0
 
-    .line 1246
+    .line 1240
     .local v0, t:Ljava/lang/Throwable;
     :try_start_e
     const-string v1, "SipService"
@@ -99,7 +99,7 @@
     :try_end_27
     .catchall {:try_start_e .. :try_end_27} :catchall_2e
 
-    .line 1248
+    .line 1242
     iget-object v1, p0, Lcom/android/server/sip/SipService$MyExecutor;->this$0:Lcom/android/server/sip/SipService;
 
     #getter for: Lcom/android/server/sip/SipService;->mMyWakeLock:Lcom/android/server/sip/SipWakeLock;
@@ -132,7 +132,7 @@
     .parameter "task"
 
     .prologue
-    .line 1229
+    .line 1223
     iget-object v0, p0, Lcom/android/server/sip/SipService$MyExecutor;->this$0:Lcom/android/server/sip/SipService;
 
     #getter for: Lcom/android/server/sip/SipService;->mMyWakeLock:Lcom/android/server/sip/SipWakeLock;
@@ -142,7 +142,7 @@
 
     invoke-virtual {v0, p1}, Lcom/android/server/sip/SipWakeLock;->acquire(Ljava/lang/Object;)V
 
-    .line 1230
+    .line 1224
     const/4 v0, 0x0
 
     invoke-static {p0, v0, p1}, Landroid/os/Message;->obtain(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
@@ -151,7 +151,7 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 1231
+    .line 1225
     return-void
 .end method
 
@@ -160,25 +160,25 @@
     .parameter "msg"
 
     .prologue
-    .line 1235
+    .line 1229
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     instance-of v0, v0, Ljava/lang/Runnable;
 
     if-eqz v0, :cond_e
 
-    .line 1236
+    .line 1230
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Ljava/lang/Runnable;
 
     invoke-direct {p0, v0}, Lcom/android/server/sip/SipService$MyExecutor;->executeInternal(Ljava/lang/Runnable;)V
 
-    .line 1240
+    .line 1234
     :goto_d
     return-void
 
-    .line 1238
+    .line 1232
     :cond_e
     const-string v0, "SipService"
 

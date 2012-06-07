@@ -145,7 +145,7 @@
 
     .prologue
     .line 141
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 127
     new-instance v0, Ljava/util/HashMap;
@@ -2393,7 +2393,7 @@
     :try_start_1
     iput-object p1, p0, Lcom/android/server/sip/SipSessionGroup;->mLocalIp:Ljava/lang/String;
     :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_c1
+    .catchall {:try_start_1 .. :try_end_3} :catchall_bf
 
     .line 157
     if-nez p1, :cond_7
@@ -2423,7 +2423,7 @@
 
     .line 162
     .local v3, properties:Ljava/util/Properties;
-    const-string/jumbo v7, "javax.sip.STACK_NAME"
+    const-string v7, "javax.sip.STACK_NAME"
 
     invoke-direct {p0}, Lcom/android/server/sip/SipSessionGroup;->getStackName()Ljava/lang/String;
 
@@ -2449,7 +2449,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_75
+    if-nez v7, :cond_73
 
     .line 167
     const-string v7, "SipSession"
@@ -2475,7 +2475,7 @@
     invoke-static {v7, v8}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 168
-    const-string/jumbo v7, "javax.sip.OUTBOUND_PROXY"
+    const-string v7, "javax.sip.OUTBOUND_PROXY"
 
     new-instance v8, Ljava/lang/StringBuilder;
 
@@ -2520,18 +2520,18 @@
     invoke-virtual {v3, v7, v8}, Ljava/util/Properties;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 171
-    :cond_75
+    :cond_73
     invoke-virtual {v5, v3}, Ljavax/sip/SipFactory;->createSipStack(Ljava/util/Properties;)Ljavax/sip/SipStack;
 
     move-result-object v6
 
     iput-object v6, p0, Lcom/android/server/sip/SipSessionGroup;->mSipStack:Ljavax/sip/SipStack;
-    :try_end_7b
-    .catchall {:try_start_7 .. :try_end_7b} :catchall_c1
+    :try_end_79
+    .catchall {:try_start_7 .. :try_end_79} :catchall_bf
 
     .line 174
     .local v6, stack:Ljavax/sip/SipStack;
-    :try_start_7b
+    :try_start_79
     invoke-static {}, Lcom/android/server/sip/SipSessionGroup;->allocateLocalPort()I
 
     move-result v7
@@ -2558,13 +2558,13 @@
     invoke-direct {v7, v6, v4}, Lcom/android/server/sip/SipHelper;-><init>(Ljavax/sip/SipStack;Ljavax/sip/SipProvider;)V
 
     iput-object v7, p0, Lcom/android/server/sip/SipSessionGroup;->mSipHelper:Lcom/android/server/sip/SipHelper;
-    :try_end_95
-    .catchall {:try_start_7b .. :try_end_95} :catchall_c1
-    .catch Ljavax/sip/InvalidArgumentException; {:try_start_7b .. :try_end_95} :catch_c4
-    .catch Ljava/util/TooManyListenersException; {:try_start_7b .. :try_end_95} :catch_cf
+    :try_end_93
+    .catchall {:try_start_79 .. :try_end_93} :catchall_bf
+    .catch Ljavax/sip/InvalidArgumentException; {:try_start_79 .. :try_end_93} :catch_c2
+    .catch Ljava/util/TooManyListenersException; {:try_start_79 .. :try_end_93} :catch_cd
 
     .line 185
-    :try_start_95
+    :try_start_93
     const-string v7, "SipSession"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -2606,8 +2606,8 @@
 
     .line 191
     invoke-virtual {p0}, Lcom/android/server/sip/SipSessionGroup;->resetExternalAddress()V
-    :try_end_bf
-    .catchall {:try_start_95 .. :try_end_bf} :catchall_c1
+    :try_end_bd
+    .catchall {:try_start_93 .. :try_end_bd} :catchall_bf
 
     goto/16 :goto_5
 
@@ -2618,7 +2618,7 @@
     .end local v4           #provider:Ljavax/sip/SipProvider;
     .end local v5           #sipFactory:Ljavax/sip/SipFactory;
     .end local v6           #stack:Ljavax/sip/SipStack;
-    :catchall_c1
+    :catchall_bf
     move-exception v7
 
     monitor-exit p0
@@ -2631,12 +2631,12 @@
     .restart local v3       #properties:Ljava/util/Properties;
     .restart local v5       #sipFactory:Ljavax/sip/SipFactory;
     .restart local v6       #stack:Ljavax/sip/SipStack;
-    :catch_c4
+    :catch_c2
     move-exception v0
 
     .line 180
     .local v0, e:Ljavax/sip/InvalidArgumentException;
-    :try_start_c5
+    :try_start_c3
     new-instance v7, Ljava/io/IOException;
 
     invoke-virtual {v0}, Ljavax/sip/InvalidArgumentException;->getMessage()Ljava/lang/String;
@@ -2649,7 +2649,7 @@
 
     .line 181
     .end local v0           #e:Ljavax/sip/InvalidArgumentException;
-    :catch_cf
+    :catch_cd
     move-exception v0
 
     .line 183
@@ -2661,8 +2661,8 @@
     invoke-direct {v7, v8, v0}, Ljavax/sip/SipException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v7
-    :try_end_d8
-    .catchall {:try_start_c5 .. :try_end_d8} :catchall_c1
+    :try_end_d6
+    .catchall {:try_start_c3 .. :try_end_d6} :catchall_bf
 .end method
 
 .method declared-synchronized resetExternalAddress()V
