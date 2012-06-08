@@ -36,7 +36,7 @@ ui_print("alquez");
 ui_print("");
 ui_print("");
 ui_print("Installing, enjoy!");
-show_progress(0.800000, 80);
+show_progress(1.000000, 60000);
 format("MTD", "system");
 mount("MTD", "system", "/system");
 mount("MTD", "userdata", "/data");
