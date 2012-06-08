@@ -5,3 +5,8 @@ service compcache /system/bin/handle_compcache
     user root
     group root
     oneshot
+service 01data2whatever /system/etc/init.d/01data2whatever
+	user root
+	group root
+	oneshot
+

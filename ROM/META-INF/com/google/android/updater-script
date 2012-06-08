@@ -9,24 +9,45 @@ ui_print("");
 ui_print("");
 ui_print("");
 ui_print("");
-ui_print("WFSDEV presents...");
+ui_print("         WFSDEV presents        ");
 ui_print("HTC Sense 4.0 for the Wildfire S");
 ui_print("");
 ui_print("");
-ui_print("Information: ");
+ui_print("");
+ui_print("");
+ui_print("");
+ui_print("");
+ui_print("");
+ui_print("");
+ui_print("");
+ui_print("");
+ui_print("");
+
+#
+# FORMAT STUFF [ACTS AS A SORT OF WAIT TOOL]
+#
+
+format("MTD", "system");
+format("MTD", "boot");
+format("MTD", "cache");
+
+#
+# CONTINUE UI PRINT
+#
+
+ui_print("Sense 4");
+ui_print("");
 ui_print("");
 ui_print("Version x.x");
 ui_print("Build number xxx");
-ui_print("Sense 4.0 from the Golf");
-ui_print("Testing version");
-ui_print("INSTALL SCRIPT v5");
+ui_print("Sense 4.0 from the GolfU");;
+ui_print("INSTALL SCRIPT v6");
 ui_print("");
 ui_print("Credits/who worked on this ROM:");
 ui_print("benjamingwynn");
 ui_print("Henry_01");
 ui_print("dudeman1996");
 ui_print("OliverG96");
-ui_print("and obviously HTC");
 ui_print("");
 ui_print("Thanks to:");
 ui_print("jmz_taylor");
@@ -37,11 +58,55 @@ ui_print("");
 ui_print("");
 ui_print("Installing, enjoy!");
 show_progress(1.000000, 60000);
-format("MTD", "system");
+
+
+#
+# MOUNT STUFF
+#
+
+mount("MTD","userdata","/data");
 mount("MTD", "system", "/system");
-mount("MTD", "userdata", "/data");
+
+#
+# EXTRACT STUFF
+#
 package_extract_dir("system", "/system");
-package_extract_dir("data", "/data");
+run_program("/sbin/mkdir", "/sd-ext");
+        run_program("/sbin/mount", "-t", "auto", "/dev/block/mmcblk0p2", "/sd-ext");
+run_program("/sbin/mkdir", "/sd-ext/app");
+run_program("/sbin/mkdir", "/sd-ext/sys-parts");
+run_program("/sbin/mkdir", "/sd-ext/sys-parts/app");
+run_program("/sbin/mkdir", "/sd-ext/sys-parts/framework");
+package_extract_dir("data/app", "/sd-ext/app");
+package_extract_dir("data/app_s", "/sd-ext/sys-parts/app");
+package_extract_dir("data/framework", "/sd-ext/sys-parts/framework");
+
+#
+# SET EXTRACTION PERMISSIONS
+#
+set_perm_recursive(1000, 1000, 0771, 0644, "/sd-ext/app");
+set_perm_recursive(1000, 1000, 0771, 0644, "/sd-ext/sys-parts/app");
+set_perm_recursive(1000, 1000, 0771, 0644, "/sd-ext/sys-parts/framework");
+
+#
+# SYMLINK
+#
+package_extract_dir("setup", "/tmp");
+set_perm_recursive(0, 0, 0755, 0755, "/tmp");
+run_program("/tmp/symlinks-sdext");
+run_program("/tmp/symlinks-framework");
+delete("/tmp/symlinks-framework");
+delete("/tmp/symlinks-sdext");
+
+#
+# DALVIK CACHE CLEAN
+#
+delete_recursive("/data/dalvik-cache");
+
+#
+# TOOLBOX
+#
+
 symlink("toolbox", "/system/bin/sendevent");
 symlink("toolbox", "/system/bin/newfs_msdos");
 symlink("toolbox", "/system/bin/lsof");
@@ -96,6 +161,11 @@ symlink("toolbox", "/system/bin/ls");
 symlink("toolbox", "/system/bin/sync");
 symlink("toolbox", "/system/bin/route");
 symlink("toolbox", "/system/bin/watchprops");
+
+#
+# PERMISSION MANAGEMENT
+#
+
 set_perm_recursive(0, 0, 0755, 0644, "/system");
 set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
 set_perm(0, 3003, 06755, "/system/bin/ip");
@@ -111,11 +181,41 @@ set_perm(1014, 2000, 0550, "/system/etc/dhcpcd/dhcpcd-run-hooks");
 set_perm(0, 2000, 0550, "/system/etc/init.goldfish.sh");
 set_perm_recursive(0, 0, 0755, 0555, "/system/etc/ppp");
 set_perm_recursive(0, 2000, 0755, 0755, "/system/xbin");
+
+#
+# KERNEL
+#
+
 assert(package_extract_file("boot.img", "/tmp/boot.img"),
        write_raw_image("/tmp/boot.img", "boot"),
        delete("/tmp/boot.img"));
+
+#
+# DATA2SD
+#
+set_perm(0, 2000, 0755, "/system/etc/init.d/01data2whatever");
+set_perm(0, 2000, 0755, "/system/etc/init.d/98zipalign");
+set_perm(0, 2000, 0755, "/system/etc/init.d/991complete");
+set_perm(0, 2000, 0755, "/system/xbin/e2fsck");
+set_perm(0, 2000, 0755, "/system/xbin/tune2fs");
+set_perm(0, 2000, 0755, "/system/xbin/mkfs.ext4");
+set_perm(1000, 1000, 771, "/system/data_internal");
+symlink("/system/xbin/e2fsck", "/system/bin/e2fsck");
+symlink("/system/xbin/tune2fs", "/system/bin/tune2fs");
+symlink("/system/xbin/mkfs.ext4", "/system/bin/mkfs.ext4");
+symlink("/system/data_internal/mtab", "/system/etc/mtab");
+
+#
+# UNMOUNT
+#
+
 unmount("/system");
 unmount("/data");
+
+#
+# END UI PRINT
+#
+
 ui_print("");
 ui_print("--------------------------------");
 ui_print("|\              / |---- ______ |");

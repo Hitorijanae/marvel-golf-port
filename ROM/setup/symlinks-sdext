@@ -1,0 +1,11 @@
+#!/system/bin/sh
+BUSYBOX="/system/xbin/busybox"
+P='/system/app'
+D='/sd-ext/sys-parts/app'
+cd $D
+filelist=`$BUSYBOX find . -type f`
+for i in $filelist
+do
+	$BUSYBOX ln -s $D/$i $P/$i
+done
+
