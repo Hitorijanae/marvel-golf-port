@@ -139,20 +139,20 @@
 
     sub-int/2addr v0, p2
 
-    if-le p3, v0, :cond_1b
+    if-le p3, v0, :cond_1a
 
     .line 94
     :cond_12
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
 
-    const-string/jumbo v1, "invalid offset or length"
+    const-string v1, "invalid offset or length"
 
     invoke-direct {v0, v1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 96
-    :cond_1b
+    :cond_1a
     iget-object v0, p0, Landroid/bluetooth/BluetoothInputStream;->mSocket:Landroid/bluetooth/BluetoothSocket;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/bluetooth/BluetoothSocket;->read([BII)I

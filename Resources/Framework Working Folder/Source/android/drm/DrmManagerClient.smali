@@ -65,7 +65,7 @@
 
     .prologue
     .line 239
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 240
     iput-object p1, p0, Landroid/drm/DrmManagerClient;->mContext:Landroid/content/Context;
@@ -336,13 +336,13 @@
     .line 764
     .restart local v10       #scheme:Ljava/lang/String;
     :cond_1e
-    const-string/jumbo v0, "http"
+    const-string v0, "http"
 
     invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2c
+    if-eqz v0, :cond_2b
 
     .line 765
     invoke-virtual {p1}, Landroid/net/Uri;->toString()Ljava/lang/String;
@@ -352,14 +352,14 @@
     goto :goto_1d
 
     .line 767
-    :cond_2c
+    :cond_2b
     const-string v0, "content"
 
     invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_81
+    if-eqz v0, :cond_80
 
     .line 768
     const/4 v0, 0x1
@@ -378,7 +378,7 @@
 
     .line 771
     .local v6, cursor:Landroid/database/Cursor;
-    :try_start_3d
+    :try_start_3c
     iget-object v0, p0, Landroid/drm/DrmManagerClient;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -398,22 +398,22 @@
     move-result-object v6
 
     .line 773
-    if-eqz v6, :cond_59
+    if-eqz v6, :cond_58
 
     invoke-interface {v6}, Landroid/database/Cursor;->getCount()I
 
     move-result v0
 
-    if-eqz v0, :cond_59
+    if-eqz v0, :cond_58
 
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
-    if-nez v0, :cond_71
+    if-nez v0, :cond_70
 
     .line 774
-    :cond_59
+    :cond_58
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Given Uri could not be found in media store"
@@ -421,17 +421,17 @@
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_61
-    .catchall {:try_start_3d .. :try_end_61} :catchall_6a
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_3d .. :try_end_61} :catch_61
+    :try_end_60
+    .catchall {:try_start_3c .. :try_end_60} :catchall_69
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_3c .. :try_end_60} :catch_60
 
     .line 779
-    :catch_61
+    :catch_60
     move-exception v7
 
     .line 780
     .local v7, e:Landroid/database/sqlite/SQLiteException;
-    :try_start_62
+    :try_start_61
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Given Uri is not formatted in a way so that it can be found in media store."
@@ -439,26 +439,25 @@
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_6a
-    .catchall {:try_start_62 .. :try_end_6a} :catchall_6a
+    :try_end_69
+    .catchall {:try_start_61 .. :try_end_69} :catchall_69
 
     .line 783
     .end local v7           #e:Landroid/database/sqlite/SQLiteException;
-    :catchall_6a
+    :catchall_69
     move-exception v0
 
-    if-eqz v6, :cond_70
+    if-eqz v6, :cond_6f
 
     .line 784
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 783
-    :cond_70
+    :cond_6f
     throw v0
 
     .line 777
-    :cond_71
-    :try_start_71
+    :cond_70
+    :try_start_70
     const-string v0, "_data"
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
@@ -468,9 +467,9 @@
     .line 778
     .local v9, pathIndex:I
     invoke-interface {v6, v9}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-    :try_end_7a
-    .catchall {:try_start_71 .. :try_end_7a} :catchall_6a
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_71 .. :try_end_7a} :catch_61
+    :try_end_79
+    .catchall {:try_start_70 .. :try_end_79} :catchall_69
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_70 .. :try_end_79} :catch_60
 
     move-result-object v8
 
@@ -486,7 +485,7 @@
     .end local v2           #projection:[Ljava/lang/String;
     .end local v6           #cursor:Landroid/database/Cursor;
     .end local v9           #pathIndex:I
-    :cond_81
+    :cond_80
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Given Uri scheme is not supported"
@@ -1376,7 +1375,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2a
+    if-eqz v0, :cond_29
 
     .line 409
     :cond_a
@@ -1396,7 +1395,7 @@
 
     move-result-object v1
 
-    const-string/jumbo v2, "is not valid"
+    const-string v2, "is not valid"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1411,7 +1410,7 @@
     throw v0
 
     .line 412
-    :cond_2a
+    :cond_29
     iget v0, p0, Landroid/drm/DrmManagerClient;->mUniqueId:I
 
     invoke-direct {p0, v0, p1}, Landroid/drm/DrmManagerClient;->_installDrmEngine(ILjava/lang/String;)V

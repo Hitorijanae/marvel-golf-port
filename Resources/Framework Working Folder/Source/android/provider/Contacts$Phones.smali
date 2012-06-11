@@ -59,7 +59,7 @@
     .registers 1
 
     .prologue
-    .line 2104
+    .line 995
     const-string v0, "content://contacts/phones"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -68,7 +68,7 @@
 
     sput-object v0, Landroid/provider/Contacts$Phones;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 2112
+    .line 1003
     const-string v0, "content://contacts/phones/filter"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -84,8 +84,8 @@
     .registers 1
 
     .prologue
-    .line 2063
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 954
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -99,7 +99,7 @@
     .end annotation
 
     .prologue
-    .line 2096
+    .line 987
     const/4 v0, 0x0
 
     invoke-static {p0, p1, p2, v0}, Landroid/provider/Contacts$Phones;->getDisplayLabel(Landroid/content/Context;ILjava/lang/CharSequence;[Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
@@ -119,19 +119,19 @@
     .end annotation
 
     .prologue
-    .line 2071
+    .line 962
     const-string v0, ""
 
-    .line 2073
+    .line 964
     .local v0, display:Ljava/lang/CharSequence;
     if-eqz p1, :cond_1d
 
-    .line 2074
+    .line 965
     if-eqz p3, :cond_c
 
     move-object v2, p3
 
-    .line 2078
+    .line 969
     .local v2, labels:[Ljava/lang/CharSequence;
     :goto_7
     add-int/lit8 v3, p1, -0x1
@@ -141,13 +141,13 @@
     :try_end_b
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_9 .. :try_end_b} :catch_18
 
-    .line 2087
+    .line 978
     .end local v2           #labels:[Ljava/lang/CharSequence;
     :cond_b
     :goto_b
     return-object v0
 
-    .line 2074
+    .line 965
     :cond_c
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -161,12 +161,12 @@
 
     goto :goto_7
 
-    .line 2079
+    .line 970
     .restart local v2       #labels:[Ljava/lang/CharSequence;
     :catch_18
     move-exception v1
 
-    .line 2080
+    .line 971
     .local v1, e:Ljava/lang/ArrayIndexOutOfBoundsException;
     const/4 v3, 0x0
 
@@ -174,7 +174,7 @@
 
     goto :goto_b
 
-    .line 2083
+    .line 974
     .end local v1           #e:Ljava/lang/ArrayIndexOutOfBoundsException;
     .end local v2           #labels:[Ljava/lang/CharSequence;
     :cond_1d
@@ -184,7 +184,7 @@
 
     if-nez v3, :cond_b
 
-    .line 2084
+    .line 975
     move-object v0, p2
 
     goto :goto_b

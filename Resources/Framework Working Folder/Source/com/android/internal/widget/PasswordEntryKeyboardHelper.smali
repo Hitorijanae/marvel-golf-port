@@ -74,7 +74,7 @@
     const/4 v0, 0x0
 
     .line 63
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 45
     iput v0, p0, Lcom/android/internal/widget/PasswordEntryKeyboardHelper;->mKeyboardMode:I
@@ -149,7 +149,7 @@
     .registers 6
 
     .prologue
-    const v4, 0x1020367
+    const v4, 0x1020351
 
     const/4 v3, 0x1
 
@@ -248,7 +248,7 @@
     .parameter "viewHeight"
 
     .prologue
-    const v3, 0x1020367
+    const v3, 0x1020351
 
     const/4 v6, 0x1
 

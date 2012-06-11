@@ -57,7 +57,7 @@
     const/4 v2, -0x1
 
     .line 30
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 34
     new-instance v0, Ljava/util/ArrayList;
@@ -115,14 +115,14 @@
     .parameter "dirty"
 
     .prologue
-    .line 192
+    .line 165
     iget v6, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mType:I
 
     const/4 v7, 0x3
 
     if-ne v6, v7, :cond_d
 
-    .line 193
+    .line 166
     new-instance v6, Landroid/view/SurfaceHolder$BadSurfaceTypeException;
 
     const-string v7, "Surface type is SURFACE_TYPE_PUSH_BUFFERS"
@@ -131,16 +131,16 @@
 
     throw v6
 
-    .line 196
+    .line 169
     :cond_d
     iget-object v6, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mSurfaceLock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v6}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 200
+    .line 173
     const/4 v0, 0x0
 
-    .line 201
+    .line 174
     .local v0, c:Landroid/graphics/Canvas;
     invoke-virtual {p0}, Lcom/android/internal/view/BaseSurfaceHolder;->onAllowLockCanvas()Z
 
@@ -148,22 +148,22 @@
 
     if-eqz v6, :cond_35
 
-    .line 202
+    .line 175
     if-nez p1, :cond_2f
 
-    .line 203
+    .line 176
     iget-object v6, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mTmpDirty:Landroid/graphics/Rect;
 
     if-nez v6, :cond_26
 
-    .line 204
+    .line 177
     new-instance v6, Landroid/graphics/Rect;
 
     invoke-direct {v6}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v6, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mTmpDirty:Landroid/graphics/Rect;
 
-    .line 206
+    .line 179
     :cond_26
     iget-object v6, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mTmpDirty:Landroid/graphics/Rect;
 
@@ -171,10 +171,10 @@
 
     invoke-virtual {v6, v7}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 207
+    .line 180
     iget-object p1, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mTmpDirty:Landroid/graphics/Rect;
 
-    .line 211
+    .line 184
     :cond_2f
     :try_start_2f
     iget-object v6, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mSurface:Landroid/view/Surface;
@@ -185,29 +185,29 @@
 
     move-result-object v0
 
-    .line 218
+    .line 191
     :cond_35
     :goto_35
     if-eqz v0, :cond_47
 
-    .line 219
+    .line 192
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v6
 
     iput-wide v6, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mLastLockTime:J
 
-    .line 238
+    .line 211
     .end local v0           #c:Landroid/graphics/Canvas;
     :goto_3d
     return-object v0
 
-    .line 212
+    .line 185
     .restart local v0       #c:Landroid/graphics/Canvas;
     :catch_3e
     move-exception v1
 
-    .line 213
+    .line 186
     .local v1, e:Ljava/lang/Exception;
     const-string v6, "BaseSurfaceHolder"
 
@@ -217,14 +217,14 @@
 
     goto :goto_35
 
-    .line 226
+    .line 199
     .end local v1           #e:Ljava/lang/Exception;
     :cond_47
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
 
-    .line 227
+    .line 200
     .local v4, now:J
     iget-wide v6, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mLastLockTime:J
 
@@ -232,13 +232,13 @@
 
     add-long v2, v6, v8
 
-    .line 228
+    .line 201
     .local v2, nextTime:J
     cmp-long v6, v2, v4
 
     if-lez v6, :cond_5e
 
-    .line 230
+    .line 203
     sub-long v6, v2, v4
 
     :try_start_57
@@ -246,27 +246,27 @@
     :try_end_5a
     .catch Ljava/lang/InterruptedException; {:try_start_57 .. :try_end_5a} :catch_67
 
-    .line 233
+    .line 206
     :goto_5a
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
 
-    .line 235
+    .line 208
     :cond_5e
     iput-wide v4, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mLastLockTime:J
 
-    .line 236
+    .line 209
     iget-object v6, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mSurfaceLock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v6}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 238
+    .line 211
     const/4 v0, 0x0
 
     goto :goto_3d
 
-    .line 231
+    .line 204
     :catch_67
     move-exception v6
 
@@ -458,7 +458,7 @@
     .registers 2
 
     .prologue
-    .line 247
+    .line 220
     iget-object v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mSurface:Landroid/view/Surface;
 
     return-object v0
@@ -468,7 +468,7 @@
     .registers 2
 
     .prologue
-    .line 251
+    .line 224
     iget-object v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mSurfaceFrame:Landroid/graphics/Rect;
 
     return-object v0
@@ -478,7 +478,7 @@
     .registers 2
 
     .prologue
-    .line 184
+    .line 157
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/internal/view/BaseSurfaceHolder;->internalLockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
@@ -493,7 +493,7 @@
     .parameter "dirty"
 
     .prologue
-    .line 188
+    .line 161
     invoke-direct {p0, p1}, Lcom/android/internal/view/BaseSurfaceHolder;->internalLockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
 
     move-result-object v0
@@ -541,38 +541,6 @@
     .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw v0
-.end method
-
-.method public setExternalDisplay(I)V
-    .registers 3
-    .parameter "format"
-
-    .prologue
-    .line 157
-    sparse-switch p1, :sswitch_data_c
-
-    .line 168
-    :goto_3
-    return-void
-
-    .line 162
-    :sswitch_4
-    or-int/lit8 p1, p1, 0x20
-
-    .line 163
-    iget-object v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mSurface:Landroid/view/Surface;
-
-    invoke-virtual {v0, p1}, Landroid/view/Surface;->setExternalDisplay(I)V
-
-    goto :goto_3
-
-    .line 157
-    :sswitch_data_c
-    .sparse-switch
-        0x10000 -> :sswitch_4
-        0x20000 -> :sswitch_4
-        0x40000 -> :sswitch_4
-    .end sparse-switch
 .end method
 
 .method public setFixedSize(II)V
@@ -655,35 +623,6 @@
     return-void
 .end method
 
-.method public setStereoscopic3DFormat(I)V
-    .registers 3
-    .parameter "format"
-
-    .prologue
-    .line 171
-    sparse-switch p1, :sswitch_data_a
-
-    .line 181
-    :goto_3
-    return-void
-
-    .line 176
-    :sswitch_4
-    iget-object v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mSurface:Landroid/view/Surface;
-
-    invoke-virtual {v0, p1}, Landroid/view/Surface;->setExternalDisplay(I)V
-
-    goto :goto_3
-
-    .line 171
-    :sswitch_data_a
-    .sparse-switch
-        0x10000 -> :sswitch_4
-        0x20000 -> :sswitch_4
-        0x40000 -> :sswitch_4
-    .end sparse-switch
-.end method
-
 .method public setSurfaceFrameSize(II)V
     .registers 5
     .parameter "width"
@@ -692,27 +631,27 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 255
+    .line 228
     iget-object v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mSurfaceFrame:Landroid/graphics/Rect;
 
     iput v1, v0, Landroid/graphics/Rect;->top:I
 
-    .line 256
+    .line 229
     iget-object v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mSurfaceFrame:Landroid/graphics/Rect;
 
     iput v1, v0, Landroid/graphics/Rect;->left:I
 
-    .line 257
+    .line 230
     iget-object v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mSurfaceFrame:Landroid/graphics/Rect;
 
     iput p1, v0, Landroid/graphics/Rect;->right:I
 
-    .line 258
+    .line 231
     iget-object v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mSurfaceFrame:Landroid/graphics/Rect;
 
     iput p2, v0, Landroid/graphics/Rect;->bottom:I
 
-    .line 259
+    .line 232
     return-void
 .end method
 
@@ -791,16 +730,16 @@
     .parameter "canvas"
 
     .prologue
-    .line 242
+    .line 215
     iget-object v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mSurface:Landroid/view/Surface;
 
     invoke-virtual {v0, p1}, Landroid/view/Surface;->unlockCanvasAndPost(Landroid/graphics/Canvas;)V
 
-    .line 243
+    .line 216
     iget-object v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mSurfaceLock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 244
+    .line 217
     return-void
 .end method

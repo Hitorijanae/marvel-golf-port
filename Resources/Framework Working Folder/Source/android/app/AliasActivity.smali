@@ -130,7 +130,7 @@
 
     move-result v5
 
-    if-eq v5, v7, :cond_77
+    if-eq v5, v7, :cond_76
 
     if-ne v5, v8, :cond_55
 
@@ -138,7 +138,7 @@
 
     move-result v6
 
-    if-le v6, v4, :cond_77
+    if-le v6, v4, :cond_76
 
     .line 108
     :cond_55
@@ -154,13 +154,13 @@
     move-result-object v3
 
     .line 113
-    const-string/jumbo v6, "intent"
+    const-string v6, "intent"
 
     invoke-virtual {v6, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_73
+    if-eqz v6, :cond_72
 
     .line 114
     invoke-virtual {p0}, Landroid/app/AliasActivity;->getResources()Landroid/content/res/Resources;
@@ -181,13 +181,13 @@
 
     .line 117
     .end local v1           #gotIntent:Landroid/content/Intent;
-    :cond_73
+    :cond_72
     invoke-static {p1}, Lcom/android/internal/util/XmlUtils;->skipCurrentTag(Lorg/xmlpull/v1/XmlPullParser;)V
 
     goto :goto_47
 
     .line 121
-    :cond_77
+    :cond_76
     return-object v2
 .end method
 

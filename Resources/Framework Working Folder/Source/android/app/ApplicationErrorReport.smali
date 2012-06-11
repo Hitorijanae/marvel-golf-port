@@ -4,7 +4,6 @@
 
 # interfaces
 .implements Landroid/os/Parcelable;
-.implements Landroid/app/HtcIfApplicationErrorReport;
 
 
 # annotations
@@ -32,8 +31,6 @@
 
 .field static final DEFAULT_ERROR_RECEIVER_PROPERTY:Ljava/lang/String; = "ro.error.receiver.default"
 
-.field public static final HTC_APPS_ERROR_RECEIVER_PROPERTY:Ljava/lang/String; = "ro.error.receiver.htc.apps"
-
 .field static final SYSTEM_APPS_ERROR_RECEIVER_PROPERTY:Ljava/lang/String; = "ro.error.receiver.system.apps"
 
 .field public static final TYPE_ANR:I = 0x2
@@ -54,11 +51,7 @@
 
 .field public crashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
 
-.field public dropboxTag:Ljava/lang/String;
-
 .field public installerPackageName:Ljava/lang/String;
-
-.field public logName:Ljava/lang/String;
 
 .field public packageName:Ljava/lang/String;
 
@@ -78,7 +71,7 @@
     .registers 1
 
     .prologue
-    .line 697
+    .line 562
     new-instance v0, Landroid/app/ApplicationErrorReport$1;
 
     invoke-direct {v0}, Landroid/app/ApplicationErrorReport$1;-><init>()V
@@ -92,10 +85,10 @@
     .registers 1
 
     .prologue
-    .line 160
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 147
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 161
+    .line 148
     return-void
 .end method
 
@@ -104,249 +97,104 @@
     .parameter "in"
 
     .prologue
-    .line 167
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 154
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 168
+    .line 155
     invoke-virtual {p0, p1}, Landroid/app/ApplicationErrorReport;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 169
+    .line 156
     return-void
 .end method
 
 .method public static getErrorReportReceiver(Landroid/content/Context;Ljava/lang/String;I)Landroid/content/ComponentName;
-    .registers 8
+    .registers 10
     .parameter "context"
     .parameter "packageName"
     .parameter "appFlags"
 
     .prologue
-    .line 189
+    .line 161
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "send_action_app_error"
+
+    const/4 v6, 0x0
+
+    invoke-static {v4, v5, v6}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    .line 163
+    .local v1, enabled:I
+    if-nez v1, :cond_10
+
+    .line 164
+    const/4 v3, 0x0
+
+    .line 188
+    :cond_f
+    :goto_f
+    return-object v3
+
+    .line 167
+    :cond_10
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v2
 
-    .line 194
+    .line 170
     .local v2, pm:Landroid/content/pm/PackageManager;
-    and-int/lit8 v3, p2, 0x1
-
-    if-eqz v3, :cond_20
-
-    invoke-static {p1}, Lcom/htc/htcjavaflag/NonHTCAPList;->isNonHTCAP(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_20
-
-    const/4 v1, 0x1
-
-    .line 196
-    .local v1, htcApp:Z
-    :goto_f
-    if-nez v1, :cond_1b
-
-    .line 199
-    :try_start_11
-    const-string v3, "HTCInstaller"
-
     invoke-virtual {v2, p1}, Landroid/content/pm/PackageManager;->getInstallerPackageName(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-    :try_end_1a
-    .catch Ljava/lang/Exception; {:try_start_11 .. :try_end_1a} :catch_22
-
-    move-result v1
-
-    .line 206
-    :cond_1b
-    :goto_1b
-    invoke-static {p0, p1, p2, v1}, Landroid/app/ApplicationErrorReport;->getErrorReportReceiver(Landroid/content/Context;Ljava/lang/String;IZ)Landroid/content/ComponentName;
+    .line 171
+    .local v0, candidate:Ljava/lang/String;
+    invoke-static {v2, p1, v0}, Landroid/app/ApplicationErrorReport;->getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
 
     move-result-object v3
 
-    return-object v3
+    .line 172
+    .local v3, result:Landroid/content/ComponentName;
+    if-nez v3, :cond_f
 
-    .line 194
-    .end local v1           #htcApp:Z
-    :cond_20
-    const/4 v1, 0x0
+    .line 178
+    and-int/lit8 v4, p2, 0x1
+
+    if-eqz v4, :cond_2f
+
+    .line 179
+    const-string/jumbo v4, "ro.error.receiver.system.apps"
+
+    invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 180
+    invoke-static {v2, p1, v0}, Landroid/app/ApplicationErrorReport;->getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
+
+    move-result-object v3
+
+    .line 181
+    if-nez v3, :cond_f
+
+    .line 187
+    :cond_2f
+    const-string/jumbo v4, "ro.error.receiver.default"
+
+    invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 188
+    invoke-static {v2, p1, v0}, Landroid/app/ApplicationErrorReport;->getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
+
+    move-result-object v3
 
     goto :goto_f
-
-    .line 200
-    .restart local v1       #htcApp:Z
-    :catch_22
-    move-exception v0
-
-    .line 201
-    .local v0, e:Ljava/lang/Exception;
-    const/4 v1, 0x0
-
-    .line 202
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_1b
-.end method
-
-.method public static getErrorReportReceiver(Landroid/content/Context;Ljava/lang/String;IZ)Landroid/content/ComponentName;
-    .registers 14
-    .parameter "context"
-    .parameter "packageName"
-    .parameter "appFlags"
-    .parameter "htcApp"
-
-    .prologue
-    const/4 v9, 0x0
-
-    const/4 v6, 0x0
-
-    .line 214
-    invoke-static {}, Lcom/htc/profileflag/ProfileConfig;->getProfileForceDisableErrorRport()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_9
-
-    .line 265
-    :cond_8
-    :goto_8
-    return-object v6
-
-    .line 218
-    :cond_9
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v7
-
-    const-string/jumbo v8, "send_action_app_error"
-
-    invoke-static {v7, v8, v9}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v1
-
-    .line 226
-    .local v1, enabled:I
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v7
-
-    const-string/jumbo v8, "send_htc_error_report"
-
-    invoke-static {v7, v8, v9}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v2
-
-    .line 228
-    .local v2, htcEnabled:I
-    if-nez v1, :cond_23
-
-    if-eqz v2, :cond_8
-
-    .line 233
-    :cond_23
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v3
-
-    .line 236
-    .local v3, pm:Landroid/content/pm/PackageManager;
-    if-eqz p3, :cond_39
-
-    .line 237
-    if-eqz v2, :cond_8
-
-    .line 239
-    const-string v7, "com.htc.feedback"
-
-    invoke-static {v3, p1, v7}, Landroid/app/ApplicationErrorReport;->getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
-
-    move-result-object v5
-
-    .line 240
-    .local v5, resultComponent:Landroid/content/ComponentName;
-    if-eqz v2, :cond_37
-
-    if-eqz v5, :cond_37
-
-    .end local v5           #resultComponent:Landroid/content/ComponentName;
-    :goto_35
-    move-object v6, v5
-
-    goto :goto_8
-
-    .restart local v5       #resultComponent:Landroid/content/ComponentName;
-    :cond_37
-    move-object v5, v6
-
-    goto :goto_35
-
-    .line 242
-    .end local v5           #resultComponent:Landroid/content/ComponentName;
-    :cond_39
-    if-eqz v1, :cond_8
-
-    .line 247
-    invoke-virtual {v3, p1}, Landroid/content/pm/PackageManager;->getInstallerPackageName(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 248
-    .local v0, candidate:Ljava/lang/String;
-    invoke-static {v3, p1, v0}, Landroid/app/ApplicationErrorReport;->getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
-
-    move-result-object v4
-
-    .line 249
-    .local v4, result:Landroid/content/ComponentName;
-    if-eqz v4, :cond_47
-
-    move-object v6, v4
-
-    .line 250
-    goto :goto_8
-
-    .line 255
-    :cond_47
-    and-int/lit8 v6, p2, 0x1
-
-    if-eqz v6, :cond_5a
-
-    .line 256
-    const-string/jumbo v6, "ro.error.receiver.system.apps"
-
-    invoke-static {v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 257
-    invoke-static {v3, p1, v0}, Landroid/app/ApplicationErrorReport;->getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
-
-    move-result-object v4
-
-    .line 258
-    if-eqz v4, :cond_5a
-
-    move-object v6, v4
-
-    .line 259
-    goto :goto_8
-
-    .line 264
-    :cond_5a
-    const-string/jumbo v6, "ro.error.receiver.default"
-
-    invoke-static {v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 265
-    invoke-static {v3, p1, v0}, Landroid/app/ApplicationErrorReport;->getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
-
-    move-result-object v6
-
-    goto :goto_8
 .end method
 
 .method static getErrorReportReceiver(Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
@@ -358,7 +206,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 279
+    .line 202
     if-eqz p2, :cond_9
 
     invoke-virtual {p2}, Ljava/lang/String;->length()I
@@ -367,12 +215,12 @@
 
     if-nez v3, :cond_a
 
-    .line 294
+    .line 217
     :cond_9
     :goto_9
     return-object v2
 
-    .line 284
+    .line 207
     :cond_a
     invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -380,25 +228,25 @@
 
     if-nez v3, :cond_9
 
-    .line 288
+    .line 211
     new-instance v1, Landroid/content/Intent;
 
     const-string v3, "android.intent.action.APP_ERROR"
 
     invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 289
+    .line 212
     .local v1, intent:Landroid/content/Intent;
     invoke-virtual {v1, p2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 290
+    .line 213
     const/4 v3, 0x0
 
     invoke-virtual {p0, v1, v3}, Landroid/content/pm/PackageManager;->resolveActivity(Landroid/content/Intent;I)Landroid/content/pm/ResolveInfo;
 
     move-result-object v0
 
-    .line 291
+    .line 214
     .local v0, info:Landroid/content/pm/ResolveInfo;
     if-eqz v0, :cond_9
 
@@ -406,12 +254,12 @@
 
     if-eqz v3, :cond_9
 
-    .line 294
+    .line 217
     new-instance v2, Landroid/content/ComponentName;
 
     iget-object v3, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v3, v3, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v3, v3, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
     invoke-direct {v2, p2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -424,7 +272,7 @@
     .registers 2
 
     .prologue
-    .line 709
+    .line 574
     const/4 v0, 0x0
 
     return v0
@@ -436,7 +284,7 @@
     .parameter "prefix"
 
     .prologue
-    .line 716
+    .line 581
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -463,7 +311,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 717
+    .line 582
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -490,7 +338,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 718
+    .line 583
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -499,7 +347,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "installerPackageName: "
+    const-string v1, "installerPackageName: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -517,7 +365,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 719
+    .line 584
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -544,7 +392,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 720
+    .line 585
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -571,7 +419,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 721
+    .line 586
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -598,137 +446,59 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 723
+    .line 588
     iget v0, p0, Landroid/app/ApplicationErrorReport;->type:I
 
     packed-switch v0, :pswitch_data_cc
 
-    .line 737
-    :goto_b3
-    :pswitch_b3
+    .line 602
+    :goto_b2
+    :pswitch_b2
     return-void
 
-    .line 725
-    :pswitch_b4
+    .line 590
+    :pswitch_b3
     iget-object v0, p0, Landroid/app/ApplicationErrorReport;->crashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
 
     invoke-virtual {v0, p1, p2}, Landroid/app/ApplicationErrorReport$CrashInfo;->dump(Landroid/util/Printer;Ljava/lang/String;)V
 
-    goto :goto_b3
+    goto :goto_b2
 
-    .line 728
-    :pswitch_ba
+    .line 593
+    :pswitch_b9
     iget-object v0, p0, Landroid/app/ApplicationErrorReport;->anrInfo:Landroid/app/ApplicationErrorReport$AnrInfo;
 
     invoke-virtual {v0, p1, p2}, Landroid/app/ApplicationErrorReport$AnrInfo;->dump(Landroid/util/Printer;Ljava/lang/String;)V
 
-    goto :goto_b3
+    goto :goto_b2
 
-    .line 731
-    :pswitch_c0
+    .line 596
+    :pswitch_bf
     iget-object v0, p0, Landroid/app/ApplicationErrorReport;->batteryInfo:Landroid/app/ApplicationErrorReport$BatteryInfo;
 
     invoke-virtual {v0, p1, p2}, Landroid/app/ApplicationErrorReport$BatteryInfo;->dump(Landroid/util/Printer;Ljava/lang/String;)V
 
-    goto :goto_b3
+    goto :goto_b2
 
-    .line 734
-    :pswitch_c6
+    .line 599
+    :pswitch_c5
     iget-object v0, p0, Landroid/app/ApplicationErrorReport;->runningServiceInfo:Landroid/app/ApplicationErrorReport$RunningServiceInfo;
 
     invoke-virtual {v0, p1, p2}, Landroid/app/ApplicationErrorReport$RunningServiceInfo;->dump(Landroid/util/Printer;Ljava/lang/String;)V
 
-    goto :goto_b3
+    goto :goto_b2
 
-    .line 723
+    .line 588
+    nop
+
     :pswitch_data_cc
     .packed-switch 0x1
-        :pswitch_b4
-        :pswitch_ba
-        :pswitch_c0
         :pswitch_b3
-        :pswitch_c6
+        :pswitch_b9
+        :pswitch_bf
+        :pswitch_b2
+        :pswitch_c5
     .end packed-switch
-.end method
-
-.method public getDropBoxTag()Ljava/lang/String;
-    .registers 2
-
-    .prologue
-    .line 177
-    iget-object v0, p0, Landroid/app/ApplicationErrorReport;->dropboxTag:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getInstallerPackageName()Ljava/lang/String;
-    .registers 2
-
-    .prologue
-    .line 751
-    iget-object v0, p0, Landroid/app/ApplicationErrorReport;->installerPackageName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getLogName()Ljava/lang/String;
-    .registers 2
-
-    .prologue
-    .line 185
-    iget-object v0, p0, Landroid/app/ApplicationErrorReport;->logName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getPackageName()Ljava/lang/String;
-    .registers 2
-
-    .prologue
-    .line 743
-    iget-object v0, p0, Landroid/app/ApplicationErrorReport;->packageName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getProcessName()Ljava/lang/String;
-    .registers 2
-
-    .prologue
-    .line 755
-    iget-object v0, p0, Landroid/app/ApplicationErrorReport;->processName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getReportType()I
-    .registers 2
-
-    .prologue
-    .line 747
-    iget v0, p0, Landroid/app/ApplicationErrorReport;->type:I
-
-    return v0
-.end method
-
-.method public getSystemApp()Z
-    .registers 2
-
-    .prologue
-    .line 763
-    iget-boolean v0, p0, Landroid/app/ApplicationErrorReport;->systemApp:Z
-
-    return v0
-.end method
-
-.method public getTime()J
-    .registers 3
-
-    .prologue
-    .line 759
-    iget-wide v0, p0, Landroid/app/ApplicationErrorReport;->time:J
-
-    return-wide v0
 .end method
 
 .method public readFromParcel(Landroid/os/Parcel;)V
@@ -740,149 +510,135 @@
 
     const/4 v3, 0x0
 
-    .line 327
+    .line 245
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, p0, Landroid/app/ApplicationErrorReport;->type:I
 
-    .line 328
+    .line 246
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/app/ApplicationErrorReport;->packageName:Ljava/lang/String;
 
-    .line 329
+    .line 247
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/app/ApplicationErrorReport;->installerPackageName:Ljava/lang/String;
 
-    .line 330
+    .line 248
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/app/ApplicationErrorReport;->processName:Ljava/lang/String;
 
-    .line 331
+    .line 249
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v1
 
     iput-wide v1, p0, Landroid/app/ApplicationErrorReport;->time:J
 
-    .line 332
+    .line 250
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    if-ne v1, v0, :cond_3a
+    if-ne v1, v0, :cond_2e
 
     :goto_26
     iput-boolean v0, p0, Landroid/app/ApplicationErrorReport;->systemApp:Z
 
-    .line 334
+    .line 252
     iget v0, p0, Landroid/app/ApplicationErrorReport;->type:I
 
-    packed-switch v0, :pswitch_data_74
+    packed-switch v0, :pswitch_data_68
 
-    .line 362
+    .line 278
     :goto_2d
     :pswitch_2d
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/app/ApplicationErrorReport;->dropboxTag:Ljava/lang/String;
-
-    .line 363
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/app/ApplicationErrorReport;->logName:Ljava/lang/String;
-
-    .line 365
     return-void
 
-    .line 332
-    :cond_3a
+    .line 250
+    :cond_2e
     const/4 v0, 0x0
 
     goto :goto_26
 
-    .line 336
-    :pswitch_3c
+    .line 254
+    :pswitch_30
     new-instance v0, Landroid/app/ApplicationErrorReport$CrashInfo;
 
     invoke-direct {v0, p1}, Landroid/app/ApplicationErrorReport$CrashInfo;-><init>(Landroid/os/Parcel;)V
 
     iput-object v0, p0, Landroid/app/ApplicationErrorReport;->crashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
 
-    .line 337
+    .line 255
     iput-object v3, p0, Landroid/app/ApplicationErrorReport;->anrInfo:Landroid/app/ApplicationErrorReport$AnrInfo;
 
-    .line 338
+    .line 256
     iput-object v3, p0, Landroid/app/ApplicationErrorReport;->batteryInfo:Landroid/app/ApplicationErrorReport$BatteryInfo;
 
-    .line 339
+    .line 257
     iput-object v3, p0, Landroid/app/ApplicationErrorReport;->runningServiceInfo:Landroid/app/ApplicationErrorReport$RunningServiceInfo;
 
     goto :goto_2d
 
-    .line 342
-    :pswitch_4a
+    .line 260
+    :pswitch_3e
     new-instance v0, Landroid/app/ApplicationErrorReport$AnrInfo;
 
     invoke-direct {v0, p1}, Landroid/app/ApplicationErrorReport$AnrInfo;-><init>(Landroid/os/Parcel;)V
 
     iput-object v0, p0, Landroid/app/ApplicationErrorReport;->anrInfo:Landroid/app/ApplicationErrorReport$AnrInfo;
 
-    .line 343
+    .line 261
     iput-object v3, p0, Landroid/app/ApplicationErrorReport;->crashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
 
-    .line 344
+    .line 262
     iput-object v3, p0, Landroid/app/ApplicationErrorReport;->batteryInfo:Landroid/app/ApplicationErrorReport$BatteryInfo;
 
-    .line 345
+    .line 263
     iput-object v3, p0, Landroid/app/ApplicationErrorReport;->runningServiceInfo:Landroid/app/ApplicationErrorReport$RunningServiceInfo;
 
     goto :goto_2d
 
-    .line 348
-    :pswitch_58
+    .line 266
+    :pswitch_4c
     new-instance v0, Landroid/app/ApplicationErrorReport$BatteryInfo;
 
     invoke-direct {v0, p1}, Landroid/app/ApplicationErrorReport$BatteryInfo;-><init>(Landroid/os/Parcel;)V
 
     iput-object v0, p0, Landroid/app/ApplicationErrorReport;->batteryInfo:Landroid/app/ApplicationErrorReport$BatteryInfo;
 
-    .line 349
+    .line 267
     iput-object v3, p0, Landroid/app/ApplicationErrorReport;->anrInfo:Landroid/app/ApplicationErrorReport$AnrInfo;
 
-    .line 350
+    .line 268
     iput-object v3, p0, Landroid/app/ApplicationErrorReport;->crashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
 
-    .line 351
+    .line 269
     iput-object v3, p0, Landroid/app/ApplicationErrorReport;->runningServiceInfo:Landroid/app/ApplicationErrorReport$RunningServiceInfo;
 
     goto :goto_2d
 
-    .line 354
-    :pswitch_66
+    .line 272
+    :pswitch_5a
     iput-object v3, p0, Landroid/app/ApplicationErrorReport;->batteryInfo:Landroid/app/ApplicationErrorReport$BatteryInfo;
 
-    .line 355
+    .line 273
     iput-object v3, p0, Landroid/app/ApplicationErrorReport;->anrInfo:Landroid/app/ApplicationErrorReport$AnrInfo;
 
-    .line 356
+    .line 274
     iput-object v3, p0, Landroid/app/ApplicationErrorReport;->crashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
 
-    .line 357
+    .line 275
     new-instance v0, Landroid/app/ApplicationErrorReport$RunningServiceInfo;
 
     invoke-direct {v0, p1}, Landroid/app/ApplicationErrorReport$RunningServiceInfo;-><init>(Landroid/os/Parcel;)V
@@ -891,39 +647,15 @@
 
     goto :goto_2d
 
-    .line 334
-    :pswitch_data_74
+    .line 252
+    :pswitch_data_68
     .packed-switch 0x1
-        :pswitch_3c
-        :pswitch_4a
-        :pswitch_58
+        :pswitch_30
+        :pswitch_3e
+        :pswitch_4c
         :pswitch_2d
-        :pswitch_66
+        :pswitch_5a
     .end packed-switch
-.end method
-
-.method public setDropBoxTag(Ljava/lang/String;)V
-    .registers 2
-    .parameter "tag"
-
-    .prologue
-    .line 173
-    iput-object p1, p0, Landroid/app/ApplicationErrorReport;->dropboxTag:Ljava/lang/String;
-
-    .line 174
-    return-void
-.end method
-
-.method public setLogName(Ljava/lang/String;)V
-    .registers 2
-    .parameter "tag"
-
-    .prologue
-    .line 181
-    iput-object p1, p0, Landroid/app/ApplicationErrorReport;->logName:Ljava/lang/String;
-
-    .line 182
-    return-void
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
@@ -932,108 +664,98 @@
     .parameter "flags"
 
     .prologue
-    .line 298
+    .line 221
     iget v0, p0, Landroid/app/ApplicationErrorReport;->type:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 299
+    .line 222
     iget-object v0, p0, Landroid/app/ApplicationErrorReport;->packageName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 300
+    .line 223
     iget-object v0, p0, Landroid/app/ApplicationErrorReport;->installerPackageName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 301
+    .line 224
     iget-object v0, p0, Landroid/app/ApplicationErrorReport;->processName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 302
+    .line 225
     iget-wide v0, p0, Landroid/app/ApplicationErrorReport;->time:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 303
+    .line 226
     iget-boolean v0, p0, Landroid/app/ApplicationErrorReport;->systemApp:Z
 
-    if-eqz v0, :cond_31
+    if-eqz v0, :cond_27
 
     const/4 v0, 0x1
 
     :goto_1e
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 305
+    .line 228
     iget v0, p0, Landroid/app/ApplicationErrorReport;->type:I
 
-    packed-switch v0, :pswitch_data_4c
+    packed-switch v0, :pswitch_data_42
 
-    .line 321
+    .line 242
     :goto_26
     :pswitch_26
-    iget-object v0, p0, Landroid/app/ApplicationErrorReport;->dropboxTag:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 322
-    iget-object v0, p0, Landroid/app/ApplicationErrorReport;->logName:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 324
     return-void
 
-    .line 303
-    :cond_31
+    .line 226
+    :cond_27
     const/4 v0, 0x0
 
     goto :goto_1e
 
-    .line 307
-    :pswitch_33
+    .line 230
+    :pswitch_29
     iget-object v0, p0, Landroid/app/ApplicationErrorReport;->crashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
 
     invoke-virtual {v0, p1, p2}, Landroid/app/ApplicationErrorReport$CrashInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
     goto :goto_26
 
-    .line 310
-    :pswitch_39
+    .line 233
+    :pswitch_2f
     iget-object v0, p0, Landroid/app/ApplicationErrorReport;->anrInfo:Landroid/app/ApplicationErrorReport$AnrInfo;
 
     invoke-virtual {v0, p1, p2}, Landroid/app/ApplicationErrorReport$AnrInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
     goto :goto_26
 
-    .line 313
-    :pswitch_3f
+    .line 236
+    :pswitch_35
     iget-object v0, p0, Landroid/app/ApplicationErrorReport;->batteryInfo:Landroid/app/ApplicationErrorReport$BatteryInfo;
 
     invoke-virtual {v0, p1, p2}, Landroid/app/ApplicationErrorReport$BatteryInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
     goto :goto_26
 
-    .line 316
-    :pswitch_45
+    .line 239
+    :pswitch_3b
     iget-object v0, p0, Landroid/app/ApplicationErrorReport;->runningServiceInfo:Landroid/app/ApplicationErrorReport$RunningServiceInfo;
 
     invoke-virtual {v0, p1, p2}, Landroid/app/ApplicationErrorReport$RunningServiceInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
     goto :goto_26
 
-    .line 305
+    .line 228
     nop
 
-    :pswitch_data_4c
+    :pswitch_data_42
     .packed-switch 0x1
-        :pswitch_33
-        :pswitch_39
-        :pswitch_3f
+        :pswitch_29
+        :pswitch_2f
+        :pswitch_35
         :pswitch_26
-        :pswitch_45
+        :pswitch_3b
     .end packed-switch
 .end method

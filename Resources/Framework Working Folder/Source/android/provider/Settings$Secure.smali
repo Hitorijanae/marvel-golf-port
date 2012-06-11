@@ -25,6 +25,8 @@
 
 .field public static final ADB_ENABLED:Ljava/lang/String; = "adb_enabled"
 
+.field public static final ADB_PORT:Ljava/lang/String; = "adb_port"
+
 .field public static final ALLOWED_GEOLOCATION_ORIGINS:Ljava/lang/String; = "allowed_geolocation_origins"
 
 .field public static final ALLOW_MOCK_LOCATION:Ljava/lang/String; = "mock_location"
@@ -34,10 +36,6 @@
 .field public static final ANR_SHOW_BACKGROUND:Ljava/lang/String; = "anr_show_background"
 
 .field public static final ASSISTED_GPS_ENABLED:Ljava/lang/String; = "assisted_gps_enabled"
-
-.field public static final AUTOSYNC_IN_MOBILE_ON:Ljava/lang/String; = "autosync_in_mobile_on"
-
-.field public static final AUTOSYNC_IN_WIFI_ON:Ljava/lang/String; = "autosync_in_wifi_on"
 
 .field public static final BACKGROUND_DATA:Ljava/lang/String; = "background_data"
     .annotation runtime Ljava/lang/Deprecated;
@@ -58,15 +56,11 @@
 
 .field public static final BLUETOOTH_ON:Ljava/lang/String; = "bluetooth_on"
 
-.field public static final BOOT_LOCK:Ljava/lang/String; = "boot_lock"
-
 .field public static final CDMA_CELL_BROADCAST_SMS:Ljava/lang/String; = "cdma_cell_broadcast_sms"
 
 .field public static final CDMA_ROAMING_MODE:Ljava/lang/String; = "roaming_settings"
 
 .field public static final CDMA_SUBSCRIPTION_MODE:Ljava/lang/String; = "subscription_mode"
-
-.field public static final CFU_QUERY_WHEN_CAMPON_MESSAGE:Ljava/lang/String; = "cfu_query_when_campon"
 
 .field public static final CONNECTIVITY_CHANGE_DELAY:Ljava/lang/String; = "connectivity_change_delay"
 
@@ -76,31 +70,17 @@
 
 .field public static final CONTENT_URI:Landroid/net/Uri; = null
 
-.field public static final CUSTOMIZED_LOCATION_PROVIDER:Ljava/lang/String; = "customized_location_provider"
-
-.field public static final DATA_ENCRYPTION:Ljava/lang/String; = "data_encryption"
-
 .field public static final DATA_ROAMING:Ljava/lang/String; = "data_roaming"
 
-.field public static final DATA_ROAMING_ALLOWED:Ljava/lang/String; = "data_roaming_allowed"
+.field public static final DATA_STALL_ALARM_AGGRESSIVE_DELAY_IN_MS:Ljava/lang/String; = "data_stall_alarm_aggressive_delay_in_ms"
 
-.field public static final DATA_ROAMING_BLOCKED:Ljava/lang/String; = "data_roaming_blocked"
-
-.field public static final DATA_ROAMING_GUARD:Ljava/lang/String; = "data_roaming_guard"
-
-.field public static final DATA_ROAMING_GUARD_ALLOWED:Ljava/lang/String; = "data_roaming_guard_allowed"
-
-.field public static final DATA_ROAMING_GUARD_BLOCKED:Ljava/lang/String; = "data_roaming_guard_blocked"
-
-.field public static final DATA_STALL_ALARM_DELAY_IN_MS:Ljava/lang/String; = "data_stall_alarm_delay_in_ms"
+.field public static final DATA_STALL_ALARM_NON_AGGRESSIVE_DELAY_IN_MS:Ljava/lang/String; = "data_stall_alarm_non_aggressive_delay_in_ms"
 
 .field public static final DEFAULT_DNS_SERVER:Ljava/lang/String; = "default_dns_server"
 
 .field public static final DEFAULT_INPUT_METHOD:Ljava/lang/String; = "default_input_method"
 
 .field public static final DEFAULT_INSTALL_LOCATION:Ljava/lang/String; = "default_install_location"
-
-.field public static final DENY_USER_CONTROL:Ljava/lang/String; = "deny_user_control"
 
 .field public static final DEVICE_PROVISIONED:Ljava/lang/String; = "device_provisioned"
 
@@ -126,25 +106,15 @@
 
 .field public static final DROPBOX_TAG_PREFIX:Ljava/lang/String; = "dropbox:"
 
-.field public static final DTMF_ENABLED:Ljava/lang/String; = "dtmf_enabled"
-
 .field public static final ENABLED_ACCESSIBILITY_SERVICES:Ljava/lang/String; = "enabled_accessibility_services"
 
 .field public static final ENABLED_INPUT_METHODS:Ljava/lang/String; = "enabled_input_methods"
-
-.field public static final ENABLE_HTC_FASTBOOT:Ljava/lang/String; = "enable_fastboot"
 
 .field public static final ENHANCED_VOICE_PRIVACY_ENABLED:Ljava/lang/String; = "enhanced_voice_privacy_enabled"
 
 .field public static final ERROR_LOGCAT_PREFIX:Ljava/lang/String; = "logcat_for_"
 
-.field public static final ERROR_REPORT_PRIVACY_VERSION:Ljava/lang/String; = "error_report_privacy_version"
-
-.field public static final EXT_ICC_SMS_PHONE_TYPE:Ljava/lang/String; = "ext_icc_sms_phone_type"
-
-.field public static final EXT_MOBILE_DATA_PHONE_TYPE:Ljava/lang/String; = "ext_mobile_data_phone_type"
-
-.field public static final EXT_VOICE_CALL_PHONE_TYPE:Ljava/lang/String; = "ext_voice_call_phone_type"
+.field public static final EXTERNAL_GPS_BT_DEVICE:Ljava/lang/String; = "0"
 
 .field public static final GLOBAL_HTTP_PROXY_EXCLUSION_LIST:Ljava/lang/String; = "global_http_proxy_exclusion_list"
 
@@ -154,39 +124,7 @@
 
 .field public static final GPRS_REGISTER_CHECK_PERIOD_MS:Ljava/lang/String; = "gprs_register_check_period_ms"
 
-.field public static final GPSONE_ALLOWED:Ljava/lang/String; = "gpsone_allowed"
-
-.field public static final HAS_PEN_DOWN_AFTER_SETUP_WIZARD:Ljava/lang/String; = "has_pen_down_after_setup_wizard"
-
-.field public static final HTCSPEAK_DEFALUT_LANG:Ljava/lang/String; = "htcspeak_default_lang"
-
-.field public static final HTC_2D_3D_MODE:Ljava/lang/String; = "htc_2d_3d_mode"
-
-.field public static final HTC_BLOCK_VIRTUAL_KEY:Ljava/lang/String; = "htc_block_virtual_key"
-
-.field public static final HTC_COLLECT_LOCATION_DATA:Ljava/lang/String; = "htc_collect_location_data"
-
-.field public static final HTC_ERROR_REPORT_AUTO_SEND:Ljava/lang/String; = "htc_error_report_auto_send"
-
-.field public static final HTC_ERROR_REPORT_PREFER_NETWORK:Ljava/lang/String; = "htc_error_report_prefer_network"
-
-.field public static final HTC_ERROR_REPORT_SETTING:Ljava/lang/String; = "htc_error_report_setting"
-
-.field public static final HTC_LOCATE_ALLOWED:Ljava/lang/String; = "htc_locate_allowed"
-
-.field public static final HTC_MESSAGE_NOTIFICATION_PREVIEW:Ljava/lang/String; = "htc_message_notification_preview"
-
-.field public static final HTC_NEW_MESSAGE_NOTIFICATION:Ljava/lang/String; = "htc_new_message_notification"
-
-.field public static final HTC_PHONE_NOTIFICATION_PREVIEW:Ljava/lang/String; = "htc_phone_notification_preview"
-
-.field public static final HTC_SPEAK_ANNOUNCE:Ljava/lang/String; = "htc_speak_announce"
-
 .field public static final HTTP_PROXY:Ljava/lang/String; = "http_proxy"
-
-.field public static final HTTP_PROXY_PORT:Ljava/lang/String; = "http_proxy_port"
-
-.field public static final HTTP_PROXY_SERVER:Ljava/lang/String; = "http_proxy_server"
 
 .field public static final INCALL_POWER_BUTTON_BEHAVIOR:Ljava/lang/String; = "incall_power_button_behavior"
 
@@ -206,11 +144,13 @@
 
 .field public static final INSTALL_NON_MARKET_APPS:Ljava/lang/String; = "install_non_market_apps"
 
-.field public static final INTEGRATE_GOOGLE_NAVIGATION:Ljava/lang/String; = "integrate_google_navigation"
+.field public static final KILL_APP_LONGPRESS_BACK:Ljava/lang/String; = "kill_app_longpress_back"
 
 .field public static final LAST_SETUP_SHOWN:Ljava/lang/String; = "last_setup_shown"
 
 .field public static final LOCATION_PROVIDERS_ALLOWED:Ljava/lang/String; = "location_providers_allowed"
+
+.field public static final LOCK_BEFORE_UNLOCK:Ljava/lang/String; = "lock_before_unlock"
 
 .field public static final LOCK_PATTERN_ENABLED:Ljava/lang/String; = "lock_pattern_autolock"
 
@@ -228,8 +168,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
-
-.field public static final LOGGING_ID2:Ljava/lang/String; = "logging_id2"
 
 .field public static final LONG_PRESS_TIMEOUT:Ljava/lang/String; = "long_press_timeout"
 
@@ -259,24 +197,7 @@
 
 .field public static final MEMCHECK_SYSTEM_SOFT_THRESHOLD:Ljava/lang/String; = "memcheck_system_soft"
 
-.field public static final MMS_X_WAP_PROFILE_URL:Ljava/lang/String; = "mms_x_wap_profile_url"
-
-.field public static final MOBILEDATA_ON:Ljava/lang/String; = "mobiledata_on"
-
 .field public static final MOBILE_DATA:Ljava/lang/String; = "mobile_data"
-
-.field public static final MOBILE_FEATURE_CONTROL:Ljava/lang/String; = "mobile_feature_control"
-
-.field private static MONITOR_KEYS:Ljava/util/HashSet; = null
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/HashSet",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
 
 .field public static final MOUNT_PLAY_NOTIFICATION_SND:Ljava/lang/String; = "mount_play_not_snd"
 
@@ -285,8 +206,6 @@
 .field public static final MOUNT_UMS_NOTIFY_ENABLED:Ljava/lang/String; = "mount_ums_notify_enabled"
 
 .field public static final MOUNT_UMS_PROMPT:Ljava/lang/String; = "mount_ums_prompt"
-
-.field public static final NATIONAL_ROAMING_ON:Ljava/lang/String; = "national_roaming_on"
 
 .field public static final NETSTATS_ENABLED:Ljava/lang/String; = "netstats_enabled"
 
@@ -332,29 +251,9 @@
 
 .field public static final PDP_WATCHDOG_MAX_PDP_RESET_FAIL_COUNT:Ljava/lang/String; = "pdp_watchdog_max_pdp_reset_fail_count"
 
-.field public static final PDP_WATCHDOG_PING_ADDRESS:Ljava/lang/String; = "pdp_watchdog_ping_address"
-
-.field public static final PDP_WATCHDOG_PING_DEADLINE:Ljava/lang/String; = "pdp_watchdog_ping_deadline"
-
 .field public static final PDP_WATCHDOG_POLL_INTERVAL_MS:Ljava/lang/String; = "pdp_watchdog_poll_interval_ms"
 
 .field public static final PDP_WATCHDOG_TRIGGER_PACKET_COUNT:Ljava/lang/String; = "pdp_watchdog_trigger_packet_count"
-
-.field public static final PEN_AS_TOUCH:Ljava/lang/String; = "pen_as_touch"
-
-.field public static final PEN_ATTR_FOR_EACH_APP:Ljava/lang/String; = "pen_attr_for_each_app"
-
-.field public static final PEN_ATTR_FOR_EACH_APP_DEFAULT:I = 0x0
-
-.field public static final PEN_ENABLE_SKETCH:Ljava/lang/String; = "pen_enable_sketch"
-
-.field public static final PEN_ENABLE_SKETCH_DEFAULT:I = 0x0
-
-.field public static final PEN_LOWER_BUTTON_ID:Ljava/lang/String; = "pen_lower_button_id"
-
-.field public static final PEN_UPPER_BUTTON_ID:Ljava/lang/String; = "pen_upper_button_id"
-
-.field public static final PHONE_ENCRYPTION:Ljava/lang/String; = "phone_encryption"
 
 .field public static final PREFERRED_CDMA_SUBSCRIPTION:Ljava/lang/String; = "preferred_cdma_subscription"
 
@@ -368,11 +267,7 @@
 
 .field public static final REBOOT_WINDOW:Ljava/lang/String; = "reboot_window"
 
-.field public static final ROAMING_SOUND_ON:Ljava/lang/String; = "roaming_sound_on"
-
 .field public static final SAMPLING_PROFILER_MS:Ljava/lang/String; = "sampling_profiler_ms"
-
-.field public static final SD_ENCRYPTION:Ljava/lang/String; = "sd_encryption"
 
 .field public static final SEARCH_GLOBAL_SEARCH_ACTIVITY:Ljava/lang/String; = "search_global_search_activity"
 
@@ -418,13 +313,7 @@
 
 .field public static final SELECTED_SPELL_CHECKER_SUBTYPE:Ljava/lang/String; = "selected_spell_checker_subtype"
 
-.field public static final SELECT_RESOLUTION_TYPE:Ljava/lang/String; = "select_resolution_type"
-
 .field public static final SEND_ACTION_APP_ERROR:Ljava/lang/String; = "send_action_app_error"
-
-.field public static final SEND_HTC_APPLICATION_LOG:Ljava/lang/String; = "send_htc_application_log"
-
-.field public static final SEND_HTC_ERROR_REPORT:Ljava/lang/String; = "send_htc_error_report"
 
 .field public static final SETTINGS_CLASSNAME:Ljava/lang/String; = "settings_classname"
 
@@ -446,8 +335,6 @@
 
 .field public static final SMS_OUTGOING_CHECK_MAX_COUNT:Ljava/lang/String; = "sms_outgoing_check_max_count"
 
-.field public static final SMS_ROAMING_GUARD_ALLOWED:Ljava/lang/String; = "sms_roaming_guard_allowed"
-
 .field public static final SPELL_CHECKER_ENABLED:Ljava/lang/String; = "spell_checker_enabled"
 
 .field public static final SYNC_MAX_RETRY_DELAY_IN_SECONDS:Ljava/lang/String; = "sync_max_retry_delay_in_seconds"
@@ -462,13 +349,13 @@
 
 .field public static final SYS_STORAGE_THRESHOLD_PERCENTAGE:Ljava/lang/String; = "sys_storage_threshold_percentage"
 
-.field public static final TELLHTC_ENABLE_SENSE_DOT_COM_LOG:Ljava/lang/String; = "tellhtc_enable_sense_dot_com_log"
-
-.field public static final TELL_HTC_PRIVACY_VERSION:Ljava/lang/String; = "tell_htc_privacy_version"
-
 .field public static final TETHER_DUN_APN:Ljava/lang/String; = "tether_dun_apn"
 
 .field public static final TETHER_DUN_REQUIRED:Ljava/lang/String; = "tether_dun_required"
+
+.field public static final TETHER_LEASE_TIME:Ljava/lang/String; = "tether_lease_time"
+
+.field public static final TETHER_LEASE_TIME_DEFAULT:I = -0x1
 
 .field public static final TETHER_SUPPORTED:Ljava/lang/String; = "tether_supported"
 
@@ -522,25 +409,11 @@
 
 .field public static final UI_NIGHT_MODE:Ljava/lang/String; = "ui_night_mode"
 
-.field public static final USBNET_ON:Ljava/lang/String; = "usbnet_on"
-
 .field public static final USB_MASS_STORAGE_ENABLED:Ljava/lang/String; = "usb_mass_storage_enabled"
-
-.field public static final USER_PROFILE_PRIVACY_VERSION:Ljava/lang/String; = "user_profile_privacy_version"
 
 .field public static final USE_GOOGLE_MAIL:Ljava/lang/String; = "use_google_mail"
 
 .field public static final VOICE_RECOGNITION_SERVICE:Ljava/lang/String; = "voice_recognition_service"
-
-.field public static final VOICE_ROAMING_ALLOWED:Ljava/lang/String; = "voice_roaming_allowed"
-
-.field public static final VOICE_ROAMING_BLOCKED:Ljava/lang/String; = "voice_roaming_blocked"
-
-.field public static final VOICE_ROAMING_GUARD_ALLOWED:Ljava/lang/String; = "voice_roaming_guard_allowed"
-
-.field public static final VOICE_ROAMING_GUARD_BLOCKED:Ljava/lang/String; = "voice_roaming_guard_blocked"
-
-.field public static final VZW_GLOBAL_ROAMING_OPTIONS:Ljava/lang/String; = "vzw_global_roaming_options"
 
 .field public static final WEB_AUTOFILL_QUERY_URL:Ljava/lang/String; = "web_autofill_query_url"
 
@@ -550,19 +423,11 @@
 
 .field public static final WIFI_AP_SSID:Ljava/lang/String; = "wifi_ap_ssid"
 
-.field public static final WIFI_ASSOCIATE_MODE:Ljava/lang/String; = "wifi_associate_manual"
-
-.field public static final WIFI_AUTO_IP_ON:Ljava/lang/String; = "wifi_auto_ip_on"
-
 .field public static final WIFI_COUNTRY_CODE:Ljava/lang/String; = "wifi_country_code"
-
-.field public static final WIFI_DHCP_ROAMING:Ljava/lang/String; = "wifi_dhcp_roaming"
 
 .field public static final WIFI_FRAMEWORK_SCAN_INTERVAL_MS:Ljava/lang/String; = "wifi_framework_scan_interval_ms"
 
 .field public static final WIFI_FREQUENCY_BAND:Ljava/lang/String; = "wifi_frequency_band"
-
-.field public static final WIFI_HTTP_PROXY_ON:Ljava/lang/String; = "wifi_http_proxy_on"
 
 .field public static final WIFI_IDLE_MS:Ljava/lang/String; = "wifi_idle_ms"
 
@@ -574,21 +439,11 @@
 
 .field public static final WIFI_NETWORKS_AVAILABLE_REPEAT_DELAY:Ljava/lang/String; = "wifi_networks_available_repeat_delay"
 
-.field public static final WIFI_NUM_ALLOWED_CHANNELS:Ljava/lang/String; = "wifi_num_allowed_channels"
-
 .field public static final WIFI_NUM_OPEN_NETWORKS_KEPT:Ljava/lang/String; = "wifi_num_open_networks_kept"
-
-.field public static final WIFI_OFFLOAD_ENABLED:Ljava/lang/String; = "wifi_offload_enabled"
 
 .field public static final WIFI_ON:Ljava/lang/String; = "wifi_on"
 
-.field public static final WIFI_PWR_ACTIVE_MODE:Ljava/lang/String; = "wifi_pwr_active_mode"
-
 .field public static final WIFI_SAVED_STATE:Ljava/lang/String; = "wifi_saved_state"
-
-.field public static final WIFI_SCAN_INTERVAL_MS:Ljava/lang/String; = "wifi_scan_interval_ms"
-
-.field public static final WIFI_SECURE_NETWORKS_AVAILABLE_NOTIFICATION_ON:Ljava/lang/String; = "wifi_secure_networks_available_notification_on"
 
 .field public static final WIFI_SUPPLICANT_SCAN_INTERVAL_MS:Ljava/lang/String; = "wifi_supplicant_scan_interval_ms"
 
@@ -673,10 +528,6 @@
     .end annotation
 .end field
 
-.field public static final WIMAX_IDLE_MS:Ljava/lang/String; = "wimax_idle_ms"
-
-.field public static final WIMAX_MOBILE_DATA_TRANSITION_WAKELOCK_TIMEOUT_MS:Ljava/lang/String; = "wimax_mobile_data_transition_wakelock_timeout_ms"
-
 .field public static final WIMAX_NETWORKS_AVAILABLE_NOTIFICATION_ON:Ljava/lang/String; = "wimax_networks_available_notification_on"
 
 .field public static final WIMAX_ON:Ljava/lang/String; = "wimax_on"
@@ -691,15 +542,12 @@
     .registers 3
 
     .prologue
+    .line 2809
     const/4 v0, 0x0
 
-    .line 3562
-    sput-object v0, Landroid/provider/Settings$Secure;->MONITOR_KEYS:Ljava/util/HashSet;
-
-    .line 3567
     sput-object v0, Landroid/provider/Settings$Secure;->sNameValueCache:Landroid/provider/Settings$NameValueCache;
 
-    .line 3847
+    .line 3058
     const-string v0, "content://settings/secure"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -708,8 +556,8 @@
 
     sput-object v0, Landroid/provider/Settings$Secure;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 6437
-    const/16 v0, 0x1e
+    .line 4741
+    const/16 v0, 0x1d
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -835,61 +683,55 @@
 
     const/16 v1, 0x14
 
-    const-string/jumbo v2, "wifi_secure_networks_available_notification_on"
+    const-string/jumbo v2, "wifi_networks_available_repeat_delay"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x15
 
-    const-string/jumbo v2, "wifi_networks_available_repeat_delay"
+    const-string/jumbo v2, "wifi_num_open_networks_kept"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x16
 
-    const-string/jumbo v2, "wifi_num_open_networks_kept"
+    const-string/jumbo v2, "mount_play_not_snd"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x17
 
-    const-string/jumbo v2, "mount_play_not_snd"
+    const-string/jumbo v2, "mount_ums_autostart"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x18
 
-    const-string/jumbo v2, "mount_ums_autostart"
+    const-string/jumbo v2, "mount_ums_prompt"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x19
 
-    const-string/jumbo v2, "mount_ums_prompt"
+    const-string/jumbo v2, "mount_ums_notify_enabled"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x1a
 
-    const-string/jumbo v2, "mount_ums_notify_enabled"
+    const-string/jumbo v2, "ui_night_mode"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x1b
 
-    const-string/jumbo v2, "ui_night_mode"
+    const-string v2, "lock_screen_owner_info"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x1c
 
-    const-string/jumbo v2, "lock_screen_owner_info"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x1d
-
-    const-string/jumbo v2, "lock_screen_owner_info_enabled"
+    const-string v2, "lock_screen_owner_info_enabled"
 
     aput-object v2, v0, v1
 
@@ -902,7 +744,7 @@
     .registers 1
 
     .prologue
-    .line 3557
+    .line 2805
     invoke-direct {p0}, Landroid/provider/Settings$NameValueTable;-><init>()V
 
     return-void
@@ -913,7 +755,7 @@
     .parameter "address"
 
     .prologue
-    .line 3890
+    .line 3107
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -944,7 +786,7 @@
     .parameter "address"
 
     .prologue
-    .line 3882
+    .line 3099
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -975,7 +817,7 @@
     .parameter "address"
 
     .prologue
-    .line 3898
+    .line 3115
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1001,98 +843,6 @@
     return-object v0
 .end method
 
-.method public static getBoolean(Landroid/content/ContentResolver;Ljava/lang/String;)Z
-    .registers 4
-    .parameter "cr"
-    .parameter "name"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/provider/Settings$SettingNotFoundException;
-        }
-    .end annotation
-
-    .prologue
-    .line 5541
-    invoke-static {p0, p1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 5543
-    .local v0, v:Ljava/lang/String;
-    if-nez v0, :cond_c
-
-    .line 5544
-    new-instance v1, Landroid/provider/Settings$SettingNotFoundException;
-
-    invoke-direct {v1, p1}, Landroid/provider/Settings$SettingNotFoundException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    .line 5546
-    :cond_c
-    const-string v1, "0"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_16
-
-    const/4 v1, 0x1
-
-    :goto_15
-    return v1
-
-    :cond_16
-    const/4 v1, 0x0
-
-    goto :goto_15
-.end method
-
-.method public static getBoolean(Landroid/content/ContentResolver;Ljava/lang/String;Z)Z
-    .registers 5
-    .parameter "cr"
-    .parameter "name"
-    .parameter "defValue"
-
-    .prologue
-    .line 5514
-    invoke-static {p0, p1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 5516
-    .local v0, v:Ljava/lang/String;
-    if-nez v0, :cond_7
-
-    .line 5519
-    .end local p2
-    :goto_6
-    return p2
-
-    .restart local p2
-    :cond_7
-    const-string v1, "0"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_12
-
-    const/4 v1, 0x1
-
-    :goto_10
-    move p2, v1
-
-    goto :goto_6
-
-    :cond_12
-    const/4 v1, 0x0
-
-    goto :goto_10
-.end method
-
 .method public static getFloat(Landroid/content/ContentResolver;Ljava/lang/String;)F
     .registers 5
     .parameter "cr"
@@ -1104,23 +854,23 @@
     .end annotation
 
     .prologue
-    .line 3816
+    .line 3027
     invoke-static {p0, p1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 3817
+    .line 3028
     .local v1, v:Ljava/lang/String;
     if-nez v1, :cond_c
 
-    .line 3818
+    .line 3029
     new-instance v2, Landroid/provider/Settings$SettingNotFoundException;
 
     invoke-direct {v2, p1}, Landroid/provider/Settings$SettingNotFoundException;-><init>(Ljava/lang/String;)V
 
     throw v2
 
-    .line 3821
+    .line 3032
     :cond_c
     :try_start_c
     invoke-static {v1}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
@@ -1131,11 +881,11 @@
 
     return v2
 
-    .line 3822
+    .line 3033
     :catch_11
     move-exception v0
 
-    .line 3823
+    .line 3034
     .local v0, e:Ljava/lang/NumberFormatException;
     new-instance v2, Landroid/provider/Settings$SettingNotFoundException;
 
@@ -1151,12 +901,12 @@
     .parameter "def"
 
     .prologue
-    .line 3788
+    .line 2999
     invoke-static {p0, p1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 3790
+    .line 3001
     .local v1, v:Ljava/lang/String;
     if-eqz v1, :cond_a
 
@@ -1167,18 +917,18 @@
 
     move-result p2
 
-    .line 3792
+    .line 3003
     .end local p2
     :cond_a
     :goto_a
     return p2
 
-    .line 3791
+    .line 3002
     .restart local p2
     :catch_b
     move-exception v0
 
-    .line 3792
+    .line 3003
     .local v0, e:Ljava/lang/NumberFormatException;
     goto :goto_a
 .end method
@@ -1194,12 +944,12 @@
     .end annotation
 
     .prologue
-    .line 3679
+    .line 2890
     invoke-static {p0, p1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 3681
+    .line 2892
     .local v1, v:Ljava/lang/String;
     :try_start_4
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
@@ -1210,11 +960,11 @@
 
     return v2
 
-    .line 3682
+    .line 2893
     :catch_9
     move-exception v0
 
-    .line 3683
+    .line 2894
     .local v0, e:Ljava/lang/NumberFormatException;
     new-instance v2, Landroid/provider/Settings$SettingNotFoundException;
 
@@ -1230,12 +980,12 @@
     .parameter "def"
 
     .prologue
-    .line 3651
+    .line 2862
     invoke-static {p0, p1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 3653
+    .line 2864
     .local v1, v:Ljava/lang/String;
     if-eqz v1, :cond_a
 
@@ -1246,18 +996,18 @@
 
     move-result p2
 
-    .line 3655
+    .line 2866
     .end local p2
     :cond_a
     :goto_a
     return p2
 
-    .line 3654
+    .line 2865
     .restart local p2
     :catch_b
     move-exception v0
 
-    .line 3655
+    .line 2866
     .local v0, e:Ljava/lang/NumberFormatException;
     goto :goto_a
 .end method
@@ -1273,12 +1023,12 @@
     .end annotation
 
     .prologue
-    .line 3748
+    .line 2959
     invoke-static {p0, p1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 3750
+    .line 2961
     .local v1, valString:Ljava/lang/String;
     :try_start_4
     invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
@@ -1289,11 +1039,11 @@
 
     return-wide v2
 
-    .line 3751
+    .line 2962
     :catch_9
     move-exception v0
 
-    .line 3752
+    .line 2963
     .local v0, e:Ljava/lang/NumberFormatException;
     new-instance v2, Landroid/provider/Settings$SettingNotFoundException;
 
@@ -1309,12 +1059,12 @@
     .parameter "def"
 
     .prologue
-    .line 3719
+    .line 2930
     invoke-static {p0, p1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 3722
+    .line 2933
     .local v1, valString:Ljava/lang/String;
     if-eqz v1, :cond_b
 
@@ -1325,7 +1075,7 @@
 
     move-result-wide v2
 
-    .line 3726
+    .line 2937
     .local v2, value:J
     :goto_a
     return-wide v2
@@ -1334,14 +1084,14 @@
     :cond_b
     move-wide v2, p2
 
-    .line 3722
+    .line 2933
     goto :goto_a
 
-    .line 3723
+    .line 2934
     :catch_d
     move-exception v0
 
-    .line 3724
+    .line 2935
     .local v0, e:Ljava/lang/NumberFormatException;
     move-wide v2, p2
 
@@ -1355,7 +1105,7 @@
     .parameter "name"
 
     .prologue
-    .line 3594
+    .line 2818
     const-class v1, Landroid/provider/Settings$Secure;
 
     monitor-enter v1
@@ -1365,7 +1115,7 @@
 
     if-nez v0, :cond_15
 
-    .line 3595
+    .line 2819
     new-instance v0, Landroid/provider/Settings$NameValueCache;
 
     const-string/jumbo v2, "sys.settings_secure_version"
@@ -1378,7 +1128,7 @@
 
     sput-object v0, Landroid/provider/Settings$Secure;->sNameValueCache:Landroid/provider/Settings$NameValueCache;
 
-    .line 3598
+    .line 2822
     :cond_15
     sget-object v0, Landroid/provider/Settings$Secure;->sNameValueCache:Landroid/provider/Settings$NameValueCache;
 
@@ -1392,7 +1142,7 @@
 
     return-object v0
 
-    .line 3594
+    .line 2818
     :catchall_1d
     move-exception v0
 
@@ -1406,7 +1156,7 @@
     .parameter "name"
 
     .prologue
-    .line 3633
+    .line 2844
     sget-object v0, Landroid/provider/Settings$Secure;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-static {v0, p0}, Landroid/provider/Settings$Secure;->getUriFor(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
@@ -1416,116 +1166,20 @@
     return-object v0
 .end method
 
-.method public static final isDataRoamingAllowed(Landroid/content/ContentResolver;Ljava/lang/String;)Z
-    .registers 4
-    .parameter "cr"
-    .parameter "provider"
-
-    .prologue
-    .line 6164
-    const-string v1, "data_roaming_allowed"
-
-    invoke-static {p0, v1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 6165
-    .local v0, allowedProviders:Ljava/lang/String;
-    const/16 v1, 0x2c
-
-    invoke-static {v0, v1, p1}, Landroid/text/TextUtils;->delimitedStringContains(Ljava/lang/String;CLjava/lang/String;)Z
-
-    move-result v1
-
-    return v1
-.end method
-
-.method public static final isDataRoamingBlocked(Landroid/content/ContentResolver;Ljava/lang/String;)Z
-    .registers 4
-    .parameter "cr"
-    .parameter "provider"
-
-    .prologue
-    .line 6193
-    const-string v1, "data_roaming_blocked"
-
-    invoke-static {p0, v1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 6194
-    .local v0, allowedProviders:Ljava/lang/String;
-    const/16 v1, 0x2c
-
-    invoke-static {v0, v1, p1}, Landroid/text/TextUtils;->delimitedStringContains(Ljava/lang/String;CLjava/lang/String;)Z
-
-    move-result v1
-
-    return v1
-.end method
-
-.method public static final isDataRoamingGuardAllowed(Landroid/content/ContentResolver;Ljava/lang/String;)Z
-    .registers 4
-    .parameter "cr"
-    .parameter "provider"
-
-    .prologue
-    .line 6223
-    const-string v1, "data_roaming_guard_allowed"
-
-    invoke-static {p0, v1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 6224
-    .local v0, allowedProviders:Ljava/lang/String;
-    const/16 v1, 0x2c
-
-    invoke-static {v0, v1, p1}, Landroid/text/TextUtils;->delimitedStringContains(Ljava/lang/String;CLjava/lang/String;)Z
-
-    move-result v1
-
-    return v1
-.end method
-
-.method public static final isDataRoamingGuardBlocked(Landroid/content/ContentResolver;Ljava/lang/String;)Z
-    .registers 4
-    .parameter "cr"
-    .parameter "provider"
-
-    .prologue
-    .line 6252
-    const-string v1, "data_roaming_guard_blocked"
-
-    invoke-static {p0, v1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 6253
-    .local v0, allowedProviders:Ljava/lang/String;
-    const/16 v1, 0x2c
-
-    invoke-static {v0, v1, p1}, Landroid/text/TextUtils;->delimitedStringContains(Ljava/lang/String;CLjava/lang/String;)Z
-
-    move-result v1
-
-    return v1
-.end method
-
 .method public static final isLocationProviderEnabled(Landroid/content/ContentResolver;Ljava/lang/String;)Z
     .registers 4
     .parameter "cr"
     .parameter "provider"
 
     .prologue
-    .line 6479
-    const-string/jumbo v1, "location_providers_allowed"
+    .line 4780
+    const-string v1, "location_providers_allowed"
 
     invoke-static {p0, v1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 6480
+    .line 4781
     .local v0, allowedProviders:Ljava/lang/String;
     const/16 v1, 0x2c
 
@@ -1534,151 +1188,6 @@
     move-result v1
 
     return v1
-.end method
-
-.method public static final isSmsRoamingGuardAllowed(Landroid/content/ContentResolver;Ljava/lang/String;)Z
-    .registers 4
-    .parameter "cr"
-    .parameter "provider"
-
-    .prologue
-    .line 6397
-    const-string/jumbo v1, "sms_roaming_guard_allowed"
-
-    invoke-static {p0, v1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 6398
-    .local v0, allowedProviders:Ljava/lang/String;
-    const/16 v1, 0x2c
-
-    invoke-static {v0, v1, p1}, Landroid/text/TextUtils;->delimitedStringContains(Ljava/lang/String;CLjava/lang/String;)Z
-
-    move-result v1
-
-    return v1
-.end method
-
-.method public static final isVoiceRoamingAllowed(Landroid/content/ContentResolver;Ljava/lang/String;)Z
-    .registers 4
-    .parameter "cr"
-    .parameter "provider"
-
-    .prologue
-    .line 6281
-    const-string/jumbo v1, "voice_roaming_allowed"
-
-    invoke-static {p0, v1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 6282
-    .local v0, allowedProviders:Ljava/lang/String;
-    const/16 v1, 0x2c
-
-    invoke-static {v0, v1, p1}, Landroid/text/TextUtils;->delimitedStringContains(Ljava/lang/String;CLjava/lang/String;)Z
-
-    move-result v1
-
-    return v1
-.end method
-
-.method public static final isVoiceRoamingBlocked(Landroid/content/ContentResolver;Ljava/lang/String;)Z
-    .registers 4
-    .parameter "cr"
-    .parameter "provider"
-
-    .prologue
-    .line 6310
-    const-string/jumbo v1, "voice_roaming_blocked"
-
-    invoke-static {p0, v1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 6311
-    .local v0, allowedProviders:Ljava/lang/String;
-    const/16 v1, 0x2c
-
-    invoke-static {v0, v1, p1}, Landroid/text/TextUtils;->delimitedStringContains(Ljava/lang/String;CLjava/lang/String;)Z
-
-    move-result v1
-
-    return v1
-.end method
-
-.method public static final isVoiceRoamingGuardAllowed(Landroid/content/ContentResolver;Ljava/lang/String;)Z
-    .registers 4
-    .parameter "cr"
-    .parameter "provider"
-
-    .prologue
-    .line 6339
-    const-string/jumbo v1, "voice_roaming_guard_allowed"
-
-    invoke-static {p0, v1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 6340
-    .local v0, allowedProviders:Ljava/lang/String;
-    const/16 v1, 0x2c
-
-    invoke-static {v0, v1, p1}, Landroid/text/TextUtils;->delimitedStringContains(Ljava/lang/String;CLjava/lang/String;)Z
-
-    move-result v1
-
-    return v1
-.end method
-
-.method public static final isVoiceRoamingGuardBlocked(Landroid/content/ContentResolver;Ljava/lang/String;)Z
-    .registers 4
-    .parameter "cr"
-    .parameter "provider"
-
-    .prologue
-    .line 6368
-    const-string/jumbo v1, "voice_roaming_guard_blocked"
-
-    invoke-static {p0, v1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 6369
-    .local v0, allowedProviders:Ljava/lang/String;
-    const/16 v1, 0x2c
-
-    invoke-static {v0, v1, p1}, Landroid/text/TextUtils;->delimitedStringContains(Ljava/lang/String;CLjava/lang/String;)Z
-
-    move-result v1
-
-    return v1
-.end method
-
-.method public static putBoolean(Landroid/content/ContentResolver;Ljava/lang/String;Z)Z
-    .registers 4
-    .parameter "cr"
-    .parameter "name"
-    .parameter "value"
-
-    .prologue
-    .line 5566
-    if-eqz p2, :cond_9
-
-    const-string v0, "1"
-
-    :goto_4
-    invoke-static {p0, p1, v0}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v0
-
-    return v0
-
-    :cond_9
-    const-string v0, "0"
-
-    goto :goto_4
 .end method
 
 .method public static putFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)Z
@@ -1688,7 +1197,7 @@
     .parameter "value"
 
     .prologue
-    .line 3841
+    .line 3052
     invoke-static {p2}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
 
     move-result-object v0
@@ -1707,7 +1216,7 @@
     .parameter "value"
 
     .prologue
-    .line 3701
+    .line 2912
     invoke-static {p2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
@@ -1726,7 +1235,7 @@
     .parameter "value"
 
     .prologue
-    .line 3770
+    .line 2981
     invoke-static {p2, p3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
     move-result-object v0
@@ -1745,7 +1254,7 @@
     .parameter "value"
 
     .prologue
-    .line 3623
+    .line 2834
     sget-object v0, Landroid/provider/Settings$Secure;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-static {p0, v0, p1, p2}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)Z
@@ -1755,250 +1264,6 @@
     return v0
 .end method
 
-.method public static final setDataRoamingAllowed(Landroid/content/ContentResolver;Ljava/lang/String;Z)V
-    .registers 5
-    .parameter "cr"
-    .parameter "provider"
-    .parameter "enabled"
-
-    .prologue
-    .line 6178
-    if-eqz p2, :cond_1b
-
-    .line 6179
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "+"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 6183
-    :goto_15
-    const-string v0, "data_roaming_allowed"
-
-    invoke-static {p0, v0, p1}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-
-    .line 6184
-    return-void
-
-    .line 6181
-    :cond_1b
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "-"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    goto :goto_15
-.end method
-
-.method public static final setDataRoamingBlocked(Landroid/content/ContentResolver;Ljava/lang/String;Z)V
-    .registers 5
-    .parameter "cr"
-    .parameter "provider"
-    .parameter "enabled"
-
-    .prologue
-    .line 6207
-    if-eqz p2, :cond_1b
-
-    .line 6208
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "+"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 6212
-    :goto_15
-    const-string v0, "data_roaming_blocked"
-
-    invoke-static {p0, v0, p1}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-
-    .line 6213
-    return-void
-
-    .line 6210
-    :cond_1b
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "-"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    goto :goto_15
-.end method
-
-.method public static final setDataRoamingGuardAllowed(Landroid/content/ContentResolver;Ljava/lang/String;Z)V
-    .registers 5
-    .parameter "cr"
-    .parameter "provider"
-    .parameter "enabled"
-
-    .prologue
-    .line 6237
-    if-eqz p2, :cond_1b
-
-    .line 6238
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "+"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 6242
-    :goto_15
-    const-string v0, "data_roaming_guard_allowed"
-
-    invoke-static {p0, v0, p1}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-
-    .line 6243
-    return-void
-
-    .line 6240
-    :cond_1b
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "-"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    goto :goto_15
-.end method
-
-.method public static final setDataRoamingGuardBlocked(Landroid/content/ContentResolver;Ljava/lang/String;Z)V
-    .registers 5
-    .parameter "cr"
-    .parameter "provider"
-    .parameter "enabled"
-
-    .prologue
-    .line 6266
-    if-eqz p2, :cond_1b
-
-    .line 6267
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "+"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 6271
-    :goto_15
-    const-string v0, "data_roaming_guard_blocked"
-
-    invoke-static {p0, v0, p1}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-
-    .line 6272
-    return-void
-
-    .line 6269
-    :cond_1b
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "-"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    goto :goto_15
-.end method
-
 .method public static final setLocationProviderEnabled(Landroid/content/ContentResolver;Ljava/lang/String;Z)V
     .registers 5
     .parameter "cr"
@@ -2006,10 +1271,10 @@
     .parameter "enabled"
 
     .prologue
-    .line 6505
-    if-eqz p2, :cond_1c
+    .line 4795
+    if-eqz p2, :cond_1b
 
-    .line 6506
+    .line 4796
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2028,322 +1293,17 @@
 
     move-result-object p1
 
-    .line 6510
+    .line 4800
     :goto_15
-    const-string/jumbo v0, "location_providers_allowed"
+    const-string v0, "location_providers_allowed"
 
     invoke-static {p0, v0, p1}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 6511
+    .line 4801
     return-void
 
-    .line 6508
-    :cond_1c
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "-"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    goto :goto_15
-.end method
-
-.method public static final setSmsRoamingGuardAllowed(Landroid/content/ContentResolver;Ljava/lang/String;Z)V
-    .registers 5
-    .parameter "cr"
-    .parameter "provider"
-    .parameter "enabled"
-
-    .prologue
-    .line 6411
-    if-eqz p2, :cond_1c
-
-    .line 6412
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "+"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 6416
-    :goto_15
-    const-string/jumbo v0, "sms_roaming_guard_allowed"
-
-    invoke-static {p0, v0, p1}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-
-    .line 6417
-    return-void
-
-    .line 6414
-    :cond_1c
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "-"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    goto :goto_15
-.end method
-
-.method public static final setVoiceRoamingAllowed(Landroid/content/ContentResolver;Ljava/lang/String;Z)V
-    .registers 5
-    .parameter "cr"
-    .parameter "provider"
-    .parameter "enabled"
-
-    .prologue
-    .line 6295
-    if-eqz p2, :cond_1c
-
-    .line 6296
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "+"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 6300
-    :goto_15
-    const-string/jumbo v0, "voice_roaming_allowed"
-
-    invoke-static {p0, v0, p1}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-
-    .line 6301
-    return-void
-
-    .line 6298
-    :cond_1c
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "-"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    goto :goto_15
-.end method
-
-.method public static final setVoiceRoamingBlocked(Landroid/content/ContentResolver;Ljava/lang/String;Z)V
-    .registers 5
-    .parameter "cr"
-    .parameter "provider"
-    .parameter "enabled"
-
-    .prologue
-    .line 6324
-    if-eqz p2, :cond_1c
-
-    .line 6325
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "+"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 6329
-    :goto_15
-    const-string/jumbo v0, "voice_roaming_blocked"
-
-    invoke-static {p0, v0, p1}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-
-    .line 6330
-    return-void
-
-    .line 6327
-    :cond_1c
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "-"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    goto :goto_15
-.end method
-
-.method public static final setVoiceRoamingGuardAllowed(Landroid/content/ContentResolver;Ljava/lang/String;Z)V
-    .registers 5
-    .parameter "cr"
-    .parameter "provider"
-    .parameter "enabled"
-
-    .prologue
-    .line 6353
-    if-eqz p2, :cond_1c
-
-    .line 6354
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "+"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 6358
-    :goto_15
-    const-string/jumbo v0, "voice_roaming_guard_allowed"
-
-    invoke-static {p0, v0, p1}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-
-    .line 6359
-    return-void
-
-    .line 6356
-    :cond_1c
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "-"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    goto :goto_15
-.end method
-
-.method public static final setVoiceRoamingGuardBlocked(Landroid/content/ContentResolver;Ljava/lang/String;Z)V
-    .registers 5
-    .parameter "cr"
-    .parameter "provider"
-    .parameter "enabled"
-
-    .prologue
-    .line 6382
-    if-eqz p2, :cond_1c
-
-    .line 6383
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "+"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 6387
-    :goto_15
-    const-string/jumbo v0, "voice_roaming_guard_blocked"
-
-    invoke-static {p0, v0, p1}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-
-    .line 6388
-    return-void
-
-    .line 6385
-    :cond_1c
+    .line 4798
+    :cond_1b
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

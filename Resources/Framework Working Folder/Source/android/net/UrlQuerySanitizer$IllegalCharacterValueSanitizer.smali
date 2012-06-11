@@ -80,7 +80,7 @@
 
     .prologue
     .line 274
-    const-string/jumbo v0, "javascript:"
+    const-string v0, "javascript:"
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
@@ -107,7 +107,7 @@
 
     .prologue
     .line 283
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 284
     iput p1, p0, Landroid/net/UrlQuerySanitizer$IllegalCharacterValueSanitizer;->mFlags:I
@@ -430,12 +430,12 @@
 
     and-int/lit16 v5, v5, 0x400
 
-    if-eqz v5, :cond_2b
+    if-eqz v5, :cond_2a
 
     .line 307
     sget v5, Landroid/net/UrlQuerySanitizer$IllegalCharacterValueSanitizer;->MIN_SCRIPT_PREFIX_LENGTH:I
 
-    if-lt v3, v5, :cond_2b
+    if-lt v3, v5, :cond_2a
 
     .line 308
     invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
@@ -444,13 +444,13 @@
 
     .line 309
     .local v0, asLower:Ljava/lang/String;
-    const-string/jumbo v5, "javascript:"
+    const-string v5, "javascript:"
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-nez v5, :cond_28
+    if-nez v5, :cond_27
 
     const-string/jumbo v5, "vbscript:"
 
@@ -458,22 +458,22 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2b
+    if-eqz v5, :cond_2a
 
     .line 311
-    :cond_28
+    :cond_27
     const-string v5, ""
 
     goto :goto_3
 
     .line 318
     .end local v0           #asLower:Ljava/lang/String;
-    :cond_2b
+    :cond_2a
     iget v5, p0, Landroid/net/UrlQuerySanitizer$IllegalCharacterValueSanitizer;->mFlags:I
 
     and-int/lit8 v5, v5, 0x3
 
-    if-nez v5, :cond_39
+    if-nez v5, :cond_38
 
     .line 319
     invoke-direct {p0, p1}, Landroid/net/UrlQuerySanitizer$IllegalCharacterValueSanitizer;->trimWhitespace(Ljava/lang/String;)Ljava/lang/String;
@@ -486,7 +486,7 @@
     move-result v3
 
     .line 325
-    :cond_39
+    :cond_38
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4, v3}, Ljava/lang/StringBuilder;-><init>(I)V
@@ -496,8 +496,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_3f
-    if-ge v2, v3, :cond_5c
+    :goto_3e
+    if-ge v2, v3, :cond_5b
 
     .line 327
     invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
@@ -510,37 +510,37 @@
 
     move-result v5
 
-    if-nez v5, :cond_53
+    if-nez v5, :cond_52
 
     .line 329
     iget v5, p0, Landroid/net/UrlQuerySanitizer$IllegalCharacterValueSanitizer;->mFlags:I
 
     and-int/lit8 v5, v5, 0x1
 
-    if-eqz v5, :cond_59
+    if-eqz v5, :cond_58
 
     .line 330
     const/16 v1, 0x20
 
     .line 336
-    :cond_53
-    :goto_53
+    :cond_52
+    :goto_52
     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 326
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3f
+    goto :goto_3e
 
     .line 333
-    :cond_59
+    :cond_58
     const/16 v1, 0x5f
 
-    goto :goto_53
+    goto :goto_52
 
     .line 338
     .end local v1           #c:C
-    :cond_5c
+    :cond_5b
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5

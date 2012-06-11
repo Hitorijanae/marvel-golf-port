@@ -26,10 +26,10 @@
     .parameter
 
     .prologue
-    .line 430
+    .line 379
     iput-object p1, p0, Landroid/webkit/WebView$WebViewTransport;->this$0:Landroid/webkit/WebView;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -40,7 +40,7 @@
     .registers 2
 
     .prologue
-    .line 446
+    .line 395
     monitor-enter p0
 
     :try_start_1
@@ -65,7 +65,7 @@
     .parameter "webview"
 
     .prologue
-    .line 438
+    .line 387
     monitor-enter p0
 
     :try_start_1
@@ -73,12 +73,12 @@
     :try_end_3
     .catchall {:try_start_1 .. :try_end_3} :catchall_5
 
-    .line 439
+    .line 388
     monitor-exit p0
 
     return-void
 
-    .line 438
+    .line 387
     :catchall_5
     move-exception v0
 

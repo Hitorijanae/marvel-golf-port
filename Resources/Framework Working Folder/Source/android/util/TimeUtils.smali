@@ -27,7 +27,7 @@
     .line 143
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/util/TimeUtils;->sFormatSync:Ljava/lang/Object;
 
@@ -46,7 +46,7 @@
 
     .prologue
     .line 37
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -816,7 +816,7 @@
 
     .line 53
     .local v13, r:Landroid/content/res/Resources;
-    const v15, 0x10f000d
+    const v15, 0x10f000e
 
     invoke-virtual {v13, v15}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
@@ -881,20 +881,20 @@
 
     invoke-virtual {v10, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
     :try_end_3e
-    .catchall {:try_start_29 .. :try_end_3e} :catchall_9c
+    .catchall {:try_start_29 .. :try_end_3e} :catchall_ad
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_29 .. :try_end_3e} :catch_91
-    .catch Ljava/io/IOException; {:try_start_29 .. :try_end_3e} :catch_a1
+    .catch Ljava/io/IOException; {:try_start_29 .. :try_end_3e} :catch_9f
 
     move-result v15
 
     if-nez v15, :cond_46
 
     .line 109
-    .end local v10           #element:Ljava/lang/String;
     :cond_41
-    :goto_41
     invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->close()V
 
+    .end local v10           #element:Ljava/lang/String;
+    :goto_44
     move-object v4, v2
 
     .line 112
@@ -944,9 +944,9 @@
     .local v11, maybe:Ljava/lang/String;
     invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
     :try_end_68
-    .catchall {:try_start_47 .. :try_end_68} :catchall_9c
+    .catchall {:try_start_47 .. :try_end_68} :catchall_ad
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_47 .. :try_end_68} :catch_91
-    .catch Ljava/io/IOException; {:try_start_47 .. :try_end_68} :catch_a1
+    .catch Ljava/io/IOException; {:try_start_47 .. :try_end_68} :catch_9f
 
     move-result v15
 
@@ -990,9 +990,9 @@
 
     invoke-virtual {v14, v8}, Ljava/util/TimeZone;->inDaylightTime(Ljava/util/Date;)Z
     :try_end_8a
-    .catchall {:try_start_79 .. :try_end_8a} :catchall_9c
+    .catchall {:try_start_79 .. :try_end_8a} :catchall_ad
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_79 .. :try_end_8a} :catch_91
-    .catch Ljava/io/IOException; {:try_start_79 .. :try_end_8a} :catch_a1
+    .catch Ljava/io/IOException; {:try_start_79 .. :try_end_8a} :catch_9f
 
     move-result v15
 
@@ -1024,26 +1024,21 @@
 
     invoke-static {v15, v0, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_9b
-    .catchall {:try_start_92 .. :try_end_9b} :catchall_9c
-
-    goto :goto_41
+    .catchall {:try_start_92 .. :try_end_9b} :catchall_ad
 
     .line 109
-    .end local v9           #e:Lorg/xmlpull/v1/XmlPullParserException;
-    :catchall_9c
-    move-exception v15
-
     invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->close()V
 
-    throw v15
+    goto :goto_44
 
     .line 106
-    :catch_a1
+    .end local v9           #e:Lorg/xmlpull/v1/XmlPullParserException;
+    :catch_9f
     move-exception v9
 
     .line 107
     .local v9, e:Ljava/io/IOException;
-    :try_start_a2
+    :try_start_a0
     const-string v15, "TimeUtils"
 
     const-string v16, "Got exception while getting preferred time zone."
@@ -1051,10 +1046,21 @@
     move-object/from16 v0, v16
 
     invoke-static {v15, v0, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_ab
-    .catchall {:try_start_a2 .. :try_end_ab} :catchall_9c
+    :try_end_a9
+    .catchall {:try_start_a0 .. :try_end_a9} :catchall_ad
 
-    goto :goto_41
+    .line 109
+    invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->close()V
+
+    goto :goto_44
+
+    .end local v9           #e:Ljava/io/IOException;
+    :catchall_ad
+    move-exception v15
+
+    invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->close()V
+
+    throw v15
 .end method
 
 .method public static getTimeZoneDatabaseVersion()Ljava/lang/String;

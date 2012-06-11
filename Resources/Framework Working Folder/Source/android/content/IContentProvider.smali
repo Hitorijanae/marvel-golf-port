@@ -4,7 +4,6 @@
 
 # interfaces
 .implements Landroid/os/IInterface;
-.implements Landroid/content/HtcIfIContentProvider;
 
 
 # static fields

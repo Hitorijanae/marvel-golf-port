@@ -90,7 +90,7 @@
     const/4 v4, 0x0
 
     .line 59
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 60
     sget-boolean v0, Landroid/webkit/FrameLoader;->$assertionsDisabled:Z
@@ -141,7 +141,7 @@
 
     move-result-object v0
 
-    const v1, 0x1040034
+    const v1, 0x1040021
 
     const/4 v2, 0x1
 
@@ -169,12 +169,12 @@
 
     const/4 v2, 0x1
 
-    .line 306
+    .line 302
     iget v3, p0, Landroid/webkit/FrameLoader;->mCacheMode:I
 
     packed-switch v3, :pswitch_data_50
 
-    .line 359
+    .line 355
     iget-object v2, p0, Landroid/webkit/FrameLoader;->mListener:Landroid/webkit/LoadListener;
 
     iget-object v3, p0, Landroid/webkit/FrameLoader;->mHeaders:Ljava/util/Map;
@@ -183,11 +183,11 @@
 
     move-result v2
 
-    .line 362
+    .line 358
     :goto_f
     return v2
 
-    .line 317
+    .line 313
     :pswitch_10
     iget-object v3, p0, Landroid/webkit/FrameLoader;->mListener:Landroid/webkit/LoadListener;
 
@@ -205,20 +205,20 @@
 
     move-result-object v1
 
-    .line 319
+    .line 315
     .local v1, result:Landroid/webkit/CacheManager$CacheResult;
     if-eqz v1, :cond_26
 
-    .line 320
+    .line 316
     invoke-direct {p0, v1}, Landroid/webkit/FrameLoader;->startCacheLoad(Landroid/webkit/CacheManager$CacheResult;)V
 
     goto :goto_f
 
-    .line 326
+    .line 322
     :cond_26
     const/16 v0, -0xe
 
-    .line 327
+    .line 323
     .local v0, err:I
     iget-object v3, p0, Landroid/webkit/FrameLoader;->mListener:Landroid/webkit/LoadListener;
 
@@ -236,7 +236,7 @@
 
     goto :goto_f
 
-    .line 344
+    .line 340
     .end local v0           #err:I
     .end local v1           #result:Landroid/webkit/CacheManager$CacheResult;
     :pswitch_38
@@ -256,16 +256,16 @@
 
     move-result-object v1
 
-    .line 346
+    .line 342
     .restart local v1       #result:Landroid/webkit/CacheManager$CacheResult;
     if-eqz v1, :cond_4e
 
-    .line 347
+    .line 343
     invoke-direct {p0, v1}, Landroid/webkit/FrameLoader;->startCacheLoad(Landroid/webkit/CacheManager$CacheResult;)V
 
     goto :goto_f
 
-    .line 362
+    .line 358
     .end local v1           #result:Landroid/webkit/CacheManager$CacheResult;
     :cond_4e
     :pswitch_4e
@@ -273,7 +273,7 @@
 
     goto :goto_f
 
-    .line 306
+    .line 302
     :pswitch_data_50
     .packed-switch 0x1
         :pswitch_38
@@ -607,7 +607,7 @@
     .registers 8
 
     .prologue
-    .line 396
+    .line 392
     iget-object v4, p0, Landroid/webkit/FrameLoader;->mReferrer:Ljava/lang/String;
 
     if-eqz v4, :cond_d
@@ -620,7 +620,7 @@
 
     invoke-interface {v4, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 397
+    .line 393
     :cond_d
     iget-object v4, p0, Landroid/webkit/FrameLoader;->mContentType:Ljava/lang/String;
 
@@ -634,7 +634,7 @@
 
     invoke-interface {v4, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 401
+    .line 397
     :cond_1a
     iget-object v4, p0, Landroid/webkit/FrameLoader;->mNetwork:Landroid/webkit/Network;
 
@@ -644,12 +644,12 @@
 
     if-eqz v4, :cond_57
 
-    .line 405
+    .line 401
     iget-object v5, p0, Landroid/webkit/FrameLoader;->mNetwork:Landroid/webkit/Network;
 
     monitor-enter v5
 
-    .line 406
+    .line 402
     :try_start_25
     iget-object v4, p0, Landroid/webkit/FrameLoader;->mNetwork:Landroid/webkit/Network;
 
@@ -657,7 +657,7 @@
 
     move-result-object v3
 
-    .line 407
+    .line 403
     .local v3, username:Ljava/lang/String;
     iget-object v4, p0, Landroid/webkit/FrameLoader;->mNetwork:Landroid/webkit/Network;
 
@@ -665,25 +665,25 @@
 
     move-result-object v1
 
-    .line 408
+    .line 404
     .local v1, password:Ljava/lang/String;
     monitor-exit v5
     :try_end_32
     .catchall {:try_start_25 .. :try_end_32} :catchall_75
 
-    .line 409
+    .line 405
     if-eqz v3, :cond_57
 
     if-eqz v1, :cond_57
 
-    .line 411
+    .line 407
     const/4 v4, 0x1
 
     invoke-static {v4}, Landroid/net/http/RequestHandle;->authorizationHeader(Z)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 412
+    .line 408
     .local v2, proxyHeader:Ljava/lang/String;
     iget-object v4, p0, Landroid/webkit/FrameLoader;->mHeaders:Ljava/util/Map;
 
@@ -711,7 +711,7 @@
 
     invoke-interface {v4, v2, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 419
+    .line 415
     .end local v1           #password:Ljava/lang/String;
     .end local v2           #proxyHeader:Ljava/lang/String;
     .end local v3           #username:Ljava/lang/String;
@@ -730,7 +730,7 @@
 
     move-result-object v0
 
-    .line 421
+    .line 417
     .local v0, cookie:Ljava/lang/String;
     if-eqz v0, :cond_74
 
@@ -740,18 +740,18 @@
 
     if-lez v4, :cond_74
 
-    .line 422
+    .line 418
     iget-object v4, p0, Landroid/webkit/FrameLoader;->mHeaders:Ljava/util/Map;
 
     const-string v5, "Cookie"
 
     invoke-interface {v4, v5, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 424
+    .line 420
     :cond_74
     return-void
 
-    .line 408
+    .line 404
     .end local v0           #cookie:Ljava/lang/String;
     :catchall_75
     move-exception v4
@@ -768,7 +768,7 @@
     .registers 6
 
     .prologue
-    .line 371
+    .line 367
     iget-object v2, p0, Landroid/webkit/FrameLoader;->mHeaders:Ljava/util/Map;
 
     const-string v3, "Accept"
@@ -779,7 +779,7 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .line 372
+    .line 368
     .local v0, accept:Ljava/lang/String;
     if-eqz v0, :cond_12
 
@@ -789,7 +789,7 @@
 
     if-nez v2, :cond_1c
 
-    .line 373
+    .line 369
     :cond_12
     iget-object v2, p0, Landroid/webkit/FrameLoader;->mHeaders:Ljava/util/Map;
 
@@ -799,7 +799,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 375
+    .line 371
     :cond_1c
     iget-object v2, p0, Landroid/webkit/FrameLoader;->mHeaders:Ljava/util/Map;
 
@@ -809,14 +809,14 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 377
+    .line 373
     iget-object v2, p0, Landroid/webkit/FrameLoader;->mSettings:Landroid/webkit/WebSettings;
 
     invoke-virtual {v2}, Landroid/webkit/WebSettings;->getAcceptLanguage()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 378
+    .line 374
     .local v1, acceptLanguage:Ljava/lang/String;
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
@@ -824,14 +824,14 @@
 
     if-lez v2, :cond_39
 
-    .line 379
+    .line 375
     iget-object v2, p0, Landroid/webkit/FrameLoader;->mHeaders:Ljava/util/Map;
 
     const-string v3, "Accept-Language"
 
     invoke-interface {v2, v3, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 382
+    .line 378
     :cond_39
     iget-object v2, p0, Landroid/webkit/FrameLoader;->mHeaders:Ljava/util/Map;
 
@@ -845,7 +845,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 385
+    .line 381
     iget-object v2, p0, Landroid/webkit/FrameLoader;->mUaprofHeader:Ljava/lang/String;
 
     if-eqz v2, :cond_5c
@@ -858,7 +858,7 @@
 
     if-lez v2, :cond_5c
 
-    .line 386
+    .line 382
     iget-object v2, p0, Landroid/webkit/FrameLoader;->mHeaders:Ljava/util/Map;
 
     const-string/jumbo v3, "x-wap-profile"
@@ -867,7 +867,7 @@
 
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 388
+    .line 384
     :cond_5c
     return-void
 .end method
@@ -877,20 +877,20 @@
     .parameter "result"
 
     .prologue
-    .line 288
+    .line 284
     new-instance v0, Landroid/webkit/CacheLoader;
 
     iget-object v1, p0, Landroid/webkit/FrameLoader;->mListener:Landroid/webkit/LoadListener;
 
     invoke-direct {v0, v1, p1}, Landroid/webkit/CacheLoader;-><init>(Landroid/webkit/LoadListener;Landroid/webkit/CacheManager$CacheResult;)V
 
-    .line 290
+    .line 286
     .local v0, cacheLoader:Landroid/webkit/CacheLoader;
     iget-object v1, p0, Landroid/webkit/FrameLoader;->mListener:Landroid/webkit/LoadListener;
 
     invoke-virtual {v1, v0}, Landroid/webkit/LoadListener;->setCacheLoader(Landroid/webkit/CacheLoader;)V
 
-    .line 291
+    .line 287
     iget-object v1, p0, Landroid/webkit/FrameLoader;->mListener:Landroid/webkit/LoadListener;
 
     invoke-virtual {v1}, Landroid/webkit/LoadListener;->isSynchronous()Z
@@ -899,14 +899,14 @@
 
     if-eqz v1, :cond_18
 
-    .line 292
+    .line 288
     invoke-virtual {v0}, Landroid/webkit/CacheLoader;->load()V
 
-    .line 298
+    .line 294
     :goto_17
     return-void
 
-    .line 295
+    .line 291
     :cond_18
     invoke-static {}, Landroid/webkit/WebViewWorker;->getHandler()Landroid/webkit/WebViewWorker;
 
@@ -1210,7 +1210,7 @@
 
     invoke-virtual {v4, v5, v6, v7}, Landroid/webkit/LoadListener;->setRequestData(Ljava/lang/String;Ljava/util/Map;[B)V
 
-    .line 275
+    .line 271
     :cond_23
     :goto_23
     return v3
@@ -1223,20 +1223,9 @@
     .local v2, ret:Z
     const/16 v0, -0xa
 
-    .line 259
+    .line 258
     .local v0, error:I
-    iget-object v4, p0, Landroid/webkit/FrameLoader;->mListener:Landroid/webkit/LoadListener;
-
-    iget-object v5, p0, Landroid/webkit/FrameLoader;->mMethod:Ljava/lang/String;
-
-    iget-object v6, p0, Landroid/webkit/FrameLoader;->mHeaders:Ljava/util/Map;
-
-    iget-object v7, p0, Landroid/webkit/FrameLoader;->mPostData:[B
-
-    invoke-virtual {v4, v5, v6, v7}, Landroid/webkit/LoadListener;->setRequestData(Ljava/lang/String;Ljava/util/Map;[B)V
-
-    .line 262
-    :try_start_32
+    :try_start_27
     iget-object v4, p0, Landroid/webkit/FrameLoader;->mNetwork:Landroid/webkit/Network;
 
     iget-object v5, p0, Landroid/webkit/FrameLoader;->mMethod:Ljava/lang/String;
@@ -1248,17 +1237,17 @@
     iget-object v8, p0, Landroid/webkit/FrameLoader;->mListener:Landroid/webkit/LoadListener;
 
     invoke-virtual {v4, v5, v6, v7, v8}, Landroid/webkit/Network;->requestURL(Ljava/lang/String;Ljava/util/Map;[BLandroid/webkit/LoadListener;)Z
-    :try_end_3f
-    .catch Landroid/net/ParseException; {:try_start_32 .. :try_end_3f} :catch_53
-    .catch Ljava/lang/RuntimeException; {:try_start_32 .. :try_end_3f} :catch_57
+    :try_end_34
+    .catch Landroid/net/ParseException; {:try_start_27 .. :try_end_34} :catch_48
+    .catch Ljava/lang/RuntimeException; {:try_start_27 .. :try_end_34} :catch_4c
 
     move-result v2
 
-    .line 271
-    :goto_40
+    .line 267
+    :goto_35
     if-nez v2, :cond_23
 
-    .line 272
+    .line 268
     iget-object v3, p0, Landroid/webkit/FrameLoader;->mListener:Landroid/webkit/LoadListener;
 
     iget-object v4, p0, Landroid/webkit/FrameLoader;->mListener:Landroid/webkit/LoadListener;
@@ -1273,32 +1262,32 @@
 
     invoke-virtual {v3, v0, v4}, Landroid/webkit/LoadListener;->error(ILjava/lang/String;)V
 
-    .line 273
+    .line 269
     const/4 v3, 0x0
 
     goto :goto_23
 
-    .line 264
-    :catch_53
+    .line 260
+    :catch_48
     move-exception v1
 
-    .line 265
+    .line 261
     .local v1, ex:Landroid/net/ParseException;
     const/16 v0, -0xc
 
-    .line 270
-    goto :goto_40
-
     .line 266
+    goto :goto_35
+
+    .line 262
     .end local v1           #ex:Landroid/net/ParseException;
-    :catch_57
+    :catch_4c
     move-exception v1
 
-    .line 269
+    .line 265
     .local v1, ex:Ljava/lang/RuntimeException;
     const/16 v0, -0xc
 
-    goto :goto_40
+    goto :goto_35
 .end method
 
 .method public setCacheMode(I)V

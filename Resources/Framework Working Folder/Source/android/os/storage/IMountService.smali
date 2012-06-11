@@ -57,14 +57,6 @@
     .end annotation
 .end method
 
-.method public abstract enableModemLink()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract encryptStorage(Ljava/lang/String;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -201,14 +193,6 @@
     .end annotation
 .end method
 
-.method public abstract mountISO(Ljava/lang/String;)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract mountObb(Ljava/lang/String;Ljava/lang/String;Landroid/os/storage/IObbActionListener;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -249,30 +233,6 @@
     .end annotation
 .end method
 
-.method public abstract setAutoMountISOEnabled(Z)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setMountISOEnabled(Z)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setPCtoolISOEnabled(Z)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract setUsbMassStorageEnabled(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -282,14 +242,6 @@
 .end method
 
 .method public abstract shutdown(Landroid/os/storage/IMountShutdownObserver;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract unmountISO()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

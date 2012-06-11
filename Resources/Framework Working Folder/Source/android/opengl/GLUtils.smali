@@ -20,7 +20,7 @@
 
     .prologue
     .line 40
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 41
     return-void
@@ -358,19 +358,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_2d
 
     .line 115
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "invalid Bitmap format"
+    const-string v1, "invalid Bitmap format"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 117
-    :cond_2e
+    :cond_2d
     return-void
 .end method
 
@@ -419,19 +419,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_28
+    if-eqz v0, :cond_27
 
     .line 141
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "invalid Bitmap format"
+    const-string v1, "invalid Bitmap format"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 143
-    :cond_28
+    :cond_27
     return-void
 .end method
 
@@ -490,19 +490,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_2d
 
     .line 163
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "invalid Bitmap format"
+    const-string v1, "invalid Bitmap format"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 165
-    :cond_2e
+    :cond_2d
     return-void
 .end method
 
@@ -568,19 +568,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_31
 
     .line 199
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "invalid Bitmap format"
+    const-string v1, "invalid Bitmap format"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 201
-    :cond_32
+    :cond_31
     return-void
 .end method
 
@@ -630,18 +630,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_28
+    if-eqz v0, :cond_27
 
     .line 223
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "invalid Bitmap format"
+    const-string v1, "invalid Bitmap format"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 225
-    :cond_28
+    :cond_27
     return-void
 .end method

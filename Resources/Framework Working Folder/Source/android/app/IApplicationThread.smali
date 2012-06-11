@@ -33,15 +33,11 @@
 
 .field public static final DUMP_HEAP_TRANSACTION:I = 0x24
 
-.field public static final DUMP_MAIN_HANDLER_LOG_TRANSACTION:I = 0x66
-
 .field public static final DUMP_MEM_INFO_TRANSACTION:I = 0x2b
 
 .field public static final DUMP_SERVICE_TRANSACTION:I = 0x16
 
 .field public static final EXTERNAL_STORAGE_UNAVAILABLE:I = 0x1
-
-.field public static final GET_BITMAP_ALLOCATION:I = 0x67
 
 .field public static final GET_MEMORY_INFO_TRANSACTION:I = 0x20
 
@@ -56,8 +52,6 @@
 .field public static final SCHEDULE_ACTIVITY_CONFIGURATION_CHANGED_TRANSACTION:I = 0x19
 
 .field public static final SCHEDULE_BIND_SERVICE_TRANSACTION:I = 0x14
-
-.field public static final SCHEDULE_CHANGE_TOP_APP_TRANSACTION:I = 0x65
 
 .field public static final SCHEDULE_CONFIGURATION_CHANGED_TRANSACTION:I = 0x10
 
@@ -197,14 +191,6 @@
     .end annotation
 .end method
 
-.method public abstract dumpMainHandlerLog()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract dumpMemInfo(Ljava/io/FileDescriptor;ZZ[Ljava/lang/String;)Landroid/os/Debug$MemoryInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -214,14 +200,6 @@
 .end method
 
 .method public abstract dumpService(Ljava/io/FileDescriptor;Landroid/os/IBinder;[Ljava/lang/String;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getBitmapAllocation()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -270,14 +248,6 @@
 .end method
 
 .method public abstract scheduleBindService(Landroid/os/IBinder;Landroid/content/Intent;Z)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract scheduleChangeTopApp(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

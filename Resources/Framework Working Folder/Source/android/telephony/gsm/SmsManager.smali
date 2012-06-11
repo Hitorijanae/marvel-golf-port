@@ -2,9 +2,6 @@
 .super Ljava/lang/Object;
 .source "SmsManager.java"
 
-# interfaces
-.implements Landroid/telephony/gsm/HtcIfSmsManager;
-
 
 # annotations
 .annotation runtime Ljava/lang/Deprecated;
@@ -72,7 +69,7 @@
 
     .prologue
     .line 47
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 48
     invoke-static {}, Landroid/telephony/SmsManager;->getDefault()Landroid/telephony/SmsManager;
@@ -121,29 +118,10 @@
     .end annotation
 
     .prologue
-    .line 195
+    .line 181
     iget-object v0, p0, Landroid/telephony/gsm/SmsManager;->mSmsMgrProxy:Landroid/telephony/SmsManager;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/telephony/SmsManager;->copyMessageToIcc([B[BI)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public final copyMessageToSimForResult([B[BI)I
-    .registers 5
-    .parameter "smsc"
-    .parameter "pdu"
-    .parameter "status"
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    .prologue
-    .line 212
-    iget-object v0, p0, Landroid/telephony/gsm/SmsManager;->mSmsMgrProxy:Landroid/telephony/SmsManager;
-
-    invoke-virtual {v0, p1, p2, p3}, Landroid/telephony/SmsManager;->copyMessageToIccForResult([B[BI)I
 
     move-result v0
 
@@ -157,7 +135,7 @@
     .end annotation
 
     .prologue
-    .line 226
+    .line 194
     iget-object v0, p0, Landroid/telephony/gsm/SmsManager;->mSmsMgrProxy:Landroid/telephony/SmsManager;
 
     invoke-virtual {v0, p1}, Landroid/telephony/SmsManager;->deleteMessageFromIcc(I)Z
@@ -212,7 +190,7 @@
     .end annotation
 
     .prologue
-    .line 254
+    .line 222
     iget-object v0, p0, Landroid/telephony/gsm/SmsManager;->mSmsMgrProxy:Landroid/telephony/SmsManager;
 
     invoke-static {}, Landroid/telephony/SmsManager;->getAllMessagesFromIcc()Ljava/util/ArrayList;
@@ -252,85 +230,6 @@
     invoke-virtual/range {v0 .. v6}, Landroid/telephony/SmsManager;->sendDataMessage(Ljava/lang/String;Ljava/lang/String;S[BLandroid/app/PendingIntent;Landroid/app/PendingIntent;)V
 
     .line 166
-    return-void
-.end method
-
-.method public final sendMultipartDataMessage(Ljava/lang/String;Ljava/lang/String;SLjava/util/ArrayList;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)V
-    .registers 16
-    .parameter "destinationAddress"
-    .parameter "scAddress"
-    .parameter "destinationPort"
-    .parameter
-    .parameter "sentIntent"
-    .parameter "deliveryIntent"
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "S",
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/String;",
-            ">;",
-            "Landroid/app/PendingIntent;",
-            "Landroid/app/PendingIntent;",
-            ")V"
-        }
-    .end annotation
-
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    .prologue
-    .line 174
-    .local p4, parts:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    invoke-virtual {p4}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v7
-
-    .local v7, i$:Ljava/util/Iterator;
-    :goto_4
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1f
-
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v8
-
-    check-cast v8, Ljava/lang/String;
-
-    .line 175
-    .local v8, s:Ljava/lang/String;
-    invoke-virtual {v8}, Ljava/lang/String;->getBytes()[B
-
-    move-result-object v4
-
-    .line 176
-    .local v4, data:[B
-    iget-object v0, p0, Landroid/telephony/gsm/SmsManager;->mSmsMgrProxy:Landroid/telephony/SmsManager;
-
-    move-object v1, p1
-
-    move-object v2, p2
-
-    move v3, p3
-
-    move-object v5, p5
-
-    move-object v6, p6
-
-    invoke-virtual/range {v0 .. v6}, Landroid/telephony/SmsManager;->sendDataMessage(Ljava/lang/String;Ljava/lang/String;S[BLandroid/app/PendingIntent;Landroid/app/PendingIntent;)V
-
-    goto :goto_4
-
-    .line 179
-    .end local v4           #data:[B
-    .end local v8           #s:Ljava/lang/String;
-    :cond_1f
     return-void
 .end method
 
@@ -426,7 +325,7 @@
     .end annotation
 
     .prologue
-    .line 243
+    .line 211
     iget-object v0, p0, Landroid/telephony/gsm/SmsManager;->mSmsMgrProxy:Landroid/telephony/SmsManager;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/telephony/SmsManager;->updateMessageOnIcc(II[B)Z

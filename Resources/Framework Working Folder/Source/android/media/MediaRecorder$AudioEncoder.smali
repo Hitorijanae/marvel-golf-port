@@ -31,8 +31,6 @@
 
 .field public static final QCELP:I = 0x7
 
-.field public static final RTP_RAWPCM:I = 0x8
-
 
 # instance fields
 .field final synthetic this$0:Landroid/media/MediaRecorder;
@@ -44,10 +42,10 @@
     .parameter
 
     .prologue
-    .line 252
+    .line 245
     iput-object p1, p0, Landroid/media/MediaRecorder$AudioEncoder;->this$0:Landroid/media/MediaRecorder;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

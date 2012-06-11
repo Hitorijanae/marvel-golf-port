@@ -28,8 +28,6 @@
 
 
 # instance fields
-.field public lable:Ljava/lang/CharSequence;
-
 .field public final resolveInfo:Landroid/content/pm/ResolveInfo;
 
 .field final synthetic this$0:Landroid/widget/ActivityChooserModel;
@@ -44,83 +42,41 @@
     .parameter "resolveInfo"
 
     .prologue
-    .line 964
+    .line 877
     iput-object p1, p0, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;->this$0:Landroid/widget/ActivityChooserModel;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 965
+    .line 878
     iput-object p2, p0, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;->resolveInfo:Landroid/content/pm/ResolveInfo;
 
-    .line 966
+    .line 879
     return-void
 .end method
 
 
 # virtual methods
 .method public compareTo(Landroid/widget/ActivityChooserModel$ActivityResolveInfo;)I
-    .registers 6
+    .registers 4
     .parameter "another"
 
     .prologue
-    .line 993
-    iget v2, p1, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;->weight:F
+    .line 905
+    iget v0, p1, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;->weight:F
 
-    invoke-static {v2}, Ljava/lang/Float;->floatToIntBits(F)I
+    invoke-static {v0}, Ljava/lang/Float;->floatToIntBits(F)I
 
-    move-result v2
+    move-result v0
 
-    iget v3, p0, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;->weight:F
+    iget v1, p0, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;->weight:F
 
-    invoke-static {v3}, Ljava/lang/Float;->floatToIntBits(F)I
-
-    move-result v3
-
-    sub-int v1, v2, v3
-
-    .line 995
-    .local v1, weightOrder:I
-    if-nez v1, :cond_2e
-
-    .line 996
-    iget-object v2, p1, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;->resolveInfo:Landroid/content/pm/ResolveInfo;
-
-    iget-object v3, p0, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;->this$0:Landroid/widget/ActivityChooserModel;
-
-    #getter for: Landroid/widget/ActivityChooserModel;->mContext:Landroid/content/Context;
-    invoke-static {v3}, Landroid/widget/ActivityChooserModel;->access$400(Landroid/widget/ActivityChooserModel;)Landroid/content/Context;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 998
-    .local v0, lab:Ljava/lang/String;
-    iget-object v2, p0, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;->lable:Ljava/lang/CharSequence;
-
-    invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+    invoke-static {v1}, Ljava/lang/Float;->floatToIntBits(F)I
 
     move-result v1
 
-    .line 1001
-    .end local v0           #lab:Ljava/lang/String;
-    .end local v1           #weightOrder:I
-    :cond_2e
-    return v1
+    sub-int/2addr v0, v1
+
+    return v0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
@@ -128,7 +84,7 @@
     .parameter "x0"
 
     .prologue
-    .line 943
+    .line 860
     check-cast p1, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
 
     .end local p1
@@ -148,24 +104,24 @@
 
     const/4 v2, 0x0
 
-    .line 975
+    .line 888
     if-ne p0, p1, :cond_5
 
-    .line 988
+    .line 901
     :cond_4
     :goto_4
     return v1
 
-    .line 978
+    .line 891
     :cond_5
     if-nez p1, :cond_9
 
     move v1, v2
 
-    .line 979
+    .line 892
     goto :goto_4
 
-    .line 981
+    .line 894
     :cond_9
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -179,16 +135,16 @@
 
     move v1, v2
 
-    .line 982
+    .line 895
     goto :goto_4
 
     :cond_15
     move-object v0, p1
 
-    .line 984
+    .line 897
     check-cast v0, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
 
-    .line 985
+    .line 898
     .local v0, other:Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
     iget v3, p0, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;->weight:F
 
@@ -206,7 +162,7 @@
 
     move v1, v2
 
-    .line 986
+    .line 899
     goto :goto_4
 .end method
 
@@ -214,7 +170,7 @@
     .registers 2
 
     .prologue
-    .line 970
+    .line 883
     iget v0, p0, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;->weight:F
 
     invoke-static {v0}, Ljava/lang/Float;->floatToIntBits(F)I
@@ -230,18 +186,18 @@
     .registers 6
 
     .prologue
-    .line 1007
+    .line 910
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 1008
+    .line 911
     .local v0, builder:Ljava/lang/StringBuilder;
     const-string v1, "["
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1009
+    .line 912
     const-string/jumbo v1, "resolveInfo:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -256,7 +212,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1010
+    .line 913
     const-string v1, "; weight:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -273,12 +229,12 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 1011
+    .line 914
     const-string v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1012
+    .line 915
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

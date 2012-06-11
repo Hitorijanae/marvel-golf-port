@@ -57,8 +57,6 @@
 
 .field public static final grow_fade_in_from_bottom:I = 0x10a0018
 
-.field public static final htc_ime_decelerate_interpolator:I = 0x10a0054
-
 .field public static final input_method_enter:I = 0x10a0019
 
 .field public static final input_method_exit:I = 0x10a001a
@@ -183,8 +181,6 @@
 
 .field public static final window_move_from_decor:I = 0x10a0052
 
-.field public static final zzz_htc_ime_decelerate_interpolator:I = 0x10a0053
-
 
 # direct methods
 .method public constructor <init>()V
@@ -192,7 +188,7 @@
 
     .prologue
     .line 11
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

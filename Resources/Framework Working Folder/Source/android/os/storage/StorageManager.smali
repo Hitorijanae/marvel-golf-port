@@ -2,9 +2,6 @@
 .super Ljava/lang/Object;
 .source "StorageManager.java"
 
-# interfaces
-.implements Landroid/os/storage/HtcIfStorageManager;
-
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -63,7 +60,7 @@
     const/4 v2, 0x0
 
     .line 299
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 73
     new-instance v0, Ljava/util/ArrayList;
@@ -211,25 +208,6 @@
     goto :goto_6
 .end method
 
-.method public enableModemLink()I
-    .registers 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 582
-    iget-object v0, p0, Landroid/os/storage/StorageManager;->mMountService:Landroid/os/storage/IMountService;
-
-    invoke-interface {v0}, Landroid/os/storage/IMountService;->enableModemLink()I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public enableUsbMassStorage()V
     .registers 4
 
@@ -261,26 +239,6 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_6
-.end method
-
-.method public formatVolume(Ljava/lang/String;)I
-    .registers 3
-    .parameter "mountPoint"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 612
-    iget-object v0, p0, Landroid/os/storage/StorageManager;->mMountService:Landroid/os/storage/IMountService;
-
-    invoke-interface {v0, p1}, Landroid/os/storage/IMountService;->formatVolume(Ljava/lang/String;)I
-
-    move-result v0
-
-    return v0
 .end method
 
 .method public getMountedObbPath(Ljava/lang/String;)Ljava/lang/String;
@@ -621,26 +579,6 @@
     goto :goto_6
 .end method
 
-.method public mountISO(Ljava/lang/String;)I
-    .registers 3
-    .parameter "path"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 616
-    iget-object v0, p0, Landroid/os/storage/StorageManager;->mMountService:Landroid/os/storage/IMountService;
-
-    invoke-interface {v0, p1}, Landroid/os/storage/IMountService;->mountISO(Ljava/lang/String;)I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public mountObb(Ljava/lang/String;Ljava/lang/String;Landroid/os/storage/OnObbStateChangeListener;)Z
     .registers 8
     .parameter "filename"
@@ -662,20 +600,20 @@
 
     .line 434
     :cond_a
-    if-nez p3, :cond_15
+    if-nez p3, :cond_14
 
     .line 435
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v3, "listener cannot be null"
+    const-string v3, "listener cannot be null"
 
     invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v2
 
     .line 439
-    :cond_15
-    :try_start_15
+    :cond_14
+    :try_start_14
     iget-object v2, p0, Landroid/os/storage/StorageManager;->mObbActionListener:Landroid/os/storage/StorageManager$ObbActionListener;
 
     invoke-virtual {v2, p3}, Landroid/os/storage/StorageManager$ObbActionListener;->addListener(Landroid/os/storage/OnObbStateChangeListener;)I
@@ -689,19 +627,19 @@
     iget-object v3, p0, Landroid/os/storage/StorageManager;->mObbActionListener:Landroid/os/storage/StorageManager$ObbActionListener;
 
     invoke-interface {v2, p1, p2, v3, v1}, Landroid/os/storage/IMountService;->mountObb(Ljava/lang/String;Ljava/lang/String;Landroid/os/storage/IObbActionListener;I)V
-    :try_end_22
-    .catch Landroid/os/RemoteException; {:try_start_15 .. :try_end_22} :catch_24
+    :try_end_21
+    .catch Landroid/os/RemoteException; {:try_start_14 .. :try_end_21} :catch_23
 
     .line 441
     const/4 v2, 0x1
 
     .line 446
     .end local v1           #nonce:I
-    :goto_23
+    :goto_22
     return v2
 
     .line 442
-    :catch_24
+    :catch_23
     move-exception v0
 
     .line 443
@@ -715,7 +653,7 @@
     .line 446
     const/4 v2, 0x0
 
-    goto :goto_23
+    goto :goto_22
 .end method
 
 .method public registerListener(Landroid/os/storage/StorageEventListener;)V
@@ -761,84 +699,6 @@
     throw v0
 .end method
 
-.method public setMountISOEnabled(Z)I
-    .registers 3
-    .parameter "enable"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 587
-    iget-object v0, p0, Landroid/os/storage/StorageManager;->mMountService:Landroid/os/storage/IMountService;
-
-    invoke-interface {v0, p1}, Landroid/os/storage/IMountService;->setMountISOEnabled(Z)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public setPCtoolISOEnabled(Z)I
-    .registers 3
-    .parameter "enable"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 592
-    iget-object v0, p0, Landroid/os/storage/StorageManager;->mMountService:Landroid/os/storage/IMountService;
-
-    invoke-interface {v0, p1}, Landroid/os/storage/IMountService;->setPCtoolISOEnabled(Z)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public setUsbMassStorageEnabled(Z)V
-    .registers 3
-    .parameter "enable"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 597
-    iget-object v0, p0, Landroid/os/storage/StorageManager;->mMountService:Landroid/os/storage/IMountService;
-
-    invoke-interface {v0, p1}, Landroid/os/storage/IMountService;->setUsbMassStorageEnabled(Z)V
-
-    .line 598
-    return-void
-.end method
-
-.method public unmountISO()I
-    .registers 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 620
-    iget-object v0, p0, Landroid/os/storage/StorageManager;->mMountService:Landroid/os/storage/IMountService;
-
-    invoke-interface {v0}, Landroid/os/storage/IMountService;->unmountISO()I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public unmountObb(Ljava/lang/String;ZLandroid/os/storage/OnObbStateChangeListener;)Z
     .registers 8
     .parameter "filename"
@@ -860,20 +720,20 @@
 
     .line 474
     :cond_a
-    if-nez p3, :cond_15
+    if-nez p3, :cond_14
 
     .line 475
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v3, "listener cannot be null"
+    const-string v3, "listener cannot be null"
 
     invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v2
 
     .line 479
-    :cond_15
-    :try_start_15
+    :cond_14
+    :try_start_14
     iget-object v2, p0, Landroid/os/storage/StorageManager;->mObbActionListener:Landroid/os/storage/StorageManager$ObbActionListener;
 
     invoke-virtual {v2, p3}, Landroid/os/storage/StorageManager$ObbActionListener;->addListener(Landroid/os/storage/OnObbStateChangeListener;)I
@@ -887,19 +747,19 @@
     iget-object v3, p0, Landroid/os/storage/StorageManager;->mObbActionListener:Landroid/os/storage/StorageManager$ObbActionListener;
 
     invoke-interface {v2, p1, p2, v3, v1}, Landroid/os/storage/IMountService;->unmountObb(Ljava/lang/String;ZLandroid/os/storage/IObbActionListener;I)V
-    :try_end_22
-    .catch Landroid/os/RemoteException; {:try_start_15 .. :try_end_22} :catch_24
+    :try_end_21
+    .catch Landroid/os/RemoteException; {:try_start_14 .. :try_end_21} :catch_23
 
     .line 481
     const/4 v2, 0x1
 
     .line 486
     .end local v1           #nonce:I
-    :goto_23
+    :goto_22
     return v2
 
     .line 482
-    :catch_24
+    :catch_23
     move-exception v0
 
     .line 483
@@ -913,50 +773,7 @@
     .line 486
     const/4 v2, 0x0
 
-    goto :goto_23
-.end method
-
-.method public unmountVolume(Ljava/lang/String;Z)V
-    .registers 5
-    .parameter "mountPoint"
-    .parameter "force"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 602
-    iget-object v0, p0, Landroid/os/storage/StorageManager;->mMountService:Landroid/os/storage/IMountService;
-
-    const/4 v1, 0x0
-
-    invoke-interface {v0, p1, p2, v1}, Landroid/os/storage/IMountService;->unmountVolume(Ljava/lang/String;ZZ)V
-
-    .line 603
-    return-void
-.end method
-
-.method public unmountVolume(Ljava/lang/String;ZZ)V
-    .registers 5
-    .parameter "mountPoint"
-    .parameter "force"
-    .parameter "removeEncryption"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 607
-    iget-object v0, p0, Landroid/os/storage/StorageManager;->mMountService:Landroid/os/storage/IMountService;
-
-    invoke-interface {v0, p1, p2, p3}, Landroid/os/storage/IMountService;->unmountVolume(Ljava/lang/String;ZZ)V
-
-    .line 608
-    return-void
+    goto :goto_22
 .end method
 
 .method public unregisterListener(Landroid/os/storage/StorageEventListener;)V

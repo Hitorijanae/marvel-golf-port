@@ -63,27 +63,27 @@
 
     const/4 v2, 0x0
 
-    .line 71
+    .line 59
     new-array v0, v4, [Ljava/lang/String;
 
     const-string v1, "contact_id"
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "lookup"
+    const-string v1, "lookup"
 
     aput-object v1, v0, v3
 
     sput-object v0, Landroid/widget/QuickContactBadge;->EMAIL_LOOKUP_PROJECTION:[Ljava/lang/String;
 
-    .line 78
+    .line 66
     new-array v0, v4, [Ljava/lang/String;
 
     const-string v1, "_id"
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "lookup"
+    const-string v1, "lookup"
 
     aput-object v1, v0, v3
 
@@ -97,12 +97,12 @@
     .parameter "context"
 
     .prologue
-    .line 86
+    .line 74
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Landroid/widget/QuickContactBadge;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 87
+    .line 75
     return-void
 .end method
 
@@ -112,12 +112,12 @@
     .parameter "attrs"
 
     .prologue
-    .line 90
+    .line 78
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Landroid/widget/QuickContactBadge;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 91
+    .line 79
     return-void
 .end method
 
@@ -128,15 +128,15 @@
     .parameter "defStyle"
 
     .prologue
-    .line 94
+    .line 82
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 64
+    .line 52
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/widget/QuickContactBadge;->mExcludeMimes:[Ljava/lang/String;
 
-    .line 96
+    .line 84
     iget-object v1, p0, Landroid/widget/QuickContactBadge;->mContext:Landroid/content/Context;
 
     sget-object v2, Lcom/android/internal/R$styleable;->Theme:[I
@@ -145,7 +145,7 @@
 
     move-result-object v0
 
-    .line 97
+    .line 85
     .local v0, styledAttributes:Landroid/content/res/TypedArray;
     const/16 v1, 0xe4
 
@@ -155,10 +155,10 @@
 
     iput-object v1, p0, Landroid/widget/QuickContactBadge;->mOverlay:Landroid/graphics/drawable/Drawable;
 
-    .line 99
+    .line 87
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 101
+    .line 89
     new-instance v1, Landroid/widget/QuickContactBadge$QueryHandler;
 
     iget-object v2, p0, Landroid/widget/QuickContactBadge;->mContext:Landroid/content/Context;
@@ -171,10 +171,10 @@
 
     iput-object v1, p0, Landroid/widget/QuickContactBadge;->mQueryHandler:Landroid/widget/QuickContactBadge$QueryHandler;
 
-    .line 102
+    .line 90
     invoke-virtual {p0, p0}, Landroid/widget/QuickContactBadge;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 103
+    .line 91
     return-void
 .end method
 
@@ -184,7 +184,7 @@
     .parameter "x1"
 
     .prologue
-    .line 56
+    .line 44
     iput-object p1, p0, Landroid/widget/QuickContactBadge;->mContactUri:Landroid/net/Uri;
 
     return-object p1
@@ -195,44 +195,8 @@
     .parameter "x0"
 
     .prologue
-    .line 56
+    .line 44
     invoke-direct {p0}, Landroid/widget/QuickContactBadge;->onContactUriChanged()V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Landroid/widget/QuickContactBadge;)Ljava/lang/String;
-    .registers 2
-    .parameter "x0"
-
-    .prologue
-    .line 56
-    iget-object v0, p0, Landroid/widget/QuickContactBadge;->mContactEmail:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$300(Landroid/widget/QuickContactBadge;)Ljava/lang/String;
-    .registers 2
-    .parameter "x0"
-
-    .prologue
-    .line 56
-    iget-object v0, p0, Landroid/widget/QuickContactBadge;->mContactPhone:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$400(Landroid/widget/QuickContactBadge;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-
-    .prologue
-    .line 56
-    invoke-direct {p0, p1, p2, p3}, Landroid/widget/QuickContactBadge;->trigger(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -241,7 +205,7 @@
     .registers 2
 
     .prologue
-    .line 155
+    .line 137
     iget-object v0, p0, Landroid/widget/QuickContactBadge;->mContactUri:Landroid/net/Uri;
 
     if-nez v0, :cond_c
@@ -270,236 +234,15 @@
     .registers 2
 
     .prologue
-    .line 235
+    .line 209
     invoke-direct {p0}, Landroid/widget/QuickContactBadge;->isAssigned()Z
 
     move-result v0
 
     invoke-virtual {p0, v0}, Landroid/widget/QuickContactBadge;->setEnabled(Z)V
 
-    .line 236
+    .line 210
     return-void
-.end method
-
-.method private trigger(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 14
-    .parameter "lookupUri"
-    .parameter "email"
-    .parameter "phone"
-
-    .prologue
-    const/4 v9, 0x1
-
-    const/4 v8, 0x0
-
-    const/high16 v7, 0x3f00
-
-    .line 268
-    if-eqz p1, :cond_10
-
-    .line 271
-    invoke-virtual {p0}, Landroid/widget/QuickContactBadge;->getContext()Landroid/content/Context;
-
-    move-result-object v4
-
-    const/4 v5, 0x3
-
-    iget-object v6, p0, Landroid/widget/QuickContactBadge;->mExcludeMimes:[Ljava/lang/String;
-
-    invoke-static {v4, p0, p1, v5, v6}, Landroid/provider/ContactsContract$QuickContact;->showQuickContact(Landroid/content/Context;Landroid/view/View;Landroid/net/Uri;I[Ljava/lang/String;)V
-
-    .line 274
-    :cond_10
-    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1c
-
-    invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_97
-
-    .line 276
-    :cond_1c
-    invoke-virtual {p0}, Landroid/widget/QuickContactBadge;->getContext()Landroid/content/Context;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/content/res/Resources;->getCompatibilityInfo()Landroid/content/res/CompatibilityInfo;
-
-    move-result-object v4
-
-    iget v0, v4, Landroid/content/res/CompatibilityInfo;->applicationScale:F
-
-    .line 277
-    .local v0, appScale:F
-    const/4 v4, 0x2
-
-    new-array v2, v4, [I
-
-    .line 278
-    .local v2, pos:[I
-    invoke-virtual {p0, v2}, Landroid/widget/QuickContactBadge;->getLocationOnScreen([I)V
-
-    .line 280
-    new-instance v3, Landroid/graphics/Rect;
-
-    invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
-
-    .line 281
-    .local v3, rect:Landroid/graphics/Rect;
-    aget v4, v2, v8
-
-    int-to-float v4, v4
-
-    mul-float/2addr v4, v0
-
-    add-float/2addr v4, v7
-
-    float-to-int v4, v4
-
-    iput v4, v3, Landroid/graphics/Rect;->left:I
-
-    .line 282
-    aget v4, v2, v9
-
-    int-to-float v4, v4
-
-    mul-float/2addr v4, v0
-
-    add-float/2addr v4, v7
-
-    float-to-int v4, v4
-
-    iput v4, v3, Landroid/graphics/Rect;->top:I
-
-    .line 283
-    aget v4, v2, v8
-
-    invoke-virtual {p0}, Landroid/widget/QuickContactBadge;->getWidth()I
-
-    move-result v5
-
-    add-int/2addr v4, v5
-
-    int-to-float v4, v4
-
-    mul-float/2addr v4, v0
-
-    add-float/2addr v4, v7
-
-    float-to-int v4, v4
-
-    iput v4, v3, Landroid/graphics/Rect;->right:I
-
-    .line 284
-    aget v4, v2, v9
-
-    invoke-virtual {p0}, Landroid/widget/QuickContactBadge;->getHeight()I
-
-    move-result v5
-
-    add-int/2addr v4, v5
-
-    int-to-float v4, v4
-
-    mul-float/2addr v4, v0
-
-    add-float/2addr v4, v7
-
-    float-to-int v4, v4
-
-    iput v4, v3, Landroid/graphics/Rect;->bottom:I
-
-    .line 287
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v4, "com.android.contacts.action.QUICK_CONTACT"
-
-    invoke-direct {v1, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 288
-    .local v1, intent:Landroid/content/Intent;
-    const/high16 v4, 0x1420
-
-    invoke-virtual {v1, v4}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
-    .line 291
-    const/4 v4, 0x0
-
-    invoke-virtual {v1, v4}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
-
-    .line 292
-    invoke-virtual {v1, v3}, Landroid/content/Intent;->setSourceBounds(Landroid/graphics/Rect;)V
-
-    .line 294
-    const-string v4, "exclude_mimes"
-
-    iget-object v5, p0, Landroid/widget/QuickContactBadge;->mExcludeMimes:[Ljava/lang/String;
-
-    invoke-virtual {v1, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 295
-    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_84
-
-    .line 296
-    const-string v4, "email"
-
-    invoke-virtual {v1, v4, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 298
-    :cond_84
-    invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_90
-
-    .line 299
-    const-string/jumbo v4, "phone"
-
-    invoke-virtual {v1, v4, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 302
-    :cond_90
-    :try_start_90
-    invoke-virtual {p0}, Landroid/widget/QuickContactBadge;->getContext()Landroid/content/Context;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-    :try_end_97
-    .catch Landroid/content/ActivityNotFoundException; {:try_start_90 .. :try_end_97} :catch_98
-
-    .line 308
-    .end local v0           #appScale:F
-    .end local v1           #intent:Landroid/content/Intent;
-    .end local v2           #pos:[I
-    .end local v3           #rect:Landroid/graphics/Rect;
-    :cond_97
-    :goto_97
-    return-void
-
-    .line 304
-    .restart local v0       #appScale:F
-    .restart local v1       #intent:Landroid/content/Intent;
-    .restart local v2       #pos:[I
-    .restart local v3       #rect:Landroid/graphics/Rect;
-    :catch_98
-    move-exception v4
-
-    goto :goto_97
 .end method
 
 
@@ -512,13 +255,13 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 202
+    .line 176
     iput-object p1, p0, Landroid/widget/QuickContactBadge;->mContactEmail:Ljava/lang/String;
 
-    .line 203
+    .line 177
     if-nez p2, :cond_1d
 
-    .line 204
+    .line 178
     iget-object v0, p0, Landroid/widget/QuickContactBadge;->mQueryHandler:Landroid/widget/QuickContactBadge$QueryHandler;
 
     const/4 v1, 0x0
@@ -545,15 +288,15 @@
 
     invoke-virtual/range {v0 .. v7}, Landroid/widget/QuickContactBadge$QueryHandler;->startQuery(ILjava/lang/Object;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 211
+    .line 185
     :goto_1c
     return-void
 
-    .line 208
+    .line 182
     :cond_1d
     iput-object v2, p0, Landroid/widget/QuickContactBadge;->mContactUri:Landroid/net/Uri;
 
-    .line 209
+    .line 183
     invoke-direct {p0}, Landroid/widget/QuickContactBadge;->onContactUriChanged()V
 
     goto :goto_1c
@@ -567,13 +310,13 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 223
+    .line 197
     iput-object p1, p0, Landroid/widget/QuickContactBadge;->mContactPhone:Ljava/lang/String;
 
-    .line 224
+    .line 198
     if-nez p2, :cond_19
 
-    .line 225
+    .line 199
     iget-object v0, p0, Landroid/widget/QuickContactBadge;->mQueryHandler:Landroid/widget/QuickContactBadge$QueryHandler;
 
     const/4 v1, 0x1
@@ -596,92 +339,40 @@
 
     invoke-virtual/range {v0 .. v7}, Landroid/widget/QuickContactBadge$QueryHandler;->startQuery(ILjava/lang/Object;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 232
+    .line 206
     :goto_18
     return-void
 
-    .line 229
+    .line 203
     :cond_19
     iput-object v2, p0, Landroid/widget/QuickContactBadge;->mContactUri:Landroid/net/Uri;
 
-    .line 230
+    .line 204
     invoke-direct {p0}, Landroid/widget/QuickContactBadge;->onContactUriChanged()V
 
     goto :goto_18
 .end method
 
 .method public assignContactUri(Landroid/net/Uri;)V
-    .registers 4
+    .registers 3
     .parameter "contactUri"
 
     .prologue
     const/4 v0, 0x0
 
-    .line 178
+    .line 160
     iput-object p1, p0, Landroid/widget/QuickContactBadge;->mContactUri:Landroid/net/Uri;
 
-    .line 179
+    .line 161
     iput-object v0, p0, Landroid/widget/QuickContactBadge;->mContactEmail:Ljava/lang/String;
 
-    .line 180
+    .line 162
     iput-object v0, p0, Landroid/widget/QuickContactBadge;->mContactPhone:Ljava/lang/String;
 
-    .line 182
-    sget-object v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_Sense_Version:Ljava/lang/String;
-
-    const-string v1, "1.0"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3c
-
-    sget-object v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_Sense_Version:Ljava/lang/String;
-
-    const-string v1, "1.5"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3c
-
-    sget-object v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_Sense_Version:Ljava/lang/String;
-
-    const-string v1, "1.6"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3c
-
-    sget-object v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_Sense_Version:Ljava/lang/String;
-
-    const-string v1, "2.0"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3c
-
-    sget-object v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_Sense_Version:Ljava/lang/String;
-
-    const-string v1, "2.1"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3c
-
-    .line 187
+    .line 163
     invoke-direct {p0}, Landroid/widget/QuickContactBadge;->onContactUriChanged()V
 
-    .line 190
-    :cond_3c
+    .line 164
     return-void
 .end method
 
@@ -689,10 +380,10 @@
     .registers 3
 
     .prologue
-    .line 107
+    .line 95
     invoke-super {p0}, Landroid/widget/ImageView;->drawableStateChanged()V
 
-    .line 108
+    .line 96
     iget-object v0, p0, Landroid/widget/QuickContactBadge;->mOverlay:Landroid/graphics/drawable/Drawable;
 
     if-eqz v0, :cond_1b
@@ -705,7 +396,7 @@
 
     if-eqz v0, :cond_1b
 
-    .line 109
+    .line 97
     iget-object v0, p0, Landroid/widget/QuickContactBadge;->mOverlay:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {p0}, Landroid/widget/QuickContactBadge;->getDrawableState()[I
@@ -714,10 +405,10 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
-    .line 110
+    .line 98
     invoke-virtual {p0}, Landroid/widget/QuickContactBadge;->invalidate()V
 
-    .line 112
+    .line 100
     :cond_1b
     return-void
 .end method
@@ -731,12 +422,12 @@
 
     const/4 v5, 0x0
 
-    .line 240
+    .line 214
     iget-object v0, p0, Landroid/widget/QuickContactBadge;->mContactUri:Landroid/net/Uri;
 
     if-eqz v0, :cond_12
 
-    .line 241
+    .line 215
     invoke-virtual {p0}, Landroid/widget/QuickContactBadge;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -747,18 +438,18 @@
 
     invoke-static {v0, p0, v2, v1, v3}, Landroid/provider/ContactsContract$QuickContact;->showQuickContact(Landroid/content/Context;Landroid/view/View;Landroid/net/Uri;I[Ljava/lang/String;)V
 
-    .line 255
+    .line 229
     :cond_11
     :goto_11
     return-void
 
-    .line 243
+    .line 217
     :cond_12
     iget-object v0, p0, Landroid/widget/QuickContactBadge;->mContactEmail:Ljava/lang/String;
 
     if-eqz v0, :cond_2f
 
-    .line 244
+    .line 218
     iget-object v0, p0, Landroid/widget/QuickContactBadge;->mQueryHandler:Landroid/widget/QuickContactBadge$QueryHandler;
 
     const/4 v1, 0x2
@@ -787,13 +478,13 @@
 
     goto :goto_11
 
-    .line 247
+    .line 221
     :cond_2f
     iget-object v0, p0, Landroid/widget/QuickContactBadge;->mContactPhone:Ljava/lang/String;
 
     if-eqz v0, :cond_11
 
-    .line 248
+    .line 222
     iget-object v0, p0, Landroid/widget/QuickContactBadge;->mQueryHandler:Landroid/widget/QuickContactBadge$QueryHandler;
 
     iget-object v2, p0, Landroid/widget/QuickContactBadge;->mContactPhone:Ljava/lang/String;
@@ -824,22 +515,22 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 127
+    .line 109
     invoke-super {p0, p1}, Landroid/widget/ImageView;->onDraw(Landroid/graphics/Canvas;)V
 
-    .line 129
+    .line 111
     invoke-virtual {p0}, Landroid/widget/QuickContactBadge;->isEnabled()Z
 
     move-result v1
 
     if-nez v1, :cond_b
 
-    .line 151
+    .line 133
     :cond_a
     :goto_a
     return-void
 
-    .line 134
+    .line 116
     :cond_b
     iget-object v1, p0, Landroid/widget/QuickContactBadge;->mOverlay:Landroid/graphics/drawable/Drawable;
 
@@ -861,7 +552,7 @@
 
     if-eqz v1, :cond_a
 
-    .line 140
+    .line 122
     iget-object v1, p0, Landroid/widget/QuickContactBadge;->mOverlay:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {p0}, Landroid/widget/QuickContactBadge;->getWidth()I
@@ -874,7 +565,7 @@
 
     invoke-virtual {v1, v4, v4, v2, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 142
+    .line 124
     iget v1, p0, Landroid/widget/QuickContactBadge;->mPaddingTop:I
 
     if-nez v1, :cond_3a
@@ -883,24 +574,24 @@
 
     if-nez v1, :cond_3a
 
-    .line 143
+    .line 125
     iget-object v1, p0, Landroid/widget/QuickContactBadge;->mOverlay:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v1, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     goto :goto_a
 
-    .line 145
+    .line 127
     :cond_3a
     invoke-virtual {p1}, Landroid/graphics/Canvas;->getSaveCount()I
 
     move-result v0
 
-    .line 146
+    .line 128
     .local v0, saveCount:I
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
-    .line 147
+    .line 129
     iget v1, p0, Landroid/widget/QuickContactBadge;->mPaddingLeft:I
 
     int-to-float v1, v1
@@ -911,33 +602,15 @@
 
     invoke-virtual {p1, v1, v2}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 148
+    .line 130
     iget-object v1, p0, Landroid/widget/QuickContactBadge;->mOverlay:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v1, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 149
+    .line 131
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
     goto :goto_a
-.end method
-
-.method public setDefaultOnClickListener(Z)V
-    .registers 3
-    .parameter "value"
-
-    .prologue
-    .line 115
-    const/4 v0, 0x1
-
-    if-ne p1, v0, :cond_6
-
-    .line 116
-    invoke-virtual {p0, p0}, Landroid/widget/QuickContactBadge;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 118
-    :cond_6
-    return-void
 .end method
 
 .method public setExcludeMimes([Ljava/lang/String;)V
@@ -945,10 +618,10 @@
     .parameter "excludeMimes"
 
     .prologue
-    .line 263
+    .line 237
     iput-object p1, p0, Landroid/widget/QuickContactBadge;->mExcludeMimes:[Ljava/lang/String;
 
-    .line 264
+    .line 238
     return-void
 .end method
 
@@ -956,12 +629,12 @@
     .registers 3
 
     .prologue
-    .line 162
+    .line 144
     iget-object v0, p0, Landroid/widget/QuickContactBadge;->mDefaultAvatar:Landroid/graphics/drawable/Drawable;
 
     if-nez v0, :cond_11
 
-    .line 163
+    .line 145
     invoke-virtual {p0}, Landroid/widget/QuickContactBadge;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -974,13 +647,13 @@
 
     iput-object v0, p0, Landroid/widget/QuickContactBadge;->mDefaultAvatar:Landroid/graphics/drawable/Drawable;
 
-    .line 165
+    .line 147
     :cond_11
     iget-object v0, p0, Landroid/widget/QuickContactBadge;->mDefaultAvatar:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {p0, v0}, Landroid/widget/QuickContactBadge;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 166
+    .line 148
     return-void
 .end method
 
@@ -989,6 +662,6 @@
     .parameter "size"
 
     .prologue
-    .line 123
+    .line 105
     return-void
 .end method

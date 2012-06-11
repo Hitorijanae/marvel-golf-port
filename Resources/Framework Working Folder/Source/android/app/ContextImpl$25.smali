@@ -19,7 +19,7 @@
     .registers 1
 
     .prologue
-    .line 444
+    .line 405
     invoke-direct {p0}, Landroid/app/ContextImpl$ServiceFetcher;-><init>()V
 
     return-void
@@ -28,18 +28,46 @@
 
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
-    .registers 4
+    .registers 5
     .parameter "ctx"
 
     .prologue
-    .line 446
-    new-instance v0, Landroid/app/StatusBarManager;
+    .line 408
+    :try_start_0
+    new-instance v1, Landroid/os/storage/StorageManager;
 
-    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
+    iget-object v2, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
 
-    move-result-object v1
+    invoke-virtual {v2}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
 
-    invoke-direct {v0, v1}, Landroid/app/StatusBarManager;-><init>(Landroid/content/Context;)V
+    move-result-object v2
 
-    return-object v0
+    invoke-virtual {v2}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Landroid/os/storage/StorageManager;-><init>(Landroid/os/Looper;)V
+    :try_end_f
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_f} :catch_10
+
+    .line 411
+    :goto_f
+    return-object v1
+
+    .line 409
+    :catch_10
+    move-exception v0
+
+    .line 410
+    .local v0, rex:Landroid/os/RemoteException;
+    const-string v1, "ApplicationContext"
+
+    const-string v2, "Failed to create StorageManager"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 411
+    const/4 v1, 0x0
+
+    goto :goto_f
 .end method

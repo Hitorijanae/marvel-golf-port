@@ -39,9 +39,9 @@
 
     .prologue
     .line 59
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 902
+    .line 898
     return-void
 .end method
 
@@ -60,12 +60,6 @@
 .end method
 
 .method public abstract addTab(Landroid/app/ActionBar$Tab;Z)V
-.end method
-
-.method public abstract enableHTCActionBar()V
-.end method
-
-.method public abstract enableHTCLandscape(Z)V
 .end method
 
 .method public abstract getCustomView()Landroid/view/View;
@@ -196,15 +190,6 @@
 .end method
 
 .method public abstract setSelectedNavigationItem(I)V
-.end method
-
-.method public setShowHideActionBarViewOnActionModeFinished(Z)V
-    .registers 2
-    .parameter "shown"
-
-    .prologue
-    .line 675
-    return-void
 .end method
 
 .method public setSplitBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V

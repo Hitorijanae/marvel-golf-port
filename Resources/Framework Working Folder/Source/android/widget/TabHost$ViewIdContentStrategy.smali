@@ -30,12 +30,12 @@
     .parameter "viewId"
 
     .prologue
-    .line 640
+    .line 616
     iput-object p1, p0, Landroid/widget/TabHost$ViewIdContentStrategy;->this$0:Landroid/widget/TabHost;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 641
+    .line 617
     #getter for: Landroid/widget/TabHost;->mTabContent:Landroid/widget/FrameLayout;
     invoke-static {p1}, Landroid/widget/TabHost;->access$100(Landroid/widget/TabHost;)Landroid/widget/FrameLayout;
 
@@ -47,22 +47,22 @@
 
     iput-object v0, p0, Landroid/widget/TabHost$ViewIdContentStrategy;->mView:Landroid/view/View;
 
-    .line 642
+    .line 618
     iget-object v0, p0, Landroid/widget/TabHost$ViewIdContentStrategy;->mView:Landroid/view/View;
 
     if-eqz v0, :cond_1b
 
-    .line 643
+    .line 619
     iget-object v0, p0, Landroid/widget/TabHost$ViewIdContentStrategy;->mView:Landroid/view/View;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 648
+    .line 624
     return-void
 
-    .line 645
+    .line 621
     :cond_1b
     new-instance v0, Ljava/lang/RuntimeException;
 
@@ -96,7 +96,7 @@
     .parameter "x2"
 
     .prologue
-    .line 636
+    .line 612
     invoke-direct {p0, p1, p2}, Landroid/widget/TabHost$ViewIdContentStrategy;-><init>(Landroid/widget/TabHost;I)V
 
     return-void
@@ -108,14 +108,14 @@
     .registers 3
 
     .prologue
-    .line 651
+    .line 627
     iget-object v0, p0, Landroid/widget/TabHost$ViewIdContentStrategy;->mView:Landroid/view/View;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 652
+    .line 628
     iget-object v0, p0, Landroid/widget/TabHost$ViewIdContentStrategy;->mView:Landroid/view/View;
 
     return-object v0
@@ -125,13 +125,13 @@
     .registers 3
 
     .prologue
-    .line 656
+    .line 632
     iget-object v0, p0, Landroid/widget/TabHost$ViewIdContentStrategy;->mView:Landroid/view/View;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 657
+    .line 633
     return-void
 .end method

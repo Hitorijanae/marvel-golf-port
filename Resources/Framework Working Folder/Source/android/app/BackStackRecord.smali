@@ -817,7 +817,7 @@
     .line 212
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v4, "mName="
+    const-string v4, "mName="
 
     invoke-virtual {p3, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -846,7 +846,7 @@
     .line 215
     iget v4, p0, Landroid/app/BackStackRecord;->mTransition:I
 
-    if-eqz v4, :cond_46
+    if-eqz v4, :cond_45
 
     .line 216
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -879,20 +879,20 @@
     invoke-virtual {p3, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 221
-    :cond_46
+    :cond_45
     iget v4, p0, Landroid/app/BackStackRecord;->mEnterAnim:I
 
-    if-nez v4, :cond_4e
+    if-nez v4, :cond_4d
 
     iget v4, p0, Landroid/app/BackStackRecord;->mExitAnim:I
 
-    if-eqz v4, :cond_6e
+    if-eqz v4, :cond_6c
 
     .line 222
-    :cond_4e
+    :cond_4d
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v4, "mEnterAnim=#"
+    const-string v4, "mEnterAnim=#"
 
     invoke-virtual {p3, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -920,20 +920,20 @@
     invoke-virtual {p3, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 227
-    :cond_6e
+    :cond_6c
     iget v4, p0, Landroid/app/BackStackRecord;->mPopEnterAnim:I
 
-    if-nez v4, :cond_76
+    if-nez v4, :cond_74
 
     iget v4, p0, Landroid/app/BackStackRecord;->mPopExitAnim:I
 
-    if-eqz v4, :cond_96
+    if-eqz v4, :cond_93
 
     .line 228
-    :cond_76
+    :cond_74
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v4, "mPopEnterAnim=#"
+    const-string v4, "mPopEnterAnim=#"
 
     invoke-virtual {p3, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -961,20 +961,20 @@
     invoke-virtual {p3, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 233
-    :cond_96
+    :cond_93
     iget v4, p0, Landroid/app/BackStackRecord;->mBreadCrumbTitleRes:I
 
-    if-nez v4, :cond_9e
+    if-nez v4, :cond_9b
 
     iget-object v4, p0, Landroid/app/BackStackRecord;->mBreadCrumbTitleText:Ljava/lang/CharSequence;
 
-    if-eqz v4, :cond_ba
+    if-eqz v4, :cond_b6
 
     .line 234
-    :cond_9e
+    :cond_9b
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v4, "mBreadCrumbTitleRes=#"
+    const-string v4, "mBreadCrumbTitleRes=#"
 
     invoke-virtual {p3, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -998,20 +998,20 @@
     invoke-virtual {p3, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
     .line 239
-    :cond_ba
+    :cond_b6
     iget v4, p0, Landroid/app/BackStackRecord;->mBreadCrumbShortTitleRes:I
 
-    if-nez v4, :cond_c2
+    if-nez v4, :cond_be
 
     iget-object v4, p0, Landroid/app/BackStackRecord;->mBreadCrumbShortTitleText:Ljava/lang/CharSequence;
 
-    if-eqz v4, :cond_de
+    if-eqz v4, :cond_d9
 
     .line 240
-    :cond_c2
+    :cond_be
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v4, "mBreadCrumbShortTitleRes=#"
+    const-string v4, "mBreadCrumbShortTitleRes=#"
 
     invoke-virtual {p3, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -1035,10 +1035,10 @@
     invoke-virtual {p3, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
     .line 246
-    :cond_de
+    :cond_d9
     iget-object v4, p0, Landroid/app/BackStackRecord;->mHead:Landroid/app/BackStackRecord$Op;
 
-    if-eqz v4, :cond_1c4
+    if-eqz v4, :cond_1bf
 
     .line 247
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -1076,8 +1076,8 @@
 
     .line 251
     .local v2, num:I
-    :goto_100
-    if-eqz v3, :cond_1c4
+    :goto_fb
+    if-eqz v3, :cond_1bf
 
     .line 252
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -1116,14 +1116,14 @@
     .line 256
     iget v4, v3, Landroid/app/BackStackRecord$Op;->enterAnim:I
 
-    if-nez v4, :cond_131
+    if-nez v4, :cond_12c
 
     iget v4, v3, Landroid/app/BackStackRecord$Op;->exitAnim:I
 
-    if-eqz v4, :cond_150
+    if-eqz v4, :cond_14b
 
     .line 257
-    :cond_131
+    :cond_12c
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v4, "enterAnim=#"
@@ -1154,17 +1154,17 @@
     invoke-virtual {p3, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 262
-    :cond_150
+    :cond_14b
     iget v4, v3, Landroid/app/BackStackRecord$Op;->popEnterAnim:I
 
-    if-nez v4, :cond_158
+    if-nez v4, :cond_153
 
     iget v4, v3, Landroid/app/BackStackRecord$Op;->popExitAnim:I
 
-    if-eqz v4, :cond_178
+    if-eqz v4, :cond_173
 
     .line 263
-    :cond_158
+    :cond_153
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string/jumbo v4, "popEnterAnim=#"
@@ -1195,10 +1195,10 @@
     invoke-virtual {p3, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 268
-    :cond_178
+    :cond_173
     iget-object v4, v3, Landroid/app/BackStackRecord$Op;->removed:Ljava/util/ArrayList;
 
-    if-eqz v4, :cond_1c0
+    if-eqz v4, :cond_1bb
 
     iget-object v4, v3, Landroid/app/BackStackRecord$Op;->removed:Ljava/util/ArrayList;
 
@@ -1206,20 +1206,20 @@
 
     move-result v4
 
-    if-lez v4, :cond_1c0
+    if-lez v4, :cond_1bb
 
     .line 269
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_185
+    :goto_180
     iget-object v4, v3, Landroid/app/BackStackRecord$Op;->removed:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
     move-result v4
 
-    if-ge v0, v4, :cond_1c0
+    if-ge v0, v4, :cond_1bb
 
     .line 270
     invoke-virtual {p3, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -1233,7 +1233,7 @@
 
     const/4 v5, 0x1
 
-    if-ne v4, v5, :cond_1aa
+    if-ne v4, v5, :cond_1a5
 
     .line 272
     const-string v4, "Removed: "
@@ -1241,7 +1241,7 @@
     invoke-virtual {p3, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 278
-    :goto_19e
+    :goto_199
     iget-object v4, v3, Landroid/app/BackStackRecord$Op;->removed:Ljava/util/ArrayList;
 
     invoke-virtual {v4, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1253,10 +1253,10 @@
     .line 269
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_185
+    goto :goto_180
 
     .line 274
-    :cond_1aa
+    :cond_1a5
     const-string v4, "Removed:"
 
     invoke-virtual {p3, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
@@ -1275,20 +1275,20 @@
 
     invoke-virtual {p3, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    goto :goto_19e
+    goto :goto_199
 
     .line 281
     .end local v0           #i:I
-    :cond_1c0
+    :cond_1bb
     iget-object v3, v3, Landroid/app/BackStackRecord$Op;->next:Landroid/app/BackStackRecord$Op;
 
-    goto/16 :goto_100
+    goto/16 :goto_fb
 
     .line 284
     .end local v1           #innerPrefix:Ljava/lang/String;
     .end local v2           #num:I
     .end local v3           #op:Landroid/app/BackStackRecord$Op;
-    :cond_1c4
+    :cond_1bf
     return-void
 .end method
 

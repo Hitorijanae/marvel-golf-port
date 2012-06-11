@@ -52,7 +52,7 @@
 
     .prologue
     .line 58
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -118,7 +118,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_30
+    if-eqz v0, :cond_34
 
     .line 85
     const-string v0, "data"
@@ -129,19 +129,24 @@
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getBlob(I)[B
     :try_end_2f
-    .catchall {:try_start_20 .. :try_end_2f} :catchall_34
+    .catchall {:try_start_20 .. :try_end_2f} :catchall_38
 
     move-result-object v5
 
     .line 88
-    :cond_30
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     .line 90
+    :goto_33
     return-object v5
 
     .line 88
-    :catchall_34
+    :cond_34
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    goto :goto_33
+
+    :catchall_38
     move-exception v0
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
@@ -224,7 +229,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3d
+    if-eqz v0, :cond_41
 
     .line 139
     const/4 v0, 0x1
@@ -253,21 +258,26 @@
 
     invoke-static {v0, v6}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
     :try_end_3c
-    .catchall {:try_start_20 .. :try_end_3c} :catchall_41
+    .catchall {:try_start_20 .. :try_end_3c} :catchall_45
 
     move-result-object v5
 
     .line 144
-    .end local v6           #blob:[B
-    .end local v8           #rowId:J
-    :cond_3d
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     .line 146
+    .end local v6           #blob:[B
+    .end local v8           #rowId:J
+    :goto_40
     return-object v5
 
     .line 144
-    :catchall_41
+    :cond_41
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
+
+    goto :goto_40
+
+    :catchall_45
     move-exception v0
 
     invoke-interface {v7}, Landroid/database/Cursor;->close()V

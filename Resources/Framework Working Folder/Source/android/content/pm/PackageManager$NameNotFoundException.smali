@@ -19,10 +19,10 @@
     .registers 1
 
     .prologue
-    .line 50
+    .line 51
     invoke-direct {p0}, Landroid/util/AndroidException;-><init>()V
 
-    .line 51
+    .line 52
     return-void
 .end method
 
@@ -31,9 +31,9 @@
     .parameter "name"
 
     .prologue
-    .line 54
+    .line 55
     invoke-direct {p0, p1}, Landroid/util/AndroidException;-><init>(Ljava/lang/String;)V
 
-    .line 55
+    .line 56
     return-void
 .end method

@@ -36,19 +36,19 @@
     .parameter
 
     .prologue
-    .line 10609
+    .line 9625
     iput-object p1, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionInfo;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 10613
+    .line 9629
     new-instance v0, Landroid/text/SpannableStringBuilder;
 
     invoke-direct {v0}, Landroid/text/SpannableStringBuilder;-><init>()V
 
     iput-object v0, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionInfo;->text:Landroid/text/SpannableStringBuilder;
 
-    .line 10614
+    .line 9630
     new-instance v0, Landroid/text/style/TextAppearanceSpan;
 
     iget-object v1, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionInfo;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
@@ -56,7 +56,7 @@
     iget-object v1, v1, Landroid/widget/TextView$SuggestionsPopupWindow;->this$0:Landroid/widget/TextView;
 
     #getter for: Landroid/widget/TextView;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Landroid/widget/TextView;->access$4600(Landroid/widget/TextView;)Landroid/content/Context;
+    invoke-static {v1}, Landroid/widget/TextView;->access$3600(Landroid/widget/TextView;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -75,7 +75,7 @@
     .parameter "x1"
 
     .prologue
-    .line 10609
+    .line 9625
     invoke-direct {p0, p1}, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionInfo;-><init>(Landroid/widget/TextView$SuggestionsPopupWindow;)V
 
     return-void

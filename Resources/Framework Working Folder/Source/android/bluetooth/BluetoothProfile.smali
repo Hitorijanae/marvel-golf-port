@@ -36,8 +36,6 @@
 
 .field public static final PRIORITY_UNDEFINED:I = -0x1
 
-.field public static final SAP:I = 0x7
-
 .field public static final STATE_CONNECTED:I = 0x2
 
 .field public static final STATE_CONNECTING:I = 0x1

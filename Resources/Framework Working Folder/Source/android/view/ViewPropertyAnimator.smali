@@ -95,7 +95,7 @@
     const/4 v2, 0x0
 
     .line 226
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 67
     iput-boolean v2, p0, Landroid/view/ViewPropertyAnimator;->mDurationSet:Z

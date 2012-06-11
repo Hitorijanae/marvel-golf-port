@@ -36,8 +36,6 @@
 
 .field public static final MINI_KIND:I = 0x1
 
-.field public static final PHONE_CONTENT_URI:Landroid/net/Uri; = null
-
 .field public static final VIDEO_ID:Ljava/lang/String; = "video_id"
 
 .field public static final WIDTH:Ljava/lang/String; = "width"
@@ -48,8 +46,8 @@
     .registers 1
 
     .prologue
-    .line 2126
-    const-string/jumbo v0, "internal"
+    .line 1985
+    const-string v0, "internal"
 
     invoke-static {v0}, Landroid/provider/MediaStore$Video$Thumbnails;->getContentUri(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -57,7 +55,7 @@
 
     sput-object v0, Landroid/provider/MediaStore$Video$Thumbnails;->INTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    .line 2133
+    .line 1992
     const-string v0, "external"
 
     invoke-static {v0}, Landroid/provider/MediaStore$Video$Thumbnails;->getContentUri(Ljava/lang/String;)Landroid/net/Uri;
@@ -66,15 +64,6 @@
 
     sput-object v0, Landroid/provider/MediaStore$Video$Thumbnails;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    .line 2141
-    const-string/jumbo v0, "phoneStorage"
-
-    invoke-static {v0}, Landroid/provider/MediaStore$Video$Thumbnails;->getContentUri(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v0
-
-    sput-object v0, Landroid/provider/MediaStore$Video$Thumbnails;->PHONE_CONTENT_URI:Landroid/net/Uri;
-
     return-void
 .end method
 
@@ -82,8 +71,8 @@
     .registers 1
 
     .prologue
-    .line 2048
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 1907
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -94,7 +83,7 @@
     .parameter "origId"
 
     .prologue
-    .line 2058
+    .line 1917
     sget-object v3, Landroid/provider/MediaStore$Video$Thumbnails;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
     const-wide/16 v4, 0x0
@@ -105,7 +94,7 @@
 
     invoke-static/range {v0 .. v5}, Landroid/provider/MediaStore$InternalThumbnails;->cancelThumbnailRequest(Landroid/content/ContentResolver;JLandroid/net/Uri;J)V
 
-    .line 2060
+    .line 1919
     return-void
 .end method
 
@@ -116,7 +105,7 @@
     .parameter "groupId"
 
     .prologue
-    .line 2108
+    .line 1967
     sget-object v3, Landroid/provider/MediaStore$Video$Thumbnails;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
     move-object v0, p0
@@ -127,7 +116,7 @@
 
     invoke-static/range {v0 .. v5}, Landroid/provider/MediaStore$InternalThumbnails;->cancelThumbnailRequest(Landroid/content/ContentResolver;JLandroid/net/Uri;J)V
 
-    .line 2109
+    .line 1968
     return-void
 .end method
 
@@ -136,7 +125,7 @@
     .parameter "volumeName"
 
     .prologue
-    .line 2119
+    .line 1978
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -176,7 +165,7 @@
     .parameter "options"
 
     .prologue
-    .line 2075
+    .line 1934
     const-wide/16 v3, 0x0
 
     sget-object v7, Landroid/provider/MediaStore$Video$Thumbnails;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
@@ -207,7 +196,7 @@
     .parameter "options"
 
     .prologue
-    .line 2094
+    .line 1953
     sget-object v7, Landroid/provider/MediaStore$Video$Thumbnails;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
     const/4 v8, 0x1

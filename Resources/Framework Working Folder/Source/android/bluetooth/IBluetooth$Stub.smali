@@ -26,197 +26,147 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.bluetooth.IBluetooth"
 
-.field static final TRANSACTION_addRfcommServiceRecord:I = 0x31
+.field static final TRANSACTION_addRfcommServiceRecord:I = 0x2a
 
-.field static final TRANSACTION_allowIncomingProfileConnect:I = 0x33
+.field static final TRANSACTION_allowIncomingProfileConnect:I = 0x2c
 
-.field static final TRANSACTION_cancelBondProcess:I = 0x19
+.field static final TRANSACTION_cancelBondProcess:I = 0x16
 
-.field static final TRANSACTION_cancelDiscovery:I = 0x11
+.field static final TRANSACTION_cancelDiscovery:I = 0xe
 
-.field static final TRANSACTION_cancelPairingUserInput:I = 0x2d
+.field static final TRANSACTION_cancelPairingUserInput:I = 0x26
 
-.field static final TRANSACTION_changeApplicationBluetoothState:I = 0x16
+.field static final TRANSACTION_changeApplicationBluetoothState:I = 0x13
 
-.field static final TRANSACTION_connectChannelToSink:I = 0x48
+.field static final TRANSACTION_connectChannelToSink:I = 0x41
 
-.field static final TRANSACTION_connectChannelToSource:I = 0x47
+.field static final TRANSACTION_connectChannelToSource:I = 0x40
 
-.field static final TRANSACTION_connectHeadset:I = 0x34
+.field static final TRANSACTION_connectHeadset:I = 0x2d
 
-.field static final TRANSACTION_connectInputDevice:I = 0x37
+.field static final TRANSACTION_connectInputDevice:I = 0x30
 
-.field static final TRANSACTION_connectPanDevice:I = 0x43
+.field static final TRANSACTION_connectPanDevice:I = 0x3c
 
-.field static final TRANSACTION_createBond:I = 0x17
+.field static final TRANSACTION_createBond:I = 0x14
 
-.field static final TRANSACTION_createBondOutOfBand:I = 0x18
+.field static final TRANSACTION_createBondOutOfBand:I = 0x15
 
-.field static final TRANSACTION_deregisterEl2capConnection:I = 0x50
+.field static final TRANSACTION_disable:I = 0x4
 
-.field static final TRANSACTION_disable:I = 0x6
+.field static final TRANSACTION_disconnectChannel:I = 0x42
 
-.field static final TRANSACTION_disableDUN:I = 0x5c
+.field static final TRANSACTION_disconnectHeadset:I = 0x2e
 
-.field static final TRANSACTION_disableFTP:I = 0x58
+.field static final TRANSACTION_disconnectInputDevice:I = 0x31
 
-.field static final TRANSACTION_disableFromPowerSaver:I = 0x56
+.field static final TRANSACTION_disconnectPanDevice:I = 0x3d
 
-.field static final TRANSACTION_disableMAP:I = 0x5a
+.field static final TRANSACTION_enable:I = 0x3
 
-.field static final TRANSACTION_disconnectChannel:I = 0x49
+.field static final TRANSACTION_fetchRemoteUuids:I = 0x20
 
-.field static final TRANSACTION_disconnectHeadset:I = 0x35
+.field static final TRANSACTION_getAdapterConnectionState:I = 0x11
 
-.field static final TRANSACTION_disconnectInputDevice:I = 0x38
+.field static final TRANSACTION_getAddress:I = 0x5
 
-.field static final TRANSACTION_disconnectPanDevice:I = 0x44
+.field static final TRANSACTION_getBluetoothState:I = 0x2
 
-.field static final TRANSACTION_disconnectSap:I = 0x55
+.field static final TRANSACTION_getBondState:I = 0x19
 
-.field static final TRANSACTION_enable:I = 0x5
+.field static final TRANSACTION_getConnectedHealthDevices:I = 0x44
 
-.field static final TRANSACTION_enableDUN:I = 0x5b
+.field static final TRANSACTION_getConnectedInputDevices:I = 0x32
 
-.field static final TRANSACTION_enableFTP:I = 0x57
+.field static final TRANSACTION_getConnectedPanDevices:I = 0x3a
 
-.field static final TRANSACTION_enableMAP:I = 0x59
+.field static final TRANSACTION_getDiscoverableTimeout:I = 0xb
 
-.field static final TRANSACTION_fetchRemoteUuids:I = 0x25
+.field static final TRANSACTION_getHealthDeviceConnectionState:I = 0x46
 
-.field static final TRANSACTION_getAdapterConnectionState:I = 0x14
+.field static final TRANSACTION_getHealthDevicesMatchingConnectionStates:I = 0x45
 
-.field static final TRANSACTION_getAddress:I = 0x7
+.field static final TRANSACTION_getInputDeviceConnectionState:I = 0x34
 
-.field static final TRANSACTION_getBluetoothState:I = 0x4
+.field static final TRANSACTION_getInputDevicePriority:I = 0x36
 
-.field static final TRANSACTION_getBondState:I = 0x1c
+.field static final TRANSACTION_getInputDevicesMatchingConnectionStates:I = 0x33
 
-.field static final TRANSACTION_getCOD:I = 0x9
+.field static final TRANSACTION_getMainChannelFd:I = 0x43
 
-.field static final TRANSACTION_getConnectedHealthDevices:I = 0x4b
+.field static final TRANSACTION_getName:I = 0x6
 
-.field static final TRANSACTION_getConnectedInputDevices:I = 0x39
+.field static final TRANSACTION_getPanDeviceConnectionState:I = 0x39
 
-.field static final TRANSACTION_getConnectedPanDevices:I = 0x41
+.field static final TRANSACTION_getPanDevicesMatchingConnectionStates:I = 0x3b
 
-.field static final TRANSACTION_getDiscoverableTimeout:I = 0xe
+.field static final TRANSACTION_getProfileConnectionState:I = 0x12
 
-.field static final TRANSACTION_getEffectiveAmpPolicy:I = 0x51
+.field static final TRANSACTION_getRemoteAlias:I = 0x1c
 
-.field static final TRANSACTION_getGattServices:I = 0x54
+.field static final TRANSACTION_getRemoteClass:I = 0x1e
 
-.field static final TRANSACTION_getHealthDeviceConnectionState:I = 0x4d
+.field static final TRANSACTION_getRemoteName:I = 0x1b
 
-.field static final TRANSACTION_getHealthDevicesMatchingConnectionStates:I = 0x4c
+.field static final TRANSACTION_getRemoteServiceChannel:I = 0x21
 
-.field static final TRANSACTION_getInputDeviceConnectionState:I = 0x3b
+.field static final TRANSACTION_getRemoteUuids:I = 0x1f
 
-.field static final TRANSACTION_getInputDevicePriority:I = 0x3d
+.field static final TRANSACTION_getScanMode:I = 0x9
 
-.field static final TRANSACTION_getInputDevicesMatchingConnectionStates:I = 0x3a
+.field static final TRANSACTION_getTrustState:I = 0x28
 
-.field static final TRANSACTION_getMainChannelFd:I = 0x4a
+.field static final TRANSACTION_getUuids:I = 0x8
 
-.field static final TRANSACTION_getName:I = 0x8
+.field static final TRANSACTION_isBluetoothDock:I = 0x29
 
-.field static final TRANSACTION_getPanDeviceConnectionState:I = 0x40
-
-.field static final TRANSACTION_getPanDevicesMatchingConnectionStates:I = 0x42
-
-.field static final TRANSACTION_getProfileConnectionState:I = 0x15
-
-.field static final TRANSACTION_getRemoteAlias:I = 0x21
-
-.field static final TRANSACTION_getRemoteClass:I = 0x23
-
-.field static final TRANSACTION_getRemoteFeature:I = 0x28
-
-.field static final TRANSACTION_getRemoteL2capPsm:I = 0x27
-
-.field static final TRANSACTION_getRemoteName:I = 0x20
-
-.field static final TRANSACTION_getRemoteServiceChannel:I = 0x26
-
-.field static final TRANSACTION_getRemoteUuids:I = 0x24
-
-.field static final TRANSACTION_getScanMode:I = 0xc
-
-.field static final TRANSACTION_getTrustState:I = 0x2f
-
-.field static final TRANSACTION_getUuids:I = 0xb
-
-.field static final TRANSACTION_isBluetoothDock:I = 0x30
-
-.field static final TRANSACTION_isDiscovering:I = 0x12
-
-.field static final TRANSACTION_isDunEnabled:I = 0x5e
-
-.field static final TRANSACTION_isDunSupported:I = 0x5d
+.field static final TRANSACTION_isDiscovering:I = 0xf
 
 .field static final TRANSACTION_isEnabled:I = 0x1
 
-.field static final TRANSACTION_isHostPatchRequired:I = 0x60
+.field static final TRANSACTION_isTetheringOn:I = 0x37
 
-.field static final TRANSACTION_isServiceRegistered:I = 0x2
+.field static final TRANSACTION_listBonds:I = 0x18
 
-.field static final TRANSACTION_isTetheringOn:I = 0x3e
+.field static final TRANSACTION_notifyIncomingConnection:I = 0x2f
 
-.field static final TRANSACTION_listBonds:I = 0x1b
+.field static final TRANSACTION_readOutOfBandData:I = 0x10
 
-.field static final TRANSACTION_listBondsExt:I = 0x5f
+.field static final TRANSACTION_registerAppConfiguration:I = 0x3e
 
-.field static final TRANSACTION_notifyIncomingConnection:I = 0x36
+.field static final TRANSACTION_removeBond:I = 0x17
 
-.field static final TRANSACTION_readOutOfBandData:I = 0x13
+.field static final TRANSACTION_removeServiceRecord:I = 0x2b
 
-.field static final TRANSACTION_registerAppConfiguration:I = 0x45
+.field static final TRANSACTION_sendConnectionStateChange:I = 0x47
 
-.field static final TRANSACTION_registerEl2capConnection:I = 0x4f
+.field static final TRANSACTION_setBluetoothTethering:I = 0x38
 
-.field static final TRANSACTION_registerService:I = 0x3
+.field static final TRANSACTION_setDeviceOutOfBandData:I = 0x1a
 
-.field static final TRANSACTION_removeBond:I = 0x1a
+.field static final TRANSACTION_setDiscoverableTimeout:I = 0xc
 
-.field static final TRANSACTION_removeServiceRecord:I = 0x32
+.field static final TRANSACTION_setInputDevicePriority:I = 0x35
 
-.field static final TRANSACTION_sendConnectionStateChange:I = 0x4e
+.field static final TRANSACTION_setName:I = 0x7
 
-.field static final TRANSACTION_setBluetoothClass:I = 0x1e
+.field static final TRANSACTION_setPairingConfirmation:I = 0x24
 
-.field static final TRANSACTION_setBluetoothTethering:I = 0x3f
+.field static final TRANSACTION_setPasskey:I = 0x23
 
-.field static final TRANSACTION_setDesiredAmpPolicy:I = 0x52
+.field static final TRANSACTION_setPin:I = 0x22
 
-.field static final TRANSACTION_setDeviceOutOfBandData:I = 0x1d
+.field static final TRANSACTION_setRemoteAlias:I = 0x1d
 
-.field static final TRANSACTION_setDiscoverableTimeout:I = 0xf
+.field static final TRANSACTION_setRemoteOutOfBandData:I = 0x25
 
-.field static final TRANSACTION_setInputDevicePriority:I = 0x3c
+.field static final TRANSACTION_setScanMode:I = 0xa
 
-.field static final TRANSACTION_setLEConnectionParams:I = 0x1f
+.field static final TRANSACTION_setTrust:I = 0x27
 
-.field static final TRANSACTION_setName:I = 0xa
+.field static final TRANSACTION_startDiscovery:I = 0xd
 
-.field static final TRANSACTION_setPairingConfirmation:I = 0x2b
-
-.field static final TRANSACTION_setPasskey:I = 0x2a
-
-.field static final TRANSACTION_setPin:I = 0x29
-
-.field static final TRANSACTION_setRemoteAlias:I = 0x22
-
-.field static final TRANSACTION_setRemoteOutOfBandData:I = 0x2c
-
-.field static final TRANSACTION_setScanMode:I = 0xd
-
-.field static final TRANSACTION_setTrust:I = 0x2e
-
-.field static final TRANSACTION_setUseWifiForBtTransfers:I = 0x53
-
-.field static final TRANSACTION_startDiscovery:I = 0x10
-
-.field static final TRANSACTION_unregisterAppConfiguration:I = 0x46
+.field static final TRANSACTION_unregisterAppConfiguration:I = 0x3f
 
 
 # direct methods
@@ -224,15 +174,15 @@
     .registers 2
 
     .prologue
-    .line 20
+    .line 19
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
 
-    .line 21
+    .line 20
     const-string v0, "android.bluetooth.IBluetooth"
 
     invoke-virtual {p0, p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
-    .line 22
+    .line 21
     return-void
 .end method
 
@@ -241,17 +191,17 @@
     .parameter "obj"
 
     .prologue
-    .line 29
+    .line 28
     if-nez p0, :cond_4
 
-    .line 30
+    .line 29
     const/4 v0, 0x0
 
-    .line 36
+    .line 35
     :goto_3
     return-object v0
 
-    .line 32
+    .line 31
     :cond_4
     const-string v1, "android.bluetooth.IBluetooth"
 
@@ -259,7 +209,7 @@
 
     move-result-object v0
 
-    .line 33
+    .line 32
     .local v0, iin:Landroid/os/IInterface;
     if-eqz v0, :cond_13
 
@@ -267,12 +217,12 @@
 
     if-eqz v1, :cond_13
 
-    .line 34
+    .line 33
     check-cast v0, Landroid/bluetooth/IBluetooth;
 
     goto :goto_3
 
-    .line 36
+    .line 35
     :cond_13
     new-instance v0, Landroid/bluetooth/IBluetooth$Stub$Proxy;
 
@@ -288,12 +238,12 @@
     .registers 1
 
     .prologue
-    .line 40
+    .line 39
     return-object p0
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 15
+    .registers 14
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -305,3860 +255,2943 @@
     .end annotation
 
     .prologue
-    const/4 v9, 0x0
+    const/4 v6, 0x0
 
-    const/4 v8, 0x1
+    const/4 v7, 0x1
 
-    .line 44
-    sparse-switch p1, :sswitch_data_a56
+    .line 43
+    sparse-switch p1, :sswitch_data_7d6
 
-    .line 1183
+    .line 910
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v8
+    move-result v7
 
     :goto_9
-    return v8
+    return v7
 
-    .line 48
+    .line 47
     :sswitch_a
-    const-string v0, "android.bluetooth.IBluetooth"
+    const-string v6, "android.bluetooth.IBluetooth"
 
-    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     goto :goto_9
+
+    .line 52
+    :sswitch_10
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 53
-    :sswitch_10
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 54
     invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->isEnabled()Z
 
-    move-result v6
+    move-result v4
 
-    .line 55
-    .local v6, _result:Z
+    .line 54
+    .local v4, _result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 56
-    if-eqz v6, :cond_23
+    .line 55
+    if-eqz v4, :cond_1f
 
-    move v0, v8
+    move v6, v7
 
-    :goto_1f
-    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
+    :cond_1f
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_9
 
-    :cond_23
-    move v0, v9
+    .line 60
+    .end local v4           #_result:Z
+    :sswitch_23
+    const-string v6, "android.bluetooth.IBluetooth"
 
-    goto :goto_1f
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 61
-    .end local v6           #_result:Z
-    :sswitch_25
-    const-string v0, "android.bluetooth.IBluetooth"
+    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getBluetoothState()I
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-result v4
+
+    .line 62
+    .local v4, _result:I
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 63
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    move-result v0
+    goto :goto_9
 
-    if-eqz v0, :cond_46
+    .line 68
+    .end local v4           #_result:I
+    :sswitch_33
+    const-string v8, "android.bluetooth.IBluetooth"
 
-    .line 64
-    sget-object v0, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/os/ParcelUuid;
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 69
-    .local v1, _arg0:Landroid/os/ParcelUuid;
-    :goto_38
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->isServiceRegistered(Landroid/os/ParcelUuid;)Z
+    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->enable()Z
 
-    move-result v6
+    move-result v4
 
     .line 70
-    .restart local v6       #_result:Z
+    .local v4, _result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 71
-    if-eqz v6, :cond_42
+    if-eqz v4, :cond_42
 
-    move v9, v8
+    move v6, v7
 
     :cond_42
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_9
 
-    .line 67
-    .end local v1           #_arg0:Landroid/os/ParcelUuid;
-    .end local v6           #_result:Z
-    :cond_46
-    const/4 v1, 0x0
-
-    .restart local v1       #_arg0:Landroid/os/ParcelUuid;
-    goto :goto_38
-
     .line 76
-    .end local v1           #_arg0:Landroid/os/ParcelUuid;
-    :sswitch_48
-    const-string v0, "android.bluetooth.IBluetooth"
+    .end local v4           #_result:Z
+    :sswitch_46
+    const-string v8, "android.bluetooth.IBluetooth"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 78
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v0
+    move-result v8
 
-    if-eqz v0, :cond_70
+    if-eqz v8, :cond_60
+
+    move v0, v7
 
     .line 79
-    sget-object v0, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
+    .local v0, _arg0:Z
+    :goto_52
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->disable(Z)Z
 
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    move-result v4
+
+    .line 80
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 81
+    if-eqz v4, :cond_5c
+
+    move v6, v7
+
+    :cond_5c
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto :goto_9
+
+    .end local v0           #_arg0:Z
+    .end local v4           #_result:Z
+    :cond_60
+    move v0, v6
+
+    .line 78
+    goto :goto_52
+
+    .line 86
+    :sswitch_62
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 87
+    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getAddress()Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 88
+    .local v4, _result:Ljava/lang/String;
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 89
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    goto :goto_9
+
+    .line 94
+    .end local v4           #_result:Ljava/lang/String;
+    :sswitch_72
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 95
+    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getName()Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 96
+    .restart local v4       #_result:Ljava/lang/String;
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 97
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    goto :goto_9
+
+    .line 102
+    .end local v4           #_result:Ljava/lang/String;
+    :sswitch_82
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 104
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 105
+    .local v0, _arg0:Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->setName(Ljava/lang/String;)Z
+
+    move-result v4
+
+    .line 106
+    .local v4, _result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 107
+    if-eqz v4, :cond_95
+
+    move v6, v7
+
+    :cond_95
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 112
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v4           #_result:Z
+    :sswitch_9a
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 113
+    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getUuids()[Landroid/os/ParcelUuid;
+
+    move-result-object v4
+
+    .line 114
+    .local v4, _result:[Landroid/os/ParcelUuid;
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 115
+    invoke-virtual {p3, v4, v7}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
+
+    goto/16 :goto_9
+
+    .line 120
+    .end local v4           #_result:[Landroid/os/ParcelUuid;
+    :sswitch_ab
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 121
+    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getScanMode()I
+
+    move-result v4
+
+    .line 122
+    .local v4, _result:I
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 123
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 128
+    .end local v4           #_result:I
+    :sswitch_bc
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 130
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    .line 132
+    .local v0, _arg0:I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    .line 133
+    .local v1, _arg1:I
+    invoke-virtual {p0, v0, v1}, Landroid/bluetooth/IBluetooth$Stub;->setScanMode(II)Z
+
+    move-result v4
+
+    .line 134
+    .local v4, _result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 135
+    if-eqz v4, :cond_d3
+
+    move v6, v7
+
+    :cond_d3
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 140
+    .end local v0           #_arg0:I
+    .end local v1           #_arg1:I
+    .end local v4           #_result:Z
+    :sswitch_d8
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 141
+    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getDiscoverableTimeout()I
+
+    move-result v4
+
+    .line 142
+    .local v4, _result:I
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 143
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 148
+    .end local v4           #_result:I
+    :sswitch_e9
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 150
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    .line 151
+    .restart local v0       #_arg0:I
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->setDiscoverableTimeout(I)Z
+
+    move-result v4
+
+    .line 152
+    .local v4, _result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 153
+    if-eqz v4, :cond_fc
+
+    move v6, v7
+
+    :cond_fc
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 158
+    .end local v0           #_arg0:I
+    .end local v4           #_result:Z
+    :sswitch_101
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 159
+    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->startDiscovery()Z
+
+    move-result v4
+
+    .line 160
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 161
+    if-eqz v4, :cond_110
+
+    move v6, v7
+
+    :cond_110
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 166
+    .end local v4           #_result:Z
+    :sswitch_115
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 167
+    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->cancelDiscovery()Z
+
+    move-result v4
+
+    .line 168
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 169
+    if-eqz v4, :cond_124
+
+    move v6, v7
+
+    :cond_124
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 174
+    .end local v4           #_result:Z
+    :sswitch_129
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 175
+    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->isDiscovering()Z
+
+    move-result v4
+
+    .line 176
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 177
+    if-eqz v4, :cond_138
+
+    move v6, v7
+
+    :cond_138
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 182
+    .end local v4           #_result:Z
+    :sswitch_13d
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 183
+    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->readOutOfBandData()[B
+
+    move-result-object v4
+
+    .line 184
+    .local v4, _result:[B
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 185
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeByteArray([B)V
+
+    goto/16 :goto_9
+
+    .line 190
+    .end local v4           #_result:[B
+    :sswitch_14e
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 191
+    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getAdapterConnectionState()I
+
+    move-result v4
+
+    .line 192
+    .local v4, _result:I
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 193
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 198
+    .end local v4           #_result:I
+    :sswitch_15f
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 200
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    .line 201
+    .restart local v0       #_arg0:I
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->getProfileConnectionState(I)I
+
+    move-result v4
+
+    .line 202
+    .restart local v4       #_result:I
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 203
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 208
+    .end local v0           #_arg0:I
+    .end local v4           #_result:I
+    :sswitch_174
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 210
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    if-eqz v8, :cond_19b
+
+    move v0, v7
+
+    .line 212
+    .local v0, _arg0:Z
+    :goto_180
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v8
+
+    invoke-static {v8}, Landroid/bluetooth/IBluetoothStateChangeCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/bluetooth/IBluetoothStateChangeCallback;
+
+    move-result-object v1
+
+    .line 214
+    .local v1, _arg1:Landroid/bluetooth/IBluetoothStateChangeCallback;
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v2
+
+    .line 215
+    .local v2, _arg2:Landroid/os/IBinder;
+    invoke-virtual {p0, v0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->changeApplicationBluetoothState(ZLandroid/bluetooth/IBluetoothStateChangeCallback;Landroid/os/IBinder;)Z
+
+    move-result v4
+
+    .line 216
+    .local v4, _result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 217
+    if-eqz v4, :cond_196
+
+    move v6, v7
+
+    :cond_196
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .end local v0           #_arg0:Z
+    .end local v1           #_arg1:Landroid/bluetooth/IBluetoothStateChangeCallback;
+    .end local v2           #_arg2:Landroid/os/IBinder;
+    .end local v4           #_result:Z
+    :cond_19b
+    move v0, v6
+
+    .line 210
+    goto :goto_180
+
+    .line 222
+    :sswitch_19d
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 224
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 225
+    .local v0, _arg0:Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->createBond(Ljava/lang/String;)Z
+
+    move-result v4
+
+    .line 226
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 227
+    if-eqz v4, :cond_1b0
+
+    move v6, v7
+
+    :cond_1b0
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 232
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v4           #_result:Z
+    :sswitch_1b5
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 234
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 236
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
+
+    move-result-object v1
+
+    .line 238
+    .local v1, _arg1:[B
+    invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
+
+    move-result-object v2
+
+    .line 239
+    .local v2, _arg2:[B
+    invoke-virtual {p0, v0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->createBondOutOfBand(Ljava/lang/String;[B[B)Z
+
+    move-result v4
+
+    .line 240
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 241
+    if-eqz v4, :cond_1d0
+
+    move v6, v7
+
+    :cond_1d0
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 246
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v1           #_arg1:[B
+    .end local v2           #_arg2:[B
+    .end local v4           #_result:Z
+    :sswitch_1d5
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 248
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 249
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->cancelBondProcess(Ljava/lang/String;)Z
+
+    move-result v4
+
+    .line 250
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 251
+    if-eqz v4, :cond_1e8
+
+    move v6, v7
+
+    :cond_1e8
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 256
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v4           #_result:Z
+    :sswitch_1ed
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 258
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 259
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->removeBond(Ljava/lang/String;)Z
+
+    move-result v4
+
+    .line 260
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 261
+    if-eqz v4, :cond_200
+
+    move v6, v7
+
+    :cond_200
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 266
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v4           #_result:Z
+    :sswitch_205
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 267
+    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->listBonds()[Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 268
+    .local v4, _result:[Ljava/lang/String;
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 269
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
+
+    goto/16 :goto_9
+
+    .line 274
+    .end local v4           #_result:[Ljava/lang/String;
+    :sswitch_216
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 276
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 277
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->getBondState(Ljava/lang/String;)I
+
+    move-result v4
+
+    .line 278
+    .local v4, _result:I
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 279
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 284
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v4           #_result:I
+    :sswitch_22b
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 286
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 288
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
+
+    move-result-object v1
+
+    .line 290
+    .restart local v1       #_arg1:[B
+    invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
+
+    move-result-object v2
+
+    .line 291
+    .restart local v2       #_arg2:[B
+    invoke-virtual {p0, v0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->setDeviceOutOfBandData(Ljava/lang/String;[B[B)Z
+
+    move-result v4
+
+    .line 292
+    .local v4, _result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 293
+    if-eqz v4, :cond_246
+
+    move v6, v7
+
+    :cond_246
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 298
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v1           #_arg1:[B
+    .end local v2           #_arg2:[B
+    .end local v4           #_result:Z
+    :sswitch_24b
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 300
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 301
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->getRemoteName(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 302
+    .local v4, _result:Ljava/lang/String;
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 303
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    goto/16 :goto_9
+
+    .line 308
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v4           #_result:Ljava/lang/String;
+    :sswitch_260
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 310
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 311
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->getRemoteAlias(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 312
+    .restart local v4       #_result:Ljava/lang/String;
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 313
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    goto/16 :goto_9
+
+    .line 318
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v4           #_result:Ljava/lang/String;
+    :sswitch_275
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 320
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 322
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 323
+    .local v1, _arg1:Ljava/lang/String;
+    invoke-virtual {p0, v0, v1}, Landroid/bluetooth/IBluetooth$Stub;->setRemoteAlias(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v4
+
+    .line 324
+    .local v4, _result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 325
+    if-eqz v4, :cond_28c
+
+    move v6, v7
+
+    :cond_28c
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 330
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v1           #_arg1:Ljava/lang/String;
+    .end local v4           #_result:Z
+    :sswitch_291
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 332
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 333
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->getRemoteClass(Ljava/lang/String;)I
+
+    move-result v4
+
+    .line 334
+    .local v4, _result:I
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 335
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 340
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v4           #_result:I
+    :sswitch_2a6
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 342
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 343
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->getRemoteUuids(Ljava/lang/String;)[Landroid/os/ParcelUuid;
+
+    move-result-object v4
+
+    .line 344
+    .local v4, _result:[Landroid/os/ParcelUuid;
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 345
+    invoke-virtual {p3, v4, v7}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
+
+    goto/16 :goto_9
+
+    .line 350
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v4           #_result:[Landroid/os/ParcelUuid;
+    :sswitch_2bb
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 352
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 354
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    if-eqz v8, :cond_2e9
+
+    .line 355
+    sget-object v8, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/os/ParcelUuid;
 
-    .line 85
-    .restart local v1       #_arg0:Landroid/os/ParcelUuid;
-    :goto_5b
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_72
-
-    move v2, v8
-
-    .line 86
-    .local v2, _arg1:Z
-    :goto_62
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->registerService(Landroid/os/ParcelUuid;Z)Z
-
-    move-result v6
-
-    .line 87
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 88
-    if-eqz v6, :cond_6c
-
-    move v9, v8
-
-    :cond_6c
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_9
-
-    .line 82
-    .end local v1           #_arg0:Landroid/os/ParcelUuid;
-    .end local v2           #_arg1:Z
-    .end local v6           #_result:Z
-    :cond_70
-    const/4 v1, 0x0
-
-    .restart local v1       #_arg0:Landroid/os/ParcelUuid;
-    goto :goto_5b
-
-    :cond_72
-    move v2, v9
-
-    .line 85
-    goto :goto_62
-
-    .line 93
-    .end local v1           #_arg0:Landroid/os/ParcelUuid;
-    :sswitch_74
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 94
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getBluetoothState()I
-
-    move-result v6
-
-    .line 95
-    .local v6, _result:I
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 96
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_9
-
-    .line 101
-    .end local v6           #_result:I
-    :sswitch_84
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 102
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->enable()Z
-
-    move-result v6
-
-    .line 103
-    .local v6, _result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 104
-    if-eqz v6, :cond_93
-
-    move v9, v8
-
-    :cond_93
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 109
-    .end local v6           #_result:Z
-    :sswitch_98
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 111
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_b3
-
-    move v1, v8
-
-    .line 112
-    .local v1, _arg0:Z
-    :goto_a4
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->disable(Z)Z
-
-    move-result v6
-
-    .line 113
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 114
-    if-eqz v6, :cond_ae
-
-    move v9, v8
-
-    :cond_ae
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .end local v1           #_arg0:Z
-    .end local v6           #_result:Z
-    :cond_b3
-    move v1, v9
-
-    .line 111
-    goto :goto_a4
-
-    .line 119
-    :sswitch_b5
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 120
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getAddress()Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 121
-    .local v6, _result:Ljava/lang/String;
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 122
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    goto/16 :goto_9
-
-    .line 127
-    .end local v6           #_result:Ljava/lang/String;
-    :sswitch_c6
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 128
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getName()Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 129
-    .restart local v6       #_result:Ljava/lang/String;
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 130
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    goto/16 :goto_9
-
-    .line 135
-    .end local v6           #_result:Ljava/lang/String;
-    :sswitch_d7
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 136
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getCOD()Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 137
-    .restart local v6       #_result:Ljava/lang/String;
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 138
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    goto/16 :goto_9
-
-    .line 143
-    .end local v6           #_result:Ljava/lang/String;
-    :sswitch_e8
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 145
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 146
-    .local v1, _arg0:Ljava/lang/String;
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->setName(Ljava/lang/String;)Z
-
-    move-result v6
-
-    .line 147
-    .local v6, _result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 148
-    if-eqz v6, :cond_fb
-
-    move v9, v8
-
-    :cond_fb
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 153
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v6           #_result:Z
-    :sswitch_100
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 154
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getUuids()[Landroid/os/ParcelUuid;
-
-    move-result-object v6
-
-    .line 155
-    .local v6, _result:[Landroid/os/ParcelUuid;
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 156
-    invoke-virtual {p3, v6, v8}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
-
-    goto/16 :goto_9
-
-    .line 161
-    .end local v6           #_result:[Landroid/os/ParcelUuid;
-    :sswitch_111
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 162
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getScanMode()I
-
-    move-result v6
-
-    .line 163
-    .local v6, _result:I
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 164
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 169
-    .end local v6           #_result:I
-    :sswitch_122
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 171
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    .line 173
-    .local v1, _arg0:I
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    .line 174
-    .local v2, _arg1:I
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->setScanMode(II)Z
-
-    move-result v6
-
-    .line 175
-    .local v6, _result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 176
-    if-eqz v6, :cond_139
-
-    move v9, v8
-
-    :cond_139
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 181
-    .end local v1           #_arg0:I
-    .end local v2           #_arg1:I
-    .end local v6           #_result:Z
-    :sswitch_13e
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 182
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getDiscoverableTimeout()I
-
-    move-result v6
-
-    .line 183
-    .local v6, _result:I
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 184
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 189
-    .end local v6           #_result:I
-    :sswitch_14f
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 191
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    .line 192
-    .restart local v1       #_arg0:I
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->setDiscoverableTimeout(I)Z
-
-    move-result v6
-
-    .line 193
-    .local v6, _result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 194
-    if-eqz v6, :cond_162
-
-    move v9, v8
-
-    :cond_162
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 199
-    .end local v1           #_arg0:I
-    .end local v6           #_result:Z
-    :sswitch_167
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 200
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->startDiscovery()Z
-
-    move-result v6
-
-    .line 201
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 202
-    if-eqz v6, :cond_176
-
-    move v9, v8
-
-    :cond_176
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 207
-    .end local v6           #_result:Z
-    :sswitch_17b
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 208
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->cancelDiscovery()Z
-
-    move-result v6
-
-    .line 209
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 210
-    if-eqz v6, :cond_18a
-
-    move v9, v8
-
-    :cond_18a
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 215
-    .end local v6           #_result:Z
-    :sswitch_18f
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 216
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->isDiscovering()Z
-
-    move-result v6
-
-    .line 217
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 218
-    if-eqz v6, :cond_19e
-
-    move v9, v8
-
-    :cond_19e
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 223
-    .end local v6           #_result:Z
-    :sswitch_1a3
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 224
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->readOutOfBandData()[B
-
-    move-result-object v6
-
-    .line 225
-    .local v6, _result:[B
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 226
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeByteArray([B)V
-
-    goto/16 :goto_9
-
-    .line 231
-    .end local v6           #_result:[B
-    :sswitch_1b4
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 232
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getAdapterConnectionState()I
-
-    move-result v6
-
-    .line 233
-    .local v6, _result:I
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 234
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 239
-    .end local v6           #_result:I
-    :sswitch_1c5
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 241
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    .line 242
-    .restart local v1       #_arg0:I
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->getProfileConnectionState(I)I
-
-    move-result v6
-
-    .line 243
-    .restart local v6       #_result:I
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 244
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 249
-    .end local v1           #_arg0:I
-    .end local v6           #_result:I
-    :sswitch_1da
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 251
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_201
-
-    move v1, v8
-
-    .line 253
-    .local v1, _arg0:Z
-    :goto_1e6
+    .line 361
+    .local v1, _arg1:Landroid/os/ParcelUuid;
+    :goto_2d2
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object v8
 
-    invoke-static {v0}, Landroid/bluetooth/IBluetoothStateChangeCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/bluetooth/IBluetoothStateChangeCallback;
-
-    move-result-object v2
-
-    .line 255
-    .local v2, _arg1:Landroid/bluetooth/IBluetoothStateChangeCallback;
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v3
-
-    .line 256
-    .local v3, _arg2:Landroid/os/IBinder;
-    invoke-virtual {p0, v1, v2, v3}, Landroid/bluetooth/IBluetooth$Stub;->changeApplicationBluetoothState(ZLandroid/bluetooth/IBluetoothStateChangeCallback;Landroid/os/IBinder;)Z
-
-    move-result v6
-
-    .line 257
-    .local v6, _result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 258
-    if-eqz v6, :cond_1fc
-
-    move v9, v8
-
-    :cond_1fc
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .end local v1           #_arg0:Z
-    .end local v2           #_arg1:Landroid/bluetooth/IBluetoothStateChangeCallback;
-    .end local v3           #_arg2:Landroid/os/IBinder;
-    .end local v6           #_result:Z
-    :cond_201
-    move v1, v9
-
-    .line 251
-    goto :goto_1e6
-
-    .line 263
-    :sswitch_203
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 265
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 266
-    .local v1, _arg0:Ljava/lang/String;
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->createBond(Ljava/lang/String;)Z
-
-    move-result v6
-
-    .line 267
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 268
-    if-eqz v6, :cond_216
-
-    move v9, v8
-
-    :cond_216
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 273
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v6           #_result:Z
-    :sswitch_21b
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 275
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 277
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
+    invoke-static {v8}, Landroid/bluetooth/IBluetoothCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/bluetooth/IBluetoothCallback;
 
     move-result-object v2
 
-    .line 279
-    .local v2, _arg1:[B
-    invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
-
-    move-result-object v3
-
-    .line 280
-    .local v3, _arg2:[B
-    invoke-virtual {p0, v1, v2, v3}, Landroid/bluetooth/IBluetooth$Stub;->createBondOutOfBand(Ljava/lang/String;[B[B)Z
-
-    move-result v6
-
-    .line 281
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 282
-    if-eqz v6, :cond_236
-
-    move v9, v8
-
-    :cond_236
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 287
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:[B
-    .end local v3           #_arg2:[B
-    .end local v6           #_result:Z
-    :sswitch_23b
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 289
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 290
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->cancelBondProcess(Ljava/lang/String;)Z
-
-    move-result v6
-
-    .line 291
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 292
-    if-eqz v6, :cond_24e
-
-    move v9, v8
-
-    :cond_24e
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 297
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v6           #_result:Z
-    :sswitch_253
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 299
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 300
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->removeBond(Ljava/lang/String;)Z
-
-    move-result v6
-
-    .line 301
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 302
-    if-eqz v6, :cond_266
-
-    move v9, v8
-
-    :cond_266
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 307
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v6           #_result:Z
-    :sswitch_26b
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 308
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->listBonds()[Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 309
-    .local v6, _result:[Ljava/lang/String;
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 310
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
-
-    goto/16 :goto_9
-
-    .line 315
-    .end local v6           #_result:[Ljava/lang/String;
-    :sswitch_27c
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 317
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 318
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->getBondState(Ljava/lang/String;)I
-
-    move-result v6
-
-    .line 319
-    .local v6, _result:I
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 320
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 325
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v6           #_result:I
-    :sswitch_291
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 327
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 329
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
-
-    move-result-object v2
-
-    .line 331
-    .restart local v2       #_arg1:[B
-    invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
-
-    move-result-object v3
-
-    .line 332
-    .restart local v3       #_arg2:[B
-    invoke-virtual {p0, v1, v2, v3}, Landroid/bluetooth/IBluetooth$Stub;->setDeviceOutOfBandData(Ljava/lang/String;[B[B)Z
-
-    move-result v6
-
-    .line 333
-    .local v6, _result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 334
-    if-eqz v6, :cond_2ac
-
-    move v9, v8
-
-    :cond_2ac
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 339
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:[B
-    .end local v3           #_arg2:[B
-    .end local v6           #_result:Z
-    :sswitch_2b1
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 341
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 343
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    .line 344
-    .local v2, _arg1:I
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->setBluetoothClass(Ljava/lang/String;I)Z
-
-    move-result v6
-
-    .line 345
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 346
-    if-eqz v6, :cond_2c8
-
-    move v9, v8
-
-    :cond_2c8
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 351
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:I
-    .end local v6           #_result:Z
-    :sswitch_2cd
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 353
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 355
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    .line 357
-    .restart local v2       #_arg1:I
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    .line 359
-    .local v3, _arg2:I
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    .line 362
+    .local v2, _arg2:Landroid/bluetooth/IBluetoothCallback;
+    invoke-virtual {p0, v0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->fetchRemoteUuids(Ljava/lang/String;Landroid/os/ParcelUuid;Landroid/bluetooth/IBluetoothCallback;)Z
 
     move-result v4
 
-    .line 361
-    .local v4, _arg3:I
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v5
-
-    .local v5, _arg4:I
-    move-object v0, p0
-
-    .line 362
-    invoke-virtual/range {v0 .. v5}, Landroid/bluetooth/IBluetooth$Stub;->setLEConnectionParams(Ljava/lang/String;IIII)Z
-
-    move-result v6
-
     .line 363
-    .restart local v6       #_result:Z
+    .local v4, _result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 364
-    if-eqz v6, :cond_2f1
+    if-eqz v4, :cond_2e4
 
-    move v9, v8
+    move v6, v7
 
-    :cond_2f1
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
+    :cond_2e4
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_9
 
-    .line 369
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:I
-    .end local v3           #_arg2:I
-    .end local v4           #_arg3:I
-    .end local v5           #_arg4:I
-    .end local v6           #_result:Z
-    :sswitch_2f6
-    const-string v0, "android.bluetooth.IBluetooth"
+    .line 358
+    .end local v1           #_arg1:Landroid/os/ParcelUuid;
+    .end local v2           #_arg2:Landroid/bluetooth/IBluetoothCallback;
+    .end local v4           #_result:Z
+    :cond_2e9
+    const/4 v1, 0x0
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    .restart local v1       #_arg1:Landroid/os/ParcelUuid;
+    goto :goto_2d2
+
+    .line 369
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v1           #_arg1:Landroid/os/ParcelUuid;
+    :sswitch_2eb
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 371
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v1
-
-    .line 372
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->getRemoteName(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
+    move-result-object v0
 
     .line 373
-    .local v6, _result:Ljava/lang/String;
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 374
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    goto/16 :goto_9
-
-    .line 379
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v6           #_result:Ljava/lang/String;
-    :sswitch_30b
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 381
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 382
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->getRemoteAlias(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 383
-    .restart local v6       #_result:Ljava/lang/String;
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 384
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    goto/16 :goto_9
-
-    .line 389
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v6           #_result:Ljava/lang/String;
-    :sswitch_320
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 391
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 393
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 394
-    .local v2, _arg1:Ljava/lang/String;
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->setRemoteAlias(Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v6
-
-    .line 395
-    .local v6, _result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 396
-    if-eqz v6, :cond_337
-
-    move v9, v8
-
-    :cond_337
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 401
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:Ljava/lang/String;
-    .end local v6           #_result:Z
-    :sswitch_33c
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 403
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 404
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->getRemoteClass(Ljava/lang/String;)I
-
-    move-result v6
-
-    .line 405
-    .local v6, _result:I
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 406
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 411
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v6           #_result:I
-    :sswitch_351
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 413
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 414
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->getRemoteUuids(Ljava/lang/String;)[Landroid/os/ParcelUuid;
-
-    move-result-object v6
-
-    .line 415
-    .local v6, _result:[Landroid/os/ParcelUuid;
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 416
-    invoke-virtual {p3, v6, v8}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
-
-    goto/16 :goto_9
-
-    .line 421
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v6           #_result:[Landroid/os/ParcelUuid;
-    :sswitch_366
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 423
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 425
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .restart local v0       #_arg0:Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v0
+    move-result v6
 
-    if-eqz v0, :cond_394
+    if-eqz v6, :cond_30e
 
-    .line 426
-    sget-object v0, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
+    .line 374
+    sget-object v6, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v6, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Landroid/os/ParcelUuid;
+    check-cast v1, Landroid/os/ParcelUuid;
 
-    .line 432
-    .local v2, _arg1:Landroid/os/ParcelUuid;
-    :goto_37d
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+    .line 379
+    .restart local v1       #_arg1:Landroid/os/ParcelUuid;
+    :goto_302
+    invoke-virtual {p0, v0, v1}, Landroid/bluetooth/IBluetooth$Stub;->getRemoteServiceChannel(Ljava/lang/String;Landroid/os/ParcelUuid;)I
+
+    move-result v4
+
+    .line 380
+    .local v4, _result:I
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 381
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 377
+    .end local v1           #_arg1:Landroid/os/ParcelUuid;
+    .end local v4           #_result:I
+    :cond_30e
+    const/4 v1, 0x0
+
+    .restart local v1       #_arg1:Landroid/os/ParcelUuid;
+    goto :goto_302
+
+    .line 386
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v1           #_arg1:Landroid/os/ParcelUuid;
+    :sswitch_310
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 388
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/bluetooth/IBluetoothCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/bluetooth/IBluetoothCallback;
-
-    move-result-object v3
-
-    .line 433
-    .local v3, _arg2:Landroid/bluetooth/IBluetoothCallback;
-    invoke-virtual {p0, v1, v2, v3}, Landroid/bluetooth/IBluetooth$Stub;->fetchRemoteUuids(Ljava/lang/String;Landroid/os/ParcelUuid;Landroid/bluetooth/IBluetoothCallback;)Z
-
-    move-result v6
-
-    .line 434
-    .local v6, _result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 435
-    if-eqz v6, :cond_38f
-
-    move v9, v8
-
-    :cond_38f
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 429
-    .end local v2           #_arg1:Landroid/os/ParcelUuid;
-    .end local v3           #_arg2:Landroid/bluetooth/IBluetoothCallback;
-    .end local v6           #_result:Z
-    :cond_394
-    const/4 v2, 0x0
-
-    .restart local v2       #_arg1:Landroid/os/ParcelUuid;
-    goto :goto_37d
-
-    .line 440
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:Landroid/os/ParcelUuid;
-    :sswitch_396
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 442
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    .line 390
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v1
 
-    .line 444
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    .line 391
+    .local v1, _arg1:[B
+    invoke-virtual {p0, v0, v1}, Landroid/bluetooth/IBluetooth$Stub;->setPin(Ljava/lang/String;[B)Z
 
-    move-result v0
+    move-result v4
 
-    if-eqz v0, :cond_3b9
-
-    .line 445
-    sget-object v0, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/os/ParcelUuid;
-
-    .line 450
-    .restart local v2       #_arg1:Landroid/os/ParcelUuid;
-    :goto_3ad
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->getRemoteServiceChannel(Ljava/lang/String;Landroid/os/ParcelUuid;)I
-
-    move-result v6
-
-    .line 451
-    .local v6, _result:I
+    .line 392
+    .local v4, _result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 452
+    .line 393
+    if-eqz v4, :cond_327
+
+    move v6, v7
+
+    :cond_327
     invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_9
 
-    .line 448
-    .end local v2           #_arg1:Landroid/os/ParcelUuid;
-    .end local v6           #_result:I
-    :cond_3b9
-    const/4 v2, 0x0
+    .line 398
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v1           #_arg1:[B
+    .end local v4           #_result:Z
+    :sswitch_32c
+    const-string v8, "android.bluetooth.IBluetooth"
 
-    .restart local v2       #_arg1:Landroid/os/ParcelUuid;
-    goto :goto_3ad
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 457
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:Landroid/os/ParcelUuid;
-    :sswitch_3bb
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 459
+    .line 400
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 461
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .line 402
+    .restart local v0       #_arg0:Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_3de
+    .line 403
+    .local v1, _arg1:I
+    invoke-virtual {p0, v0, v1}, Landroid/bluetooth/IBluetooth$Stub;->setPasskey(Ljava/lang/String;I)Z
 
-    .line 462
-    sget-object v0, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
+    move-result v4
 
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    .line 404
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    move-result-object v2
+    .line 405
+    if-eqz v4, :cond_343
 
-    check-cast v2, Landroid/os/ParcelUuid;
+    move v6, v7
+
+    :cond_343
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 410
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v1           #_arg1:I
+    .end local v4           #_result:Z
+    :sswitch_348
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 412
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 414
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    if-eqz v8, :cond_367
+
+    move v1, v7
+
+    .line 415
+    .local v1, _arg1:Z
+    :goto_358
+    invoke-virtual {p0, v0, v1}, Landroid/bluetooth/IBluetooth$Stub;->setPairingConfirmation(Ljava/lang/String;Z)Z
+
+    move-result v4
+
+    .line 416
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 417
+    if-eqz v4, :cond_362
+
+    move v6, v7
+
+    :cond_362
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .end local v1           #_arg1:Z
+    .end local v4           #_result:Z
+    :cond_367
+    move v1, v6
+
+    .line 414
+    goto :goto_358
+
+    .line 422
+    .end local v0           #_arg0:Ljava/lang/String;
+    :sswitch_369
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 424
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 425
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->setRemoteOutOfBandData(Ljava/lang/String;)Z
+
+    move-result v4
+
+    .line 426
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 427
+    if-eqz v4, :cond_37c
+
+    move v6, v7
+
+    :cond_37c
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 432
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v4           #_result:Z
+    :sswitch_381
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 434
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 435
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->cancelPairingUserInput(Ljava/lang/String;)Z
+
+    move-result v4
+
+    .line 436
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 437
+    if-eqz v4, :cond_394
+
+    move v6, v7
+
+    :cond_394
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 442
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v4           #_result:Z
+    :sswitch_399
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 444
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 446
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    if-eqz v8, :cond_3b8
+
+    move v1, v7
+
+    .line 447
+    .restart local v1       #_arg1:Z
+    :goto_3a9
+    invoke-virtual {p0, v0, v1}, Landroid/bluetooth/IBluetooth$Stub;->setTrust(Ljava/lang/String;Z)Z
+
+    move-result v4
+
+    .line 448
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 449
+    if-eqz v4, :cond_3b3
+
+    move v6, v7
+
+    :cond_3b3
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .end local v1           #_arg1:Z
+    .end local v4           #_result:Z
+    :cond_3b8
+    move v1, v6
+
+    .line 446
+    goto :goto_3a9
+
+    .line 454
+    .end local v0           #_arg0:Ljava/lang/String;
+    :sswitch_3ba
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 456
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 457
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->getTrustState(Ljava/lang/String;)Z
+
+    move-result v4
+
+    .line 458
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 459
+    if-eqz v4, :cond_3cd
+
+    move v6, v7
+
+    :cond_3cd
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 464
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v4           #_result:Z
+    :sswitch_3d2
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 466
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
 
     .line 467
-    .restart local v2       #_arg1:Landroid/os/ParcelUuid;
-    :goto_3d2
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->getRemoteL2capPsm(Ljava/lang/String;Landroid/os/ParcelUuid;)I
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->isBluetoothDock(Ljava/lang/String;)Z
 
-    move-result v6
+    move-result v4
 
     .line 468
-    .restart local v6       #_result:I
+    .restart local v4       #_result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 469
+    if-eqz v4, :cond_3e5
+
+    move v6, v7
+
+    :cond_3e5
     invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_9
 
-    .line 465
-    .end local v2           #_arg1:Landroid/os/ParcelUuid;
-    .end local v6           #_result:I
-    :cond_3de
-    const/4 v2, 0x0
-
-    .restart local v2       #_arg1:Landroid/os/ParcelUuid;
-    goto :goto_3d2
-
     .line 474
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:Landroid/os/ParcelUuid;
-    :sswitch_3e0
-    const-string v0, "android.bluetooth.IBluetooth"
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v4           #_result:Z
+    :sswitch_3ea
+    const-string v6, "android.bluetooth.IBluetooth"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 476
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 478
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 479
-    .local v2, _arg1:Ljava/lang/String;
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->getRemoteFeature(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 480
-    .local v6, _result:Ljava/lang/String;
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 481
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    goto/16 :goto_9
-
-    .line 486
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:Ljava/lang/String;
-    .end local v6           #_result:Ljava/lang/String;
-    :sswitch_3f9
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 488
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 490
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
-
-    move-result-object v2
-
-    .line 491
-    .local v2, _arg1:[B
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->setPin(Ljava/lang/String;[B)Z
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
-    .line 492
-    .local v6, _result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    if-eqz v6, :cond_415
 
-    .line 493
-    if-eqz v6, :cond_410
+    .line 479
+    sget-object v6, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    move v9, v8
-
-    :cond_410
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 498
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:[B
-    .end local v6           #_result:Z
-    :sswitch_415
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 500
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-interface {v6, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 502
-    .restart local v1       #_arg0:Ljava/lang/String;
+    check-cast v1, Landroid/os/ParcelUuid;
+
+    .line 485
+    .local v1, _arg1:Landroid/os/ParcelUuid;
+    :goto_401
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 503
-    .local v2, _arg1:I
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->setPasskey(Ljava/lang/String;I)Z
+    .line 487
+    .local v2, _arg2:I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result v6
+    move-result-object v3
 
-    .line 504
-    .restart local v6       #_result:Z
+    .line 488
+    .local v3, _arg3:Landroid/os/IBinder;
+    invoke-virtual {p0, v0, v1, v2, v3}, Landroid/bluetooth/IBluetooth$Stub;->addRfcommServiceRecord(Ljava/lang/String;Landroid/os/ParcelUuid;ILandroid/os/IBinder;)I
+
+    move-result v4
+
+    .line 489
+    .local v4, _result:I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 505
-    if-eqz v6, :cond_42c
+    .line 490
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    move v9, v8
+    goto/16 :goto_9
 
-    :cond_42c
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
+    .line 482
+    .end local v1           #_arg1:Landroid/os/ParcelUuid;
+    .end local v2           #_arg2:I
+    .end local v3           #_arg3:Landroid/os/IBinder;
+    .end local v4           #_result:I
+    :cond_415
+    const/4 v1, 0x0
+
+    .restart local v1       #_arg1:Landroid/os/ParcelUuid;
+    goto :goto_401
+
+    .line 495
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v1           #_arg1:Landroid/os/ParcelUuid;
+    :sswitch_417
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 497
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    .line 498
+    .local v0, _arg0:I
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->removeServiceRecord(I)V
+
+    .line 499
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    goto/16 :goto_9
+
+    .line 504
+    .end local v0           #_arg0:I
+    :sswitch_428
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 506
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    if-eqz v8, :cond_451
+
+    .line 507
+    sget-object v8, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/bluetooth/BluetoothDevice;
+
+    .line 513
+    .local v0, _arg0:Landroid/bluetooth/BluetoothDevice;
+    :goto_43b
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    if-eqz v8, :cond_453
+
+    move v1, v7
+
+    .line 514
+    .local v1, _arg1:Z
+    :goto_442
+    invoke-virtual {p0, v0, v1}, Landroid/bluetooth/IBluetooth$Stub;->allowIncomingProfileConnect(Landroid/bluetooth/BluetoothDevice;Z)Z
+
+    move-result v4
+
+    .line 515
+    .local v4, _result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 516
+    if-eqz v4, :cond_44c
+
+    move v6, v7
+
+    :cond_44c
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_9
 
     .line 510
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:I
-    .end local v6           #_result:Z
-    :sswitch_431
-    const-string v0, "android.bluetooth.IBluetooth"
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    .end local v1           #_arg1:Z
+    .end local v4           #_result:Z
+    :cond_451
+    const/4 v0, 0x0
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    goto :goto_43b
 
-    .line 512
+    :cond_453
+    move v1, v6
+
+    .line 513
+    goto :goto_442
+
+    .line 521
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    :sswitch_455
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 523
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v1
-
-    .line 514
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_450
-
-    move v2, v8
-
-    .line 515
-    .local v2, _arg1:Z
-    :goto_441
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->setPairingConfirmation(Ljava/lang/String;Z)Z
-
-    move-result v6
-
-    .line 516
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 517
-    if-eqz v6, :cond_44b
-
-    move v9, v8
-
-    :cond_44b
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .end local v2           #_arg1:Z
-    .end local v6           #_result:Z
-    :cond_450
-    move v2, v9
-
-    .line 514
-    goto :goto_441
-
-    .line 522
-    .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_452
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-result-object v0
 
     .line 524
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    .local v0, _arg0:Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->connectHeadset(Ljava/lang/String;)Z
 
-    move-result-object v1
+    move-result v4
 
     .line 525
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->setRemoteOutOfBandData(Ljava/lang/String;)Z
-
-    move-result v6
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 526
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    if-eqz v4, :cond_468
 
-    .line 527
-    if-eqz v6, :cond_465
+    move v6, v7
 
-    move v9, v8
-
-    :cond_465
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
+    :cond_468
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_9
 
-    .line 532
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v6           #_result:Z
-    :sswitch_46a
-    const-string v0, "android.bluetooth.IBluetooth"
+    .line 531
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v4           #_result:Z
+    :sswitch_46d
+    const-string v8, "android.bluetooth.IBluetooth"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 533
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
 
     .line 534
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->disconnectHeadset(Ljava/lang/String;)Z
 
-    move-result-object v1
+    move-result v4
 
     .line 535
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->cancelPairingUserInput(Ljava/lang/String;)Z
-
-    move-result v6
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 536
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    if-eqz v4, :cond_480
 
-    .line 537
-    if-eqz v6, :cond_47d
+    move v6, v7
 
-    move v9, v8
-
-    :cond_47d
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
+    :cond_480
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_9
 
-    .line 542
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v6           #_result:Z
-    :sswitch_482
-    const-string v0, "android.bluetooth.IBluetooth"
+    .line 541
+    .end local v0           #_arg0:Ljava/lang/String;
+    .end local v4           #_result:Z
+    :sswitch_485
+    const-string v8, "android.bluetooth.IBluetooth"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 544
+    .line 543
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 546
-    .restart local v1       #_arg0:Ljava/lang/String;
+    .line 545
+    .restart local v0       #_arg0:Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v0
+    move-result v8
 
-    if-eqz v0, :cond_4a1
+    if-eqz v8, :cond_4a4
 
-    move v2, v8
-
-    .line 547
-    .restart local v2       #_arg1:Z
-    :goto_492
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->setTrust(Ljava/lang/String;Z)Z
-
-    move-result v6
-
-    .line 548
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 549
-    if-eqz v6, :cond_49c
-
-    move v9, v8
-
-    :cond_49c
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .end local v2           #_arg1:Z
-    .end local v6           #_result:Z
-    :cond_4a1
-    move v2, v9
+    move v1, v7
 
     .line 546
-    goto :goto_492
+    .restart local v1       #_arg1:Z
+    :goto_495
+    invoke-virtual {p0, v0, v1}, Landroid/bluetooth/IBluetooth$Stub;->notifyIncomingConnection(Ljava/lang/String;Z)Z
 
-    .line 554
-    .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_4a3
-    const-string v0, "android.bluetooth.IBluetooth"
+    move-result v4
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 556
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 557
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->getTrustState(Ljava/lang/String;)Z
-
-    move-result v6
-
-    .line 558
-    .restart local v6       #_result:Z
+    .line 547
+    .restart local v4       #_result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 559
-    if-eqz v6, :cond_4b6
+    .line 548
+    if-eqz v4, :cond_49f
 
-    move v9, v8
+    move v6, v7
 
-    :cond_4b6
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
+    :cond_49f
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_9
 
-    .line 564
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v6           #_result:Z
-    :sswitch_4bb
-    const-string v0, "android.bluetooth.IBluetooth"
+    .end local v1           #_arg1:Z
+    .end local v4           #_result:Z
+    :cond_4a4
+    move v1, v6
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    .line 545
+    goto :goto_495
 
-    .line 566
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    .line 553
+    .end local v0           #_arg0:Ljava/lang/String;
+    :sswitch_4a6
+    const-string v8, "android.bluetooth.IBluetooth"
 
-    move-result-object v1
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 567
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->isBluetoothDock(Ljava/lang/String;)Z
+    .line 555
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
+    move-result v8
 
-    .line 568
-    .restart local v6       #_result:Z
+    if-eqz v8, :cond_4c8
+
+    .line 556
+    sget-object v8, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/bluetooth/BluetoothDevice;
+
+    .line 561
+    .local v0, _arg0:Landroid/bluetooth/BluetoothDevice;
+    :goto_4b9
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->connectInputDevice(Landroid/bluetooth/BluetoothDevice;)Z
+
+    move-result v4
+
+    .line 562
+    .restart local v4       #_result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 569
-    if-eqz v6, :cond_4ce
+    .line 563
+    if-eqz v4, :cond_4c3
 
-    move v9, v8
+    move v6, v7
 
-    :cond_4ce
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
+    :cond_4c3
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 559
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    .end local v4           #_result:Z
+    :cond_4c8
+    const/4 v0, 0x0
+
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    goto :goto_4b9
+
+    .line 568
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    :sswitch_4ca
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 570
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    if-eqz v8, :cond_4ec
+
+    .line 571
+    sget-object v8, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/bluetooth/BluetoothDevice;
+
+    .line 576
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    :goto_4dd
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->disconnectInputDevice(Landroid/bluetooth/BluetoothDevice;)Z
+
+    move-result v4
+
+    .line 577
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 578
+    if-eqz v4, :cond_4e7
+
+    move v6, v7
+
+    :cond_4e7
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_9
 
     .line 574
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v6           #_result:Z
-    :sswitch_4d3
-    const-string v0, "android.bluetooth.IBluetooth"
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    .end local v4           #_result:Z
+    :cond_4ec
+    const/4 v0, 0x0
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    goto :goto_4dd
 
-    .line 576
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    .line 583
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    :sswitch_4ee
+    const-string v6, "android.bluetooth.IBluetooth"
 
-    move-result-object v1
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 578
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    .line 584
+    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getConnectedInputDevices()Ljava/util/List;
 
-    move-result v0
-
-    if-eqz v0, :cond_4fe
-
-    .line 579
-    sget-object v0, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/os/ParcelUuid;
+    move-result-object v5
 
     .line 585
-    .local v2, _arg1:Landroid/os/ParcelUuid;
-    :goto_4ea
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    .line 587
-    .local v3, _arg2:I
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v4
-
-    .line 588
-    .local v4, _arg3:Landroid/os/IBinder;
-    invoke-virtual {p0, v1, v2, v3, v4}, Landroid/bluetooth/IBluetooth$Stub;->addRfcommServiceRecord(Ljava/lang/String;Landroid/os/ParcelUuid;ILandroid/os/IBinder;)I
-
-    move-result v6
-
-    .line 589
-    .local v6, _result:I
+    .local v5, _result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 590
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+    .line 586
+    invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
     goto/16 :goto_9
 
-    .line 582
-    .end local v2           #_arg1:Landroid/os/ParcelUuid;
-    .end local v3           #_arg2:I
-    .end local v4           #_arg3:Landroid/os/IBinder;
-    .end local v6           #_result:I
-    :cond_4fe
-    const/4 v2, 0x0
+    .line 591
+    .end local v5           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
+    :sswitch_4ff
+    const-string v6, "android.bluetooth.IBluetooth"
 
-    .restart local v2       #_arg1:Landroid/os/ParcelUuid;
-    goto :goto_4ea
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 593
+    invoke-virtual {p2}, Landroid/os/Parcel;->createIntArray()[I
+
+    move-result-object v0
+
+    .line 594
+    .local v0, _arg0:[I
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->getInputDevicesMatchingConnectionStates([I)Ljava/util/List;
+
+    move-result-object v5
 
     .line 595
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:Landroid/os/ParcelUuid;
-    :sswitch_500
-    const-string v0, "android.bluetooth.IBluetooth"
+    .restart local v5       #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    .line 596
+    invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
-    .line 597
+    goto/16 :goto_9
+
+    .line 601
+    .end local v0           #_arg0:[I
+    .end local v5           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
+    :sswitch_514
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 603
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
+    if-eqz v6, :cond_533
+
+    .line 604
+    sget-object v6, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v6, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/bluetooth/BluetoothDevice;
+
+    .line 609
+    .local v0, _arg0:Landroid/bluetooth/BluetoothDevice;
+    :goto_527
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->getInputDeviceConnectionState(Landroid/bluetooth/BluetoothDevice;)I
+
+    move-result v4
+
+    .line 610
+    .local v4, _result:I
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 611
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 607
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    .end local v4           #_result:I
+    :cond_533
+    const/4 v0, 0x0
+
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    goto :goto_527
+
+    .line 616
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    :sswitch_535
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 618
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    if-eqz v8, :cond_55b
+
+    .line 619
+    sget-object v8, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/bluetooth/BluetoothDevice;
+
+    .line 625
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    :goto_548
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 598
-    .local v1, _arg0:I
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->removeServiceRecord(I)V
-
-    .line 599
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    goto/16 :goto_9
-
-    .line 604
-    .end local v1           #_arg0:I
-    :sswitch_511
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 606
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_53a
-
-    .line 607
-    sget-object v0, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/bluetooth/BluetoothDevice;
-
-    .line 613
-    .local v1, _arg0:Landroid/bluetooth/BluetoothDevice;
-    :goto_524
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_53c
-
-    move v2, v8
-
-    .line 614
-    .local v2, _arg1:Z
-    :goto_52b
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->allowIncomingProfileConnect(Landroid/bluetooth/BluetoothDevice;Z)Z
-
-    move-result v6
-
-    .line 615
-    .local v6, _result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 616
-    if-eqz v6, :cond_535
-
-    move v9, v8
-
-    :cond_535
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 610
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v2           #_arg1:Z
-    .end local v6           #_result:Z
-    :cond_53a
-    const/4 v1, 0x0
-
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    goto :goto_524
-
-    :cond_53c
-    move v2, v9
-
-    .line 613
-    goto :goto_52b
-
-    .line 621
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    :sswitch_53e
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 623
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 624
-    .local v1, _arg0:Ljava/lang/String;
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->connectHeadset(Ljava/lang/String;)Z
-
-    move-result v6
-
-    .line 625
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
     .line 626
-    if-eqz v6, :cond_551
+    .local v1, _arg1:I
+    invoke-virtual {p0, v0, v1}, Landroid/bluetooth/IBluetooth$Stub;->setInputDevicePriority(Landroid/bluetooth/BluetoothDevice;I)Z
 
-    move v9, v8
+    move-result v4
 
-    :cond_551
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 631
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v6           #_result:Z
-    :sswitch_556
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 633
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 634
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->disconnectHeadset(Ljava/lang/String;)Z
-
-    move-result v6
-
-    .line 635
-    .restart local v6       #_result:Z
+    .line 627
+    .local v4, _result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 636
-    if-eqz v6, :cond_569
+    .line 628
+    if-eqz v4, :cond_556
 
-    move v9, v8
+    move v6, v7
 
-    :cond_569
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 641
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v6           #_result:Z
-    :sswitch_56e
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 643
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 645
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_58d
-
-    move v2, v8
-
-    .line 646
-    .restart local v2       #_arg1:Z
-    :goto_57e
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->notifyIncomingConnection(Ljava/lang/String;Z)Z
-
-    move-result v6
-
-    .line 647
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 648
-    if-eqz v6, :cond_588
-
-    move v9, v8
-
-    :cond_588
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .end local v2           #_arg1:Z
-    .end local v6           #_result:Z
-    :cond_58d
-    move v2, v9
-
-    .line 645
-    goto :goto_57e
-
-    .line 653
-    .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_58f
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 655
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_5b1
-
-    .line 656
-    sget-object v0, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/bluetooth/BluetoothDevice;
-
-    .line 661
-    .local v1, _arg0:Landroid/bluetooth/BluetoothDevice;
-    :goto_5a2
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->connectInputDevice(Landroid/bluetooth/BluetoothDevice;)Z
-
-    move-result v6
-
-    .line 662
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 663
-    if-eqz v6, :cond_5ac
-
-    move v9, v8
-
-    :cond_5ac
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 659
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v6           #_result:Z
-    :cond_5b1
-    const/4 v1, 0x0
-
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    goto :goto_5a2
-
-    .line 668
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    :sswitch_5b3
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 670
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_5d5
-
-    .line 671
-    sget-object v0, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/bluetooth/BluetoothDevice;
-
-    .line 676
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    :goto_5c6
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->disconnectInputDevice(Landroid/bluetooth/BluetoothDevice;)Z
-
-    move-result v6
-
-    .line 677
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 678
-    if-eqz v6, :cond_5d0
-
-    move v9, v8
-
-    :cond_5d0
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 674
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v6           #_result:Z
-    :cond_5d5
-    const/4 v1, 0x0
-
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    goto :goto_5c6
-
-    .line 683
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    :sswitch_5d7
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 684
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getConnectedInputDevices()Ljava/util/List;
-
-    move-result-object v7
-
-    .line 685
-    .local v7, _result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 686
-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
-
-    goto/16 :goto_9
-
-    .line 691
-    .end local v7           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
-    :sswitch_5e8
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 693
-    invoke-virtual {p2}, Landroid/os/Parcel;->createIntArray()[I
-
-    move-result-object v1
-
-    .line 694
-    .local v1, _arg0:[I
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->getInputDevicesMatchingConnectionStates([I)Ljava/util/List;
-
-    move-result-object v7
-
-    .line 695
-    .restart local v7       #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 696
-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
-
-    goto/16 :goto_9
-
-    .line 701
-    .end local v1           #_arg0:[I
-    .end local v7           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
-    :sswitch_5fd
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 703
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_61c
-
-    .line 704
-    sget-object v0, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/bluetooth/BluetoothDevice;
-
-    .line 709
-    .local v1, _arg0:Landroid/bluetooth/BluetoothDevice;
-    :goto_610
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->getInputDeviceConnectionState(Landroid/bluetooth/BluetoothDevice;)I
-
-    move-result v6
-
-    .line 710
-    .local v6, _result:I
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 711
+    :cond_556
     invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_9
 
-    .line 707
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v6           #_result:I
-    :cond_61c
-    const/4 v1, 0x0
+    .line 622
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    .end local v1           #_arg1:I
+    .end local v4           #_result:Z
+    :cond_55b
+    const/4 v0, 0x0
 
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    goto :goto_610
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    goto :goto_548
 
-    .line 716
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    :sswitch_61e
-    const-string v0, "android.bluetooth.IBluetooth"
+    .line 633
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    :sswitch_55d
+    const-string v6, "android.bluetooth.IBluetooth"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 718
+    .line 635
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v0
+    move-result v6
 
-    if-eqz v0, :cond_644
+    if-eqz v6, :cond_57c
+
+    .line 636
+    sget-object v6, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v6, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/bluetooth/BluetoothDevice;
+
+    .line 641
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    :goto_570
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->getInputDevicePriority(Landroid/bluetooth/BluetoothDevice;)I
+
+    move-result v4
+
+    .line 642
+    .local v4, _result:I
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 643
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 639
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    .end local v4           #_result:I
+    :cond_57c
+    const/4 v0, 0x0
+
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    goto :goto_570
+
+    .line 648
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    :sswitch_57e
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 649
+    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->isTetheringOn()Z
+
+    move-result v4
+
+    .line 650
+    .local v4, _result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 651
+    if-eqz v4, :cond_58d
+
+    move v6, v7
+
+    :cond_58d
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 656
+    .end local v4           #_result:Z
+    :sswitch_592
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 658
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    if-eqz v8, :cond_5a6
+
+    move v0, v7
+
+    .line 659
+    .local v0, _arg0:Z
+    :goto_59e
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->setBluetoothTethering(Z)V
+
+    .line 660
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    goto/16 :goto_9
+
+    .end local v0           #_arg0:Z
+    :cond_5a6
+    move v0, v6
+
+    .line 658
+    goto :goto_59e
+
+    .line 665
+    :sswitch_5a8
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 667
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
+    if-eqz v6, :cond_5c7
+
+    .line 668
+    sget-object v6, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v6, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/bluetooth/BluetoothDevice;
+
+    .line 673
+    .local v0, _arg0:Landroid/bluetooth/BluetoothDevice;
+    :goto_5bb
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->getPanDeviceConnectionState(Landroid/bluetooth/BluetoothDevice;)I
+
+    move-result v4
+
+    .line 674
+    .local v4, _result:I
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 675
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 671
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    .end local v4           #_result:I
+    :cond_5c7
+    const/4 v0, 0x0
+
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    goto :goto_5bb
+
+    .line 680
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    :sswitch_5c9
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 681
+    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getConnectedPanDevices()Ljava/util/List;
+
+    move-result-object v5
+
+    .line 682
+    .restart local v5       #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 683
+    invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
+
+    goto/16 :goto_9
+
+    .line 688
+    .end local v5           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
+    :sswitch_5da
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 690
+    invoke-virtual {p2}, Landroid/os/Parcel;->createIntArray()[I
+
+    move-result-object v0
+
+    .line 691
+    .local v0, _arg0:[I
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->getPanDevicesMatchingConnectionStates([I)Ljava/util/List;
+
+    move-result-object v5
+
+    .line 692
+    .restart local v5       #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 693
+    invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
+
+    goto/16 :goto_9
+
+    .line 698
+    .end local v0           #_arg0:[I
+    .end local v5           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
+    :sswitch_5ef
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 700
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    if-eqz v8, :cond_611
+
+    .line 701
+    sget-object v8, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/bluetooth/BluetoothDevice;
+
+    .line 706
+    .local v0, _arg0:Landroid/bluetooth/BluetoothDevice;
+    :goto_602
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->connectPanDevice(Landroid/bluetooth/BluetoothDevice;)Z
+
+    move-result v4
+
+    .line 707
+    .local v4, _result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 708
+    if-eqz v4, :cond_60c
+
+    move v6, v7
+
+    :cond_60c
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 704
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    .end local v4           #_result:Z
+    :cond_611
+    const/4 v0, 0x0
+
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    goto :goto_602
+
+    .line 713
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    :sswitch_613
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 715
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    if-eqz v8, :cond_635
+
+    .line 716
+    sget-object v8, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/bluetooth/BluetoothDevice;
+
+    .line 721
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    :goto_626
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->disconnectPanDevice(Landroid/bluetooth/BluetoothDevice;)Z
+
+    move-result v4
+
+    .line 722
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 723
+    if-eqz v4, :cond_630
+
+    move v6, v7
+
+    :cond_630
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
 
     .line 719
-    sget-object v0, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    .end local v4           #_result:Z
+    :cond_635
+    const/4 v0, 0x0
 
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    goto :goto_626
+
+    .line 728
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    :sswitch_637
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 730
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    if-eqz v8, :cond_661
+
+    .line 731
+    sget-object v8, Landroid/bluetooth/BluetoothHealthAppConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/bluetooth/BluetoothHealthAppConfiguration;
+
+    .line 737
+    .local v0, _arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    :goto_64a
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v8
+
+    invoke-static {v8}, Landroid/bluetooth/IBluetoothHealthCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/bluetooth/IBluetoothHealthCallback;
 
     move-result-object v1
 
-    check-cast v1, Landroid/bluetooth/BluetoothDevice;
+    .line 738
+    .local v1, _arg1:Landroid/bluetooth/IBluetoothHealthCallback;
+    invoke-virtual {p0, v0, v1}, Landroid/bluetooth/IBluetooth$Stub;->registerAppConfiguration(Landroid/bluetooth/BluetoothHealthAppConfiguration;Landroid/bluetooth/IBluetoothHealthCallback;)Z
 
-    .line 725
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    :goto_631
+    move-result v4
+
+    .line 739
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 740
+    if-eqz v4, :cond_65c
+
+    move v6, v7
+
+    :cond_65c
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 734
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .end local v1           #_arg1:Landroid/bluetooth/IBluetoothHealthCallback;
+    .end local v4           #_result:Z
+    :cond_661
+    const/4 v0, 0x0
+
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    goto :goto_64a
+
+    .line 745
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    :sswitch_663
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 747
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    if-eqz v8, :cond_685
+
+    .line 748
+    sget-object v8, Landroid/bluetooth/BluetoothHealthAppConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/bluetooth/BluetoothHealthAppConfiguration;
+
+    .line 753
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    :goto_676
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->unregisterAppConfiguration(Landroid/bluetooth/BluetoothHealthAppConfiguration;)Z
+
+    move-result v4
+
+    .line 754
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 755
+    if-eqz v4, :cond_680
+
+    move v6, v7
+
+    :cond_680
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 751
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .end local v4           #_result:Z
+    :cond_685
+    const/4 v0, 0x0
+
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    goto :goto_676
+
+    .line 760
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    :sswitch_687
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 762
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    if-eqz v8, :cond_6b7
+
+    .line 763
+    sget-object v8, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/bluetooth/BluetoothDevice;
+
+    .line 769
+    .local v0, _arg0:Landroid/bluetooth/BluetoothDevice;
+    :goto_69a
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    if-eqz v8, :cond_6b9
+
+    .line 770
+    sget-object v8, Landroid/bluetooth/BluetoothHealthAppConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/bluetooth/BluetoothHealthAppConfiguration;
+
+    .line 775
+    .local v1, _arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    :goto_6a8
+    invoke-virtual {p0, v0, v1}, Landroid/bluetooth/IBluetooth$Stub;->connectChannelToSource(Landroid/bluetooth/BluetoothDevice;Landroid/bluetooth/BluetoothHealthAppConfiguration;)Z
+
+    move-result v4
+
+    .line 776
+    .restart local v4       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 777
+    if-eqz v4, :cond_6b2
+
+    move v6, v7
+
+    :cond_6b2
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 766
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    .end local v1           #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .end local v4           #_result:Z
+    :cond_6b7
+    const/4 v0, 0x0
+
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    goto :goto_69a
+
+    .line 773
+    :cond_6b9
+    const/4 v1, 0x0
+
+    .restart local v1       #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    goto :goto_6a8
+
+    .line 782
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    .end local v1           #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    :sswitch_6bb
+    const-string v8, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 784
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    if-eqz v8, :cond_6ef
+
+    .line 785
+    sget-object v8, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/bluetooth/BluetoothDevice;
+
+    .line 791
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    :goto_6ce
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    if-eqz v8, :cond_6f1
+
+    .line 792
+    sget-object v8, Landroid/bluetooth/BluetoothHealthAppConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/bluetooth/BluetoothHealthAppConfiguration;
+
+    .line 798
+    .restart local v1       #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    :goto_6dc
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 726
-    .local v2, _arg1:I
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->setInputDevicePriority(Landroid/bluetooth/BluetoothDevice;I)Z
+    .line 799
+    .restart local v2       #_arg2:I
+    invoke-virtual {p0, v0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->connectChannelToSink(Landroid/bluetooth/BluetoothDevice;Landroid/bluetooth/BluetoothHealthAppConfiguration;I)Z
 
-    move-result v6
+    move-result v4
 
-    .line 727
-    .local v6, _result:Z
+    .line 800
+    .restart local v4       #_result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 728
-    if-eqz v6, :cond_63f
+    .line 801
+    if-eqz v4, :cond_6ea
 
-    move v9, v8
+    move v6, v7
 
-    :cond_63f
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 722
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v2           #_arg1:I
-    .end local v6           #_result:Z
-    :cond_644
-    const/4 v1, 0x0
-
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    goto :goto_631
-
-    .line 733
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    :sswitch_646
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 735
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_665
-
-    .line 736
-    sget-object v0, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/bluetooth/BluetoothDevice;
-
-    .line 741
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    :goto_659
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->getInputDevicePriority(Landroid/bluetooth/BluetoothDevice;)I
-
-    move-result v6
-
-    .line 742
-    .local v6, _result:I
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 743
+    :cond_6ea
     invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 739
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v6           #_result:I
-    :cond_665
-    const/4 v1, 0x0
-
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    goto :goto_659
-
-    .line 748
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    :sswitch_667
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 749
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->isTetheringOn()Z
-
-    move-result v6
-
-    .line 750
-    .local v6, _result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 751
-    if-eqz v6, :cond_676
-
-    move v9, v8
-
-    :cond_676
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 756
-    .end local v6           #_result:Z
-    :sswitch_67b
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 758
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_68f
-
-    move v1, v8
-
-    .line 759
-    .local v1, _arg0:Z
-    :goto_687
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->setBluetoothTethering(Z)V
-
-    .line 760
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    goto/16 :goto_9
-
-    .end local v1           #_arg0:Z
-    :cond_68f
-    move v1, v9
-
-    .line 758
-    goto :goto_687
-
-    .line 765
-    :sswitch_691
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 767
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_6b0
-
-    .line 768
-    sget-object v0, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/bluetooth/BluetoothDevice;
-
-    .line 773
-    .local v1, _arg0:Landroid/bluetooth/BluetoothDevice;
-    :goto_6a4
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->getPanDeviceConnectionState(Landroid/bluetooth/BluetoothDevice;)I
-
-    move-result v6
-
-    .line 774
-    .local v6, _result:I
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 775
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 771
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v6           #_result:I
-    :cond_6b0
-    const/4 v1, 0x0
-
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    goto :goto_6a4
-
-    .line 780
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    :sswitch_6b2
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 781
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getConnectedPanDevices()Ljava/util/List;
-
-    move-result-object v7
-
-    .line 782
-    .restart local v7       #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 783
-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
     goto/16 :goto_9
 
     .line 788
-    .end local v7           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
-    :sswitch_6c3
-    const-string v0, "android.bluetooth.IBluetooth"
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    .end local v1           #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .end local v2           #_arg2:I
+    .end local v4           #_result:Z
+    :cond_6ef
+    const/4 v0, 0x0
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    goto :goto_6ce
 
-    .line 790
-    invoke-virtual {p2}, Landroid/os/Parcel;->createIntArray()[I
+    .line 795
+    :cond_6f1
+    const/4 v1, 0x0
 
-    move-result-object v1
-
-    .line 791
-    .local v1, _arg0:[I
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->getPanDevicesMatchingConnectionStates([I)Ljava/util/List;
-
-    move-result-object v7
-
-    .line 792
-    .restart local v7       #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 793
-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
-
-    goto/16 :goto_9
-
-    .line 798
-    .end local v1           #_arg0:[I
-    .end local v7           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
-    :sswitch_6d8
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 800
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_6fa
-
-    .line 801
-    sget-object v0, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/bluetooth/BluetoothDevice;
+    .restart local v1       #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    goto :goto_6dc
 
     .line 806
-    .local v1, _arg0:Landroid/bluetooth/BluetoothDevice;
-    :goto_6eb
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->connectPanDevice(Landroid/bluetooth/BluetoothDevice;)Z
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    .end local v1           #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    :sswitch_6f3
+    const-string v8, "android.bluetooth.IBluetooth"
 
-    move-result v6
-
-    .line 807
-    .local v6, _result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 808
-    if-eqz v6, :cond_6f5
-
-    move v9, v8
-
-    :cond_6f5
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 804
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v6           #_result:Z
-    :cond_6fa
-    const/4 v1, 0x0
-
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    goto :goto_6eb
-
-    .line 813
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    :sswitch_6fc
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 815
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v0
+    move-result v8
 
-    if-eqz v0, :cond_71e
+    if-eqz v8, :cond_727
 
-    .line 816
-    sget-object v0, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+    .line 809
+    sget-object v8, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/bluetooth/BluetoothDevice;
-
-    .line 821
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    :goto_70f
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->disconnectPanDevice(Landroid/bluetooth/BluetoothDevice;)Z
-
-    move-result v6
-
-    .line 822
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 823
-    if-eqz v6, :cond_719
-
-    move v9, v8
-
-    :cond_719
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 819
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v6           #_result:Z
-    :cond_71e
-    const/4 v1, 0x0
-
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    goto :goto_70f
-
-    .line 828
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    :sswitch_720
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 830
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_74a
-
-    .line 831
-    sget-object v0, Landroid/bluetooth/BluetoothHealthAppConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/bluetooth/BluetoothHealthAppConfiguration;
-
-    .line 837
-    .local v1, _arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    :goto_733
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/bluetooth/IBluetoothHealthCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/bluetooth/IBluetoothHealthCallback;
+    check-cast v0, Landroid/bluetooth/BluetoothDevice;
 
-    move-result-object v2
-
-    .line 838
-    .local v2, _arg1:Landroid/bluetooth/IBluetoothHealthCallback;
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->registerAppConfiguration(Landroid/bluetooth/BluetoothHealthAppConfiguration;Landroid/bluetooth/IBluetoothHealthCallback;)Z
-
-    move-result v6
-
-    .line 839
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 840
-    if-eqz v6, :cond_745
-
-    move v9, v8
-
-    :cond_745
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 834
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    .end local v2           #_arg1:Landroid/bluetooth/IBluetoothHealthCallback;
-    .end local v6           #_result:Z
-    :cond_74a
-    const/4 v1, 0x0
-
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    goto :goto_733
-
-    .line 845
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    :sswitch_74c
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 847
+    .line 815
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    :goto_706
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v0
+    move-result v8
 
-    if-eqz v0, :cond_76e
+    if-eqz v8, :cond_729
 
-    .line 848
-    sget-object v0, Landroid/bluetooth/BluetoothHealthAppConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
+    .line 816
+    sget-object v8, Landroid/bluetooth/BluetoothHealthAppConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/bluetooth/BluetoothHealthAppConfiguration;
 
-    .line 853
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    :goto_75f
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->unregisterAppConfiguration(Landroid/bluetooth/BluetoothHealthAppConfiguration;)Z
+    .line 822
+    .restart local v1       #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    :goto_714
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
+    move-result v2
 
-    .line 854
-    .restart local v6       #_result:Z
+    .line 823
+    .restart local v2       #_arg2:I
+    invoke-virtual {p0, v0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->disconnectChannel(Landroid/bluetooth/BluetoothDevice;Landroid/bluetooth/BluetoothHealthAppConfiguration;I)Z
+
+    move-result v4
+
+    .line 824
+    .restart local v4       #_result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 855
-    if-eqz v6, :cond_769
+    .line 825
+    if-eqz v4, :cond_722
 
-    move v9, v8
+    move v6, v7
 
-    :cond_769
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
+    :cond_722
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_9
 
-    .line 851
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    .end local v6           #_result:Z
-    :cond_76e
+    .line 812
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    .end local v1           #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .end local v2           #_arg2:I
+    .end local v4           #_result:Z
+    :cond_727
+    const/4 v0, 0x0
+
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    goto :goto_706
+
+    .line 819
+    :cond_729
     const/4 v1, 0x0
 
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    goto :goto_75f
+    .restart local v1       #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    goto :goto_714
 
-    .line 860
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    :sswitch_770
-    const-string v0, "android.bluetooth.IBluetooth"
+    .line 830
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    .end local v1           #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    :sswitch_72b
+    const-string v8, "android.bluetooth.IBluetooth"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 862
+    .line 832
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v0
+    move-result v8
 
-    if-eqz v0, :cond_7a0
+    if-eqz v8, :cond_75d
 
-    .line 863
-    sget-object v0, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+    .line 833
+    sget-object v8, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/bluetooth/BluetoothDevice;
+
+    .line 839
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    :goto_73e
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    if-eqz v8, :cond_75f
+
+    .line 840
+    sget-object v8, Landroid/bluetooth/BluetoothHealthAppConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Landroid/bluetooth/BluetoothDevice;
+    check-cast v1, Landroid/bluetooth/BluetoothHealthAppConfiguration;
 
-    .line 869
-    .local v1, _arg0:Landroid/bluetooth/BluetoothDevice;
-    :goto_783
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    .line 845
+    .restart local v1       #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    :goto_74c
+    invoke-virtual {p0, v0, v1}, Landroid/bluetooth/IBluetooth$Stub;->getMainChannelFd(Landroid/bluetooth/BluetoothDevice;Landroid/bluetooth/BluetoothHealthAppConfiguration;)Landroid/os/ParcelFileDescriptor;
 
-    move-result v0
+    move-result-object v4
 
-    if-eqz v0, :cond_7a2
-
-    .line 870
-    sget-object v0, Landroid/bluetooth/BluetoothHealthAppConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/bluetooth/BluetoothHealthAppConfiguration;
-
-    .line 875
-    .local v2, _arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    :goto_791
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->connectChannelToSource(Landroid/bluetooth/BluetoothDevice;Landroid/bluetooth/BluetoothHealthAppConfiguration;)Z
-
-    move-result v6
-
-    .line 876
-    .restart local v6       #_result:Z
+    .line 846
+    .local v4, _result:Landroid/os/ParcelFileDescriptor;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 877
-    if-eqz v6, :cond_79b
+    .line 847
+    if-eqz v4, :cond_761
 
-    move v9, v8
+    .line 848
+    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_79b
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
+    .line 849
+    invoke-virtual {v4, p3, v7}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
+
+    goto/16 :goto_9
+
+    .line 836
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    .end local v1           #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .end local v4           #_result:Landroid/os/ParcelFileDescriptor;
+    :cond_75d
+    const/4 v0, 0x0
+
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    goto :goto_73e
+
+    .line 843
+    :cond_75f
+    const/4 v1, 0x0
+
+    .restart local v1       #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    goto :goto_74c
+
+    .line 852
+    .restart local v4       #_result:Landroid/os/ParcelFileDescriptor;
+    :cond_761
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 858
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    .end local v1           #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
+    .end local v4           #_result:Landroid/os/ParcelFileDescriptor;
+    :sswitch_766
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 859
+    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getConnectedHealthDevices()Ljava/util/List;
+
+    move-result-object v5
+
+    .line 860
+    .restart local v5       #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 861
+    invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
     goto/16 :goto_9
 
     .line 866
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v2           #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    .end local v6           #_result:Z
-    :cond_7a0
-    const/4 v1, 0x0
+    .end local v5           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
+    :sswitch_777
+    const-string v6, "android.bluetooth.IBluetooth"
 
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    goto :goto_783
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 873
-    :cond_7a2
-    const/4 v2, 0x0
-
-    .restart local v2       #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    goto :goto_791
-
-    .line 882
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v2           #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    :sswitch_7a4
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 884
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_7d8
-
-    .line 885
-    sget-object v0, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/bluetooth/BluetoothDevice;
-
-    .line 891
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    :goto_7b7
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_7da
-
-    .line 892
-    sget-object v0, Landroid/bluetooth/BluetoothHealthAppConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/bluetooth/BluetoothHealthAppConfiguration;
-
-    .line 898
-    .restart local v2       #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    :goto_7c5
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    .line 899
-    .restart local v3       #_arg2:I
-    invoke-virtual {p0, v1, v2, v3}, Landroid/bluetooth/IBluetooth$Stub;->connectChannelToSink(Landroid/bluetooth/BluetoothDevice;Landroid/bluetooth/BluetoothHealthAppConfiguration;I)Z
-
-    move-result v6
-
-    .line 900
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 901
-    if-eqz v6, :cond_7d3
-
-    move v9, v8
-
-    :cond_7d3
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 888
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v2           #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    .end local v3           #_arg2:I
-    .end local v6           #_result:Z
-    :cond_7d8
-    const/4 v1, 0x0
-
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    goto :goto_7b7
-
-    .line 895
-    :cond_7da
-    const/4 v2, 0x0
-
-    .restart local v2       #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    goto :goto_7c5
-
-    .line 906
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v2           #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    :sswitch_7dc
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 908
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_810
-
-    .line 909
-    sget-object v0, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/bluetooth/BluetoothDevice;
-
-    .line 915
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    :goto_7ef
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_812
-
-    .line 916
-    sget-object v0, Landroid/bluetooth/BluetoothHealthAppConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/bluetooth/BluetoothHealthAppConfiguration;
-
-    .line 922
-    .restart local v2       #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    :goto_7fd
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    .line 923
-    .restart local v3       #_arg2:I
-    invoke-virtual {p0, v1, v2, v3}, Landroid/bluetooth/IBluetooth$Stub;->disconnectChannel(Landroid/bluetooth/BluetoothDevice;Landroid/bluetooth/BluetoothHealthAppConfiguration;I)Z
-
-    move-result v6
-
-    .line 924
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 925
-    if-eqz v6, :cond_80b
-
-    move v9, v8
-
-    :cond_80b
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 912
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v2           #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    .end local v3           #_arg2:I
-    .end local v6           #_result:Z
-    :cond_810
-    const/4 v1, 0x0
-
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    goto :goto_7ef
-
-    .line 919
-    :cond_812
-    const/4 v2, 0x0
-
-    .restart local v2       #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    goto :goto_7fd
-
-    .line 930
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v2           #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    :sswitch_814
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 932
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_846
-
-    .line 933
-    sget-object v0, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/bluetooth/BluetoothDevice;
-
-    .line 939
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    :goto_827
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_848
-
-    .line 940
-    sget-object v0, Landroid/bluetooth/BluetoothHealthAppConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/bluetooth/BluetoothHealthAppConfiguration;
-
-    .line 945
-    .restart local v2       #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    :goto_835
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->getMainChannelFd(Landroid/bluetooth/BluetoothDevice;Landroid/bluetooth/BluetoothHealthAppConfiguration;)Landroid/os/ParcelFileDescriptor;
-
-    move-result-object v6
-
-    .line 946
-    .local v6, _result:Landroid/os/ParcelFileDescriptor;
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 947
-    if-eqz v6, :cond_84a
-
-    .line 948
-    invoke-virtual {p3, v8}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 949
-    invoke-virtual {v6, p3, v8}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
-
-    goto/16 :goto_9
-
-    .line 936
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v2           #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    .end local v6           #_result:Landroid/os/ParcelFileDescriptor;
-    :cond_846
-    const/4 v1, 0x0
-
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    goto :goto_827
-
-    .line 943
-    :cond_848
-    const/4 v2, 0x0
-
-    .restart local v2       #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    goto :goto_835
-
-    .line 952
-    .restart local v6       #_result:Landroid/os/ParcelFileDescriptor;
-    :cond_84a
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 958
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v2           #_arg1:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    .end local v6           #_result:Landroid/os/ParcelFileDescriptor;
-    :sswitch_84f
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 959
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->getConnectedHealthDevices()Ljava/util/List;
-
-    move-result-object v7
-
-    .line 960
-    .restart local v7       #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 961
-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
-
-    goto/16 :goto_9
-
-    .line 966
-    .end local v7           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
-    :sswitch_860
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 968
+    .line 868
     invoke-virtual {p2}, Landroid/os/Parcel;->createIntArray()[I
-
-    move-result-object v1
-
-    .line 969
-    .local v1, _arg0:[I
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->getHealthDevicesMatchingConnectionStates([I)Ljava/util/List;
-
-    move-result-object v7
-
-    .line 970
-    .restart local v7       #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 971
-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
-
-    goto/16 :goto_9
-
-    .line 976
-    .end local v1           #_arg0:[I
-    .end local v7           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
-    :sswitch_875
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 978
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_894
-
-    .line 979
-    sget-object v0, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/bluetooth/BluetoothDevice;
-
-    .line 984
-    .local v1, _arg0:Landroid/bluetooth/BluetoothDevice;
-    :goto_888
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->getHealthDeviceConnectionState(Landroid/bluetooth/BluetoothDevice;)I
-
-    move-result v6
-
-    .line 985
-    .local v6, _result:I
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 986
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 982
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v6           #_result:I
-    :cond_894
-    const/4 v1, 0x0
-
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    goto :goto_888
-
-    .line 991
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    :sswitch_896
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 993
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_8bd
-
-    .line 994
-    sget-object v0, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/bluetooth/BluetoothDevice;
-
-    .line 1000
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    :goto_8a9
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    .line 1002
-    .local v2, _arg1:I
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    .line 1004
-    .restart local v3       #_arg2:I
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    .line 1005
-    .local v4, _arg3:I
-    invoke-virtual {p0, v1, v2, v3, v4}, Landroid/bluetooth/IBluetooth$Stub;->sendConnectionStateChange(Landroid/bluetooth/BluetoothDevice;III)V
-
-    .line 1006
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    goto/16 :goto_9
-
-    .line 997
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v2           #_arg1:I
-    .end local v3           #_arg2:I
-    .end local v4           #_arg3:I
-    :cond_8bd
-    const/4 v1, 0x0
-
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    goto :goto_8a9
-
-    .line 1011
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    :sswitch_8bf
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 1013
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/bluetooth/IBluetoothCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/bluetooth/IBluetoothCallback;
+    .line 869
+    .local v0, _arg0:[I
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->getHealthDevicesMatchingConnectionStates([I)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v5
 
-    .line 1015
-    .local v1, _arg0:Landroid/bluetooth/IBluetoothCallback;
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    .line 1016
-    .restart local v2       #_arg1:I
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->registerEl2capConnection(Landroid/bluetooth/IBluetoothCallback;I)I
-
-    move-result v6
-
-    .line 1017
-    .restart local v6       #_result:I
+    .line 870
+    .restart local v5       #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 1018
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+    .line 871
+    invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
     goto/16 :goto_9
 
-    .line 1023
-    .end local v1           #_arg0:Landroid/bluetooth/IBluetoothCallback;
-    .end local v2           #_arg1:I
-    .end local v6           #_result:I
-    :sswitch_8dc
-    const-string v0, "android.bluetooth.IBluetooth"
+    .line 876
+    .end local v0           #_arg0:[I
+    .end local v5           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
+    :sswitch_78c
+    const-string v6, "android.bluetooth.IBluetooth"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 1025
+    .line 878
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
+    if-eqz v6, :cond_7ab
+
+    .line 879
+    sget-object v6, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v6, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/bluetooth/BluetoothDevice;
+
+    .line 884
+    .local v0, _arg0:Landroid/bluetooth/BluetoothDevice;
+    :goto_79f
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->getHealthDeviceConnectionState(Landroid/bluetooth/BluetoothDevice;)I
+
+    move-result v4
+
+    .line 885
+    .local v4, _result:I
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 886
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_9
+
+    .line 882
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    .end local v4           #_result:I
+    :cond_7ab
+    const/4 v0, 0x0
+
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    goto :goto_79f
+
+    .line 891
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    :sswitch_7ad
+    const-string v6, "android.bluetooth.IBluetooth"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 893
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
+    if-eqz v6, :cond_7d4
+
+    .line 894
+    sget-object v6, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v6, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/bluetooth/BluetoothDevice;
+
+    .line 900
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    :goto_7c0
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 1026
-    .local v1, _arg0:I
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->deregisterEl2capConnection(I)V
-
-    .line 1027
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    goto/16 :goto_9
-
-    .line 1032
-    .end local v1           #_arg0:I
-    :sswitch_8ed
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 1034
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    .line 1035
-    .restart local v1       #_arg0:I
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->getEffectiveAmpPolicy(I)I
-
-    move-result v6
-
-    .line 1036
-    .restart local v6       #_result:I
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 1037
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 1042
-    .end local v1           #_arg0:I
-    .end local v6           #_result:I
-    :sswitch_902
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 1044
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    .line 1046
-    .restart local v1       #_arg0:I
+    .line 902
+    .local v1, _arg1:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 1047
-    .restart local v2       #_arg1:I
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->setDesiredAmpPolicy(II)Z
-
-    move-result v6
-
-    .line 1048
-    .local v6, _result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 1049
-    if-eqz v6, :cond_919
-
-    move v9, v8
-
-    :cond_919
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 1054
-    .end local v1           #_arg0:I
-    .end local v2           #_arg1:I
-    .end local v6           #_result:Z
-    :sswitch_91e
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 1056
+    .line 904
+    .restart local v2       #_arg2:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v0
+    move-result v3
 
-    if-eqz v0, :cond_932
+    .line 905
+    .local v3, _arg3:I
+    invoke-virtual {p0, v0, v1, v2, v3}, Landroid/bluetooth/IBluetooth$Stub;->sendConnectionStateChange(Landroid/bluetooth/BluetoothDevice;III)V
 
-    move v1, v8
-
-    .line 1057
-    .local v1, _arg0:Z
-    :goto_92a
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetooth$Stub;->setUseWifiForBtTransfers(Z)V
-
-    .line 1058
+    .line 906
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto/16 :goto_9
 
-    .end local v1           #_arg0:Z
-    :cond_932
-    move v1, v9
-
-    .line 1056
-    goto :goto_92a
-
-    .line 1063
-    :sswitch_934
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 1065
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 1067
-    .local v1, _arg0:Ljava/lang/String;
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_95a
-
-    .line 1068
-    sget-object v0, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/os/ParcelUuid;
-
-    .line 1073
-    .local v2, _arg1:Landroid/os/ParcelUuid;
-    :goto_94b
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->getGattServices(Ljava/lang/String;Landroid/os/ParcelUuid;)Z
-
-    move-result v6
-
-    .line 1074
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 1075
-    if-eqz v6, :cond_955
-
-    move v9, v8
-
-    :cond_955
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 1071
-    .end local v2           #_arg1:Landroid/os/ParcelUuid;
-    .end local v6           #_result:Z
-    :cond_95a
-    const/4 v2, 0x0
-
-    .restart local v2       #_arg1:Landroid/os/ParcelUuid;
-    goto :goto_94b
-
-    .line 1080
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:Landroid/os/ParcelUuid;
-    :sswitch_95c
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 1081
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->disconnectSap()V
-
-    .line 1082
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    goto/16 :goto_9
-
-    .line 1087
-    :sswitch_969
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 1088
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->disableFromPowerSaver()Z
-
-    move-result v6
-
-    .line 1089
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 1090
-    if-eqz v6, :cond_978
-
-    move v9, v8
-
-    :cond_978
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 1095
-    .end local v6           #_result:Z
-    :sswitch_97d
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 1096
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->enableFTP()Z
-
-    move-result v6
-
-    .line 1097
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 1098
-    if-eqz v6, :cond_98c
-
-    move v9, v8
-
-    :cond_98c
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 1103
-    .end local v6           #_result:Z
-    :sswitch_991
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 1104
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->disableFTP()Z
-
-    move-result v6
-
-    .line 1105
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 1106
-    if-eqz v6, :cond_9a0
-
-    move v9, v8
-
-    :cond_9a0
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 1111
-    .end local v6           #_result:Z
-    :sswitch_9a5
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 1112
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->enableMAP()Z
-
-    move-result v6
-
-    .line 1113
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 1114
-    if-eqz v6, :cond_9b4
-
-    move v9, v8
-
-    :cond_9b4
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 1119
-    .end local v6           #_result:Z
-    :sswitch_9b9
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 1120
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->disableMAP()Z
-
-    move-result v6
-
-    .line 1121
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 1122
-    if-eqz v6, :cond_9c8
-
-    move v9, v8
-
-    :cond_9c8
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 1127
-    .end local v6           #_result:Z
-    :sswitch_9cd
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 1128
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->enableDUN()Z
-
-    move-result v6
-
-    .line 1129
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 1130
-    if-eqz v6, :cond_9dc
-
-    move v9, v8
-
-    :cond_9dc
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 1135
-    .end local v6           #_result:Z
-    :sswitch_9e1
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 1136
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->disableDUN()Z
-
-    move-result v6
-
-    .line 1137
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 1138
-    if-eqz v6, :cond_9f0
-
-    move v9, v8
-
-    :cond_9f0
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 1143
-    .end local v6           #_result:Z
-    :sswitch_9f5
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 1144
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->isDunSupported()Z
-
-    move-result v6
-
-    .line 1145
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 1146
-    if-eqz v6, :cond_a04
-
-    move v9, v8
-
-    :cond_a04
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 1151
-    .end local v6           #_result:Z
-    :sswitch_a09
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 1152
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->isDunEnabled()Z
-
-    move-result v6
-
-    .line 1153
-    .restart local v6       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 1154
-    if-eqz v6, :cond_a18
-
-    move v9, v8
-
-    :cond_a18
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 1159
-    .end local v6           #_result:Z
-    :sswitch_a1d
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 1160
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->listBondsExt()[Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 1161
-    .local v6, _result:[Ljava/lang/String;
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 1162
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
-
-    goto/16 :goto_9
-
-    .line 1167
-    .end local v6           #_result:[Ljava/lang/String;
-    :sswitch_a2e
-    const-string v0, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 1169
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_a54
-
-    .line 1170
-    sget-object v0, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/bluetooth/BluetoothDevice;
-
-    .line 1176
-    .local v1, _arg0:Landroid/bluetooth/BluetoothDevice;
-    :goto_a41
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    .line 1177
-    .local v2, _arg1:I
-    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetooth$Stub;->isHostPatchRequired(Landroid/bluetooth/BluetoothDevice;I)Z
-
-    move-result v6
-
-    .line 1178
-    .local v6, _result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 1179
-    if-eqz v6, :cond_a4f
-
-    move v9, v8
-
-    :cond_a4f
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_9
-
-    .line 1173
-    .end local v1           #_arg0:Landroid/bluetooth/BluetoothDevice;
-    .end local v2           #_arg1:I
-    .end local v6           #_result:Z
-    :cond_a54
-    const/4 v1, 0x0
-
-    .restart local v1       #_arg0:Landroid/bluetooth/BluetoothDevice;
-    goto :goto_a41
-
-    .line 44
-    :sswitch_data_a56
+    .line 897
+    .end local v0           #_arg0:Landroid/bluetooth/BluetoothDevice;
+    .end local v1           #_arg1:I
+    .end local v2           #_arg2:I
+    .end local v3           #_arg3:I
+    :cond_7d4
+    const/4 v0, 0x0
+
+    .restart local v0       #_arg0:Landroid/bluetooth/BluetoothDevice;
+    goto :goto_7c0
+
+    .line 43
+    :sswitch_data_7d6
     .sparse-switch
         0x1 -> :sswitch_10
-        0x2 -> :sswitch_25
-        0x3 -> :sswitch_48
-        0x4 -> :sswitch_74
-        0x5 -> :sswitch_84
-        0x6 -> :sswitch_98
-        0x7 -> :sswitch_b5
-        0x8 -> :sswitch_c6
-        0x9 -> :sswitch_d7
-        0xa -> :sswitch_e8
-        0xb -> :sswitch_100
-        0xc -> :sswitch_111
-        0xd -> :sswitch_122
-        0xe -> :sswitch_13e
-        0xf -> :sswitch_14f
-        0x10 -> :sswitch_167
-        0x11 -> :sswitch_17b
-        0x12 -> :sswitch_18f
-        0x13 -> :sswitch_1a3
-        0x14 -> :sswitch_1b4
-        0x15 -> :sswitch_1c5
-        0x16 -> :sswitch_1da
-        0x17 -> :sswitch_203
-        0x18 -> :sswitch_21b
-        0x19 -> :sswitch_23b
-        0x1a -> :sswitch_253
-        0x1b -> :sswitch_26b
-        0x1c -> :sswitch_27c
-        0x1d -> :sswitch_291
-        0x1e -> :sswitch_2b1
-        0x1f -> :sswitch_2cd
-        0x20 -> :sswitch_2f6
-        0x21 -> :sswitch_30b
-        0x22 -> :sswitch_320
-        0x23 -> :sswitch_33c
-        0x24 -> :sswitch_351
-        0x25 -> :sswitch_366
-        0x26 -> :sswitch_396
-        0x27 -> :sswitch_3bb
-        0x28 -> :sswitch_3e0
-        0x29 -> :sswitch_3f9
-        0x2a -> :sswitch_415
-        0x2b -> :sswitch_431
-        0x2c -> :sswitch_452
-        0x2d -> :sswitch_46a
-        0x2e -> :sswitch_482
-        0x2f -> :sswitch_4a3
-        0x30 -> :sswitch_4bb
-        0x31 -> :sswitch_4d3
-        0x32 -> :sswitch_500
-        0x33 -> :sswitch_511
-        0x34 -> :sswitch_53e
-        0x35 -> :sswitch_556
-        0x36 -> :sswitch_56e
-        0x37 -> :sswitch_58f
-        0x38 -> :sswitch_5b3
-        0x39 -> :sswitch_5d7
-        0x3a -> :sswitch_5e8
-        0x3b -> :sswitch_5fd
-        0x3c -> :sswitch_61e
-        0x3d -> :sswitch_646
-        0x3e -> :sswitch_667
-        0x3f -> :sswitch_67b
-        0x40 -> :sswitch_691
-        0x41 -> :sswitch_6b2
-        0x42 -> :sswitch_6c3
-        0x43 -> :sswitch_6d8
-        0x44 -> :sswitch_6fc
-        0x45 -> :sswitch_720
-        0x46 -> :sswitch_74c
-        0x47 -> :sswitch_770
-        0x48 -> :sswitch_7a4
-        0x49 -> :sswitch_7dc
-        0x4a -> :sswitch_814
-        0x4b -> :sswitch_84f
-        0x4c -> :sswitch_860
-        0x4d -> :sswitch_875
-        0x4e -> :sswitch_896
-        0x4f -> :sswitch_8bf
-        0x50 -> :sswitch_8dc
-        0x51 -> :sswitch_8ed
-        0x52 -> :sswitch_902
-        0x53 -> :sswitch_91e
-        0x54 -> :sswitch_934
-        0x55 -> :sswitch_95c
-        0x56 -> :sswitch_969
-        0x57 -> :sswitch_97d
-        0x58 -> :sswitch_991
-        0x59 -> :sswitch_9a5
-        0x5a -> :sswitch_9b9
-        0x5b -> :sswitch_9cd
-        0x5c -> :sswitch_9e1
-        0x5d -> :sswitch_9f5
-        0x5e -> :sswitch_a09
-        0x5f -> :sswitch_a1d
-        0x60 -> :sswitch_a2e
+        0x2 -> :sswitch_23
+        0x3 -> :sswitch_33
+        0x4 -> :sswitch_46
+        0x5 -> :sswitch_62
+        0x6 -> :sswitch_72
+        0x7 -> :sswitch_82
+        0x8 -> :sswitch_9a
+        0x9 -> :sswitch_ab
+        0xa -> :sswitch_bc
+        0xb -> :sswitch_d8
+        0xc -> :sswitch_e9
+        0xd -> :sswitch_101
+        0xe -> :sswitch_115
+        0xf -> :sswitch_129
+        0x10 -> :sswitch_13d
+        0x11 -> :sswitch_14e
+        0x12 -> :sswitch_15f
+        0x13 -> :sswitch_174
+        0x14 -> :sswitch_19d
+        0x15 -> :sswitch_1b5
+        0x16 -> :sswitch_1d5
+        0x17 -> :sswitch_1ed
+        0x18 -> :sswitch_205
+        0x19 -> :sswitch_216
+        0x1a -> :sswitch_22b
+        0x1b -> :sswitch_24b
+        0x1c -> :sswitch_260
+        0x1d -> :sswitch_275
+        0x1e -> :sswitch_291
+        0x1f -> :sswitch_2a6
+        0x20 -> :sswitch_2bb
+        0x21 -> :sswitch_2eb
+        0x22 -> :sswitch_310
+        0x23 -> :sswitch_32c
+        0x24 -> :sswitch_348
+        0x25 -> :sswitch_369
+        0x26 -> :sswitch_381
+        0x27 -> :sswitch_399
+        0x28 -> :sswitch_3ba
+        0x29 -> :sswitch_3d2
+        0x2a -> :sswitch_3ea
+        0x2b -> :sswitch_417
+        0x2c -> :sswitch_428
+        0x2d -> :sswitch_455
+        0x2e -> :sswitch_46d
+        0x2f -> :sswitch_485
+        0x30 -> :sswitch_4a6
+        0x31 -> :sswitch_4ca
+        0x32 -> :sswitch_4ee
+        0x33 -> :sswitch_4ff
+        0x34 -> :sswitch_514
+        0x35 -> :sswitch_535
+        0x36 -> :sswitch_55d
+        0x37 -> :sswitch_57e
+        0x38 -> :sswitch_592
+        0x39 -> :sswitch_5a8
+        0x3a -> :sswitch_5c9
+        0x3b -> :sswitch_5da
+        0x3c -> :sswitch_5ef
+        0x3d -> :sswitch_613
+        0x3e -> :sswitch_637
+        0x3f -> :sswitch_663
+        0x40 -> :sswitch_687
+        0x41 -> :sswitch_6bb
+        0x42 -> :sswitch_6f3
+        0x43 -> :sswitch_72b
+        0x44 -> :sswitch_766
+        0x45 -> :sswitch_777
+        0x46 -> :sswitch_78c
+        0x47 -> :sswitch_7ad
         0x5f4e5446 -> :sswitch_a
     .end sparse-switch
 .end method

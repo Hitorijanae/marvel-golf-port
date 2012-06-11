@@ -266,51 +266,51 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_1d
 
     .line 493
-    const-string/jumbo v0, "layout_width"
+    const-string v0, "layout_width"
 
     invoke-virtual {p1, p2, v0}, Landroid/content/res/TypedArray;->getLayoutDimension(ILjava/lang/String;)I
 
     move-result v0
 
-    iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v0, p0, Landroid/widget/TableRow$LayoutParams;->width:I
 
     .line 499
-    :goto_f
+    :goto_e
     invoke-virtual {p1, p3}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_21
 
     .line 500
-    const-string/jumbo v0, "layout_height"
+    const-string v0, "layout_height"
 
     invoke-virtual {p1, p3, v0}, Landroid/content/res/TypedArray;->getLayoutDimension(ILjava/lang/String;)I
 
     move-result v0
 
-    iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v0, p0, Landroid/widget/TableRow$LayoutParams;->height:I
 
     .line 504
-    :goto_1e
+    :goto_1c
     return-void
 
     .line 495
-    :cond_1f
+    :cond_1d
     const/4 v0, -0x1
 
-    iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v0, p0, Landroid/widget/TableRow$LayoutParams;->width:I
 
-    goto :goto_f
+    goto :goto_e
 
     .line 502
-    :cond_23
+    :cond_21
     const/4 v0, -0x2
 
-    iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v0, p0, Landroid/widget/TableRow$LayoutParams;->height:I
 
-    goto :goto_1e
+    goto :goto_1c
 .end method

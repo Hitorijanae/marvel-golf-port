@@ -27,8 +27,6 @@
 
 .field public inMutable:Z
 
-.field public inNativeAlloc:Z
-
 .field public inPreferQualityOverSpeed:Z
 
 .field public inPreferredConfig:Landroid/graphics/Bitmap$Config;
@@ -45,10 +43,6 @@
 
 .field public inTempStorage:[B
 
-.field private isPreloading:Z
-
-.field private isRestorable:Z
-
 .field public mCancel:Z
 
 .field public outHeight:I
@@ -60,72 +54,29 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 4
+    .registers 2
 
     .prologue
-    const/4 v2, 0x0
-
-    .line 53
+    .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 120
+    .line 104
     sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     iput-object v0, p0, Landroid/graphics/BitmapFactory$Options;->inPreferredConfig:Landroid/graphics/Bitmap$Config;
 
-    .line 267
-    iput-boolean v2, p0, Landroid/graphics/BitmapFactory$Options;->isPreloading:Z
+    .line 41
+    const/4 v0, 0x0
 
-    .line 273
-    iput-boolean v2, p0, Landroid/graphics/BitmapFactory$Options;->isRestorable:Z
+    iput-boolean v0, p0, Landroid/graphics/BitmapFactory$Options;->inDither:Z
 
-    .line 54
-    const/16 v0, 0x62
-
-    sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    if-ne v0, v1, :cond_16
-
-    .line 55
-    sget-object v0, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;
-
-    iput-object v0, p0, Landroid/graphics/BitmapFactory$Options;->inPreferredConfig:Landroid/graphics/Bitmap$Config;
-
-    .line 57
-    :cond_16
-    iput-boolean v2, p0, Landroid/graphics/BitmapFactory$Options;->inDither:Z
-
-    .line 58
+    .line 42
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/graphics/BitmapFactory$Options;->inScaled:Z
 
-    .line 59
+    .line 43
     return-void
-.end method
-
-.method static synthetic access$002(Landroid/graphics/BitmapFactory$Options;Z)Z
-    .registers 2
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 48
-    iput-boolean p1, p0, Landroid/graphics/BitmapFactory$Options;->isRestorable:Z
-
-    return p1
-.end method
-
-.method static synthetic access$102(Landroid/graphics/BitmapFactory$Options;Z)Z
-    .registers 2
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 48
-    iput-boolean p1, p0, Landroid/graphics/BitmapFactory$Options;->isPreloading:Z
-
-    return p1
 .end method
 
 .method private native requestCancel()V
@@ -137,14 +88,14 @@
     .registers 2
 
     .prologue
-    .line 321
+    .line 278
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/graphics/BitmapFactory$Options;->mCancel:Z
 
-    .line 322
+    .line 279
     invoke-direct {p0}, Landroid/graphics/BitmapFactory$Options;->requestCancel()V
 
-    .line 323
+    .line 280
     return-void
 .end method

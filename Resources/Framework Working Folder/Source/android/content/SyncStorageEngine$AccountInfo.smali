@@ -36,19 +36,19 @@
     .parameter "account"
 
     .prologue
-    .line 178
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 169
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 175
+    .line 166
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Landroid/content/SyncStorageEngine$AccountInfo;->authorities:Ljava/util/HashMap;
 
-    .line 179
+    .line 170
     iput-object p1, p0, Landroid/content/SyncStorageEngine$AccountInfo;->account:Landroid/accounts/Account;
 
-    .line 180
+    .line 171
     return-void
 .end method

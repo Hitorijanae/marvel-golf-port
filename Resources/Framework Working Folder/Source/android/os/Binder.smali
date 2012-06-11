@@ -26,7 +26,7 @@
 
     .prologue
     .line 146
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 147
     invoke-direct {p0}, Landroid/os/Binder;->init()V
@@ -397,7 +397,7 @@
     :try_start_24
     invoke-virtual {v1}, Landroid/os/ParcelFileDescriptor;->close()V
     :try_end_27
-    .catch Ljava/io/IOException; {:try_start_24 .. :try_end_27} :catch_3a
+    .catch Ljava/io/IOException; {:try_start_24 .. :try_end_27} :catch_38
 
     .line 233
     :cond_27
@@ -417,9 +417,9 @@
     :try_start_2e
     invoke-virtual {v1}, Landroid/os/ParcelFileDescriptor;->close()V
     :try_end_31
-    .catch Ljava/io/IOException; {:try_start_2e .. :try_end_31} :catch_38
+    .catch Ljava/io/IOException; {:try_start_2e .. :try_end_31} :catch_3a
 
-    .line 225
+    .line 229
     :goto_31
     throw v2
 
@@ -443,12 +443,12 @@
     :catch_38
     move-exception v3
 
-    goto :goto_31
+    goto :goto_27
 
     :catch_3a
     move-exception v3
 
-    goto :goto_27
+    goto :goto_31
 .end method
 
 .method public pingBinder()Z

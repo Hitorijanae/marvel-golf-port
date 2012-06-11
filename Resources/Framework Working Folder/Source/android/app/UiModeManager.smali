@@ -2,34 +2,19 @@
 .super Ljava/lang/Object;
 .source "UiModeManager.java"
 
-# interfaces
-.implements Landroid/app/HtcIfUiModeManager;
-
 
 # static fields
-.field public static ACTION_DOCKMODE_SENSE40:Ljava/lang/String; = null
-
 .field public static ACTION_ENTER_CAR_MODE:Ljava/lang/String; = null
 
 .field public static ACTION_ENTER_DESK_MODE:Ljava/lang/String; = null
-
-.field public static ACTION_ENTER_DMB_MODE:Ljava/lang/String; = null
 
 .field public static ACTION_EXIT_CAR_MODE:Ljava/lang/String; = null
 
 .field public static ACTION_EXIT_DESK_MODE:Ljava/lang/String; = null
 
-.field public static ACTION_EXIT_DMB_MODE:Ljava/lang/String; = null
-
 .field public static final DISABLE_CAR_MODE_GO_HOME:I = 0x1
 
 .field public static final ENABLE_CAR_MODE_GO_CAR_HOME:I = 0x1
-
-.field public static final EVENT_TYPE_DOCKED:I = 0x0
-
-.field public static EVENT_TYPE_DOCK_MODE_SENSE40:Ljava/lang/String; = null
-
-.field public static final EVENT_TYPE_UNDOCKED:I = 0x1
 
 .field public static final MODE_NIGHT_AUTO:I = 0x0
 
@@ -49,45 +34,25 @@
     .registers 1
 
     .prologue
-    .line 68
+    .line 66
     const-string v0, "android.app.action.ENTER_CAR_MODE"
 
     sput-object v0, Landroid/app/UiModeManager;->ACTION_ENTER_CAR_MODE:Ljava/lang/String;
 
-    .line 75
+    .line 73
     const-string v0, "android.app.action.EXIT_CAR_MODE"
 
     sput-object v0, Landroid/app/UiModeManager;->ACTION_EXIT_CAR_MODE:Ljava/lang/String;
 
-    .line 89
+    .line 87
     const-string v0, "android.app.action.ENTER_DESK_MODE"
 
     sput-object v0, Landroid/app/UiModeManager;->ACTION_ENTER_DESK_MODE:Ljava/lang/String;
 
-    .line 96
+    .line 94
     const-string v0, "android.app.action.EXIT_DESK_MODE"
 
     sput-object v0, Landroid/app/UiModeManager;->ACTION_EXIT_DESK_MODE:Ljava/lang/String;
-
-    .line 110
-    const-string v0, "android.app.action.ENTER_DMB_MODE"
-
-    sput-object v0, Landroid/app/UiModeManager;->ACTION_ENTER_DMB_MODE:Ljava/lang/String;
-
-    .line 117
-    const-string v0, "android.app.action.EXIT_DMB_MODE"
-
-    sput-object v0, Landroid/app/UiModeManager;->ACTION_EXIT_DMB_MODE:Ljava/lang/String;
-
-    .line 127
-    const-string v0, "com.htc.dockmode.DESK_DOCK_EVENT"
-
-    sput-object v0, Landroid/app/UiModeManager;->ACTION_DOCKMODE_SENSE40:Ljava/lang/String;
-
-    .line 134
-    const-string v0, "event_type"
-
-    sput-object v0, Landroid/app/UiModeManager;->EVENT_TYPE_DOCK_MODE_SENSE40:Ljava/lang/String;
 
     return-void
 .end method
@@ -96,10 +61,10 @@
     .registers 2
 
     .prologue
-    .line 165
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 113
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 166
+    .line 114
     const-string/jumbo v0, "uimode"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -112,7 +77,7 @@
 
     iput-object v0, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
-    .line 168
+    .line 116
     return-void
 .end method
 
@@ -123,12 +88,12 @@
     .parameter "flags"
 
     .prologue
-    .line 237
+    .line 157
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
     if-eqz v1, :cond_9
 
-    .line 239
+    .line 159
     :try_start_4
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
@@ -136,58 +101,20 @@
     :try_end_9
     .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_9} :catch_a
 
-    .line 244
+    .line 164
     :cond_9
     :goto_9
     return-void
 
-    .line 240
+    .line 160
     :catch_a
     move-exception v0
 
-    .line 241
+    .line 161
     .local v0, e:Landroid/os/RemoteException;
     const-string v1, "UiModeManager"
 
     const-string v2, "disableCarMode: RemoteException"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_9
-.end method
-
-.method public disableDeskMode(I)V
-    .registers 5
-    .parameter "flags"
-
-    .prologue
-    .line 262
-    iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
-
-    if-eqz v1, :cond_9
-
-    .line 264
-    :try_start_4
-    iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
-
-    invoke-interface {v1, p1}, Landroid/app/IUiModeManager;->disableDeskMode(I)V
-    :try_end_9
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_9} :catch_a
-
-    .line 269
-    :cond_9
-    :goto_9
-    return-void
-
-    .line 265
-    :catch_a
-    move-exception v0
-
-    .line 266
-    .local v0, e:Landroid/os/RemoteException;
-    const-string v1, "UiModeManager"
-
-    const-string v2, "disableDeskMode: RemoteException"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -199,12 +126,12 @@
     .parameter "flags"
 
     .prologue
-    .line 186
+    .line 134
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
     if-eqz v1, :cond_9
 
-    .line 188
+    .line 136
     :try_start_4
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
@@ -212,16 +139,16 @@
     :try_end_9
     .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_9} :catch_a
 
-    .line 193
+    .line 141
     :cond_9
     :goto_9
     return-void
 
-    .line 189
+    .line 137
     :catch_a
     move-exception v0
 
-    .line 190
+    .line 138
     .local v0, e:Landroid/os/RemoteException;
     const-string v1, "UiModeManager"
 
@@ -232,54 +159,16 @@
     goto :goto_9
 .end method
 
-.method public enableDeskMode(I)V
-    .registers 5
-    .parameter "flags"
-
-    .prologue
-    .line 213
-    iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
-
-    if-eqz v1, :cond_9
-
-    .line 215
-    :try_start_4
-    iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
-
-    invoke-interface {v1, p1}, Landroid/app/IUiModeManager;->enableDeskMode(I)V
-    :try_end_9
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_9} :catch_a
-
-    .line 220
-    :cond_9
-    :goto_9
-    return-void
-
-    .line 216
-    :catch_a
-    move-exception v0
-
-    .line 217
-    .local v0, e:Landroid/os/RemoteException;
-    const-string v1, "UiModeManager"
-
-    const-string v2, "disableDeskMode: RemoteException"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_9
-.end method
-
 .method public getCurrentModeType()I
     .registers 4
 
     .prologue
-    .line 296
+    .line 174
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
     if-eqz v1, :cond_13
 
-    .line 298
+    .line 176
     :try_start_4
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
@@ -289,15 +178,15 @@
 
     move-result v1
 
-    .line 303
+    .line 181
     :goto_a
     return v1
 
-    .line 299
+    .line 177
     :catch_b
     move-exception v0
 
-    .line 300
+    .line 178
     .local v0, e:Landroid/os/RemoteException;
     const-string v1, "UiModeManager"
 
@@ -305,53 +194,10 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 303
+    .line 181
     .end local v0           #e:Landroid/os/RemoteException;
     :cond_13
     const/4 v1, 0x1
-
-    goto :goto_a
-.end method
-
-.method public getDockState()I
-    .registers 4
-
-    .prologue
-    .line 277
-    iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
-
-    if-eqz v1, :cond_13
-
-    .line 279
-    :try_start_4
-    iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
-
-    invoke-interface {v1}, Landroid/app/IUiModeManager;->getDockState()I
-    :try_end_9
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_9} :catch_b
-
-    move-result v1
-
-    .line 284
-    :goto_a
-    return v1
-
-    .line 280
-    :catch_b
-    move-exception v0
-
-    .line 281
-    .local v0, e:Landroid/os/RemoteException;
-    const-string v1, "UiModeManager"
-
-    const-string v2, "disableDeskMode: RemoteException"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 284
-    .end local v0           #e:Landroid/os/RemoteException;
-    :cond_13
-    const/4 v1, 0x0
 
     goto :goto_a
 .end method
@@ -360,12 +206,12 @@
     .registers 4
 
     .prologue
-    .line 337
+    .line 215
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
     if-eqz v1, :cond_13
 
-    .line 339
+    .line 217
     :try_start_4
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
@@ -375,15 +221,15 @@
 
     move-result v1
 
-    .line 344
+    .line 222
     :goto_a
     return v1
 
-    .line 340
+    .line 218
     :catch_b
     move-exception v0
 
-    .line 341
+    .line 219
     .local v0, e:Landroid/os/RemoteException;
     const-string v1, "UiModeManager"
 
@@ -391,7 +237,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 344
+    .line 222
     .end local v0           #e:Landroid/os/RemoteException;
     :cond_13
     const/4 v1, -0x1
@@ -404,12 +250,12 @@
     .parameter "mode"
 
     .prologue
-    .line 321
+    .line 199
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
     if-eqz v1, :cond_9
 
-    .line 323
+    .line 201
     :try_start_4
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
@@ -417,16 +263,16 @@
     :try_end_9
     .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_9} :catch_a
 
-    .line 328
+    .line 206
     :cond_9
     :goto_9
     return-void
 
-    .line 324
+    .line 202
     :catch_a
     move-exception v0
 
-    .line 325
+    .line 203
     .local v0, e:Landroid/os/RemoteException;
     const-string v1, "UiModeManager"
 

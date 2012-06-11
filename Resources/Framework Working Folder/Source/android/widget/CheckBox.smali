@@ -69,9 +69,9 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/CheckBox;->mContext:Landroid/content/Context;
 
-    const v2, 0x1040497
+    const v2, 0x104049f
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -89,9 +89,9 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/CheckBox;->mContext:Landroid/content/Context;
 
-    const v2, 0x1040498
+    const v2, 0x10404a0
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -29,18 +29,18 @@
     .parameter "callback"
 
     .prologue
-    .line 1743
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 1617
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1744
+    .line 1618
     iput-object p1, p0, Landroid/app/Instrumentation$Idler;->mCallback:Ljava/lang/Runnable;
 
-    .line 1745
+    .line 1619
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/app/Instrumentation$Idler;->mIdle:Z
 
-    .line 1746
+    .line 1620
     return-void
 .end method
 
@@ -50,38 +50,38 @@
     .registers 2
 
     .prologue
-    .line 1749
+    .line 1623
     iget-object v0, p0, Landroid/app/Instrumentation$Idler;->mCallback:Ljava/lang/Runnable;
 
     if-eqz v0, :cond_9
 
-    .line 1750
+    .line 1624
     iget-object v0, p0, Landroid/app/Instrumentation$Idler;->mCallback:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 1752
+    .line 1626
     :cond_9
     monitor-enter p0
 
-    .line 1753
+    .line 1627
     const/4 v0, 0x1
 
     :try_start_b
     iput-boolean v0, p0, Landroid/app/Instrumentation$Idler;->mIdle:Z
 
-    .line 1754
+    .line 1628
     invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
 
-    .line 1755
+    .line 1629
     monitor-exit p0
 
-    .line 1756
+    .line 1630
     const/4 v0, 0x0
 
     return v0
 
-    .line 1755
+    .line 1629
     :catchall_13
     move-exception v0
 
@@ -96,10 +96,10 @@
     .registers 2
 
     .prologue
-    .line 1760
+    .line 1634
     monitor-enter p0
 
-    .line 1761
+    .line 1635
     :goto_1
     :try_start_1
     iget-boolean v0, p0, Landroid/app/Instrumentation$Idler;->mIdle:Z
@@ -108,7 +108,7 @@
 
     if-nez v0, :cond_b
 
-    .line 1763
+    .line 1637
     :try_start_5
     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
     :try_end_8
@@ -117,21 +117,21 @@
 
     goto :goto_1
 
-    .line 1764
+    .line 1638
     :catch_9
     move-exception v0
 
     goto :goto_1
 
-    .line 1767
+    .line 1641
     :cond_b
     :try_start_b
     monitor-exit p0
 
-    .line 1768
+    .line 1642
     return-void
 
-    .line 1767
+    .line 1641
     :catchall_d
     move-exception v0
 

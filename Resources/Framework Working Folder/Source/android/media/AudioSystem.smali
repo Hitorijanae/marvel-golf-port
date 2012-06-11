@@ -18,23 +18,23 @@
 
 .field public static final AUDIO_STATUS_SERVER_DIED:I = 0x64
 
-.field public static final DEVICE_IN_AMBIENT:I = 0x200000
+.field public static final DEVICE_IN_AMBIENT:I = 0x20000
 
-.field public static final DEVICE_IN_AUX_DIGITAL:I = 0x8000000
+.field public static final DEVICE_IN_AUX_DIGITAL:I = 0x800000
 
-.field public static final DEVICE_IN_BLUETOOTH_SCO_HEADSET:I = 0x2000000
+.field public static final DEVICE_IN_BLUETOOTH_SCO_HEADSET:I = 0x200000
 
-.field public static final DEVICE_IN_BUILTIN_MIC1:I = 0x400000
+.field public static final DEVICE_IN_BUILTIN_MIC1:I = 0x40000
 
-.field public static final DEVICE_IN_BUILTIN_MIC2:I = 0x800000
+.field public static final DEVICE_IN_BUILTIN_MIC2:I = 0x80000
 
-.field public static final DEVICE_IN_COMMUNICATION:I = 0x100000
+.field public static final DEVICE_IN_COMMUNICATION:I = 0x10000
 
 .field public static final DEVICE_IN_DEFAULT:I = -0x80000000
 
-.field public static final DEVICE_IN_MIC_ARRAY:I = 0x1000000
+.field public static final DEVICE_IN_MIC_ARRAY:I = 0x100000
 
-.field public static final DEVICE_IN_WIRED_HEADSET:I = 0x4000000
+.field public static final DEVICE_IN_WIRED_HEADSET:I = 0x400000
 
 .field public static final DEVICE_OUT_ANLG_DOCK_HEADSET:I = 0x800
 
@@ -52,15 +52,11 @@
 
 .field public static final DEVICE_OUT_BLUETOOTH_SCO_HEADSET:I = 0x20
 
-.field public static final DEVICE_OUT_DEFAULT:I = 0x80000
+.field public static final DEVICE_OUT_DEFAULT:I = 0x8000
 
 .field public static final DEVICE_OUT_DGTL_DOCK_HEADSET:I = 0x1000
 
 .field public static final DEVICE_OUT_EARPIECE:I = 0x1
-
-.field public static final DEVICE_OUT_FM:I = 0x2000
-
-.field public static final DEVICE_OUT_FM_TX:I = 0x10000
 
 .field public static final DEVICE_OUT_SPEAKER:I = 0x2
 
@@ -124,7 +120,7 @@
 
 .field public static final NUM_STREAMS:I = 0x5
 
-.field private static final NUM_STREAM_TYPES:I = 0xb
+.field private static final NUM_STREAM_TYPES:I = 0xa
 
 .field public static final PHONE_STATE_INCALL:I = 0x2
 
@@ -173,8 +169,6 @@
 
 .field public static final STREAM_DTMF:I = 0x8
 
-.field public static final STREAM_FM:I = 0xa
-
 .field public static final STREAM_MUSIC:I = 0x3
 
 .field public static final STREAM_NOTIFICATION:I = 0x5
@@ -198,7 +192,7 @@
 
     .prologue
     .line 28
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -208,41 +202,41 @@
     .parameter "error"
 
     .prologue
-    .line 179
+    .line 175
     const/4 v0, 0x0
 
-    .line 180
+    .line 176
     .local v0, errorCallback:Landroid/media/AudioSystem$ErrorCallback;
     const-class v2, Landroid/media/AudioSystem;
 
     monitor-enter v2
 
-    .line 181
+    .line 177
     :try_start_4
     sget-object v1, Landroid/media/AudioSystem;->mErrorCallback:Landroid/media/AudioSystem$ErrorCallback;
 
     if-eqz v1, :cond_a
 
-    .line 182
+    .line 178
     sget-object v0, Landroid/media/AudioSystem;->mErrorCallback:Landroid/media/AudioSystem$ErrorCallback;
 
-    .line 184
+    .line 180
     :cond_a
     monitor-exit v2
     :try_end_b
     .catchall {:try_start_4 .. :try_end_b} :catchall_11
 
-    .line 185
+    .line 181
     if-eqz v0, :cond_10
 
-    .line 186
+    .line 182
     invoke-interface {v0, p0}, Landroid/media/AudioSystem$ErrorCallback;->onError(I)V
 
-    .line 188
+    .line 184
     :cond_10
     return-void
 
-    .line 184
+    .line 180
     :catchall_11
     move-exception v1
 
@@ -267,8 +261,8 @@
     .registers 1
 
     .prologue
-    .line 66
-    const/16 v0, 0xb
+    .line 62
+    const/16 v0, 0xa
 
     return v0
 .end method
@@ -299,27 +293,27 @@
     .parameter "cb"
 
     .prologue
-    .line 167
+    .line 163
     const-class v1, Landroid/media/AudioSystem;
 
     monitor-enter v1
 
-    .line 168
+    .line 164
     :try_start_3
     sput-object p0, Landroid/media/AudioSystem;->mErrorCallback:Landroid/media/AudioSystem$ErrorCallback;
 
-    .line 169
+    .line 165
     monitor-exit v1
     :try_end_6
     .catchall {:try_start_3 .. :try_end_6} :catchall_a
 
-    .line 174
+    .line 170
     invoke-static {}, Landroid/media/AudioSystem;->isMicrophoneMuted()Z
 
-    .line 175
+    .line 171
     return-void
 
-    .line 169
+    .line 165
     :catchall_a
     move-exception v0
 

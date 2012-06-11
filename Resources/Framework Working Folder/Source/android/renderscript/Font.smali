@@ -61,7 +61,7 @@
 
     aput-object v1, v0, v4
 
-    const-string/jumbo v1, "helvetica"
+    const-string v1, "helvetica"
 
     aput-object v1, v0, v5
 

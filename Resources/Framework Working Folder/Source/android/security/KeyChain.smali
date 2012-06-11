@@ -44,7 +44,7 @@
 
     .prologue
     .line 82
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 382
     return-void
@@ -194,7 +194,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/IBinder;)Landroid/content/Intent;
 
     .line 259
-    const-string/jumbo v1, "host"
+    const-string v1, "host"
 
     invoke-virtual {v0, v1, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -397,7 +397,6 @@
     .line 349
     invoke-virtual {v6}, Landroid/security/KeyChain$KeyChainConnection;->close()V
 
-    .line 342
     return-object v9
 
     .line 336
@@ -526,7 +525,6 @@
     .line 304
     invoke-virtual {v1}, Landroid/security/KeyChain$KeyChainConnection;->close()V
 
-    .line 297
     return-object v4
 
     .line 298

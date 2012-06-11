@@ -228,7 +228,7 @@
 
     const/4 v1, 0x5
 
-    const-string/jumbo v2, "location"
+    const-string v2, "location"
 
     aput-object v2, v0, v1
 
@@ -276,7 +276,7 @@
 
     const/16 v1, 0xd
 
-    const-string/jumbo v2, "last-modified"
+    const-string v2, "last-modified"
 
     aput-object v2, v0, v1
 
@@ -322,7 +322,7 @@
     const/4 v2, 0x4
 
     .line 154
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 125
     new-instance v0, Ljava/util/ArrayList;
@@ -805,7 +805,7 @@
 
     move-result v5
 
-    sparse-switch v5, :sswitch_data_1da
+    sparse-switch v5, :sswitch_data_1d6
 
     .line 306
     iget-object v5, p0, Landroid/net/http/Headers;->mExtraHeaderNames:Ljava/util/ArrayList;
@@ -855,13 +855,13 @@
 
     .line 186
     .local v1, len:I
-    const-string/jumbo v5, "identity"
+    const-string v5, "identity"
 
     invoke-virtual {v5, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_5e
+    if-eqz v5, :cond_5d
 
     .line 187
     iput-wide v9, p0, Landroid/net/http/Headers;->transferEncoding:J
@@ -869,8 +869,8 @@
     goto :goto_e
 
     .line 188
-    :cond_5e
-    if-lez v1, :cond_75
+    :cond_5d
+    if-lez v1, :cond_74
 
     const-string v5, "chunked"
 
@@ -886,7 +886,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_75
+    if-eqz v5, :cond_74
 
     .line 191
     const-wide/16 v5, -0x2
@@ -896,7 +896,7 @@
     goto :goto_e
 
     .line 193
-    :cond_75
+    :cond_74
     iput-wide v9, p0, Landroid/net/http/Headers;->transferEncoding:J
 
     goto :goto_e
@@ -904,7 +904,7 @@
     .line 198
     .end local v0           #encodings:[Lorg/apache/http/HeaderElement;
     .end local v1           #len:I
-    :sswitch_78
+    :sswitch_77
     const-string v5, "content-length"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -921,25 +921,25 @@
     aput-object v4, v5, v6
 
     .line 201
-    :try_start_85
+    :try_start_84
     invoke-static {v4}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v5
 
     iput-wide v5, p0, Landroid/net/http/Headers;->contentLength:J
-    :try_end_8b
-    .catch Ljava/lang/NumberFormatException; {:try_start_85 .. :try_end_8b} :catch_8c
+    :try_end_8a
+    .catch Ljava/lang/NumberFormatException; {:try_start_84 .. :try_end_8a} :catch_8b
 
     goto :goto_e
 
     .line 202
-    :catch_8c
+    :catch_8b
     move-exception v5
 
     goto :goto_e
 
     .line 211
-    :sswitch_8e
+    :sswitch_8d
     const-string v5, "content-type"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -958,7 +958,7 @@
     goto/16 :goto_e
 
     .line 216
-    :sswitch_9d
+    :sswitch_9c
     const-string v5, "content-encoding"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -977,7 +977,7 @@
     goto/16 :goto_e
 
     .line 221
-    :sswitch_ac
+    :sswitch_ab
     const-string v5, "connection"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -999,8 +999,8 @@
     goto/16 :goto_e
 
     .line 227
-    :sswitch_be
-    const-string/jumbo v5, "location"
+    :sswitch_bd
+    const-string v5, "location"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1018,7 +1018,7 @@
     goto/16 :goto_e
 
     .line 232
-    :sswitch_ce
+    :sswitch_cc
     const-string/jumbo v5, "proxy-connection"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1040,7 +1040,7 @@
     goto/16 :goto_e
 
     .line 238
-    :sswitch_e1
+    :sswitch_df
     const-string/jumbo v5, "www-authenticate"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1059,7 +1059,7 @@
     goto/16 :goto_e
 
     .line 243
-    :sswitch_f1
+    :sswitch_ef
     const-string/jumbo v5, "proxy-authenticate"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1078,7 +1078,7 @@
     goto/16 :goto_e
 
     .line 248
-    :sswitch_102
+    :sswitch_100
     const-string v5, "content-disposition"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1097,7 +1097,7 @@
     goto/16 :goto_e
 
     .line 253
-    :sswitch_112
+    :sswitch_110
     const-string v5, "accept-ranges"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1116,7 +1116,7 @@
     goto/16 :goto_e
 
     .line 258
-    :sswitch_122
+    :sswitch_120
     const-string v5, "expires"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1135,7 +1135,7 @@
     goto/16 :goto_e
 
     .line 263
-    :sswitch_132
+    :sswitch_130
     const-string v5, "cache-control"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1149,7 +1149,7 @@
 
     aget-object v5, v5, v8
 
-    if-eqz v5, :cond_169
+    if-eqz v5, :cond_167
 
     iget-object v5, p0, Landroid/net/http/Headers;->mHeaders:[Ljava/lang/String;
 
@@ -1159,7 +1159,7 @@
 
     move-result v5
 
-    if-lez v5, :cond_169
+    if-lez v5, :cond_167
 
     .line 268
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1193,7 +1193,7 @@
     goto/16 :goto_e
 
     .line 270
-    :cond_169
+    :cond_167
     iget-object v5, p0, Landroid/net/http/Headers;->mHeaders:[Ljava/lang/String;
 
     aput-object v4, v5, v8
@@ -1201,8 +1201,8 @@
     goto/16 :goto_e
 
     .line 275
-    :sswitch_16f
-    const-string/jumbo v5, "last-modified"
+    :sswitch_16d
+    const-string v5, "last-modified"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1220,7 +1220,7 @@
     goto/16 :goto_e
 
     .line 280
-    :sswitch_180
+    :sswitch_17d
     const-string v5, "etag"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1239,7 +1239,7 @@
     goto/16 :goto_e
 
     .line 285
-    :sswitch_190
+    :sswitch_18d
     const-string/jumbo v5, "set-cookie"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1263,7 +1263,7 @@
     goto/16 :goto_e
 
     .line 291
-    :sswitch_1a6
+    :sswitch_1a3
     const-string/jumbo v5, "pragma"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1282,7 +1282,7 @@
     goto/16 :goto_e
 
     .line 296
-    :sswitch_1b7
+    :sswitch_1b4
     const-string/jumbo v5, "refresh"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1301,7 +1301,7 @@
     goto/16 :goto_e
 
     .line 301
-    :sswitch_1c8
+    :sswitch_1c5
     const-string/jumbo v5, "x-permitted-cross-domain-policies"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1320,29 +1320,27 @@
     goto/16 :goto_e
 
     .line 176
-    nop
-
-    :sswitch_data_1da
+    :sswitch_data_1d6
     .sparse-switch
-        -0x5034229e -> :sswitch_1c8
-        -0x4e0958cc -> :sswitch_122
-        -0x4b88f79d -> :sswitch_102
-        -0x4384d946 -> :sswitch_78
-        -0x3a6d1ac4 -> :sswitch_1a6
-        -0x2e3b8122 -> :sswitch_ac
-        -0x11fc9c2c -> :sswitch_f1
-        -0xe7c74b5 -> :sswitch_e1
-        -0xc71a9ee -> :sswitch_132
-        0x2fa915 -> :sswitch_180
-        0x8f17c20 -> :sswitch_16f
-        0x110aef9d -> :sswitch_ce
-        0x2ed4600e -> :sswitch_8e
-        0x40b292db -> :sswitch_1b7
-        0x49be662f -> :sswitch_190
+        -0x5034229e -> :sswitch_1c5
+        -0x4e0958cc -> :sswitch_120
+        -0x4b88f79d -> :sswitch_100
+        -0x4384d946 -> :sswitch_77
+        -0x3a6d1ac4 -> :sswitch_1a3
+        -0x2e3b8122 -> :sswitch_ab
+        -0x11fc9c2c -> :sswitch_ef
+        -0xe7c74b5 -> :sswitch_df
+        -0xc71a9ee -> :sswitch_130
+        0x2fa915 -> :sswitch_17d
+        0x8f17c20 -> :sswitch_16d
+        0x110aef9d -> :sswitch_cc
+        0x2ed4600e -> :sswitch_8d
+        0x40b292db -> :sswitch_1b4
+        0x49be662f -> :sswitch_18d
         0x4bf6b0f5 -> :sswitch_35
-        0x53476b3b -> :sswitch_112
-        0x714f9fb5 -> :sswitch_be
-        0x7ce07427 -> :sswitch_9d
+        0x53476b3b -> :sswitch_110
+        0x714f9fb5 -> :sswitch_bd
+        0x7ce07427 -> :sswitch_9c
     .end sparse-switch
 .end method
 

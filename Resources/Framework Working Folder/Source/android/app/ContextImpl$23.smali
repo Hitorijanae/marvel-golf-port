@@ -19,7 +19,7 @@
     .registers 1
 
     .prologue
-    .line 433
+    .line 395
     invoke-direct {p0}, Landroid/app/ContextImpl$ServiceFetcher;-><init>()V
 
     return-void
@@ -28,24 +28,24 @@
 
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
-    .registers 5
+    .registers 4
     .parameter "ctx"
 
     .prologue
-    .line 435
-    new-instance v0, Landroid/app/SearchManager;
+    .line 397
+    new-instance v0, Landroid/hardware/SensorManager;
 
-    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
+    iget-object v1, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
+
+    invoke-virtual {v1}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
 
     move-result-object v1
 
-    iget-object v2, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
+    invoke-virtual {v1}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
 
-    invoke-virtual {v2}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
+    move-result-object v1
 
-    move-result-object v2
-
-    invoke-direct {v0, v1, v2}, Landroid/app/SearchManager;-><init>(Landroid/content/Context;Landroid/os/Handler;)V
+    invoke-direct {v0, v1}, Landroid/hardware/SensorManager;-><init>(Landroid/os/Looper;)V
 
     return-object v0
 .end method

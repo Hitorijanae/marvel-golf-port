@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 101
+    .line 100
     iput-object p1, p0, Landroid/webkit/GeolocationPermissions$1;->this$0:Landroid/webkit/GeolocationPermissions;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,22 +39,22 @@
     .parameter "msg"
 
     .prologue
-    .line 105
+    .line 104
     iget v5, p1, Landroid/os/Message;->what:I
 
     packed-switch v5, :pswitch_data_38
 
-    .line 119
+    .line 118
     :goto_5
     return-void
 
-    .line 107
+    .line 106
     :pswitch_6
     iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v4, Ljava/util/Map;
 
-    .line 108
+    .line 107
     .local v4, values:Ljava/util/Map;
     const-string/jumbo v5, "origins"
 
@@ -64,7 +64,7 @@
 
     check-cast v3, Ljava/util/Set;
 
-    .line 109
+    .line 108
     .local v3, origins:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
     const-string v5, "callback"
 
@@ -74,13 +74,13 @@
 
     check-cast v2, Landroid/webkit/ValueCallback;
 
-    .line 110
+    .line 109
     .local v2, callback:Landroid/webkit/ValueCallback;,"Landroid/webkit/ValueCallback<Ljava/util/Set<Ljava/lang/String;>;>;"
     invoke-interface {v2, v3}, Landroid/webkit/ValueCallback;->onReceiveValue(Ljava/lang/Object;)V
 
     goto :goto_5
 
-    .line 113
+    .line 112
     .end local v2           #callback:Landroid/webkit/ValueCallback;,"Landroid/webkit/ValueCallback<Ljava/util/Set<Ljava/lang/String;>;>;"
     .end local v3           #origins:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
     .end local v4           #values:Ljava/util/Map;
@@ -89,7 +89,7 @@
 
     check-cast v4, Ljava/util/Map;
 
-    .line 114
+    .line 113
     .restart local v4       #values:Ljava/util/Map;
     const-string v5, "allowed"
 
@@ -99,7 +99,7 @@
 
     check-cast v0, Ljava/lang/Boolean;
 
-    .line 115
+    .line 114
     .local v0, allowed:Ljava/lang/Boolean;
     const-string v5, "callback"
 
@@ -109,13 +109,13 @@
 
     check-cast v1, Landroid/webkit/ValueCallback;
 
-    .line 116
+    .line 115
     .local v1, callback:Landroid/webkit/ValueCallback;,"Landroid/webkit/ValueCallback<Ljava/lang/Boolean;>;"
     invoke-interface {v1, v0}, Landroid/webkit/ValueCallback;->onReceiveValue(Ljava/lang/Object;)V
 
     goto :goto_5
 
-    .line 105
+    .line 104
     nop
 
     :pswitch_data_38

@@ -51,7 +51,7 @@
 
     iget-object v1, p0, Landroid/speech/tts/TextToSpeechService$SynthesisSpeechItem;->mText:Ljava/lang/String;
 
-    iget-object v2, p0, Landroid/speech/tts/TextToSpeechService$SpeechItem;->mParams:Landroid/os/Bundle;
+    iget-object v2, p0, Landroid/speech/tts/TextToSpeechService$SynthesisSpeechItem;->mParams:Landroid/os/Bundle;
 
     invoke-direct {v0, v1, v2}, Landroid/speech/tts/SynthesisRequest;-><init>(Ljava/lang/String;Landroid/os/Bundle;)V
 
@@ -200,7 +200,7 @@
 
     .prologue
     .line 596
-    const-string/jumbo v0, "language"
+    const-string v0, "language"
 
     const/4 v1, 0x0
 
@@ -212,17 +212,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_f
 
     const/4 v0, 0x1
 
-    :goto_f
+    :goto_e
     return v0
 
-    :cond_10
+    :cond_f
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_e
 .end method
 
 .method private setRequestParams(Landroid/speech/tts/SynthesisRequest;)V
@@ -309,7 +309,7 @@
 
     .prologue
     .line 592
-    const-string/jumbo v0, "language"
+    const-string v0, "language"
 
     iget-object v1, p0, Landroid/speech/tts/TextToSpeechService$SynthesisSpeechItem;->mDefaultLocale:[Ljava/lang/String;
 

@@ -26,7 +26,7 @@
     .registers 1
 
     .prologue
-    .line 72
+    .line 70
     new-instance v0, Landroid/app/ApplicationLoaders;
 
     invoke-direct {v0}, Landroid/app/ApplicationLoaders;-><init>()V
@@ -40,10 +40,10 @@
     .registers 2
 
     .prologue
-    .line 26
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 24
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 70
+    .line 68
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -57,7 +57,7 @@
     .registers 1
 
     .prologue
-    .line 30
+    .line 28
     sget-object v0, Landroid/app/ApplicationLoaders;->gApplicationLoaders:Landroid/app/ApplicationLoaders;
 
     return-object v0
@@ -72,7 +72,7 @@
     .parameter "parent"
 
     .prologue
-    .line 41
+    .line 39
     invoke-static {}, Ljava/lang/ClassLoader;->getSystemClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v3
@@ -81,23 +81,23 @@
 
     move-result-object v0
 
-    .line 43
+    .line 41
     .local v0, baseParent:Ljava/lang/ClassLoader;
     iget-object v4, p0, Landroid/app/ApplicationLoaders;->mLoaders:Ljava/util/Map;
 
     monitor-enter v4
 
-    .line 44
+    .line 42
     if-nez p3, :cond_e
 
-    .line 45
+    .line 43
     move-object p3, v0
 
-    .line 53
+    .line 51
     :cond_e
     if-ne p3, v0, :cond_29
 
-    .line 54
+    .line 52
     :try_start_10
     iget-object v3, p0, Landroid/app/ApplicationLoaders;->mLoaders:Ljava/util/Map;
 
@@ -107,39 +107,39 @@
 
     check-cast v1, Ljava/lang/ClassLoader;
 
-    .line 55
+    .line 53
     .local v1, loader:Ljava/lang/ClassLoader;
     if-eqz v1, :cond_1c
 
-    .line 56
+    .line 54
     monitor-exit v4
 
-    .line 66
+    .line 64
     .end local v1           #loader:Ljava/lang/ClassLoader;
     :goto_1b
     return-object v1
 
-    .line 59
+    .line 57
     .restart local v1       #loader:Ljava/lang/ClassLoader;
     :cond_1c
     new-instance v2, Ldalvik/system/PathClassLoader;
 
     invoke-direct {v2, p1, p2, p3}, Ldalvik/system/PathClassLoader;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)V
 
-    .line 62
+    .line 60
     .local v2, pathClassloader:Ldalvik/system/PathClassLoader;
     iget-object v3, p0, Landroid/app/ApplicationLoaders;->mLoaders:Ljava/util/Map;
 
     invoke-interface {v3, p1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 63
+    .line 61
     monitor-exit v4
 
     move-object v1, v2
 
     goto :goto_1b
 
-    .line 66
+    .line 64
     .end local v1           #loader:Ljava/lang/ClassLoader;
     .end local v2           #pathClassloader:Ldalvik/system/PathClassLoader;
     :cond_29
@@ -151,7 +151,7 @@
 
     goto :goto_1b
 
-    .line 67
+    .line 65
     :catchall_30
     move-exception v3
 

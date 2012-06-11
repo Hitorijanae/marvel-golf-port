@@ -48,7 +48,7 @@
     .registers 1
 
     .prologue
-    .line 186
+    .line 153
     const-string v0, "content://contacts/settings"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -64,8 +64,8 @@
     .registers 1
 
     .prologue
-    .line 179
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 146
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -85,16 +85,16 @@
 
     const/4 v7, 0x0
 
-    .line 236
-    const-string/jumbo v3, "key=?"
+    .line 203
+    const-string v3, "key=?"
 
-    .line 237
+    .line 204
     .local v3, selectString:Ljava/lang/String;
     new-array v4, v0, [Ljava/lang/String;
 
     aput-object p2, v4, v7
 
-    .line 239
+    .line 206
     .local v4, selectArgs:[Ljava/lang/String;
     sget-object v1, Landroid/provider/Contacts$Settings;->CONTENT_URI:Landroid/net/Uri;
 
@@ -110,38 +110,40 @@
 
     move-result-object v6
 
-    .line 242
+    .line 209
     .local v6, cursor:Landroid/database/Cursor;
-    :try_start_18
+    :try_start_17
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
-    :try_end_1b
-    .catchall {:try_start_18 .. :try_end_1b} :catchall_28
+    :try_end_1a
+    .catchall {:try_start_17 .. :try_end_1a} :catchall_2a
 
     move-result v0
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_21
 
-    .line 245
-    :goto_1e
+    .line 212
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 243
+    :goto_20
     return-object v5
 
-    :cond_22
+    .line 210
+    :cond_21
     const/4 v0, 0x0
 
-    :try_start_23
+    :try_start_22
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-    :try_end_26
-    .catchall {:try_start_23 .. :try_end_26} :catchall_28
+    :try_end_25
+    .catchall {:try_start_22 .. :try_end_25} :catchall_2a
 
     move-result-object v5
 
-    goto :goto_1e
+    .line 212
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 245
-    :catchall_28
+    goto :goto_20
+
+    :catchall_2a
     move-exception v0
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
@@ -161,27 +163,27 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 255
+    .line 222
     new-instance v0, Landroid/content/ContentValues;
 
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
-    .line 262
+    .line 229
     .local v0, values:Landroid/content/ContentValues;
-    const-string/jumbo v1, "key"
+    const-string v1, "key"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 263
+    .line 230
     const-string/jumbo v1, "value"
 
     invoke-virtual {v0, v1, p3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 264
+    .line 231
     sget-object v1, Landroid/provider/Contacts$Settings;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-virtual {p0, v1, v0, v2, v2}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
-    .line 265
+    .line 232
     return-void
 .end method

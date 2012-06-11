@@ -289,9 +289,9 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/ToggleButton;->mContext:Landroid/content/Context;
 
-    const v2, 0x104049d
+    const v2, 0x10404a5
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -309,9 +309,9 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/ToggleButton;->mContext:Landroid/content/Context;
 
-    const v2, 0x104049e
+    const v2, 0x10404a6
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

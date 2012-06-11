@@ -27,15 +27,15 @@
     .parameter "end"
 
     .prologue
-    .line 859
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 852
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 860
+    .line 853
     iput p1, p0, Landroid/webkit/WebViewCore$TextSelectionData;->mStart:I
 
-    .line 861
+    .line 854
     iput p2, p0, Landroid/webkit/WebViewCore$TextSelectionData;->mEnd:I
 
-    .line 862
+    .line 855
     return-void
 .end method

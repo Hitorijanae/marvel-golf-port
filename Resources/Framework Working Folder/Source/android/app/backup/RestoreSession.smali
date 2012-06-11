@@ -31,7 +31,7 @@
 
     .prologue
     .line 174
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 38
     const/4 v0, 0x0
@@ -62,14 +62,14 @@
 
     invoke-interface {v1}, Landroid/app/backup/IRestoreSession;->endRestoreSession()V
     :try_end_6
-    .catchall {:try_start_1 .. :try_end_6} :catchall_12
+    .catchall {:try_start_1 .. :try_end_6} :catchall_14
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_6} :catch_9
 
     .line 166
-    :goto_6
     iput-object v3, p0, Landroid/app/backup/RestoreSession;->mBinder:Landroid/app/backup/IRestoreSession;
 
     .line 168
+    :goto_8
     return-void
 
     .line 163
@@ -85,13 +85,15 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_11
-    .catchall {:try_start_a .. :try_end_11} :catchall_12
-
-    goto :goto_6
+    .catchall {:try_start_a .. :try_end_11} :catchall_14
 
     .line 166
+    iput-object v3, p0, Landroid/app/backup/RestoreSession;->mBinder:Landroid/app/backup/IRestoreSession;
+
+    goto :goto_8
+
     .end local v0           #e:Landroid/os/RemoteException;
-    :catchall_12
+    :catchall_14
     move-exception v1
 
     iput-object v3, p0, Landroid/app/backup/RestoreSession;->mBinder:Landroid/app/backup/IRestoreSession;

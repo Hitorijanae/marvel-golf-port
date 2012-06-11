@@ -3,7 +3,7 @@
 .source "ActivityThread.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/content/ComponentCallbacks2;
 
 
 # annotations
@@ -27,25 +27,102 @@
     .parameter
 
     .prologue
-    .line 4862
+    .line 4504
     iput-object p1, p0, Landroid/app/ActivityThread$2;->this$0:Landroid/app/ActivityThread;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .registers 2
+.method public onConfigurationChanged(Landroid/content/res/Configuration;)V
+    .registers 5
+    .parameter "newConfig"
 
     .prologue
-    .line 4864
+    .line 4506
     iget-object v0, p0, Landroid/app/ActivityThread$2;->this$0:Landroid/app/ActivityThread;
 
-    invoke-virtual {v0}, Landroid/app/ActivityThread;->ensureJitEnabled()V
+    iget-object v1, v0, Landroid/app/ActivityThread;->mPackages:Ljava/util/HashMap;
 
-    .line 4865
+    monitor-enter v1
+
+    .line 4510
+    :try_start_5
+    iget-object v0, p0, Landroid/app/ActivityThread$2;->this$0:Landroid/app/ActivityThread;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, p1, v2}, Landroid/app/ActivityThread;->applyConfigurationToResourcesLocked(Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)I
+
+    move-result v0
+
+    if-eqz v0, :cond_29
+
+    .line 4513
+    iget-object v0, p0, Landroid/app/ActivityThread$2;->this$0:Landroid/app/ActivityThread;
+
+    iget-object v0, v0, Landroid/app/ActivityThread;->mPendingConfiguration:Landroid/content/res/Configuration;
+
+    if-eqz v0, :cond_1e
+
+    iget-object v0, p0, Landroid/app/ActivityThread$2;->this$0:Landroid/app/ActivityThread;
+
+    iget-object v0, v0, Landroid/app/ActivityThread;->mPendingConfiguration:Landroid/content/res/Configuration;
+
+    invoke-virtual {v0, p1}, Landroid/content/res/Configuration;->isOtherSeqNewer(Landroid/content/res/Configuration;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_29
+
+    .line 4515
+    :cond_1e
+    iget-object v0, p0, Landroid/app/ActivityThread$2;->this$0:Landroid/app/ActivityThread;
+
+    iput-object p1, v0, Landroid/app/ActivityThread;->mPendingConfiguration:Landroid/content/res/Configuration;
+
+    .line 4517
+    iget-object v0, p0, Landroid/app/ActivityThread$2;->this$0:Landroid/app/ActivityThread;
+
+    const/16 v2, 0x76
+
+    #calls: Landroid/app/ActivityThread;->queueOrSendMessage(ILjava/lang/Object;)V
+    invoke-static {v0, v2, p1}, Landroid/app/ActivityThread;->access$300(Landroid/app/ActivityThread;ILjava/lang/Object;)V
+
+    .line 4520
+    :cond_29
+    monitor-exit v1
+
+    .line 4521
+    return-void
+
+    .line 4520
+    :catchall_2b
+    move-exception v0
+
+    monitor-exit v1
+    :try_end_2d
+    .catchall {:try_start_5 .. :try_end_2d} :catchall_2b
+
+    throw v0
+.end method
+
+.method public onLowMemory()V
+    .registers 1
+
+    .prologue
+    .line 4523
+    return-void
+.end method
+
+.method public onTrimMemory(I)V
+    .registers 2
+    .parameter "level"
+
+    .prologue
+    .line 4525
     return-void
 .end method

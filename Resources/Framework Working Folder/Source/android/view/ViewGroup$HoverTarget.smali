@@ -35,10 +35,10 @@
     .registers 1
 
     .prologue
-    .line 5976
+    .line 5669
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/view/ViewGroup$HoverTarget;->sRecycleLock:Ljava/lang/Object;
 
@@ -49,10 +49,10 @@
     .registers 1
 
     .prologue
-    .line 5986
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 5679
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 5987
+    .line 5680
     return-void
 .end method
 
@@ -61,62 +61,62 @@
     .parameter "child"
 
     .prologue
-    .line 5991
+    .line 5684
     sget-object v2, Landroid/view/ViewGroup$HoverTarget;->sRecycleLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 5992
+    .line 5685
     :try_start_3
     sget-object v1, Landroid/view/ViewGroup$HoverTarget;->sRecycleBin:Landroid/view/ViewGroup$HoverTarget;
 
     if-nez v1, :cond_10
 
-    .line 5993
+    .line 5686
     new-instance v0, Landroid/view/ViewGroup$HoverTarget;
 
     invoke-direct {v0}, Landroid/view/ViewGroup$HoverTarget;-><init>()V
 
-    .line 6000
+    .line 5693
     .local v0, target:Landroid/view/ViewGroup$HoverTarget;
     :goto_c
     monitor-exit v2
     :try_end_d
     .catchall {:try_start_3 .. :try_end_d} :catchall_20
 
-    .line 6001
+    .line 5694
     iput-object p0, v0, Landroid/view/ViewGroup$HoverTarget;->child:Landroid/view/View;
 
-    .line 6002
+    .line 5695
     return-object v0
 
-    .line 5995
+    .line 5688
     .end local v0           #target:Landroid/view/ViewGroup$HoverTarget;
     :cond_10
     :try_start_10
     sget-object v0, Landroid/view/ViewGroup$HoverTarget;->sRecycleBin:Landroid/view/ViewGroup$HoverTarget;
 
-    .line 5996
+    .line 5689
     .restart local v0       #target:Landroid/view/ViewGroup$HoverTarget;
     iget-object v1, v0, Landroid/view/ViewGroup$HoverTarget;->next:Landroid/view/ViewGroup$HoverTarget;
 
     sput-object v1, Landroid/view/ViewGroup$HoverTarget;->sRecycleBin:Landroid/view/ViewGroup$HoverTarget;
 
-    .line 5997
+    .line 5690
     sget v1, Landroid/view/ViewGroup$HoverTarget;->sRecycledCount:I
 
     add-int/lit8 v1, v1, -0x1
 
     sput v1, Landroid/view/ViewGroup$HoverTarget;->sRecycledCount:I
 
-    .line 5998
+    .line 5691
     const/4 v1, 0x0
 
     iput-object v1, v0, Landroid/view/ViewGroup$HoverTarget;->next:Landroid/view/ViewGroup$HoverTarget;
 
     goto :goto_c
 
-    .line 6000
+    .line 5693
     .end local v0           #target:Landroid/view/ViewGroup$HoverTarget;
     :catchall_20
     move-exception v1
@@ -134,12 +134,12 @@
     .registers 4
 
     .prologue
-    .line 6006
+    .line 5699
     sget-object v1, Landroid/view/ViewGroup$HoverTarget;->sRecycleLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 6007
+    .line 5700
     :try_start_3
     sget v0, Landroid/view/ViewGroup$HoverTarget;->sRecycledCount:I
 
@@ -147,34 +147,34 @@
 
     if-ge v0, v2, :cond_1a
 
-    .line 6008
+    .line 5701
     sget-object v0, Landroid/view/ViewGroup$HoverTarget;->sRecycleBin:Landroid/view/ViewGroup$HoverTarget;
 
     iput-object v0, p0, Landroid/view/ViewGroup$HoverTarget;->next:Landroid/view/ViewGroup$HoverTarget;
 
-    .line 6009
+    .line 5702
     sput-object p0, Landroid/view/ViewGroup$HoverTarget;->sRecycleBin:Landroid/view/ViewGroup$HoverTarget;
 
-    .line 6010
+    .line 5703
     sget v0, Landroid/view/ViewGroup$HoverTarget;->sRecycledCount:I
 
     add-int/lit8 v0, v0, 0x1
 
     sput v0, Landroid/view/ViewGroup$HoverTarget;->sRecycledCount:I
 
-    .line 6014
+    .line 5707
     :goto_15
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/view/ViewGroup$HoverTarget;->child:Landroid/view/View;
 
-    .line 6015
+    .line 5708
     monitor-exit v1
 
-    .line 6016
+    .line 5709
     return-void
 
-    .line 6012
+    .line 5705
     :cond_1a
     const/4 v0, 0x0
 
@@ -182,7 +182,7 @@
 
     goto :goto_15
 
-    .line 6015
+    .line 5708
     :catchall_1e
     move-exception v0
 

@@ -74,25 +74,23 @@
 
 .field public static final FLAG_VM_SAFE_MODE:I = 0x4000
 
+.field public static final PLUTO_HANDLE_THEME_CONFIG_CHANGES_ATTRIBUTE_NAME:Ljava/lang/String; = "handleThemeConfigChanges"
+
+.field public static final PLUTO_ISTHEMEABLE_ATTRIBUTE_NAME:Ljava/lang/String; = "isThemeable"
+
+.field private static final PLUTO_SCHEMA:Ljava/lang/String; = "http://www.w3.org/2001/pluto.html"
+
 
 # instance fields
-.field public allowSkinChange:Z
-
 .field public backupAgentName:Ljava/lang/String;
 
 .field public className:Ljava/lang/String;
 
 .field public compatibleWidthLimitDp:I
 
-.field public configuredButton:I
-
 .field public dataDir:Ljava/lang/String;
 
 .field public descriptionRes:I
-
-.field public disableSketcher:Z
-
-.field public displayed:Z
 
 .field public enabled:Z
 
@@ -100,17 +98,9 @@
 
 .field public flags:I
 
-.field public gmsApp:Z
-
-.field public hasHtcSignature:Z
-
-.field public htcApp:Z
-
 .field public installLocation:I
 
-.field public isDirty:Z
-
-.field public isSkinApk:Z
+.field public isThemeable:Z
 
 .field public largestWidthLimitDp:I
 
@@ -148,7 +138,7 @@
     .registers 1
 
     .prologue
-    .line 613
+    .line 591
     new-instance v0, Landroid/content/pm/ApplicationInfo$1;
 
     invoke-direct {v0}, Landroid/content/pm/ApplicationInfo$1;-><init>()V
@@ -159,269 +149,211 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 4
+    .registers 3
 
     .prologue
-    const/4 v2, 0x1
+    const/4 v1, 0x0
 
-    const/4 v1, -0x1
-
-    const/4 v0, 0x0
-
-    .line 508
+    .line 520
     invoke-direct {p0}, Landroid/content/pm/PackageItemInfo;-><init>()V
 
-    .line 98
-    iput v0, p0, Landroid/content/pm/ApplicationInfo;->uiOptions:I
+    .line 99
+    iput v1, p0, Landroid/content/pm/ApplicationInfo;->uiOptions:I
 
-    .line 105
-    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->isSkinApk:Z
+    .line 329
+    iput v1, p0, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    .line 111
-    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->allowSkinChange:Z
+    .line 337
+    iput v1, p0, Landroid/content/pm/ApplicationInfo;->requiresSmallestWidthDp:I
 
-    .line 341
-    iput v0, p0, Landroid/content/pm/ApplicationInfo;->flags:I
+    .line 345
+    iput v1, p0, Landroid/content/pm/ApplicationInfo;->compatibleWidthLimitDp:I
 
-    .line 349
-    iput v0, p0, Landroid/content/pm/ApplicationInfo;->requiresSmallestWidthDp:I
+    .line 353
+    iput v1, p0, Landroid/content/pm/ApplicationInfo;->largestWidthLimitDp:I
 
-    .line 357
-    iput v0, p0, Landroid/content/pm/ApplicationInfo;->compatibleWidthLimitDp:I
+    .line 416
+    const/4 v0, 0x1
 
-    .line 365
-    iput v0, p0, Landroid/content/pm/ApplicationInfo;->largestWidthLimitDp:I
+    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
-    .line 428
-    iput-boolean v2, p0, Landroid/content/pm/ApplicationInfo;->enabled:Z
+    .line 422
+    iput v1, p0, Landroid/content/pm/ApplicationInfo;->enabledSetting:I
 
-    .line 434
-    iput v0, p0, Landroid/content/pm/ApplicationInfo;->enabledSetting:I
+    .line 427
+    iput-boolean v1, p0, Landroid/content/pm/ApplicationInfo;->isThemeable:Z
 
-    .line 440
-    iput v1, p0, Landroid/content/pm/ApplicationInfo;->installLocation:I
+    .line 452
+    const/4 v0, -0x1
 
-    .line 746
-    iput-boolean v2, p0, Landroid/content/pm/ApplicationInfo;->displayed:Z
+    iput v0, p0, Landroid/content/pm/ApplicationInfo;->installLocation:I
 
-    .line 751
-    iput v1, p0, Landroid/content/pm/ApplicationInfo;->configuredButton:I
-
-    .line 509
+    .line 521
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/pm/ApplicationInfo;)V
-    .registers 5
+    .registers 4
     .parameter "orig"
 
     .prologue
-    const/4 v2, 0x1
+    const/4 v1, 0x0
 
-    const/4 v1, -0x1
-
-    const/4 v0, 0x0
-
-    .line 512
+    .line 524
     invoke-direct {p0, p1}, Landroid/content/pm/PackageItemInfo;-><init>(Landroid/content/pm/PackageItemInfo;)V
 
-    .line 98
-    iput v0, p0, Landroid/content/pm/ApplicationInfo;->uiOptions:I
+    .line 99
+    iput v1, p0, Landroid/content/pm/ApplicationInfo;->uiOptions:I
 
-    .line 105
-    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->isSkinApk:Z
+    .line 329
+    iput v1, p0, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    .line 111
-    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->allowSkinChange:Z
+    .line 337
+    iput v1, p0, Landroid/content/pm/ApplicationInfo;->requiresSmallestWidthDp:I
 
-    .line 341
-    iput v0, p0, Landroid/content/pm/ApplicationInfo;->flags:I
+    .line 345
+    iput v1, p0, Landroid/content/pm/ApplicationInfo;->compatibleWidthLimitDp:I
 
-    .line 349
-    iput v0, p0, Landroid/content/pm/ApplicationInfo;->requiresSmallestWidthDp:I
+    .line 353
+    iput v1, p0, Landroid/content/pm/ApplicationInfo;->largestWidthLimitDp:I
 
-    .line 357
-    iput v0, p0, Landroid/content/pm/ApplicationInfo;->compatibleWidthLimitDp:I
+    .line 416
+    const/4 v0, 0x1
 
-    .line 365
-    iput v0, p0, Landroid/content/pm/ApplicationInfo;->largestWidthLimitDp:I
+    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
-    .line 428
-    iput-boolean v2, p0, Landroid/content/pm/ApplicationInfo;->enabled:Z
+    .line 422
+    iput v1, p0, Landroid/content/pm/ApplicationInfo;->enabledSetting:I
 
-    .line 434
-    iput v0, p0, Landroid/content/pm/ApplicationInfo;->enabledSetting:I
+    .line 427
+    iput-boolean v1, p0, Landroid/content/pm/ApplicationInfo;->isThemeable:Z
 
-    .line 440
-    iput v1, p0, Landroid/content/pm/ApplicationInfo;->installLocation:I
+    .line 452
+    const/4 v0, -0x1
 
-    .line 746
-    iput-boolean v2, p0, Landroid/content/pm/ApplicationInfo;->displayed:Z
+    iput v0, p0, Landroid/content/pm/ApplicationInfo;->installLocation:I
 
-    .line 751
-    iput v1, p0, Landroid/content/pm/ApplicationInfo;->configuredButton:I
-
-    .line 513
+    .line 525
     iget-object v0, p1, Landroid/content/pm/ApplicationInfo;->taskAffinity:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->taskAffinity:Ljava/lang/String;
 
-    .line 514
+    .line 526
     iget-object v0, p1, Landroid/content/pm/ApplicationInfo;->permission:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->permission:Ljava/lang/String;
 
-    .line 515
+    .line 527
     iget-object v0, p1, Landroid/content/pm/ApplicationInfo;->processName:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->processName:Ljava/lang/String;
 
-    .line 516
+    .line 528
     iget-object v0, p1, Landroid/content/pm/ApplicationInfo;->className:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->className:Ljava/lang/String;
 
-    .line 517
+    .line 529
     iget v0, p1, Landroid/content/pm/ApplicationInfo;->theme:I
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->theme:I
 
-    .line 518
+    .line 530
     iget v0, p1, Landroid/content/pm/ApplicationInfo;->flags:I
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    .line 519
+    .line 531
     iget v0, p1, Landroid/content/pm/ApplicationInfo;->requiresSmallestWidthDp:I
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->requiresSmallestWidthDp:I
 
-    .line 520
+    .line 532
     iget v0, p1, Landroid/content/pm/ApplicationInfo;->compatibleWidthLimitDp:I
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->compatibleWidthLimitDp:I
 
-    .line 521
+    .line 533
     iget v0, p1, Landroid/content/pm/ApplicationInfo;->largestWidthLimitDp:I
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->largestWidthLimitDp:I
 
-    .line 522
+    .line 534
     iget-object v0, p1, Landroid/content/pm/ApplicationInfo;->sourceDir:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->sourceDir:Ljava/lang/String;
 
-    .line 523
+    .line 535
     iget-object v0, p1, Landroid/content/pm/ApplicationInfo;->publicSourceDir:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->publicSourceDir:Ljava/lang/String;
 
-    .line 524
+    .line 536
     iget-object v0, p1, Landroid/content/pm/ApplicationInfo;->nativeLibraryDir:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->nativeLibraryDir:Ljava/lang/String;
 
-    .line 525
+    .line 537
     iget-object v0, p1, Landroid/content/pm/ApplicationInfo;->resourceDirs:[Ljava/lang/String;
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->resourceDirs:[Ljava/lang/String;
 
-    .line 526
+    .line 538
     iget-object v0, p1, Landroid/content/pm/ApplicationInfo;->sharedLibraryFiles:[Ljava/lang/String;
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->sharedLibraryFiles:[Ljava/lang/String;
 
-    .line 527
+    .line 539
     iget-object v0, p1, Landroid/content/pm/ApplicationInfo;->dataDir:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->dataDir:Ljava/lang/String;
 
-    .line 528
+    .line 540
     iget v0, p1, Landroid/content/pm/ApplicationInfo;->uid:I
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    .line 529
+    .line 541
     iget v0, p1, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
-    .line 530
+    .line 542
     iget-boolean v0, p1, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
     iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
-    .line 531
+    .line 543
     iget v0, p1, Landroid/content/pm/ApplicationInfo;->enabledSetting:I
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->enabledSetting:I
 
-    .line 532
+    .line 544
     iget v0, p1, Landroid/content/pm/ApplicationInfo;->installLocation:I
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->installLocation:I
 
-    .line 533
+    .line 545
     iget-object v0, p1, Landroid/content/pm/ApplicationInfo;->manageSpaceActivityName:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->manageSpaceActivityName:Ljava/lang/String;
 
-    .line 534
+    .line 546
     iget v0, p1, Landroid/content/pm/ApplicationInfo;->descriptionRes:I
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->descriptionRes:I
 
-    .line 535
+    .line 547
     iget v0, p1, Landroid/content/pm/ApplicationInfo;->uiOptions:I
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->uiOptions:I
 
-    .line 537
-    iget-boolean v0, p1, Landroid/content/pm/ApplicationInfo;->htcApp:Z
+    .line 548
+    iget-boolean v0, p1, Landroid/content/pm/ApplicationInfo;->isThemeable:Z
 
-    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->htcApp:Z
-
-    .line 538
-    iget-boolean v0, p1, Landroid/content/pm/ApplicationInfo;->gmsApp:Z
-
-    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->gmsApp:Z
-
-    .line 539
-    iget-boolean v0, p1, Landroid/content/pm/ApplicationInfo;->isDirty:Z
-
-    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->isDirty:Z
-
-    .line 540
-    iget-boolean v0, p1, Landroid/content/pm/ApplicationInfo;->hasHtcSignature:Z
-
-    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->hasHtcSignature:Z
-
-    .line 542
-    iget-boolean v0, p1, Landroid/content/pm/ApplicationInfo;->isSkinApk:Z
-
-    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->isSkinApk:Z
-
-    .line 543
-    iget-boolean v0, p1, Landroid/content/pm/ApplicationInfo;->allowSkinChange:Z
-
-    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->allowSkinChange:Z
-
-    .line 546
-    iget-boolean v0, p1, Landroid/content/pm/ApplicationInfo;->disableSketcher:Z
-
-    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->disableSketcher:Z
+    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->isThemeable:Z
 
     .line 549
-    iget-boolean v0, p1, Landroid/content/pm/ApplicationInfo;->displayed:Z
-
-    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->displayed:Z
-
-    .line 552
-    iget v0, p1, Landroid/content/pm/ApplicationInfo;->configuredButton:I
-
-    iput v0, p0, Landroid/content/pm/ApplicationInfo;->configuredButton:I
-
-    .line 554
     return-void
 .end method
 
@@ -430,381 +362,239 @@
     .parameter "source"
 
     .prologue
-    const/4 v0, -0x1
-
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 624
+    .line 602
     invoke-direct {p0, p1}, Landroid/content/pm/PackageItemInfo;-><init>(Landroid/os/Parcel;)V
 
-    .line 98
+    .line 99
     iput v2, p0, Landroid/content/pm/ApplicationInfo;->uiOptions:I
 
-    .line 105
-    iput-boolean v2, p0, Landroid/content/pm/ApplicationInfo;->isSkinApk:Z
-
-    .line 111
-    iput-boolean v2, p0, Landroid/content/pm/ApplicationInfo;->allowSkinChange:Z
-
-    .line 341
+    .line 329
     iput v2, p0, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    .line 349
+    .line 337
     iput v2, p0, Landroid/content/pm/ApplicationInfo;->requiresSmallestWidthDp:I
 
-    .line 357
+    .line 345
     iput v2, p0, Landroid/content/pm/ApplicationInfo;->compatibleWidthLimitDp:I
 
-    .line 365
+    .line 353
     iput v2, p0, Landroid/content/pm/ApplicationInfo;->largestWidthLimitDp:I
 
-    .line 428
+    .line 416
     iput-boolean v1, p0, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
-    .line 434
+    .line 422
     iput v2, p0, Landroid/content/pm/ApplicationInfo;->enabledSetting:I
 
-    .line 440
+    .line 427
+    iput-boolean v2, p0, Landroid/content/pm/ApplicationInfo;->isThemeable:Z
+
+    .line 452
+    const/4 v0, -0x1
+
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->installLocation:I
 
-    .line 746
-    iput-boolean v1, p0, Landroid/content/pm/ApplicationInfo;->displayed:Z
-
-    .line 751
-    iput v0, p0, Landroid/content/pm/ApplicationInfo;->configuredButton:I
-
-    .line 625
+    .line 603
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->taskAffinity:Ljava/lang/String;
 
-    .line 626
+    .line 604
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->permission:Ljava/lang/String;
 
-    .line 627
+    .line 605
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->processName:Ljava/lang/String;
 
-    .line 628
+    .line 606
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->className:Ljava/lang/String;
 
-    .line 629
+    .line 607
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->theme:I
 
-    .line 630
+    .line 608
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    .line 631
+    .line 609
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->requiresSmallestWidthDp:I
 
-    .line 632
+    .line 610
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->compatibleWidthLimitDp:I
 
-    .line 633
+    .line 611
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->largestWidthLimitDp:I
 
-    .line 634
+    .line 612
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->sourceDir:Ljava/lang/String;
 
-    .line 635
+    .line 613
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->publicSourceDir:Ljava/lang/String;
 
-    .line 636
+    .line 614
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->nativeLibraryDir:Ljava/lang/String;
 
-    .line 637
+    .line 615
     invoke-virtual {p1}, Landroid/os/Parcel;->readStringArray()[Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->resourceDirs:[Ljava/lang/String;
 
-    .line 638
+    .line 616
     invoke-virtual {p1}, Landroid/os/Parcel;->readStringArray()[Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->sharedLibraryFiles:[Ljava/lang/String;
 
-    .line 639
+    .line 617
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->dataDir:Ljava/lang/String;
 
-    .line 640
+    .line 618
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    .line 641
+    .line 619
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
-    .line 642
+    .line 620
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-eqz v0, :cond_ff
+    if-eqz v0, :cond_b4
 
     move v0, v1
 
-    :goto_8b
+    :goto_85
     iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
-    .line 643
+    .line 621
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->enabledSetting:I
 
-    .line 644
+    .line 622
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->installLocation:I
 
-    .line 645
+    .line 623
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->manageSpaceActivityName:Ljava/lang/String;
 
-    .line 646
+    .line 624
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/pm/ApplicationInfo;->backupAgentName:Ljava/lang/String;
 
-    .line 647
+    .line 625
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->descriptionRes:I
 
-    .line 648
+    .line 626
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->uiOptions:I
 
-    .line 650
+    .line 627
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-ne v0, v1, :cond_101
+    if-eqz v0, :cond_b6
 
-    move v0, v1
+    :goto_b1
+    iput-boolean v1, p0, Landroid/content/pm/ApplicationInfo;->isThemeable:Z
 
-    :goto_b8
-    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->htcApp:Z
-
-    .line 651
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-ne v0, v1, :cond_103
-
-    move v0, v1
-
-    :goto_c1
-    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->gmsApp:Z
-
-    .line 652
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-ne v0, v1, :cond_105
-
-    move v0, v1
-
-    :goto_ca
-    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->isDirty:Z
-
-    .line 653
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-ne v0, v1, :cond_107
-
-    move v0, v1
-
-    :goto_d3
-    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->hasHtcSignature:Z
-
-    .line 655
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_109
-
-    move v0, v1
-
-    :goto_dc
-    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->isSkinApk:Z
-
-    .line 656
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_10b
-
-    move v0, v1
-
-    :goto_e5
-    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->allowSkinChange:Z
-
-    .line 660
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_10d
-
-    move v0, v1
-
-    :goto_ee
-    iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->disableSketcher:Z
-
-    .line 663
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_10f
-
-    :goto_f6
-    iput-boolean v1, p0, Landroid/content/pm/ApplicationInfo;->displayed:Z
-
-    .line 666
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/content/pm/ApplicationInfo;->configuredButton:I
-
-    .line 668
+    .line 628
     return-void
 
-    :cond_ff
+    :cond_b4
     move v0, v2
 
-    .line 642
-    goto :goto_8b
+    .line 620
+    goto :goto_85
 
-    :cond_101
-    move v0, v2
-
-    .line 650
-    goto :goto_b8
-
-    :cond_103
-    move v0, v2
-
-    .line 651
-    goto :goto_c1
-
-    :cond_105
-    move v0, v2
-
-    .line 652
-    goto :goto_ca
-
-    :cond_107
-    move v0, v2
-
-    .line 653
-    goto :goto_d3
-
-    :cond_109
-    move v0, v2
-
-    .line 655
-    goto :goto_dc
-
-    :cond_10b
-    move v0, v2
-
-    .line 656
-    goto :goto_e5
-
-    :cond_10d
-    move v0, v2
-
-    .line 660
-    goto :goto_ee
-
-    :cond_10f
+    :cond_b6
     move v1, v2
 
-    .line 663
-    goto :goto_f6
+    .line 627
+    goto :goto_b1
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/ApplicationInfo$1;)V
@@ -813,7 +603,7 @@
     .parameter "x1"
 
     .prologue
-    .line 34
+    .line 35
     invoke-direct {p0, p1}, Landroid/content/pm/ApplicationInfo;-><init>(Landroid/os/Parcel;)V
 
     return-void
@@ -828,9 +618,9 @@
 
     const/4 v2, 0x0
 
-    .line 716
+    .line 676
     :try_start_2
-    iget-object v3, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v3, p0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     const/4 v4, 0x0
 
@@ -842,22 +632,49 @@
 
     if-nez v3, :cond_c
 
-    .line 718
+    .line 678
     :goto_b
     return v1
 
     :cond_c
     move v1, v2
 
-    .line 716
+    .line 676
     goto :goto_b
 
-    .line 717
+    .line 677
     :catch_e
     move-exception v0
 
-    .line 718
+    .line 678
     .local v0, ex:Landroid/content/pm/PackageManager$NameNotFoundException;
+    goto :goto_b
+.end method
+
+.method public static isPlutoNamespace(Ljava/lang/String;)Z
+    .registers 2
+    .parameter "namespace"
+
+    .prologue
+    .line 445
+    if-eqz p0, :cond_c
+
+    const-string v0, "http://www.w3.org/2001/pluto.html"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_c
+
+    const/4 v0, 0x1
+
+    :goto_b
+    return v0
+
+    :cond_c
+    const/4 v0, 0x0
+
     goto :goto_b
 .end method
 
@@ -867,7 +684,7 @@
     .registers 2
 
     .prologue
-    .line 564
+    .line 559
     const/4 v0, 0x0
 
     return v0
@@ -877,7 +694,7 @@
     .registers 3
 
     .prologue
-    .line 697
+    .line 657
     iget v0, p0, Landroid/content/pm/ApplicationInfo;->flags:I
 
     const v1, 0x83e00
@@ -886,7 +703,7 @@
 
     iput v0, p0, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    .line 700
+    .line 660
     return-void
 .end method
 
@@ -896,15 +713,15 @@
     .parameter "prefix"
 
     .prologue
-    .line 443
+    .line 455
     invoke-super {p0, p1, p2}, Landroid/content/pm/PackageItemInfo;->dumpFront(Landroid/util/Printer;Ljava/lang/String;)V
 
-    .line 444
+    .line 456
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->className:Ljava/lang/String;
 
     if-eqz v0, :cond_23
 
-    .line 445
+    .line 457
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -931,13 +748,13 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 447
+    .line 459
     :cond_23
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->permission:Ljava/lang/String;
 
     if-eqz v0, :cond_44
 
-    .line 448
+    .line 460
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -964,7 +781,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 450
+    .line 462
     :cond_44
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -992,7 +809,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 451
+    .line 463
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1019,7 +836,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 452
+    .line 464
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1078,7 +895,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 454
+    .line 466
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1129,7 +946,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 457
+    .line 469
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1156,17 +973,17 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 458
+    .line 470
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->sourceDir:Ljava/lang/String;
 
     if-nez v0, :cond_226
 
-    .line 459
+    .line 471
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->publicSourceDir:Ljava/lang/String;
 
     if-eqz v0, :cond_132
 
-    .line 460
+    .line 472
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1193,14 +1010,14 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 465
+    .line 477
     :cond_132
     :goto_132
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->resourceDirs:[Ljava/lang/String;
 
     if-eqz v0, :cond_153
 
-    .line 466
+    .line 478
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1227,7 +1044,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 468
+    .line 480
     :cond_153
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1255,12 +1072,12 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 469
+    .line 481
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->sharedLibraryFiles:[Ljava/lang/String;
 
     if-eqz v0, :cond_190
 
-    .line 470
+    .line 482
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1287,7 +1104,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 472
+    .line 484
     :cond_190
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1327,12 +1144,12 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 473
+    .line 485
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->manageSpaceActivityName:Ljava/lang/String;
 
     if-eqz v0, :cond_1d9
 
-    .line 474
+    .line 486
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1359,13 +1176,13 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 476
+    .line 488
     :cond_1d9
     iget v0, p0, Landroid/content/pm/ApplicationInfo;->descriptionRes:I
 
     if-eqz v0, :cond_1fd
 
-    .line 477
+    .line 489
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1396,13 +1213,13 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 479
+    .line 491
     :cond_1fd
     iget v0, p0, Landroid/content/pm/ApplicationInfo;->uiOptions:I
 
     if-eqz v0, :cond_222
 
-    .line 480
+    .line 492
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1433,14 +1250,14 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 482
+    .line 494
     :cond_222
     invoke-super {p0, p1, p2}, Landroid/content/pm/PackageItemInfo;->dumpBack(Landroid/util/Printer;Ljava/lang/String;)V
 
-    .line 483
+    .line 495
     return-void
 
-    .line 462
+    .line 474
     :cond_226
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->sourceDir:Ljava/lang/String;
 
@@ -1452,7 +1269,7 @@
 
     if-nez v0, :cond_132
 
-    .line 463
+    .line 475
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1486,7 +1303,7 @@
     .registers 1
 
     .prologue
-    .line 726
+    .line 686
     return-object p0
 .end method
 
@@ -1495,7 +1312,7 @@
     .parameter "pm"
 
     .prologue
-    .line 706
+    .line 666
     iget v0, p0, Landroid/content/pm/ApplicationInfo;->flags:I
 
     const/high16 v1, 0x4
@@ -1510,18 +1327,18 @@
 
     if-eqz v0, :cond_19
 
-    .line 708
+    .line 668
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x1080558
+    const v1, 0x1080582
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 711
+    .line 671
     :goto_18
     return-object v0
 
@@ -1538,13 +1355,13 @@
     .parameter "pm"
 
     .prologue
-    .line 682
+    .line 642
     iget v1, p0, Landroid/content/pm/ApplicationInfo;->descriptionRes:I
 
     if-eqz v1, :cond_f
 
-    .line 683
-    iget-object v1, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    .line 643
+    iget-object v1, p0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     iget v2, p0, Landroid/content/pm/ApplicationInfo;->descriptionRes:I
 
@@ -1552,11 +1369,11 @@
 
     move-result-object v0
 
-    .line 684
+    .line 644
     .local v0, label:Ljava/lang/CharSequence;
     if-eqz v0, :cond_f
 
-    .line 688
+    .line 648
     .end local v0           #label:Ljava/lang/CharSequence;
     :goto_e
     return-object v0
@@ -1571,7 +1388,7 @@
     .registers 3
 
     .prologue
-    .line 558
+    .line 553
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1600,7 +1417,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v1, p0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1629,271 +1446,154 @@
 
     const/4 v2, 0x0
 
-    .line 568
+    .line 563
     invoke-super {p0, p1, p2}, Landroid/content/pm/PackageItemInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 569
+    .line 564
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->taskAffinity:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 570
+    .line 565
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->permission:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 571
+    .line 566
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->processName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 572
+    .line 567
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->className:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 573
+    .line 568
     iget v0, p0, Landroid/content/pm/ApplicationInfo;->theme:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 574
+    .line 569
     iget v0, p0, Landroid/content/pm/ApplicationInfo;->flags:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 575
+    .line 570
     iget v0, p0, Landroid/content/pm/ApplicationInfo;->requiresSmallestWidthDp:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 576
+    .line 571
     iget v0, p0, Landroid/content/pm/ApplicationInfo;->compatibleWidthLimitDp:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 577
+    .line 572
     iget v0, p0, Landroid/content/pm/ApplicationInfo;->largestWidthLimitDp:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 578
+    .line 573
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->sourceDir:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 579
+    .line 574
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->publicSourceDir:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 580
+    .line 575
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->nativeLibraryDir:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 581
+    .line 576
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->resourceDirs:[Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
-    .line 582
+    .line 577
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->sharedLibraryFiles:[Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
-    .line 583
+    .line 578
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->dataDir:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 584
+    .line 579
     iget v0, p0, Landroid/content/pm/ApplicationInfo;->uid:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 585
+    .line 580
     iget v0, p0, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 586
+    .line 581
     iget-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
-    if-eqz v0, :cond_c5
+    if-eqz v0, :cond_88
 
     move v0, v1
 
     :goto_5f
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 587
+    .line 582
     iget v0, p0, Landroid/content/pm/ApplicationInfo;->enabledSetting:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 588
+    .line 583
     iget v0, p0, Landroid/content/pm/ApplicationInfo;->installLocation:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 589
+    .line 584
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->manageSpaceActivityName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 590
+    .line 585
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->backupAgentName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 591
+    .line 586
     iget v0, p0, Landroid/content/pm/ApplicationInfo;->descriptionRes:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 592
+    .line 587
     iget v0, p0, Landroid/content/pm/ApplicationInfo;->uiOptions:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 594
-    iget-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->htcApp:Z
+    .line 588
+    iget-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->isThemeable:Z
 
-    if-eqz v0, :cond_c7
+    if-eqz v0, :cond_8a
 
-    move v0, v1
-
-    :goto_85
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 595
-    iget-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->gmsApp:Z
-
-    if-eqz v0, :cond_c9
-
-    move v0, v1
-
-    :goto_8d
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 596
-    iget-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->isDirty:Z
-
-    if-eqz v0, :cond_cb
-
-    move v0, v1
-
-    :goto_95
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 597
-    iget-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->hasHtcSignature:Z
-
-    if-eqz v0, :cond_cd
-
-    move v0, v1
-
-    :goto_9d
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 599
-    iget-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->isSkinApk:Z
-
-    if-eqz v0, :cond_cf
-
-    move v0, v1
-
-    :goto_a5
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 600
-    iget-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->allowSkinChange:Z
-
-    if-eqz v0, :cond_d1
-
-    move v0, v1
-
-    :goto_ad
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 603
-    iget-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->disableSketcher:Z
-
-    if-eqz v0, :cond_d3
-
-    move v0, v1
-
-    :goto_b5
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 606
-    iget-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->displayed:Z
-
-    if-eqz v0, :cond_d5
-
-    :goto_bc
+    :goto_84
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 609
-    iget v0, p0, Landroid/content/pm/ApplicationInfo;->configuredButton:I
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 611
+    .line 589
     return-void
 
-    :cond_c5
+    :cond_88
     move v0, v2
 
-    .line 586
+    .line 581
     goto :goto_5f
 
-    :cond_c7
-    move v0, v2
-
-    .line 594
-    goto :goto_85
-
-    :cond_c9
-    move v0, v2
-
-    .line 595
-    goto :goto_8d
-
-    :cond_cb
-    move v0, v2
-
-    .line 596
-    goto :goto_95
-
-    :cond_cd
-    move v0, v2
-
-    .line 597
-    goto :goto_9d
-
-    :cond_cf
-    move v0, v2
-
-    .line 599
-    goto :goto_a5
-
-    :cond_d1
-    move v0, v2
-
-    .line 600
-    goto :goto_ad
-
-    :cond_d3
-    move v0, v2
-
-    .line 603
-    goto :goto_b5
-
-    :cond_d5
+    :cond_8a
     move v1, v2
 
-    .line 606
-    goto :goto_bc
+    .line 588
+    goto :goto_84
 .end method

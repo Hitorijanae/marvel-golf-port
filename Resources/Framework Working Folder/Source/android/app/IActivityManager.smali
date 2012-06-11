@@ -27,8 +27,6 @@
 
 .field public static final ACTIVITY_STOPPED_TRANSACTION:I = 0x14
 
-.field public static final ADD_INTENT_HTC_FLAG_TRANSACTION:I = 0xd4
-
 .field public static final ATTACH_APPLICATION_TRANSACTION:I = 0x11
 
 .field public static final BACKUP_AGENT_CREATED_TRANSACTION:I = 0x5b
@@ -54,8 +52,6 @@
 .field public static final CLOSE_SYSTEM_DIALOGS_TRANSACTION:I = 0x61
 
 .field public static final CRASH_APPLICATION_TRANSACTION:I = 0x72
-
-.field public static final DEBUGGER_STATUS_CHANGE_TRANSACTION:I = 0xca
 
 .field public static final DISMISS_KEYGUARD_ON_NEXT_ACTIVITY_TRANSACTION:I = 0x8b
 
@@ -91,10 +87,6 @@
 
 .field public static final GET_FRONT_ACTIVITY_SCREEN_COMPAT_MODE_TRANSACTION:I = 0x7c
 
-.field public static final GET_HTC_DEVICE_INFO:I = 0xc9
-
-.field public static final GET_INTENT_SENDER_PERFORM_TYPE_TRANSACTION:I = 0xd2
-
 .field public static final GET_INTENT_SENDER_TRANSACTION:I = 0x3f
 
 .field public static final GET_MEMORY_INFO_TRANSACTION:I = 0x4c
@@ -106,8 +98,6 @@
 .field public static final GET_PACKAGE_FOR_TOKEN_TRANSACTION:I = 0x32
 
 .field public static final GET_PACKAGE_SCREEN_COMPAT_MODE_TRANSACTION:I = 0x7e
-
-.field public static final GET_PREV_APP_PKG_NAME_TRANSACTION:I = 0xd0
 
 .field public static final GET_PROCESSES_IN_ERROR_STATE_TRANSACTION:I = 0x4d
 
@@ -137,8 +127,6 @@
 
 .field public static final GET_TASK_THUMBNAILS_TRANSACTION:I = 0x52
 
-.field public static final GET_TOP_ACTIVITY_NAME_TRANSACTION:I = 0xd1
-
 .field public static final GOING_TO_SLEEP_TRANSACTION:I = 0x28
 
 .field public static final GRANT_URI_PERMISSION_FROM_OWNER_TRANSACTION:I = 0x75
@@ -151,8 +139,6 @@
 
 .field public static final HANDLE_APPLICATION_WTF_TRANSACTION:I = 0x66
 
-.field public static final HTC_TEST_TOKEN_TRANSACTION:I = 0xcf
-
 .field public static final INTENT_SENDER_ACTIVITY:I = 0x2
 
 .field public static final INTENT_SENDER_ACTIVITY_RESULT:I = 0x3
@@ -161,13 +147,9 @@
 
 .field public static final INTENT_SENDER_SERVICE:I = 0x4
 
-.field public static final IS_GUEST_MODE_TRANSACTION:I = 0xcd
-
 .field public static final IS_IMMERSIVE_TRANSACTION:I = 0x6f
 
 .field public static final IS_INTENT_SENDER_TARGETED_TO_PACKAGE_TRANSACTION:I = 0x87
-
-.field public static final IS_SKETCHER_DISABLED_IN_CURRENT_TASK:I = 0xcc
 
 .field public static final IS_TOP_ACTIVITY_IMMERSIVE_TRANSACTION:I = 0x71
 
@@ -198,8 +180,6 @@
 .field public static final OPEN_CONTENT_URI_TRANSACTION:I = 0x5
 
 .field public static final OVERRIDE_PENDING_TRANSITION_TRANSACTION:I = 0x65
-
-.field public static final OVERRIDE_ROTATE_ANIMATION_TRANSACTION:I = 0xcb
 
 .field public static final PEEK_SERVICE_TRANSACTION:I = 0x55
 
@@ -239,11 +219,7 @@
 
 .field public static final SET_FRONT_ACTIVITY_SCREEN_COMPAT_MODE_TRANSACTION:I = 0x7d
 
-.field public static final SET_GUEST_MODE_TRANSACTION:I = 0xce
-
 .field public static final SET_IMMERSIVE_TRANSACTION:I = 0x70
-
-.field public static final SET_INTENT_HTC_FLAG_TRANSACTION:I = 0xd3
 
 .field public static final SET_PACKAGE_ASK_SCREEN_COMPAT_TRANSACTION:I = 0x81
 
@@ -380,14 +356,6 @@
 .end method
 
 .method public abstract activityStopped(Landroid/os/IBinder;Landroid/os/Bundle;Landroid/graphics/Bitmap;Ljava/lang/CharSequence;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract addIntentHtcFlag(Landroid/content/IIntentSender;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -627,23 +595,7 @@
     .end annotation
 .end method
 
-.method public abstract getHtcDeviceInfo()Landroid/app/HtcDeviceInfo;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getIntentSender(ILjava/lang/String;Landroid/os/IBinder;Ljava/lang/String;I[Landroid/content/Intent;[Ljava/lang/String;I)Landroid/content/IIntentSender;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getIntentSenderPerformType(Landroid/content/IIntentSender;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -684,14 +636,6 @@
 .end method
 
 .method public abstract getPackageScreenCompatMode(Ljava/lang/String;)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getPrevAppPkgName()Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -851,14 +795,6 @@
     .end annotation
 .end method
 
-.method public abstract getTopActivityName()Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract goingToSleep()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -907,25 +843,6 @@
     .end annotation
 .end method
 
-.method public abstract handleDebuggerStatusChanged(IIZ)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract hibernate()V
-.end method
-
-.method public abstract isGuestMode()Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract isImmersive(Landroid/os/IBinder;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -935,14 +852,6 @@
 .end method
 
 .method public abstract isIntentSenderTargetedToPackage(Landroid/content/IIntentSender;)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract isSketcherDisabledInCurrentTask()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1070,14 +979,6 @@
     .end annotation
 .end method
 
-.method public abstract overrideRotateAnimation(Landroid/os/IBinder;Ljava/lang/String;I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract peekService(Landroid/content/Intent;Ljava/lang/String;)Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1185,9 +1086,6 @@
     .end annotation
 .end method
 
-.method public abstract resumeFromHibernate()V
-.end method
-
 .method public abstract revokeUriPermission(Landroid/app/IApplicationThread;Landroid/net/Uri;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1244,31 +1142,7 @@
     .end annotation
 .end method
 
-.method public abstract setGuestMode(Z)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setHTCTestToken(Landroid/os/IBinder;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract setImmersive(Landroid/os/IBinder;Z)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setIntentHtcFlag(Landroid/content/IIntentSender;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

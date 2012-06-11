@@ -27,8 +27,6 @@
 
 .field public static final MPEG_4:I = 0x2
 
-.field public static final OUTPUT_FORMAT_HTCRTP_AVP:I = 0xb
-
 .field public static final OUTPUT_FORMAT_MPEG2TS:I = 0x8
 
 .field public static final OUTPUT_FORMAT_RTP_AVP:I = 0x7
@@ -52,10 +50,10 @@
     .parameter
 
     .prologue
-    .line 206
+    .line 204
     iput-object p1, p0, Landroid/media/MediaRecorder$OutputFormat;->this$0:Landroid/media/MediaRecorder;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

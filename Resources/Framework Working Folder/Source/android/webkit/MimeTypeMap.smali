@@ -27,7 +27,7 @@
 
     .prologue
     .line 34
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 35
     return-void
@@ -165,7 +165,7 @@
     .registers 1
 
     .prologue
-    .line 176
+    .line 166
     sget-object v0, Landroid/webkit/MimeTypeMap;->sMimeTypeMap:Landroid/webkit/MimeTypeMap;
 
     return-object v0
@@ -176,32 +176,12 @@
     .parameter "extension"
 
     .prologue
-    .line 100
-    if-eqz p0, :cond_11
-
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
-
-    move-result v0
-
-    if-lez v0, :cond_11
-
-    .line 101
-    invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+    .line 94
+    invoke-static {p0}, Llibcore/net/MimeUtils;->guessMimeTypeFromExtension(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v0}, Llibcore/net/MimeUtils;->guessMimeTypeFromExtension(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 103
-    :goto_10
     return-object v0
-
-    :cond_11
-    const/4 v0, 0x0
-
-    goto :goto_10
 .end method
 
 
@@ -211,7 +191,7 @@
     .parameter "mimeType"
 
     .prologue
-    .line 124
+    .line 114
     invoke-static {p1}, Llibcore/net/MimeUtils;->guessExtensionFromMimeType(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -224,32 +204,12 @@
     .parameter "extension"
 
     .prologue
-    .line 90
-    if-eqz p1, :cond_11
-
-    invoke-virtual {p1}, Ljava/lang/String;->length()I
-
-    move-result v0
-
-    if-lez v0, :cond_11
-
-    .line 91
-    invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+    .line 89
+    invoke-static {p1}, Llibcore/net/MimeUtils;->guessMimeTypeFromExtension(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v0}, Llibcore/net/MimeUtils;->guessMimeTypeFromExtension(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 93
-    :goto_10
     return-object v0
-
-    :cond_11
-    const/4 v0, 0x0
-
-    goto :goto_10
 .end method
 
 .method public hasExtension(Ljava/lang/String;)Z
@@ -257,7 +217,7 @@
     .parameter "extension"
 
     .prologue
-    .line 113
+    .line 103
     invoke-static {p1}, Llibcore/net/MimeUtils;->hasExtension(Ljava/lang/String;)Z
 
     move-result v0
@@ -285,7 +245,7 @@
     .parameter "contentDisposition"
 
     .prologue
-    .line 141
+    .line 131
     const-string/jumbo v3, "text/plain"
 
     invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -302,46 +262,46 @@
 
     if-eqz v3, :cond_27
 
-    .line 146
+    .line 136
     :cond_11
     const/4 v1, 0x0
 
-    .line 147
+    .line 137
     .local v1, filename:Ljava/lang/String;
     if-eqz p3, :cond_18
 
-    .line 148
+    .line 138
     invoke-static {p3}, Landroid/webkit/URLUtil;->parseContentDisposition(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 150
+    .line 140
     :cond_18
     if-eqz v1, :cond_1b
 
-    .line 151
+    .line 141
     move-object p2, v1
 
-    .line 153
+    .line 143
     :cond_1b
     invoke-static {p2}, Landroid/webkit/MimeTypeMap;->getFileExtensionFromUrl(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 154
+    .line 144
     .local v0, extension:Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/webkit/MimeTypeMap;->getMimeTypeFromExtension(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 155
+    .line 145
     .local v2, newMimeType:Ljava/lang/String;
     if-eqz v2, :cond_26
 
-    .line 156
+    .line 146
     move-object p1, v2
 
-    .line 168
+    .line 158
     .end local v0           #extension:Ljava/lang/String;
     .end local v1           #filename:Ljava/lang/String;
     .end local v2           #newMimeType:Ljava/lang/String;
@@ -349,7 +309,7 @@
     :goto_26
     return-object p1
 
-    .line 158
+    .line 148
     :cond_27
     const-string/jumbo v3, "text/vnd.wap.wml"
 
@@ -359,12 +319,12 @@
 
     if-eqz v3, :cond_34
 
-    .line 160
+    .line 150
     const-string/jumbo p1, "text/plain"
 
     goto :goto_26
 
-    .line 164
+    .line 154
     :cond_34
     const-string v3, "application/vnd.wap.xhtml+xml"
 
@@ -374,7 +334,7 @@
 
     if-eqz v3, :cond_26
 
-    .line 165
+    .line 155
     const-string p1, "application/xhtml+xml"
 
     goto :goto_26

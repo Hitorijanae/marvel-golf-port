@@ -62,7 +62,7 @@
     const/4 v1, 0x4
 
     .line 40
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 31
     new-array v0, v1, [F
@@ -390,7 +390,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "ka={"
+    const-string v1, "ka={"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -438,7 +438,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "kd={"
+    const-string v1, "kd={"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -486,7 +486,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "ks={"
+    const-string v1, "ks={"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -560,11 +560,11 @@
 
     iget-object v0, p0, Landroid/opengl/Material;->map_kd:Ljava/lang/String;
 
-    if-nez v0, :cond_104
+    if-nez v0, :cond_100
 
     const-string v0, ""
 
-    :goto_d0
+    :goto_cd
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -575,7 +575,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "illum="
+    const-string v1, "illum="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -617,8 +617,8 @@
 
     return-object v0
 
-    :cond_104
+    :cond_100
     iget-object v0, p0, Landroid/opengl/Material;->map_kd:Ljava/lang/String;
 
-    goto :goto_d0
+    goto :goto_cd
 .end method

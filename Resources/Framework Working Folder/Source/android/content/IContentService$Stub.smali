@@ -26,45 +26,43 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.content.IContentService"
 
-.field static final TRANSACTION_addPeriodicSync:I = 0xa
+.field static final TRANSACTION_addPeriodicSync:I = 0x9
 
-.field static final TRANSACTION_addStatusChangeListener:I = 0x15
+.field static final TRANSACTION_addStatusChangeListener:I = 0x14
 
 .field static final TRANSACTION_cancelSync:I = 0x5
 
-.field static final TRANSACTION_getCurrentSyncs:I = 0x11
+.field static final TRANSACTION_getCurrentSyncs:I = 0x10
 
-.field static final TRANSACTION_getIsSyncable:I = 0xc
+.field static final TRANSACTION_getIsSyncable:I = 0xb
 
-.field static final TRANSACTION_getMasterSyncAutomatically:I = 0xf
+.field static final TRANSACTION_getMasterSyncAutomatically:I = 0xe
 
-.field static final TRANSACTION_getPeriodicSyncs:I = 0x9
+.field static final TRANSACTION_getPeriodicSyncs:I = 0x8
 
-.field static final TRANSACTION_getSyncAdapterTypes:I = 0x12
+.field static final TRANSACTION_getSyncAdapterTypes:I = 0x11
 
 .field static final TRANSACTION_getSyncAutomatically:I = 0x6
 
-.field static final TRANSACTION_getSyncStatus:I = 0x13
+.field static final TRANSACTION_getSyncStatus:I = 0x12
 
-.field static final TRANSACTION_isSyncActive:I = 0x10
+.field static final TRANSACTION_isSyncActive:I = 0xf
 
-.field static final TRANSACTION_isSyncPending:I = 0x14
+.field static final TRANSACTION_isSyncPending:I = 0x13
 
 .field static final TRANSACTION_notifyChange:I = 0x3
 
 .field static final TRANSACTION_registerContentObserver:I = 0x1
 
-.field static final TRANSACTION_registerSetSyncAfterOnAccountUpdate:I = 0x8
+.field static final TRANSACTION_removePeriodicSync:I = 0xa
 
-.field static final TRANSACTION_removePeriodicSync:I = 0xb
-
-.field static final TRANSACTION_removeStatusChangeListener:I = 0x16
+.field static final TRANSACTION_removeStatusChangeListener:I = 0x15
 
 .field static final TRANSACTION_requestSync:I = 0x4
 
-.field static final TRANSACTION_setIsSyncable:I = 0xd
+.field static final TRANSACTION_setIsSyncable:I = 0xc
 
-.field static final TRANSACTION_setMasterSyncAutomatically:I = 0xe
+.field static final TRANSACTION_setMasterSyncAutomatically:I = 0xd
 
 .field static final TRANSACTION_setSyncAutomatically:I = 0x7
 
@@ -162,9 +160,9 @@
     const/4 v9, 0x1
 
     .line 41
-    sparse-switch p1, :sswitch_data_31c
+    sparse-switch p1, :sswitch_data_2fa
 
-    .line 396
+    .line 380
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v9
@@ -631,7 +629,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_14a
+    if-eqz v0, :cond_14e
 
     .line 174
     sget-object v0, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -651,37 +649,44 @@
 
     .line 181
     .restart local v2       #_arg1:Ljava/lang/String;
-    invoke-virtual {p0, v1, v2}, Landroid/content/IContentService$Stub;->registerSetSyncAfterOnAccountUpdate(Landroid/accounts/Account;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v2}, Landroid/content/IContentService$Stub;->getPeriodicSyncs(Landroid/accounts/Account;Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v7
 
     .line 182
+    .local v7, _result:Ljava/util/List;,"Ljava/util/List<Landroid/content/PeriodicSync;>;"
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 183
+    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
     goto/16 :goto_9
 
     .line 177
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
-    :cond_14a
+    .end local v7           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/content/PeriodicSync;>;"
+    :cond_14e
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/accounts/Account;
     goto :goto_13e
 
-    .line 187
+    .line 188
     .end local v1           #_arg0:Landroid/accounts/Account;
-    :sswitch_14c
+    :sswitch_150
     const-string v0, "android.content.IContentService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 189
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_16f
 
     .line 190
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    if-eqz v0, :cond_182
+
+    .line 191
     sget-object v0, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -689,78 +694,23 @@
     move-result-object v1
 
     check-cast v1, Landroid/accounts/Account;
-
-    .line 196
-    .restart local v1       #_arg0:Landroid/accounts/Account;
-    :goto_15f
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v2
 
     .line 197
-    .restart local v2       #_arg1:Ljava/lang/String;
-    invoke-virtual {p0, v1, v2}, Landroid/content/IContentService$Stub;->getPeriodicSyncs(Landroid/accounts/Account;Ljava/lang/String;)Ljava/util/List;
-
-    move-result-object v7
-
-    .line 198
-    .local v7, _result:Ljava/util/List;,"Ljava/util/List<Landroid/content/PeriodicSync;>;"
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 199
-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
-
-    goto/16 :goto_9
-
-    .line 193
-    .end local v1           #_arg0:Landroid/accounts/Account;
-    .end local v2           #_arg1:Ljava/lang/String;
-    .end local v7           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/content/PeriodicSync;>;"
-    :cond_16f
-    const/4 v1, 0x0
-
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    goto :goto_15f
-
-    .line 204
-    .end local v1           #_arg0:Landroid/accounts/Account;
-    :sswitch_171
-    const-string v0, "android.content.IContentService"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 206
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_1a3
-
-    .line 207
-    sget-object v0, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/accounts/Account;
-
-    .line 213
-    .restart local v1       #_arg0:Landroid/accounts/Account;
-    :goto_184
+    :goto_163
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 215
+    .line 199
     .restart local v2       #_arg1:Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-eqz v0, :cond_1a5
+    if-eqz v0, :cond_184
 
-    .line 216
+    .line 200
     sget-object v0, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -769,9 +719,9 @@
 
     check-cast v3, Landroid/os/Bundle;
 
-    .line 222
+    .line 206
     .local v3, _arg2:Landroid/os/Bundle;
-    :goto_196
+    :goto_175
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v4
@@ -779,50 +729,50 @@
     .local v4, _arg3:J
     move-object v0, p0
 
-    .line 223
+    .line 207
     invoke-virtual/range {v0 .. v5}, Landroid/content/IContentService$Stub;->addPeriodicSync(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;J)V
 
-    .line 224
+    .line 208
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto/16 :goto_9
 
-    .line 210
+    .line 194
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:Landroid/os/Bundle;
     .end local v4           #_arg3:J
-    :cond_1a3
+    :cond_182
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    goto :goto_184
+    goto :goto_163
 
-    .line 219
+    .line 203
     .restart local v2       #_arg1:Ljava/lang/String;
-    :cond_1a5
+    :cond_184
     const/4 v3, 0x0
 
     .restart local v3       #_arg2:Landroid/os/Bundle;
-    goto :goto_196
+    goto :goto_175
 
-    .line 229
+    .line 213
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:Landroid/os/Bundle;
-    :sswitch_1a7
+    :sswitch_186
     const-string v0, "android.content.IContentService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 231
+    .line 215
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-eqz v0, :cond_1d4
+    if-eqz v0, :cond_1b3
 
-    .line 232
+    .line 216
     sget-object v0, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -831,22 +781,22 @@
 
     check-cast v1, Landroid/accounts/Account;
 
-    .line 238
+    .line 222
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    :goto_1ba
+    :goto_199
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 240
+    .line 224
     .restart local v2       #_arg1:Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-eqz v0, :cond_1d6
+    if-eqz v0, :cond_1b5
 
-    .line 241
+    .line 225
     sget-object v0, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -855,51 +805,51 @@
 
     check-cast v3, Landroid/os/Bundle;
 
-    .line 246
+    .line 230
     .restart local v3       #_arg2:Landroid/os/Bundle;
-    :goto_1cc
+    :goto_1ab
     invoke-virtual {p0, v1, v2, v3}, Landroid/content/IContentService$Stub;->removePeriodicSync(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 247
+    .line 231
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto/16 :goto_9
 
-    .line 235
+    .line 219
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:Landroid/os/Bundle;
-    :cond_1d4
+    :cond_1b3
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    goto :goto_1ba
+    goto :goto_199
 
-    .line 244
+    .line 228
     .restart local v2       #_arg1:Ljava/lang/String;
-    :cond_1d6
+    :cond_1b5
     const/4 v3, 0x0
 
     .restart local v3       #_arg2:Landroid/os/Bundle;
-    goto :goto_1cc
+    goto :goto_1ab
 
-    .line 252
+    .line 236
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:Landroid/os/Bundle;
-    :sswitch_1d8
+    :sswitch_1b7
     const-string v0, "android.content.IContentService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 254
+    .line 238
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-eqz v0, :cond_1fb
+    if-eqz v0, :cond_1da
 
-    .line 255
+    .line 239
     sget-object v0, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -908,53 +858,53 @@
 
     check-cast v1, Landroid/accounts/Account;
 
-    .line 261
+    .line 245
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    :goto_1eb
+    :goto_1ca
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 262
+    .line 246
     .restart local v2       #_arg1:Ljava/lang/String;
     invoke-virtual {p0, v1, v2}, Landroid/content/IContentService$Stub;->getIsSyncable(Landroid/accounts/Account;Ljava/lang/String;)I
 
     move-result v6
 
-    .line 263
+    .line 247
     .local v6, _result:I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 264
+    .line 248
     invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_9
 
-    .line 258
+    .line 242
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v6           #_result:I
-    :cond_1fb
+    :cond_1da
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    goto :goto_1eb
+    goto :goto_1ca
 
-    .line 269
+    .line 253
     .end local v1           #_arg0:Landroid/accounts/Account;
-    :sswitch_1fd
+    :sswitch_1dc
     const-string v0, "android.content.IContentService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 271
+    .line 255
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-eqz v0, :cond_220
+    if-eqz v0, :cond_1ff
 
-    .line 272
+    .line 256
     sget-object v0, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -963,111 +913,111 @@
 
     check-cast v1, Landroid/accounts/Account;
 
-    .line 278
+    .line 262
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    :goto_210
+    :goto_1ef
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 280
+    .line 264
     .restart local v2       #_arg1:Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 281
+    .line 265
     .local v3, _arg2:I
     invoke-virtual {p0, v1, v2, v3}, Landroid/content/IContentService$Stub;->setIsSyncable(Landroid/accounts/Account;Ljava/lang/String;I)V
 
-    .line 282
+    .line 266
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto/16 :goto_9
 
-    .line 275
+    .line 259
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:I
-    :cond_220
+    :cond_1ff
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    goto :goto_210
+    goto :goto_1ef
 
-    .line 287
+    .line 271
     .end local v1           #_arg0:Landroid/accounts/Account;
-    :sswitch_222
+    :sswitch_201
     const-string v10, "android.content.IContentService"
 
     invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 289
+    .line 273
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v10
 
-    if-eqz v10, :cond_236
+    if-eqz v10, :cond_215
 
     move v1, v9
 
-    .line 290
+    .line 274
     .local v1, _arg0:Z
-    :goto_22e
+    :goto_20d
     invoke-virtual {p0, v1}, Landroid/content/IContentService$Stub;->setMasterSyncAutomatically(Z)V
 
-    .line 291
+    .line 275
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto/16 :goto_9
 
     .end local v1           #_arg0:Z
-    :cond_236
+    :cond_215
     move v1, v0
 
-    .line 289
-    goto :goto_22e
+    .line 273
+    goto :goto_20d
 
-    .line 296
-    :sswitch_238
+    .line 280
+    :sswitch_217
     const-string v10, "android.content.IContentService"
 
     invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 297
+    .line 281
     invoke-virtual {p0}, Landroid/content/IContentService$Stub;->getMasterSyncAutomatically()Z
 
     move-result v6
 
-    .line 298
+    .line 282
     .local v6, _result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 299
-    if-eqz v6, :cond_247
+    .line 283
+    if-eqz v6, :cond_226
 
     move v0, v9
 
-    :cond_247
+    :cond_226
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_9
 
-    .line 304
+    .line 288
     .end local v6           #_result:Z
-    :sswitch_24c
+    :sswitch_22b
     const-string v10, "android.content.IContentService"
 
     invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 306
+    .line 290
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v10
 
-    if-eqz v10, :cond_272
+    if-eqz v10, :cond_251
 
-    .line 307
+    .line 291
     sget-object v10, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v10, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -1076,100 +1026,100 @@
 
     check-cast v1, Landroid/accounts/Account;
 
-    .line 313
+    .line 297
     .local v1, _arg0:Landroid/accounts/Account;
-    :goto_25f
+    :goto_23e
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 314
+    .line 298
     .restart local v2       #_arg1:Ljava/lang/String;
     invoke-virtual {p0, v1, v2}, Landroid/content/IContentService$Stub;->isSyncActive(Landroid/accounts/Account;Ljava/lang/String;)Z
 
     move-result v6
 
-    .line 315
+    .line 299
     .restart local v6       #_result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 316
-    if-eqz v6, :cond_26d
+    .line 300
+    if-eqz v6, :cond_24c
 
     move v0, v9
 
-    :cond_26d
+    :cond_24c
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_9
 
-    .line 310
+    .line 294
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v6           #_result:Z
-    :cond_272
+    :cond_251
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    goto :goto_25f
+    goto :goto_23e
 
-    .line 321
+    .line 305
     .end local v1           #_arg0:Landroid/accounts/Account;
-    :sswitch_274
+    :sswitch_253
     const-string v0, "android.content.IContentService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 322
+    .line 306
     invoke-virtual {p0}, Landroid/content/IContentService$Stub;->getCurrentSyncs()Ljava/util/List;
 
     move-result-object v8
 
-    .line 323
+    .line 307
     .local v8, _result:Ljava/util/List;,"Ljava/util/List<Landroid/content/SyncInfo;>;"
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 324
+    .line 308
     invoke-virtual {p3, v8}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
     goto/16 :goto_9
 
-    .line 329
+    .line 313
     .end local v8           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/content/SyncInfo;>;"
-    :sswitch_285
+    :sswitch_264
     const-string v0, "android.content.IContentService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 330
+    .line 314
     invoke-virtual {p0}, Landroid/content/IContentService$Stub;->getSyncAdapterTypes()[Landroid/content/SyncAdapterType;
 
     move-result-object v6
 
-    .line 331
+    .line 315
     .local v6, _result:[Landroid/content/SyncAdapterType;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 332
+    .line 316
     invoke-virtual {p3, v6, v9}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
 
     goto/16 :goto_9
 
-    .line 337
+    .line 321
     .end local v6           #_result:[Landroid/content/SyncAdapterType;
-    :sswitch_296
+    :sswitch_275
     const-string v10, "android.content.IContentService"
 
     invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 339
+    .line 323
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v10
 
-    if-eqz v10, :cond_2be
+    if-eqz v10, :cond_29d
 
-    .line 340
+    .line 324
     sget-object v10, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v10, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -1178,69 +1128,69 @@
 
     check-cast v1, Landroid/accounts/Account;
 
-    .line 346
+    .line 330
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    :goto_2a9
+    :goto_288
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 347
+    .line 331
     .restart local v2       #_arg1:Ljava/lang/String;
     invoke-virtual {p0, v1, v2}, Landroid/content/IContentService$Stub;->getSyncStatus(Landroid/accounts/Account;Ljava/lang/String;)Landroid/content/SyncStatusInfo;
 
     move-result-object v6
 
-    .line 348
+    .line 332
     .local v6, _result:Landroid/content/SyncStatusInfo;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 349
-    if-eqz v6, :cond_2c0
+    .line 333
+    if-eqz v6, :cond_29f
 
-    .line 350
+    .line 334
     invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 351
+    .line 335
     invoke-virtual {v6, p3, v9}, Landroid/content/SyncStatusInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
     goto/16 :goto_9
 
-    .line 343
+    .line 327
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v6           #_result:Landroid/content/SyncStatusInfo;
-    :cond_2be
+    :cond_29d
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    goto :goto_2a9
+    goto :goto_288
 
-    .line 354
+    .line 338
     .restart local v2       #_arg1:Ljava/lang/String;
     .restart local v6       #_result:Landroid/content/SyncStatusInfo;
-    :cond_2c0
+    :cond_29f
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_9
 
-    .line 360
+    .line 344
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v6           #_result:Landroid/content/SyncStatusInfo;
-    :sswitch_2c5
+    :sswitch_2a4
     const-string v10, "android.content.IContentService"
 
     invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 362
+    .line 346
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v10
 
-    if-eqz v10, :cond_2eb
+    if-eqz v10, :cond_2ca
 
-    .line 363
+    .line 347
     sget-object v10, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v10, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -1249,56 +1199,56 @@
 
     check-cast v1, Landroid/accounts/Account;
 
-    .line 369
+    .line 353
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    :goto_2d8
+    :goto_2b7
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 370
+    .line 354
     .restart local v2       #_arg1:Ljava/lang/String;
     invoke-virtual {p0, v1, v2}, Landroid/content/IContentService$Stub;->isSyncPending(Landroid/accounts/Account;Ljava/lang/String;)Z
 
     move-result v6
 
-    .line 371
+    .line 355
     .local v6, _result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 372
-    if-eqz v6, :cond_2e6
+    .line 356
+    if-eqz v6, :cond_2c5
 
     move v0, v9
 
-    :cond_2e6
+    :cond_2c5
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_9
 
-    .line 366
+    .line 350
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v6           #_result:Z
-    :cond_2eb
+    :cond_2ca
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    goto :goto_2d8
+    goto :goto_2b7
 
-    .line 377
+    .line 361
     .end local v1           #_arg0:Landroid/accounts/Account;
-    :sswitch_2ed
+    :sswitch_2cc
     const-string v0, "android.content.IContentService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 379
+    .line 363
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 381
+    .line 365
     .local v1, _arg0:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -1308,24 +1258,24 @@
 
     move-result-object v2
 
-    .line 382
+    .line 366
     .local v2, _arg1:Landroid/content/ISyncStatusObserver;
     invoke-virtual {p0, v1, v2}, Landroid/content/IContentService$Stub;->addStatusChangeListener(ILandroid/content/ISyncStatusObserver;)V
 
-    .line 383
+    .line 367
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto/16 :goto_9
 
-    .line 388
+    .line 372
     .end local v1           #_arg0:I
     .end local v2           #_arg1:Landroid/content/ISyncStatusObserver;
-    :sswitch_306
+    :sswitch_2e5
     const-string v0, "android.content.IContentService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 390
+    .line 374
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v0
@@ -1334,19 +1284,17 @@
 
     move-result-object v1
 
-    .line 391
+    .line 375
     .local v1, _arg0:Landroid/content/ISyncStatusObserver;
     invoke-virtual {p0, v1}, Landroid/content/IContentService$Stub;->removeStatusChangeListener(Landroid/content/ISyncStatusObserver;)V
 
-    .line 392
+    .line 376
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto/16 :goto_9
 
     .line 41
-    nop
-
-    :sswitch_data_31c
+    :sswitch_data_2fa
     .sparse-switch
         0x1 -> :sswitch_10
         0x2 -> :sswitch_3d
@@ -1356,20 +1304,19 @@
         0x6 -> :sswitch_d9
         0x7 -> :sswitch_101
         0x8 -> :sswitch_12b
-        0x9 -> :sswitch_14c
-        0xa -> :sswitch_171
-        0xb -> :sswitch_1a7
-        0xc -> :sswitch_1d8
-        0xd -> :sswitch_1fd
-        0xe -> :sswitch_222
-        0xf -> :sswitch_238
-        0x10 -> :sswitch_24c
-        0x11 -> :sswitch_274
-        0x12 -> :sswitch_285
-        0x13 -> :sswitch_296
-        0x14 -> :sswitch_2c5
-        0x15 -> :sswitch_2ed
-        0x16 -> :sswitch_306
+        0x9 -> :sswitch_150
+        0xa -> :sswitch_186
+        0xb -> :sswitch_1b7
+        0xc -> :sswitch_1dc
+        0xd -> :sswitch_201
+        0xe -> :sswitch_217
+        0xf -> :sswitch_22b
+        0x10 -> :sswitch_253
+        0x11 -> :sswitch_264
+        0x12 -> :sswitch_275
+        0x13 -> :sswitch_2a4
+        0x14 -> :sswitch_2cc
+        0x15 -> :sswitch_2e5
         0x5f4e5446 -> :sswitch_a
     .end sparse-switch
 .end method

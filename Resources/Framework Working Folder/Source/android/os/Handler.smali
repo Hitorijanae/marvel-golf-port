@@ -35,7 +35,7 @@
 
     .prologue
     .line 109
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 119
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
@@ -81,7 +81,7 @@
 
     .prologue
     .line 133
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 143
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
@@ -125,7 +125,7 @@
 
     .prologue
     .line 155
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 156
     iput-object p1, p0, Landroid/os/Handler;->mLooper:Landroid/os/Looper;
@@ -151,7 +151,7 @@
 
     .prologue
     .line 165
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 166
     iput-object p1, p0, Landroid/os/Handler;->mLooper:Landroid/os/Looper;
@@ -209,53 +209,17 @@
 .end method
 
 .method private final handleCallback(Landroid/os/Message;)V
-    .registers 6
+    .registers 3
     .parameter "message"
 
     .prologue
-    .line 608
-    :try_start_0
-    iget-object v1, p1, Landroid/os/Message;->callback:Ljava/lang/Runnable;
+    .line 605
+    iget-object v0, p1, Landroid/os/Message;->callback:Ljava/lang/Runnable;
 
-    invoke-interface {v1}, Ljava/lang/Runnable;->run()V
-    :try_end_5
-    .catch Ljava/lang/IncompatibleClassChangeError; {:try_start_0 .. :try_end_5} :catch_6
+    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 613
-    :goto_5
+    .line 606
     return-void
-
-    .line 609
-    :catch_6
-    move-exception v0
-
-    .line 610
-    .local v0, error:Ljava/lang/IncompatibleClassChangeError;
-    const-string v1, "Handler"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Failed to handle callback; interface not implemented, callback:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p1, Landroid/os/Message;->callback:Ljava/lang/Runnable;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_5
 .end method
 
 
@@ -342,7 +306,7 @@
     .line 561
     iget-object v0, p0, Landroid/os/Handler;->mLooper:Landroid/os/Looper;
 
-    if-nez v0, :cond_3e
+    if-nez v0, :cond_3d
 
     .line 562
     new-instance v0, Ljava/lang/StringBuilder;
@@ -353,7 +317,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "looper uninitialized"
+    const-string v1, "looper uninitialized"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -366,11 +330,11 @@
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 566
-    :goto_3d
+    :goto_3c
     return-void
 
     .line 564
-    :cond_3e
+    :cond_3d
     iget-object v0, p0, Landroid/os/Handler;->mLooper:Landroid/os/Looper;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -393,7 +357,7 @@
 
     invoke-virtual {v0, p1, v1}, Landroid/os/Looper;->dump(Landroid/util/Printer;Ljava/lang/String;)V
 
-    goto :goto_3d
+    goto :goto_3c
 .end method
 
 .method final getIMessenger()Landroid/os/IMessenger;

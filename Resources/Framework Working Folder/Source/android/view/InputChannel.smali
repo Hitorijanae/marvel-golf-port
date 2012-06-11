@@ -47,7 +47,7 @@
 
     .prologue
     .line 65
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 66
     return-void
@@ -184,19 +184,19 @@
 
     .prologue
     .line 131
-    if-nez p1, :cond_b
+    if-nez p1, :cond_a
 
     .line 132
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "in must not be null"
+    const-string v1, "in must not be null"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 135
-    :cond_b
+    :cond_a
     invoke-direct {p0, p1}, Landroid/view/InputChannel;->nativeReadFromParcel(Landroid/os/Parcel;)V
 
     .line 136

@@ -33,14 +33,14 @@
     .parameter
 
     .prologue
-    .line 716
+    .line 620
     iput-object p1, p0, Landroid/webkit/CallbackProxy$8;->this$0:Landroid/webkit/CallbackProxy;
 
     iput-object p2, p0, Landroid/webkit/CallbackProxy$8;->val$res:Landroid/webkit/JsPromptResult;
 
     iput-object p3, p0, Landroid/webkit/CallbackProxy$8;->val$v:Landroid/widget/EditText;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -53,7 +53,7 @@
     .parameter "whichButton"
 
     .prologue
-    .line 720
+    .line 624
     iget-object v0, p0, Landroid/webkit/CallbackProxy$8;->val$res:Landroid/webkit/JsPromptResult;
 
     iget-object v1, p0, Landroid/webkit/CallbackProxy$8;->val$v:Landroid/widget/EditText;
@@ -68,6 +68,6 @@
 
     invoke-virtual {v0, v1}, Landroid/webkit/JsPromptResult;->confirm(Ljava/lang/String;)V
 
-    .line 722
+    .line 626
     return-void
 .end method

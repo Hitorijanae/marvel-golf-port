@@ -1447,7 +1447,7 @@
 
     const-string/jumbo v1, "wifi_watchdog_on"
 
-    const/4 v2, 0x0
+    const/4 v2, 0x1
 
     invoke-static {v0, v1, v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->getSettingsBoolean(Landroid/content/ContentResolver;Ljava/lang/String;Z)Z
 
@@ -1911,7 +1911,7 @@
     if-eqz p1, :cond_8e
 
     .line 538
-    const v5, 0x10403ef
+    const v5, 0x10403f7
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1933,7 +1933,7 @@
 
     move-result-object v5
 
-    const v6, 0x10403f0
+    const v6, 0x10403f8
 
     invoke-virtual {v2, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -2103,7 +2103,7 @@
     invoke-virtual {v1, v6}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
     .line 508
-    const v6, 0x10403ed
+    const v6, 0x10403f5
 
     new-array v7, v10, [Ljava/lang/Object;
 
@@ -2119,7 +2119,7 @@
 
     .line 509
     .local v5, title:Ljava/lang/CharSequence;
-    const v6, 0x10403ee
+    const v6, 0x10403f6
 
     new-array v7, v10, [Ljava/lang/Object;
 
@@ -2148,7 +2148,7 @@
     iput-wide v6, v2, Landroid/app/Notification;->when:J
 
     .line 514
-    const v6, 0x10804f4
+    const v6, 0x108051c
 
     iput v6, v2, Landroid/app/Notification;->icon:I
 
@@ -2457,7 +2457,7 @@
 
     const-string/jumbo v1, "wifi_watchdog_walled_garden_url"
 
-    const-string/jumbo v2, "http://clients3.google.com/generate_204"
+    const-string v2, "http://clients3.google.com/generate_204"
 
     invoke-static {v0, v1, v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->getSettingsStr(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -2719,7 +2719,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "lastSingleCheck: "
+    const-string v1, "lastSingleCheck: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

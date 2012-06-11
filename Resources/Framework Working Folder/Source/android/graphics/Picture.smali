@@ -2,9 +2,6 @@
 .super Ljava/lang/Object;
 .source "Picture.java"
 
-# interfaces
-.implements Landroid/graphics/HtcIfPicture;
-
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -47,24 +44,24 @@
     .parameter "nativePicture"
 
     .prologue
-    .line 149
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 133
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 150
+    .line 134
     if-nez p1, :cond_b
 
-    .line 151
+    .line 135
     new-instance v0, Ljava/lang/RuntimeException;
 
     invoke-direct {v0}, Ljava/lang/RuntimeException;-><init>()V
 
     throw v0
 
-    .line 153
+    .line 137
     :cond_b
     iput p1, p0, Landroid/graphics/Picture;->mNativePicture:I
 
-    .line 154
+    .line 138
     return-void
 .end method
 
@@ -135,9 +132,6 @@
 .end method
 
 .method private static native nativeWriteToStream(ILjava/io/OutputStream;[B)Z
-.end method
-
-.method private static native nativeWriteToStream(ILjava/io/OutputStream;[BZ)Z
 .end method
 
 
@@ -227,12 +221,12 @@
     .end annotation
 
     .prologue
-    .line 142
+    .line 126
     iget v0, p0, Landroid/graphics/Picture;->mNativePicture:I
 
     invoke-static {v0}, Landroid/graphics/Picture;->nativeDestructor(I)V
 
-    .line 143
+    .line 127
     return-void
 .end method
 
@@ -246,7 +240,7 @@
     .registers 2
 
     .prologue
-    .line 146
+    .line 130
     iget v0, p0, Landroid/graphics/Picture;->mNativePicture:I
 
     return v0
@@ -289,48 +283,6 @@
     throw v0
 
     .line 123
-    :cond_1a
-    return-void
-.end method
-
-.method public writeToStream(Ljava/io/OutputStream;Z)V
-    .registers 5
-    .parameter "stream"
-    .parameter "isAll"
-
-    .prologue
-    .line 131
-    if-nez p1, :cond_8
-
-    .line 132
-    new-instance v0, Ljava/lang/NullPointerException;
-
-    invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
-
-    throw v0
-
-    .line 134
-    :cond_8
-    iget v0, p0, Landroid/graphics/Picture;->mNativePicture:I
-
-    const/16 v1, 0x4000
-
-    new-array v1, v1, [B
-
-    invoke-static {v0, p1, v1, p2}, Landroid/graphics/Picture;->nativeWriteToStream(ILjava/io/OutputStream;[BZ)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1a
-
-    .line 136
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    invoke-direct {v0}, Ljava/lang/RuntimeException;-><init>()V
-
-    throw v0
-
-    .line 138
     :cond_1a
     return-void
 .end method

@@ -34,7 +34,7 @@
     const/4 v8, 0x0
 
     .line 49
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 41
     const/4 v4, 0x4
@@ -124,7 +124,7 @@
     .line 66
     iget-object v4, p0, Landroid/webkit/DateSorter;->mLabels:[Ljava/lang/String;
 
-    const v5, 0x104008b
+    const v5, 0x104007b
 
     invoke-virtual {p1, v5}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -139,7 +139,7 @@
     .line 67
     iget-object v4, p0, Landroid/webkit/DateSorter;->mLabels:[Ljava/lang/String;
 
-    const v5, 0x104008a
+    const v5, 0x104007a
 
     invoke-virtual {p1, v5}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -183,7 +183,7 @@
 
     const/4 v5, 0x3
 
-    const v6, 0x1040390
+    const v6, 0x1040398
 
     invoke-virtual {p1, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -196,7 +196,7 @@
 
     const/4 v5, 0x4
 
-    const v6, 0x1040391
+    const v6, 0x1040399
 
     invoke-virtual {p1, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

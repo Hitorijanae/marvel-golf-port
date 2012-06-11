@@ -26,13 +26,9 @@
 
 .field public static final DESCRIPTION:Ljava/lang/String; = "description"
 
-.field public static final FAVORITE:Ljava/lang/String; = "favorite"
-
 .field public static final IS_PRIVATE:Ljava/lang/String; = "isprivate"
 
 .field public static final LATITUDE:Ljava/lang/String; = "latitude"
-
-.field public static final LOCK_SCREEN:Ljava/lang/String; = "lock_screen"
 
 .field public static final LONGITUDE:Ljava/lang/String; = "longitude"
 

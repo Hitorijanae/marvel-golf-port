@@ -49,7 +49,7 @@
 
     .prologue
     .line 69
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 70
     iput-object p1, p0, Landroid/mtp/MtpPropertyGroup;->mDatabase:Landroid/mtp/MtpDatabase;
@@ -607,8 +607,8 @@
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
     :try_end_32
-    .catchall {:try_start_2 .. :try_end_32} :catchall_46
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_32} :catch_3e
+    .catchall {:try_start_2 .. :try_end_32} :catchall_49
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_32} :catch_41
 
     move-result-object v0
 
@@ -616,10 +616,8 @@
     if-eqz v6, :cond_38
 
     .line 224
-    :goto_35
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 221
     :cond_38
     :goto_38
     return-object v0
@@ -629,43 +627,44 @@
     :try_start_39
     const-string v0, ""
     :try_end_3b
-    .catchall {:try_start_39 .. :try_end_3b} :catchall_46
-    .catch Ljava/lang/Exception; {:try_start_39 .. :try_end_3b} :catch_3e
+    .catchall {:try_start_39 .. :try_end_3b} :catchall_49
+    .catch Ljava/lang/Exception; {:try_start_39 .. :try_end_3b} :catch_41
 
     .line 223
     if-eqz v6, :cond_38
 
-    goto :goto_35
+    .line 224
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    goto :goto_38
 
     .line 220
-    :catch_3e
+    :catch_41
     move-exception v7
 
     .line 223
     .local v7, e:Ljava/lang/Exception;
-    if-eqz v6, :cond_44
+    if-eqz v6, :cond_47
 
     .line 224
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_44
+    :cond_47
     move-object v0, v8
 
-    .line 221
     goto :goto_38
 
     .line 223
     .end local v7           #e:Ljava/lang/Exception;
-    :catchall_46
+    :catchall_49
     move-exception v0
 
-    if-eqz v6, :cond_4c
+    if-eqz v6, :cond_4f
 
     .line 224
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 223
-    :cond_4c
+    :cond_4f
     throw v0
 .end method
 
@@ -732,8 +731,8 @@
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
     :try_end_2b
-    .catchall {:try_start_2 .. :try_end_2b} :catchall_47
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2b} :catch_37
+    .catchall {:try_start_2 .. :try_end_2b} :catchall_4a
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2b} :catch_3a
 
     move-result-object v0
 
@@ -741,10 +740,8 @@
     if-eqz v6, :cond_31
 
     .line 246
-    :goto_2e
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 243
     .end local v1           #uri:Landroid/net/Uri;
     :cond_31
     :goto_31
@@ -756,54 +753,55 @@
     :try_start_32
     const-string v0, ""
     :try_end_34
-    .catchall {:try_start_32 .. :try_end_34} :catchall_47
-    .catch Ljava/lang/Exception; {:try_start_32 .. :try_end_34} :catch_37
+    .catchall {:try_start_32 .. :try_end_34} :catchall_4a
+    .catch Ljava/lang/Exception; {:try_start_32 .. :try_end_34} :catch_3a
 
     .line 245
     if-eqz v6, :cond_31
 
-    goto :goto_2e
+    .line 246
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    goto :goto_31
 
     .line 241
     .end local v1           #uri:Landroid/net/Uri;
-    :catch_37
+    :catch_3a
     move-exception v7
 
     .line 242
     .local v7, e:Ljava/lang/Exception;
-    :try_start_38
+    :try_start_3b
     const-string v0, "MtpPropertyGroup"
 
     const-string/jumbo v2, "queryGenre exception"
 
     invoke-static {v0, v2, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_40
-    .catchall {:try_start_38 .. :try_end_40} :catchall_47
+    :try_end_43
+    .catchall {:try_start_3b .. :try_end_43} :catchall_4a
 
     .line 245
-    if-eqz v6, :cond_45
+    if-eqz v6, :cond_48
 
     .line 246
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_45
+    :cond_48
     move-object v0, v8
 
-    .line 243
     goto :goto_31
 
     .line 245
     .end local v7           #e:Ljava/lang/Exception;
-    :catchall_47
+    :catchall_4a
     move-exception v0
 
-    if-eqz v6, :cond_4d
+    if-eqz v6, :cond_50
 
     .line 246
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 245
-    :cond_4d
+    :cond_50
     throw v0
 .end method
 
@@ -860,13 +858,13 @@
     move-result-object v6
 
     .line 258
-    if-eqz v6, :cond_49
+    if-eqz v6, :cond_3a
 
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_49
+    if-eqz v0, :cond_3a
 
     .line 259
     new-instance v0, Ljava/lang/Long;
@@ -879,7 +877,7 @@
 
     invoke-direct {v0, v1, v2}, Ljava/lang/Long;-><init>(J)V
     :try_end_34
-    .catchall {:try_start_2 .. :try_end_34} :catchall_3a
+    .catchall {:try_start_2 .. :try_end_34} :catchall_48
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_34} :catch_41
 
     .line 263
@@ -894,40 +892,42 @@
     return-object v0
 
     .line 263
-    :catchall_3a
-    move-exception v0
-
-    if-eqz v6, :cond_40
+    :cond_3a
+    if-eqz v6, :cond_3f
 
     .line 264
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 263
-    :cond_40
-    throw v0
+    :cond_3f
+    :goto_3f
+    move-object v0, v7
+
+    .line 267
+    goto :goto_39
 
     .line 261
     :catch_41
     move-exception v0
 
     .line 263
-    if-eqz v6, :cond_47
+    if-eqz v6, :cond_3f
 
     .line 264
-    :goto_44
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_47
-    move-object v0, v7
-
-    .line 267
-    goto :goto_39
+    goto :goto_3f
 
     .line 263
-    :cond_49
-    if-eqz v6, :cond_47
+    :catchall_48
+    move-exception v0
 
-    goto :goto_44
+    if-eqz v6, :cond_4e
+
+    .line 264
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    :cond_4e
+    throw v0
 .end method
 
 .method private queryString(ILjava/lang/String;)Ljava/lang/String;
@@ -996,8 +996,8 @@
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
     :try_end_2e
-    .catchall {:try_start_2 .. :try_end_2e} :catchall_42
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2e} :catch_3a
+    .catchall {:try_start_2 .. :try_end_2e} :catchall_45
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2e} :catch_3d
 
     move-result-object v0
 
@@ -1005,10 +1005,8 @@
     if-eqz v6, :cond_34
 
     .line 204
-    :goto_31
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 201
     :cond_34
     :goto_34
     return-object v0
@@ -1018,43 +1016,44 @@
     :try_start_35
     const-string v0, ""
     :try_end_37
-    .catchall {:try_start_35 .. :try_end_37} :catchall_42
-    .catch Ljava/lang/Exception; {:try_start_35 .. :try_end_37} :catch_3a
+    .catchall {:try_start_35 .. :try_end_37} :catchall_45
+    .catch Ljava/lang/Exception; {:try_start_35 .. :try_end_37} :catch_3d
 
     .line 203
     if-eqz v6, :cond_34
 
-    goto :goto_31
+    .line 204
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    goto :goto_34
 
     .line 200
-    :catch_3a
+    :catch_3d
     move-exception v7
 
     .line 203
     .local v7, e:Ljava/lang/Exception;
-    if-eqz v6, :cond_40
+    if-eqz v6, :cond_43
 
     .line 204
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_40
+    :cond_43
     move-object v0, v8
 
-    .line 201
     goto :goto_34
 
     .line 203
     .end local v7           #e:Ljava/lang/Exception;
-    :catchall_42
+    :catchall_45
     move-exception v0
 
-    if-eqz v6, :cond_48
+    if-eqz v6, :cond_4b
 
     .line 204
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 203
-    :cond_48
+    :cond_4b
     throw v0
 .end method
 
@@ -1083,7 +1082,7 @@
 
     invoke-direct {v7, v2, v3}, Landroid/mtp/MtpPropertyList;-><init>(II)V
 
-    .line 438
+    .line 441
     :cond_e
     :goto_e
     return-object v7
@@ -1164,14 +1163,13 @@
 
     invoke-direct {v7, v2, v3}, Landroid/mtp/MtpPropertyList;-><init>(II)V
     :try_end_44
-    .catchall {:try_start_21 .. :try_end_44} :catchall_116
+    .catchall {:try_start_21 .. :try_end_44} :catchall_119
     .catch Landroid/os/RemoteException; {:try_start_21 .. :try_end_44} :catch_f9
 
     .line 440
     if-eqz v19, :cond_e
 
     .line 441
-    :goto_46
     invoke-interface/range {v19 .. v19}, Landroid/database/Cursor;->close()V
 
     goto :goto_e
@@ -1326,7 +1324,7 @@
 
     move/from16 v1, v21
 
-    if-ge v0, v1, :cond_219
+    if-ge v0, v1, :cond_21d
 
     .line 338
     if-eqz v19, :cond_b8
@@ -1361,7 +1359,7 @@
 
     move/from16 v0, v28
 
-    if-ge v0, v2, :cond_215
+    if-ge v0, v2, :cond_219
 
     .line 345
     move-object/from16 v0, p0
@@ -1386,7 +1384,7 @@
 
     .line 350
     .local v20, column:I
-    sparse-switch v9, :sswitch_data_21e
+    sparse-switch v9, :sswitch_data_224
 
     .line 423
     move-object/from16 v0, v27
@@ -1395,7 +1393,7 @@
 
     const v3, 0xffff
 
-    if-ne v2, v3, :cond_1eb
+    if-ne v2, v3, :cond_1ef
 
     .line 424
     invoke-interface/range {v19 .. v20}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -1444,7 +1442,7 @@
 
     invoke-virtual/range {v7 .. v12}, Landroid/mtp/MtpPropertyList;->append(IIIJ)V
     :try_end_f8
-    .catchall {:try_start_93 .. :try_end_f8} :catchall_116
+    .catchall {:try_start_93 .. :try_end_f8} :catchall_119
     .catch Landroid/os/RemoteException; {:try_start_93 .. :try_end_f8} :catch_f9
 
     goto :goto_e8
@@ -1471,12 +1469,15 @@
 
     invoke-direct {v7, v2, v3}, Landroid/mtp/MtpPropertyList;-><init>(II)V
     :try_end_102
-    .catchall {:try_start_fa .. :try_end_102} :catchall_116
+    .catchall {:try_start_fa .. :try_end_102} :catchall_119
 
     .line 440
     if-eqz v19, :cond_e
 
-    goto/16 :goto_46
+    .line 441
+    invoke-interface/range {v19 .. v19}, Landroid/database/Cursor;->close()V
+
+    goto/16 :goto_e
 
     .line 357
     .end local v23           #e:Landroid/os/RemoteException;
@@ -1487,15 +1488,15 @@
     .restart local v26       #objectIndex:I
     .restart local v27       #property:Landroid/mtp/MtpPropertyGroup$Property;
     .restart local v28       #propertyIndex:I
-    :sswitch_106
-    :try_start_106
+    :sswitch_109
+    :try_start_109
     invoke-interface/range {v19 .. v20}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v29
 
     .line 358
     .local v29, value:Ljava/lang/String;
-    if-eqz v29, :cond_11d
+    if-eqz v29, :cond_120
 
     .line 359
     invoke-static/range {v29 .. v29}, Landroid/mtp/MtpPropertyGroup;->nameFromPath(Ljava/lang/String;)Ljava/lang/String;
@@ -1505,9 +1506,9 @@
     move/from16 v0, p1
 
     invoke-virtual {v7, v0, v9, v2}, Landroid/mtp/MtpPropertyList;->append(IILjava/lang/String;)V
-    :try_end_115
-    .catchall {:try_start_106 .. :try_end_115} :catchall_116
-    .catch Landroid/os/RemoteException; {:try_start_106 .. :try_end_115} :catch_f9
+    :try_end_118
+    .catchall {:try_start_109 .. :try_end_118} :catchall_119
+    .catch Landroid/os/RemoteException; {:try_start_109 .. :try_end_118} :catch_f9
 
     goto :goto_e8
 
@@ -1520,16 +1521,15 @@
     .end local v27           #property:Landroid/mtp/MtpPropertyGroup$Property;
     .end local v28           #propertyIndex:I
     .end local v29           #value:Ljava/lang/String;
-    :catchall_116
+    :catchall_119
     move-exception v2
 
-    if-eqz v19, :cond_11c
+    if-eqz v19, :cond_11f
 
     .line 441
     invoke-interface/range {v19 .. v19}, Landroid/database/Cursor;->close()V
 
-    .line 440
-    :cond_11c
+    :cond_11f
     throw v2
 
     .line 361
@@ -1541,24 +1541,24 @@
     .restart local v27       #property:Landroid/mtp/MtpPropertyGroup$Property;
     .restart local v28       #propertyIndex:I
     .restart local v29       #value:Ljava/lang/String;
-    :cond_11d
+    :cond_120
     const/16 v2, 0x2009
 
-    :try_start_11f
+    :try_start_122
     invoke-virtual {v7, v2}, Landroid/mtp/MtpPropertyList;->setResult(I)V
 
     goto :goto_e8
 
     .line 366
     .end local v29           #value:Ljava/lang/String;
-    :sswitch_123
+    :sswitch_126
     invoke-interface/range {v19 .. v20}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v25
 
     .line 368
     .local v25, name:Ljava/lang/String;
-    if-nez v25, :cond_134
+    if-nez v25, :cond_137
 
     .line 369
     const-string/jumbo v2, "name"
@@ -1572,8 +1572,8 @@
     move-result-object v25
 
     .line 372
-    :cond_134
-    if-nez v25, :cond_146
+    :cond_137
+    if-nez v25, :cond_149
 
     .line 373
     const-string v2, "_data"
@@ -1587,7 +1587,7 @@
     move-result-object v25
 
     .line 374
-    if-eqz v25, :cond_146
+    if-eqz v25, :cond_149
 
     .line 375
     invoke-static/range {v25 .. v25}, Landroid/mtp/MtpPropertyGroup;->nameFromPath(Ljava/lang/String;)Ljava/lang/String;
@@ -1595,8 +1595,8 @@
     move-result-object v25
 
     .line 378
-    :cond_146
-    if-eqz v25, :cond_150
+    :cond_149
+    if-eqz v25, :cond_153
 
     .line 379
     move/from16 v0, p1
@@ -1608,7 +1608,7 @@
     goto :goto_e8
 
     .line 381
-    :cond_150
+    :cond_153
     const/16 v2, 0x2009
 
     invoke-virtual {v7, v2}, Landroid/mtp/MtpPropertyList;->setResult(I)V
@@ -1617,7 +1617,7 @@
 
     .line 387
     .end local v25           #name:Ljava/lang/String;
-    :sswitch_156
+    :sswitch_159
     invoke-interface/range {v19 .. v20}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v2
@@ -1634,10 +1634,10 @@
 
     invoke-virtual {v7, v0, v9, v2}, Landroid/mtp/MtpPropertyList;->append(IILjava/lang/String;)V
 
-    goto :goto_e8
+    goto/16 :goto_e8
 
     .line 391
-    :sswitch_167
+    :sswitch_16b
     invoke-interface/range {v19 .. v20}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v30
@@ -1679,7 +1679,7 @@
     .line 397
     .end local v22           #dateTime:Ljava/lang/String;
     .end local v30           #year:I
-    :sswitch_18b
+    :sswitch_18f
     invoke-interface/range {v19 .. v20}, Landroid/database/Cursor;->getLong(I)J
 
     move-result-wide v11
@@ -1708,7 +1708,7 @@
 
     .line 403
     .end local v11           #puid:J
-    :sswitch_19f
+    :sswitch_1a3
     const/16 v16, 0x4
 
     invoke-interface/range {v19 .. v20}, Landroid/database/Cursor;->getInt(I)I
@@ -1732,7 +1732,7 @@
     goto/16 :goto_e8
 
     .line 407
-    :sswitch_1b3
+    :sswitch_1b7
     const-string v2, "artist"
 
     move-object/from16 v0, p0
@@ -1750,7 +1750,7 @@
     goto/16 :goto_e8
 
     .line 411
-    :sswitch_1c4
+    :sswitch_1c8
     const-string v2, "album"
 
     move-object/from16 v0, p0
@@ -1768,14 +1768,14 @@
     goto/16 :goto_e8
 
     .line 415
-    :sswitch_1d5
+    :sswitch_1d9
     invoke-direct/range {p0 .. p1}, Landroid/mtp/MtpPropertyGroup;->queryGenre(I)Ljava/lang/String;
 
     move-result-object v24
 
     .line 416
     .local v24, genre:Ljava/lang/String;
-    if-eqz v24, :cond_1e4
+    if-eqz v24, :cond_1e8
 
     .line 417
     move/from16 v0, p1
@@ -1787,7 +1787,7 @@
     goto/16 :goto_e8
 
     .line 419
-    :cond_1e4
+    :cond_1e8
     const/16 v2, 0x2009
 
     invoke-virtual {v7, v2}, Landroid/mtp/MtpPropertyList;->setResult(I)V
@@ -1796,12 +1796,12 @@
 
     .line 425
     .end local v24           #genre:Ljava/lang/String;
-    :cond_1eb
+    :cond_1ef
     move-object/from16 v0, v27
 
     iget v2, v0, Landroid/mtp/MtpPropertyGroup$Property;->type:I
 
-    if-nez v2, :cond_202
+    if-nez v2, :cond_206
 
     .line 426
     move-object/from16 v0, v27
@@ -1823,7 +1823,7 @@
     goto/16 :goto_e8
 
     .line 428
-    :cond_202
+    :cond_206
     move-object/from16 v0, v27
 
     iget v0, v0, Landroid/mtp/MtpPropertyGroup$Property;->type:I
@@ -1841,9 +1841,9 @@
     move v15, v9
 
     invoke-virtual/range {v13 .. v18}, Landroid/mtp/MtpPropertyList;->append(IIIJ)V
-    :try_end_213
-    .catchall {:try_start_11f .. :try_end_213} :catchall_116
-    .catch Landroid/os/RemoteException; {:try_start_11f .. :try_end_213} :catch_f9
+    :try_end_217
+    .catchall {:try_start_122 .. :try_end_217} :catchall_119
+    .catch Landroid/os/RemoteException; {:try_start_122 .. :try_end_217} :catch_f9
 
     goto/16 :goto_e8
 
@@ -1851,33 +1851,34 @@
     .end local v9           #propertyCode:I
     .end local v20           #column:I
     .end local v27           #property:Landroid/mtp/MtpPropertyGroup$Property;
-    :cond_215
+    :cond_219
     add-int/lit8 v26, v26, 0x1
 
     goto/16 :goto_a3
 
     .line 440
     .end local v28           #propertyIndex:I
-    :cond_219
+    :cond_21d
     if-eqz v19, :cond_e
 
-    goto/16 :goto_46
+    .line 441
+    invoke-interface/range {v19 .. v19}, Landroid/database/Cursor;->close()V
+
+    goto/16 :goto_e
 
     .line 350
-    nop
-
-    :sswitch_data_21e
+    :sswitch_data_224
     .sparse-switch
         0xdc03 -> :sswitch_f0
-        0xdc07 -> :sswitch_106
-        0xdc09 -> :sswitch_156
-        0xdc41 -> :sswitch_18b
-        0xdc44 -> :sswitch_123
-        0xdc46 -> :sswitch_1b3
-        0xdc4e -> :sswitch_156
-        0xdc8b -> :sswitch_19f
-        0xdc8c -> :sswitch_1d5
-        0xdc99 -> :sswitch_167
-        0xdc9a -> :sswitch_1c4
+        0xdc07 -> :sswitch_109
+        0xdc09 -> :sswitch_159
+        0xdc41 -> :sswitch_18f
+        0xdc44 -> :sswitch_126
+        0xdc46 -> :sswitch_1b7
+        0xdc4e -> :sswitch_159
+        0xdc8b -> :sswitch_1a3
+        0xdc8c -> :sswitch_1d9
+        0xdc99 -> :sswitch_16b
+        0xdc9a -> :sswitch_1c8
     .end sparse-switch
 .end method

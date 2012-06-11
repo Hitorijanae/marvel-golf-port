@@ -20,161 +20,93 @@
 # instance fields
 .field private mSelf:Z
 
+.field private mUri:Landroid/net/Uri;
+
 .field final synthetic this$0:Landroid/database/ContentObserver;
 
 
 # direct methods
-.method public constructor <init>(Landroid/database/ContentObserver;Z)V
-    .registers 3
+.method public constructor <init>(Landroid/database/ContentObserver;Landroid/net/Uri;Z)V
+    .registers 5
     .parameter
+    .parameter "uri"
     .parameter "self"
 
     .prologue
     .line 45
     iput-object p1, p0, Landroid/database/ContentObserver$NotificationRunnable;->this$0:Landroid/database/ContentObserver;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 38
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroid/database/ContentObserver$NotificationRunnable;->mUri:Landroid/net/Uri;
 
     .line 46
-    iput-boolean p2, p0, Landroid/database/ContentObserver$NotificationRunnable;->mSelf:Z
+    iput-boolean p3, p0, Landroid/database/ContentObserver$NotificationRunnable;->mSelf:Z
 
     .line 47
+    iput-object p2, p0, Landroid/database/ContentObserver$NotificationRunnable;->mUri:Landroid/net/Uri;
+
+    .line 48
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/database/ContentObserver;Z)V
+    .registers 4
+    .parameter
+    .parameter "self"
+
+    .prologue
+    .line 40
+    iput-object p1, p0, Landroid/database/ContentObserver$NotificationRunnable;->this$0:Landroid/database/ContentObserver;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 38
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroid/database/ContentObserver$NotificationRunnable;->mUri:Landroid/net/Uri;
+
+    .line 41
+    iput-boolean p2, p0, Landroid/database/ContentObserver$NotificationRunnable;->mSelf:Z
+
+    .line 42
     return-void
 .end method
 
 
 # virtual methods
 .method public run()V
-    .registers 9
+    .registers 4
 
     .prologue
     .line 51
-    invoke-static {}, Lcom/htc/profileflag/ProfileConfig;->getProfilePerformance()I
+    iget-object v0, p0, Landroid/database/ContentObserver$NotificationRunnable;->mUri:Landroid/net/Uri;
 
-    move-result v1
+    if-eqz v0, :cond_e
 
     .line 52
-    .local v1, performanceFlag:I
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+    iget-object v0, p0, Landroid/database/ContentObserver$NotificationRunnable;->this$0:Landroid/database/ContentObserver;
 
-    move-result-wide v2
+    iget-object v1, p0, Landroid/database/ContentObserver$NotificationRunnable;->mUri:Landroid/net/Uri;
 
-    .line 53
-    .local v2, startTime:J
-    invoke-static {}, Landroid/os/Process;->myTid()I
+    iget-boolean v2, p0, Landroid/database/ContentObserver$NotificationRunnable;->mSelf:Z
 
-    move-result v4
+    invoke-virtual {v0, v1, v2}, Landroid/database/ContentObserver;->onChangeUri(Landroid/net/Uri;Z)V
 
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v5
-
-    if-ne v4, v5, :cond_6f
-
-    const/4 v0, 0x1
-
-    .line 54
-    .local v0, isUIThread:Z
-    :goto_13
-    if-lez v1, :cond_35
-
-    if-eqz v0, :cond_35
-
-    .line 55
-    const-string v4, "Performance"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, ">>"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string v6, " onChange"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 57
-    :cond_35
-    iget-object v4, p0, Landroid/database/ContentObserver$NotificationRunnable;->this$0:Landroid/database/ContentObserver;
-
-    iget-boolean v5, p0, Landroid/database/ContentObserver$NotificationRunnable;->mSelf:Z
-
-    invoke-virtual {v4, v5}, Landroid/database/ContentObserver;->onChange(Z)V
-
-    .line 59
-    if-lez v1, :cond_6e
-
-    if-eqz v0, :cond_6e
-
-    .line 60
-    const-string v4, "Performance"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "<<"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string v6, " onChange, "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v6
-
-    sub-long/2addr v6, v2
-
-    invoke-virtual {v5, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "ms"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 62
-    :cond_6e
+    .line 56
+    :goto_d
     return-void
 
-    .line 53
-    .end local v0           #isUIThread:Z
-    :cond_6f
-    const/4 v0, 0x0
+    .line 54
+    :cond_e
+    iget-object v0, p0, Landroid/database/ContentObserver$NotificationRunnable;->this$0:Landroid/database/ContentObserver;
 
-    goto :goto_13
+    iget-boolean v1, p0, Landroid/database/ContentObserver$NotificationRunnable;->mSelf:Z
+
+    invoke-virtual {v0, v1}, Landroid/database/ContentObserver;->onChange(Z)V
+
+    goto :goto_d
 .end method

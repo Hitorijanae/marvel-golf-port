@@ -56,7 +56,7 @@
     const/4 v0, 0x0
 
     .line 967
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 949
     iput-object v0, p0, Landroid/database/DatabaseUtils$InsertHelper;->mInsertSQL:Ljava/lang/String;
@@ -819,16 +819,15 @@
 
     invoke-virtual {v1}, Landroid/database/sqlite/SQLiteStatement;->executeInsert()J
     :try_end_13
-    .catchall {:try_start_e .. :try_end_13} :catchall_35
+    .catchall {:try_start_e .. :try_end_13} :catchall_37
     .catch Landroid/database/SQLException; {:try_start_e .. :try_end_13} :catch_17
 
     move-result-wide v1
 
     .line 1208
-    :goto_14
     iput-object v4, p0, Landroid/database/DatabaseUtils$InsertHelper;->mPreparedStatement:Landroid/database/sqlite/SQLiteStatement;
 
-    .line 1205
+    :goto_16
     return-wide v1
 
     .line 1203
@@ -862,16 +861,18 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_32
-    .catchall {:try_start_18 .. :try_end_32} :catchall_35
+    .catchall {:try_start_18 .. :try_end_32} :catchall_37
 
     .line 1205
     const-wide/16 v1, -0x1
 
-    goto :goto_14
-
     .line 1208
+    iput-object v4, p0, Landroid/database/DatabaseUtils$InsertHelper;->mPreparedStatement:Landroid/database/sqlite/SQLiteStatement;
+
+    goto :goto_16
+
     .end local v0           #e:Landroid/database/SQLException;
-    :catchall_35
+    :catchall_37
     move-exception v1
 
     iput-object v4, p0, Landroid/database/DatabaseUtils$InsertHelper;->mPreparedStatement:Landroid/database/sqlite/SQLiteStatement;

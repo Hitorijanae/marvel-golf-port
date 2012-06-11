@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 2225
+    .line 1924
     iput-object p1, p0, Landroid/webkit/WebView$7$1;->this$1:Landroid/webkit/WebView$7;
 
     iput-object p2, p0, Landroid/webkit/WebView$7$1;->val$p:Landroid/graphics/Picture;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -46,7 +46,7 @@
     .registers 4
 
     .prologue
-    .line 2227
+    .line 1926
     iget-object v0, p0, Landroid/webkit/WebView$7$1;->this$1:Landroid/webkit/WebView$7;
 
     iget-object v0, v0, Landroid/webkit/WebView$7;->this$0:Landroid/webkit/WebView;
@@ -58,8 +58,8 @@
     iget-object v2, v2, Landroid/webkit/WebView$7;->val$copy:Landroid/os/Bundle;
 
     #calls: Landroid/webkit/WebView;->restoreHistoryPictureFields(Landroid/graphics/Picture;Landroid/os/Bundle;)V
-    invoke-static {v0, v1, v2}, Landroid/webkit/WebView;->access$700(Landroid/webkit/WebView;Landroid/graphics/Picture;Landroid/os/Bundle;)V
+    invoke-static {v0, v1, v2}, Landroid/webkit/WebView;->access$800(Landroid/webkit/WebView;Landroid/graphics/Picture;Landroid/os/Bundle;)V
 
-    .line 2228
+    .line 1927
     return-void
 .end method

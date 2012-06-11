@@ -26,22 +26,22 @@
     .parameter
 
     .prologue
-    .line 10618
+    .line 9634
     iput-object p1, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 10619
+    .line 9635
     iget-object v0, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
 
     iget-object v0, v0, Landroid/widget/TextView$SuggestionsPopupWindow;->this$0:Landroid/widget/TextView;
 
     #getter for: Landroid/widget/TextView;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Landroid/widget/TextView;->access$4700(Landroid/widget/TextView;)Landroid/content/Context;
+    invoke-static {v0}, Landroid/widget/TextView;->access$3700(Landroid/widget/TextView;)Landroid/content/Context;
 
     move-result-object v0
 
-    const-string/jumbo v1, "layout_inflater"
+    const-string v1, "layout_inflater"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -60,7 +60,7 @@
     .parameter "x1"
 
     .prologue
-    .line 10618
+    .line 9634
     invoke-direct {p0, p1}, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionAdapter;-><init>(Landroid/widget/TextView$SuggestionsPopupWindow;)V
 
     return-void
@@ -72,11 +72,11 @@
     .registers 2
 
     .prologue
-    .line 10624
+    .line 9640
     iget-object v0, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
 
     #getter for: Landroid/widget/TextView$SuggestionsPopupWindow;->mNumberOfSuggestions:I
-    invoke-static {v0}, Landroid/widget/TextView$SuggestionsPopupWindow;->access$4800(Landroid/widget/TextView$SuggestionsPopupWindow;)I
+    invoke-static {v0}, Landroid/widget/TextView$SuggestionsPopupWindow;->access$3800(Landroid/widget/TextView$SuggestionsPopupWindow;)I
 
     move-result v0
 
@@ -88,11 +88,11 @@
     .parameter "position"
 
     .prologue
-    .line 10629
+    .line 9645
     iget-object v0, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
 
     #getter for: Landroid/widget/TextView$SuggestionsPopupWindow;->mSuggestionInfos:[Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionInfo;
-    invoke-static {v0}, Landroid/widget/TextView$SuggestionsPopupWindow;->access$4900(Landroid/widget/TextView$SuggestionsPopupWindow;)[Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionInfo;
+    invoke-static {v0}, Landroid/widget/TextView$SuggestionsPopupWindow;->access$3900(Landroid/widget/TextView$SuggestionsPopupWindow;)[Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionInfo;
 
     move-result-object v0
 
@@ -106,338 +106,103 @@
     .parameter "position"
 
     .prologue
-    .line 10634
+    .line 9650
     int-to-long v0, p1
 
     return-wide v0
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .registers 19
+    .registers 10
     .parameter "position"
     .parameter "convertView"
     .parameter "parent"
 
     .prologue
-    .line 10639
-    move-object/from16 v8, p2
-
-    check-cast v8, Landroid/widget/TextView;
-
-    .line 10642
-    .local v8, textView:Landroid/widget/TextView;
-    const/4 v2, 0x0
-
-    .line 10643
-    .local v2, fontStyle:I
-    const/4 v3, 0x0
-
-    .line 10644
-    .local v3, id:I
-    const/4 v4, 0x0
-
-    .line 10645
-    .local v4, leftpadding:I
-    const/4 v6, 0x0
-
-    .line 10646
-    .local v6, rightpadding:I
-    const/4 v9, 0x0
-
-    .line 10647
-    .local v9, toppadding:I
-    const/4 v1, 0x0
-
-    .line 10648
-    .local v1, bottompadding:I
     const/4 v5, 0x0
 
-    .line 10651
-    .local v5, reset_padding:Z
-    if-nez v8, :cond_31
+    const/4 v4, 0x0
 
-    .line 10652
-    iget-object v10, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionAdapter;->mInflater:Landroid/view/LayoutInflater;
+    .line 9655
+    move-object v1, p2
 
-    iget-object v11, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
+    check-cast v1, Landroid/widget/TextView;
 
-    iget-object v11, v11, Landroid/widget/TextView$SuggestionsPopupWindow;->this$0:Landroid/widget/TextView;
+    .line 9657
+    .local v1, textView:Landroid/widget/TextView;
+    if-nez v1, :cond_17
+
+    .line 9658
+    iget-object v2, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionAdapter;->mInflater:Landroid/view/LayoutInflater;
+
+    iget-object v3, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
+
+    iget-object v3, v3, Landroid/widget/TextView$SuggestionsPopupWindow;->this$0:Landroid/widget/TextView;
 
     #getter for: Landroid/widget/TextView;->mTextEditSuggestionItemLayout:I
-    invoke-static {v11}, Landroid/widget/TextView;->access$5000(Landroid/widget/TextView;)I
-
-    move-result v11
-
-    const/4 v12, 0x0
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v10, v11, v0, v12}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object v8
-
-    .end local v8           #textView:Landroid/widget/TextView;
-    check-cast v8, Landroid/widget/TextView;
-
-    .line 10655
-    .restart local v8       #textView:Landroid/widget/TextView;
-    invoke-virtual {v8}, Landroid/widget/TextView;->getPaddingLeft()I
-
-    move-result v4
-
-    .line 10656
-    invoke-virtual {v8}, Landroid/widget/TextView;->getPaddingRight()I
-
-    move-result v6
-
-    .line 10657
-    invoke-virtual {v8}, Landroid/widget/TextView;->getPaddingTop()I
-
-    move-result v9
-
-    .line 10658
-    invoke-virtual {v8}, Landroid/widget/TextView;->getPaddingBottom()I
-
-    move-result v1
-
-    .line 10659
-    const/4 v5, 0x1
-
-    .line 10662
-    :cond_31
-    iget-object v10, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
-
-    #getter for: Landroid/widget/TextView$SuggestionsPopupWindow;->mSuggestionInfos:[Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionInfo;
-    invoke-static {v10}, Landroid/widget/TextView$SuggestionsPopupWindow;->access$4900(Landroid/widget/TextView$SuggestionsPopupWindow;)[Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionInfo;
-
-    move-result-object v10
-
-    aget-object v7, v10, p1
-
-    .line 10663
-    .local v7, suggestionInfo:Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionInfo;
-    iget-object v10, v7, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionInfo;->text:Landroid/text/SpannableStringBuilder;
-
-    invoke-virtual {v8, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 10665
-    iget v10, v7, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionInfo;->suggestionIndex:I
-
-    const/4 v11, -0x1
-
-    if-ne v10, v11, :cond_a1
-
-    .line 10666
-    const v10, 0x1080345
-
-    const/4 v11, 0x0
-
-    const/4 v12, 0x0
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v8, v10, v11, v12, v13}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
-
-    .line 10670
-    iget-object v10, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
-
-    iget-object v10, v10, Landroid/widget/TextView$SuggestionsPopupWindow;->this$0:Landroid/widget/TextView;
-
-    invoke-virtual {v10}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v10
-
-    const-string v11, "@com.htc:style/list_primary_m_bold"
-
-    const-string/jumbo v12, "style"
-
-    const-string v13, "com.htc"
-
-    invoke-virtual {v10, v11, v12, v13}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v2
-
-    .line 10671
-    if-eqz v2, :cond_70
-
-    .line 10672
-    iget-object v10, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
-
-    iget-object v10, v10, Landroid/widget/TextView$SuggestionsPopupWindow;->this$0:Landroid/widget/TextView;
-
-    invoke-virtual {v10}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
-
-    move-result-object v10
-
-    invoke-virtual {v8, v10, v2}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
-
-    .line 10697
-    :cond_70
-    :goto_70
-    iget-object v10, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
-
-    iget-object v10, v10, Landroid/widget/TextView$SuggestionsPopupWindow;->this$0:Landroid/widget/TextView;
-
-    invoke-virtual {v10}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v10
-
-    const-string v11, "@com.htc:drawable/common_list_item_background"
-
-    const-string v12, "drawable"
-
-    const-string v13, "com.htc"
-
-    invoke-virtual {v10, v11, v12, v13}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3}, Landroid/widget/TextView;->access$4000(Landroid/widget/TextView;)I
 
     move-result v3
 
-    .line 10699
-    if-eqz v3, :cond_a0
+    invoke-virtual {v2, v3, p3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    .line 10700
-    invoke-virtual {v8, v3}, Landroid/widget/TextView;->setBackgroundResource(I)V
+    move-result-object v1
 
-    .line 10702
-    if-eqz v5, :cond_a0
+    .end local v1           #textView:Landroid/widget/TextView;
+    check-cast v1, Landroid/widget/TextView;
 
-    .line 10703
-    int-to-double v10, v9
+    .line 9662
+    .restart local v1       #textView:Landroid/widget/TextView;
+    :cond_17
+    iget-object v2, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
 
-    const-wide v12, 0x3ff6666666666666L
+    #getter for: Landroid/widget/TextView$SuggestionsPopupWindow;->mSuggestionInfos:[Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionInfo;
+    invoke-static {v2}, Landroid/widget/TextView$SuggestionsPopupWindow;->access$3900(Landroid/widget/TextView$SuggestionsPopupWindow;)[Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionInfo;
 
-    mul-double/2addr v10, v12
+    move-result-object v2
 
-    double-to-int v10, v10
+    aget-object v0, v2, p1
 
-    int-to-double v11, v1
+    .line 9663
+    .local v0, suggestionInfo:Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionInfo;
+    iget-object v2, v0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionInfo;->text:Landroid/text/SpannableStringBuilder;
 
-    const-wide v13, 0x3ff6666666666666L
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    mul-double/2addr v11, v13
+    .line 9665
+    iget v2, v0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionInfo;->suggestionIndex:I
 
-    double-to-int v11, v11
+    const/4 v3, -0x1
 
-    invoke-virtual {v8, v4, v10, v6, v11}, Landroid/widget/TextView;->setPadding(IIII)V
+    if-ne v2, v3, :cond_30
 
-    .line 10707
-    :cond_a0
-    return-object v8
+    .line 9666
+    const v2, 0x108036d
 
-    .line 10675
-    :cond_a1
-    iget v10, v7, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionInfo;->suggestionIndex:I
+    invoke-virtual {v1, v2, v4, v4, v4}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    const/4 v11, -0x2
+    .line 9675
+    :goto_2f
+    return-object v1
 
-    if-ne v10, v11, :cond_d4
+    .line 9668
+    :cond_30
+    iget v2, v0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionInfo;->suggestionIndex:I
 
-    .line 10676
-    const v10, 0x1080346
+    const/4 v3, -0x2
 
-    const/4 v11, 0x0
+    if-ne v2, v3, :cond_3c
 
-    const/4 v12, 0x0
+    .line 9669
+    const v2, 0x108036e
 
-    const/4 v13, 0x0
+    invoke-virtual {v1, v2, v4, v4, v4}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    invoke-virtual {v8, v10, v11, v12, v13}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
+    goto :goto_2f
 
-    .line 10680
-    iget-object v10, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
+    .line 9672
+    :cond_3c
+    invoke-virtual {v1, v5, v5, v5, v5}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    iget-object v10, v10, Landroid/widget/TextView$SuggestionsPopupWindow;->this$0:Landroid/widget/TextView;
-
-    invoke-virtual {v10}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v10
-
-    const-string v11, "@com.htc:style/list_primary_m_bold"
-
-    const-string/jumbo v12, "style"
-
-    const-string v13, "com.htc"
-
-    invoke-virtual {v10, v11, v12, v13}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v2
-
-    .line 10681
-    if-eqz v2, :cond_70
-
-    .line 10682
-    iget-object v10, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
-
-    iget-object v10, v10, Landroid/widget/TextView$SuggestionsPopupWindow;->this$0:Landroid/widget/TextView;
-
-    invoke-virtual {v10}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
-
-    move-result-object v10
-
-    invoke-virtual {v8, v10, v2}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
-
-    goto :goto_70
-
-    .line 10686
-    :cond_d4
-    const/4 v10, 0x0
-
-    const/4 v11, 0x0
-
-    const/4 v12, 0x0
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v8, v10, v11, v12, v13}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
-
-    .line 10689
-    iget-object v10, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
-
-    iget-object v10, v10, Landroid/widget/TextView$SuggestionsPopupWindow;->this$0:Landroid/widget/TextView;
-
-    invoke-virtual {v10}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v10
-
-    const-string v11, "@com.htc:style/list_primary_m"
-
-    const-string/jumbo v12, "style"
-
-    const-string v13, "com.htc"
-
-    invoke-virtual {v10, v11, v12, v13}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v2
-
-    .line 10690
-    if-eqz v2, :cond_70
-
-    .line 10691
-    iget-object v10, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
-
-    iget-object v10, v10, Landroid/widget/TextView$SuggestionsPopupWindow;->this$0:Landroid/widget/TextView;
-
-    invoke-virtual {v10}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
-
-    move-result-object v10
-
-    invoke-virtual {v8, v10, v2}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
-
-    goto/16 :goto_70
+    goto :goto_2f
 .end method

@@ -7,14 +7,6 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/provider/Contacts$Intents;,
-        Landroid/provider/Contacts$SimContacts;,
-        Landroid/provider/Contacts$SimContactsColumns;,
-        Landroid/provider/Contacts$SocialNetworkMap;,
-        Landroid/provider/Contacts$SocialNetworkColumns;,
-        Landroid/provider/Contacts$SpeedDial;,
-        Landroid/provider/Contacts$SpeedDialColumns;,
-        Landroid/provider/Contacts$EventsMap;,
-        Landroid/provider/Contacts$EventsMapColumns;,
         Landroid/provider/Contacts$Extensions;,
         Landroid/provider/Contacts$ExtensionsColumns;,
         Landroid/provider/Contacts$Photos;,
@@ -26,11 +18,9 @@
         Landroid/provider/Contacts$ContactMethods;,
         Landroid/provider/Contacts$ContactMethodsColumns;,
         Landroid/provider/Contacts$GroupMembership;,
-        Landroid/provider/Contacts$MyContactCard;,
         Landroid/provider/Contacts$Phones;,
         Landroid/provider/Contacts$PhonesColumns;,
         Landroid/provider/Contacts$Groups;,
-        Landroid/provider/Contacts$GroupsMemberCount;,
         Landroid/provider/Contacts$GroupsColumns;,
         Landroid/provider/Contacts$People;,
         Landroid/provider/Contacts$PeopleColumns;,
@@ -54,14 +44,10 @@
     .end annotation
 .end field
 
-.field public static final EAS_CLEAN_TRACK:Ljava/lang/String; = "cleanTrack"
-
 .field public static final KIND_EMAIL:I = 0x1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
-
-.field public static final KIND_EXCHANGE_EXTRA:I = 0x6
 
 .field public static final KIND_IM:I = 0x3
     .annotation runtime Ljava/lang/Deprecated;
@@ -91,7 +77,7 @@
     .registers 1
 
     .prologue
-    .line 74
+    .line 60
     const-string v0, "content://contacts"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -107,8 +93,8 @@
     .registers 1
 
     .prologue
-    .line 129
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 96
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

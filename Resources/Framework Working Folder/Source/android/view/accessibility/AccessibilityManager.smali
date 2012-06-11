@@ -59,7 +59,7 @@
     .line 74
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/view/accessibility/AccessibilityManager;->sInstanceSync:Ljava/lang/Object;
 
@@ -73,7 +73,7 @@
 
     .prologue
     .line 155
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 88
     new-instance v2, Ljava/util/concurrent/CopyOnWriteArrayList;
@@ -784,19 +784,19 @@
     .line 220
     invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
     :try_end_21
-    .catchall {:try_start_d .. :try_end_21} :catchall_49
+    .catchall {:try_start_d .. :try_end_21} :catchall_4c
     .catch Landroid/os/RemoteException; {:try_start_d .. :try_end_21} :catch_27
 
     .line 227
     if-eqz v0, :cond_26
 
     .line 228
-    .end local v1           #identityToken:J
-    :goto_23
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->recycle()V
 
     .line 231
+    .end local v1           #identityToken:J
     :cond_26
+    :goto_26
     return-void
 
     .line 224
@@ -834,23 +834,26 @@
 
     invoke-static {v4, v5, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_46
-    .catchall {:try_start_28 .. :try_end_46} :catchall_49
+    .catchall {:try_start_28 .. :try_end_46} :catchall_4c
 
     .line 227
     if-eqz v0, :cond_26
 
-    goto :goto_23
+    .line 228
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->recycle()V
 
+    goto :goto_26
+
+    .line 227
     .end local v3           #re:Landroid/os/RemoteException;
-    :catchall_49
+    :catchall_4c
     move-exception v4
 
-    if-eqz v0, :cond_4f
+    if-eqz v0, :cond_52
 
     .line 228
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->recycle()V
 
-    .line 227
-    :cond_4f
+    :cond_52
     throw v4
 .end method

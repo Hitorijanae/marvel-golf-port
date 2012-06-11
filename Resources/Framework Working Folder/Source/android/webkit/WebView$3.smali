@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 1637
+    .line 1420
     iput-object p1, p0, Landroid/webkit/WebView$3;->this$0:Landroid/webkit/WebView;
 
     iput-object p2, p0, Landroid/webkit/WebView$3;->val$neverRemember:Landroid/os/Message;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,11 +48,11 @@
     .parameter "which"
 
     .prologue
-    .line 1639
+    .line 1422
     iget-object v0, p0, Landroid/webkit/WebView$3;->val$neverRemember:Landroid/os/Message;
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 1640
+    .line 1423
     return-void
 .end method

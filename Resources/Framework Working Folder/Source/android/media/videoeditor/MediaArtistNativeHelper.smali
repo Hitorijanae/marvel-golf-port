@@ -166,7 +166,7 @@
     const/4 v2, 0x0
 
     .line 1724
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 70
     iput-object v2, p0, Landroid/media/videoeditor/MediaArtistNativeHelper;->mClipProperties:Landroid/media/videoeditor/MediaArtistNativeHelper$PreviewClipProperties;
@@ -1541,12 +1541,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_15
 
     .line 3929
     const-string v0, "MediaArtistNativeHelper"
 
-    const-string/jumbo v1, "lock: grabbing semaphore"
+    const-string v1, "lock: grabbing semaphore"
 
     new-instance v2, Ljava/lang/Throwable;
 
@@ -1555,7 +1555,7 @@
     invoke-static {v0, v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 3931
-    :cond_16
+    :cond_15
     iget-object v0, p0, Landroid/media/videoeditor/MediaArtistNativeHelper;->mLock:Ljava/util/concurrent/Semaphore;
 
     invoke-virtual {v0}, Ljava/util/concurrent/Semaphore;->acquire()V
@@ -1567,17 +1567,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_29
 
     .line 3933
     const-string v0, "MediaArtistNativeHelper"
 
-    const-string/jumbo v1, "lock: grabbed semaphore"
+    const-string v1, "lock: grabbed semaphore"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 3935
-    :cond_2b
+    :cond_29
     return-void
 .end method
 
@@ -8248,18 +8248,18 @@
     .line 3166
     iput-boolean p1, p0, Landroid/media/videoeditor/MediaArtistNativeHelper;->mInvalidatePreviewArray:Z
     :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_18
+    .catchall {:try_start_1 .. :try_end_7} :catchall_1b
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_7} :catch_d
 
     .line 3170
     if-eqz v1, :cond_c
 
     .line 3171
-    :goto_9
     invoke-direct {p0}, Landroid/media/videoeditor/MediaArtistNativeHelper;->unlock()V
 
     .line 3174
     :cond_c
+    :goto_c
     return-void
 
     .line 3167
@@ -8275,24 +8275,27 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_15
-    .catchall {:try_start_e .. :try_end_15} :catchall_18
+    .catchall {:try_start_e .. :try_end_15} :catchall_1b
 
     .line 3170
     if-eqz v1, :cond_c
 
-    goto :goto_9
+    .line 3171
+    invoke-direct {p0}, Landroid/media/videoeditor/MediaArtistNativeHelper;->unlock()V
 
+    goto :goto_c
+
+    .line 3170
     .end local v0           #ex:Ljava/lang/InterruptedException;
-    :catchall_18
+    :catchall_1b
     move-exception v2
 
-    if-eqz v1, :cond_1e
+    if-eqz v1, :cond_21
 
     .line 3171
     invoke-direct {p0}, Landroid/media/videoeditor/MediaArtistNativeHelper;->unlock()V
 
-    .line 3170
-    :cond_1e
+    :cond_21
     throw v2
 .end method
 

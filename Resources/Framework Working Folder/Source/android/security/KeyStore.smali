@@ -47,7 +47,7 @@
     .line 51
     new-instance v0, Landroid/net/LocalSocketAddress;
 
-    const-string/jumbo v1, "keystore"
+    const-string v1, "keystore"
 
     sget-object v2, Landroid/net/LocalSocketAddress$Namespace;->RESERVED:Landroid/net/LocalSocketAddress$Namespace;
 
@@ -63,7 +63,7 @@
 
     .prologue
     .line 56
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 54
     const/4 v0, 0x1
@@ -284,8 +284,8 @@
     .line 188
     iput p1, p0, Landroid/security/KeyStore;->mError:I
     :try_end_55
-    .catchall {:try_start_1c .. :try_end_55} :catchall_9f
-    .catch Ljava/io/IOException; {:try_start_1c .. :try_end_55} :catch_98
+    .catchall {:try_start_1c .. :try_end_55} :catchall_a7
+    .catch Ljava/io/IOException; {:try_start_1c .. :try_end_55} :catch_a0
 
     .line 190
     :cond_55
@@ -322,69 +322,81 @@
     .local v1, i:I
     const/4 v11, -0x1
 
-    if-ne v1, v11, :cond_6f
+    if-ne v1, v11, :cond_71
 
     .line 210
     const/4 v11, 0x1
 
     iput v11, p0, Landroid/security/KeyStore;->mError:I
     :try_end_6b
-    .catchall {:try_start_5c .. :try_end_6b} :catchall_9f
-    .catch Ljava/io/IOException; {:try_start_5c .. :try_end_6b} :catch_98
+    .catchall {:try_start_5c .. :try_end_6b} :catchall_a7
+    .catch Ljava/io/IOException; {:try_start_5c .. :try_end_6b} :catch_a0
 
     .line 216
     :try_start_6b
     invoke-virtual {v8}, Landroid/net/LocalSocket;->close()V
     :try_end_6e
-    .catch Ljava/io/IOException; {:try_start_6b .. :try_end_6e} :catch_5a
+    .catch Ljava/io/IOException; {:try_start_6b .. :try_end_6e} :catch_6f
+
+    goto :goto_13
+
+    .line 217
+    :catch_6f
+    move-exception v11
 
     goto :goto_13
 
     .line 199
-    :cond_6f
-    :try_start_6f
+    :cond_71
+    :try_start_71
     invoke-virtual {v3}, Ljava/io/InputStream;->read()I
-    :try_end_72
-    .catchall {:try_start_6f .. :try_end_72} :catchall_9f
-    .catch Ljava/io/IOException; {:try_start_6f .. :try_end_72} :catch_98
+    :try_end_74
+    .catchall {:try_start_71 .. :try_end_74} :catchall_a7
+    .catch Ljava/io/IOException; {:try_start_71 .. :try_end_74} :catch_a0
 
     move-result v4
 
     .local v4, j:I
     const/4 v11, -0x1
 
-    if-ne v4, v11, :cond_7b
+    if-ne v4, v11, :cond_7f
 
     .line 200
     const/4 v10, 0x0
 
     .line 216
     .end local v10           #values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<[B>;"
-    :try_start_77
+    :try_start_79
     invoke-virtual {v8}, Landroid/net/LocalSocket;->close()V
-    :try_end_7a
-    .catch Ljava/io/IOException; {:try_start_77 .. :try_end_7a} :catch_5a
+    :try_end_7c
+    .catch Ljava/io/IOException; {:try_start_79 .. :try_end_7c} :catch_7d
+
+    goto :goto_13
+
+    .line 217
+    :catch_7d
+    move-exception v11
 
     goto :goto_13
 
     .line 202
     .restart local v10       #values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<[B>;"
-    :cond_7b
+    :cond_7f
     shl-int/lit8 v11, v1, 0x8
 
     or-int/2addr v11, v4
 
-    :try_start_7e
+    :try_start_82
     new-array v9, v11, [B
 
     .line 203
     .local v9, value:[B
     const/4 v1, 0x0
 
-    :goto_81
+    :goto_85
     array-length v11, v9
 
-    if-ge v1, v11, :cond_94
+    if-ge v1, v11, :cond_9c
 
     .line 204
     array-length v11, v9
@@ -392,42 +404,48 @@
     sub-int/2addr v11, v1
 
     invoke-virtual {v3, v9, v1, v11}, Ljava/io/InputStream;->read([BII)I
-    :try_end_89
-    .catchall {:try_start_7e .. :try_end_89} :catchall_9f
-    .catch Ljava/io/IOException; {:try_start_7e .. :try_end_89} :catch_98
+    :try_end_8d
+    .catchall {:try_start_82 .. :try_end_8d} :catchall_a7
+    .catch Ljava/io/IOException; {:try_start_82 .. :try_end_8d} :catch_a0
 
     move-result v4
 
     const/4 v11, -0x1
 
-    if-ne v4, v11, :cond_92
+    if-ne v4, v11, :cond_9a
 
     .line 205
     const/4 v10, 0x0
 
     .line 216
     .end local v10           #values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<[B>;"
-    :try_start_8e
+    :try_start_92
     invoke-virtual {v8}, Landroid/net/LocalSocket;->close()V
-    :try_end_91
-    .catch Ljava/io/IOException; {:try_start_8e .. :try_end_91} :catch_5a
+    :try_end_95
+    .catch Ljava/io/IOException; {:try_start_92 .. :try_end_95} :catch_97
 
-    goto :goto_13
+    goto/16 :goto_13
+
+    .line 217
+    :catch_97
+    move-exception v11
+
+    goto/16 :goto_13
 
     .line 203
     .restart local v10       #values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<[B>;"
-    :cond_92
+    :cond_9a
     add-int/2addr v1, v4
 
-    goto :goto_81
+    goto :goto_85
 
     .line 208
-    :cond_94
-    :try_start_94
+    :cond_9c
+    :try_start_9c
     invoke-virtual {v10, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_97
-    .catchall {:try_start_94 .. :try_end_97} :catchall_9f
-    .catch Ljava/io/IOException; {:try_start_94 .. :try_end_97} :catch_98
+    :try_end_9f
+    .catchall {:try_start_9c .. :try_end_9f} :catchall_a7
+    .catch Ljava/io/IOException; {:try_start_9c .. :try_end_9f} :catch_a0
 
     goto :goto_61
 
@@ -438,45 +456,44 @@
     .end local v6           #out:Ljava/io/OutputStream;
     .end local v9           #value:[B
     .end local v10           #values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<[B>;"
-    :catch_98
+    :catch_a0
     move-exception v11
 
     .line 216
-    :try_start_99
+    :try_start_a1
     invoke-virtual {v8}, Landroid/net/LocalSocket;->close()V
-    :try_end_9c
-    .catch Ljava/io/IOException; {:try_start_99 .. :try_end_9c} :catch_a4
+    :try_end_a4
+    .catch Ljava/io/IOException; {:try_start_a1 .. :try_end_a4} :catch_ac
 
     .line 219
-    :goto_9c
+    :goto_a4
     const/4 v10, 0x0
 
     goto/16 :goto_13
 
     .line 215
-    :catchall_9f
+    :catchall_a7
     move-exception v11
 
     .line 216
-    :try_start_a0
+    :try_start_a8
     invoke-virtual {v8}, Landroid/net/LocalSocket;->close()V
-    :try_end_a3
-    .catch Ljava/io/IOException; {:try_start_a0 .. :try_end_a3} :catch_a6
-
-    .line 215
-    :goto_a3
-    throw v11
+    :try_end_ab
+    .catch Ljava/io/IOException; {:try_start_a8 .. :try_end_ab} :catch_ae
 
     .line 217
-    :catch_a4
+    :goto_ab
+    throw v11
+
+    :catch_ac
     move-exception v11
 
-    goto :goto_9c
+    goto :goto_a4
 
-    :catch_a6
+    :catch_ae
     move-exception v12
 
-    goto :goto_a3
+    goto :goto_ab
 .end method
 
 .method private get([B)[B

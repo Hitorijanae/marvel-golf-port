@@ -26,8 +26,6 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.location.ILocationManager"
 
-.field static final TRANSACTION_addCarGpsProvider:I = 0x1f
-
 .field static final TRANSACTION_addGpsStatusListener:I = 0x9
 
 .field static final TRANSACTION_addProximityAlert:I = 0xd
@@ -60,11 +58,7 @@
 
 .field static final TRANSACTION_locationCallbackFinished:I = 0xb
 
-.field static final TRANSACTION_notifyNema:I = 0x21
-
 .field static final TRANSACTION_providerMeetsCriteria:I = 0x4
-
-.field static final TRANSACTION_removeCarGpsProvider:I = 0x20
 
 .field static final TRANSACTION_removeGpsStatusListener:I = 0xa
 
@@ -85,6 +79,8 @@
 .field static final TRANSACTION_sendExtraCommand:I = 0xc
 
 .field static final TRANSACTION_sendNiResponse:I = 0x1e
+
+.field static final TRANSACTION_setGPSSource:I = 0x1f
 
 .field static final TRANSACTION_setTestProviderEnabled:I = 0x1a
 
@@ -180,9 +176,9 @@
 
     .prologue
     .line 43
-    sparse-switch p1, :sswitch_data_5ac
+    sparse-switch p1, :sswitch_data_57c
 
-    .line 547
+    .line 527
     invoke-super/range {p0 .. p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v2
@@ -2212,7 +2208,7 @@
     .local v3, _arg0:Ljava/lang/String;
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v3}, Landroid/location/ILocationManager$Stub;->addCarGpsProvider(Ljava/lang/String;)V
+    invoke-virtual {v0, v3}, Landroid/location/ILocationManager$Stub;->setGPSSource(Ljava/lang/String;)V
 
     .line 523
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
@@ -2222,72 +2218,10 @@
 
     goto/16 :goto_7
 
-    .line 528
-    .end local v3           #_arg0:Ljava/lang/String;
-    :sswitch_57b
-    const-string v2, "android.location.ILocationManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 530
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 531
-    .restart local v3       #_arg0:Ljava/lang/String;
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v3}, Landroid/location/ILocationManager$Stub;->removeCarGpsProvider(Ljava/lang/String;)V
-
-    .line 532
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 533
-    const/4 v2, 0x1
-
-    goto/16 :goto_7
-
-    .line 537
-    .end local v3           #_arg0:Ljava/lang/String;
-    :sswitch_591
-    const-string v2, "android.location.ILocationManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 539
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v11
-
-    .line 541
-    .local v11, _arg0:J
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v4
-
-    .line 542
-    .local v4, _arg1:Ljava/lang/String;
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v11, v12, v4}, Landroid/location/ILocationManager$Stub;->notifyNema(JLjava/lang/String;)V
-
-    .line 543
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 544
-    const/4 v2, 0x1
-
-    goto/16 :goto_7
-
     .line 43
     nop
 
-    :sswitch_data_5ac
+    :sswitch_data_57c
     .sparse-switch
         0x1 -> :sswitch_11
         0x2 -> :sswitch_28
@@ -2320,8 +2254,6 @@
         0x1d -> :sswitch_52a
         0x1e -> :sswitch_540
         0x1f -> :sswitch_565
-        0x20 -> :sswitch_57b
-        0x21 -> :sswitch_591
         0x5f4e5446 -> :sswitch_8
     .end sparse-switch
 .end method

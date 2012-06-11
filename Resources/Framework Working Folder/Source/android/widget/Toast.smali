@@ -40,7 +40,7 @@
 
     .prologue
     .line 89
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 90
     iput-object p1, p0, Landroid/widget/Toast;->mContext:Landroid/content/Context;
@@ -149,7 +149,7 @@
 
     .line 235
     .local v1, result:Landroid/widget/Toast;
-    const-string/jumbo v4, "layout_inflater"
+    const-string v4, "layout_inflater"
 
     invoke-virtual {p0, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

@@ -119,53 +119,82 @@
     :try_start_e
     invoke-virtual {p0}, Landroid/accounts/AccountManager$Future2Task;->get()Ljava/lang/Object;
     :try_end_11
-    .catchall {:try_start_e .. :try_end_11} :catchall_2b
-    .catch Ljava/lang/InterruptedException; {:try_start_e .. :try_end_11} :catch_69
-    .catch Ljava/util/concurrent/TimeoutException; {:try_start_e .. :try_end_11} :catch_63
-    .catch Ljava/util/concurrent/CancellationException; {:try_start_e .. :try_end_11} :catch_55
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_e .. :try_end_11} :catch_1f
+    .catchall {:try_start_e .. :try_end_11} :catchall_42
+    .catch Ljava/lang/InterruptedException; {:try_start_e .. :try_end_11} :catch_22
+    .catch Ljava/util/concurrent/TimeoutException; {:try_start_e .. :try_end_11} :catch_2c
+    .catch Ljava/util/concurrent/CancellationException; {:try_start_e .. :try_end_11} :catch_31
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_e .. :try_end_11} :catch_36
 
     move-result-object v2
 
     .line 1529
-    :goto_12
     invoke-virtual {p0, v4}, Landroid/accounts/AccountManager$Future2Task;->cancel(Z)Z
 
-    .line 1505
+    :goto_15
     return-object v2
 
+    .line 1505
     :cond_16
     :try_start_16
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
-    :try_end_19
-    .catchall {:try_start_16 .. :try_end_19} :catchall_2b
-    .catch Ljava/lang/InterruptedException; {:try_start_16 .. :try_end_19} :catch_69
-    .catch Ljava/util/concurrent/TimeoutException; {:try_start_16 .. :try_end_19} :catch_65
-    .catch Ljava/util/concurrent/CancellationException; {:try_start_16 .. :try_end_19} :catch_5f
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_16 .. :try_end_19} :catch_1f
 
     move-result-wide v2
 
-    :try_start_1a
     invoke-virtual {p0, v2, v3, p2}, Landroid/accounts/AccountManager$Future2Task;->get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
     :try_end_1d
-    .catchall {:try_start_1a .. :try_end_1d} :catchall_2b
-    .catch Ljava/lang/InterruptedException; {:try_start_1a .. :try_end_1d} :catch_69
-    .catch Ljava/util/concurrent/TimeoutException; {:try_start_1a .. :try_end_1d} :catch_67
-    .catch Ljava/util/concurrent/CancellationException; {:try_start_1a .. :try_end_1d} :catch_61
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_1a .. :try_end_1d} :catch_1f
+    .catchall {:try_start_16 .. :try_end_1d} :catchall_42
+    .catch Ljava/lang/InterruptedException; {:try_start_16 .. :try_end_1d} :catch_22
+    .catch Ljava/util/concurrent/TimeoutException; {:try_start_16 .. :try_end_1d} :catch_2c
+    .catch Ljava/util/concurrent/CancellationException; {:try_start_16 .. :try_end_1d} :catch_31
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_16 .. :try_end_1d} :catch_36
 
     move-result-object v2
 
-    goto :goto_12
+    .line 1529
+    invoke-virtual {p0, v4}, Landroid/accounts/AccountManager$Future2Task;->cancel(Z)Z
+
+    goto :goto_15
+
+    .line 1507
+    :catch_22
+    move-exception v2
+
+    .line 1529
+    invoke-virtual {p0, v4}, Landroid/accounts/AccountManager$Future2Task;->cancel(Z)Z
+
+    .line 1531
+    :goto_26
+    new-instance v2, Landroid/accounts/OperationCanceledException;
+
+    invoke-direct {v2}, Landroid/accounts/OperationCanceledException;-><init>()V
+
+    throw v2
+
+    .line 1509
+    :catch_2c
+    move-exception v2
+
+    .line 1529
+    invoke-virtual {p0, v4}, Landroid/accounts/AccountManager$Future2Task;->cancel(Z)Z
+
+    goto :goto_26
+
+    .line 1511
+    :catch_31
+    move-exception v2
+
+    .line 1529
+    invoke-virtual {p0, v4}, Landroid/accounts/AccountManager$Future2Task;->cancel(Z)Z
+
+    goto :goto_26
 
     .line 1513
-    :catch_1f
+    :catch_36
     move-exception v1
 
     .line 1514
     .local v1, e:Ljava/util/concurrent/ExecutionException;
-    :try_start_20
+    :try_start_37
     invoke-virtual {v1}, Ljava/util/concurrent/ExecutionException;->getCause()Ljava/lang/Throwable;
 
     move-result-object v0
@@ -174,19 +203,19 @@
     .local v0, cause:Ljava/lang/Throwable;
     instance-of v2, v0, Ljava/io/IOException;
 
-    if-eqz v2, :cond_30
+    if-eqz v2, :cond_47
 
     .line 1516
     check-cast v0, Ljava/io/IOException;
 
     .end local v0           #cause:Ljava/lang/Throwable;
     throw v0
-    :try_end_2b
-    .catchall {:try_start_20 .. :try_end_2b} :catchall_2b
+    :try_end_42
+    .catchall {:try_start_37 .. :try_end_42} :catchall_42
 
     .line 1529
     .end local v1           #e:Ljava/util/concurrent/ExecutionException;
-    :catchall_2b
+    :catchall_42
     move-exception v2
 
     invoke-virtual {p0, v4}, Landroid/accounts/AccountManager$Future2Task;->cancel(Z)Z
@@ -196,11 +225,11 @@
     .line 1517
     .restart local v0       #cause:Ljava/lang/Throwable;
     .restart local v1       #e:Ljava/util/concurrent/ExecutionException;
-    :cond_30
-    :try_start_30
+    :cond_47
+    :try_start_47
     instance-of v2, v0, Ljava/lang/UnsupportedOperationException;
 
-    if-eqz v2, :cond_3a
+    if-eqz v2, :cond_51
 
     .line 1518
     new-instance v2, Landroid/accounts/AuthenticatorException;
@@ -210,10 +239,10 @@
     throw v2
 
     .line 1519
-    :cond_3a
+    :cond_51
     instance-of v2, v0, Landroid/accounts/AuthenticatorException;
 
-    if-eqz v2, :cond_41
+    if-eqz v2, :cond_58
 
     .line 1520
     check-cast v0, Landroid/accounts/AuthenticatorException;
@@ -223,10 +252,10 @@
 
     .line 1521
     .restart local v0       #cause:Ljava/lang/Throwable;
-    :cond_41
+    :cond_58
     instance-of v2, v0, Ljava/lang/RuntimeException;
 
-    if-eqz v2, :cond_48
+    if-eqz v2, :cond_5f
 
     .line 1522
     check-cast v0, Ljava/lang/RuntimeException;
@@ -236,10 +265,10 @@
 
     .line 1523
     .restart local v0       #cause:Ljava/lang/Throwable;
-    :cond_48
+    :cond_5f
     instance-of v2, v0, Ljava/lang/Error;
 
-    if-eqz v2, :cond_4f
+    if-eqz v2, :cond_66
 
     .line 1524
     check-cast v0, Ljava/lang/Error;
@@ -249,64 +278,14 @@
 
     .line 1526
     .restart local v0       #cause:Ljava/lang/Throwable;
-    :cond_4f
+    :cond_66
     new-instance v2, Ljava/lang/IllegalStateException;
 
     invoke-direct {v2, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/Throwable;)V
 
     throw v2
-    :try_end_55
-    .catchall {:try_start_30 .. :try_end_55} :catchall_2b
-
-    .line 1511
-    .end local v0           #cause:Ljava/lang/Throwable;
-    .end local v1           #e:Ljava/util/concurrent/ExecutionException;
-    :catch_55
-    move-exception v2
-
-    .line 1529
-    :goto_56
-    invoke-virtual {p0, v4}, Landroid/accounts/AccountManager$Future2Task;->cancel(Z)Z
-
-    .line 1531
-    new-instance v2, Landroid/accounts/OperationCanceledException;
-
-    invoke-direct {v2}, Landroid/accounts/OperationCanceledException;-><init>()V
-
-    throw v2
-
-    .line 1511
-    :catch_5f
-    move-exception v2
-
-    goto :goto_56
-
-    :catch_61
-    move-exception v2
-
-    goto :goto_56
-
-    .line 1509
-    :catch_63
-    move-exception v2
-
-    goto :goto_56
-
-    :catch_65
-    move-exception v2
-
-    goto :goto_56
-
-    :catch_67
-    move-exception v2
-
-    goto :goto_56
-
-    .line 1507
-    :catch_69
-    move-exception v2
-
-    goto :goto_56
+    :try_end_6c
+    .catchall {:try_start_47 .. :try_end_6c} :catchall_42
 .end method
 
 

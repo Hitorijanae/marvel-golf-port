@@ -6,20 +6,6 @@
 # static fields
 .field public static final EVENT_CONFIGURATION_CHANGED:I = 0x3
 
-.field public static final EVENT_DUAL_MODE_SWITCH:I = 0x12f
-
-.field public static final EVENT_HTC_BASE:I = 0x12c
-
-.field public static final EVENT_HTC_NETWORK_AVALIBILITY_CHANGE:I = 0x12e
-
-.field public static final EVENT_HTC_NETWORK_SUBTYPE_CHANGED:I = 0x130
-
-.field public static final EVENT_HTC_ROAMING_CHANGED:I = 0x131
-
-.field public static final EVENT_HTC_STATE_UPDATE:I = 0x12d
-
-.field public static final EVENT_NETWORK_SUBTYPE_CHANGED:I = 0x7
-
 .field public static final EVENT_RESTORE_DEFAULT_NETWORK:I = 0x6
 
 .field public static final EVENT_STATE_CHANGED:I = 0x1

@@ -33,27 +33,27 @@
     .parameter "pi"
 
     .prologue
-    .line 5028
+    .line 3227
     iput-object p1, p0, Landroid/media/AudioService$RcClientDeathHandler;->this$0:Landroid/media/AudioService;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 5029
+    .line 3228
     iput-object p2, p0, Landroid/media/AudioService$RcClientDeathHandler;->mCb:Landroid/os/IBinder;
 
-    .line 5030
+    .line 3229
     iput-object p3, p0, Landroid/media/AudioService$RcClientDeathHandler;->mMediaIntent:Landroid/app/PendingIntent;
 
-    .line 5031
+    .line 3230
     return-void
 .end method
 
-.method static synthetic access$10700(Landroid/media/AudioService$RcClientDeathHandler;)Landroid/os/IBinder;
+.method static synthetic access$7300(Landroid/media/AudioService$RcClientDeathHandler;)Landroid/os/IBinder;
     .registers 2
     .parameter "x0"
 
     .prologue
-    .line 5024
+    .line 3223
     iget-object v0, p0, Landroid/media/AudioService$RcClientDeathHandler;->mCb:Landroid/os/IBinder;
 
     return-object v0
@@ -67,21 +67,21 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 5034
+    .line 3233
     const-string v0, "AudioService"
 
     const-string v1, "  RemoteControlClient died"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 5037
+    .line 3236
     iget-object v0, p0, Landroid/media/AudioService$RcClientDeathHandler;->this$0:Landroid/media/AudioService;
 
     iget-object v1, p0, Landroid/media/AudioService$RcClientDeathHandler;->mMediaIntent:Landroid/app/PendingIntent;
 
     invoke-virtual {v0, v1, v2, v2}, Landroid/media/AudioService;->registerRemoteControlClient(Landroid/app/PendingIntent;Landroid/media/IRemoteControlClient;Ljava/lang/String;)V
 
-    .line 5038
+    .line 3237
     return-void
 .end method
 
@@ -89,7 +89,7 @@
     .registers 2
 
     .prologue
-    .line 5041
+    .line 3240
     iget-object v0, p0, Landroid/media/AudioService$RcClientDeathHandler;->mCb:Landroid/os/IBinder;
 
     return-object v0

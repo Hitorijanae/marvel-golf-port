@@ -102,7 +102,7 @@
 
     invoke-virtual {v8, v0}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
     :try_end_f
-    .catchall {:try_start_7 .. :try_end_f} :catchall_3c
+    .catchall {:try_start_7 .. :try_end_f} :catchall_3f
 
     move-result-object v2
 
@@ -117,10 +117,9 @@
     const/4 v0, 0x0
 
     .line 75
-    :goto_15
     invoke-virtual {v8}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 72
+    :goto_18
     return-object v0
 
     .line 58
@@ -178,11 +177,13 @@
 
     invoke-direct/range {v0 .. v7}, Landroid/content/SyncAdapterType;-><init>(Ljava/lang/String;Ljava/lang/String;ZZZZLjava/lang/String;)V
     :try_end_3b
-    .catchall {:try_start_1b .. :try_end_3b} :catchall_3c
-
-    goto :goto_15
+    .catchall {:try_start_1b .. :try_end_3b} :catchall_3f
 
     .line 75
+    invoke-virtual {v8}, Landroid/content/res/TypedArray;->recycle()V
+
+    goto :goto_18
+
     .end local v1           #authority:Ljava/lang/String;
     .end local v2           #accountType:Ljava/lang/String;
     .end local v3           #userVisible:Z
@@ -190,7 +191,7 @@
     .end local v5           #isAlwaysSyncable:Z
     .end local v6           #allowParallelSyncs:Z
     .end local v7           #settingsActivity:Ljava/lang/String;
-    :catchall_3c
+    :catchall_3f
     move-exception v0
 
     invoke-virtual {v8}, Landroid/content/res/TypedArray;->recycle()V

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1142
+    .line 1140
     iput-object p1, p0, Landroid/app/FragmentManagerImpl$6;->this$0:Landroid/app/FragmentManagerImpl;
 
     iput-object p2, p0, Landroid/app/FragmentManagerImpl$6;->val$finalFragment:Landroid/app/Fragment;
@@ -44,14 +44,14 @@
     .parameter "animation"
 
     .prologue
-    .line 1145
+    .line 1143
     iget-object v0, p0, Landroid/app/FragmentManagerImpl$6;->val$finalFragment:Landroid/app/Fragment;
 
     iget-object v0, v0, Landroid/app/Fragment;->mView:Landroid/view/View;
 
     if-eqz v0, :cond_f
 
-    .line 1146
+    .line 1144
     iget-object v0, p0, Landroid/app/FragmentManagerImpl$6;->val$finalFragment:Landroid/app/Fragment;
 
     iget-object v0, v0, Landroid/app/Fragment;->mView:Landroid/view/View;
@@ -60,7 +60,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1148
+    .line 1146
     :cond_f
     return-void
 .end method

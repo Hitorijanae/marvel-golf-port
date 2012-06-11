@@ -33,25 +33,25 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 422
+    .line 266
     iput-object p1, p0, Landroid/drm/mobile1/DrmRawContent$DrmInputStream;->this$0:Landroid/drm/mobile1/DrmRawContent;
 
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
 
-    .line 430
+    .line 274
     iput-boolean v0, p0, Landroid/drm/mobile1/DrmRawContent$DrmInputStream;->isClosed:Z
 
-    .line 431
+    .line 275
     iput v0, p0, Landroid/drm/mobile1/DrmRawContent$DrmInputStream;->offset:I
 
-    .line 432
+    .line 276
     const/4 v0, 0x1
 
     new-array v0, v0, [B
 
     iput-object v0, p0, Landroid/drm/mobile1/DrmRawContent$DrmInputStream;->b:[B
 
-    .line 433
+    .line 277
     return-void
 .end method
 
@@ -66,7 +66,7 @@
     .end annotation
 
     .prologue
-    .line 440
+    .line 284
     iget-object v2, p0, Landroid/drm/mobile1/DrmRawContent$DrmInputStream;->this$0:Landroid/drm/mobile1/DrmRawContent;
 
     #calls: Landroid/drm/mobile1/DrmRawContent;->nativeGetContentLength()I
@@ -74,43 +74,43 @@
 
     move-result v1
 
-    .line 442
+    .line 286
     .local v1, len:I
     const/4 v2, -0x1
 
     if-ne v2, v1, :cond_f
 
-    .line 443
+    .line 287
     new-instance v2, Ljava/io/IOException;
 
     invoke-direct {v2}, Ljava/io/IOException;-><init>()V
 
     throw v2
 
-    .line 446
+    .line 290
     :cond_f
     const/4 v2, -0x3
 
     if-ne v2, v1, :cond_14
 
-    .line 447
+    .line 291
     const/4 v0, 0x0
 
-    .line 453
+    .line 297
     :cond_13
     return v0
 
-    .line 449
+    .line 293
     :cond_14
     iget v2, p0, Landroid/drm/mobile1/DrmRawContent$DrmInputStream;->offset:I
 
     sub-int v0, v1, v2
 
-    .line 450
+    .line 294
     .local v0, availableLen:I
     if-gez v0, :cond_13
 
-    .line 451
+    .line 295
     new-instance v2, Ljava/io/IOException;
 
     invoke-direct {v2}, Ljava/io/IOException;-><init>()V
@@ -122,12 +122,12 @@
     .registers 2
 
     .prologue
-    .line 534
+    .line 378
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/drm/mobile1/DrmRawContent$DrmInputStream;->isClosed:Z
 
-    .line 535
+    .line 379
     return-void
 .end method
 
@@ -136,7 +136,7 @@
     .parameter "readlimit"
 
     .prologue
-    .line 514
+    .line 358
     return-void
 .end method
 
@@ -144,7 +144,7 @@
     .registers 2
 
     .prologue
-    .line 507
+    .line 351
     const/4 v0, 0x0
 
     return v0
@@ -163,7 +163,7 @@
 
     const/4 v1, -0x1
 
-    .line 462
+    .line 306
     iget-object v2, p0, Landroid/drm/mobile1/DrmRawContent$DrmInputStream;->b:[B
 
     const/4 v3, 0x1
@@ -172,11 +172,11 @@
 
     move-result v0
 
-    .line 464
+    .line 308
     .local v0, res:I
     if-ne v1, v0, :cond_c
 
-    .line 467
+    .line 311
     :goto_b
     return v1
 
@@ -200,7 +200,7 @@
     .end annotation
 
     .prologue
-    .line 474
+    .line 318
     const/4 v0, 0x0
 
     array-length v1, p1
@@ -226,17 +226,17 @@
     .prologue
     const/4 v0, -0x1
 
-    .line 481
+    .line 325
     if-nez p1, :cond_9
 
-    .line 482
+    .line 326
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 483
+    .line 327
     :cond_9
     if-ltz p2, :cond_12
 
@@ -248,7 +248,7 @@
 
     if-le v1, v2, :cond_18
 
-    .line 484
+    .line 328
     :cond_12
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
@@ -256,7 +256,7 @@
 
     throw v0
 
-    .line 485
+    .line 329
     :cond_18
     const/4 v1, 0x1
 
@@ -264,26 +264,26 @@
 
     if-ne v1, v2, :cond_23
 
-    .line 486
+    .line 330
     new-instance v0, Ljava/io/IOException;
 
     invoke-direct {v0}, Ljava/io/IOException;-><init>()V
 
     throw v0
 
-    .line 488
+    .line 332
     :cond_23
     if-nez p3, :cond_27
 
-    .line 489
+    .line 333
     const/4 v0, 0x0
 
-    .line 500
+    .line 344
     :cond_26
     :goto_26
     return v0
 
-    .line 491
+    .line 335
     :cond_27
     iget-object v1, p0, Landroid/drm/mobile1/DrmRawContent$DrmInputStream;->this$0:Landroid/drm/mobile1/DrmRawContent;
 
@@ -294,23 +294,23 @@
 
     move-result p3
 
-    .line 493
+    .line 337
     if-ne v0, p3, :cond_37
 
-    .line 494
+    .line 338
     new-instance v0, Ljava/io/IOException;
 
     invoke-direct {v0}, Ljava/io/IOException;-><init>()V
 
     throw v0
 
-    .line 495
+    .line 339
     :cond_37
     const/4 v1, -0x2
 
     if-eq v1, p3, :cond_26
 
-    .line 498
+    .line 342
     iget v0, p0, Landroid/drm/mobile1/DrmRawContent$DrmInputStream;->offset:I
 
     add-int/2addr v0, p3
@@ -319,7 +319,7 @@
 
     move v0, p3
 
-    .line 500
+    .line 344
     goto :goto_26
 .end method
 
@@ -332,7 +332,7 @@
     .end annotation
 
     .prologue
-    .line 520
+    .line 364
     new-instance v0, Ljava/io/IOException;
 
     invoke-direct {v0}, Ljava/io/IOException;-><init>()V
@@ -350,7 +350,7 @@
     .end annotation
 
     .prologue
-    .line 527
+    .line 371
     const-wide/16 v0, 0x0
 
     return-wide v0

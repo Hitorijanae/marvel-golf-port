@@ -23,8 +23,6 @@
 
 .field private static volatile mCrashing:Z
 
-.field private static mHPROFFile:Ljava/lang/String;
-
 
 # direct methods
 .method static constructor <clinit>()V
@@ -36,15 +34,10 @@
 
     sput-boolean v0, Lcom/android/internal/os/RuntimeInit;->mCrashing:Z
 
-    .line 54
-    const/4 v0, 0x0
-
-    sput-object v0, Lcom/android/internal/os/RuntimeInit;->mHPROFFile:Ljava/lang/String;
-
-    .line 395
+    .line 373
     invoke-static {}, Landroid/ddm/DdmRegister;->registerHandlers()V
 
-    .line 396
+    .line 374
     return-void
 .end method
 
@@ -53,9 +46,9 @@
 
     .prologue
     .line 42
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 406
+    .line 384
     return-void
 .end method
 
@@ -90,16 +83,6 @@
     return-object v0
 .end method
 
-.method static synthetic access$200()Ljava/lang/String;
-    .registers 1
-
-    .prologue
-    .line 42
-    sget-object v0, Lcom/android/internal/os/RuntimeInit;->mHPROFFile:Ljava/lang/String;
-
-    return-object v0
-.end method
-
 .method private static applicationInit(I[Ljava/lang/String;)V
     .registers 6
     .parameter "targetSdkVersion"
@@ -111,7 +94,7 @@
     .end annotation
 
     .prologue
-    .line 314
+    .line 292
     invoke-static {}, Ldalvik/system/VMRuntime;->getRuntime()Ldalvik/system/VMRuntime;
 
     move-result-object v2
@@ -120,14 +103,14 @@
 
     invoke-virtual {v2, v3}, Ldalvik/system/VMRuntime;->setTargetHeapUtilization(F)F
 
-    .line 315
+    .line 293
     invoke-static {}, Ldalvik/system/VMRuntime;->getRuntime()Ldalvik/system/VMRuntime;
 
     move-result-object v2
 
     invoke-virtual {v2, p0}, Ldalvik/system/VMRuntime;->setTargetSdkVersion(I)V
 
-    .line 319
+    .line 297
     :try_start_10
     new-instance v0, Lcom/android/internal/os/RuntimeInit$Arguments;
 
@@ -135,7 +118,7 @@
     :try_end_15
     .catch Ljava/lang/IllegalArgumentException; {:try_start_10 .. :try_end_15} :catch_1d
 
-    .line 327
+    .line 305
     .local v0, args:Lcom/android/internal/os/RuntimeInit$Arguments;
     iget-object v2, v0, Lcom/android/internal/os/RuntimeInit$Arguments;->startClass:Ljava/lang/String;
 
@@ -143,16 +126,16 @@
 
     invoke-static {v2, v3}, Lcom/android/internal/os/RuntimeInit;->invokeStaticMain(Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 328
+    .line 306
     .end local v0           #args:Lcom/android/internal/os/RuntimeInit$Arguments;
     :goto_1c
     return-void
 
-    .line 320
+    .line 298
     :catch_1d
     move-exception v1
 
-    .line 321
+    .line 299
     .local v1, ex:Ljava/lang/IllegalArgumentException;
     const-string v2, "AndroidRuntime"
 
@@ -173,30 +156,30 @@
 
     const/4 v5, 0x1
 
-    .line 114
+    .line 92
     new-instance v3, Lcom/android/internal/os/RuntimeInit$UncaughtHandler;
 
     invoke-direct {v3, v6}, Lcom/android/internal/os/RuntimeInit$UncaughtHandler;-><init>(Lcom/android/internal/os/RuntimeInit$1;)V
 
     invoke-static {v3}, Ljava/lang/Thread;->setDefaultUncaughtExceptionHandler(Ljava/lang/Thread$UncaughtExceptionHandler;)V
 
-    .line 116
+    .line 94
     invoke-static {}, Lcom/android/internal/os/RuntimeInit;->getQwertyKeyboard()I
 
     move-result v0
 
-    .line 119
+    .line 97
     .local v0, hasQwerty:I
     if-ne v0, v5, :cond_18
 
-    .line 120
+    .line 98
     const-string/jumbo v3, "qwerty"
 
     const-string v4, "1"
 
     invoke-static {v3, v4}, Ljava/lang/System;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 126
+    .line 104
     :cond_18
     new-instance v3, Lcom/android/internal/os/RuntimeInit$1;
 
@@ -204,43 +187,43 @@
 
     invoke-static {v3}, Lorg/apache/harmony/luni/internal/util/TimezoneGetter;->setInstance(Lorg/apache/harmony/luni/internal/util/TimezoneGetter;)V
 
-    .line 132
+    .line 110
     invoke-static {v6}, Ljava/util/TimeZone;->setDefault(Ljava/util/TimeZone;)V
 
-    .line 141
+    .line 119
     invoke-static {}, Ljava/util/logging/LogManager;->getLogManager()Ljava/util/logging/LogManager;
 
     move-result-object v3
 
     invoke-virtual {v3}, Ljava/util/logging/LogManager;->reset()V
 
-    .line 142
+    .line 120
     new-instance v3, Lcom/android/internal/logging/AndroidConfig;
 
     invoke-direct {v3}, Lcom/android/internal/logging/AndroidConfig;-><init>()V
 
-    .line 147
+    .line 125
     invoke-static {}, Lcom/android/internal/os/RuntimeInit;->getDefaultUserAgent()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 148
+    .line 126
     .local v2, userAgent:Ljava/lang/String;
-    const-string/jumbo v3, "http.agent"
+    const-string v3, "http.agent"
 
     invoke-static {v3, v2}, Ljava/lang/System;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 153
+    .line 131
     invoke-static {}, Lcom/android/server/NetworkManagementSocketTagger;->install()V
 
-    .line 161
+    .line 139
     const-string/jumbo v3, "ro.kernel.android.tracing"
 
     invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 162
+    .line 140
     .local v1, trace:Ljava/lang/String;
     const-string v3, "1"
 
@@ -248,23 +231,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_55
+    if-eqz v3, :cond_54
 
-    .line 163
+    .line 141
     const-string v3, "AndroidRuntime"
 
     const-string v4, "NOTE: emulator trace profiling enabled"
 
     invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 164
+    .line 142
     invoke-static {}, Landroid/os/Debug;->enableEmulatorTraceOutput()V
 
-    .line 167
-    :cond_55
+    .line 145
+    :cond_54
     sput-boolean v5, Lcom/android/internal/os/RuntimeInit;->initialized:Z
 
-    .line 168
+    .line 146
     return-void
 .end method
 
@@ -275,7 +258,7 @@
     .registers 1
 
     .prologue
-    .line 387
+    .line 365
     sget-object v0, Lcom/android/internal/os/RuntimeInit;->mApplicationObject:Landroid/os/IBinder;
 
     return-object v0
@@ -285,21 +268,21 @@
     .registers 6
 
     .prologue
-    .line 175
+    .line 153
     new-instance v2, Ljava/lang/StringBuilder;
 
     const/16 v4, 0x40
 
     invoke-direct {v2, v4}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    .line 176
+    .line 154
     .local v2, result:Ljava/lang/StringBuilder;
     const-string v4, "Dalvik/"
 
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 177
-    const-string/jumbo v4, "java.vm.version"
+    .line 155
+    const-string v4, "java.vm.version"
 
     invoke-static {v4}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
@@ -307,27 +290,27 @@
 
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 178
+    .line 156
     const-string v4, " (Linux; U; Android "
 
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 180
+    .line 158
     sget-object v3, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;
 
-    .line 181
+    .line 159
     .local v3, version:Ljava/lang/String;
     invoke-virtual {v3}, Ljava/lang/String;->length()I
 
     move-result v4
 
-    if-lez v4, :cond_5a
+    if-lez v4, :cond_59
 
     .end local v3           #version:Ljava/lang/String;
-    :goto_23
+    :goto_22
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 184
+    .line 162
     const-string v4, "REL"
 
     sget-object v5, Landroid/os/Build$VERSION;->CODENAME:Ljava/lang/String;
@@ -336,68 +319,68 @@
 
     move-result v4
 
-    if-eqz v4, :cond_40
+    if-eqz v4, :cond_3f
 
-    .line 185
+    .line 163
     sget-object v1, Landroid/os/Build;->MODEL:Ljava/lang/String;
 
-    .line 186
+    .line 164
     .local v1, model:Ljava/lang/String;
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
     move-result v4
 
-    if-lez v4, :cond_40
+    if-lez v4, :cond_3f
 
-    .line 187
+    .line 165
     const-string v4, "; "
 
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 188
+    .line 166
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 191
+    .line 169
     .end local v1           #model:Ljava/lang/String;
-    :cond_40
+    :cond_3f
     sget-object v0, Landroid/os/Build;->ID:Ljava/lang/String;
 
-    .line 192
+    .line 170
     .local v0, id:Ljava/lang/String;
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v4
 
-    if-lez v4, :cond_50
+    if-lez v4, :cond_4f
 
-    .line 193
+    .line 171
     const-string v4, " Build/"
 
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 194
+    .line 172
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 196
-    :cond_50
+    .line 174
+    :cond_4f
     const-string v4, ")"
 
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 197
+    .line 175
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
     return-object v4
 
-    .line 181
+    .line 159
     .end local v0           #id:Ljava/lang/String;
     .restart local v3       #version:Ljava/lang/String;
-    :cond_5a
+    :cond_59
     const-string v3, "1.0"
 
-    goto :goto_23
+    goto :goto_22
 .end method
 
 .method public static native getQwertyKeyboard()I
@@ -414,7 +397,7 @@
     .end annotation
 
     .prologue
-    .line 213
+    .line 191
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
     :try_end_3
@@ -422,7 +405,7 @@
 
     move-result-object v0
 
-    .line 222
+    .line 200
     .local v0, cl:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
     :try_start_4
     const-string/jumbo v4, "main"
@@ -444,13 +427,13 @@
 
     move-result-object v2
 
-    .line 231
+    .line 209
     .local v2, m:Ljava/lang/reflect/Method;
     invoke-virtual {v2}, Ljava/lang/reflect/Method;->getModifiers()I
 
     move-result v3
 
-    .line 232
+    .line 210
     .local v3, modifiers:I
     invoke-static {v3}, Ljava/lang/reflect/Modifier;->isStatic(I)Z
 
@@ -464,7 +447,7 @@
 
     if-nez v4, :cond_8a
 
-    .line 233
+    .line 211
     :cond_23
     new-instance v4, Ljava/lang/RuntimeException;
 
@@ -490,14 +473,14 @@
 
     throw v4
 
-    .line 214
+    .line 192
     .end local v0           #cl:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
     .end local v2           #m:Ljava/lang/reflect/Method;
     .end local v3           #modifiers:I
     :catch_3c
     move-exception v1
 
-    .line 215
+    .line 193
     .local v1, ex:Ljava/lang/ClassNotFoundException;
     new-instance v4, Ljava/lang/RuntimeException;
 
@@ -523,13 +506,13 @@
 
     throw v4
 
-    .line 223
+    .line 201
     .end local v1           #ex:Ljava/lang/ClassNotFoundException;
     .restart local v0       #cl:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
     :catch_56
     move-exception v1
 
-    .line 224
+    .line 202
     .local v1, ex:Ljava/lang/NoSuchMethodException;
     new-instance v4, Ljava/lang/RuntimeException;
 
@@ -555,12 +538,12 @@
 
     throw v4
 
-    .line 226
+    .line 204
     .end local v1           #ex:Ljava/lang/NoSuchMethodException;
     :catch_70
     move-exception v1
 
-    .line 227
+    .line 205
     .local v1, ex:Ljava/lang/SecurityException;
     new-instance v4, Ljava/lang/RuntimeException;
 
@@ -586,7 +569,7 @@
 
     throw v4
 
-    .line 243
+    .line 221
     .end local v1           #ex:Ljava/lang/SecurityException;
     .restart local v2       #m:Ljava/lang/reflect/Method;
     .restart local v3       #modifiers:I
@@ -606,7 +589,7 @@
     .parameter "argv"
 
     .prologue
-    .line 247
+    .line 225
     array-length v0, p0
 
     const/4 v1, 0x2
@@ -625,17 +608,17 @@
 
     if-eqz v0, :cond_12
 
-    .line 249
+    .line 227
     invoke-static {}, Lcom/android/internal/os/RuntimeInit;->redirectLogStreams()V
 
-    .line 254
+    .line 232
     :cond_12
     invoke-static {}, Lcom/android/internal/os/RuntimeInit;->commonInit()V
 
-    .line 260
+    .line 238
     invoke-static {}, Lcom/android/internal/os/RuntimeInit;->finishInit()V
 
-    .line 263
+    .line 241
     return-void
 .end method
 
@@ -643,12 +626,12 @@
     .registers 3
 
     .prologue
-    .line 334
+    .line 312
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     invoke-virtual {v0}, Ljava/io/PrintStream;->close()V
 
-    .line 335
+    .line 313
     new-instance v0, Lcom/android/internal/os/AndroidPrintStream;
 
     const/4 v1, 0x4
@@ -659,12 +642,12 @@
 
     invoke-static {v0}, Ljava/lang/System;->setOut(Ljava/io/PrintStream;)V
 
-    .line 336
+    .line 314
     sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
     invoke-virtual {v0}, Ljava/io/PrintStream;->close()V
 
-    .line 337
+    .line 315
     new-instance v0, Lcom/android/internal/os/AndroidPrintStream;
 
     const/4 v1, 0x5
@@ -675,7 +658,7 @@
 
     invoke-static {v0}, Ljava/lang/System;->setErr(Ljava/io/PrintStream;)V
 
-    .line 338
+    .line 316
     return-void
 .end method
 
@@ -684,10 +667,10 @@
     .parameter "app"
 
     .prologue
-    .line 383
+    .line 361
     sput-object p0, Lcom/android/internal/os/RuntimeInit;->mApplicationObject:Landroid/os/IBinder;
 
-    .line 384
+    .line 362
     return-void
 .end method
 
@@ -705,10 +688,10 @@
     .end annotation
 
     .prologue
-    .line 307
+    .line 285
     invoke-static {p0, p1}, Lcom/android/internal/os/RuntimeInit;->applicationInit(I[Ljava/lang/String;)V
 
-    .line 308
+    .line 286
     return-void
 .end method
 
@@ -718,7 +701,7 @@
     .parameter "t"
 
     .prologue
-    .line 367
+    .line 345
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
@@ -736,30 +719,30 @@
 
     if-eqz v1, :cond_1d
 
-    .line 370
+    .line 348
     invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v1
 
     invoke-static {v1}, Landroid/os/Process;->killProcess(I)V
 
-    .line 371
+    .line 349
     const/16 v1, 0xa
 
     invoke-static {v1}, Ljava/lang/System;->exit(I)V
     :try_end_1d
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_1d} :catch_1e
 
-    .line 376
+    .line 354
     :cond_1d
     :goto_1d
     return-void
 
-    .line 373
+    .line 351
     :catch_1e
     move-exception v0
 
-    .line 374
+    .line 352
     .local v0, t2:Ljava/lang/Throwable;
     const-string v1, "AndroidRuntime"
 
@@ -781,19 +764,19 @@
     .end annotation
 
     .prologue
-    .line 284
+    .line 262
     invoke-static {}, Lcom/android/internal/os/RuntimeInit;->redirectLogStreams()V
 
-    .line 286
+    .line 264
     invoke-static {}, Lcom/android/internal/os/RuntimeInit;->commonInit()V
 
-    .line 287
+    .line 265
     invoke-static {}, Lcom/android/internal/os/RuntimeInit;->zygoteInitNative()V
 
-    .line 289
+    .line 267
     invoke-static {p0, p1}, Lcom/android/internal/os/RuntimeInit;->applicationInit(I[Ljava/lang/String;)V
 
-    .line 290
+    .line 268
     return-void
 .end method
 

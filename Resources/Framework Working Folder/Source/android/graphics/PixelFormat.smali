@@ -37,8 +37,6 @@
 
 .field public static final UNKNOWN:I = 0x0
 
-.field public static final YCBCR42XMBN:I = 0xe
-
 .field public static final YCbCr_420_SP:I = 0x11
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -66,7 +64,7 @@
     .registers 0
 
     .prologue
-    .line 87
+    .line 83
     invoke-static {}, Landroid/graphics/PixelFormat;->nativeClassInit()V
 
     return-void
@@ -77,7 +75,7 @@
 
     .prologue
     .line 19
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -87,23 +85,23 @@
     .parameter "format"
 
     .prologue
-    .line 91
+    .line 87
     packed-switch p0, :pswitch_data_8
 
-    .line 101
+    .line 97
     :pswitch_3
     const/4 v0, 0x0
 
     :goto_4
     return v0
 
-    .line 99
+    .line 95
     :pswitch_5
     const/4 v0, 0x1
 
     goto :goto_4
 
-    .line 91
+    .line 87
     nop
 
     :pswitch_data_8

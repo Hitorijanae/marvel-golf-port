@@ -50,7 +50,7 @@
     .line 121
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Landroid/net/http/HttpsConnection;->mSuspendLock:Ljava/lang/Object;
 
@@ -258,11 +258,11 @@
     .line 388
     :cond_8
     :try_start_8
-    iget-object v1, p0, Landroid/net/http/Connection;->mHttpClientConnection:Landroid/net/http/AndroidHttpClientConnection;
+    iget-object v1, p0, Landroid/net/http/HttpsConnection;->mHttpClientConnection:Landroid/net/http/AndroidHttpClientConnection;
 
     if-eqz v1, :cond_19
 
-    iget-object v1, p0, Landroid/net/http/Connection;->mHttpClientConnection:Landroid/net/http/AndroidHttpClientConnection;
+    iget-object v1, p0, Landroid/net/http/HttpsConnection;->mHttpClientConnection:Landroid/net/http/AndroidHttpClientConnection;
 
     invoke-virtual {v1}, Landroid/net/http/AndroidHttpClientConnection;->isOpen()Z
 
@@ -271,7 +271,7 @@
     if-eqz v1, :cond_19
 
     .line 389
-    iget-object v1, p0, Landroid/net/http/Connection;->mHttpClientConnection:Landroid/net/http/AndroidHttpClientConnection;
+    iget-object v1, p0, Landroid/net/http/HttpsConnection;->mHttpClientConnection:Landroid/net/http/AndroidHttpClientConnection;
 
     invoke-virtual {v1}, Landroid/net/http/AndroidHttpClientConnection;->close()V
     :try_end_19
@@ -298,7 +298,7 @@
 
     .prologue
     .line 419
-    const-string/jumbo v0, "https"
+    const-string v0, "https"
 
     return-object v0
 .end method
@@ -366,7 +366,7 @@
 
     invoke-direct {v0, v1, v2}, Ljava/net/Socket;-><init>(Ljava/lang/String;I)V
     :try_end_2d
-    .catch Ljava/io/IOException; {:try_start_e .. :try_end_2d} :catch_b4
+    .catch Ljava/io/IOException; {:try_start_e .. :try_end_2d} :catch_b2
 
     .line 180
     .end local v20           #proxySock:Ljava/net/Socket;
@@ -385,7 +385,7 @@
 
     invoke-direct/range {v18 .. v18}, Landroid/net/http/AndroidHttpClientConnection;-><init>()V
     :try_end_3c
-    .catch Ljava/io/IOException; {:try_start_30 .. :try_end_3c} :catch_2aa
+    .catch Ljava/io/IOException; {:try_start_30 .. :try_end_3c} :catch_2a9
 
     .line 183
     .end local v17           #proxyConnection:Landroid/net/http/AndroidHttpClientConnection;
@@ -414,7 +414,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/net/http/AndroidHttpClientConnection;->bind(Ljava/net/Socket;Lorg/apache/http/params/HttpParams;)V
     :try_end_53
-    .catch Ljava/io/IOException; {:try_start_3c .. :try_end_53} :catch_2af
+    .catch Ljava/io/IOException; {:try_start_3c .. :try_end_53} :catch_2ae
 
     .line 201
     const/16 v24, 0x0
@@ -438,7 +438,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/net/http/Connection;->mHost:Lorg/apache/http/HttpHost;
+    iget-object v0, v0, Landroid/net/http/HttpsConnection;->mHost:Lorg/apache/http/HttpHost;
 
     move-object/from16 v27, v0
 
@@ -474,7 +474,7 @@
 
     .local v14, i$:I
     :goto_7f
-    if-ge v14, v15, :cond_ca
+    if-ge v14, v15, :cond_c8
 
     aget-object v11, v5, v14
 
@@ -498,19 +498,9 @@
 
     move-result v26
 
-    if-nez v26, :cond_ac
+    if-nez v26, :cond_aa
 
-    const-string/jumbo v26, "keep-alive"
-
-    move-object/from16 v0, v26
-
-    invoke-virtual {v12, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v26
-
-    if-nez v26, :cond_ac
-
-    const-string/jumbo v26, "host"
+    const-string v26, "keep-alive"
 
     move-object/from16 v0, v26
 
@@ -518,20 +508,30 @@
 
     move-result v26
 
-    if-eqz v26, :cond_b1
+    if-nez v26, :cond_aa
+
+    const-string v26, "host"
+
+    move-object/from16 v0, v26
+
+    invoke-virtual {v12, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v26
+
+    if-eqz v26, :cond_af
 
     .line 215
-    :cond_ac
+    :cond_aa
     move-object/from16 v0, v19
 
     invoke-virtual {v0, v11}, Lorg/apache/http/message/BasicHttpRequest;->addHeader(Lorg/apache/http/Header;)V
-    :try_end_b1
-    .catch Lorg/apache/http/ParseException; {:try_start_5c .. :try_end_b1} :catch_16b
-    .catch Lorg/apache/http/HttpException; {:try_start_5c .. :try_end_b1} :catch_17c
-    .catch Ljava/io/IOException; {:try_start_5c .. :try_end_b1} :catch_18d
+    :try_end_af
+    .catch Lorg/apache/http/ParseException; {:try_start_5c .. :try_end_af} :catch_169
+    .catch Lorg/apache/http/HttpException; {:try_start_5c .. :try_end_af} :catch_17a
+    .catch Ljava/io/IOException; {:try_start_5c .. :try_end_af} :catch_18b
 
     .line 211
-    :cond_b1
+    :cond_af
     add-int/lit8 v14, v14, 0x1
 
     goto :goto_7f
@@ -551,32 +551,32 @@
     .end local v24           #statusLine:Lorg/apache/http/StatusLine;
     .restart local v17       #proxyConnection:Landroid/net/http/AndroidHttpClientConnection;
     .restart local v20       #proxySock:Ljava/net/Socket;
-    :catch_b4
+    :catch_b2
     move-exception v8
 
     .line 188
     .local v8, e:Ljava/io/IOException;
-    :goto_b5
-    if-eqz v17, :cond_ba
+    :goto_b3
+    if-eqz v17, :cond_b8
 
     .line 189
     invoke-virtual/range {v17 .. v17}, Landroid/net/http/AndroidHttpClientConnection;->close()V
 
     .line 192
-    :cond_ba
+    :cond_b8
     invoke-virtual {v8}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
     move-result-object v10
 
     .line 193
     .local v10, errorMessage:Ljava/lang/String;
-    if-nez v10, :cond_c2
+    if-nez v10, :cond_c0
 
     .line 194
     const-string v10, "failed to establish a connection to the proxy"
 
     .line 198
-    :cond_c2
+    :cond_c0
     new-instance v26, Ljava/io/IOException;
 
     move-object/from16 v0, v26
@@ -600,15 +600,15 @@
     .restart local v21       #proxySock:Ljava/net/Socket;
     .restart local v23       #statusCode:I
     .restart local v24       #statusLine:Lorg/apache/http/StatusLine;
-    :cond_ca
-    :try_start_ca
+    :cond_c8
+    :try_start_c8
     invoke-virtual/range {v18 .. v19}, Landroid/net/http/AndroidHttpClientConnection;->sendRequestHeader(Lorg/apache/http/HttpRequest;)V
 
     .line 220
     invoke-virtual/range {v18 .. v18}, Landroid/net/http/AndroidHttpClientConnection;->flush()V
 
     .line 227
-    :cond_d0
+    :cond_ce
     move-object/from16 v0, v18
 
     invoke-virtual {v0, v13}, Landroid/net/http/AndroidHttpClientConnection;->parseResponseHeader(Landroid/net/http/Headers;)Lorg/apache/http/StatusLine;
@@ -617,10 +617,10 @@
 
     .line 228
     invoke-interface/range {v24 .. v24}, Lorg/apache/http/StatusLine;->getStatusCode()I
-    :try_end_d9
-    .catch Lorg/apache/http/ParseException; {:try_start_ca .. :try_end_d9} :catch_16b
-    .catch Lorg/apache/http/HttpException; {:try_start_ca .. :try_end_d9} :catch_17c
-    .catch Ljava/io/IOException; {:try_start_ca .. :try_end_d9} :catch_18d
+    :try_end_d7
+    .catch Lorg/apache/http/ParseException; {:try_start_c8 .. :try_end_d7} :catch_169
+    .catch Lorg/apache/http/HttpException; {:try_start_c8 .. :try_end_d7} :catch_17a
+    .catch Ljava/io/IOException; {:try_start_c8 .. :try_end_d7} :catch_18b
 
     move-result v23
 
@@ -631,7 +631,7 @@
 
     move/from16 v1, v26
 
-    if-lt v0, v1, :cond_d0
+    if-lt v0, v1, :cond_ce
 
     .line 256
     const/16 v26, 0xc8
@@ -643,14 +643,14 @@
     if-ne v0, v1, :cond_1b2
 
     .line 258
-    :try_start_ea
+    :try_start_e8
     invoke-static {}, Landroid/net/http/HttpsConnection;->getSocketFactory()Ljavax/net/ssl/SSLSocketFactory;
 
     move-result-object v26
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/net/http/Connection;->mHost:Lorg/apache/http/HttpHost;
+    iget-object v0, v0, Landroid/net/http/HttpsConnection;->mHost:Lorg/apache/http/HttpHost;
 
     move-object/from16 v27, v0
 
@@ -660,7 +660,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/net/http/Connection;->mHost:Lorg/apache/http/HttpHost;
+    iget-object v0, v0, Landroid/net/http/HttpsConnection;->mHost:Lorg/apache/http/HttpHost;
 
     move-object/from16 v28, v0
 
@@ -689,8 +689,8 @@
     check-cast v0, Ljavax/net/ssl/SSLSocket;
 
     move-object/from16 v22, v0
-    :try_end_118
-    .catch Ljava/io/IOException; {:try_start_ea .. :try_end_118} :catch_19e
+    :try_end_116
+    .catch Ljava/io/IOException; {:try_start_e8 .. :try_end_116} :catch_19c
 
     .line 310
     .end local v5           #arr$:[Lorg/apache/http/Header;
@@ -703,14 +703,14 @@
     .end local v21           #proxySock:Ljava/net/Socket;
     .end local v23           #statusCode:I
     .end local v24           #statusLine:Lorg/apache/http/StatusLine;
-    :goto_118
+    :goto_116
     invoke-static {}, Landroid/net/http/CertificateChainValidator;->getInstance()Landroid/net/http/CertificateChainValidator;
 
     move-result-object v26
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/net/http/Connection;->mHost:Lorg/apache/http/HttpHost;
+    iget-object v0, v0, Landroid/net/http/HttpsConnection;->mHost:Lorg/apache/http/HttpHost;
 
     move-object/from16 v27, v0
 
@@ -746,7 +746,7 @@
     .line 321
     const/16 v26, 0x1
 
-    :try_start_13d
+    :try_start_13b
     move/from16 v0, v26
 
     move-object/from16 v1, p0
@@ -755,8 +755,8 @@
 
     .line 322
     monitor-exit v27
-    :try_end_144
-    .catchall {:try_start_13d .. :try_end_144} :catchall_232
+    :try_end_142
+    .catchall {:try_start_13b .. :try_end_142} :catchall_232
 
     .line 324
     invoke-virtual/range {p1 .. p1}, Landroid/net/http/Request;->getEventHandler()Landroid/net/http/EventHandler;
@@ -809,7 +809,7 @@
     .restart local v21       #proxySock:Ljava/net/Socket;
     .restart local v23       #statusCode:I
     .restart local v24       #statusLine:Lorg/apache/http/StatusLine;
-    :catch_16b
+    :catch_169
     move-exception v8
 
     .line 231
@@ -820,13 +820,13 @@
 
     .line 232
     .restart local v10       #errorMessage:Ljava/lang/String;
-    if-nez v10, :cond_174
+    if-nez v10, :cond_172
 
     .line 233
     const-string v10, "failed to send a CONNECT request"
 
     .line 237
-    :cond_174
+    :cond_172
     new-instance v26, Ljava/io/IOException;
 
     move-object/from16 v0, v26
@@ -838,7 +838,7 @@
     .line 238
     .end local v8           #e:Lorg/apache/http/ParseException;
     .end local v10           #errorMessage:Ljava/lang/String;
-    :catch_17c
+    :catch_17a
     move-exception v8
 
     .line 239
@@ -849,13 +849,13 @@
 
     .line 240
     .restart local v10       #errorMessage:Ljava/lang/String;
-    if-nez v10, :cond_185
+    if-nez v10, :cond_183
 
     .line 241
     const-string v10, "failed to send a CONNECT request"
 
     .line 245
-    :cond_185
+    :cond_183
     new-instance v26, Ljava/io/IOException;
 
     move-object/from16 v0, v26
@@ -867,7 +867,7 @@
     .line 246
     .end local v8           #e:Lorg/apache/http/HttpException;
     .end local v10           #errorMessage:Ljava/lang/String;
-    :catch_18d
+    :catch_18b
     move-exception v8
 
     .line 247
@@ -878,13 +878,13 @@
 
     .line 248
     .restart local v10       #errorMessage:Ljava/lang/String;
-    if-nez v10, :cond_196
+    if-nez v10, :cond_194
 
     .line 249
     const-string v10, "failed to send a CONNECT request"
 
     .line 253
-    :cond_196
+    :cond_194
     new-instance v26, Ljava/io/IOException;
 
     move-object/from16 v0, v26
@@ -900,7 +900,7 @@
     .restart local v14       #i$:I
     .restart local v15       #len$:I
     .restart local v19       #proxyReq:Lorg/apache/http/message/BasicHttpRequest;
-    :catch_19e
+    :catch_19c
     move-exception v8
 
     .line 261
@@ -908,7 +908,7 @@
     if-eqz v22, :cond_1a2
 
     .line 262
-    throw v22
+    invoke-virtual/range {v22 .. v22}, Ljavax/net/ssl/SSLSocket;->close()V
 
     .line 265
     :cond_1a2
@@ -1023,7 +1023,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/net/http/Connection;->mHost:Lorg/apache/http/HttpHost;
+    iget-object v0, v0, Landroid/net/http/HttpsConnection;->mHost:Lorg/apache/http/HttpHost;
 
     move-object/from16 v27, v0
 
@@ -1033,7 +1033,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/net/http/Connection;->mHost:Lorg/apache/http/HttpHost;
+    iget-object v0, v0, Landroid/net/http/HttpsConnection;->mHost:Lorg/apache/http/HttpHost;
 
     move-object/from16 v28, v0
 
@@ -1062,7 +1062,7 @@
     :try_end_21a
     .catch Ljava/io/IOException; {:try_start_1ee .. :try_end_21a} :catch_21c
 
-    goto/16 :goto_118
+    goto/16 :goto_116
 
     .line 295
     :catch_21c
@@ -1179,7 +1179,7 @@
     iput-boolean v0, v1, Landroid/net/http/HttpsConnection;->mAborted:Z
     :try_end_26c
     .catchall {:try_start_244 .. :try_end_26c} :catchall_283
-    .catch Ljava/lang/InterruptedException; {:try_start_244 .. :try_end_26c} :catch_2a8
+    .catch Ljava/lang/InterruptedException; {:try_start_244 .. :try_end_26c} :catch_2a7
 
     .line 353
     :cond_26c
@@ -1240,7 +1240,7 @@
 
     .line 365
     .local v16, params:Lorg/apache/http/params/BasicHttpParams;
-    const-string/jumbo v26, "http.socket.buffer-size"
+    const-string v26, "http.socket.buffer-size"
 
     const/16 v27, 0x2000
 
@@ -1265,7 +1265,7 @@
     .end local v7           #conn:Landroid/net/http/AndroidHttpClientConnection;
     .end local v16           #params:Lorg/apache/http/params/BasicHttpParams;
     .restart local v6       #canHandle:Z
-    :catch_2a8
+    :catch_2a7
     move-exception v26
 
     goto :goto_26c
@@ -1275,20 +1275,20 @@
     .end local v9           #error:Landroid/net/http/SslError;
     .restart local v17       #proxyConnection:Landroid/net/http/AndroidHttpClientConnection;
     .restart local v21       #proxySock:Ljava/net/Socket;
-    :catch_2aa
+    :catch_2a9
     move-exception v8
 
     move-object/from16 v20, v21
 
     .end local v21           #proxySock:Ljava/net/Socket;
     .restart local v20       #proxySock:Ljava/net/Socket;
-    goto/16 :goto_b5
+    goto/16 :goto_b3
 
     .end local v17           #proxyConnection:Landroid/net/http/AndroidHttpClientConnection;
     .end local v20           #proxySock:Ljava/net/Socket;
     .restart local v18       #proxyConnection:Landroid/net/http/AndroidHttpClientConnection;
     .restart local v21       #proxySock:Ljava/net/Socket;
-    :catch_2af
+    :catch_2ae
     move-exception v8
 
     move-object/from16 v20, v21
@@ -1299,7 +1299,7 @@
 
     .end local v18           #proxyConnection:Landroid/net/http/AndroidHttpClientConnection;
     .restart local v17       #proxyConnection:Landroid/net/http/AndroidHttpClientConnection;
-    goto/16 :goto_b5
+    goto/16 :goto_b3
 .end method
 
 .method restartConnection(Z)V
@@ -1362,7 +1362,7 @@
 
     .prologue
     .line 153
-    iput-object p1, p0, Landroid/net/http/Connection;->mCertificate:Landroid/net/http/SslCertificate;
+    iput-object p1, p0, Landroid/net/http/HttpsConnection;->mCertificate:Landroid/net/http/SslCertificate;
 
     .line 154
     return-void

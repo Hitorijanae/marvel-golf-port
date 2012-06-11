@@ -26,17 +26,15 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.view.IApplicationToken"
 
-.field static final TRANSACTION_getKeyDispatchingTimeout:I = 0x6
+.field static final TRANSACTION_getKeyDispatchingTimeout:I = 0x5
 
-.field static final TRANSACTION_keyDispatchingTimedOut:I = 0x5
+.field static final TRANSACTION_keyDispatchingTimedOut:I = 0x4
 
 .field static final TRANSACTION_windowsDrawn:I = 0x1
 
-.field static final TRANSACTION_windowsDrawn2:I = 0x2
+.field static final TRANSACTION_windowsGone:I = 0x3
 
-.field static final TRANSACTION_windowsGone:I = 0x4
-
-.field static final TRANSACTION_windowsVisible:I = 0x3
+.field static final TRANSACTION_windowsVisible:I = 0x2
 
 
 # direct methods
@@ -128,9 +126,9 @@
     const/4 v3, 0x1
 
     .line 39
-    sparse-switch p1, :sswitch_data_64
+    sparse-switch p1, :sswitch_data_58
 
-    .line 91
+    .line 84
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v3
@@ -167,7 +165,7 @@
     invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 56
-    invoke-virtual {p0}, Landroid/view/IApplicationToken$Stub;->windowsDrawn2()V
+    invoke-virtual {p0}, Landroid/view/IApplicationToken$Stub;->windowsVisible()V
 
     .line 57
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
@@ -181,7 +179,7 @@
     invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 63
-    invoke-virtual {p0}, Landroid/view/IApplicationToken$Stub;->windowsVisible()V
+    invoke-virtual {p0}, Landroid/view/IApplicationToken$Stub;->windowsGone()V
 
     .line 64
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
@@ -195,73 +193,58 @@
     invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 70
-    invoke-virtual {p0}, Landroid/view/IApplicationToken$Stub;->windowsGone()V
-
-    .line 71
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    goto :goto_8
-
-    .line 76
-    :sswitch_3f
-    const-string v2, "android.view.IApplicationToken"
-
-    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 77
     invoke-virtual {p0}, Landroid/view/IApplicationToken$Stub;->keyDispatchingTimedOut()Z
 
     move-result v0
 
-    .line 78
+    .line 71
     .local v0, _result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 79
-    if-eqz v0, :cond_52
+    .line 72
+    if-eqz v0, :cond_46
 
     move v2, v3
 
-    :goto_4e
+    :goto_42
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_8
 
-    :cond_52
+    :cond_46
     const/4 v2, 0x0
 
-    goto :goto_4e
+    goto :goto_42
 
-    .line 84
+    .line 77
     .end local v0           #_result:Z
-    :sswitch_54
+    :sswitch_48
     const-string v2, "android.view.IApplicationToken"
 
     invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 85
+    .line 78
     invoke-virtual {p0}, Landroid/view/IApplicationToken$Stub;->getKeyDispatchingTimeout()J
 
     move-result-wide v0
 
-    .line 86
+    .line 79
     .local v0, _result:J
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 87
+    .line 80
     invoke-virtual {p3, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
     goto :goto_8
 
     .line 39
-    :sswitch_data_64
+    :sswitch_data_58
     .sparse-switch
         0x1 -> :sswitch_f
         0x2 -> :sswitch_1b
         0x3 -> :sswitch_27
         0x4 -> :sswitch_33
-        0x5 -> :sswitch_3f
-        0x6 -> :sswitch_54
+        0x5 -> :sswitch_48
         0x5f4e5446 -> :sswitch_9
     .end sparse-switch
 .end method

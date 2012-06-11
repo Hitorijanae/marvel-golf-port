@@ -46,23 +46,23 @@
 
     .line 63
     :cond_13
-    if-eqz p3, :cond_21
+    if-eqz p3, :cond_20
 
     array-length v0, p3
 
-    if-ge v0, v1, :cond_21
+    if-ge v0, v1, :cond_20
 
     .line 64
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
 
-    const-string/jumbo v1, "inner radii must have >= 8 values"
+    const-string v1, "inner radii must have >= 8 values"
 
     invoke-direct {v0, v1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 66
-    :cond_21
+    :cond_20
     iput-object p1, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mOuterRadii:[F
 
     .line 67
@@ -72,7 +72,7 @@
     iput-object p3, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mInnerRadii:[F
 
     .line 70
-    if-eqz p2, :cond_30
+    if-eqz p2, :cond_2f
 
     .line 71
     new-instance v0, Landroid/graphics/RectF;
@@ -82,7 +82,7 @@
     iput-object v0, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mInnerRect:Landroid/graphics/RectF;
 
     .line 73
-    :cond_30
+    :cond_2f
     new-instance v0, Landroid/graphics/Path;
 
     invoke-direct {v0}, Landroid/graphics/Path;-><init>()V

@@ -42,7 +42,7 @@
     .registers 1
 
     .prologue
-    .line 64
+    .line 51
     invoke-static {}, Ljava/text/Collator;->getInstance()Ljava/text/Collator;
 
     move-result-object v0
@@ -58,16 +58,16 @@
     .parameter "locale"
 
     .prologue
-    .line 69
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 56
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 70
+    .line 57
     iput-object p1, p0, Lcom/android/internal/app/LocalePicker$LocaleInfo;->label:Ljava/lang/String;
 
-    .line 71
+    .line 58
     iput-object p2, p0, Lcom/android/internal/app/LocalePicker$LocaleInfo;->locale:Ljava/util/Locale;
 
-    .line 72
+    .line 59
     return-void
 .end method
 
@@ -78,7 +78,7 @@
     .parameter "another"
 
     .prologue
-    .line 89
+    .line 76
     sget-object v0, Lcom/android/internal/app/LocalePicker$LocaleInfo;->sCollator:Ljava/text/Collator;
 
     iget-object v1, p0, Lcom/android/internal/app/LocalePicker$LocaleInfo;->label:Ljava/lang/String;
@@ -97,7 +97,7 @@
     .parameter "x0"
 
     .prologue
-    .line 63
+    .line 50
     check-cast p1, Lcom/android/internal/app/LocalePicker$LocaleInfo;
 
     .end local p1
@@ -112,7 +112,7 @@
     .registers 2
 
     .prologue
-    .line 75
+    .line 62
     iget-object v0, p0, Lcom/android/internal/app/LocalePicker$LocaleInfo;->label:Ljava/lang/String;
 
     return-object v0
@@ -122,7 +122,7 @@
     .registers 2
 
     .prologue
-    .line 79
+    .line 66
     iget-object v0, p0, Lcom/android/internal/app/LocalePicker$LocaleInfo;->locale:Ljava/util/Locale;
 
     return-object v0
@@ -132,7 +132,7 @@
     .registers 2
 
     .prologue
-    .line 84
+    .line 71
     iget-object v0, p0, Lcom/android/internal/app/LocalePicker$LocaleInfo;->label:Ljava/lang/String;
 
     return-object v0

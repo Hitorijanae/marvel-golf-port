@@ -375,12 +375,12 @@
     .local v5, titleView:Landroid/widget/TextView;
     iget-object v6, p0, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->this$0:Landroid/widget/ActivityChooserView;
 
-    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
+    #getter for: Landroid/widget/ActivityChooserView;->mContext:Landroid/content/Context;
     invoke-static {v6}, Landroid/widget/ActivityChooserView;->access$1400(Landroid/widget/ActivityChooserView;)Landroid/content/Context;
 
     move-result-object v6
 
-    const v7, 0x10404d8
+    const v7, 0x10404e0
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -408,7 +408,7 @@
 
     move-result v6
 
-    const v7, 0x1020236
+    const v7, 0x102023d
 
     if-eq v6, v7, :cond_5f
 
@@ -432,7 +432,7 @@
     :cond_5f
     iget-object v6, p0, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->this$0:Landroid/widget/ActivityChooserView;
 
-    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
+    #getter for: Landroid/widget/ActivityChooserView;->mContext:Landroid/content/Context;
     invoke-static {v6}, Landroid/widget/ActivityChooserView;->access$1500(Landroid/widget/ActivityChooserView;)Landroid/content/Context;
 
     move-result-object v6

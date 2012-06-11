@@ -1583,9 +1583,9 @@
     if-eqz v1, :cond_1e
 
     .line 372
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/Switch;->mContext:Landroid/content/Context;
 
-    const v2, 0x104049b
+    const v2, 0x10404a3
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1621,9 +1621,9 @@
     if-eqz v1, :cond_3b
 
     .line 378
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/Switch;->mContext:Landroid/content/Context;
 
-    const v2, 0x104049c
+    const v2, 0x10404a4
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

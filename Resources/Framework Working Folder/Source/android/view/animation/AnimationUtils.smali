@@ -8,28 +8,14 @@
 
 .field private static final TOGETHER:I
 
-.field static final USE_HTC_TRANSITION_ANIM:Z
-
 
 # direct methods
-.method static constructor <clinit>()V
-    .registers 1
-
-    .prologue
-    .line 49
-    sget-boolean v0, Lcom/htc/view/animation/HtcGlTransAnimFactory;->USE_HTC_TRANSITION_ANIM:Z
-
-    sput-boolean v0, Landroid/view/animation/AnimationUtils;->USE_HTC_TRANSITION_ANIM:Z
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .registers 1
 
     .prologue
-    .line 40
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 35
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -46,7 +32,7 @@
     .end annotation
 
     .prologue
-    .line 99
+    .line 91
     const/4 v0, 0x0
 
     invoke-static {p1}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
@@ -74,16 +60,16 @@
     .end annotation
 
     .prologue
-    .line 105
+    .line 97
     const/4 v0, 0x0
 
-    .line 109
+    .line 101
     .local v0, anim:Landroid/view/animation/Animation;
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
     move-result v1
 
-    .line 112
+    .line 104
     .local v1, depth:I
     :cond_5
     :goto_5
@@ -100,24 +86,24 @@
 
     move-result v4
 
-    if-le v4, v1, :cond_a0
+    if-le v4, v1, :cond_8e
 
     :cond_12
     const/4 v4, 0x1
 
-    if-eq v3, v4, :cond_a0
+    if-eq v3, v4, :cond_8e
 
-    .line 114
+    .line 106
     const/4 v4, 0x2
 
     if-ne v3, v4, :cond_5
 
-    .line 118
+    .line 110
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 120
+    .line 112
     .local v2, name:Ljava/lang/String;
     const-string/jumbo v4, "set"
 
@@ -127,7 +113,7 @@
 
     if-eqz v4, :cond_36
 
-    .line 121
+    .line 113
     new-instance v0, Landroid/view/animation/AnimationSet;
 
     .end local v0           #anim:Landroid/view/animation/Animation;
@@ -136,21 +122,21 @@
     .restart local v0       #anim:Landroid/view/animation/Animation;
     move-object v4, v0
 
-    .line 122
+    .line 114
     check-cast v4, Landroid/view/animation/AnimationSet;
 
     invoke-static {p0, p1, v4, p3}, Landroid/view/animation/AnimationUtils;->createAnimationFromXml(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/view/animation/AnimationSet;Landroid/util/AttributeSet;)Landroid/view/animation/Animation;
 
-    .line 145
+    .line 127
     :goto_30
     if-eqz p2, :cond_5
 
-    .line 146
+    .line 128
     invoke-virtual {p2, v0}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
     goto :goto_5
 
-    .line 123
+    .line 115
     :cond_36
     const-string v4, "alpha"
 
@@ -160,7 +146,7 @@
 
     if-eqz v4, :cond_44
 
-    .line 124
+    .line 116
     new-instance v0, Landroid/view/animation/AlphaAnimation;
 
     .end local v0           #anim:Landroid/view/animation/Animation;
@@ -169,7 +155,7 @@
     .restart local v0       #anim:Landroid/view/animation/Animation;
     goto :goto_30
 
-    .line 125
+    .line 117
     :cond_44
     const-string/jumbo v4, "scale"
 
@@ -179,7 +165,7 @@
 
     if-eqz v4, :cond_53
 
-    .line 126
+    .line 118
     new-instance v0, Landroid/view/animation/ScaleAnimation;
 
     .end local v0           #anim:Landroid/view/animation/Animation;
@@ -188,7 +174,7 @@
     .restart local v0       #anim:Landroid/view/animation/Animation;
     goto :goto_30
 
-    .line 127
+    .line 119
     :cond_53
     const-string/jumbo v4, "rotate"
 
@@ -198,7 +184,7 @@
 
     if-eqz v4, :cond_62
 
-    .line 128
+    .line 120
     new-instance v0, Landroid/view/animation/RotateAnimation;
 
     .end local v0           #anim:Landroid/view/animation/Animation;
@@ -207,7 +193,7 @@
     .restart local v0       #anim:Landroid/view/animation/Animation;
     goto :goto_30
 
-    .line 129
+    .line 121
     :cond_62
     const-string/jumbo v4, "translate"
 
@@ -217,7 +203,7 @@
 
     if-eqz v4, :cond_71
 
-    .line 130
+    .line 122
     new-instance v0, Landroid/view/animation/TranslateAnimation;
 
     .end local v0           #anim:Landroid/view/animation/Animation;
@@ -226,30 +212,8 @@
     .restart local v0       #anim:Landroid/view/animation/Animation;
     goto :goto_30
 
-    .line 132
+    .line 124
     :cond_71
-    const-string/jumbo v4, "htcgl"
-
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_83
-
-    .line 133
-    sget-boolean v4, Landroid/view/animation/AnimationUtils;->USE_HTC_TRANSITION_ANIM:Z
-
-    if-eqz v4, :cond_5
-
-    .line 134
-    invoke-static {p0, p3}, Lcom/htc/view/animation/HtcGlTransAnimFactory;->createGlAnim(Landroid/content/Context;Landroid/util/AttributeSet;)Lcom/htc/view/animation/HtcBaseGlTransAnim;
-
-    move-result-object v0
-
-    goto :goto_30
-
-    .line 142
-    :cond_83
     new-instance v4, Ljava/lang/RuntimeException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -278,9 +242,9 @@
 
     throw v4
 
-    .line 150
+    .line 132
     .end local v2           #name:Ljava/lang/String;
-    :cond_a0
+    :cond_8e
     return-object v0
 .end method
 
@@ -296,16 +260,16 @@
     .end annotation
 
     .prologue
-    .line 301
+    .line 283
     const/4 v2, 0x0
 
-    .line 305
+    .line 287
     .local v2, interpolator:Landroid/view/animation/Interpolator;
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
     move-result v1
 
-    .line 308
+    .line 290
     .local v1, depth:I
     :cond_5
     :goto_5
@@ -322,40 +286,40 @@
 
     move-result v5
 
-    if-le v5, v1, :cond_bf
+    if-le v5, v1, :cond_be
 
     :cond_12
     const/4 v5, 0x1
 
-    if-eq v4, v5, :cond_bf
+    if-eq v4, v5, :cond_be
 
-    .line 310
+    .line 292
     const/4 v5, 0x2
 
     if-ne v4, v5, :cond_5
 
-    .line 314
+    .line 296
     invoke-static {p1}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v0
 
-    .line 316
+    .line 298
     .local v0, attrs:Landroid/util/AttributeSet;
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 319
+    .line 301
     .local v3, name:Ljava/lang/String;
-    const-string/jumbo v5, "linearInterpolator"
+    const-string v5, "linearInterpolator"
 
     invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2f
+    if-eqz v5, :cond_2e
 
-    .line 320
+    .line 302
     new-instance v2, Landroid/view/animation/LinearInterpolator;
 
     .end local v2           #interpolator:Landroid/view/animation/Interpolator;
@@ -364,17 +328,17 @@
     .restart local v2       #interpolator:Landroid/view/animation/Interpolator;
     goto :goto_5
 
-    .line 321
-    :cond_2f
+    .line 303
+    :cond_2e
     const-string v5, "accelerateInterpolator"
 
     invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_3d
+    if-eqz v5, :cond_3c
 
-    .line 322
+    .line 304
     new-instance v2, Landroid/view/animation/AccelerateInterpolator;
 
     .end local v2           #interpolator:Landroid/view/animation/Interpolator;
@@ -383,17 +347,17 @@
     .restart local v2       #interpolator:Landroid/view/animation/Interpolator;
     goto :goto_5
 
-    .line 323
-    :cond_3d
+    .line 305
+    :cond_3c
     const-string v5, "decelerateInterpolator"
 
     invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_4b
+    if-eqz v5, :cond_4a
 
-    .line 324
+    .line 306
     new-instance v2, Landroid/view/animation/DecelerateInterpolator;
 
     .end local v2           #interpolator:Landroid/view/animation/Interpolator;
@@ -402,17 +366,17 @@
     .restart local v2       #interpolator:Landroid/view/animation/Interpolator;
     goto :goto_5
 
-    .line 325
-    :cond_4b
+    .line 307
+    :cond_4a
     const-string v5, "accelerateDecelerateInterpolator"
 
     invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_59
+    if-eqz v5, :cond_58
 
-    .line 326
+    .line 308
     new-instance v2, Landroid/view/animation/AccelerateDecelerateInterpolator;
 
     .end local v2           #interpolator:Landroid/view/animation/Interpolator;
@@ -421,17 +385,17 @@
     .restart local v2       #interpolator:Landroid/view/animation/Interpolator;
     goto :goto_5
 
-    .line 327
-    :cond_59
+    .line 309
+    :cond_58
     const-string v5, "cycleInterpolator"
 
     invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_67
+    if-eqz v5, :cond_66
 
-    .line 328
+    .line 310
     new-instance v2, Landroid/view/animation/CycleInterpolator;
 
     .end local v2           #interpolator:Landroid/view/animation/Interpolator;
@@ -440,17 +404,17 @@
     .restart local v2       #interpolator:Landroid/view/animation/Interpolator;
     goto :goto_5
 
-    .line 329
-    :cond_67
+    .line 311
+    :cond_66
     const-string v5, "anticipateInterpolator"
 
     invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_75
+    if-eqz v5, :cond_74
 
-    .line 330
+    .line 312
     new-instance v2, Landroid/view/animation/AnticipateInterpolator;
 
     .end local v2           #interpolator:Landroid/view/animation/Interpolator;
@@ -459,17 +423,17 @@
     .restart local v2       #interpolator:Landroid/view/animation/Interpolator;
     goto :goto_5
 
-    .line 331
-    :cond_75
+    .line 313
+    :cond_74
     const-string/jumbo v5, "overshootInterpolator"
 
     invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_84
+    if-eqz v5, :cond_83
 
-    .line 332
+    .line 314
     new-instance v2, Landroid/view/animation/OvershootInterpolator;
 
     .end local v2           #interpolator:Landroid/view/animation/Interpolator;
@@ -478,17 +442,17 @@
     .restart local v2       #interpolator:Landroid/view/animation/Interpolator;
     goto :goto_5
 
-    .line 333
-    :cond_84
+    .line 315
+    :cond_83
     const-string v5, "anticipateOvershootInterpolator"
 
     invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_93
+    if-eqz v5, :cond_92
 
-    .line 334
+    .line 316
     new-instance v2, Landroid/view/animation/AnticipateOvershootInterpolator;
 
     .end local v2           #interpolator:Landroid/view/animation/Interpolator;
@@ -497,17 +461,17 @@
     .restart local v2       #interpolator:Landroid/view/animation/Interpolator;
     goto/16 :goto_5
 
-    .line 335
-    :cond_93
+    .line 317
+    :cond_92
     const-string v5, "bounceInterpolator"
 
     invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_a2
+    if-eqz v5, :cond_a1
 
-    .line 336
+    .line 318
     new-instance v2, Landroid/view/animation/BounceInterpolator;
 
     .end local v2           #interpolator:Landroid/view/animation/Interpolator;
@@ -516,8 +480,8 @@
     .restart local v2       #interpolator:Landroid/view/animation/Interpolator;
     goto/16 :goto_5
 
-    .line 338
-    :cond_a2
+    .line 320
+    :cond_a1
     new-instance v5, Ljava/lang/RuntimeException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -546,10 +510,10 @@
 
     throw v5
 
-    .line 343
+    .line 325
     .end local v0           #attrs:Landroid/util/AttributeSet;
     .end local v3           #name:Ljava/lang/String;
-    :cond_bf
+    :cond_be
     return-object v2
 .end method
 
@@ -565,7 +529,7 @@
     .end annotation
 
     .prologue
-    .line 179
+    .line 161
     invoke-static {p1}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v0
@@ -590,16 +554,16 @@
     .end annotation
 
     .prologue
-    .line 185
+    .line 167
     const/4 v0, 0x0
 
-    .line 188
+    .line 170
     .local v0, controller:Landroid/view/animation/LayoutAnimationController;
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
     move-result v1
 
-    .line 191
+    .line 173
     .local v1, depth:I
     :cond_5
     :goto_5
@@ -616,34 +580,34 @@
 
     move-result v4
 
-    if-le v4, v1, :cond_52
+    if-le v4, v1, :cond_51
 
     :cond_12
     const/4 v4, 0x1
 
-    if-eq v3, v4, :cond_52
+    if-eq v3, v4, :cond_51
 
-    .line 193
+    .line 175
     const/4 v4, 0x2
 
     if-ne v3, v4, :cond_5
 
-    .line 197
+    .line 179
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 199
+    .line 181
     .local v2, name:Ljava/lang/String;
-    const-string/jumbo v4, "layoutAnimation"
+    const-string v4, "layoutAnimation"
 
     invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2b
+    if-eqz v4, :cond_2a
 
-    .line 200
+    .line 182
     new-instance v0, Landroid/view/animation/LayoutAnimationController;
 
     .end local v0           #controller:Landroid/view/animation/LayoutAnimationController;
@@ -652,17 +616,17 @@
     .restart local v0       #controller:Landroid/view/animation/LayoutAnimationController;
     goto :goto_5
 
-    .line 201
-    :cond_2b
+    .line 183
+    :cond_2a
     const-string v4, "gridLayoutAnimation"
 
     invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_39
+    if-eqz v4, :cond_38
 
-    .line 202
+    .line 184
     new-instance v0, Landroid/view/animation/GridLayoutAnimationController;
 
     .end local v0           #controller:Landroid/view/animation/LayoutAnimationController;
@@ -671,8 +635,8 @@
     .restart local v0       #controller:Landroid/view/animation/LayoutAnimationController;
     goto :goto_5
 
-    .line 204
-    :cond_39
+    .line 186
+    :cond_38
     new-instance v4, Ljava/lang/RuntimeException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -697,9 +661,9 @@
 
     throw v4
 
-    .line 208
+    .line 190
     .end local v2           #name:Ljava/lang/String;
-    :cond_52
+    :cond_51
     return-object v0
 .end method
 
@@ -707,7 +671,7 @@
     .registers 2
 
     .prologue
-    .line 63
+    .line 55
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
@@ -726,10 +690,10 @@
     .end annotation
 
     .prologue
-    .line 77
+    .line 69
     const/4 v1, 0x0
 
-    .line 79
+    .line 71
     .local v1, parser:Landroid/content/res/XmlResourceParser;
     :try_start_1
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -740,7 +704,7 @@
 
     move-result-object v1
 
-    .line 80
+    .line 72
     invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->createAnimationFromXml(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;)Landroid/view/animation/Animation;
     :try_end_c
     .catchall {:try_start_1 .. :try_end_c} :catchall_34
@@ -749,20 +713,19 @@
 
     move-result-object v3
 
-    .line 92
+    .line 84
     if-eqz v1, :cond_12
 
     invoke-interface {v1}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 80
     :cond_12
     return-object v3
 
-    .line 81
+    .line 73
     :catch_13
     move-exception v0
 
-    .line 82
+    .line 74
     .local v0, ex:Lorg/xmlpull/v1/XmlPullParserException;
     :try_start_14
     new-instance v2, Landroid/content/res/Resources$NotFoundException;
@@ -791,16 +754,16 @@
 
     invoke-direct {v2, v3}, Landroid/content/res/Resources$NotFoundException;-><init>(Ljava/lang/String;)V
 
-    .line 84
+    .line 76
     .local v2, rnf:Landroid/content/res/Resources$NotFoundException;
     invoke-virtual {v2, v0}, Landroid/content/res/Resources$NotFoundException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    .line 85
+    .line 77
     throw v2
     :try_end_34
     .catchall {:try_start_14 .. :try_end_34} :catchall_34
 
-    .line 92
+    .line 84
     .end local v0           #ex:Lorg/xmlpull/v1/XmlPullParserException;
     .end local v2           #rnf:Landroid/content/res/Resources$NotFoundException;
     :catchall_34
@@ -813,11 +776,11 @@
     :cond_3a
     throw v3
 
-    .line 86
+    .line 78
     :catch_3b
     move-exception v0
 
-    .line 87
+    .line 79
     .local v0, ex:Ljava/io/IOException;
     :try_start_3c
     new-instance v2, Landroid/content/res/Resources$NotFoundException;
@@ -846,11 +809,11 @@
 
     invoke-direct {v2, v3}, Landroid/content/res/Resources$NotFoundException;-><init>(Ljava/lang/String;)V
 
-    .line 89
+    .line 81
     .restart local v2       #rnf:Landroid/content/res/Resources$NotFoundException;
     invoke-virtual {v2, v0}, Landroid/content/res/Resources$NotFoundException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    .line 90
+    .line 82
     throw v2
     :try_end_5c
     .catchall {:try_start_3c .. :try_end_5c} :catchall_34
@@ -867,10 +830,10 @@
     .end annotation
 
     .prologue
-    .line 278
+    .line 260
     const/4 v1, 0x0
 
-    .line 280
+    .line 262
     .local v1, parser:Landroid/content/res/XmlResourceParser;
     :try_start_1
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -881,7 +844,7 @@
 
     move-result-object v1
 
-    .line 281
+    .line 263
     invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->createInterpolatorFromXml(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;)Landroid/view/animation/Interpolator;
     :try_end_c
     .catchall {:try_start_1 .. :try_end_c} :catchall_34
@@ -890,20 +853,19 @@
 
     move-result-object v3
 
-    .line 293
+    .line 275
     if-eqz v1, :cond_12
 
     invoke-interface {v1}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 281
     :cond_12
     return-object v3
 
-    .line 282
+    .line 264
     :catch_13
     move-exception v0
 
-    .line 283
+    .line 265
     .local v0, ex:Lorg/xmlpull/v1/XmlPullParserException;
     :try_start_14
     new-instance v2, Landroid/content/res/Resources$NotFoundException;
@@ -932,16 +894,16 @@
 
     invoke-direct {v2, v3}, Landroid/content/res/Resources$NotFoundException;-><init>(Ljava/lang/String;)V
 
-    .line 285
+    .line 267
     .local v2, rnf:Landroid/content/res/Resources$NotFoundException;
     invoke-virtual {v2, v0}, Landroid/content/res/Resources$NotFoundException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    .line 286
+    .line 268
     throw v2
     :try_end_34
     .catchall {:try_start_14 .. :try_end_34} :catchall_34
 
-    .line 293
+    .line 275
     .end local v0           #ex:Lorg/xmlpull/v1/XmlPullParserException;
     .end local v2           #rnf:Landroid/content/res/Resources$NotFoundException;
     :catchall_34
@@ -954,11 +916,11 @@
     :cond_3a
     throw v3
 
-    .line 287
+    .line 269
     :catch_3b
     move-exception v0
 
-    .line 288
+    .line 270
     .local v0, ex:Ljava/io/IOException;
     :try_start_3c
     new-instance v2, Landroid/content/res/Resources$NotFoundException;
@@ -987,11 +949,11 @@
 
     invoke-direct {v2, v3}, Landroid/content/res/Resources$NotFoundException;-><init>(Ljava/lang/String;)V
 
-    .line 290
+    .line 272
     .restart local v2       #rnf:Landroid/content/res/Resources$NotFoundException;
     invoke-virtual {v2, v0}, Landroid/content/res/Resources$NotFoundException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    .line 291
+    .line 273
     throw v2
     :try_end_5c
     .catchall {:try_start_3c .. :try_end_5c} :catchall_34
@@ -1008,10 +970,10 @@
     .end annotation
 
     .prologue
-    .line 157
+    .line 139
     const/4 v1, 0x0
 
-    .line 159
+    .line 141
     .local v1, parser:Landroid/content/res/XmlResourceParser;
     :try_start_1
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -1022,7 +984,7 @@
 
     move-result-object v1
 
-    .line 160
+    .line 142
     invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->createLayoutAnimationFromXml(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;)Landroid/view/animation/LayoutAnimationController;
     :try_end_c
     .catchall {:try_start_1 .. :try_end_c} :catchall_34
@@ -1031,20 +993,19 @@
 
     move-result-object v3
 
-    .line 172
+    .line 154
     if-eqz v1, :cond_12
 
     invoke-interface {v1}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 160
     :cond_12
     return-object v3
 
-    .line 161
+    .line 143
     :catch_13
     move-exception v0
 
-    .line 162
+    .line 144
     .local v0, ex:Lorg/xmlpull/v1/XmlPullParserException;
     :try_start_14
     new-instance v2, Landroid/content/res/Resources$NotFoundException;
@@ -1073,16 +1034,16 @@
 
     invoke-direct {v2, v3}, Landroid/content/res/Resources$NotFoundException;-><init>(Ljava/lang/String;)V
 
-    .line 164
+    .line 146
     .local v2, rnf:Landroid/content/res/Resources$NotFoundException;
     invoke-virtual {v2, v0}, Landroid/content/res/Resources$NotFoundException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    .line 165
+    .line 147
     throw v2
     :try_end_34
     .catchall {:try_start_14 .. :try_end_34} :catchall_34
 
-    .line 172
+    .line 154
     .end local v0           #ex:Lorg/xmlpull/v1/XmlPullParserException;
     .end local v2           #rnf:Landroid/content/res/Resources$NotFoundException;
     :catchall_34
@@ -1095,11 +1056,11 @@
     :cond_3a
     throw v3
 
-    .line 166
+    .line 148
     :catch_3b
     move-exception v0
 
-    .line 167
+    .line 149
     .local v0, ex:Ljava/io/IOException;
     :try_start_3c
     new-instance v2, Landroid/content/res/Resources$NotFoundException;
@@ -1128,11 +1089,11 @@
 
     invoke-direct {v2, v3}, Landroid/content/res/Resources$NotFoundException;-><init>(Ljava/lang/String;)V
 
-    .line 169
+    .line 151
     .restart local v2       #rnf:Landroid/content/res/Resources$NotFoundException;
     invoke-virtual {v2, v0}, Landroid/content/res/Resources$NotFoundException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    .line 170
+    .line 152
     throw v2
     :try_end_5c
     .catchall {:try_start_3c .. :try_end_5c} :catchall_34
@@ -1144,17 +1105,17 @@
     .parameter "fromLeft"
 
     .prologue
-    .line 221
+    .line 203
     if-eqz p1, :cond_19
 
-    .line 222
+    .line 204
     const v1, 0x10a0002
 
     invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
     move-result-object v0
 
-    .line 227
+    .line 209
     .local v0, a:Landroid/view/animation/Animation;
     :goto_9
     new-instance v1, Landroid/view/animation/DecelerateInterpolator;
@@ -1163,17 +1124,17 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/Animation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
-    .line 228
+    .line 210
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
 
     move-result-wide v1
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/Animation;->setStartTime(J)V
 
-    .line 229
+    .line 211
     return-object v0
 
-    .line 224
+    .line 206
     .end local v0           #a:Landroid/view/animation/Animation;
     :cond_19
     const v1, 0x10a003a
@@ -1191,14 +1152,14 @@
     .parameter "c"
 
     .prologue
-    .line 263
+    .line 245
     const v1, 0x10a0039
 
     invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
     move-result-object v0
 
-    .line 264
+    .line 246
     .local v0, a:Landroid/view/animation/Animation;
     new-instance v1, Landroid/view/animation/AccelerateInterpolator;
 
@@ -1206,14 +1167,14 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/Animation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
-    .line 265
+    .line 247
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
 
     move-result-wide v1
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/Animation;->setStartTime(J)V
 
-    .line 266
+    .line 248
     return-object v0
 .end method
 
@@ -1223,17 +1184,17 @@
     .parameter "toRight"
 
     .prologue
-    .line 242
+    .line 224
     if-eqz p1, :cond_19
 
-    .line 243
+    .line 225
     const v1, 0x10a0003
 
     invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
     move-result-object v0
 
-    .line 248
+    .line 230
     .local v0, a:Landroid/view/animation/Animation;
     :goto_9
     new-instance v1, Landroid/view/animation/AccelerateInterpolator;
@@ -1242,17 +1203,17 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/Animation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
-    .line 249
+    .line 231
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
 
     move-result-wide v1
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/Animation;->setStartTime(J)V
 
-    .line 250
+    .line 232
     return-object v0
 
-    .line 245
+    .line 227
     .end local v0           #a:Landroid/view/animation/Animation;
     :cond_19
     const v1, 0x10a003d

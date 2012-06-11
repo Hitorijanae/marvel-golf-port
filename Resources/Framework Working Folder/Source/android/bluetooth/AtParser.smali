@@ -47,7 +47,7 @@
 
     .prologue
     .line 103
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 104
     new-instance v0, Ljava/util/HashMap;
@@ -545,7 +545,7 @@
     .local v6, index:I
     new-instance v8, Landroid/bluetooth/AtCommandResult;
 
-    const/4 v10, 0x0
+    const/4 v10, 0x2
 
     invoke-direct {v8, v10}, Landroid/bluetooth/AtCommandResult;-><init>(I)V
 

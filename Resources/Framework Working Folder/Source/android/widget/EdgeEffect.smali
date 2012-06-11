@@ -108,7 +108,7 @@
 
     .prologue
     .line 127
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 79
     const/16 v1, 0x12c
@@ -127,7 +127,7 @@
 
     .line 129
     .local v0, res:Landroid/content/res/Resources;
-    const v1, 0x1080424
+    const v1, 0x108044c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -136,7 +136,7 @@
     iput-object v1, p0, Landroid/widget/EdgeEffect;->mEdge:Landroid/graphics/drawable/Drawable;
 
     .line 130
-    const v1, 0x1080425
+    const v1, 0x108044d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

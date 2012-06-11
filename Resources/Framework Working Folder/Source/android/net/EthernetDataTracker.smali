@@ -75,7 +75,7 @@
     const/4 v4, 0x0
 
     .line 103
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 42
     new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -770,7 +770,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "ignoring setPolicyDataEnable("
+    const-string v2, "ignoring setPolicyDataEnable("
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -833,7 +833,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "ignoring setUserDataEnable("
+    const-string v2, "ignoring setUserDataEnable("
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -897,7 +897,7 @@
 
     move-result-object v9
 
-    const v10, 0x104002b
+    const v10, 0x1040018
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

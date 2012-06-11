@@ -34,10 +34,10 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 500
+    .line 480
     iput-object p1, p0, Landroid/view/Window$LocalWindowManager;->this$0:Landroid/view/Window;
 
-    .line 501
+    .line 481
     #getter for: Landroid/view/Window;->mContext:Landroid/content/Context;
     invoke-static {p1}, Landroid/view/Window;->access$000(Landroid/view/Window;)Landroid/content/Context;
 
@@ -49,7 +49,7 @@
 
     invoke-direct {p0, p2, v1}, Landroid/view/WindowManagerImpl$CompatModeWrapper;-><init>(Landroid/view/WindowManager;Landroid/view/CompatibilityInfoHolder;)V
 
-    .line 502
+    .line 482
     if-nez p3, :cond_19
 
     const-string/jumbo v1, "persist.sys.ui.hw"
@@ -66,7 +66,7 @@
     :cond_1a
     iput-boolean v0, p0, Landroid/view/Window$LocalWindowManager;->mHardwareAccelerated:Z
 
-    .line 504
+    .line 484
     return-void
 .end method
 
@@ -80,18 +80,18 @@
     .prologue
     const/16 v6, 0x3e8
 
-    .line 512
+    .line 492
     move-object v3, p2
 
     check-cast v3, Landroid/view/WindowManager$LayoutParams;
 
-    .line 513
+    .line 493
     .local v3, wp:Landroid/view/WindowManager$LayoutParams;
     invoke-virtual {v3}, Landroid/view/WindowManager$LayoutParams;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 514
+    .line 494
     .local v0, curTitle:Ljava/lang/CharSequence;
     iget v4, v3, Landroid/view/WindowManager$LayoutParams;->type:I
 
@@ -103,30 +103,30 @@
 
     if-gt v4, v5, :cond_a5
 
-    .line 516
+    .line 496
     iget-object v4, v3, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
     if-nez v4, :cond_25
 
-    .line 517
+    .line 497
     iget-object v4, p0, Landroid/view/Window$LocalWindowManager;->this$0:Landroid/view/Window;
 
     invoke-virtual {v4}, Landroid/view/Window;->peekDecorView()Landroid/view/View;
 
     move-result-object v1
 
-    .line 518
+    .line 498
     .local v1, decor:Landroid/view/View;
     if-eqz v1, :cond_25
 
-    .line 519
+    .line 499
     invoke-virtual {v1}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v4
 
     iput-object v4, v3, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    .line 522
+    .line 502
     .end local v1           #decor:Landroid/view/View;
     :cond_25
     if-eqz v0, :cond_2d
@@ -137,7 +137,7 @@
 
     if-nez v4, :cond_5d
 
-    .line 524
+    .line 504
     :cond_2d
     iget v4, v3, Landroid/view/WindowManager$LayoutParams;->type:I
 
@@ -145,10 +145,10 @@
 
     if-ne v4, v5, :cond_7c
 
-    .line 525
+    .line 505
     const-string v2, "Media"
 
-    .line 537
+    .line 517
     .local v2, title:Ljava/lang/String;
     :goto_35
     iget-object v4, p0, Landroid/view/Window$LocalWindowManager;->this$0:Landroid/view/Window;
@@ -160,7 +160,7 @@
 
     if-eqz v4, :cond_5a
 
-    .line 538
+    .line 518
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -190,11 +190,11 @@
 
     move-result-object v2
 
-    .line 540
+    .line 520
     :cond_5a
     invoke-virtual {v3, v2}, Landroid/view/WindowManager$LayoutParams;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 551
+    .line 531
     .end local v2           #title:Ljava/lang/String;
     :cond_5d
     :goto_5d
@@ -202,7 +202,7 @@
 
     if-nez v4, :cond_6d
 
-    .line 552
+    .line 532
     iget-object v4, p0, Landroid/view/Window$LocalWindowManager;->this$0:Landroid/view/Window;
 
     #getter for: Landroid/view/Window;->mContext:Landroid/content/Context;
@@ -216,13 +216,13 @@
 
     iput-object v4, v3, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
-    .line 554
+    .line 534
     :cond_6d
     iget-boolean v4, p0, Landroid/view/Window$LocalWindowManager;->mHardwareAccelerated:Z
 
     if-eqz v4, :cond_78
 
-    .line 555
+    .line 535
     iget v4, v3, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     const/high16 v5, 0x100
@@ -231,14 +231,14 @@
 
     iput v4, v3, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 557
+    .line 537
     :cond_78
     invoke-super {p0, p1, p2}, Landroid/view/WindowManagerImpl$CompatModeWrapper;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 558
+    .line 538
     return-void
 
-    .line 526
+    .line 506
     :cond_7c
     iget v4, v3, Landroid/view/WindowManager$LayoutParams;->type:I
 
@@ -246,26 +246,26 @@
 
     if-ne v4, v5, :cond_85
 
-    .line 527
+    .line 507
     const-string v2, "MediaOvr"
 
     .restart local v2       #title:Ljava/lang/String;
     goto :goto_35
 
-    .line 528
+    .line 508
     .end local v2           #title:Ljava/lang/String;
     :cond_85
     iget v4, v3, Landroid/view/WindowManager$LayoutParams;->type:I
 
     if-ne v4, v6, :cond_8c
 
-    .line 529
+    .line 509
     const-string v2, "Panel"
 
     .restart local v2       #title:Ljava/lang/String;
     goto :goto_35
 
-    .line 530
+    .line 510
     .end local v2           #title:Ljava/lang/String;
     :cond_8c
     iget v4, v3, Landroid/view/WindowManager$LayoutParams;->type:I
@@ -274,13 +274,13 @@
 
     if-ne v4, v5, :cond_95
 
-    .line 531
+    .line 511
     const-string v2, "SubPanel"
 
     .restart local v2       #title:Ljava/lang/String;
     goto :goto_35
 
-    .line 532
+    .line 512
     .end local v2           #title:Ljava/lang/String;
     :cond_95
     iget v4, v3, Landroid/view/WindowManager$LayoutParams;->type:I
@@ -289,13 +289,13 @@
 
     if-ne v4, v5, :cond_9e
 
-    .line 533
+    .line 513
     const-string v2, "AtchDlg"
 
     .restart local v2       #title:Ljava/lang/String;
     goto :goto_35
 
-    .line 535
+    .line 515
     .end local v2           #title:Ljava/lang/String;
     :cond_9e
     iget v4, v3, Landroid/view/WindowManager$LayoutParams;->type:I
@@ -307,14 +307,14 @@
     .restart local v2       #title:Ljava/lang/String;
     goto :goto_35
 
-    .line 543
+    .line 523
     .end local v2           #title:Ljava/lang/String;
     :cond_a5
     iget-object v4, v3, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
     if-nez v4, :cond_b9
 
-    .line 544
+    .line 524
     iget-object v4, p0, Landroid/view/Window$LocalWindowManager;->this$0:Landroid/view/Window;
 
     #getter for: Landroid/view/Window;->mContainer:Landroid/view/Window;
@@ -334,7 +334,7 @@
     :goto_b7
     iput-object v4, v3, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    .line 546
+    .line 526
     :cond_b9
     if-eqz v0, :cond_c1
 
@@ -354,7 +354,7 @@
 
     if-eqz v4, :cond_5d
 
-    .line 548
+    .line 528
     iget-object v4, p0, Landroid/view/Window$LocalWindowManager;->this$0:Landroid/view/Window;
 
     #getter for: Landroid/view/Window;->mAppName:Ljava/lang/String;
@@ -366,7 +366,7 @@
 
     goto :goto_5d
 
-    .line 544
+    .line 524
     :cond_d3
     iget-object v4, p0, Landroid/view/Window$LocalWindowManager;->this$0:Landroid/view/Window;
 
@@ -387,7 +387,7 @@
     .registers 2
 
     .prologue
-    .line 507
+    .line 487
     iget-boolean v0, p0, Landroid/view/Window$LocalWindowManager;->mHardwareAccelerated:Z
 
     return v0

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 5820
+    .line 2451
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$DriverStartingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -38,7 +38,7 @@
     .registers 3
 
     .prologue
-    .line 5824
+    .line 2455
     const v0, 0xc365
 
     invoke-virtual {p0}, Landroid/net/wifi/WifiStateMachine$DriverStartingState;->getName()Ljava/lang/String;
@@ -47,7 +47,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
 
-    .line 5825
+    .line 2456
     return-void
 .end method
 
@@ -56,28 +56,28 @@
     .parameter "message"
 
     .prologue
-    .line 5829
+    .line 2460
     iget v1, p1, Landroid/os/Message;->what:I
 
     sparse-switch v1, :sswitch_data_2e
 
-    .line 5870
+    .line 2491
     const/4 v1, 0x0
 
-    .line 5873
+    .line 2494
     :goto_6
     return v1
 
-    .line 5831
+    .line 2462
     :sswitch_7
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$DriverStartingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #calls: Landroid/net/wifi/WifiStateMachine;->handleSupplicantStateChange(Landroid/os/Message;)Landroid/net/wifi/SupplicantState;
-    invoke-static {v1, p1}, Landroid/net/wifi/WifiStateMachine;->access$8700(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;)Landroid/net/wifi/SupplicantState;
+    invoke-static {v1, p1}, Landroid/net/wifi/WifiStateMachine;->access$6500(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;)Landroid/net/wifi/SupplicantState;
 
     move-result-object v0
 
-    .line 5836
+    .line 2467
     .local v0, state:Landroid/net/wifi/SupplicantState;
     invoke-static {v0}, Landroid/net/wifi/SupplicantState;->isDriverActive(Landroid/net/wifi/SupplicantState;)Z
 
@@ -85,20 +85,20 @@
 
     if-eqz v1, :cond_1e
 
-    .line 5837
+    .line 2468
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$DriverStartingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DriverStartingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mDriverStartedState:Lcom/android/internal/util/State;
-    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$6100(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
+    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$4500(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
 
     move-result-object v2
 
     #calls: Landroid/net/wifi/WifiStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v1, v2}, Landroid/net/wifi/WifiStateMachine;->access$8800(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
+    invoke-static {v1, v2}, Landroid/net/wifi/WifiStateMachine;->access$6600(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
 
-    .line 5872
+    .line 2493
     .end local v0           #state:Landroid/net/wifi/SupplicantState;
     :cond_1e
     :goto_1e
@@ -108,26 +108,25 @@
 
     invoke-static {v1, v2}, Landroid/util/EventLog;->writeEvent(II)I
 
-    .line 5873
+    .line 2494
     const/4 v1, 0x1
 
     goto :goto_6
 
-    .line 5867
+    .line 2488
     :sswitch_28
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$DriverStartingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #calls: Landroid/net/wifi/WifiStateMachine;->deferMessage(Landroid/os/Message;)V
-    invoke-static {v1, p1}, Landroid/net/wifi/WifiStateMachine;->access$8900(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;)V
+    invoke-static {v1, p1}, Landroid/net/wifi/WifiStateMachine;->access$6700(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;)V
 
     goto :goto_1e
 
-    .line 5829
+    .line 2460
     :sswitch_data_2e
     .sparse-switch
         0x2000d -> :sswitch_28
         0x2000e -> :sswitch_28
-        0x20020 -> :sswitch_28
         0x20047 -> :sswitch_28
         0x20049 -> :sswitch_28
         0x2004a -> :sswitch_28
@@ -138,17 +137,10 @@
         0x20054 -> :sswitch_28
         0x20055 -> :sswitch_28
         0x2005a -> :sswitch_28
-        0x2007e -> :sswitch_28
         0x24003 -> :sswitch_28
         0x24004 -> :sswitch_28
         0x24006 -> :sswitch_7
         0x24007 -> :sswitch_28
         0x24008 -> :sswitch_28
-        0x2400a -> :sswitch_28
-        0x2400b -> :sswitch_28
-        0x2400c -> :sswitch_28
-        0x2400d -> :sswitch_28
-        0x2400e -> :sswitch_28
-        0x2400f -> :sswitch_28
     .end sparse-switch
 .end method

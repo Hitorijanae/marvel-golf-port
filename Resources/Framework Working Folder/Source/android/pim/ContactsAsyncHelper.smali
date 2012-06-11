@@ -78,37 +78,6 @@
     return-void
 .end method
 
-.method public static final cancelUpdateImageView(I)V
-    .registers 2
-    .parameter "what"
-
-    .prologue
-    .line 350
-    sget-object v0, Landroid/pim/ContactsAsyncHelper;->sThreadHandler:Landroid/os/Handler;
-
-    if-eqz v0, :cond_9
-
-    .line 351
-    sget-object v0, Landroid/pim/ContactsAsyncHelper;->sThreadHandler:Landroid/os/Handler;
-
-    invoke-virtual {v0, p0}, Landroid/os/Handler;->removeMessages(I)V
-
-    .line 353
-    :cond_9
-    sget-object v0, Landroid/pim/ContactsAsyncHelper;->sInstance:Landroid/pim/ContactsAsyncHelper;
-
-    if-eqz v0, :cond_12
-
-    .line 354
-    sget-object v0, Landroid/pim/ContactsAsyncHelper;->sInstance:Landroid/pim/ContactsAsyncHelper;
-
-    invoke-virtual {v0, p0}, Landroid/pim/ContactsAsyncHelper;->removeMessages(I)V
-
-    .line 356
-    :cond_12
-    return-void
-.end method
-
 .method public static final updateImageViewWithContactPhotoAsync(Landroid/content/Context;Landroid/widget/ImageView;Landroid/net/Uri;I)V
     .registers 12
     .parameter "context"

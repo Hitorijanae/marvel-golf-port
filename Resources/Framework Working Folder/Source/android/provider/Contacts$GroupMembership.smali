@@ -83,7 +83,7 @@
     .registers 1
 
     .prologue
-    .line 2317
+    .line 1053
     const-string v0, "content://contacts/groupmembership"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -92,7 +92,7 @@
 
     sput-object v0, Landroid/provider/Contacts$GroupMembership;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 2325
+    .line 1061
     const-string v0, "content://contacts/groupmembershipraw"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -108,8 +108,8 @@
     .registers 1
 
     .prologue
-    .line 2310
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 1046
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

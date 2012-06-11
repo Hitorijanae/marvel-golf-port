@@ -28,11 +28,6 @@
     .end annotation
 .end field
 
-.field public static final PHOTO:Ljava/lang/String; = "photo"
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
-
 .field public static final SHOULD_SYNC:Ljava/lang/String; = "should_sync"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation

@@ -501,7 +501,7 @@
     const/4 v7, 0x0
 
     .line 122
-    iget-object v3, p0, Landroid/app/Dialog;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/app/ProgressDialog;->mContext:Landroid/content/Context;
 
     invoke-static {v3}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
@@ -509,7 +509,7 @@
 
     .line 123
     .local v1, inflater:Landroid/view/LayoutInflater;
-    iget-object v3, p0, Landroid/app/Dialog;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/app/ProgressDialog;->mContext:Landroid/content/Context;
 
     sget-object v4, Lcom/android/internal/R$styleable;->AlertDialog:[I
 
@@ -560,7 +560,7 @@
     iput-object v3, p0, Landroid/app/ProgressDialog;->mProgress:Landroid/widget/ProgressBar;
 
     .line 160
-    const v3, 0x1020244
+    const v3, 0x102024b
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -571,7 +571,7 @@
     iput-object v3, p0, Landroid/app/ProgressDialog;->mProgressNumber:Landroid/widget/TextView;
 
     .line 161
-    const v3, 0x1020243
+    const v3, 0x102024a
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

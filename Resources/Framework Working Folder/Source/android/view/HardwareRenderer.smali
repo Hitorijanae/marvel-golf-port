@@ -62,14 +62,14 @@
 
     .prologue
     .line 50
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 125
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/view/HardwareRenderer;->mRequested:Z
 
-    .line 973
+    .line 960
     return-void
 .end method
 
@@ -158,20 +158,6 @@
 .end method
 
 .method private static native nSetupShadersDiskCache(Ljava/lang/String;)V
-.end method
-
-.method public static setCacheConfig(IIF)V
-    .registers 3
-    .parameter "maxTextureSize"
-    .parameter "maxLayerSize"
-    .parameter "textureFlushRatio"
-
-    .prologue
-    .line 381
-    invoke-static {p0, p1, p2}, Landroid/view/HardwareRenderer$Gl20Renderer;->GLES20SetCacheConfig(IIF)V
-
-    .line 382
-    return-void
 .end method
 
 .method public static setupDiskCache(Ljava/io/File;)V
@@ -300,7 +286,7 @@
     .registers 2
 
     .prologue
-    .line 390
+    .line 380
     iget-boolean v0, p0, Landroid/view/HardwareRenderer;->mEnabled:Z
 
     return v0
@@ -310,7 +296,7 @@
     .registers 2
 
     .prologue
-    .line 409
+    .line 399
     iget-boolean v0, p0, Landroid/view/HardwareRenderer;->mRequested:Z
 
     return v0
@@ -321,10 +307,10 @@
     .parameter "enabled"
 
     .prologue
-    .line 399
+    .line 389
     iput-boolean p1, p0, Landroid/view/HardwareRenderer;->mEnabled:Z
 
-    .line 400
+    .line 390
     return-void
 .end method
 
@@ -333,10 +319,10 @@
     .parameter "requested"
 
     .prologue
-    .line 419
+    .line 409
     iput-boolean p1, p0, Landroid/view/HardwareRenderer;->mRequested:Z
 
-    .line 420
+    .line 410
     return-void
 .end method
 

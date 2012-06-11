@@ -19,7 +19,7 @@
     .registers 1
 
     .prologue
-    .line 402
+    .line 366
     invoke-direct {p0}, Landroid/app/ContextImpl$ServiceFetcher;-><init>()V
 
     return-void
@@ -28,24 +28,48 @@
 
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
-    .registers 4
+    .registers 10
     .parameter "ctx"
 
     .prologue
-    .line 405
-    new-instance v0, Landroid/net/NetworkPolicyManager;
+    .line 368
+    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
 
-    const-string/jumbo v1, "netpolicy"
+    move-result-object v0
 
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    .line 369
+    .local v0, outerContext:Landroid/content/Context;
+    new-instance v1, Landroid/app/NotificationManager;
 
-    move-result-object v1
+    new-instance v2, Landroid/view/ContextThemeWrapper;
 
-    invoke-static {v1}, Landroid/net/INetworkPolicyManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/INetworkPolicyManager;
+    const/4 v3, 0x0
 
-    move-result-object v1
+    invoke-virtual {v0}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
-    invoke-direct {v0, v1}, Landroid/net/NetworkPolicyManager;-><init>(Landroid/net/INetworkPolicyManager;)V
+    move-result-object v4
 
-    return-object v0
+    iget v4, v4, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+
+    const v5, 0x103000b
+
+    const v6, 0x103006f
+
+    const v7, 0x103012e
+
+    invoke-static {v3, v4, v5, v6, v7}, Landroid/content/res/Resources;->selectSystemTheme(IIIII)I
+
+    move-result v3
+
+    invoke-direct {v2, v0, v3}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
+
+    iget-object v3, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
+
+    invoke-virtual {v3}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
+
+    move-result-object v3
+
+    invoke-direct {v1, v2, v3}, Landroid/app/NotificationManager;-><init>(Landroid/content/Context;Landroid/os/Handler;)V
+
+    return-object v1
 .end method

@@ -38,7 +38,7 @@
     .registers 3
 
     .prologue
-    .line 448
+    .line 443
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/String;
@@ -57,10 +57,10 @@
 
     sput-object v0, Landroid/provider/MediaStore$InternalThumbnails;->PROJECTION:[Ljava/lang/String;
 
-    .line 450
+    .line 445
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/provider/MediaStore$InternalThumbnails;->sThumbBufLock:Ljava/lang/Object;
 
@@ -71,8 +71,8 @@
     .registers 1
 
     .prologue
-    .line 444
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 439
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -85,7 +85,7 @@
     .parameter "groupId"
 
     .prologue
-    .line 487
+    .line 482
     invoke-virtual {p3}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
 
     move-result-object v0
@@ -122,11 +122,11 @@
 
     move-result-object v1
 
-    .line 490
+    .line 485
     .local v1, cancelUri:Landroid/net/Uri;
     const/4 v6, 0x0
 
-    .line 492
+    .line 487
     .local v6, c:Landroid/database/Cursor;
     :try_start_26
     sget-object v2, Landroid/provider/MediaStore$InternalThumbnails;->PROJECTION:[Ljava/lang/String;
@@ -145,16 +145,16 @@
 
     move-result-object v6
 
-    .line 495
+    .line 490
     if-eqz v6, :cond_35
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 497
+    .line 492
     :cond_35
     return-void
 
-    .line 495
+    .line 490
     :catchall_36
     move-exception v0
 
@@ -174,14 +174,14 @@
     .parameter "options"
 
     .prologue
-    .line 454
+    .line 449
     const/4 v0, 0x0
 
-    .line 455
+    .line 450
     .local v0, bitmap:Landroid/graphics/Bitmap;
     const/4 v6, 0x0
 
-    .line 457
+    .line 452
     .local v6, thumbUri:Landroid/net/Uri;
     const/4 v7, 0x0
 
@@ -190,7 +190,7 @@
 
     move-result-wide v4
 
-    .line 458
+    .line 453
     .local v4, thumbId:J
     const/4 v7, 0x1
 
@@ -198,20 +198,20 @@
 
     move-result-object v2
 
-    .line 459
+    .line 454
     .local v2, filePath:Ljava/lang/String;
     invoke-static {p1, v4, v5}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
 
     move-result-object v6
 
-    .line 460
+    .line 455
     const-string/jumbo v7, "r"
 
     invoke-virtual {p2, v6, v7}, Landroid/content/ContentResolver;->openFileDescriptor(Landroid/net/Uri;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
 
     move-result-object v3
 
-    .line 461
+    .line 456
     .local v3, pfdInput:Landroid/os/ParcelFileDescriptor;
     invoke-virtual {v3}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
@@ -223,25 +223,25 @@
 
     move-result-object v0
 
-    .line 463
+    .line 458
     invoke-virtual {v3}, Landroid/os/ParcelFileDescriptor;->close()V
     :try_end_23
     .catch Ljava/io/FileNotFoundException; {:try_start_3 .. :try_end_23} :catch_24
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_23} :catch_48
     .catch Ljava/lang/OutOfMemoryError; {:try_start_3 .. :try_end_23} :catch_6c
 
-    .line 472
+    .line 467
     .end local v2           #filePath:Ljava/lang/String;
     .end local v3           #pfdInput:Landroid/os/ParcelFileDescriptor;
     .end local v4           #thumbId:J
     :goto_23
     return-object v0
 
-    .line 464
+    .line 459
     :catch_24
     move-exception v1
 
-    .line 465
+    .line 460
     .local v1, ex:Ljava/io/FileNotFoundException;
     const-string v7, "MediaStore"
 
@@ -277,12 +277,12 @@
 
     goto :goto_23
 
-    .line 466
+    .line 461
     .end local v1           #ex:Ljava/io/FileNotFoundException;
     :catch_48
     move-exception v1
 
-    .line 467
+    .line 462
     .local v1, ex:Ljava/io/IOException;
     const-string v7, "MediaStore"
 
@@ -318,12 +318,12 @@
 
     goto :goto_23
 
-    .line 468
+    .line 463
     .end local v1           #ex:Ljava/io/IOException;
     :catch_6c
     move-exception v1
 
-    .line 469
+    .line 464
     .local v1, ex:Ljava/lang/OutOfMemoryError;
     const-string v7, "MediaStore"
 
@@ -371,14 +371,14 @@
     .parameter "isVideo"
 
     .prologue
-    .line 515
+    .line 510
     const/4 v11, 0x0
 
-    .line 516
+    .line 511
     .local v11, bitmap:Landroid/graphics/Bitmap;
     const/4 v15, 0x0
 
-    .line 520
+    .line 515
     .local v15, filePath:Ljava/lang/String;
     new-instance v18, Landroid/media/MiniThumbFile;
 
@@ -391,11 +391,11 @@
 
     invoke-direct {v0, v3}, Landroid/media/MiniThumbFile;-><init>(Landroid/net/Uri;)V
 
-    .line 522
+    .line 517
     .local v18, thumbFile:Landroid/media/MiniThumbFile;
     const/4 v12, 0x0
 
-    .line 524
+    .line 519
     .local v12, c:Landroid/database/Cursor;
     :try_start_e
     move-object/from16 v0, v18
@@ -406,43 +406,43 @@
 
     move-result-wide v16
 
-    .line 525
+    .line 520
     .local v16, magic:J
     const-wide/16 v7, 0x0
 
     cmp-long v3, v16, v7
 
-    if-eqz v3, :cond_bf
+    if-eqz v3, :cond_be
 
-    .line 526
+    .line 521
     const/4 v3, 0x3
 
     move/from16 v0, p5
 
     if-ne v0, v3, :cond_72
 
-    .line 527
+    .line 522
     sget-object v5, Landroid/provider/MediaStore$InternalThumbnails;->sThumbBufLock:Ljava/lang/Object;
 
     monitor-enter v5
     :try_end_24
-    .catchall {:try_start_e .. :try_end_24} :catchall_1af
+    .catchall {:try_start_e .. :try_end_24} :catchall_1b0
     .catch Landroid/database/sqlite/SQLiteException; {:try_start_e .. :try_end_24} :catch_60
 
-    .line 528
+    .line 523
     :try_start_24
     sget-object v3, Landroid/provider/MediaStore$InternalThumbnails;->sThumbBuf:[B
 
     if-nez v3, :cond_2e
 
-    .line 529
+    .line 524
     const/16 v3, 0x2710
 
     new-array v3, v3, [B
 
     sput-object v3, Landroid/provider/MediaStore$InternalThumbnails;->sThumbBuf:[B
 
-    .line 531
+    .line 526
     :cond_2e
     sget-object v3, Landroid/provider/MediaStore$InternalThumbnails;->sThumbBuf:[B
 
@@ -456,7 +456,7 @@
 
     if-eqz v3, :cond_4d
 
-    .line 532
+    .line 527
     sget-object v3, Landroid/provider/MediaStore$InternalThumbnails;->sThumbBuf:[B
 
     const/4 v7, 0x0
@@ -469,42 +469,42 @@
 
     move-result-object v11
 
-    .line 533
+    .line 528
     if-nez v11, :cond_4d
 
-    .line 534
+    .line 529
     const-string v3, "MediaStore"
 
     const-string v7, "couldn\'t decode byte array."
 
     invoke-static {v3, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 537
+    .line 532
     :cond_4d
     monitor-exit v5
     :try_end_4e
     .catchall {:try_start_24 .. :try_end_4e} :catchall_5d
 
-    .line 604
+    .line 599
     if-eqz v12, :cond_53
 
     invoke-interface {v12}, Landroid/database/Cursor;->close()V
 
-    .line 606
+    .line 601
     :cond_53
     invoke-virtual/range {v18 .. v18}, Landroid/media/MiniThumbFile;->deactivate()V
 
-    .line 607
+    .line 602
     const/16 v18, 0x0
 
     move-object v3, v11
 
-    .line 609
+    .line 604
     .end local v16           #magic:J
     :goto_59
     return-object v3
 
-    .line 520
+    .line 515
     .end local v12           #c:Landroid/database/Cursor;
     .end local v18           #thumbFile:Landroid/media/MiniThumbFile;
     :cond_5a
@@ -512,7 +512,7 @@
 
     goto :goto_8
 
-    .line 537
+    .line 532
     .restart local v12       #c:Landroid/database/Cursor;
     .restart local v16       #magic:J
     .restart local v18       #thumbFile:Landroid/media/MiniThumbFile;
@@ -527,58 +527,58 @@
     :try_start_5f
     throw v3
     :try_end_60
-    .catchall {:try_start_5f .. :try_end_60} :catchall_1af
+    .catchall {:try_start_5f .. :try_end_60} :catchall_1b0
     .catch Landroid/database/sqlite/SQLiteException; {:try_start_5f .. :try_end_60} :catch_60
 
-    .line 601
+    .line 596
     .end local v16           #magic:J
     :catch_60
     move-exception v14
 
-    .line 602
+    .line 597
     .local v14, ex:Landroid/database/sqlite/SQLiteException;
     :try_start_61
     const-string v3, "MediaStore"
 
     invoke-static {v3, v14}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_66
-    .catchall {:try_start_61 .. :try_end_66} :catchall_1af
+    .catchall {:try_start_61 .. :try_end_66} :catchall_1b0
 
-    .line 604
+    .line 599
     if-eqz v12, :cond_6b
 
     invoke-interface {v12}, Landroid/database/Cursor;->close()V
 
-    .line 606
+    .line 601
     :cond_6b
     invoke-virtual/range {v18 .. v18}, Landroid/media/MiniThumbFile;->deactivate()V
 
-    .line 607
-    .end local v14           #ex:Landroid/database/sqlite/SQLiteException;
-    :goto_6e
+    .line 602
     const/16 v18, 0x0
 
+    .end local v14           #ex:Landroid/database/sqlite/SQLiteException;
+    :goto_70
     move-object v3, v11
 
-    .line 609
+    .line 604
     goto :goto_59
 
-    .line 539
+    .line 534
     .restart local v16       #magic:J
     :cond_72
     const/4 v3, 0x1
 
     move/from16 v0, p5
 
-    if-ne v0, v3, :cond_bf
+    if-ne v0, v3, :cond_be
 
-    .line 540
+    .line 535
     if-eqz p8, :cond_bb
 
     :try_start_79
     const-string/jumbo v13, "video_id="
 
-    .line 541
+    .line 536
     .local v13, column:Ljava/lang/String;
     :goto_7c
     sget-object v5, Landroid/provider/MediaStore$InternalThumbnails;->PROJECTION:[Ljava/lang/String;
@@ -613,16 +613,16 @@
 
     move-result-object v12
 
-    .line 542
-    if-eqz v12, :cond_bf
+    .line 537
+    if-eqz v12, :cond_be
 
     invoke-interface {v12}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v3
 
-    if-eqz v3, :cond_bf
+    if-eqz v3, :cond_be
 
-    .line 543
+    .line 538
     move-object/from16 v0, p7
 
     move-object/from16 v1, p0
@@ -631,41 +631,40 @@
 
     invoke-static {v12, v0, v1, v2}, Landroid/provider/MediaStore$InternalThumbnails;->getMiniThumbFromFile(Landroid/database/Cursor;Landroid/net/Uri;Landroid/content/ContentResolver;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
     :try_end_ac
-    .catchall {:try_start_79 .. :try_end_ac} :catchall_1af
+    .catchall {:try_start_79 .. :try_end_ac} :catchall_1b0
     .catch Landroid/database/sqlite/SQLiteException; {:try_start_79 .. :try_end_ac} :catch_60
 
     move-result-object v11
 
-    .line 544
-    if-eqz v11, :cond_bf
+    .line 539
+    if-eqz v11, :cond_be
 
-    .line 604
+    .line 599
     if-eqz v12, :cond_b4
 
     invoke-interface {v12}, Landroid/database/Cursor;->close()V
 
-    .line 606
+    .line 601
     :cond_b4
     invoke-virtual/range {v18 .. v18}, Landroid/media/MiniThumbFile;->deactivate()V
 
-    .line 607
+    .line 602
     const/16 v18, 0x0
 
     move-object v3, v11
 
-    .line 545
     goto :goto_59
 
-    .line 540
+    .line 535
     .end local v13           #column:Ljava/lang/String;
     :cond_bb
     :try_start_bb
-    const-string/jumbo v13, "image_id="
+    const-string v13, "image_id="
 
     goto :goto_7c
 
-    .line 551
-    :cond_bf
+    .line 546
+    :cond_be
     invoke-virtual/range {p7 .. p7}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
 
     move-result-object v3
@@ -702,14 +701,14 @@
 
     move-result-object v4
 
-    .line 554
+    .line 549
     .local v4, blockingUri:Landroid/net/Uri;
-    if-eqz v12, :cond_e9
+    if-eqz v12, :cond_e8
 
     invoke-interface {v12}, Landroid/database/Cursor;->close()V
 
-    .line 555
-    :cond_e9
+    .line 550
+    :cond_e8
     sget-object v5, Landroid/provider/MediaStore$InternalThumbnails;->PROJECTION:[Ljava/lang/String;
 
     const/4 v6, 0x0
@@ -721,64 +720,63 @@
     move-object/from16 v3, p0
 
     invoke-virtual/range {v3 .. v8}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
-    :try_end_f3
-    .catchall {:try_start_bb .. :try_end_f3} :catchall_1af
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_bb .. :try_end_f3} :catch_60
+    :try_end_f2
+    .catchall {:try_start_bb .. :try_end_f2} :catchall_1b0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_bb .. :try_end_f2} :catch_60
 
     move-result-object v12
 
-    .line 557
-    if-nez v12, :cond_103
+    .line 552
+    if-nez v12, :cond_102
 
     const/4 v3, 0x0
 
-    .line 604
-    if-eqz v12, :cond_fc
+    .line 599
+    if-eqz v12, :cond_fb
 
     invoke-interface {v12}, Landroid/database/Cursor;->close()V
 
-    .line 606
-    :cond_fc
+    .line 601
+    :cond_fb
     invoke-virtual/range {v18 .. v18}, Landroid/media/MiniThumbFile;->deactivate()V
 
-    .line 607
-    :goto_ff
+    .line 602
     const/16 v18, 0x0
 
     goto/16 :goto_59
 
-    .line 560
-    :cond_103
+    .line 555
+    :cond_102
     const/4 v3, 0x3
 
     move/from16 v0, p5
 
-    if-ne v0, v3, :cond_1bb
+    if-ne v0, v3, :cond_1bc
 
-    .line 561
-    :try_start_108
+    .line 556
+    :try_start_107
     sget-object v5, Landroid/provider/MediaStore$InternalThumbnails;->sThumbBufLock:Ljava/lang/Object;
 
     monitor-enter v5
-    :try_end_10b
-    .catchall {:try_start_108 .. :try_end_10b} :catchall_1af
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_108 .. :try_end_10b} :catch_60
+    :try_end_10a
+    .catchall {:try_start_107 .. :try_end_10a} :catchall_1b0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_107 .. :try_end_10a} :catch_60
 
-    .line 562
-    :try_start_10b
+    .line 557
+    :try_start_10a
     sget-object v3, Landroid/provider/MediaStore$InternalThumbnails;->sThumbBuf:[B
 
-    if-nez v3, :cond_115
+    if-nez v3, :cond_114
 
-    .line 563
+    .line 558
     const/16 v3, 0x2710
 
     new-array v3, v3, [B
 
     sput-object v3, Landroid/provider/MediaStore$InternalThumbnails;->sThumbBuf:[B
 
-    .line 565
-    :cond_115
+    .line 560
+    :cond_114
     sget-object v3, Landroid/provider/MediaStore$InternalThumbnails;->sThumbBuf:[B
 
     move-object/from16 v0, v18
@@ -789,9 +787,9 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_134
+    if-eqz v3, :cond_133
 
-    .line 566
+    .line 561
     sget-object v3, Landroid/provider/MediaStore$InternalThumbnails;->sThumbBuf:[B
 
     const/4 v7, 0x0
@@ -804,29 +802,29 @@
 
     move-result-object v11
 
-    .line 567
-    if-nez v11, :cond_134
+    .line 562
+    if-nez v11, :cond_133
 
-    .line 568
+    .line 563
     const-string v3, "MediaStore"
 
     const-string v7, "couldn\'t decode byte array."
 
     invoke-static {v3, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 571
-    :cond_134
+    .line 566
+    :cond_133
     monitor-exit v5
-    :try_end_135
-    .catchall {:try_start_10b .. :try_end_135} :catchall_1ac
+    :try_end_134
+    .catchall {:try_start_10a .. :try_end_134} :catchall_1ad
 
-    .line 581
-    :cond_135
-    :goto_135
-    if-nez v11, :cond_1fa
+    .line 576
+    :cond_134
+    :goto_134
+    if-nez v11, :cond_1fb
 
-    .line 582
-    :try_start_137
+    .line 577
+    :try_start_136
     const-string v3, "MediaStore"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -875,7 +873,7 @@
 
     invoke-static {v3, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 584
+    .line 579
     invoke-virtual/range {p7 .. p7}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
 
     move-result-object v3
@@ -904,17 +902,17 @@
 
     move-result-object v6
 
-    .line 587
+    .line 582
     .local v6, uri:Landroid/net/Uri;
-    if-nez v15, :cond_1f2
+    if-nez v15, :cond_1f3
 
-    .line 588
-    if-eqz v12, :cond_18e
+    .line 583
+    if-eqz v12, :cond_18d
 
     invoke-interface {v12}, Landroid/database/Cursor;->close()V
 
-    .line 589
-    :cond_18e
+    .line 584
+    :cond_18d
     sget-object v7, Landroid/provider/MediaStore$InternalThumbnails;->PROJECTION:[Ljava/lang/String;
 
     const/4 v8, 0x0
@@ -929,88 +927,90 @@
 
     move-result-object v12
 
-    .line 590
-    if-eqz v12, :cond_1a1
+    .line 585
+    if-eqz v12, :cond_1a0
 
     invoke-interface {v12}, Landroid/database/Cursor;->moveToFirst()Z
-    :try_end_19e
-    .catchall {:try_start_137 .. :try_end_19e} :catchall_1af
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_137 .. :try_end_19e} :catch_60
+    :try_end_19d
+    .catchall {:try_start_136 .. :try_end_19d} :catchall_1b0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_136 .. :try_end_19d} :catch_60
 
     move-result v3
 
-    if-nez v3, :cond_1ed
+    if-nez v3, :cond_1ee
 
-    .line 591
-    :cond_1a1
+    .line 586
+    :cond_1a0
     const/4 v3, 0x0
 
-    .line 604
-    if-eqz v12, :cond_1a7
+    .line 599
+    if-eqz v12, :cond_1a6
 
     invoke-interface {v12}, Landroid/database/Cursor;->close()V
 
-    .line 606
-    :cond_1a7
+    .line 601
+    :cond_1a6
     invoke-virtual/range {v18 .. v18}, Landroid/media/MiniThumbFile;->deactivate()V
 
-    goto/16 :goto_ff
-
-    .line 571
-    .end local v6           #uri:Landroid/net/Uri;
-    :catchall_1ac
-    move-exception v3
-
-    :try_start_1ad
-    monitor-exit v5
-    :try_end_1ae
-    .catchall {:try_start_1ad .. :try_end_1ae} :catchall_1ac
-
-    :try_start_1ae
-    throw v3
-    :try_end_1af
-    .catchall {:try_start_1ae .. :try_end_1af} :catchall_1af
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_1ae .. :try_end_1af} :catch_60
-
-    .line 604
-    .end local v4           #blockingUri:Landroid/net/Uri;
-    .end local v16           #magic:J
-    :catchall_1af
-    move-exception v3
-
-    if-eqz v12, :cond_1b5
-
-    invoke-interface {v12}, Landroid/database/Cursor;->close()V
-
-    .line 606
-    :cond_1b5
-    invoke-virtual/range {v18 .. v18}, Landroid/media/MiniThumbFile;->deactivate()V
-
-    .line 607
+    .line 602
     const/16 v18, 0x0
 
-    .line 604
+    goto/16 :goto_59
+
+    .line 566
+    .end local v6           #uri:Landroid/net/Uri;
+    :catchall_1ad
+    move-exception v3
+
+    :try_start_1ae
+    monitor-exit v5
+    :try_end_1af
+    .catchall {:try_start_1ae .. :try_end_1af} :catchall_1ad
+
+    :try_start_1af
+    throw v3
+    :try_end_1b0
+    .catchall {:try_start_1af .. :try_end_1b0} :catchall_1b0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_1af .. :try_end_1b0} :catch_60
+
+    .line 599
+    .end local v4           #blockingUri:Landroid/net/Uri;
+    .end local v16           #magic:J
+    :catchall_1b0
+    move-exception v3
+
+    if-eqz v12, :cond_1b6
+
+    invoke-interface {v12}, Landroid/database/Cursor;->close()V
+
+    .line 601
+    :cond_1b6
+    invoke-virtual/range {v18 .. v18}, Landroid/media/MiniThumbFile;->deactivate()V
+
+    .line 602
+    const/16 v18, 0x0
+
     throw v3
 
-    .line 572
+    .line 567
     .restart local v4       #blockingUri:Landroid/net/Uri;
     .restart local v16       #magic:J
-    :cond_1bb
+    :cond_1bc
     const/4 v3, 0x1
 
     move/from16 v0, p5
 
-    if-ne v0, v3, :cond_1d2
+    if-ne v0, v3, :cond_1d3
 
-    .line 573
-    :try_start_1c0
+    .line 568
+    :try_start_1c1
     invoke-interface {v12}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v3
 
-    if-eqz v3, :cond_135
+    if-eqz v3, :cond_134
 
-    .line 574
+    .line 569
     move-object/from16 v0, p7
 
     move-object/from16 v1, p0
@@ -1021,10 +1021,10 @@
 
     move-result-object v11
 
-    goto/16 :goto_135
+    goto/16 :goto_134
 
-    .line 577
-    :cond_1d2
+    .line 572
+    :cond_1d3
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1051,55 +1051,59 @@
 
     throw v3
 
-    .line 593
+    .line 588
     .restart local v6       #uri:Landroid/net/Uri;
-    :cond_1ed
+    :cond_1ee
     const/4 v3, 0x1
 
     invoke-interface {v12, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v15
 
-    .line 595
-    :cond_1f2
-    if-eqz p8, :cond_204
+    .line 590
+    :cond_1f3
+    if-eqz p8, :cond_207
 
-    .line 596
+    .line 591
     move/from16 v0, p5
 
     invoke-static {v15, v0}, Landroid/media/ThumbnailUtils;->createVideoThumbnail(Ljava/lang/String;I)Landroid/graphics/Bitmap;
-    :try_end_1f9
-    .catchall {:try_start_1c0 .. :try_end_1f9} :catchall_1af
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_1c0 .. :try_end_1f9} :catch_60
+    :try_end_1fa
+    .catchall {:try_start_1c1 .. :try_end_1fa} :catchall_1b0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_1c1 .. :try_end_1fa} :catch_60
 
     move-result-object v11
 
-    .line 604
+    .line 599
     .end local v6           #uri:Landroid/net/Uri;
-    :cond_1fa
-    :goto_1fa
-    if-eqz v12, :cond_1ff
+    :cond_1fb
+    :goto_1fb
+    if-eqz v12, :cond_200
 
     invoke-interface {v12}, Landroid/database/Cursor;->close()V
 
-    .line 606
-    :cond_1ff
+    .line 601
+    :cond_200
     invoke-virtual/range {v18 .. v18}, Landroid/media/MiniThumbFile;->deactivate()V
 
-    goto/16 :goto_6e
+    .line 602
+    const/16 v18, 0x0
 
-    .line 598
+    .line 603
+    goto/16 :goto_70
+
+    .line 593
     .restart local v6       #uri:Landroid/net/Uri;
-    :cond_204
-    :try_start_204
+    :cond_207
+    :try_start_207
     move/from16 v0, p5
 
     invoke-static {v15, v0}, Landroid/media/ThumbnailUtils;->createImageThumbnail(Ljava/lang/String;I)Landroid/graphics/Bitmap;
-    :try_end_209
-    .catchall {:try_start_204 .. :try_end_209} :catchall_1af
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_204 .. :try_end_209} :catch_60
+    :try_end_20c
+    .catchall {:try_start_207 .. :try_end_20c} :catchall_1b0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_207 .. :try_end_20c} :catch_60
 
     move-result-object v11
 
-    goto :goto_1fa
+    goto :goto_1fb
 .end method

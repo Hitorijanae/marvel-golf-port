@@ -55,14 +55,6 @@
     .end annotation
 .end method
 
-.method public abstract checkAppDirectedSmsExisted(Ljava/lang/String;)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract checkPermission(Ljava/lang/String;Ljava/lang/String;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -217,23 +209,7 @@
     .end annotation
 .end method
 
-.method public abstract getCachedAppName(Ljava/lang/String;)Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getComponentEnabledSetting(Landroid/content/ComponentName;)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getDirectedSmsReceivers(Ljava/lang/String;)[Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -257,24 +233,6 @@
     .end annotation
 .end method
 
-.method public abstract getInstalledHTCPackages()Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getInstalledPackages(ILjava/lang/String;)Landroid/content/pm/ParceledListSlice;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -283,7 +241,7 @@
     .end annotation
 .end method
 
-.method public abstract getInstalledSkinPackages()Ljava/util/List;
+.method public abstract getInstalledThemePackages()Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -812,14 +770,6 @@
     .end annotation
 .end method
 
-.method public abstract setAppName(Ljava/lang/String;Ljava/lang/String;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract setApplicationEnabledSetting(Ljava/lang/String;II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -829,14 +779,6 @@
 .end method
 
 .method public abstract setComponentEnabledSetting(Landroid/content/ComponentName;II)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setEnabledSettingEx([Ljava/lang/String;[Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -17,29 +17,13 @@
 .end annotation
 
 
-# static fields
-.field private static crash_count:I
-
-
 # direct methods
-.method static constructor <clinit>()V
-    .registers 1
-
-    .prologue
-    .line 63
-    const/4 v0, 0x0
-
-    sput v0, Lcom/android/internal/os/RuntimeInit$UncaughtHandler;->crash_count:I
-
-    return-void
-.end method
-
 .method private constructor <init>()V
     .registers 1
 
     .prologue
-    .line 61
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 58
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -49,7 +33,7 @@
     .parameter "x0"
 
     .prologue
-    .line 61
+    .line 58
     invoke-direct {p0}, Lcom/android/internal/os/RuntimeInit$UncaughtHandler;-><init>()V
 
     return-void
@@ -58,45 +42,68 @@
 
 # virtual methods
 .method public uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
-    .registers 9
+    .registers 8
     .parameter "t"
     .parameter "e"
 
     .prologue
-    const/16 v5, 0xa
+    const/16 v4, 0xa
 
-    .line 67
-    sget v2, Lcom/android/internal/os/RuntimeInit$UncaughtHandler;->crash_count:I
-
-    add-int/lit8 v2, v2, 0x1
-
-    sput v2, Lcom/android/internal/os/RuntimeInit$UncaughtHandler;->crash_count:I
-
-    .line 69
+    .line 62
+    :try_start_2
     invoke-static {}, Lcom/android/internal/os/RuntimeInit;->access$000()Z
+    :try_end_5
+    .catchall {:try_start_2 .. :try_end_5} :catchall_84
+    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_5} :catch_71
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_44
+    if-eqz v1, :cond_13
 
-    .line 70
+    .line 82
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v1
+
+    invoke-static {v1}, Landroid/os/Process;->killProcess(I)V
+
+    .line 83
+    invoke-static {v4}, Ljava/lang/System;->exit(I)V
+
+    .line 85
+    :goto_12
+    return-void
+
+    .line 63
+    :cond_13
+    const/4 v1, 0x1
+
+    :try_start_14
+    invoke-static {v1}, Lcom/android/internal/os/RuntimeInit;->access$002(Z)Z
+
+    .line 65
+    invoke-static {}, Lcom/android/internal/os/RuntimeInit;->access$100()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    if-nez v1, :cond_54
+
+    .line 66
+    const-string v1, "AndroidRuntime"
+
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "AndroidRuntime_"
+    const-string v3, "*** FATAL EXCEPTION IN SYSTEM PROCESS: "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    sget v3, Lcom/android/internal/os/RuntimeInit$UncaughtHandler;->crash_count:I
+    invoke-virtual {p1}, Ljava/lang/Thread;->getName()Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, "_crash"
+    move-result-object v3
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -106,209 +113,122 @@
 
     move-result-object v2
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-static {v1, v2, p2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "crash in the same process: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {p1}, Ljava/lang/Thread;->getName()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3, p2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 107
-    :goto_43
-    return-void
-
-    .line 79
-    :cond_44
-    const/4 v2, 0x1
-
-    :try_start_45
-    invoke-static {v2}, Lcom/android/internal/os/RuntimeInit;->access$002(Z)Z
-
-    .line 81
-    invoke-static {}, Lcom/android/internal/os/RuntimeInit;->access$100()Landroid/os/IBinder;
-
-    move-result-object v2
-
-    if-nez v2, :cond_96
-
-    .line 82
-    const-string v2, "AndroidRuntime"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "*** FATAL EXCEPTION IN SYSTEM PROCESS: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {p1}, Ljava/lang/Thread;->getName()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3, p2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 89
-    :goto_6a
-    new-instance v0, Landroid/app/ApplicationErrorReport$CrashInfo;
-
-    invoke-direct {v0, p2}, Landroid/app/ApplicationErrorReport$CrashInfo;-><init>(Ljava/lang/Throwable;)V
-
-    .line 90
-    .local v0, crashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
-    iget-object v2, v0, Landroid/app/ApplicationErrorReport$CrashInfo;->exceptionClassName:Ljava/lang/String;
-
-    const-string/jumbo v3, "java.lang.OutOfMemoryError"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_80
-
-    .line 91
-    invoke-static {}, Lcom/android/internal/os/RuntimeInit;->access$200()Ljava/lang/String;
-
-    move-result-object v2
-
-    iput-object v2, v0, Landroid/app/ApplicationErrorReport$CrashInfo;->hprofFileName:Ljava/lang/String;
-
-    .line 93
-    :cond_80
+    .line 72
+    :goto_39
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
-    move-result-object v2
+    move-result-object v1
 
     invoke-static {}, Lcom/android/internal/os/RuntimeInit;->access$100()Landroid/os/IBinder;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v2, v3, v0}, Landroid/app/IActivityManager;->handleApplicationCrash(Landroid/os/IBinder;Landroid/app/ApplicationErrorReport$CrashInfo;)V
-    :try_end_8b
-    .catchall {:try_start_45 .. :try_end_8b} :catchall_c3
-    .catch Ljava/lang/Throwable; {:try_start_45 .. :try_end_8b} :catch_b3
+    new-instance v3, Landroid/app/ApplicationErrorReport$CrashInfo;
 
-    .line 104
+    invoke-direct {v3, p2}, Landroid/app/ApplicationErrorReport$CrashInfo;-><init>(Ljava/lang/Throwable;)V
+
+    invoke-interface {v1, v2, v3}, Landroid/app/IActivityManager;->handleApplicationCrash(Landroid/os/IBinder;Landroid/app/ApplicationErrorReport$CrashInfo;)V
+    :try_end_49
+    .catchall {:try_start_14 .. :try_end_49} :catchall_84
+    .catch Ljava/lang/Throwable; {:try_start_14 .. :try_end_49} :catch_71
+
+    .line 82
     invoke-static {}, Landroid/os/Process;->myPid()I
 
-    move-result v2
+    move-result v1
 
-    invoke-static {v2}, Landroid/os/Process;->killProcess(I)V
+    invoke-static {v1}, Landroid/os/Process;->killProcess(I)V
 
-    .line 105
-    .end local v0           #crashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
-    :goto_92
-    invoke-static {v5}, Ljava/lang/System;->exit(I)V
+    .line 83
+    invoke-static {v4}, Ljava/lang/System;->exit(I)V
 
-    goto :goto_43
+    goto :goto_12
 
-    .line 84
-    :cond_96
-    :try_start_96
-    const-string v2, "AndroidRuntime"
+    .line 68
+    :cond_54
+    :try_start_54
+    const-string v1, "AndroidRuntime"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "FATAL EXCEPTION: "
+    const-string v3, "FATAL EXCEPTION: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
     invoke-virtual {p1}, Ljava/lang/Thread;->getName()Ljava/lang/String;
 
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v3
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v2, v3, p2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_b2
-    .catchall {:try_start_96 .. :try_end_b2} :catchall_c3
-    .catch Ljava/lang/Throwable; {:try_start_96 .. :try_end_b2} :catch_b3
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    goto :goto_6a
+    move-result-object v2
 
-    .line 96
-    :catch_b3
+    invoke-static {v1, v2, p2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_70
+    .catchall {:try_start_54 .. :try_end_70} :catchall_84
+    .catch Ljava/lang/Throwable; {:try_start_54 .. :try_end_70} :catch_71
+
+    goto :goto_39
+
+    .line 74
+    :catch_71
+    move-exception v0
+
+    .line 76
+    .local v0, t2:Ljava/lang/Throwable;
+    :try_start_72
+    const-string v1, "AndroidRuntime"
+
+    const-string v2, "Error reporting crash"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_79
+    .catchall {:try_start_72 .. :try_end_79} :catchall_84
+    .catch Ljava/lang/Throwable; {:try_start_72 .. :try_end_79} :catch_90
+
+    .line 82
+    :goto_79
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v1
+
+    invoke-static {v1}, Landroid/os/Process;->killProcess(I)V
+
+    .line 83
+    invoke-static {v4}, Ljava/lang/System;->exit(I)V
+
+    goto :goto_12
+
+    .line 82
+    .end local v0           #t2:Ljava/lang/Throwable;
+    :catchall_84
     move-exception v1
 
-    .line 98
-    .local v1, t2:Ljava/lang/Throwable;
-    :try_start_b4
-    const-string v2, "AndroidRuntime"
-
-    const-string v3, "Error reporting crash"
-
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_bb
-    .catchall {:try_start_b4 .. :try_end_bb} :catchall_c3
-    .catch Ljava/lang/Throwable; {:try_start_b4 .. :try_end_bb} :catch_cf
-
-    .line 104
-    :goto_bb
     invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v2
 
     invoke-static {v2}, Landroid/os/Process;->killProcess(I)V
 
-    goto :goto_92
+    .line 83
+    invoke-static {v4}, Ljava/lang/System;->exit(I)V
 
-    .end local v1           #t2:Ljava/lang/Throwable;
-    :catchall_c3
-    move-exception v2
+    throw v1
 
-    invoke-static {}, Landroid/os/Process;->myPid()I
+    .line 77
+    .restart local v0       #t2:Ljava/lang/Throwable;
+    :catch_90
+    move-exception v1
 
-    move-result v3
-
-    invoke-static {v3}, Landroid/os/Process;->killProcess(I)V
-
-    .line 105
-    invoke-static {v5}, Ljava/lang/System;->exit(I)V
-
-    .line 104
-    throw v2
-
-    .line 99
-    .restart local v1       #t2:Ljava/lang/Throwable;
-    :catch_cf
-    move-exception v2
-
-    goto :goto_bb
+    goto :goto_79
 .end method

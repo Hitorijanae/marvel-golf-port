@@ -28,7 +28,7 @@
 
     .prologue
     .line 459
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 456
     const/4 v0, 0x0
@@ -50,7 +50,7 @@
 
     .prologue
     .line 467
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 456
     const/4 v5, 0x0
@@ -124,7 +124,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_5b
+    if-nez v5, :cond_5a
 
     .line 475
     new-instance v5, Ljava/lang/IllegalArgumentException;
@@ -133,7 +133,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "invalid settings for Equalizer: "
+    const-string v7, "invalid settings for Equalizer: "
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -152,8 +152,8 @@
     throw v5
 
     .line 479
-    :cond_5b
-    :try_start_5b
+    :cond_5a
+    :try_start_5a
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v1
@@ -165,7 +165,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_9c
+    if-nez v5, :cond_99
 
     .line 481
     new-instance v5, Ljava/lang/IllegalArgumentException;
@@ -174,7 +174,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "invalid key name: "
+    const-string v7, "invalid key name: "
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -191,11 +191,11 @@
     invoke-direct {v5, v6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v5
-    :try_end_81
-    .catch Ljava/lang/NumberFormatException; {:try_start_5b .. :try_end_81} :catch_81
+    :try_end_7f
+    .catch Ljava/lang/NumberFormatException; {:try_start_5a .. :try_end_7f} :catch_7f
 
     .line 500
-    :catch_81
+    :catch_7f
     move-exception v2
 
     .line 501
@@ -206,7 +206,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "invalid value for key: "
+    const-string v7, "invalid value for key: "
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -226,8 +226,8 @@
 
     .line 483
     .end local v2           #nfe:Ljava/lang/NumberFormatException;
-    :cond_9c
-    :try_start_9c
+    :cond_99
+    :try_start_99
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v5
@@ -250,7 +250,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_cd
+    if-nez v5, :cond_c9
 
     .line 486
     new-instance v5, Ljava/lang/IllegalArgumentException;
@@ -259,7 +259,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "invalid key name: "
+    const-string v7, "invalid key name: "
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -278,7 +278,7 @@
     throw v5
 
     .line 488
-    :cond_cd
+    :cond_c9
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v5
@@ -298,7 +298,7 @@
 
     mul-int/lit8 v6, v6, 0x2
 
-    if-eq v5, v6, :cond_fb
+    if-eq v5, v6, :cond_f7
 
     .line 490
     new-instance v5, Ljava/lang/IllegalArgumentException;
@@ -326,7 +326,7 @@
     throw v5
 
     .line 492
-    :cond_fb
+    :cond_f7
     iget-short v5, p0, Landroid/media/audiofx/Equalizer$Settings;->numBands:S
 
     new-array v5, v5, [S
@@ -337,10 +337,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_102
+    :goto_fe
     iget-short v5, p0, Landroid/media/audiofx/Equalizer$Settings;->numBands:S
 
-    if-ge v0, v5, :cond_154
+    if-ge v0, v5, :cond_14f
 
     .line 494
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
@@ -378,7 +378,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_145
+    if-nez v5, :cond_140
 
     .line 496
     new-instance v5, Ljava/lang/IllegalArgumentException;
@@ -387,7 +387,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "invalid key name: "
+    const-string v7, "invalid key name: "
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -406,7 +406,7 @@
     throw v5
 
     .line 498
-    :cond_145
+    :cond_140
     iget-object v5, p0, Landroid/media/audiofx/Equalizer$Settings;->bandLevels:[S
 
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
@@ -418,16 +418,16 @@
     move-result v6
 
     aput-short v6, v5, v0
-    :try_end_151
-    .catch Ljava/lang/NumberFormatException; {:try_start_9c .. :try_end_151} :catch_81
+    :try_end_14c
+    .catch Ljava/lang/NumberFormatException; {:try_start_99 .. :try_end_14c} :catch_7f
 
     .line 493
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_102
+    goto :goto_fe
 
     .line 503
-    :cond_154
+    :cond_14f
     return-void
 .end method
 

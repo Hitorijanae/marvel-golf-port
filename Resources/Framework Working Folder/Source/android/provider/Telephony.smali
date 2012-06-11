@@ -6,22 +6,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/provider/Telephony$namephoto;,
         Landroid/provider/Telephony$Intents;,
-        Landroid/provider/Telephony$HtcCmas;,
-        Landroid/provider/Telephony$BaseHtcCmasColumns;,
-        Landroid/provider/Telephony$HtcThreadsColumns;,
-        Landroid/provider/Telephony$HtcThreads;,
-        Landroid/provider/Telephony$BaseHtcMsgColumns;,
-        Landroid/provider/Telephony$HtcMessages;,
-        Landroid/provider/Telephony$BaseHtcVvmColumns;,
-        Landroid/provider/Telephony$HtcVvm;,
-        Landroid/provider/Telephony$CdmaCarriers;,
-        Landroid/provider/Telephony$SubGsmCarriers;,
-        Landroid/provider/Telephony$GsmCarriers;,
         Landroid/provider/Telephony$Carriers;,
         Landroid/provider/Telephony$MmsSms;,
-        Landroid/provider/Telephony$HTCMessageUtil;,
         Landroid/provider/Telephony$Mms;,
         Landroid/provider/Telephony$Threads;,
         Landroid/provider/Telephony$ThreadsColumns;,
@@ -36,8 +23,6 @@
 # static fields
 .field private static final DEBUG:Z = true
 
-.field private static final HTC_DEBUG:Z = false
-
 .field private static final LOCAL_LOGV:Z = false
 
 .field private static final TAG:Ljava/lang/String; = "Telephony"
@@ -48,9 +33,9 @@
     .registers 1
 
     .prologue
-    .line 83
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 51
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 84
+    .line 52
     return-void
 .end method

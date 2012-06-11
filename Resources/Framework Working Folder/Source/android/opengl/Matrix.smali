@@ -27,7 +27,7 @@
 
     .prologue
     .line 41
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -47,22 +47,22 @@
     .line 319
     cmpl-float v9, p2, p3
 
-    if-nez v9, :cond_d
+    if-nez v9, :cond_c
 
     .line 320
     new-instance v9, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v10, "left == right"
+    const-string v10, "left == right"
 
     invoke-direct {v9, v10}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v9
 
     .line 322
-    :cond_d
+    :cond_c
     cmpl-float v9, p5, p4
 
-    if-nez v9, :cond_1a
+    if-nez v9, :cond_19
 
     .line 323
     new-instance v9, Ljava/lang/IllegalArgumentException;
@@ -74,10 +74,10 @@
     throw v9
 
     .line 325
-    :cond_1a
+    :cond_19
     cmpl-float v9, p6, p7
 
-    if-nez v9, :cond_27
+    if-nez v9, :cond_26
 
     .line 326
     new-instance v9, Ljava/lang/IllegalArgumentException;
@@ -89,12 +89,12 @@
     throw v9
 
     .line 328
-    :cond_27
+    :cond_26
     const/4 v9, 0x0
 
     cmpg-float v9, p6, v9
 
-    if-gtz v9, :cond_35
+    if-gtz v9, :cond_34
 
     .line 329
     new-instance v9, Ljava/lang/IllegalArgumentException;
@@ -106,12 +106,12 @@
     throw v9
 
     .line 331
-    :cond_35
+    :cond_34
     const/4 v9, 0x0
 
     cmpg-float v9, p7, v9
 
-    if-gtz v9, :cond_42
+    if-gtz v9, :cond_41
 
     .line 332
     new-instance v9, Ljava/lang/IllegalArgumentException;
@@ -123,7 +123,7 @@
     throw v9
 
     .line 334
-    :cond_42
+    :cond_41
     const/high16 v9, 0x3f80
 
     sub-float v10, p3, p2
@@ -1086,22 +1086,22 @@
     .line 265
     cmpl-float v9, p2, p3
 
-    if-nez v9, :cond_d
+    if-nez v9, :cond_c
 
     .line 266
     new-instance v9, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v10, "left == right"
+    const-string v10, "left == right"
 
     invoke-direct {v9, v10}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v9
 
     .line 268
-    :cond_d
+    :cond_c
     cmpl-float v9, p4, p5
 
-    if-nez v9, :cond_19
+    if-nez v9, :cond_18
 
     .line 269
     new-instance v9, Ljava/lang/IllegalArgumentException;
@@ -1113,10 +1113,10 @@
     throw v9
 
     .line 271
-    :cond_19
+    :cond_18
     cmpl-float v9, p6, p7
 
-    if-nez v9, :cond_26
+    if-nez v9, :cond_25
 
     .line 272
     new-instance v9, Ljava/lang/IllegalArgumentException;
@@ -1128,7 +1128,7 @@
     throw v9
 
     .line 275
-    :cond_26
+    :cond_25
     const/high16 v9, 0x3f80
 
     sub-float v10, p3, p2

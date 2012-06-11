@@ -219,7 +219,7 @@
     iput v3, p0, Lcom/android/internal/widget/RotarySelector;->mDensity:F
 
     .line 181
-    const v3, 0x108036c
+    const v3, 0x1080394
 
     invoke-direct {p0, v3}, Lcom/android/internal/widget/RotarySelector;->getBitmapFor(I)Landroid/graphics/Bitmap;
 
@@ -228,7 +228,7 @@
     iput-object v3, p0, Lcom/android/internal/widget/RotarySelector;->mBackground:Landroid/graphics/Bitmap;
 
     .line 182
-    const v3, 0x108036d
+    const v3, 0x1080395
 
     invoke-direct {p0, v3}, Lcom/android/internal/widget/RotarySelector;->getBitmapFor(I)Landroid/graphics/Bitmap;
 
@@ -237,7 +237,7 @@
     iput-object v3, p0, Lcom/android/internal/widget/RotarySelector;->mDimple:Landroid/graphics/Bitmap;
 
     .line 183
-    const v3, 0x108036e
+    const v3, 0x1080396
 
     invoke-direct {p0, v3}, Lcom/android/internal/widget/RotarySelector;->getBitmapFor(I)Landroid/graphics/Bitmap;
 
@@ -246,7 +246,7 @@
     iput-object v3, p0, Lcom/android/internal/widget/RotarySelector;->mDimpleDim:Landroid/graphics/Bitmap;
 
     .line 185
-    const v3, 0x1080364
+    const v3, 0x108038c
 
     invoke-direct {p0, v3}, Lcom/android/internal/widget/RotarySelector;->getBitmapFor(I)Landroid/graphics/Bitmap;
 
@@ -255,7 +255,7 @@
     iput-object v3, p0, Lcom/android/internal/widget/RotarySelector;->mArrowLongLeft:Landroid/graphics/Bitmap;
 
     .line 186
-    const v3, 0x1080367
+    const v3, 0x108038f
 
     invoke-direct {p0, v3}, Lcom/android/internal/widget/RotarySelector;->getBitmapFor(I)Landroid/graphics/Bitmap;
 
@@ -264,7 +264,7 @@
     iput-object v3, p0, Lcom/android/internal/widget/RotarySelector;->mArrowLongRight:Landroid/graphics/Bitmap;
 
     .line 187
-    const v3, 0x108036a
+    const v3, 0x1080392
 
     invoke-direct {p0, v3}, Lcom/android/internal/widget/RotarySelector;->getBitmapFor(I)Landroid/graphics/Bitmap;
 
@@ -342,7 +342,7 @@
     iput v3, p0, Lcom/android/internal/widget/RotarySelector;->mInnerRadius:I
 
     .line 200
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/android/internal/widget/RotarySelector;->mContext:Landroid/content/Context;
 
     invoke-static {v3}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
 
@@ -982,7 +982,7 @@
 
     invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v19, "invalid mGrabbedState: "
+    const-string v19, "invalid mGrabbedState: "
 
     invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1007,7 +1007,7 @@
     throw v17
 
     .line 318
-    :pswitch_65
+    :pswitch_64
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/RotarySelector;->mArrowMatrix:Landroid/graphics/Matrix;
@@ -1025,7 +1025,7 @@
 
     move-result v17
 
-    if-nez v17, :cond_95
+    if-nez v17, :cond_94
 
     .line 320
     move-object/from16 v0, p0
@@ -1058,7 +1058,7 @@
     invoke-virtual/range {v17 .. v19}, Landroid/graphics/Matrix;->postTranslate(FF)Z
 
     .line 323
-    :cond_95
+    :cond_94
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/RotarySelector;->mArrowLongLeft:Landroid/graphics/Bitmap;
@@ -1088,8 +1088,8 @@
     invoke-virtual {v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Matrix;Landroid/graphics/Paint;)V
 
     .line 338
-    :goto_b2
-    :pswitch_b2
+    :goto_b1
+    :pswitch_b1
     move-object/from16 v0, p0
 
     iget v5, v0, Lcom/android/internal/widget/RotarySelector;->mBackgroundHeight:I
@@ -1100,13 +1100,13 @@
 
     move-result v17
 
-    if-eqz v17, :cond_29b
+    if-eqz v17, :cond_29a
 
     sub-int v6, v11, v5
 
     .line 357
     .local v6, bgTop:I
-    :goto_be
+    :goto_bd
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/RotarySelector;->mLeftHandleX:I
@@ -1159,24 +1159,24 @@
 
     move-result v17
 
-    if-eqz v17, :cond_29f
+    if-eqz v17, :cond_29e
 
     move v14, v15
 
     .line 364
     .local v14, x:I
-    :goto_f1
+    :goto_f0
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/widget/RotarySelector;->isHoriz()Z
 
     move-result v17
 
-    if-eqz v17, :cond_2a3
+    if-eqz v17, :cond_2a2
 
     add-int v16, v9, v6
 
     .line 365
     .local v16, y:I
-    :goto_f9
+    :goto_f8
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/RotarySelector;->mGrabbedState:I
@@ -1189,7 +1189,7 @@
 
     move/from16 v1, v18
 
-    if-eq v0, v1, :cond_2a7
+    if-eq v0, v1, :cond_2a6
 
     .line 366
     move-object/from16 v0, p0
@@ -1226,12 +1226,12 @@
     invoke-direct {v0, v1, v2, v14, v3}, Lcom/android/internal/widget/RotarySelector;->drawCentered(Landroid/graphics/Bitmap;Landroid/graphics/Canvas;II)V
 
     .line 375
-    :goto_129
+    :goto_128
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/widget/RotarySelector;->isHoriz()Z
 
     move-result v17
 
-    if-eqz v17, :cond_2ba
+    if-eqz v17, :cond_2b9
 
     div-int/lit8 v17, v13, 0x2
 
@@ -1244,7 +1244,7 @@
     add-int v15, v17, v18
 
     .line 378
-    :goto_139
+    :goto_138
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/RotarySelector;->mBackgroundWidth:I
@@ -1280,7 +1280,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_2c6
+    if-eqz v17, :cond_2c5
 
     .line 385
     move-object/from16 v0, p0
@@ -1302,7 +1302,7 @@
     invoke-direct {v0, v1, v2, v15, v3}, Lcom/android/internal/widget/RotarySelector;->drawCentered(Landroid/graphics/Bitmap;Landroid/graphics/Canvas;II)V
 
     .line 394
-    :goto_170
+    :goto_16f
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/RotarySelector;->mRightHandleX:I
@@ -1353,22 +1353,22 @@
 
     move-result v17
 
-    if-eqz v17, :cond_2df
+    if-eqz v17, :cond_2de
 
     move v14, v15
 
     .line 402
-    :goto_1a3
+    :goto_1a2
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/widget/RotarySelector;->isHoriz()Z
 
     move-result v17
 
-    if-eqz v17, :cond_2e3
+    if-eqz v17, :cond_2e2
 
     add-int v16, v9, v6
 
     .line 403
-    :goto_1ab
+    :goto_1aa
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/RotarySelector;->mGrabbedState:I
@@ -1381,7 +1381,7 @@
 
     move/from16 v1, v18
 
-    if-eq v0, v1, :cond_2e7
+    if-eq v0, v1, :cond_2e6
 
     .line 404
     move-object/from16 v0, p0
@@ -1418,7 +1418,7 @@
     invoke-direct {v0, v1, v2, v14, v3}, Lcom/android/internal/widget/RotarySelector;->drawCentered(Landroid/graphics/Bitmap;Landroid/graphics/Canvas;II)V
 
     .line 412
-    :goto_1db
+    :goto_1da
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/RotarySelector;->mRotaryOffsetX:I
@@ -1453,14 +1453,14 @@
 
     .line 414
     .local v10, halfdimple:I
-    :goto_1f9
+    :goto_1f8
     neg-int v0, v10
 
     move/from16 v17, v0
 
     move/from16 v0, v17
 
-    if-le v7, v0, :cond_313
+    if-le v7, v0, :cond_312
 
     .line 415
     move-object/from16 v0, p0
@@ -1498,7 +1498,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_2fa
+    if-eqz v17, :cond_2f9
 
     .line 422
     move-object/from16 v0, p0
@@ -1520,7 +1520,7 @@
     invoke-direct {v0, v1, v2, v7, v3}, Lcom/android/internal/widget/RotarySelector;->drawCentered(Landroid/graphics/Bitmap;Landroid/graphics/Canvas;II)V
 
     .line 426
-    :goto_237
+    :goto_236
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/RotarySelector;->mDimpleSpacing:I
@@ -1530,7 +1530,7 @@
     sub-int v7, v7, v17
 
     .line 427
-    goto :goto_1f9
+    goto :goto_1f8
 
     .line 326
     .end local v5           #bgHeight:I
@@ -1541,7 +1541,7 @@
     .end local v14           #x:I
     .end local v15           #xOffset:I
     .end local v16           #y:I
-    :pswitch_240
+    :pswitch_23f
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/RotarySelector;->mArrowMatrix:Landroid/graphics/Matrix;
@@ -1559,7 +1559,7 @@
 
     move-result v17
 
-    if-nez v17, :cond_27c
+    if-nez v17, :cond_27b
 
     .line 328
     move-object/from16 v0, p0
@@ -1604,7 +1604,7 @@
     invoke-virtual/range {v17 .. v19}, Landroid/graphics/Matrix;->postTranslate(FF)Z
 
     .line 332
-    :cond_27c
+    :cond_27b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/RotarySelector;->mArrowLongRight:Landroid/graphics/Bitmap;
@@ -1633,34 +1633,34 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Matrix;Landroid/graphics/Paint;)V
 
-    goto/16 :goto_b2
+    goto/16 :goto_b1
 
     .line 339
     .restart local v5       #bgHeight:I
-    :cond_29b
+    :cond_29a
     sub-int v6, v13, v5
 
-    goto/16 :goto_be
+    goto/16 :goto_bd
 
     .line 363
     .restart local v6       #bgTop:I
     .restart local v9       #drawableY:I
     .restart local v15       #xOffset:I
-    :cond_29f
+    :cond_29e
     add-int v14, v9, v6
 
-    goto/16 :goto_f1
+    goto/16 :goto_f0
 
     .line 364
     .restart local v14       #x:I
-    :cond_2a3
+    :cond_2a2
     sub-int v16, v11, v15
 
-    goto/16 :goto_f9
+    goto/16 :goto_f8
 
     .line 369
     .restart local v16       #y:I
-    :cond_2a7
+    :cond_2a6
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/RotarySelector;->mDimpleDim:Landroid/graphics/Bitmap;
@@ -1677,10 +1677,10 @@
 
     invoke-direct {v0, v1, v2, v14, v3}, Lcom/android/internal/widget/RotarySelector;->drawCentered(Landroid/graphics/Bitmap;Landroid/graphics/Canvas;II)V
 
-    goto/16 :goto_129
+    goto/16 :goto_128
 
     .line 375
-    :cond_2ba
+    :cond_2b9
     div-int/lit8 v17, v11, 0x2
 
     move-object/from16 v0, p0
@@ -1691,10 +1691,10 @@
 
     add-int v15, v17, v18
 
-    goto/16 :goto_139
+    goto/16 :goto_138
 
     .line 388
-    :cond_2c6
+    :cond_2c5
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/RotarySelector;->mDimpleDim:Landroid/graphics/Bitmap;
@@ -1717,22 +1717,22 @@
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/internal/widget/RotarySelector;->drawCentered(Landroid/graphics/Bitmap;Landroid/graphics/Canvas;II)V
 
-    goto/16 :goto_170
+    goto/16 :goto_16f
 
     .line 401
-    :cond_2df
+    :cond_2de
     add-int v14, v9, v6
 
-    goto/16 :goto_1a3
+    goto/16 :goto_1a2
 
     .line 402
-    :cond_2e3
+    :cond_2e2
     sub-int v16, v11, v15
 
-    goto/16 :goto_1ab
+    goto/16 :goto_1aa
 
     .line 407
-    :cond_2e7
+    :cond_2e6
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/RotarySelector;->mDimpleDim:Landroid/graphics/Bitmap;
@@ -1749,12 +1749,12 @@
 
     invoke-direct {v0, v1, v2, v14, v3}, Lcom/android/internal/widget/RotarySelector;->drawCentered(Landroid/graphics/Bitmap;Landroid/graphics/Canvas;II)V
 
-    goto/16 :goto_1db
+    goto/16 :goto_1da
 
     .line 424
     .restart local v7       #dimpleLeft:I
     .restart local v10       #halfdimple:I
-    :cond_2fa
+    :cond_2f9
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/RotarySelector;->mDimpleDim:Landroid/graphics/Bitmap;
@@ -1777,10 +1777,10 @@
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/internal/widget/RotarySelector;->drawCentered(Landroid/graphics/Bitmap;Landroid/graphics/Canvas;II)V
 
-    goto/16 :goto_237
+    goto/16 :goto_236
 
     .line 430
-    :cond_313
+    :cond_312
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/RotarySelector;->mRotaryOffsetX:I
@@ -1807,7 +1807,7 @@
     .local v8, dimpleRight:I
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mRight:I
+    iget v0, v0, Lcom/android/internal/widget/RotarySelector;->mRight:I
 
     move/from16 v17, v0
 
@@ -1815,8 +1815,8 @@
 
     .line 432
     .local v12, rightThresh:I
-    :goto_331
-    if-ge v8, v12, :cond_38b
+    :goto_330
+    if-ge v8, v12, :cond_38a
 
     .line 433
     move-object/from16 v0, p0
@@ -1854,7 +1854,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_373
+    if-eqz v17, :cond_372
 
     .line 440
     move-object/from16 v0, p0
@@ -1876,7 +1876,7 @@
     invoke-direct {v0, v1, v2, v8, v3}, Lcom/android/internal/widget/RotarySelector;->drawCentered(Landroid/graphics/Bitmap;Landroid/graphics/Canvas;II)V
 
     .line 444
-    :goto_36a
+    :goto_369
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/RotarySelector;->mDimpleSpacing:I
@@ -1886,10 +1886,10 @@
     add-int v8, v8, v17
 
     .line 445
-    goto :goto_331
+    goto :goto_330
 
     .line 442
-    :cond_373
+    :cond_372
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/RotarySelector;->mDimpleDim:Landroid/graphics/Bitmap;
@@ -1912,18 +1912,20 @@
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/internal/widget/RotarySelector;->drawCentered(Landroid/graphics/Bitmap;Landroid/graphics/Canvas;II)V
 
-    goto :goto_36a
+    goto :goto_369
 
     .line 446
-    :cond_38b
+    :cond_38a
     return-void
 
     .line 313
+    nop
+
     :pswitch_data_38c
     .packed-switch 0x0
-        :pswitch_b2
-        :pswitch_65
-        :pswitch_240
+        :pswitch_b1
+        :pswitch_64
+        :pswitch_23f
     .end packed-switch
 .end method
 

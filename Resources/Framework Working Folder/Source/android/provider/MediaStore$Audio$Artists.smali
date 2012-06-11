@@ -35,16 +35,14 @@
 
 .field public static final INTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-.field public static final PHONE_CONTENT_URI:Landroid/net/Uri;
-
 
 # direct methods
 .method static constructor <clinit>()V
     .registers 1
 
     .prologue
-    .line 1701
-    const-string/jumbo v0, "internal"
+    .line 1595
+    const-string v0, "internal"
 
     invoke-static {v0}, Landroid/provider/MediaStore$Audio$Artists;->getContentUri(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -52,7 +50,7 @@
 
     sput-object v0, Landroid/provider/MediaStore$Audio$Artists;->INTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    .line 1708
+    .line 1602
     const-string v0, "external"
 
     invoke-static {v0}, Landroid/provider/MediaStore$Audio$Artists;->getContentUri(Ljava/lang/String;)Landroid/net/Uri;
@@ -61,15 +59,6 @@
 
     sput-object v0, Landroid/provider/MediaStore$Audio$Artists;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    .line 1716
-    const-string/jumbo v0, "phoneStorage"
-
-    invoke-static {v0}, Landroid/provider/MediaStore$Audio$Artists;->getContentUri(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v0
-
-    sput-object v0, Landroid/provider/MediaStore$Audio$Artists;->PHONE_CONTENT_URI:Landroid/net/Uri;
-
     return-void
 .end method
 
@@ -77,10 +66,10 @@
     .registers 1
 
     .prologue
-    .line 1685
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 1579
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1739
+    .line 1624
     return-void
 .end method
 
@@ -89,7 +78,7 @@
     .parameter "volumeName"
 
     .prologue
-    .line 1694
+    .line 1588
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

@@ -47,7 +47,7 @@
 
     .line 230
     .local v4, what:I
-    sparse-switch v4, :sswitch_data_a4
+    sparse-switch v4, :sswitch_data_a8
 
     .line 260
     :goto_5
@@ -72,7 +72,7 @@
 
     iput-object v5, v0, Landroid/widget/Filter$RequestArguments;->results:Landroid/widget/Filter$FilterResults;
     :try_end_14
-    .catchall {:try_start_a .. :try_end_14} :catchall_6b
+    .catchall {:try_start_a .. :try_end_14} :catchall_6e
     .catch Ljava/lang/Exception; {:try_start_a .. :try_end_14} :catch_4f
 
     .line 239
@@ -92,10 +92,10 @@
     iput-object v0, v3, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     .line 241
-    :goto_20
     invoke-virtual {v3}, Landroid/os/Message;->sendToTarget()V
 
     .line 244
+    :goto_23
     iget-object v5, p0, Landroid/widget/Filter$RequestHandler;->this$0:Landroid/widget/Filter;
 
     #getter for: Landroid/widget/Filter;->mLock:Ljava/lang/Object;
@@ -180,7 +180,7 @@
 
     invoke-static {v5, v6, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_5e
-    .catchall {:try_start_50 .. :try_end_5e} :catchall_6b
+    .catchall {:try_start_50 .. :try_end_5e} :catchall_6e
 
     .line 239
     iget-object v5, p0, Landroid/widget/Filter$RequestHandler;->this$0:Landroid/widget/Filter;
@@ -198,12 +198,15 @@
     .restart local v3       #message:Landroid/os/Message;
     iput-object v0, v3, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    goto :goto_20
+    .line 241
+    invoke-virtual {v3}, Landroid/os/Message;->sendToTarget()V
+
+    goto :goto_23
 
     .line 239
     .end local v1           #e:Ljava/lang/Exception;
     .end local v3           #message:Landroid/os/Message;
-    :catchall_6b
+    :catchall_6e
     move-exception v5
 
     iget-object v6, p0, Landroid/widget/Filter$RequestHandler;->this$0:Landroid/widget/Filter;
@@ -224,13 +227,12 @@
     .line 241
     invoke-virtual {v3}, Landroid/os/Message;->sendToTarget()V
 
-    .line 239
     throw v5
 
     .line 252
     .end local v0           #args:Landroid/widget/Filter$RequestArguments;
     .end local v3           #message:Landroid/os/Message;
-    :sswitch_7c
+    :sswitch_7f
     iget-object v5, p0, Landroid/widget/Filter$RequestHandler;->this$0:Landroid/widget/Filter;
 
     #getter for: Landroid/widget/Filter;->mLock:Ljava/lang/Object;
@@ -241,7 +243,7 @@
     monitor-enter v6
 
     .line 253
-    :try_start_83
+    :try_start_86
     iget-object v5, p0, Landroid/widget/Filter$RequestHandler;->this$0:Landroid/widget/Filter;
 
     #getter for: Landroid/widget/Filter;->mThreadHandler:Landroid/os/Handler;
@@ -249,7 +251,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_9e
+    if-eqz v5, :cond_a1
 
     .line 254
     iget-object v5, p0, Landroid/widget/Filter$RequestHandler;->this$0:Landroid/widget/Filter;
@@ -274,24 +276,26 @@
     invoke-static {v5, v7}, Landroid/widget/Filter;->access$402(Landroid/widget/Filter;Landroid/os/Handler;)Landroid/os/Handler;
 
     .line 257
-    :cond_9e
+    :cond_a1
     monitor-exit v6
 
     goto/16 :goto_5
 
-    :catchall_a1
+    :catchall_a4
     move-exception v5
 
     monitor-exit v6
-    :try_end_a3
-    .catchall {:try_start_83 .. :try_end_a3} :catchall_a1
+    :try_end_a6
+    .catchall {:try_start_86 .. :try_end_a6} :catchall_a4
 
     throw v5
 
     .line 230
-    :sswitch_data_a4
+    nop
+
+    :sswitch_data_a8
     .sparse-switch
         -0x2f2f0ff3 -> :sswitch_6
-        -0x21524111 -> :sswitch_7c
+        -0x21524111 -> :sswitch_7f
     .end sparse-switch
 .end method

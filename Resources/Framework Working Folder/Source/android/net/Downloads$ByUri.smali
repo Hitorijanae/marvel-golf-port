@@ -200,14 +200,14 @@
     .end local v6           #result:Landroid/net/Downloads$StatusInfo;
     .local v7, result:Landroid/net/Downloads$StatusInfo;
     :goto_9
-    if-eqz v0, :cond_74
+    if-eqz v0, :cond_6c
 
     :try_start_b
     invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_74
+    if-eqz v9, :cond_6c
 
     .line 244
     if-nez v7, :cond_7d
@@ -217,7 +217,7 @@
 
     invoke-direct {v6}, Landroid/net/Downloads$StatusInfo;-><init>()V
     :try_end_18
-    .catchall {:try_start_b .. :try_end_18} :catchall_6c
+    .catchall {:try_start_b .. :try_end_18} :catchall_73
 
     .line 247
     .end local v7           #result:Landroid/net/Downloads$StatusInfo;
@@ -374,32 +374,13 @@
     .line 271
     .end local v4           #modTime:J
     .end local v8           #status:I
-    :catchall_6c
-    move-exception v9
-
-    move-object v6, v7
-
-    .end local v7           #result:Landroid/net/Downloads$StatusInfo;
-    .restart local v6       #result:Landroid/net/Downloads$StatusInfo;
-    :goto_6e
-    if-eqz v0, :cond_73
+    :cond_6c
+    if-eqz v0, :cond_71
 
     .line 272
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
-    .line 271
-    :cond_73
-    throw v9
-
-    .end local v6           #result:Landroid/net/Downloads$StatusInfo;
-    .restart local v7       #result:Landroid/net/Downloads$StatusInfo;
-    :cond_74
-    if-eqz v0, :cond_79
-
-    .line 272
-    invoke-interface {v0}, Landroid/database/Cursor;->close()V
-
-    :cond_79
+    :cond_71
     move-object v6, v7
 
     .line 275
@@ -408,10 +389,29 @@
     goto :goto_4a
 
     .line 271
+    .end local v6           #result:Landroid/net/Downloads$StatusInfo;
+    .restart local v7       #result:Landroid/net/Downloads$StatusInfo;
+    :catchall_73
+    move-exception v9
+
+    move-object v6, v7
+
+    .end local v7           #result:Landroid/net/Downloads$StatusInfo;
+    .restart local v6       #result:Landroid/net/Downloads$StatusInfo;
+    :goto_75
+    if-eqz v0, :cond_7a
+
+    .line 272
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    :cond_7a
+    throw v9
+
+    .line 271
     :catchall_7b
     move-exception v9
 
-    goto :goto_6e
+    goto :goto_75
 
     .end local v6           #result:Landroid/net/Downloads$StatusInfo;
     .restart local v7       #result:Landroid/net/Downloads$StatusInfo;

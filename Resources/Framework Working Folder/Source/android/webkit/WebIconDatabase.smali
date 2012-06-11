@@ -29,7 +29,7 @@
 
     .prologue
     .line 313
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 44
     new-instance v0, Landroid/webkit/WebIconDatabase$EventHandler;
@@ -196,7 +196,7 @@
     invoke-virtual {v0, v2, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 259
-    const-string/jumbo v2, "listener"
+    const-string v2, "listener"
 
     invoke-virtual {v0, v2, p3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 

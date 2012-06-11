@@ -39,38 +39,6 @@
     .end annotation
 .end method
 
-.method public abstract setSelectionEnd(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setSelectionStart(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setSubText(Ljava/lang/CharSequence;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setText(Ljava/lang/CharSequence;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract setTextAfterCursor(Ljava/lang/CharSequence;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

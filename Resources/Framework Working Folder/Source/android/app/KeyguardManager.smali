@@ -2,9 +2,6 @@
 .super Ljava/lang/Object;
 .source "KeyguardManager.java"
 
-# interfaces
-.implements Landroid/app/HtcIfKeyguardManager;
-
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -24,10 +21,10 @@
     .registers 2
 
     .prologue
-    .line 110
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 107
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 111
+    .line 108
     const-string/jumbo v0, "window"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -40,7 +37,7 @@
 
     iput-object v0, p0, Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
 
-    .line 112
+    .line 109
     return-void
 .end method
 
@@ -49,7 +46,7 @@
     .parameter "x0"
 
     .prologue
-    .line 37
+    .line 34
     iget-object v0, p0, Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
 
     return-object v0
@@ -57,29 +54,6 @@
 
 
 # virtual methods
-.method public clearIdleScreen()V
-    .registers 2
-
-    .prologue
-    .line 240
-    :try_start_0
-    iget-object v0, p0, Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
-
-    invoke-interface {v0}, Landroid/view/IWindowManager;->clearIdleScreen()V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
-
-    .line 244
-    :goto_5
-    return-void
-
-    .line 241
-    :catch_6
-    move-exception v0
-
-    goto :goto_5
-.end method
-
 .method public exitKeyguardSecurely(Landroid/app/KeyguardManager$OnKeyguardExitResult;)V
     .registers 4
     .parameter "callback"
@@ -87,7 +61,7 @@
     .end annotation
 
     .prologue
-    .line 219
+    .line 206
     :try_start_0
     iget-object v0, p0, Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
 
@@ -99,73 +73,22 @@
     :try_end_a
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_a} :catch_b
 
-    .line 227
+    .line 214
     :goto_a
     return-void
 
-    .line 224
+    .line 211
     :catch_b
     move-exception v0
 
     goto :goto_a
 .end method
 
-.method public getIdleScreenLabel()Ljava/lang/String;
-    .registers 2
-
-    .prologue
-    .line 264
-    :try_start_0
-    iget-object v0, p0, Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
-
-    invoke-interface {v0}, Landroid/view/IWindowManager;->getIdleScreenLabel()Ljava/lang/String;
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
-
-    move-result-object v0
-
-    .line 268
-    :goto_6
-    return-object v0
-
-    .line 265
-    :catch_7
-    move-exception v0
-
-    .line 268
-    const/4 v0, 0x0
-
-    goto :goto_6
-.end method
-
-.method public hideIdleScreen()V
-    .registers 2
-
-    .prologue
-    .line 256
-    :try_start_0
-    iget-object v0, p0, Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
-
-    invoke-interface {v0}, Landroid/view/IWindowManager;->hideIdleScreen()V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
-
-    .line 260
-    :goto_5
-    return-void
-
-    .line 257
-    :catch_6
-    move-exception v0
-
-    goto :goto_5
-.end method
-
 .method public inKeyguardRestrictedInputMode()Z
     .registers 3
 
     .prologue
-    .line 180
+    .line 177
     :try_start_0
     iget-object v1, p0, Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
 
@@ -175,15 +98,15 @@
 
     move-result v1
 
-    .line 182
+    .line 179
     :goto_6
     return v1
 
-    .line 181
+    .line 178
     :catch_7
     move-exception v0
 
-    .line 182
+    .line 179
     .local v0, ex:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -194,7 +117,7 @@
     .registers 3
 
     .prologue
-    .line 146
+    .line 143
     :try_start_0
     iget-object v1, p0, Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
 
@@ -204,15 +127,15 @@
 
     move-result v1
 
-    .line 148
+    .line 145
     :goto_6
     return v1
 
-    .line 147
+    .line 144
     :catch_7
     move-exception v0
 
-    .line 148
+    .line 145
     .local v0, ex:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -223,7 +146,7 @@
     .registers 3
 
     .prologue
-    .line 163
+    .line 160
     :try_start_0
     iget-object v1, p0, Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
 
@@ -233,44 +156,15 @@
 
     move-result v1
 
-    .line 165
+    .line 162
     :goto_6
     return v1
 
-    .line 164
+    .line 161
     :catch_7
     move-exception v0
 
-    .line 165
-    .local v0, ex:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_6
-.end method
-
-.method public keyguardIsShowing()Z
-    .registers 3
-
-    .prologue
-    .line 189
-    :try_start_0
-    iget-object v1, p0, Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
-
-    invoke-interface {v1}, Landroid/view/IWindowManager;->isKeyguardLocked()Z
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
-
-    move-result v1
-
-    .line 191
-    :goto_6
-    return v1
-
-    .line 190
-    :catch_7
-    move-exception v0
-
-    .line 191
+    .line 162
     .local v0, ex:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -284,105 +178,10 @@
     .end annotation
 
     .prologue
-    .line 132
+    .line 129
     new-instance v0, Landroid/app/KeyguardManager$KeyguardLock;
 
     invoke-direct {v0, p0, p1}, Landroid/app/KeyguardManager$KeyguardLock;-><init>(Landroid/app/KeyguardManager;Ljava/lang/String;)V
 
     return-object v0
-.end method
-
-.method public setIdleScreen(Landroid/content/ComponentName;)V
-    .registers 3
-    .parameter "name"
-
-    .prologue
-    .line 232
-    :try_start_0
-    iget-object v0, p0, Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
-
-    invoke-interface {v0, p1}, Landroid/view/IWindowManager;->setIdleScreen(Landroid/content/ComponentName;)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
-
-    .line 236
-    :goto_5
-    return-void
-
-    .line 233
-    :catch_6
-    move-exception v0
-
-    goto :goto_5
-.end method
-
-.method public setShowKeyguard(Z)V
-    .registers 3
-    .parameter "showLockScreen"
-
-    .prologue
-    .line 274
-    :try_start_0
-    iget-object v0, p0, Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
-
-    invoke-interface {v0, p1}, Landroid/view/IWindowManager;->setShowKeyguard(Z)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
-
-    .line 278
-    :goto_5
-    return-void
-
-    .line 275
-    :catch_6
-    move-exception v0
-
-    goto :goto_5
-.end method
-
-.method public showIdleScreen()V
-    .registers 2
-
-    .prologue
-    .line 248
-    :try_start_0
-    iget-object v0, p0, Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
-
-    invoke-interface {v0}, Landroid/view/IWindowManager;->showIdleScreen()V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
-
-    .line 252
-    :goto_5
-    return-void
-
-    .line 249
-    :catch_6
-    move-exception v0
-
-    goto :goto_5
-.end method
-
-.method public showKeyguardWithAnimation(Z)V
-    .registers 3
-    .parameter "showLockScreen"
-
-    .prologue
-    .line 282
-    :try_start_0
-    iget-object v0, p0, Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
-
-    invoke-interface {v0, p1}, Landroid/view/IWindowManager;->showKeyguardWithAnimation(Z)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
-
-    .line 286
-    :goto_5
-    return-void
-
-    .line 283
-    :catch_6
-    move-exception v0
-
-    goto :goto_5
 .end method

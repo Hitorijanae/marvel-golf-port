@@ -80,8 +80,6 @@
 
 .field public static final COLUMN_REFERER:Ljava/lang/String; = "referer"
 
-.field public static final COLUMN_RESTRICTION:Ljava/lang/String; = "restriction"
-
 .field public static final COLUMN_STATUS:Ljava/lang/String; = "status"
 
 .field public static final COLUMN_TITLE:Ljava/lang/String; = "title"
@@ -108,11 +106,7 @@
 
 .field public static final DESTINATION_EXTERNAL:I = 0x0
 
-.field public static final DESTINATION_EXTERNAL_REMOVABLE_STORAGE:I = 0x8
-
 .field public static final DESTINATION_FILE_URI:I = 0x4
-
-.field public static final DESTINATION_INTERNAL:I = 0x7
 
 .field public static final DESTINATION_NON_DOWNLOADMANAGER_DOWNLOAD:I = 0x6
 
@@ -142,22 +136,6 @@
 
 .field public static final PUBLICLY_ACCESSIBLE_DOWNLOADS_URI_SEGMENT:Ljava/lang/String; = "public_downloads"
 
-.field public static final RESTRICTION_INTERNET_PASSTHROUGH_ONLY:I = 0x10
-
-.field public static final RESTRICTION_NOT_DOWNLOAD:I = 0x20
-
-.field public static final RESTRICTION_NO_ROAMING:I = 0x2
-
-.field public static final RESTRICTION_USE_APN:I = 0x8
-
-.field public static final RESTRICTION_USE_APN_MASK:I = 0xf0000
-
-.field public static final RESTRICTION_USE_FOTA_APN:I = 0xa0008
-
-.field public static final RESTRICTION_USE_PROXY:I = 0x4
-
-.field public static final RESTRICTION_WIFI_ONLY:I = 0x1
-
 .field public static final STATUS_BAD_REQUEST:I = 0x190
 
 .field public static final STATUS_BLOCKED:I = 0x1f2
@@ -166,7 +144,7 @@
 
 .field public static final STATUS_CANNOT_RESUME:I = 0x1e9
 
-.field public static final STATUS_DEVICE_NOT_FOUND_ERROR:I = 0x1f3
+.field public static final STATUS_DEVICE_NOT_FOUND_ERROR:I = 0xc7
 
 .field public static final STATUS_FILE_ALREADY_EXISTS_ERROR:I = 0x1e8
 
@@ -176,7 +154,7 @@
 
 .field public static final STATUS_HTTP_EXCEPTION:I = 0x1f0
 
-.field public static final STATUS_INSUFFICIENT_SPACE_ERROR:I = 0x1e1
+.field public static final STATUS_INSUFFICIENT_SPACE_ERROR:I = 0xc6
 
 .field public static final STATUS_LENGTH_REQUIRED:I = 0x19b
 
@@ -186,17 +164,11 @@
 
 .field public static final STATUS_PENDING:I = 0xbe
 
-.field public static final STATUS_PENDING_PAUSED:I = 0xbf
-
 .field public static final STATUS_PRECONDITION_FAILED:I = 0x19c
 
 .field public static final STATUS_QUEUED_FOR_WIFI:I = 0xc4
 
 .field public static final STATUS_RUNNING:I = 0xc0
-
-.field public static final STATUS_RUNNING_PAUSED:I = 0xc5
-
-.field public static final STATUS_SPECIFY_APN_FAILED:I = 0x1e7
 
 .field public static final STATUS_SUCCESS:I = 0xc8
 
@@ -226,7 +198,7 @@
     .registers 1
 
     .prologue
-    .line 219
+    .line 88
     const-string v0, "content://downloads/my_downloads"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -235,7 +207,7 @@
 
     sput-object v0, Landroid/provider/Downloads$Impl;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 226
+    .line 95
     const-string v0, "content://downloads/all_downloads"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -244,7 +216,7 @@
 
     sput-object v0, Landroid/provider/Downloads$Impl;->ALL_DOWNLOADS_CONTENT_URI:Landroid/net/Uri;
 
-    .line 236
+    .line 105
     const-string v0, "content://downloads/public_downloads"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -260,8 +232,8 @@
     .registers 1
 
     .prologue
-    .line 172
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 41
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -273,7 +245,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 768
+    .line 538
     if-eq p0, v0, :cond_6
 
     const/4 v1, 0x3
@@ -295,7 +267,7 @@
     .parameter "status"
 
     .prologue
-    .line 751
+    .line 521
     const/16 v0, 0x190
 
     if-lt p0, v0, :cond_a
@@ -320,7 +292,7 @@
     .parameter "status"
 
     .prologue
-    .line 777
+    .line 547
     const/16 v0, 0xc8
 
     if-lt p0, v0, :cond_8
@@ -355,7 +327,7 @@
     .parameter "status"
 
     .prologue
-    .line 744
+    .line 514
     const/16 v0, 0x190
 
     if-lt p0, v0, :cond_a
@@ -380,7 +352,7 @@
     .parameter "status"
 
     .prologue
-    .line 719
+    .line 500
     const/16 v0, 0x64
 
     if-lt p0, v0, :cond_a
@@ -405,7 +377,7 @@
     .parameter "status"
 
     .prologue
-    .line 758
+    .line 528
     const/16 v0, 0x1f4
 
     if-lt p0, v0, :cond_a
@@ -430,7 +402,7 @@
     .parameter "status"
 
     .prologue
-    .line 737
+    .line 507
     const/16 v0, 0xc8
 
     if-lt p0, v0, :cond_a
@@ -439,32 +411,6 @@
 
     if-ge p0, v0, :cond_a
 
-    const/4 v0, 0x1
-
-    :goto_9
-    return v0
-
-    :cond_a
-    const/4 v0, 0x0
-
-    goto :goto_9
-.end method
-
-.method public static isStatusSuspended(I)Z
-    .registers 2
-    .parameter "status"
-
-    .prologue
-    .line 729
-    const/16 v0, 0xbf
-
-    if-eq p0, v0, :cond_8
-
-    const/16 v0, 0xc5
-
-    if-ne p0, v0, :cond_a
-
-    :cond_8
     const/4 v0, 0x1
 
     :goto_9

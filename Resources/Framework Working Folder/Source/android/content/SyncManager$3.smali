@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 219
+    .line 188
     iput-object p1, p0, Landroid/content/SyncManager$3;->this$0:Landroid/content/SyncManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,43 +35,19 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 10
+    .registers 5
     .parameter "context"
     .parameter "intent"
 
     .prologue
+    .line 190
+    iget-object v0, p0, Landroid/content/SyncManager$3;->this$0:Landroid/content/SyncManager;
+
     const/4 v1, 0x0
 
-    .line 221
-    iget-object v0, p0, Landroid/content/SyncManager$3;->this$0:Landroid/content/SyncManager;
+    #setter for: Landroid/content/SyncManager;->mUiContext:Landroid/content/Context;
+    invoke-static {v0, v1}, Landroid/content/SyncManager;->access$302(Landroid/content/SyncManager;Landroid/content/Context;)Landroid/content/Context;
 
-    #calls: Landroid/content/SyncManager;->getConnectivityManager()Landroid/net/ConnectivityManager;
-    invoke-static {v0}, Landroid/content/SyncManager;->access$300(Landroid/content/SyncManager;)Landroid/net/ConnectivityManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getBackgroundDataSetting()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1b
-
-    .line 222
-    iget-object v0, p0, Landroid/content/SyncManager$3;->this$0:Landroid/content/SyncManager;
-
-    new-instance v3, Landroid/os/Bundle;
-
-    invoke-direct {v3}, Landroid/os/Bundle;-><init>()V
-
-    const-wide/16 v4, 0x0
-
-    const/4 v6, 0x0
-
-    move-object v2, v1
-
-    invoke-virtual/range {v0 .. v6}, Landroid/content/SyncManager;->scheduleSync(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;JZ)V
-
-    .line 225
-    :cond_1b
+    .line 191
     return-void
 .end method

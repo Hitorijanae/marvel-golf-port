@@ -67,7 +67,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "http://video.google.com/videofeed?type=docid&output=rss&sourceid=gtalk&docid="
+    const-string v1, "http://video.google.com/videofeed?type=docid&output=rss&sourceid=gtalk&docid="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -106,7 +106,7 @@
 
     .prologue
     .line 858
-    if-nez p1, :cond_23
+    if-nez p1, :cond_22
 
     .line 859
     const-string p1, ""
@@ -118,7 +118,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "http://video.google.com/videoplay?"
+    const-string v1, "http://video.google.com/videoplay?"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -145,7 +145,7 @@
     return-object v0
 
     .line 860
-    :cond_23
+    :cond_22
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0

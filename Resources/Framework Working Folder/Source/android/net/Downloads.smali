@@ -100,7 +100,7 @@
 
     const/4 v1, 0x4
 
-    const-string/jumbo v2, "lastmod"
+    const-string v2, "lastmod"
 
     aput-object v2, v0, v1
 
@@ -120,7 +120,7 @@
 
     .prologue
     .line 643
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

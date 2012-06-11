@@ -17,11 +17,7 @@
 
 .field private static final TAG:Ljava/lang/String; = "NetInitiatedActivity"
 
-.field private static final VERBOSE:Z = false
-
-.field private static final WAKELOCK_KEY:Ljava/lang/String; = "NetInitiatedActivity"
-
-.field private static mWakeLock:Landroid/os/PowerManager$WakeLock;
+.field private static final VERBOSE:Z
 
 
 # instance fields
@@ -30,8 +26,6 @@
 .field private default_response_timeout:I
 
 .field private final mHandler:Landroid/os/Handler;
-
-.field private final mLock:Ljava/lang/Object;
 
 .field private mNetInitiatedReceiver:Landroid/content/BroadcastReceiver;
 
@@ -47,38 +41,31 @@
     .prologue
     const/4 v0, -0x1
 
-    .line 40
+    .line 39
     invoke-direct {p0}, Lcom/android/internal/app/AlertActivity;-><init>()V
 
-    .line 52
+    .line 51
     iput v0, p0, Lcom/android/internal/app/NetInitiatedActivity;->notificationId:I
 
-    .line 53
+    .line 52
     iput v0, p0, Lcom/android/internal/app/NetInitiatedActivity;->timeout:I
 
-    .line 54
+    .line 53
     iput v0, p0, Lcom/android/internal/app/NetInitiatedActivity;->default_response:I
 
-    .line 55
+    .line 54
     const/4 v0, 0x6
 
     iput v0, p0, Lcom/android/internal/app/NetInitiatedActivity;->default_response_timeout:I
 
-    .line 61
-    new-instance v0, Ljava/lang/Object;
-
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
-
-    iput-object v0, p0, Lcom/android/internal/app/NetInitiatedActivity;->mLock:Ljava/lang/Object;
-
-    .line 67
+    .line 57
     new-instance v0, Lcom/android/internal/app/NetInitiatedActivity$1;
 
     invoke-direct {v0, p0}, Lcom/android/internal/app/NetInitiatedActivity$1;-><init>(Lcom/android/internal/app/NetInitiatedActivity;)V
 
     iput-object v0, p0, Lcom/android/internal/app/NetInitiatedActivity;->mNetInitiatedReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 77
+    .line 67
     new-instance v0, Lcom/android/internal/app/NetInitiatedActivity$2;
 
     invoke-direct {v0, p0}, Lcom/android/internal/app/NetInitiatedActivity$2;-><init>(Lcom/android/internal/app/NetInitiatedActivity;)V
@@ -94,7 +81,7 @@
     .parameter "x1"
 
     .prologue
-    .line 40
+    .line 39
     invoke-direct {p0, p1}, Lcom/android/internal/app/NetInitiatedActivity;->handleNIVerify(Landroid/content/Intent;)V
 
     return-void
@@ -105,7 +92,7 @@
     .parameter "x0"
 
     .prologue
-    .line 40
+    .line 39
     iget v0, p0, Lcom/android/internal/app/NetInitiatedActivity;->notificationId:I
 
     return v0
@@ -116,7 +103,7 @@
     .parameter "x0"
 
     .prologue
-    .line 40
+    .line 39
     iget v0, p0, Lcom/android/internal/app/NetInitiatedActivity;->default_response:I
 
     return v0
@@ -128,8 +115,8 @@
     .parameter "x1"
 
     .prologue
-    .line 40
-    invoke-direct {p0, p1}, Lcom/android/internal/app/NetInitiatedActivity;->sendUserResponseLocked(I)V
+    .line 39
+    invoke-direct {p0, p1}, Lcom/android/internal/app/NetInitiatedActivity;->sendUserResponse(I)V
 
     return-void
 .end method
@@ -139,7 +126,7 @@
     .parameter "intent"
 
     .prologue
-    .line 182
+    .line 146
     const-string/jumbo v1, "notif_id"
 
     const/4 v2, -0x1
@@ -148,22 +135,11 @@
 
     move-result v0
 
-    .line 183
+    .line 147
     .local v0, notifId:I
-    iget-object v2, p0, Lcom/android/internal/app/NetInitiatedActivity;->mLock:Ljava/lang/Object;
-
-    monitor-enter v2
-
-    .line 184
-    :try_start_b
     iput v0, p0, Lcom/android/internal/app/NetInitiatedActivity;->notificationId:I
 
-    .line 185
-    monitor-exit v2
-    :try_end_e
-    .catchall {:try_start_b .. :try_end_e} :catchall_2b
-
-    .line 187
+    .line 149
     const-string v1, "NetInitiatedActivity"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -190,27 +166,16 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 188
+    .line 150
     return-void
-
-    .line 185
-    :catchall_2b
-    move-exception v1
-
-    :try_start_2c
-    monitor-exit v2
-    :try_end_2d
-    .catchall {:try_start_2c .. :try_end_2d} :catchall_2b
-
-    throw v1
 .end method
 
-.method private sendUserResponseLocked(I)V
+.method private sendUserResponse(I)V
     .registers 6
     .parameter "response"
 
     .prologue
-    .line 168
+    .line 139
     const-string v1, "NetInitiatedActivity"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -233,8 +198,8 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 169
-    const-string/jumbo v1, "location"
+    .line 140
+    const-string v1, "location"
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/NetInitiatedActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -242,35 +207,13 @@
 
     check-cast v0, Landroid/location/LocationManager;
 
-    .line 171
+    .line 142
     .local v0, locationManager:Landroid/location/LocationManager;
     iget v1, p0, Lcom/android/internal/app/NetInitiatedActivity;->notificationId:I
 
     invoke-virtual {v0, v1, p1}, Landroid/location/LocationManager;->sendNiResponse(II)Z
 
-    .line 174
-    sget-object v1, Lcom/android/internal/app/NetInitiatedActivity;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->isHeld()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3b
-
-    .line 175
-    const-string v1, "NetInitiatedActivity"
-
-    const-string v2, "Releasing wakelock"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 176
-    sget-object v1, Lcom/android/internal/app/NetInitiatedActivity;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->release()V
-
-    .line 179
-    :cond_3b
+    .line 143
     return-void
 .end method
 
@@ -278,7 +221,7 @@
     .registers 3
 
     .prologue
-    .line 191
+    .line 153
     const-string v0, "NI error"
 
     const/4 v1, 0x1
@@ -289,320 +232,238 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 193
+    .line 155
     return-void
 .end method
 
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 6
+    .registers 5
     .parameter "dialog"
     .parameter "which"
 
     .prologue
-    const/4 v2, -0x1
+    const/4 v1, -0x1
 
-    .line 148
-    iget-object v1, p0, Lcom/android/internal/app/NetInitiatedActivity;->mLock:Ljava/lang/Object;
+    .line 125
+    if-ne p2, v1, :cond_7
 
-    monitor-enter v1
-
-    .line 149
-    :try_start_4
-    iget v0, p0, Lcom/android/internal/app/NetInitiatedActivity;->notificationId:I
-
-    if-eq v0, v2, :cond_1b
-
-    .line 150
-    if-ne p2, v2, :cond_e
-
-    .line 151
+    .line 126
     const/4 v0, 0x1
 
-    invoke-direct {p0, v0}, Lcom/android/internal/app/NetInitiatedActivity;->sendUserResponseLocked(I)V
+    invoke-direct {p0, v0}, Lcom/android/internal/app/NetInitiatedActivity;->sendUserResponse(I)V
 
-    .line 153
-    :cond_e
+    .line 128
+    :cond_7
     const/4 v0, -0x2
 
-    if-ne p2, v0, :cond_15
+    if-ne p2, v0, :cond_e
 
-    .line 154
+    .line 129
     const/4 v0, 0x2
 
-    invoke-direct {p0, v0}, Lcom/android/internal/app/NetInitiatedActivity;->sendUserResponseLocked(I)V
+    invoke-direct {p0, v0}, Lcom/android/internal/app/NetInitiatedActivity;->sendUserResponse(I)V
 
-    .line 158
-    :cond_15
+    .line 133
+    :cond_e
     invoke-virtual {p0}, Lcom/android/internal/app/NetInitiatedActivity;->finish()V
 
-    .line 159
-    const/4 v0, -0x1
+    .line 134
+    iput v1, p0, Lcom/android/internal/app/NetInitiatedActivity;->notificationId:I
 
-    iput v0, p0, Lcom/android/internal/app/NetInitiatedActivity;->notificationId:I
-
-    .line 161
-    :cond_1b
-    monitor-exit v1
-
-    .line 162
+    .line 135
     return-void
-
-    .line 161
-    :catchall_1d
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_1f
-    .catchall {:try_start_4 .. :try_end_1f} :catchall_1d
-
-    throw v0
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 11
+    .registers 9
     .parameter "savedInstanceState"
 
     .prologue
-    const/4 v8, 0x1
+    const/4 v6, 0x1
 
-    const/4 v7, 0x0
+    const/4 v5, 0x0
 
-    .line 94
+    .line 84
     invoke-super {p0, p1}, Lcom/android/internal/app/AlertActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 97
+    .line 87
     invoke-virtual {p0}, Lcom/android/internal/app/NetInitiatedActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
-    .line 98
+    .line 88
     .local v1, intent:Landroid/content/Intent;
-    iget-object v3, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
+    iget-object v2, p0, Lcom/android/internal/app/NetInitiatedActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    .line 99
-    .local v3, p:Lcom/android/internal/app/AlertController$AlertParams;
+    .line 89
+    .local v2, p:Lcom/android/internal/app/AlertController$AlertParams;
     invoke-virtual {p0}, Lcom/android/internal/app/NetInitiatedActivity;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 100
+    .line 90
     .local v0, context:Landroid/content/Context;
-    const v5, 0x10802bf
+    const v3, 0x10802bf
 
-    iput v5, v3, Lcom/android/internal/app/AlertController$AlertParams;->mIconId:I
+    iput v3, v2, Lcom/android/internal/app/AlertController$AlertParams;->mIconId:I
+
+    .line 91
+    const-string/jumbo v3, "title"
+
+    invoke-virtual {v1, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    iput-object v3, v2, Lcom/android/internal/app/AlertController$AlertParams;->mTitle:Ljava/lang/CharSequence;
+
+    .line 92
+    const-string/jumbo v3, "message"
+
+    invoke-virtual {v1, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    iput-object v3, v2, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
+
+    .line 93
+    const v3, 0x1040484
+
+    invoke-virtual {v0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    new-array v4, v5, [Ljava/lang/Object;
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    iput-object v3, v2, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonText:Ljava/lang/CharSequence;
+
+    .line 94
+    iput-object p0, v2, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
+
+    .line 95
+    const v3, 0x1040485
+
+    invoke-virtual {v0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    new-array v4, v5, [Ljava/lang/Object;
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    iput-object v3, v2, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonText:Ljava/lang/CharSequence;
+
+    .line 96
+    iput-object p0, v2, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonListener:Landroid/content/DialogInterface$OnClickListener;
+
+    .line 98
+    const-string/jumbo v3, "notif_id"
+
+    const/4 v4, -0x1
+
+    invoke-virtual {v1, v3, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v3
+
+    iput v3, p0, Lcom/android/internal/app/NetInitiatedActivity;->notificationId:I
+
+    .line 99
+    const-string/jumbo v3, "timeout"
+
+    iget v4, p0, Lcom/android/internal/app/NetInitiatedActivity;->default_response_timeout:I
+
+    invoke-virtual {v1, v3, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v3
+
+    iput v3, p0, Lcom/android/internal/app/NetInitiatedActivity;->timeout:I
+
+    .line 100
+    const-string v3, "default_resp"
+
+    invoke-virtual {v1, v3, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v3
+
+    iput v3, p0, Lcom/android/internal/app/NetInitiatedActivity;->default_response:I
 
     .line 101
-    const-string/jumbo v5, "title"
+    const-string v3, "NetInitiatedActivity"
 
-    invoke-virtual {v1, v5}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    iput-object v5, v3, Lcom/android/internal/app/AlertController$AlertParams;->mTitle:Ljava/lang/CharSequence;
+    const-string/jumbo v5, "onCreate() : notificationId: "
 
-    .line 102
-    const-string/jumbo v5, "message"
-
-    invoke-virtual {v1, v5}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    iput-object v5, v3, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
-
-    .line 103
-    const v5, 0x104047c
-
-    invoke-virtual {v0, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    new-array v6, v7, [Ljava/lang/Object;
-
-    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v5
-
-    iput-object v5, v3, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonText:Ljava/lang/CharSequence;
-
-    .line 104
-    iput-object p0, v3, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
-
-    .line 105
-    const v5, 0x104047d
-
-    invoke-virtual {v0, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    new-array v6, v7, [Ljava/lang/Object;
-
-    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v5
-
-    iput-object v5, v3, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonText:Ljava/lang/CharSequence;
-
-    .line 106
-    iput-object p0, v3, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonListener:Landroid/content/DialogInterface$OnClickListener;
-
-    .line 108
-    const-string/jumbo v5, "notif_id"
-
-    const/4 v6, -0x1
-
-    invoke-virtual {v1, v5, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v5
-
-    iput v5, p0, Lcom/android/internal/app/NetInitiatedActivity;->notificationId:I
-
-    .line 109
-    const-string/jumbo v5, "timeout"
-
-    iget v6, p0, Lcom/android/internal/app/NetInitiatedActivity;->default_response_timeout:I
-
-    invoke-virtual {v1, v5, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v5
-
-    iput v5, p0, Lcom/android/internal/app/NetInitiatedActivity;->timeout:I
-
-    .line 110
-    const-string v5, "default_resp"
-
-    invoke-virtual {v1, v5, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v5
-
-    iput v5, p0, Lcom/android/internal/app/NetInitiatedActivity;->default_response:I
-
-    .line 111
-    const-string v5, "NetInitiatedActivity"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "onCreate() : notificationId: "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    iget v7, p0, Lcom/android/internal/app/NetInitiatedActivity;->notificationId:I
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string v7, " timeout: "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    iget v7, p0, Lcom/android/internal/app/NetInitiatedActivity;->timeout:I
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string v7, " default_response:"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    iget v7, p0, Lcom/android/internal/app/NetInitiatedActivity;->default_response:I
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 113
-    iget-object v5, p0, Lcom/android/internal/app/NetInitiatedActivity;->mHandler:Landroid/os/Handler;
-
-    iget-object v6, p0, Lcom/android/internal/app/NetInitiatedActivity;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v6, v8}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v6
-
-    iget v7, p0, Lcom/android/internal/app/NetInitiatedActivity;->timeout:I
-
-    mul-int/lit16 v7, v7, 0x3e8
-
-    int-to-long v7, v7
-
-    invoke-virtual {v5, v6, v7, v8}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
-
-    .line 114
-    invoke-virtual {p0}, Lcom/android/internal/app/NetInitiatedActivity;->setupAlert()V
-
-    .line 117
-    sget-object v5, Lcom/android/internal/app/NetInitiatedActivity;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    if-nez v5, :cond_c4
-
-    .line 118
-    move-object v2, p0
-
-    .line 119
-    .local v2, mContext:Landroid/content/Context;
-    const-string/jumbo v5, "power"
-
-    invoke-virtual {v2, v5}, Lcom/android/internal/app/NetInitiatedActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    check-cast v4, Landroid/os/PowerManager;
+    iget v5, p0, Lcom/android/internal/app/NetInitiatedActivity;->notificationId:I
 
-    .line 120
-    .local v4, powerManager:Landroid/os/PowerManager;
-    const v5, 0x1000000a
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v6, "NetInitiatedActivity"
+    move-result-object v4
 
-    invoke-virtual {v4, v5, v6}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
+    const-string v5, " timeout: "
 
-    move-result-object v5
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sput-object v5, Lcom/android/internal/app/NetInitiatedActivity;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+    move-result-object v4
 
-    .line 123
-    .end local v2           #mContext:Landroid/content/Context;
-    .end local v4           #powerManager:Landroid/os/PowerManager;
-    :cond_c4
-    sget-object v5, Lcom/android/internal/app/NetInitiatedActivity;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+    iget v5, p0, Lcom/android/internal/app/NetInitiatedActivity;->timeout:I
 
-    invoke-virtual {v5}, Landroid/os/PowerManager$WakeLock;->isHeld()Z
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result v5
+    move-result-object v4
 
-    if-nez v5, :cond_d8
+    const-string v5, " default_response:"
 
-    .line 124
-    const-string v5, "NetInitiatedActivity"
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, "Acquiring wakelock"
+    move-result-object v4
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iget v5, p0, Lcom/android/internal/app/NetInitiatedActivity;->default_response:I
 
-    .line 125
-    sget-object v5, Lcom/android/internal/app/NetInitiatedActivity;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Landroid/os/PowerManager$WakeLock;->acquire()V
+    move-result-object v4
 
-    .line 128
-    :cond_d8
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 103
+    iget-object v3, p0, Lcom/android/internal/app/NetInitiatedActivity;->mHandler:Landroid/os/Handler;
+
+    iget-object v4, p0, Lcom/android/internal/app/NetInitiatedActivity;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v4, v6}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v4
+
+    iget v5, p0, Lcom/android/internal/app/NetInitiatedActivity;->timeout:I
+
+    mul-int/lit16 v5, v5, 0x3e8
+
+    int-to-long v5, v5
+
+    invoke-virtual {v3, v4, v5, v6}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+
+    .line 104
+    invoke-virtual {p0}, Lcom/android/internal/app/NetInitiatedActivity;->setupAlert()V
+
+    .line 105
     return-void
 .end method
 
@@ -610,22 +471,22 @@
     .registers 3
 
     .prologue
-    .line 139
+    .line 116
     invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onPause()V
 
-    .line 140
+    .line 117
     const-string v0, "NetInitiatedActivity"
 
     const-string/jumbo v1, "onPause"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 141
+    .line 118
     iget-object v0, p0, Lcom/android/internal/app/NetInitiatedActivity;->mNetInitiatedReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/app/NetInitiatedActivity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 142
+    .line 119
     return-void
 .end method
 
@@ -633,17 +494,17 @@
     .registers 4
 
     .prologue
-    .line 132
+    .line 109
     invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onResume()V
 
-    .line 133
+    .line 110
     const-string v0, "NetInitiatedActivity"
 
     const-string/jumbo v1, "onResume"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 134
+    .line 111
     iget-object v0, p0, Lcom/android/internal/app/NetInitiatedActivity;->mNetInitiatedReceiver:Landroid/content/BroadcastReceiver;
 
     new-instance v1, Landroid/content/IntentFilter;
@@ -654,6 +515,6 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/app/NetInitiatedActivity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 135
+    .line 112
     return-void
 .end method

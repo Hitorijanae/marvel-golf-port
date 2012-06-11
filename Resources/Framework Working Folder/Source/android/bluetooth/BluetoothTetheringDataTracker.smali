@@ -50,7 +50,7 @@
     const/4 v4, 0x0
 
     .line 65
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 47
     new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -461,7 +461,7 @@
     .parameter "met"
 
     .prologue
-    .line 320
+    .line 307
     return-void
 .end method
 
@@ -477,7 +477,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "ignoring setPolicyDataEnable("
+    const-string v2, "ignoring setPolicyDataEnable("
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -540,7 +540,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "ignoring setUserDataEnable("
+    const-string v2, "ignoring setUserDataEnable("
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -625,13 +625,13 @@
 
     invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    .line 295
+    .line 288
     .local v0, dhcpThread:Ljava/lang/Thread;
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
     :try_end_12
     .catchall {:try_start_1 .. :try_end_12} :catchall_14
 
-    .line 296
+    .line 289
     monitor-exit p0
 
     return-void
@@ -660,106 +660,83 @@
 .end method
 
 .method public declared-synchronized stopReverseTether(Ljava/lang/String;)V
-    .registers 8
+    .registers 7
     .parameter "iface"
 
     .prologue
-    .line 299
+    .line 292
     monitor-enter p0
 
     :try_start_1
     invoke-static {p1}, Landroid/net/NetworkUtils;->stopDhcp(Ljava/lang/String;)Z
 
-    .line 301
-    iget-object v2, p0, Landroid/bluetooth/BluetoothTetheringDataTracker;->mLinkProperties:Landroid/net/LinkProperties;
+    .line 294
+    iget-object v1, p0, Landroid/bluetooth/BluetoothTetheringDataTracker;->mLinkProperties:Landroid/net/LinkProperties;
 
-    invoke-virtual {v2}, Landroid/net/LinkProperties;->clear()V
+    invoke-virtual {v1}, Landroid/net/LinkProperties;->clear()V
 
-    .line 302
-    iget-object v2, p0, Landroid/bluetooth/BluetoothTetheringDataTracker;->mNetworkInfo:Landroid/net/NetworkInfo;
+    .line 295
+    iget-object v1, p0, Landroid/bluetooth/BluetoothTetheringDataTracker;->mNetworkInfo:Landroid/net/NetworkInfo;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Landroid/net/NetworkInfo;->setIsAvailable(Z)V
+
+    .line 296
+    iget-object v1, p0, Landroid/bluetooth/BluetoothTetheringDataTracker;->mNetworkInfo:Landroid/net/NetworkInfo;
+
+    sget-object v2, Landroid/net/NetworkInfo$DetailedState;->DISCONNECTED:Landroid/net/NetworkInfo$DetailedState;
 
     const/4 v3, 0x0
 
-    invoke-virtual {v2, v3}, Landroid/net/NetworkInfo;->setIsAvailable(Z)V
-
-    .line 303
-    iget-object v2, p0, Landroid/bluetooth/BluetoothTetheringDataTracker;->mNetworkInfo:Landroid/net/NetworkInfo;
-
-    sget-object v3, Landroid/net/NetworkInfo$DetailedState;->DISCONNECTED:Landroid/net/NetworkInfo$DetailedState;
-
     const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    invoke-virtual {v1, v2, v3, v4}, Landroid/net/NetworkInfo;->setDetailedState(Landroid/net/NetworkInfo$DetailedState;Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3, v4, v5}, Landroid/net/NetworkInfo;->setDetailedState(Landroid/net/NetworkInfo$DetailedState;Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_18
-    .catchall {:try_start_1 .. :try_end_18} :catchall_3c
+    .line 298
+    iget-object v1, p0, Landroid/bluetooth/BluetoothTetheringDataTracker;->mCsHandler:Landroid/os/Handler;
 
-    .line 307
-    :try_start_18
-    iget-object v2, p0, Landroid/bluetooth/BluetoothTetheringDataTracker;->mCsHandler:Landroid/os/Handler;
+    const/4 v2, 0x3
 
-    const/4 v3, 0x3
+    iget-object v3, p0, Landroid/bluetooth/BluetoothTetheringDataTracker;->mNetworkInfo:Landroid/net/NetworkInfo;
 
-    iget-object v4, p0, Landroid/bluetooth/BluetoothTetheringDataTracker;->mNetworkInfo:Landroid/net/NetworkInfo;
+    invoke-virtual {v1, v2, v3}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    invoke-virtual {v2, v3, v4}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    move-result-object v0
 
-    move-result-object v1
+    .line 299
+    .local v0, msg:Landroid/os/Message;
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 308
-    .local v1, msg:Landroid/os/Message;
-    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
+    .line 301
+    iget-object v1, p0, Landroid/bluetooth/BluetoothTetheringDataTracker;->mCsHandler:Landroid/os/Handler;
 
-    .line 310
-    iget-object v2, p0, Landroid/bluetooth/BluetoothTetheringDataTracker;->mCsHandler:Landroid/os/Handler;
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    iget-object v3, p0, Landroid/bluetooth/BluetoothTetheringDataTracker;->mNetworkInfo:Landroid/net/NetworkInfo;
 
-    iget-object v4, p0, Landroid/bluetooth/BluetoothTetheringDataTracker;->mNetworkInfo:Landroid/net/NetworkInfo;
+    invoke-virtual {v1, v2, v3}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    invoke-virtual {v2, v3, v4}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    move-result-object v0
 
-    move-result-object v1
-
-    .line 311
-    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
+    .line 302
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
     :try_end_30
-    .catchall {:try_start_18 .. :try_end_30} :catchall_3c
-    .catch Ljava/lang/Exception; {:try_start_18 .. :try_end_30} :catch_32
+    .catchall {:try_start_1 .. :try_end_30} :catchall_32
 
-    .line 316
-    .end local v1           #msg:Landroid/os/Message;
-    :goto_30
+    .line 303
     monitor-exit p0
 
     return-void
 
-    .line 312
-    :catch_32
-    move-exception v0
-
-    .line 313
-    .local v0, e:Ljava/lang/Exception;
-    :try_start_33
-    const-string v2, "BluetoothTethering"
-
-    const-string/jumbo v3, "stopReverseTether: exception occurred"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_3b
-    .catchall {:try_start_33 .. :try_end_3b} :catchall_3c
-
-    goto :goto_30
-
-    .line 299
-    .end local v0           #e:Ljava/lang/Exception;
-    :catchall_3c
-    move-exception v2
+    .line 292
+    .end local v0           #msg:Landroid/os/Message;
+    :catchall_32
+    move-exception v1
 
     monitor-exit p0
 
-    throw v2
+    throw v1
 .end method
 
 .method public stopUsingNetworkFeature(Ljava/lang/String;II)I

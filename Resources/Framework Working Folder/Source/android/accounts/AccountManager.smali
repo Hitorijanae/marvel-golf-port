@@ -108,7 +108,7 @@
 
     .prologue
     .line 242
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 1835
     invoke-static {}, Lcom/google/android/collect/Maps;->newHashMap()Ljava/util/HashMap;
@@ -155,7 +155,7 @@
 
     .prologue
     .line 251
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 1835
     invoke-static {}, Lcom/google/android/collect/Maps;->newHashMap()Ljava/util/HashMap;
@@ -1747,31 +1747,31 @@
 
     .line 332
     :cond_a
-    if-nez p2, :cond_15
+    if-nez p2, :cond_14
 
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v2, "key is null"
+    const-string v2, "key is null"
 
     invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
     .line 334
-    :cond_15
-    :try_start_15
+    :cond_14
+    :try_start_14
     iget-object v1, p0, Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
 
     invoke-interface {v1, p1, p2}, Landroid/accounts/IAccountManager;->getUserData(Landroid/accounts/Account;Ljava/lang/String;)Ljava/lang/String;
-    :try_end_1a
-    .catch Landroid/os/RemoteException; {:try_start_15 .. :try_end_1a} :catch_1c
+    :try_end_19
+    .catch Landroid/os/RemoteException; {:try_start_14 .. :try_end_19} :catch_1b
 
     move-result-object v1
 
     return-object v1
 
     .line 335
-    :catch_1c
+    :catch_1b
     move-exception v0
 
     .line 337
@@ -2011,31 +2011,31 @@
 
     .prologue
     .line 1922
-    if-nez p1, :cond_b
+    if-nez p1, :cond_a
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "listener is null"
+    const-string v1, "listener is null"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 1923
-    :cond_b
+    :cond_a
     iget-object v1, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
 
     monitor-enter v1
 
     .line 1924
-    :try_start_e
+    :try_start_d
     iget-object v0, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1f
+    if-nez v0, :cond_1e
 
     .line 1925
     const-string v0, "AccountManager"
@@ -2048,11 +2048,11 @@
     monitor-exit v1
 
     .line 1933
-    :goto_1e
+    :goto_1d
     return-void
 
     .line 1928
-    :cond_1f
+    :cond_1e
     iget-object v0, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2064,7 +2064,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_32
 
     .line 1930
     iget-object v0, p0, Landroid/accounts/AccountManager;->mContext:Landroid/content/Context;
@@ -2074,17 +2074,17 @@
     invoke-virtual {v0, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     .line 1932
-    :cond_33
+    :cond_32
     monitor-exit v1
 
-    goto :goto_1e
+    goto :goto_1d
 
-    :catchall_35
+    :catchall_34
     move-exception v0
 
     monitor-exit v1
-    :try_end_37
-    .catchall {:try_start_e .. :try_end_37} :catchall_35
+    :try_end_36
+    .catchall {:try_start_d .. :try_end_36} :catchall_34
 
     throw v0
 .end method
@@ -2206,30 +2206,30 @@
 
     .line 682
     :cond_a
-    if-nez p2, :cond_15
+    if-nez p2, :cond_14
 
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v2, "key is null"
+    const-string v2, "key is null"
 
     invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
     .line 684
-    :cond_15
-    :try_start_15
+    :cond_14
+    :try_start_14
     iget-object v1, p0, Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
 
     invoke-interface {v1, p1, p2, p3}, Landroid/accounts/IAccountManager;->setUserData(Landroid/accounts/Account;Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_1a
-    .catch Landroid/os/RemoteException; {:try_start_15 .. :try_end_1a} :catch_1b
+    :try_end_19
+    .catch Landroid/os/RemoteException; {:try_start_14 .. :try_end_19} :catch_1a
 
     .line 689
     return-void
 
     .line 685
-    :catch_1b
+    :catch_1a
     move-exception v0
 
     .line 687

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 2828
+    .line 2529
     iput-object p1, p0, Landroid/view/ViewGroup$1;->this$0:Landroid/view/ViewGroup;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,12 +41,12 @@
     .registers 2
 
     .prologue
-    .line 2830
+    .line 2531
     iget-object v0, p0, Landroid/view/ViewGroup$1;->this$0:Landroid/view/ViewGroup;
 
     #calls: Landroid/view/ViewGroup;->notifyAnimationListener()V
     invoke-static {v0}, Landroid/view/ViewGroup;->access$000(Landroid/view/ViewGroup;)V
 
-    .line 2831
+    .line 2532
     return-void
 .end method

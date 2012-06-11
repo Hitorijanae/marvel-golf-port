@@ -28,7 +28,7 @@
 
     .prologue
     .line 105
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 106
     iput-object p1, p0, Landroid/bluetooth/IBluetoothHealthCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
@@ -148,7 +148,6 @@
     .line 135
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 134
     throw v2
 .end method
 
@@ -279,7 +278,6 @@
     .line 173
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 172
     throw v2
 
     .line 156

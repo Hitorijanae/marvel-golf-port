@@ -4,12 +4,6 @@
 
 
 # static fields
-.field public static final CHUNK_GPFF:I
-
-.field public static final CHUNK_MLGE:I
-
-.field public static final CHUNK_MLGS:I
-
 .field public static final CHUNK_MPRE:I
 
 .field public static final CHUNK_MPRQ:I
@@ -20,8 +14,6 @@
 
 .field public static final CHUNK_MPSS:I
 
-.field public static final CHUNK_SPFF:I
-
 .field private static mInstance:Landroid/ddm/DdmHandleProfiling;
 
 
@@ -30,7 +22,7 @@
     .registers 1
 
     .prologue
-    .line 38
+    .line 32
     const-string v0, "MPRS"
 
     invoke-static {v0}, Landroid/ddm/DdmHandleProfiling;->type(Ljava/lang/String;)I
@@ -39,7 +31,7 @@
 
     sput v0, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPRS:I
 
-    .line 39
+    .line 33
     const-string v0, "MPRE"
 
     invoke-static {v0}, Landroid/ddm/DdmHandleProfiling;->type(Ljava/lang/String;)I
@@ -48,7 +40,7 @@
 
     sput v0, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPRE:I
 
-    .line 40
+    .line 34
     const-string v0, "MPSS"
 
     invoke-static {v0}, Landroid/ddm/DdmHandleProfiling;->type(Ljava/lang/String;)I
@@ -57,7 +49,7 @@
 
     sput v0, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPSS:I
 
-    .line 41
+    .line 35
     const-string v0, "MPSE"
 
     invoke-static {v0}, Landroid/ddm/DdmHandleProfiling;->type(Ljava/lang/String;)I
@@ -66,7 +58,7 @@
 
     sput v0, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPSE:I
 
-    .line 42
+    .line 36
     const-string v0, "MPRQ"
 
     invoke-static {v0}, Landroid/ddm/DdmHandleProfiling;->type(Ljava/lang/String;)I
@@ -75,43 +67,7 @@
 
     sput v0, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPRQ:I
 
-    .line 44
-    const-string v0, "MLGS"
-
-    invoke-static {v0}, Landroid/ddm/DdmHandleProfiling;->type(Ljava/lang/String;)I
-
-    move-result v0
-
-    sput v0, Landroid/ddm/DdmHandleProfiling;->CHUNK_MLGS:I
-
-    .line 45
-    const-string v0, "MLGE"
-
-    invoke-static {v0}, Landroid/ddm/DdmHandleProfiling;->type(Ljava/lang/String;)I
-
-    move-result v0
-
-    sput v0, Landroid/ddm/DdmHandleProfiling;->CHUNK_MLGE:I
-
-    .line 46
-    const-string v0, "SPFF"
-
-    invoke-static {v0}, Landroid/ddm/DdmHandleProfiling;->type(Ljava/lang/String;)I
-
-    move-result v0
-
-    sput v0, Landroid/ddm/DdmHandleProfiling;->CHUNK_SPFF:I
-
-    .line 47
-    const-string v0, "GPFF"
-
-    invoke-static {v0}, Landroid/ddm/DdmHandleProfiling;->type(Ljava/lang/String;)I
-
-    move-result v0
-
-    sput v0, Landroid/ddm/DdmHandleProfiling;->CHUNK_GPFF:I
-
-    .line 50
+    .line 38
     new-instance v0, Landroid/ddm/DdmHandleProfiling;
 
     invoke-direct {v0}, Landroid/ddm/DdmHandleProfiling;-><init>()V
@@ -125,322 +81,10 @@
     .registers 1
 
     .prologue
-    .line 54
+    .line 42
     invoke-direct {p0}, Lorg/apache/harmony/dalvik/ddmc/ChunkHandler;-><init>()V
 
     return-void
-.end method
-
-.method private handleGPFF(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 23
-    .parameter "request"
-
-    .prologue
-    .line 299
-    invoke-static {}, Lcom/htc/profileflag/ProfileConfig;->getProfileResume()Z
-
-    move-result v15
-
-    .line 300
-    .local v15, resume:Z
-    invoke-static {}, Lcom/htc/profileflag/ProfileConfig;->getProfileLaunch()Z
-
-    move-result v10
-
-    .line 301
-    .local v10, launch:Z
-    invoke-static {}, Lcom/htc/profileflag/ProfileConfig;->getProfileOpenCursor()Z
-
-    move-result v11
-
-    .line 302
-    .local v11, opencursor:Z
-    invoke-static {}, Lcom/htc/profileflag/ProfileConfig;->getCheckHeap()Z
-
-    move-result v5
-
-    .line 303
-    .local v5, checkheap:Z
-    invoke-static {}, Lcom/htc/profileflag/ProfileConfig;->getRecycleBitmap()Z
-
-    move-result v12
-
-    .line 304
-    .local v12, recyclebmp:Z
-    invoke-static {}, Lcom/htc/profileflag/ProfileConfig;->getCheckLowMemory()Z
-
-    move-result v6
-
-    .line 305
-    .local v6, checklowmemory:Z
-    invoke-static {}, Lcom/htc/profileflag/ProfileConfig;->getProfileDebugMonitor()Z
-
-    move-result v7
-
-    .line 306
-    .local v7, debugmonitor:Z
-    invoke-static {}, Lcom/htc/profileflag/ProfileConfig;->getProfileKeyInputQueueDebugUpDown()Z
-
-    move-result v9
-
-    .line 307
-    .local v9, keyInputQueue_debugUpDown:Z
-    invoke-static {}, Lcom/htc/profileflag/ProfileConfig;->getProfileWindowManagerServiceDebugUpDown()Z
-
-    move-result v16
-
-    .line 308
-    .local v16, windowManagerService_debugUpDown:Z
-    invoke-static {}, Lcom/htc/profileflag/ProfileConfig;->getRecycleBitmapSize()I
-
-    move-result v13
-
-    .line 310
-    .local v13, recyclebmpsize:I
-    const/4 v8, 0x0
-
-    .line 312
-    .local v8, flags:I
-    if-eqz v15, :cond_2d
-
-    add-int/lit8 v8, v8, 0x1
-
-    .line 313
-    :cond_2d
-    if-eqz v10, :cond_31
-
-    add-int/lit8 v8, v8, 0x2
-
-    .line 314
-    :cond_31
-    if-eqz v11, :cond_35
-
-    add-int/lit8 v8, v8, 0x4
-
-    .line 315
-    :cond_35
-    if-eqz v5, :cond_39
-
-    add-int/lit8 v8, v8, 0x8
-
-    .line 316
-    :cond_39
-    if-eqz v12, :cond_3d
-
-    add-int/lit8 v8, v8, 0x10
-
-    .line 317
-    :cond_3d
-    if-eqz v6, :cond_41
-
-    add-int/lit8 v8, v8, 0x20
-
-    .line 318
-    :cond_41
-    if-eqz v7, :cond_45
-
-    add-int/lit8 v8, v8, 0x40
-
-    .line 319
-    :cond_45
-    if-eqz v9, :cond_49
-
-    add-int/lit16 v8, v8, 0x80
-
-    .line 320
-    :cond_49
-    if-eqz v16, :cond_4d
-
-    add-int/lit16 v8, v8, 0x100
-
-    .line 322
-    :cond_4d
-    const/16 v17, 0x8
-
-    invoke-static/range {v17 .. v17}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
-
-    move-result-object v4
-
-    .line 324
-    .local v4, bb:Ljava/nio/ByteBuffer;
-    invoke-virtual {v4, v8}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
-
-    .line 325
-    invoke-virtual {v4, v13}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
-
-    .line 327
-    invoke-virtual {v4}, Ljava/nio/ByteBuffer;->array()[B
-
-    move-result-object v14
-
-    .line 333
-    .local v14, reply:[B
-    new-instance v17, Lorg/apache/harmony/dalvik/ddmc/Chunk;
-
-    sget v18, Landroid/ddm/DdmHandleProfiling;->CHUNK_GPFF:I
-
-    const/16 v19, 0x0
-
-    array-length v0, v14
-
-    move/from16 v20, v0
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v18
-
-    move/from16 v2, v19
-
-    move/from16 v3, v20
-
-    invoke-direct {v0, v1, v14, v2, v3}, Lorg/apache/harmony/dalvik/ddmc/Chunk;-><init>(I[BII)V
-
-    return-object v17
-.end method
-
-.method private handleMLGE(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 6
-    .parameter "request"
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 245
-    :try_start_1
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v2, v3}, Landroid/os/Looper;->setMessageLogging(Landroid/util/Printer;)V
-    :try_end_9
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_9} :catch_a
-
-    .line 249
-    :goto_9
-    return-object v1
-
-    .line 247
-    :catch_a
-    move-exception v0
-
-    .line 248
-    .local v0, e:Ljava/lang/Exception;
-    const-string v1, "ddm-prof"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Message logging end failed: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 249
-    const/4 v1, 0x1
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/ddm/DdmHandleProfiling;->createFailChunk(ILjava/lang/String;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-
-    move-result-object v1
-
-    goto :goto_9
-.end method
-
-.method private handleMLGS(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 7
-    .parameter "request"
-
-    .prologue
-    .line 226
-    :try_start_0
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
-
-    move-result-object v1
-
-    new-instance v2, Landroid/util/LogPrinter;
-
-    const/4 v3, 0x2
-
-    const-string v4, "LOG_TAG"
-
-    invoke-direct {v2, v3, v4}, Landroid/util/LogPrinter;-><init>(ILjava/lang/String;)V
-
-    invoke-virtual {v1, v2}, Landroid/os/Looper;->setMessageLogging(Landroid/util/Printer;)V
-    :try_end_f
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_f} :catch_11
-
-    .line 227
-    const/4 v1, 0x0
-
-    .line 230
-    :goto_10
-    return-object v1
-
-    .line 228
-    :catch_11
-    move-exception v0
-
-    .line 229
-    .local v0, e:Ljava/lang/Exception;
-    const-string v1, "ddm-prof"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Message logging start failed: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 230
-    const/4 v1, 0x1
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/ddm/DdmHandleProfiling;->createFailChunk(ILjava/lang/String;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-
-    move-result-object v1
-
-    goto :goto_10
 .end method
 
 .method private handleMPRE(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
@@ -450,16 +94,16 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 148
+    .line 120
     :try_start_1
     invoke-static {}, Landroid/os/Debug;->stopMethodTracing()V
     :try_end_4
     .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_4} :catch_13
 
-    .line 149
+    .line 121
     const/4 v2, 0x0
 
-    .line 157
+    .line 129
     .local v2, result:B
     :goto_5
     const/4 v3, 0x1
@@ -468,7 +112,7 @@
 
     aput-byte v2, v1, v6
 
-    .line 158
+    .line 130
     .local v1, reply:[B
     new-instance v3, Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
@@ -480,13 +124,13 @@
 
     return-object v3
 
-    .line 150
+    .line 122
     .end local v1           #reply:[B
     .end local v2           #result:B
     :catch_13
     move-exception v0
 
-    .line 151
+    .line 123
     .local v0, re:Ljava/lang/RuntimeException;
     const-string v3, "ddm-heap"
 
@@ -514,7 +158,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 153
+    .line 125
     const/4 v2, 0x1
 
     .restart local v2       #result:B
@@ -530,7 +174,7 @@
 
     const/4 v3, 0x0
 
-    .line 209
+    .line 181
     invoke-static {}, Landroid/os/Debug;->isMethodTracingActive()Z
 
     move-result v4
@@ -539,7 +183,7 @@
 
     move v1, v2
 
-    .line 212
+    .line 184
     .local v1, result:I
     :goto_9
     new-array v0, v2, [B
@@ -548,7 +192,7 @@
 
     aput-byte v2, v0, v3
 
-    .line 213
+    .line 185
     .local v0, reply:[B
     new-instance v2, Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
@@ -565,7 +209,7 @@
     :cond_17
     move v1, v3
 
-    .line 209
+    .line 181
     goto :goto_9
 .end method
 
@@ -574,54 +218,54 @@
     .parameter "request"
 
     .prologue
-    .line 123
+    .line 95
     invoke-static {p1}, Landroid/ddm/DdmHandleProfiling;->wrapChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Ljava/nio/ByteBuffer;
 
     move-result-object v3
 
-    .line 125
+    .line 97
     .local v3, in:Ljava/nio/ByteBuffer;
     invoke-virtual {v3}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v0
 
-    .line 126
+    .line 98
     .local v0, bufferSize:I
     invoke-virtual {v3}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v2
 
-    .line 127
+    .line 99
     .local v2, flags:I
     invoke-virtual {v3}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v4
 
-    .line 128
+    .line 100
     .local v4, len:I
     invoke-static {v3, v4}, Landroid/ddm/DdmHandleProfiling;->getString(Ljava/nio/ByteBuffer;I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 134
+    .line 106
     .local v1, fileName:Ljava/lang/String;
     :try_start_14
     invoke-static {v1, v0, v2}, Landroid/os/Debug;->startMethodTracing(Ljava/lang/String;II)V
     :try_end_17
     .catch Ljava/lang/RuntimeException; {:try_start_14 .. :try_end_17} :catch_19
 
-    .line 135
+    .line 107
     const/4 v6, 0x0
 
-    .line 137
+    .line 109
     :goto_18
     return-object v6
 
-    .line 136
+    .line 108
     :catch_19
     move-exception v5
 
-    .line 137
+    .line 109
     .local v5, re:Ljava/lang/RuntimeException;
     const/4 v6, 0x1
 
@@ -641,16 +285,16 @@
     .parameter "request"
 
     .prologue
-    .line 193
+    .line 165
     :try_start_0
     invoke-static {}, Landroid/os/Debug;->stopMethodTracing()V
     :try_end_3
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_3} :catch_6
 
-    .line 194
+    .line 166
     const/4 v1, 0x0
 
-    .line 202
+    .line 174
     .local v1, result:B
     const/4 v2, 0x0
 
@@ -658,11 +302,11 @@
     :goto_5
     return-object v2
 
-    .line 195
+    .line 167
     :catch_6
     move-exception v0
 
-    .line 196
+    .line 168
     .local v0, re:Ljava/lang/RuntimeException;
     const-string v2, "ddm-heap"
 
@@ -690,7 +334,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 198
+    .line 170
     const/4 v2, 0x1
 
     invoke-virtual {v0}, Ljava/lang/RuntimeException;->getMessage()Ljava/lang/String;
@@ -709,42 +353,42 @@
     .parameter "request"
 
     .prologue
-    .line 165
+    .line 137
     invoke-static {p1}, Landroid/ddm/DdmHandleProfiling;->wrapChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Ljava/nio/ByteBuffer;
 
     move-result-object v2
 
-    .line 167
+    .line 139
     .local v2, in:Ljava/nio/ByteBuffer;
     invoke-virtual {v2}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v0
 
-    .line 168
+    .line 140
     .local v0, bufferSize:I
     invoke-virtual {v2}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v1
 
-    .line 175
+    .line 147
     .local v1, flags:I
     :try_start_c
     invoke-static {v0, v1}, Landroid/os/Debug;->startMethodTracingDdms(II)V
     :try_end_f
     .catch Ljava/lang/RuntimeException; {:try_start_c .. :try_end_f} :catch_11
 
-    .line 176
+    .line 148
     const/4 v4, 0x0
 
-    .line 178
+    .line 150
     :goto_10
     return-object v4
 
-    .line 177
+    .line 149
     :catch_11
     move-exception v3
 
-    .line 178
+    .line 150
     .local v3, re:Ljava/lang/RuntimeException;
     const/4 v4, 0x1
 
@@ -759,336 +403,46 @@
     goto :goto_10
 .end method
 
-.method private handleSPFF(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 18
-    .parameter "request"
-
-    .prologue
-    .line 258
-    invoke-static/range {p1 .. p1}, Landroid/ddm/DdmHandleProfiling;->wrapChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Ljava/nio/ByteBuffer;
-
-    move-result-object v2
-
-    .line 260
-    .local v2, data:Ljava/nio/ByteBuffer;
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->getInt()I
-
-    move-result v5
-
-    .line 261
-    .local v5, flags:I
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->getInt()I
-
-    move-result v10
-
-    .line 263
-    .local v10, recyclebmpsize:I
-    and-int/lit8 v13, v5, 0x1
-
-    if-eqz v13, :cond_59
-
-    const/4 v11, 0x1
-
-    .line 264
-    .local v11, resume:Z
-    :goto_11
-    and-int/lit8 v13, v5, 0x2
-
-    if-eqz v13, :cond_5b
-
-    const/4 v7, 0x1
-
-    .line 265
-    .local v7, launch:Z
-    :goto_16
-    and-int/lit8 v13, v5, 0x4
-
-    if-eqz v13, :cond_5d
-
-    const/4 v8, 0x1
-
-    .line 266
-    .local v8, opencursor:Z
-    :goto_1b
-    and-int/lit8 v13, v5, 0x8
-
-    if-eqz v13, :cond_5f
-
-    const/4 v0, 0x1
-
-    .line 267
-    .local v0, checkheap:Z
-    :goto_20
-    and-int/lit8 v13, v5, 0x10
-
-    if-eqz v13, :cond_61
-
-    const/4 v9, 0x1
-
-    .line 268
-    .local v9, recyclebmp:Z
-    :goto_25
-    and-int/lit8 v13, v5, 0x20
-
-    if-eqz v13, :cond_63
-
-    const/4 v1, 0x1
-
-    .line 269
-    .local v1, checklowmemory:Z
-    :goto_2a
-    and-int/lit8 v13, v5, 0x40
-
-    if-eqz v13, :cond_65
-
-    const/4 v3, 0x1
-
-    .line 270
-    .local v3, debugmonitor:Z
-    :goto_2f
-    and-int/lit16 v13, v5, 0x80
-
-    if-eqz v13, :cond_67
-
-    const/4 v6, 0x1
-
-    .line 271
-    .local v6, keyInputQueue_debugUpDown:Z
-    :goto_34
-    and-int/lit16 v13, v5, 0x100
-
-    if-eqz v13, :cond_69
-
-    const/4 v12, 0x1
-
-    .line 277
-    .local v12, windowManagerService_debugUpDown:Z
-    :goto_39
-    :try_start_39
-    invoke-static {v11}, Lcom/htc/profileflag/ProfileConfig;->setProfileResume(Z)V
-
-    .line 278
-    invoke-static {v7}, Lcom/htc/profileflag/ProfileConfig;->setProfileLaunch(Z)V
-
-    .line 279
-    invoke-static {v8}, Lcom/htc/profileflag/ProfileConfig;->setProfileOpenCursor(Z)V
-
-    .line 280
-    invoke-static {v0}, Lcom/htc/profileflag/ProfileConfig;->setCheckHeap(Z)V
-
-    .line 281
-    invoke-static {v9}, Lcom/htc/profileflag/ProfileConfig;->setRecycleBitmap(Z)V
-
-    .line 282
-    invoke-static {v10}, Lcom/htc/profileflag/ProfileConfig;->setRecycleBitmapSize(I)V
-
-    .line 283
-    invoke-static {v1}, Lcom/htc/profileflag/ProfileConfig;->setCheckLowMemory(Z)V
-
-    .line 284
-    invoke-static {v3}, Lcom/htc/profileflag/ProfileConfig;->setProfileDebugMonitor(Z)V
-
-    .line 285
-    invoke-static {v6}, Lcom/htc/profileflag/ProfileConfig;->setProfileKeyInputQueueDebugUpDown(Z)V
-
-    .line 286
-    invoke-static {v12}, Lcom/htc/profileflag/ProfileConfig;->setProfileWindowManagerServiceDebugUpDown(Z)V
-    :try_end_57
-    .catch Ljava/lang/Exception; {:try_start_39 .. :try_end_57} :catch_6b
-
-    .line 287
-    const/4 v13, 0x0
-
-    .line 290
-    :goto_58
-    return-object v13
-
-    .line 263
-    .end local v0           #checkheap:Z
-    .end local v1           #checklowmemory:Z
-    .end local v3           #debugmonitor:Z
-    .end local v6           #keyInputQueue_debugUpDown:Z
-    .end local v7           #launch:Z
-    .end local v8           #opencursor:Z
-    .end local v9           #recyclebmp:Z
-    .end local v11           #resume:Z
-    .end local v12           #windowManagerService_debugUpDown:Z
-    :cond_59
-    const/4 v11, 0x0
-
-    goto :goto_11
-
-    .line 264
-    .restart local v11       #resume:Z
-    :cond_5b
-    const/4 v7, 0x0
-
-    goto :goto_16
-
-    .line 265
-    .restart local v7       #launch:Z
-    :cond_5d
-    const/4 v8, 0x0
-
-    goto :goto_1b
-
-    .line 266
-    .restart local v8       #opencursor:Z
-    :cond_5f
-    const/4 v0, 0x0
-
-    goto :goto_20
-
-    .line 267
-    .restart local v0       #checkheap:Z
-    :cond_61
-    const/4 v9, 0x0
-
-    goto :goto_25
-
-    .line 268
-    .restart local v9       #recyclebmp:Z
-    :cond_63
-    const/4 v1, 0x0
-
-    goto :goto_2a
-
-    .line 269
-    .restart local v1       #checklowmemory:Z
-    :cond_65
-    const/4 v3, 0x0
-
-    goto :goto_2f
-
-    .line 270
-    .restart local v3       #debugmonitor:Z
-    :cond_67
-    const/4 v6, 0x0
-
-    goto :goto_34
-
-    .line 271
-    .restart local v6       #keyInputQueue_debugUpDown:Z
-    :cond_69
-    const/4 v12, 0x0
-
-    goto :goto_39
-
-    .line 288
-    .restart local v12       #windowManagerService_debugUpDown:Z
-    :catch_6b
-    move-exception v4
-
-    .line 289
-    .local v4, e:Ljava/lang/Exception;
-    const-string v13, "ddm-prof"
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v15, "Set Profile flag failed: "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v4}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
-
-    move-result-object v15
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 290
-    const/4 v13, 0x1
-
-    invoke-virtual {v4}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/ddm/DdmHandleProfiling;->createFailChunk(ILjava/lang/String;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-
-    move-result-object v13
-
-    goto :goto_58
-.end method
-
 .method public static register()V
     .registers 2
 
     .prologue
-    .line 60
+    .line 48
     sget v0, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPRS:I
 
     sget-object v1, Landroid/ddm/DdmHandleProfiling;->mInstance:Landroid/ddm/DdmHandleProfiling;
 
     invoke-static {v0, v1}, Lorg/apache/harmony/dalvik/ddmc/DdmServer;->registerHandler(ILorg/apache/harmony/dalvik/ddmc/ChunkHandler;)V
 
-    .line 61
+    .line 49
     sget v0, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPRE:I
 
     sget-object v1, Landroid/ddm/DdmHandleProfiling;->mInstance:Landroid/ddm/DdmHandleProfiling;
 
     invoke-static {v0, v1}, Lorg/apache/harmony/dalvik/ddmc/DdmServer;->registerHandler(ILorg/apache/harmony/dalvik/ddmc/ChunkHandler;)V
 
-    .line 62
+    .line 50
     sget v0, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPSS:I
 
     sget-object v1, Landroid/ddm/DdmHandleProfiling;->mInstance:Landroid/ddm/DdmHandleProfiling;
 
     invoke-static {v0, v1}, Lorg/apache/harmony/dalvik/ddmc/DdmServer;->registerHandler(ILorg/apache/harmony/dalvik/ddmc/ChunkHandler;)V
 
-    .line 63
+    .line 51
     sget v0, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPSE:I
 
     sget-object v1, Landroid/ddm/DdmHandleProfiling;->mInstance:Landroid/ddm/DdmHandleProfiling;
 
     invoke-static {v0, v1}, Lorg/apache/harmony/dalvik/ddmc/DdmServer;->registerHandler(ILorg/apache/harmony/dalvik/ddmc/ChunkHandler;)V
 
-    .line 64
+    .line 52
     sget v0, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPRQ:I
 
     sget-object v1, Landroid/ddm/DdmHandleProfiling;->mInstance:Landroid/ddm/DdmHandleProfiling;
 
     invoke-static {v0, v1}, Lorg/apache/harmony/dalvik/ddmc/DdmServer;->registerHandler(ILorg/apache/harmony/dalvik/ddmc/ChunkHandler;)V
 
-    .line 66
-    sget v0, Landroid/ddm/DdmHandleProfiling;->CHUNK_MLGS:I
-
-    sget-object v1, Landroid/ddm/DdmHandleProfiling;->mInstance:Landroid/ddm/DdmHandleProfiling;
-
-    invoke-static {v0, v1}, Lorg/apache/harmony/dalvik/ddmc/DdmServer;->registerHandler(ILorg/apache/harmony/dalvik/ddmc/ChunkHandler;)V
-
-    .line 67
-    sget v0, Landroid/ddm/DdmHandleProfiling;->CHUNK_MLGE:I
-
-    sget-object v1, Landroid/ddm/DdmHandleProfiling;->mInstance:Landroid/ddm/DdmHandleProfiling;
-
-    invoke-static {v0, v1}, Lorg/apache/harmony/dalvik/ddmc/DdmServer;->registerHandler(ILorg/apache/harmony/dalvik/ddmc/ChunkHandler;)V
-
-    .line 68
-    sget v0, Landroid/ddm/DdmHandleProfiling;->CHUNK_SPFF:I
-
-    sget-object v1, Landroid/ddm/DdmHandleProfiling;->mInstance:Landroid/ddm/DdmHandleProfiling;
-
-    invoke-static {v0, v1}, Lorg/apache/harmony/dalvik/ddmc/DdmServer;->registerHandler(ILorg/apache/harmony/dalvik/ddmc/ChunkHandler;)V
-
-    .line 69
-    sget v0, Landroid/ddm/DdmHandleProfiling;->CHUNK_GPFF:I
-
-    sget-object v1, Landroid/ddm/DdmHandleProfiling;->mInstance:Landroid/ddm/DdmHandleProfiling;
-
-    invoke-static {v0, v1}, Lorg/apache/harmony/dalvik/ddmc/DdmServer;->registerHandler(ILorg/apache/harmony/dalvik/ddmc/ChunkHandler;)V
-
-    .line 71
+    .line 53
     return-void
 .end method
 
@@ -1098,7 +452,7 @@
     .registers 1
 
     .prologue
-    .line 77
+    .line 59
     return-void
 .end method
 
@@ -1106,7 +460,7 @@
     .registers 1
 
     .prologue
-    .line 83
+    .line 65
     return-void
 .end method
 
@@ -1115,130 +469,78 @@
     .parameter "request"
 
     .prologue
-    .line 91
+    .line 73
     iget v0, p1, Lorg/apache/harmony/dalvik/ddmc/Chunk;->type:I
 
-    .line 93
+    .line 75
     .local v0, type:I
     sget v1, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPRS:I
 
     if-ne v0, v1, :cond_b
 
-    .line 94
+    .line 76
     invoke-direct {p0, p1}, Landroid/ddm/DdmHandleProfiling;->handleMPRS(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     move-result-object v1
 
-    .line 111
+    .line 84
     :goto_a
     return-object v1
 
-    .line 95
+    .line 77
     :cond_b
     sget v1, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPRE:I
 
     if-ne v0, v1, :cond_14
 
-    .line 96
+    .line 78
     invoke-direct {p0, p1}, Landroid/ddm/DdmHandleProfiling;->handleMPRE(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     move-result-object v1
 
     goto :goto_a
 
-    .line 97
+    .line 79
     :cond_14
     sget v1, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPSS:I
 
     if-ne v0, v1, :cond_1d
 
-    .line 98
+    .line 80
     invoke-direct {p0, p1}, Landroid/ddm/DdmHandleProfiling;->handleMPSS(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     move-result-object v1
 
     goto :goto_a
 
-    .line 99
+    .line 81
     :cond_1d
     sget v1, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPSE:I
 
     if-ne v0, v1, :cond_26
 
-    .line 100
+    .line 82
     invoke-direct {p0, p1}, Landroid/ddm/DdmHandleProfiling;->handleMPSE(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     move-result-object v1
 
     goto :goto_a
 
-    .line 101
+    .line 83
     :cond_26
     sget v1, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPRQ:I
 
     if-ne v0, v1, :cond_2f
 
-    .line 102
+    .line 84
     invoke-direct {p0, p1}, Landroid/ddm/DdmHandleProfiling;->handleMPRQ(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     move-result-object v1
 
     goto :goto_a
 
-    .line 104
+    .line 86
     :cond_2f
-    sget v1, Landroid/ddm/DdmHandleProfiling;->CHUNK_MLGS:I
-
-    if-ne v0, v1, :cond_38
-
-    .line 105
-    invoke-direct {p0, p1}, Landroid/ddm/DdmHandleProfiling;->handleMLGS(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-
-    move-result-object v1
-
-    goto :goto_a
-
-    .line 106
-    :cond_38
-    sget v1, Landroid/ddm/DdmHandleProfiling;->CHUNK_MLGE:I
-
-    if-ne v0, v1, :cond_41
-
-    .line 107
-    invoke-direct {p0, p1}, Landroid/ddm/DdmHandleProfiling;->handleMLGE(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-
-    move-result-object v1
-
-    goto :goto_a
-
-    .line 108
-    :cond_41
-    sget v1, Landroid/ddm/DdmHandleProfiling;->CHUNK_SPFF:I
-
-    if-ne v0, v1, :cond_4a
-
-    .line 109
-    invoke-direct {p0, p1}, Landroid/ddm/DdmHandleProfiling;->handleSPFF(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-
-    move-result-object v1
-
-    goto :goto_a
-
-    .line 110
-    :cond_4a
-    sget v1, Landroid/ddm/DdmHandleProfiling;->CHUNK_GPFF:I
-
-    if-ne v0, v1, :cond_53
-
-    .line 111
-    invoke-direct {p0, p1}, Landroid/ddm/DdmHandleProfiling;->handleGPFF(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-
-    move-result-object v1
-
-    goto :goto_a
-
-    .line 114
-    :cond_53
     new-instance v1, Ljava/lang/RuntimeException;
 
     new-instance v2, Ljava/lang/StringBuilder;

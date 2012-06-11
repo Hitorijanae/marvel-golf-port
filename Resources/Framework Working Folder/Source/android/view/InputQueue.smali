@@ -32,7 +32,7 @@
     .line 51
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/view/InputQueue;->sLock:Ljava/lang/Object;
 
@@ -45,7 +45,7 @@
 
     .prologue
     .line 59
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 60
     iput-object p1, p0, Landroid/view/InputQueue;->mChannel:Landroid/view/InputChannel;
@@ -133,33 +133,33 @@
 
     .prologue
     .line 77
-    if-nez p0, :cond_b
+    if-nez p0, :cond_a
 
     .line 78
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "inputChannel must not be null"
+    const-string v1, "inputChannel must not be null"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 80
-    :cond_b
-    if-nez p1, :cond_16
+    :cond_a
+    if-nez p1, :cond_14
 
     .line 81
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "inputHandler must not be null"
+    const-string v1, "inputHandler must not be null"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 83
-    :cond_16
-    if-nez p2, :cond_21
+    :cond_14
+    if-nez p2, :cond_1f
 
     .line 84
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -171,13 +171,13 @@
     throw v0
 
     .line 87
-    :cond_21
+    :cond_1f
     sget-object v1, Landroid/view/InputQueue;->sLock:Ljava/lang/Object;
 
     monitor-enter v1
 
     .line 92
-    :try_start_24
+    :try_start_22
     invoke-static {p0, p1, p2}, Landroid/view/InputQueue;->nativeRegisterInputChannel(Landroid/view/InputChannel;Landroid/view/InputHandler;Landroid/os/MessageQueue;)V
 
     .line 93
@@ -187,12 +187,12 @@
     return-void
 
     .line 93
-    :catchall_29
+    :catchall_27
     move-exception v0
 
     monitor-exit v1
-    :try_end_2b
-    .catchall {:try_start_24 .. :try_end_2b} :catchall_29
+    :try_end_29
+    .catchall {:try_start_22 .. :try_end_29} :catchall_27
 
     throw v0
 .end method
@@ -203,25 +203,25 @@
 
     .prologue
     .line 103
-    if-nez p0, :cond_b
+    if-nez p0, :cond_a
 
     .line 104
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "inputChannel must not be null"
+    const-string v1, "inputChannel must not be null"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 107
-    :cond_b
+    :cond_a
     sget-object v1, Landroid/view/InputQueue;->sLock:Ljava/lang/Object;
 
     monitor-enter v1
 
     .line 112
-    :try_start_e
+    :try_start_d
     invoke-static {p0}, Landroid/view/InputQueue;->nativeUnregisterInputChannel(Landroid/view/InputChannel;)V
 
     .line 113
@@ -231,12 +231,12 @@
     return-void
 
     .line 113
-    :catchall_13
+    :catchall_12
     move-exception v0
 
     monitor-exit v1
-    :try_end_15
-    .catchall {:try_start_e .. :try_end_15} :catchall_13
+    :try_end_14
+    .catchall {:try_start_d .. :try_end_14} :catchall_12
 
     throw v0
 .end method

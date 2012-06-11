@@ -80,10 +80,10 @@
     .parameter "fileDescriptor"
 
     .prologue
-    .line 491
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 479
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 483
+    .line 471
     new-instance v1, Ljava/util/ArrayList;
 
     const/16 v2, 0x200
@@ -92,7 +92,7 @@
 
     iput-object v1, p0, Landroid/view/ViewDebug$LooperProfiler;->mTraces:Ljava/util/ArrayList;
 
-    .line 485
+    .line 473
     new-instance v1, Ljava/util/HashMap;
 
     const/16 v2, 0x20
@@ -101,15 +101,15 @@
 
     iput-object v1, p0, Landroid/view/ViewDebug$LooperProfiler;->mTraceNames:Ljava/util/HashMap;
 
-    .line 486
+    .line 474
     const/4 v1, 0x0
 
     iput v1, p0, Landroid/view/ViewDebug$LooperProfiler;->mTraceId:I
 
-    .line 492
+    .line 480
     iput-object p1, p0, Landroid/view/ViewDebug$LooperProfiler;->mPath:Ljava/lang/String;
 
-    .line 494
+    .line 482
     :try_start_1a
     invoke-static {p2}, Landroid/os/ParcelFileDescriptor;->dup(Ljava/io/FileDescriptor;)Landroid/os/ParcelFileDescriptor;
 
@@ -119,28 +119,28 @@
     :try_end_20
     .catch Ljava/io/IOException; {:try_start_1a .. :try_end_20} :catch_2d
 
-    .line 499
+    .line 487
     invoke-static {}, Landroid/os/SystemClock;->currentTimeMicro()J
 
     move-result-wide v1
 
     iput-wide v1, p0, Landroid/view/ViewDebug$LooperProfiler;->mTraceWallStart:J
 
-    .line 500
+    .line 488
     invoke-static {}, Landroid/os/SystemClock;->currentThreadTimeMicro()J
 
     move-result-wide v1
 
     iput-wide v1, p0, Landroid/view/ViewDebug$LooperProfiler;->mTraceThreadStart:J
 
-    .line 501
+    .line 489
     return-void
 
-    .line 495
+    .line 483
     :catch_2d
     move-exception v0
 
-    .line 496
+    .line 484
     .local v0, e:Ljava/io/IOException;
     const-string v1, "LooperProfiler"
 
@@ -166,7 +166,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 497
+    .line 485
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -179,7 +179,7 @@
     .parameter "x0"
 
     .prologue
-    .line 471
+    .line 459
     invoke-direct {p0}, Landroid/view/ViewDebug$LooperProfiler;->saveTraces()V
 
     return-void
@@ -209,7 +209,7 @@
     .end annotation
 
     .prologue
-    .line 640
+    .line 628
     .local p0, names:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     invoke-virtual {p0}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
 
@@ -233,7 +233,7 @@
 
     check-cast v1, Ljava/util/Map$Entry;
 
-    .line 641
+    .line 629
     .local v1, name:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Integer;>;"
     const-string v2, "0x%08x\tEventQueue\t%s\t()V\tLooper\t-2\n"
 
@@ -265,7 +265,7 @@
 
     goto :goto_8
 
-    .line 644
+    .line 632
     .end local v1           #name:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Integer;>;"
     :cond_2f
     return-void
@@ -283,7 +283,7 @@
     .end annotation
 
     .prologue
-    .line 649
+    .line 637
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -318,7 +318,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/DataOutputStream;->writeBytes(Ljava/lang/String;)V
 
-    .line 650
+    .line 638
     return-void
 .end method
 
@@ -334,10 +334,10 @@
     .end annotation
 
     .prologue
-    .line 655
+    .line 643
     if-eqz p0, :cond_18
 
-    .line 656
+    .line 644
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -358,7 +358,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/DataOutputStream;->writeBytes(Ljava/lang/String;)V
 
-    .line 658
+    .line 646
     :cond_18
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -380,7 +380,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/DataOutputStream;->writeBytes(Ljava/lang/String;)V
 
-    .line 659
+    .line 647
     return-void
 .end method
 
@@ -389,7 +389,7 @@
     .parameter "message"
 
     .prologue
-    .line 522
+    .line 510
     invoke-virtual {p1}, Landroid/os/Message;->getTarget()Landroid/os/Handler;
 
     move-result-object v2
@@ -398,7 +398,7 @@
 
     move-result-object v0
 
-    .line 523
+    .line 511
     .local v0, name:Ljava/lang/String;
     iget-object v2, p0, Landroid/view/ViewDebug$LooperProfiler;->mTraceNames:Ljava/util/HashMap;
 
@@ -408,11 +408,11 @@
 
     check-cast v1, Ljava/lang/Integer;
 
-    .line 524
+    .line 512
     .local v1, traceId:Ljava/lang/Integer;
     if-nez v1, :cond_23
 
-    .line 525
+    .line 513
     iget v2, p0, Landroid/view/ViewDebug$LooperProfiler;->mTraceId:I
 
     add-int/lit8 v3, v2, 0x1
@@ -425,12 +425,12 @@
 
     move-result-object v1
 
-    .line 526
+    .line 514
     iget-object v2, p0, Landroid/view/ViewDebug$LooperProfiler;->mTraceNames:Ljava/util/HashMap;
 
     invoke-virtual {v2, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 528
+    .line 516
     :cond_23
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
@@ -443,7 +443,7 @@
     .registers 11
 
     .prologue
-    .line 542
+    .line 530
     new-instance v0, Ljava/io/FileOutputStream;
 
     iget-object v1, p0, Landroid/view/ViewDebug$LooperProfiler;->mFileDescriptor:Landroid/os/ParcelFileDescriptor;
@@ -454,7 +454,7 @@
 
     invoke-direct {v0, v1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/FileDescriptor;)V
 
-    .line 543
+    .line 531
     .local v0, fos:Ljava/io/FileOutputStream;
     new-instance v9, Ljava/io/DataOutputStream;
 
@@ -464,7 +464,7 @@
 
     invoke-direct {v9, v1}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
 
-    .line 546
+    .line 534
     .local v9, out:Ljava/io/DataOutputStream;
     :try_start_15
     iget-wide v1, p0, Landroid/view/ViewDebug$LooperProfiler;->mTraceWallStart:J
@@ -475,10 +475,10 @@
 
     invoke-static {v9, v1, v2, v3, v4}, Landroid/view/ViewDebug$LooperProfiler;->writeHeader(Ljava/io/DataOutputStream;JLjava/util/HashMap;Ljava/util/ArrayList;)V
 
-    .line 547
+    .line 535
     invoke-virtual {v9}, Ljava/io/DataOutputStream;->flush()V
 
-    .line 549
+    .line 537
     invoke-virtual {v9}, Ljava/io/DataOutputStream;->size()I
 
     move-result v1
@@ -493,7 +493,7 @@
 
     invoke-static/range {v0 .. v7}, Landroid/view/ViewDebug$LooperProfiler;->writeTraces(Ljava/io/FileOutputStream;JJJLjava/util/ArrayList;)V
 
-    .line 551
+    .line 539
     const-string v1, "LooperProfiler"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -518,35 +518,34 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_49
-    .catchall {:try_start_15 .. :try_end_49} :catchall_92
-    .catch Ljava/io/IOException; {:try_start_15 .. :try_end_49} :catch_52
+    .catchall {:try_start_15 .. :try_end_49} :catchall_e6
+    .catch Ljava/io/IOException; {:try_start_15 .. :try_end_49} :catch_8a
 
-    .line 556
+    .line 544
     :try_start_49
     invoke-virtual {v9}, Ljava/io/DataOutputStream;->close()V
     :try_end_4c
-    .catch Ljava/io/IOException; {:try_start_49 .. :try_end_4c} :catch_f0
+    .catch Ljava/io/IOException; {:try_start_49 .. :try_end_4c} :catch_52
 
-    .line 561
+    .line 549
     :goto_4c
     :try_start_4c
     iget-object v1, p0, Landroid/view/ViewDebug$LooperProfiler;->mFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v1}, Landroid/os/ParcelFileDescriptor;->close()V
     :try_end_51
-    .catch Ljava/io/IOException; {:try_start_4c .. :try_end_51} :catch_10d
+    .catch Ljava/io/IOException; {:try_start_4c .. :try_end_51} :catch_6e
 
-    .line 566
+    .line 554
     :goto_51
     return-void
 
-    .line 552
+    .line 545
     :catch_52
     move-exception v8
 
-    .line 553
+    .line 546
     .local v8, e:Ljava/io/IOException;
-    :try_start_53
     const-string v1, "LooperProfiler"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -570,31 +569,98 @@
     move-result-object v2
 
     invoke-static {v1, v2, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_6d
-    .catchall {:try_start_53 .. :try_end_6d} :catchall_92
 
-    .line 556
-    :try_start_6d
+    goto :goto_4c
+
+    .line 550
+    .end local v8           #e:Ljava/io/IOException;
+    :catch_6e
+    move-exception v8
+
+    .line 551
+    .restart local v8       #e:Ljava/io/IOException;
+    const-string v1, "LooperProfiler"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Could not write trace file "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Landroid/view/ViewDebug$LooperProfiler;->mPath:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_51
+
+    .line 540
+    .end local v8           #e:Ljava/io/IOException;
+    :catch_8a
+    move-exception v8
+
+    .line 541
+    .restart local v8       #e:Ljava/io/IOException;
+    :try_start_8b
+    const-string v1, "LooperProfiler"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Could not write trace file "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Landroid/view/ViewDebug$LooperProfiler;->mPath:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_a5
+    .catchall {:try_start_8b .. :try_end_a5} :catchall_e6
+
+    .line 544
+    :try_start_a5
     invoke-virtual {v9}, Ljava/io/DataOutputStream;->close()V
-    :try_end_70
-    .catch Ljava/io/IOException; {:try_start_6d .. :try_end_70} :catch_d4
+    :try_end_a8
+    .catch Ljava/io/IOException; {:try_start_a5 .. :try_end_a8} :catch_ca
 
-    .line 561
-    :goto_70
-    :try_start_70
+    .line 549
+    :goto_a8
+    :try_start_a8
     iget-object v1, p0, Landroid/view/ViewDebug$LooperProfiler;->mFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v1}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_75
-    .catch Ljava/io/IOException; {:try_start_70 .. :try_end_75} :catch_76
+    :try_end_ad
+    .catch Ljava/io/IOException; {:try_start_a8 .. :try_end_ad} :catch_ae
 
     goto :goto_51
 
-    .line 562
-    :catch_76
+    .line 550
+    :catch_ae
     move-exception v8
 
-    .line 563
+    .line 551
     const-string v1, "LooperProfiler"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -617,194 +683,129 @@
 
     move-result-object v2
 
-    :goto_8e
     invoke-static {v1, v2, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_51
 
-    .line 555
+    .line 545
+    :catch_ca
+    move-exception v8
+
+    .line 546
+    const-string v1, "LooperProfiler"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Could not write trace file "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Landroid/view/ViewDebug$LooperProfiler;->mPath:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_a8
+
+    .line 543
     .end local v8           #e:Ljava/io/IOException;
-    :catchall_92
+    :catchall_e6
     move-exception v1
 
-    .line 556
-    :try_start_93
+    .line 544
+    :try_start_e7
     invoke-virtual {v9}, Ljava/io/DataOutputStream;->close()V
-    :try_end_96
-    .catch Ljava/io/IOException; {:try_start_93 .. :try_end_96} :catch_9c
+    :try_end_ea
+    .catch Ljava/io/IOException; {:try_start_e7 .. :try_end_ea} :catch_f0
 
-    .line 561
-    :goto_96
-    :try_start_96
+    .line 549
+    :goto_ea
+    :try_start_ea
     iget-object v2, p0, Landroid/view/ViewDebug$LooperProfiler;->mFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v2}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_9b
-    .catch Ljava/io/IOException; {:try_start_96 .. :try_end_9b} :catch_b8
+    :try_end_ef
+    .catch Ljava/io/IOException; {:try_start_ea .. :try_end_ef} :catch_10c
 
-    .line 555
-    :goto_9b
+    .line 552
+    :goto_ef
     throw v1
 
-    .line 557
-    :catch_9c
-    move-exception v8
-
-    .line 558
-    .restart local v8       #e:Ljava/io/IOException;
-    const-string v2, "LooperProfiler"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Could not write trace file "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Landroid/view/ViewDebug$LooperProfiler;->mPath:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_96
-
-    .line 562
-    .end local v8           #e:Ljava/io/IOException;
-    :catch_b8
-    move-exception v8
-
-    .line 563
-    .restart local v8       #e:Ljava/io/IOException;
-    const-string v2, "LooperProfiler"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Could not write trace file "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Landroid/view/ViewDebug$LooperProfiler;->mPath:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_9b
-
-    .line 557
-    :catch_d4
-    move-exception v8
-
-    .line 558
-    const-string v1, "LooperProfiler"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Could not write trace file "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Landroid/view/ViewDebug$LooperProfiler;->mPath:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_70
-
-    .line 557
-    .end local v8           #e:Ljava/io/IOException;
+    .line 545
     :catch_f0
     move-exception v8
 
-    .line 558
+    .line 546
     .restart local v8       #e:Ljava/io/IOException;
-    const-string v1, "LooperProfiler"
+    const-string v2, "LooperProfiler"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Could not write trace file "
+    const-string v4, "Could not write trace file "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-object v3, p0, Landroid/view/ViewDebug$LooperProfiler;->mPath:Ljava/lang/String;
+    iget-object v4, p0, Landroid/view/ViewDebug$LooperProfiler;->mPath:Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v1, v2, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto/16 :goto_4c
+    goto :goto_ea
 
-    .line 562
+    .line 550
     .end local v8           #e:Ljava/io/IOException;
-    :catch_10d
+    :catch_10c
     move-exception v8
 
-    .line 563
+    .line 551
     .restart local v8       #e:Ljava/io/IOException;
-    const-string v1, "LooperProfiler"
+    const-string v2, "LooperProfiler"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Could not write trace file "
+    const-string v4, "Could not write trace file "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-object v3, p0, Landroid/view/ViewDebug$LooperProfiler;->mPath:Ljava/lang/String;
+    iget-object v4, p0, Landroid/view/ViewDebug$LooperProfiler;->mPath:Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    goto/16 :goto_8e
+    invoke-static {v2, v3, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_ef
 .end method
 
 .method private static startSection(Ljava/lang/String;Ljava/io/DataOutputStream;)V
@@ -818,7 +819,7 @@
     .end annotation
 
     .prologue
-    .line 662
+    .line 650
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -845,7 +846,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/DataOutputStream;->writeBytes(Ljava/lang/String;)V
 
-    .line 663
+    .line 651
     return-void
 .end method
 
@@ -879,7 +880,7 @@
     .end annotation
 
     .prologue
-    .line 616
+    .line 604
     .local p3, names:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     .local p4, entries:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/ViewDebug$LooperProfiler$Entry;>;"
     invoke-virtual {p4}, Ljava/util/ArrayList;->size()I
@@ -894,7 +895,7 @@
 
     check-cast v0, Landroid/view/ViewDebug$LooperProfiler$Entry;
 
-    .line 617
+    .line 605
     .local v0, last:Landroid/view/ViewDebug$LooperProfiler$Entry;
     iget-wide v3, v0, Landroid/view/ViewDebug$LooperProfiler$Entry;->wallStart:J
 
@@ -904,13 +905,13 @@
 
     sub-long v1, v3, p1
 
-    .line 619
+    .line 607
     .local v1, wallTotal:J
     const-string/jumbo v3, "version"
 
     invoke-static {v3, p0}, Landroid/view/ViewDebug$LooperProfiler;->startSection(Ljava/lang/String;Ljava/io/DataOutputStream;)V
 
-    .line 620
+    .line 608
     const/4 v3, 0x0
 
     const/4 v4, 0x3
@@ -921,21 +922,21 @@
 
     invoke-static {v3, v4, p0}, Landroid/view/ViewDebug$LooperProfiler;->addValue(Ljava/lang/String;Ljava/lang/String;Ljava/io/DataOutputStream;)V
 
-    .line 621
+    .line 609
     const-string v3, "data-file-overflow"
 
     const-string v4, "false"
 
     invoke-static {v3, v4, p0}, Landroid/view/ViewDebug$LooperProfiler;->addValue(Ljava/lang/String;Ljava/lang/String;Ljava/io/DataOutputStream;)V
 
-    .line 622
+    .line 610
     const-string v3, "clock"
 
     const-string v4, "dual"
 
     invoke-static {v3, v4, p0}, Landroid/view/ViewDebug$LooperProfiler;->addValue(Ljava/lang/String;Ljava/lang/String;Ljava/io/DataOutputStream;)V
 
-    .line 623
+    .line 611
     const-string v3, "elapsed-time-usec"
 
     invoke-static {v1, v2}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
@@ -944,7 +945,7 @@
 
     invoke-static {v3, v4, p0}, Landroid/view/ViewDebug$LooperProfiler;->addValue(Ljava/lang/String;Ljava/lang/String;Ljava/io/DataOutputStream;)V
 
-    .line 624
+    .line 612
     const-string/jumbo v3, "num-method-calls"
 
     invoke-virtual {p4}, Ljava/util/ArrayList;->size()I
@@ -957,46 +958,46 @@
 
     invoke-static {v3, v4, p0}, Landroid/view/ViewDebug$LooperProfiler;->addValue(Ljava/lang/String;Ljava/lang/String;Ljava/io/DataOutputStream;)V
 
-    .line 625
+    .line 613
     const-string v3, "clock-call-overhead-nsec"
 
     const-string v4, "1"
 
     invoke-static {v3, v4, p0}, Landroid/view/ViewDebug$LooperProfiler;->addValue(Ljava/lang/String;Ljava/lang/String;Ljava/io/DataOutputStream;)V
 
-    .line 626
+    .line 614
     const-string/jumbo v3, "vm"
 
     const-string v4, "dalvik"
 
     invoke-static {v3, v4, p0}, Landroid/view/ViewDebug$LooperProfiler;->addValue(Ljava/lang/String;Ljava/lang/String;Ljava/io/DataOutputStream;)V
 
-    .line 628
+    .line 616
     const-string/jumbo v3, "threads"
 
     invoke-static {v3, p0}, Landroid/view/ViewDebug$LooperProfiler;->startSection(Ljava/lang/String;Ljava/io/DataOutputStream;)V
 
-    .line 629
+    .line 617
     const/4 v3, 0x1
 
     const-string/jumbo v4, "main"
 
     invoke-static {v3, v4, p0}, Landroid/view/ViewDebug$LooperProfiler;->addThreadId(ILjava/lang/String;Ljava/io/DataOutputStream;)V
 
-    .line 631
+    .line 619
     const-string/jumbo v3, "methods"
 
     invoke-static {v3, p0}, Landroid/view/ViewDebug$LooperProfiler;->startSection(Ljava/lang/String;Ljava/io/DataOutputStream;)V
 
-    .line 632
+    .line 620
     invoke-static {p3, p0}, Landroid/view/ViewDebug$LooperProfiler;->addMethods(Ljava/util/HashMap;Ljava/io/DataOutputStream;)V
 
-    .line 634
+    .line 622
     const-string v3, "end"
 
     invoke-static {v3, p0}, Landroid/view/ViewDebug$LooperProfiler;->startSection(Ljava/lang/String;Ljava/io/DataOutputStream;)V
 
-    .line 635
+    .line 623
     return-void
 .end method
 
@@ -1026,13 +1027,13 @@
     .end annotation
 
     .prologue
-    .line 571
+    .line 559
     .local p7, entries:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/ViewDebug$LooperProfiler$Entry;>;"
     invoke-virtual {p0}, Ljava/io/FileOutputStream;->getChannel()Ljava/nio/channels/FileChannel;
 
     move-result-object v1
 
-    .line 574
+    .line 562
     .local v1, channel:Ljava/nio/channels/FileChannel;
     const/16 v5, 0x20
 
@@ -1040,7 +1041,7 @@
 
     move-result-object v0
 
-    .line 575
+    .line 563
     .local v0, buffer:Ljava/nio/ByteBuffer;
     const-string v5, "SLOW"
 
@@ -1050,32 +1051,32 @@
 
     invoke-virtual {v0, v5}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    .line 576
+    .line 564
     sget-object v5, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
     invoke-virtual {v0, v5}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
     move-result-object v0
 
-    .line 577
+    .line 565
     const/4 v5, 0x3
 
     invoke-virtual {v0, v5}, Ljava/nio/ByteBuffer;->putShort(S)Ljava/nio/ByteBuffer;
 
-    .line 578
+    .line 566
     const/16 v5, 0x20
 
     invoke-virtual {v0, v5}, Ljava/nio/ByteBuffer;->putShort(S)Ljava/nio/ByteBuffer;
 
-    .line 579
+    .line 567
     invoke-virtual {v0, p3, p4}, Ljava/nio/ByteBuffer;->putLong(J)Ljava/nio/ByteBuffer;
 
-    .line 580
+    .line 568
     const/16 v5, 0xe
 
     invoke-virtual {v0, v5}, Ljava/nio/ByteBuffer;->putShort(S)Ljava/nio/ByteBuffer;
 
-    .line 582
+    .line 570
     const/4 v3, 0x0
 
     .local v3, i:I
@@ -1084,28 +1085,28 @@
 
     if-ge v3, v5, :cond_36
 
-    .line 583
+    .line 571
     const/4 v5, 0x0
 
     invoke-virtual {v0, v5}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
-    .line 582
+    .line 570
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2b
 
-    .line 586
+    .line 574
     :cond_36
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
 
-    .line 587
+    .line 575
     invoke-virtual {v1, p1, p2}, Ljava/nio/channels/FileChannel;->position(J)Ljava/nio/channels/FileChannel;
 
     move-result-object v5
 
     invoke-virtual {v5, v0}, Ljava/nio/channels/FileChannel;->write(Ljava/nio/ByteBuffer;)I
 
-    .line 589
+    .line 577
     const/16 v5, 0xe
 
     invoke-static {v5}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
@@ -1118,7 +1119,7 @@
 
     move-result-object v0
 
-    .line 590
+    .line 578
     invoke-virtual/range {p7 .. p7}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
@@ -1137,18 +1138,18 @@
 
     check-cast v2, Landroid/view/ViewDebug$LooperProfiler$Entry;
 
-    .line 591
+    .line 579
     .local v2, entry:Landroid/view/ViewDebug$LooperProfiler$Entry;
     const/4 v5, 0x1
 
     invoke-virtual {v0, v5}, Ljava/nio/ByteBuffer;->putShort(S)Ljava/nio/ByteBuffer;
 
-    .line 592
+    .line 580
     iget v5, v2, Landroid/view/ViewDebug$LooperProfiler$Entry;->traceId:I
 
     invoke-virtual {v0, v5}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 593
+    .line 581
     iget-wide v5, v2, Landroid/view/ViewDebug$LooperProfiler$Entry;->threadStart:J
 
     sub-long/2addr v5, p5
@@ -1157,7 +1158,7 @@
 
     invoke-virtual {v0, v5}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 594
+    .line 582
     iget-wide v5, v2, Landroid/view/ViewDebug$LooperProfiler$Entry;->wallStart:J
 
     sub-long/2addr v5, p3
@@ -1166,28 +1167,28 @@
 
     invoke-virtual {v0, v5}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 596
+    .line 584
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
 
-    .line 597
+    .line 585
     invoke-virtual {v1, v0}, Ljava/nio/channels/FileChannel;->write(Ljava/nio/ByteBuffer;)I
 
-    .line 598
+    .line 586
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
 
-    .line 600
+    .line 588
     const/4 v5, 0x1
 
     invoke-virtual {v0, v5}, Ljava/nio/ByteBuffer;->putShort(S)Ljava/nio/ByteBuffer;
 
-    .line 601
+    .line 589
     iget v5, v2, Landroid/view/ViewDebug$LooperProfiler$Entry;->traceId:I
 
     or-int/lit8 v5, v5, 0x1
 
     invoke-virtual {v0, v5}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 602
+    .line 590
     iget-wide v5, v2, Landroid/view/ViewDebug$LooperProfiler$Entry;->threadStart:J
 
     iget-wide v7, v2, Landroid/view/ViewDebug$LooperProfiler$Entry;->threadTime:J
@@ -1200,7 +1201,7 @@
 
     invoke-virtual {v0, v5}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 603
+    .line 591
     iget-wide v5, v2, Landroid/view/ViewDebug$LooperProfiler$Entry;->wallStart:J
 
     iget-wide v7, v2, Landroid/view/ViewDebug$LooperProfiler$Entry;->wallTime:J
@@ -1213,23 +1214,23 @@
 
     invoke-virtual {v0, v5}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    .line 605
+    .line 593
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
 
-    .line 606
+    .line 594
     invoke-virtual {v1, v0}, Ljava/nio/channels/FileChannel;->write(Ljava/nio/ByteBuffer;)I
 
-    .line 607
+    .line 595
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
 
     goto :goto_50
 
-    .line 610
+    .line 598
     .end local v2           #entry:Landroid/view/ViewDebug$LooperProfiler$Entry;
     :cond_a5
     invoke-virtual {v1}, Ljava/nio/channels/FileChannel;->close()V
 
-    .line 611
+    .line 599
     return-void
 .end method
 
@@ -1240,7 +1241,7 @@
     .parameter "x"
 
     .prologue
-    .line 506
+    .line 494
     return-void
 .end method
 
@@ -1253,12 +1254,12 @@
     .parameter "threadTime"
 
     .prologue
-    .line 511
+    .line 499
     new-instance v0, Landroid/view/ViewDebug$LooperProfiler$Entry;
 
     invoke-direct {v0}, Landroid/view/ViewDebug$LooperProfiler$Entry;-><init>()V
 
-    .line 512
+    .line 500
     .local v0, entry:Landroid/view/ViewDebug$LooperProfiler$Entry;
     invoke-direct {p0, p1}, Landroid/view/ViewDebug$LooperProfiler;->getTraceId(Landroid/os/Message;)I
 
@@ -1266,24 +1267,24 @@
 
     iput v1, v0, Landroid/view/ViewDebug$LooperProfiler$Entry;->traceId:I
 
-    .line 513
+    .line 501
     iput-wide p2, v0, Landroid/view/ViewDebug$LooperProfiler$Entry;->wallStart:J
 
-    .line 514
+    .line 502
     iput-wide p4, v0, Landroid/view/ViewDebug$LooperProfiler$Entry;->wallTime:J
 
-    .line 515
+    .line 503
     iput-wide p6, v0, Landroid/view/ViewDebug$LooperProfiler$Entry;->threadStart:J
 
-    .line 516
+    .line 504
     iput-wide p8, v0, Landroid/view/ViewDebug$LooperProfiler$Entry;->threadTime:J
 
-    .line 518
+    .line 506
     iget-object v1, p0, Landroid/view/ViewDebug$LooperProfiler;->mTraces:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 519
+    .line 507
     return-void
 .end method
 
@@ -1291,7 +1292,7 @@
     .registers 5
 
     .prologue
-    .line 533
+    .line 521
     new-instance v0, Ljava/lang/Thread;
 
     new-instance v1, Landroid/view/ViewDebug$LooperProfiler$1;
@@ -1328,6 +1329,6 @@
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    .line 539
+    .line 527
     return-void
 .end method

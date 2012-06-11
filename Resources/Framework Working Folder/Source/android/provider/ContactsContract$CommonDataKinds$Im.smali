@@ -45,8 +45,6 @@
 
 .field public static final PROTOCOL_YAHOO:I = 0x2
 
-.field public static final PROTOCOL_YILIAO:I = 0x64
-
 .field public static final TYPE_HOME:I = 0x1
 
 .field public static final TYPE_OTHER:I = 0x3
@@ -59,8 +57,8 @@
     .registers 1
 
     .prologue
-    .line 6049
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 5918
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -72,7 +70,7 @@
     .parameter "label"
 
     .prologue
-    .line 6143
+    .line 6005
     const/4 v1, -0x1
 
     if-ne p1, v1, :cond_a
@@ -83,19 +81,19 @@
 
     if-nez v1, :cond_a
 
-    .line 6147
+    .line 6009
     .end local p2
     :goto_9
     return-object p2
 
-    .line 6146
+    .line 6008
     .restart local p2
     :cond_a
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$Im;->getProtocolLabelResource(I)I
 
     move-result v0
 
-    .line 6147
+    .line 6009
     .local v0, labelRes:I
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -109,89 +107,84 @@
     .parameter "type"
 
     .prologue
-    .line 6119
-    sparse-switch p0, :sswitch_data_2e
+    .line 5984
+    packed-switch p0, :pswitch_data_2c
 
-    .line 6132
-    const v0, 0x10402c5
+    .line 5994
+    const v0, 0x10402cd
 
     :goto_6
     return v0
 
-    .line 6120
-    :sswitch_7
-    const v0, 0x10402c6
-
-    goto :goto_6
-
-    .line 6121
-    :sswitch_b
-    const v0, 0x10402c7
-
-    goto :goto_6
-
-    .line 6122
-    :sswitch_f
-    const v0, 0x10402c8
-
-    goto :goto_6
-
-    .line 6123
-    :sswitch_13
-    const v0, 0x10402c9
-
-    goto :goto_6
-
-    .line 6124
-    :sswitch_17
-    const v0, 0x10402ca
-
-    goto :goto_6
-
-    .line 6125
-    :sswitch_1b
-    const v0, 0x10402cb
-
-    goto :goto_6
-
-    .line 6126
-    :sswitch_1f
-    const v0, 0x10402cc
-
-    goto :goto_6
-
-    .line 6127
-    :sswitch_23
-    const v0, 0x10402cd
-
-    goto :goto_6
-
-    .line 6128
-    :sswitch_27
+    .line 5985
+    :pswitch_7
     const v0, 0x10402ce
 
     goto :goto_6
 
-    .line 6130
-    :sswitch_2b
-    const/high16 v0, 0x404
+    .line 5986
+    :pswitch_b
+    const v0, 0x10402cf
 
     goto :goto_6
 
-    .line 6119
-    :sswitch_data_2e
-    .sparse-switch
-        0x0 -> :sswitch_7
-        0x1 -> :sswitch_b
-        0x2 -> :sswitch_f
-        0x3 -> :sswitch_13
-        0x4 -> :sswitch_17
-        0x5 -> :sswitch_1b
-        0x6 -> :sswitch_1f
-        0x7 -> :sswitch_23
-        0x8 -> :sswitch_27
-        0x64 -> :sswitch_2b
-    .end sparse-switch
+    .line 5987
+    :pswitch_f
+    const v0, 0x10402d0
+
+    goto :goto_6
+
+    .line 5988
+    :pswitch_13
+    const v0, 0x10402d1
+
+    goto :goto_6
+
+    .line 5989
+    :pswitch_17
+    const v0, 0x10402d2
+
+    goto :goto_6
+
+    .line 5990
+    :pswitch_1b
+    const v0, 0x10402d3
+
+    goto :goto_6
+
+    .line 5991
+    :pswitch_1f
+    const v0, 0x10402d4
+
+    goto :goto_6
+
+    .line 5992
+    :pswitch_23
+    const v0, 0x10402d5
+
+    goto :goto_6
+
+    .line 5993
+    :pswitch_27
+    const v0, 0x10402d6
+
+    goto :goto_6
+
+    .line 5984
+    nop
+
+    :pswitch_data_2c
+    .packed-switch 0x0
+        :pswitch_7
+        :pswitch_b
+        :pswitch_f
+        :pswitch_13
+        :pswitch_17
+        :pswitch_1b
+        :pswitch_1f
+        :pswitch_23
+        :pswitch_27
+    .end packed-switch
 .end method
 
 .method public static final getTypeLabel(Landroid/content/res/Resources;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
@@ -201,7 +194,7 @@
     .parameter "label"
 
     .prologue
-    .line 6106
+    .line 5971
     if-nez p1, :cond_9
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -210,19 +203,19 @@
 
     if-nez v1, :cond_9
 
-    .line 6110
+    .line 5975
     .end local p2
     :goto_8
     return-object p2
 
-    .line 6109
+    .line 5974
     .restart local p2
     :cond_9
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$Im;->getTypeLabelResource(I)I
 
     move-result v0
 
-    .line 6110
+    .line 5975
     .local v0, labelRes:I
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -236,34 +229,34 @@
     .parameter "type"
 
     .prologue
-    .line 6091
+    .line 5956
     packed-switch p0, :pswitch_data_14
 
-    .line 6095
-    const v0, 0x10402c1
+    .line 5960
+    const v0, 0x10402c9
 
     :goto_6
     return v0
 
-    .line 6092
+    .line 5957
     :pswitch_7
-    const v0, 0x10402c2
+    const v0, 0x10402ca
 
     goto :goto_6
 
-    .line 6093
+    .line 5958
     :pswitch_b
-    const v0, 0x10402c3
+    const v0, 0x10402cb
 
     goto :goto_6
 
-    .line 6094
+    .line 5959
     :pswitch_f
-    const v0, 0x10402c4
+    const v0, 0x10402cc
 
     goto :goto_6
 
-    .line 6091
+    .line 5956
     nop
 
     :pswitch_data_14

@@ -19,13 +19,7 @@
 
 .field public static final DEFAULT:I = 0x0
 
-.field public static final FM_RX:I = 0x8
-
-.field public static final FM_RX_A2DP:I = 0x9
-
 .field public static final MIC:I = 0x1
-
-.field public static final RAW_PCM:I = 0xa
 
 .field public static final VOICE_CALL:I = 0x4
 
@@ -48,10 +42,10 @@
     .parameter
 
     .prologue
-    .line 144
+    .line 150
     iput-object p1, p0, Landroid/media/MediaRecorder$AudioSource;->this$0:Landroid/media/MediaRecorder;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

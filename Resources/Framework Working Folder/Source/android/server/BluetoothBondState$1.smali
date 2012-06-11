@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 349
+    .line 325
     iput-object p1, p0, Landroid/server/BluetoothBondState$1;->this$0:Landroid/server/BluetoothBondState;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,12 +43,12 @@
     .parameter "proxy"
 
     .prologue
-    .line 352
+    .line 328
     const/4 v0, 0x2
 
     if-ne p1, v0, :cond_b
 
-    .line 353
+    .line 329
     iget-object v0, p0, Landroid/server/BluetoothBondState$1;->this$0:Landroid/server/BluetoothBondState;
 
     check-cast p2, Landroid/bluetooth/BluetoothA2dp;
@@ -57,19 +57,19 @@
     #setter for: Landroid/server/BluetoothBondState;->mA2dpProxy:Landroid/bluetooth/BluetoothA2dp;
     invoke-static {v0, p2}, Landroid/server/BluetoothBondState;->access$002(Landroid/server/BluetoothBondState;Landroid/bluetooth/BluetoothA2dp;)Landroid/bluetooth/BluetoothA2dp;
 
-    .line 357
+    .line 333
     :cond_a
     :goto_a
     return-void
 
-    .line 354
+    .line 330
     .restart local p2
     :cond_b
     const/4 v0, 0x1
 
     if-ne p1, v0, :cond_a
 
-    .line 355
+    .line 331
     iget-object v0, p0, Landroid/server/BluetoothBondState$1;->this$0:Landroid/server/BluetoothBondState;
 
     check-cast p2, Landroid/bluetooth/BluetoothHeadset;
@@ -82,92 +82,39 @@
 .end method
 
 .method public onServiceDisconnected(I)V
-    .registers 7
+    .registers 4
     .parameter "profile"
 
     .prologue
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
-    const/4 v3, 0x2
+    .line 336
+    const/4 v0, 0x2
 
-    const/4 v2, 0x1
+    if-ne p1, v0, :cond_a
 
-    .line 360
-    if-ne p1, v3, :cond_20
-
-    .line 361
-    iget-object v1, p0, Landroid/server/BluetoothBondState$1;->this$0:Landroid/server/BluetoothBondState;
-
-    #getter for: Landroid/server/BluetoothBondState;->mA2dpProxy:Landroid/bluetooth/BluetoothA2dp;
-    invoke-static {v1}, Landroid/server/BluetoothBondState;->access$000(Landroid/server/BluetoothBondState;)Landroid/bluetooth/BluetoothA2dp;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_1f
-
-    .line 362
-    invoke-static {}, Landroid/bluetooth/BluetoothAdapter;->getDefaultAdapter()Landroid/bluetooth/BluetoothAdapter;
-
-    move-result-object v0
-
-    .line 363
-    .local v0, bluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
-    iget-object v1, p0, Landroid/server/BluetoothBondState$1;->this$0:Landroid/server/BluetoothBondState;
-
-    #getter for: Landroid/server/BluetoothBondState;->mA2dpProxy:Landroid/bluetooth/BluetoothA2dp;
-    invoke-static {v1}, Landroid/server/BluetoothBondState;->access$000(Landroid/server/BluetoothBondState;)Landroid/bluetooth/BluetoothA2dp;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v3, v1}, Landroid/bluetooth/BluetoothAdapter;->closeProfileProxy(ILandroid/bluetooth/BluetoothProfile;)V
-
-    .line 364
-    iget-object v1, p0, Landroid/server/BluetoothBondState$1;->this$0:Landroid/server/BluetoothBondState;
+    .line 337
+    iget-object v0, p0, Landroid/server/BluetoothBondState$1;->this$0:Landroid/server/BluetoothBondState;
 
     #setter for: Landroid/server/BluetoothBondState;->mA2dpProxy:Landroid/bluetooth/BluetoothA2dp;
-    invoke-static {v1, v4}, Landroid/server/BluetoothBondState;->access$002(Landroid/server/BluetoothBondState;Landroid/bluetooth/BluetoothA2dp;)Landroid/bluetooth/BluetoothA2dp;
+    invoke-static {v0, v1}, Landroid/server/BluetoothBondState;->access$002(Landroid/server/BluetoothBondState;Landroid/bluetooth/BluetoothA2dp;)Landroid/bluetooth/BluetoothA2dp;
 
-    .line 373
-    .end local v0           #bluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
-    :cond_1f
-    :goto_1f
+    .line 341
+    :cond_9
+    :goto_9
     return-void
 
-    .line 366
-    :cond_20
-    if-ne p1, v2, :cond_1f
+    .line 338
+    :cond_a
+    const/4 v0, 0x1
 
-    .line 367
-    iget-object v1, p0, Landroid/server/BluetoothBondState$1;->this$0:Landroid/server/BluetoothBondState;
+    if-ne p1, v0, :cond_9
 
-    #getter for: Landroid/server/BluetoothBondState;->mHeadsetProxy:Landroid/bluetooth/BluetoothHeadset;
-    invoke-static {v1}, Landroid/server/BluetoothBondState;->access$100(Landroid/server/BluetoothBondState;)Landroid/bluetooth/BluetoothHeadset;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_1f
-
-    .line 368
-    invoke-static {}, Landroid/bluetooth/BluetoothAdapter;->getDefaultAdapter()Landroid/bluetooth/BluetoothAdapter;
-
-    move-result-object v0
-
-    .line 369
-    .restart local v0       #bluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
-    iget-object v1, p0, Landroid/server/BluetoothBondState$1;->this$0:Landroid/server/BluetoothBondState;
-
-    #getter for: Landroid/server/BluetoothBondState;->mHeadsetProxy:Landroid/bluetooth/BluetoothHeadset;
-    invoke-static {v1}, Landroid/server/BluetoothBondState;->access$100(Landroid/server/BluetoothBondState;)Landroid/bluetooth/BluetoothHeadset;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v2, v1}, Landroid/bluetooth/BluetoothAdapter;->closeProfileProxy(ILandroid/bluetooth/BluetoothProfile;)V
-
-    .line 370
-    iget-object v1, p0, Landroid/server/BluetoothBondState$1;->this$0:Landroid/server/BluetoothBondState;
+    .line 339
+    iget-object v0, p0, Landroid/server/BluetoothBondState$1;->this$0:Landroid/server/BluetoothBondState;
 
     #setter for: Landroid/server/BluetoothBondState;->mHeadsetProxy:Landroid/bluetooth/BluetoothHeadset;
-    invoke-static {v1, v4}, Landroid/server/BluetoothBondState;->access$102(Landroid/server/BluetoothBondState;Landroid/bluetooth/BluetoothHeadset;)Landroid/bluetooth/BluetoothHeadset;
+    invoke-static {v0, v1}, Landroid/server/BluetoothBondState;->access$102(Landroid/server/BluetoothBondState;Landroid/bluetooth/BluetoothHeadset;)Landroid/bluetooth/BluetoothHeadset;
 
-    goto :goto_1f
+    goto :goto_9
 .end method

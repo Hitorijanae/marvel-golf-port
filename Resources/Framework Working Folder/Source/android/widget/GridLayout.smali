@@ -1143,9 +1143,9 @@
 
     .prologue
     .line 855
-    iget v2, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v2, p0, Landroid/widget/GridLayout;->mPaddingLeft:I
 
-    iget v3, p0, Landroid/view/View;->mPaddingRight:I
+    iget v3, p0, Landroid/widget/GridLayout;->mPaddingRight:I
 
     add-int/2addr v2, v3
 
@@ -1163,9 +1163,9 @@
 
     .line 857
     .local v1, childWidthSpec:I
-    iget v2, p0, Landroid/view/View;->mPaddingTop:I
+    iget v2, p0, Landroid/widget/GridLayout;->mPaddingTop:I
 
-    iget v3, p0, Landroid/view/View;->mPaddingBottom:I
+    iget v3, p0, Landroid/widget/GridLayout;->mPaddingBottom:I
 
     add-int/2addr v2, v3
 
@@ -1251,11 +1251,11 @@
     .line 868
     move-object/from16 v0, v19
 
-    iget v6, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v6, v0, Landroid/widget/GridLayout$LayoutParams;->width:I
 
     move-object/from16 v0, v19
 
-    iget v7, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iget v7, v0, Landroid/widget/GridLayout$LayoutParams;->height:I
 
     move-object/from16 v2, p0
 
@@ -1356,7 +1356,7 @@
     .line 879
     move-object/from16 v0, v19
 
-    iget v7, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iget v7, v0, Landroid/widget/GridLayout$LayoutParams;->height:I
 
     move-object/from16 v2, p0
 
@@ -1410,7 +1410,7 @@
     :cond_96
     move-object/from16 v0, v19
 
-    iget v11, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v11, v0, Landroid/widget/GridLayout$LayoutParams;->width:I
 
     move-object/from16 v7, p0
 
@@ -2100,7 +2100,7 @@
 
     if-eqz p3, :cond_13
 
-    iget v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+    iget v1, v0, Landroid/widget/GridLayout$LayoutParams;->leftMargin:I
 
     .line 600
     .local v1, margin:I
@@ -2119,19 +2119,19 @@
 
     .line 597
     :cond_13
-    iget v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
+    iget v1, v0, Landroid/widget/GridLayout$LayoutParams;->rightMargin:I
 
     goto :goto_a
 
     :cond_16
     if-eqz p3, :cond_1b
 
-    iget v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+    iget v1, v0, Landroid/widget/GridLayout$LayoutParams;->topMargin:I
 
     goto :goto_a
 
     :cond_1b
-    iget v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+    iget v1, v0, Landroid/widget/GridLayout$LayoutParams;->bottomMargin:I
 
     goto :goto_a
 .end method

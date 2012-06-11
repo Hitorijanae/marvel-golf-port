@@ -50,17 +50,17 @@
     .parameter "data"
 
     .prologue
-    .line 141
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 77
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 142
+    .line 78
     invoke-static {p1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
-    .line 143
+    .line 79
     iget-object v0, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
@@ -69,7 +69,7 @@
 
     invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    .line 144
+    .line 80
     return-void
 .end method
 
@@ -77,18 +77,18 @@
     .registers 10
 
     .prologue
-    .line 184
+    .line 120
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v6}, Ljava/nio/ByteBuffer;->get()B
 
     move-result v5
 
-    .line 185
+    .line 121
     .local v5, type:B
     packed-switch v5, :pswitch_data_7c
 
-    .line 211
+    .line 147
     new-instance v6, Ljava/lang/IllegalArgumentException;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -113,7 +113,7 @@
 
     throw v6
 
-    .line 187
+    .line 123
     :pswitch_22
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
@@ -125,12 +125,12 @@
 
     move-result-object v0
 
-    .line 208
+    .line 144
     :cond_2c
     :goto_2c
     return-object v0
 
-    .line 190
+    .line 126
     :pswitch_2d
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
@@ -144,7 +144,7 @@
 
     goto :goto_2c
 
-    .line 194
+    .line 130
     :pswitch_38
     :try_start_38
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
@@ -153,7 +153,7 @@
 
     move-result v3
 
-    .line 195
+    .line 131
     .local v3, length:I
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
@@ -161,7 +161,7 @@
 
     move-result v4
 
-    .line 196
+    .line 132
     .local v4, start:I
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
@@ -169,7 +169,7 @@
 
     invoke-virtual {v6, v7}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
-    .line 197
+    .line 133
     new-instance v0, Ljava/lang/String;
 
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
@@ -186,13 +186,13 @@
 
     goto :goto_2c
 
-    .line 198
+    .line 134
     .end local v3           #length:I
     .end local v4           #start:I
     :catch_59
     move-exception v1
 
-    .line 199
+    .line 135
     .local v1, e:Ljava/io/UnsupportedEncodingException;
     const-string v6, "EventLog"
 
@@ -200,12 +200,12 @@
 
     invoke-static {v6, v7, v1}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 200
+    .line 136
     const/4 v0, 0x0
 
     goto :goto_2c
 
-    .line 204
+    .line 140
     .end local v1           #e:Ljava/io/UnsupportedEncodingException;
     :pswitch_63
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
@@ -214,17 +214,17 @@
 
     move-result v3
 
-    .line 205
+    .line 141
     .restart local v3       #length:I
     if-gez v3, :cond_6d
 
     add-int/lit16 v3, v3, 0x100
 
-    .line 206
+    .line 142
     :cond_6d
     new-array v0, v3, [Ljava/lang/Object;
 
-    .line 207
+    .line 143
     .local v0, array:[Ljava/lang/Object;
     const/4 v2, 0x0
 
@@ -242,7 +242,7 @@
 
     goto :goto_70
 
-    .line 185
+    .line 121
     nop
 
     :pswitch_data_7c
@@ -262,7 +262,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 170
+    .line 106
     monitor-enter p0
 
     :try_start_2
@@ -280,14 +280,14 @@
 
     invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
-    .line 171
+    .line 107
     iget-object v2, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     const/16 v3, 0x18
 
     invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
-    .line 172
+    .line 108
     invoke-direct {p0}, Landroid/util/EventLog$Event;->decodeObject()Ljava/lang/Object;
     :try_end_1a
     .catchall {:try_start_2 .. :try_end_1a} :catchall_3b
@@ -296,17 +296,17 @@
 
     move-result-object v1
 
-    .line 178
+    .line 114
     :goto_1b
     monitor-exit p0
 
     return-object v1
 
-    .line 173
+    .line 109
     :catch_1d
     move-exception v0
 
-    .line 174
+    .line 110
     .local v0, e:Ljava/lang/IllegalArgumentException;
     :try_start_1e
     const-string v2, "EventLog"
@@ -339,7 +339,7 @@
 
     goto :goto_1b
 
-    .line 170
+    .line 106
     .end local v0           #e:Ljava/lang/IllegalArgumentException;
     :catchall_3b
     move-exception v1
@@ -348,11 +348,11 @@
 
     throw v1
 
-    .line 176
+    .line 112
     :catch_3e
     move-exception v0
 
-    .line 177
+    .line 113
     .local v0, e:Ljava/nio/BufferUnderflowException;
     :try_start_3f
     const-string v2, "EventLog"
@@ -390,7 +390,7 @@
     .registers 3
 
     .prologue
-    .line 148
+    .line 84
     iget-object v0, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     const/4 v1, 0x4
@@ -406,7 +406,7 @@
     .registers 3
 
     .prologue
-    .line 164
+    .line 100
     iget-object v0, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     const/16 v1, 0x14
@@ -422,7 +422,7 @@
     .registers 3
 
     .prologue
-    .line 153
+    .line 89
     iget-object v0, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     const/16 v1, 0x8
@@ -438,7 +438,7 @@
     .registers 5
 
     .prologue
-    .line 158
+    .line 94
     iget-object v0, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     const/16 v1, 0xc

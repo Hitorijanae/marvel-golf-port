@@ -35,10 +35,10 @@
     .registers 2
 
     .prologue
-    .line 354
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 307
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 355
+    .line 308
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/widget/TextView$InputContentType;->imeOptions:I

@@ -74,7 +74,7 @@
 
     .prologue
     .line 48
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 945
     return-void
@@ -410,10 +410,8 @@
     .line 828
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteStatement;->close()V
 
-    .line 826
     return-object v1
 
-    .line 828
     :catchall_c
     move-exception v1
 
@@ -751,20 +749,15 @@
     :goto_29
     invoke-interface {p0, v2}, Landroid/database/Cursor;->moveToPosition(I)Z
     :try_end_2c
-    .catchall {:try_start_c .. :try_end_2c} :catchall_81
-    .catch Ljava/lang/IllegalStateException; {:try_start_c .. :try_end_2c} :catch_86
+    .catchall {:try_start_c .. :try_end_2c} :catchall_86
+    .catch Ljava/lang/IllegalStateException; {:try_start_c .. :try_end_2c} :catch_81
 
     .line 321
-    .end local v1           #numColumns:I
-    .end local v2           #oldPos:I
-    :goto_2c
     invoke-virtual {p2}, Landroid/database/CursorWindow;->releaseReference()V
 
     goto :goto_8
 
     .line 278
-    .restart local v1       #numColumns:I
-    .restart local v2       #oldPos:I
     :cond_30
     const/4 v0, 0x0
 
@@ -780,7 +773,7 @@
 
     .line 281
     .local v4, type:I
-    packed-switch v4, :pswitch_data_88
+    packed-switch v4, :pswitch_data_8c
 
     .line 303
     :pswitch_3a
@@ -895,8 +888,8 @@
     :cond_79
     invoke-virtual {p2, p1, v0}, Landroid/database/CursorWindow;->putNull(II)Z
     :try_end_7c
-    .catchall {:try_start_33 .. :try_end_7c} :catchall_81
-    .catch Ljava/lang/IllegalStateException; {:try_start_33 .. :try_end_7c} :catch_86
+    .catchall {:try_start_33 .. :try_end_7c} :catchall_86
+    .catch Ljava/lang/IllegalStateException; {:try_start_33 .. :try_end_7c} :catch_81
 
     move-result v3
 
@@ -910,27 +903,31 @@
 
     goto :goto_31
 
-    .line 321
+    .line 318
     .end local v0           #i:I
     .end local v1           #numColumns:I
     .end local v2           #oldPos:I
     .end local v3           #success:Z
     .end local v4           #type:I
-    :catchall_81
+    :catch_81
+    move-exception v6
+
+    .line 321
+    invoke-virtual {p2}, Landroid/database/CursorWindow;->releaseReference()V
+
+    goto :goto_8
+
+    :catchall_86
     move-exception v6
 
     invoke-virtual {p2}, Landroid/database/CursorWindow;->releaseReference()V
 
     throw v6
 
-    .line 318
-    :catch_86
-    move-exception v6
-
-    goto :goto_2c
-
     .line 281
-    :pswitch_data_88
+    nop
+
+    :pswitch_data_8c
     .packed-switch 0x0
         :pswitch_52
         :pswitch_57
@@ -2370,51 +2367,9 @@
     .line 781
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteStatement;->close()V
 
-    .line 779
     return-wide v1
 
-    .line 781
     :catchall_c
-    move-exception v1
-
-    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteStatement;->close()V
-
-    throw v1
-.end method
-
-.method public static longForQuery(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;[Ljava/lang/String;Z)J
-    .registers 7
-    .parameter "db"
-    .parameter "query"
-    .parameter "selectionArgs"
-    .parameter "printSql"
-
-    .prologue
-    .line 1370
-    invoke-virtual {p0, p1}, Landroid/database/sqlite/SQLiteDatabase;->compileStatement(Ljava/lang/String;)Landroid/database/sqlite/SQLiteStatement;
-
-    move-result-object v0
-
-    .line 1371
-    .local v0, prog:Landroid/database/sqlite/SQLiteStatement;
-    invoke-virtual {v0, p3}, Landroid/database/sqlite/SQLiteStatement;->setDumpSql(Z)V
-
-    .line 1373
-    :try_start_7
-    invoke-static {v0, p2}, Landroid/database/DatabaseUtils;->longForQuery(Landroid/database/sqlite/SQLiteStatement;[Ljava/lang/String;)J
-    :try_end_a
-    .catchall {:try_start_7 .. :try_end_a} :catchall_f
-
-    move-result-wide v1
-
-    .line 1375
-    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteStatement;->close()V
-
-    .line 1373
-    return-wide v1
-
-    .line 1375
-    :catchall_f
     move-exception v1
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteStatement;->close()V
@@ -2815,51 +2770,9 @@
     .line 803
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteStatement;->close()V
 
-    .line 801
     return-object v1
 
-    .line 803
     :catchall_c
-    move-exception v1
-
-    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteStatement;->close()V
-
-    throw v1
-.end method
-
-.method public static stringForQuery(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;[Ljava/lang/String;Z)Ljava/lang/String;
-    .registers 6
-    .parameter "db"
-    .parameter "query"
-    .parameter "selectionArgs"
-    .parameter "printSql"
-
-    .prologue
-    .line 1383
-    invoke-virtual {p0, p1}, Landroid/database/sqlite/SQLiteDatabase;->compileStatement(Ljava/lang/String;)Landroid/database/sqlite/SQLiteStatement;
-
-    move-result-object v0
-
-    .line 1384
-    .local v0, prog:Landroid/database/sqlite/SQLiteStatement;
-    invoke-virtual {v0, p3}, Landroid/database/sqlite/SQLiteStatement;->setDumpSql(Z)V
-
-    .line 1386
-    :try_start_7
-    invoke-static {v0, p2}, Landroid/database/DatabaseUtils;->stringForQuery(Landroid/database/sqlite/SQLiteStatement;[Ljava/lang/String;)Ljava/lang/String;
-    :try_end_a
-    .catchall {:try_start_7 .. :try_end_a} :catchall_f
-
-    move-result-object v1
-
-    .line 1388
-    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteStatement;->close()V
-
-    .line 1386
-    return-object v1
-
-    .line 1388
-    :catchall_f
     move-exception v1
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteStatement;->close()V

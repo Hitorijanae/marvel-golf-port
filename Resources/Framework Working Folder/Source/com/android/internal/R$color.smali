@@ -25,8 +25,6 @@
 
 .field public static final black:I = 0x106000c
 
-.field public static final black_text_white_focused:I = 0x1060069
-
 .field public static final bright_foreground_dark:I = 0x106001d
 
 .field public static final bright_foreground_dark_disabled:I = 0x106001f
@@ -50,10 +48,6 @@
 .field public static final bright_foreground_light_disabled:I = 0x1060020
 
 .field public static final bright_foreground_light_inverse:I = 0x1060022
-
-.field public static final bright_text_dark_focused:I = 0x106006a
-
-.field public static final bright_text_dark_focused_1:I = 0x106006b
 
 .field public static final config_defaultNotificationColor:I = 0x1060063
 
@@ -101,8 +95,6 @@
 
 .field public static final group_button_dialog_pressed_holo_light:I = 0x106005e
 
-.field public static final highlight_pen_green:I = 0x1060065
-
 .field public static final highlighted_text_dark:I = 0x106002d
 
 .field public static final highlighted_text_holo_dark:I = 0x1060058
@@ -139,8 +131,6 @@
 
 .field public static final holo_red_light:I = 0x1060016
 
-.field public static final htc_unlock_pin_unlock_font_color:I = 0x1060066
-
 .field public static final keyguard_text_color_decline:I = 0x1060040
 
 .field public static final keyguard_text_color_normal:I = 0x106003c
@@ -175,45 +165,43 @@
 
 .field public static final lockscreen_owner_info:I = 0x1060044
 
-.field public static final multiply_color:I = 0x1060064
-
 .field public static final perms_dangerous_grp_color:I = 0x1060033
 
 .field public static final perms_dangerous_perm_color:I = 0x1060034
 
 .field public static final primary_text_dark:I = 0x1060001
 
-.field public static final primary_text_dark_disable_only:I = 0x106006c
+.field public static final primary_text_dark_disable_only:I = 0x1060064
 
-.field public static final primary_text_dark_focused:I = 0x106006d
+.field public static final primary_text_dark_focused:I = 0x1060065
 
 .field public static final primary_text_dark_nodisable:I = 0x1060002
 
-.field public static final primary_text_disable_only_holo_dark:I = 0x106006e
+.field public static final primary_text_disable_only_holo_dark:I = 0x1060066
 
-.field public static final primary_text_disable_only_holo_light:I = 0x106006f
+.field public static final primary_text_disable_only_holo_light:I = 0x1060067
 
-.field public static final primary_text_focused_holo_dark:I = 0x1060070
+.field public static final primary_text_focused_holo_dark:I = 0x1060068
 
-.field public static final primary_text_holo_dark:I = 0x1060071
+.field public static final primary_text_holo_dark:I = 0x1060069
 
-.field public static final primary_text_holo_light:I = 0x1060072
+.field public static final primary_text_holo_light:I = 0x106006a
 
 .field public static final primary_text_light:I = 0x1060003
 
-.field public static final primary_text_light_disable_only:I = 0x1060073
+.field public static final primary_text_light_disable_only:I = 0x106006b
 
 .field public static final primary_text_light_nodisable:I = 0x1060004
 
-.field public static final primary_text_nodisable_holo_dark:I = 0x1060074
+.field public static final primary_text_nodisable_holo_dark:I = 0x106006c
 
-.field public static final primary_text_nodisable_holo_light:I = 0x1060075
+.field public static final primary_text_nodisable_holo_light:I = 0x106006d
 
 .field public static final safe_mode_text:I = 0x106001c
 
-.field public static final search_url_text:I = 0x1060076
+.field public static final search_url_text:I = 0x106006e
 
-.field public static final search_url_text_holo:I = 0x1060077
+.field public static final search_url_text_holo:I = 0x106006f
 
 .field public static final search_url_text_normal:I = 0x1060036
 
@@ -227,19 +215,19 @@
 
 .field public static final secondary_text_dark_nodisable:I = 0x1060006
 
-.field public static final secondary_text_holo_dark:I = 0x1060078
+.field public static final secondary_text_holo_dark:I = 0x1060070
 
-.field public static final secondary_text_holo_light:I = 0x1060079
+.field public static final secondary_text_holo_light:I = 0x1060071
 
 .field public static final secondary_text_light:I = 0x1060007
 
 .field public static final secondary_text_light_nodisable:I = 0x1060008
 
-.field public static final secondary_text_nodisable_holo_dark:I = 0x106007a
+.field public static final secondary_text_nodisable_holo_dark:I = 0x1060072
 
-.field public static final secondary_text_nodisable_holo_light:I = 0x106007b
+.field public static final secondary_text_nodisable_holo_light:I = 0x1060073
 
-.field public static final secondary_text_nofocus:I = 0x106007c
+.field public static final secondary_text_nofocus:I = 0x1060074
 
 .field public static final shadow:I = 0x1060035
 
@@ -247,23 +235,19 @@
 
 .field public static final sliding_tab_text_color_shadow:I = 0x106003b
 
-.field public static final subcontent_text_white_focused:I = 0x1060067
-
 .field public static final suggestion_highlight_text:I = 0x1060031
 
 .field public static final tab_indicator_text:I = 0x1060009
 
-.field public static final tab_indicator_text_v4:I = 0x106007d
+.field public static final tab_indicator_text_v4:I = 0x1060075
 
 .field public static final tertiary_text_dark:I = 0x1060010
 
-.field public static final tertiary_text_holo_dark:I = 0x106007e
+.field public static final tertiary_text_holo_dark:I = 0x1060076
 
-.field public static final tertiary_text_holo_light:I = 0x106007f
+.field public static final tertiary_text_holo_light:I = 0x1060077
 
 .field public static final tertiary_text_light:I = 0x1060011
-
-.field public static final text_selector:I = 0x1060068
 
 .field public static final transparent:I = 0x106000d
 
@@ -271,30 +255,14 @@
 
 .field public static final widget_edittext_dark:I = 0x106000a
 
-.field public static final zzz_primary_text_dark_1:I = 0x1060080
-
-.field public static final zzz_secondary_text_dark_1:I = 0x1060081
-
-.field public static final zzzz_black_text_white_focused:I = 0x1060082
-
-.field public static final zzzz_bright_text_dark_focused:I = 0x1060083
-
-.field public static final zzzz_bright_text_dark_focused_1:I = 0x1060084
-
-.field public static final zzzz_color_phone:I = 0x1060085
-
-.field public static final zzzz_subcontent_text_white_focused:I = 0x1060086
-
-.field public static final zzzz_text_selector:I = 0x1060087
-
 
 # direct methods
 .method public constructor <init>()V
     .registers 1
 
     .prologue
-    .line 12761
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 11477
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

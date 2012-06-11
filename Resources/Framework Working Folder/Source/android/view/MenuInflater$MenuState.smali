@@ -96,7 +96,7 @@
     .line 289
     iput-object p1, p0, Landroid/view/MenuInflater$MenuState;->this$0:Landroid/view/MenuInflater;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 290
     iput-object p2, p0, Landroid/view/MenuInflater$MenuState;->menu:Landroid/view/Menu;

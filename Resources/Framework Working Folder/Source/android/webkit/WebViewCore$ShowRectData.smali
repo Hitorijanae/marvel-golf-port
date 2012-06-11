@@ -35,16 +35,14 @@
 
 .field mYPercentInView:F
 
-.field mhasFocusNode:Z
-
 
 # direct methods
 .method constructor <init>()V
     .registers 1
 
     .prologue
-    .line 3238
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 2847
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

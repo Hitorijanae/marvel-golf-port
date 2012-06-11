@@ -9,7 +9,7 @@
 
     .prologue
     .line 26
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -61,7 +61,7 @@
 
     .line 53
     .local v0, result:F
-    const v1, 0x10400cc
+    const v1, 0x10400bc
 
     .line 54
     .local v1, suffix:I
@@ -70,7 +70,7 @@
     if-lez v3, :cond_17
 
     .line 55
-    const v1, 0x10400cd
+    const v1, 0x10400bd
 
     .line 56
     div-float/2addr v0, v5
@@ -82,7 +82,7 @@
     if-lez v3, :cond_1f
 
     .line 59
-    const v1, 0x10400ce
+    const v1, 0x10400be
 
     .line 60
     div-float/2addr v0, v5
@@ -94,7 +94,7 @@
     if-lez v3, :cond_27
 
     .line 63
-    const v1, 0x10400cf
+    const v1, 0x10400bf
 
     .line 64
     div-float/2addr v0, v5
@@ -106,7 +106,7 @@
     if-lez v3, :cond_2f
 
     .line 67
-    const v1, 0x10400d0
+    const v1, 0x10400c0
 
     .line 68
     div-float/2addr v0, v5
@@ -118,7 +118,7 @@
     if-lez v3, :cond_37
 
     .line 71
-    const v1, 0x10400d1
+    const v1, 0x10400c1
 
     .line 72
     div-float/2addr v0, v5
@@ -153,7 +153,7 @@
 
     move-result-object v3
 
-    const v4, 0x10400d2
+    const v4, 0x10400c2
 
     const/4 v5, 0x2
 

@@ -95,47 +95,47 @@
 
     move-result v0
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_1e
 
     .line 300
-    const-string/jumbo v0, "layout_width"
+    const-string v0, "layout_width"
 
     invoke-virtual {p1, p2, v0}, Landroid/content/res/TypedArray;->getLayoutDimension(ILjava/lang/String;)I
 
     move-result v0
 
-    iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v0, p0, Landroid/widget/RadioGroup$LayoutParams;->width:I
 
     .line 305
-    :goto_10
+    :goto_f
     invoke-virtual {p1, p3}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_21
 
     .line 306
-    const-string/jumbo v0, "layout_height"
+    const-string v0, "layout_height"
 
     invoke-virtual {p1, p3, v0}, Landroid/content/res/TypedArray;->getLayoutDimension(ILjava/lang/String;)I
 
     move-result v0
 
-    iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v0, p0, Landroid/widget/RadioGroup$LayoutParams;->height:I
 
     .line 310
-    :goto_1f
+    :goto_1d
     return-void
 
     .line 302
-    :cond_20
-    iput v1, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    :cond_1e
+    iput v1, p0, Landroid/widget/RadioGroup$LayoutParams;->width:I
 
-    goto :goto_10
+    goto :goto_f
 
     .line 308
-    :cond_23
-    iput v1, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    :cond_21
+    iput v1, p0, Landroid/widget/RadioGroup$LayoutParams;->height:I
 
-    goto :goto_1f
+    goto :goto_1d
 .end method

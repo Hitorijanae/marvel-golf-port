@@ -87,52 +87,6 @@
 
 
 # virtual methods
-.method public getTextRunCursor(Ljava/lang/CharSequence;IIIII)I
-    .registers 9
-    .parameter "text"
-    .parameter "contextStart"
-    .parameter "contextEnd"
-    .parameter "flags"
-    .parameter "offset"
-    .parameter "cursorOpt"
-
-    .prologue
-    .line 91
-    invoke-super/range {p0 .. p6}, Landroid/graphics/Paint;->getTextRunCursor(Ljava/lang/CharSequence;IIIII)I
-
-    move-result v0
-
-    .line 93
-    .local v0, result:I
-    instance-of v1, p1, Ljava/lang/String;
-
-    if-nez v1, :cond_14
-
-    instance-of v1, p1, Landroid/text/SpannedString;
-
-    if-nez v1, :cond_14
-
-    instance-of v1, p1, Landroid/text/SpannableString;
-
-    if-nez v1, :cond_14
-
-    instance-of v1, p1, Landroid/text/GraphicsOperations;
-
-    if-eqz v1, :cond_15
-
-    .line 96
-    .end local v0           #result:I
-    :cond_14
-    :goto_14
-    return v0
-
-    .restart local v0       #result:I
-    :cond_15
-    add-int/2addr v0, p2
-
-    goto :goto_14
-.end method
-
 .method public set(Landroid/text/TextPaint;)V
     .registers 3
     .parameter "tp"

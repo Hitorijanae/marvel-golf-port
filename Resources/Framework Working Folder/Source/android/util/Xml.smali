@@ -22,7 +22,7 @@
 
     .prologue
     .line 47
-    const-string/jumbo v0, "http://xmlpull.org/v1/doc/features.html#relaxed"
+    const-string v0, "http://xmlpull.org/v1/doc/features.html#relaxed"
 
     sput-object v0, Landroid/util/Xml;->FEATURE_RELAXED:Ljava/lang/String;
 
@@ -34,7 +34,7 @@
 
     .prologue
     .line 39
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -141,26 +141,26 @@
 
     .line 93
     .local v1, parser:Lorg/kxml2/io/KXmlParser;
-    const-string/jumbo v2, "http://xmlpull.org/v1/doc/features.html#process-docdecl"
+    const-string v2, "http://xmlpull.org/v1/doc/features.html#process-docdecl"
 
     const/4 v3, 0x1
 
     invoke-virtual {v1, v2, v3}, Lorg/kxml2/io/KXmlParser;->setFeature(Ljava/lang/String;Z)V
 
     .line 94
-    const-string/jumbo v2, "http://xmlpull.org/v1/doc/features.html#process-namespaces"
+    const-string v2, "http://xmlpull.org/v1/doc/features.html#process-namespaces"
 
     const/4 v3, 0x1
 
     invoke-virtual {v1, v2, v3}, Lorg/kxml2/io/KXmlParser;->setFeature(Ljava/lang/String;Z)V
-    :try_end_13
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_13} :catch_14
+    :try_end_11
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_11} :catch_12
 
     .line 95
     return-object v1
 
     .line 96
-    :catch_14
+    :catch_12
     move-exception v0
 
     .line 97

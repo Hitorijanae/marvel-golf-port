@@ -20,10 +20,10 @@
     .registers 1
 
     .prologue
-    .line 25
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 31
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 189
+    .line 190
     return-void
 .end method
 
@@ -48,7 +48,7 @@
     .registers 2
 
     .prologue
-    .line 53
+    .line 59
     iget-object v0, p0, Landroid/view/ActionMode;->mTag:Ljava/lang/Object;
 
     return-object v0
@@ -64,22 +64,13 @@
     .registers 2
 
     .prologue
-    .line 164
+    .line 170
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public abstract setCustomView(Landroid/view/View;)V
-.end method
-
-.method public setShowHideActionBarViewOnActionModeFinished(Z)V
-    .registers 2
-    .parameter "shown"
-
-    .prologue
-    .line 170
-    return-void
 .end method
 
 .method public abstract setSubtitle(I)V
@@ -93,10 +84,10 @@
     .parameter "tag"
 
     .prologue
-    .line 39
+    .line 45
     iput-object p1, p0, Landroid/view/ActionMode;->mTag:Ljava/lang/Object;
 
-    .line 40
+    .line 46
     return-void
 .end method
 

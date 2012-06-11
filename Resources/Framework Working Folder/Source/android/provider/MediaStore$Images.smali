@@ -15,7 +15,6 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/provider/MediaStore$Images$HtcInk;,
         Landroid/provider/MediaStore$Images$Thumbnails;,
         Landroid/provider/MediaStore$Images$Media;,
         Landroid/provider/MediaStore$Images$ImageColumns;
@@ -28,9 +27,9 @@
     .registers 1
 
     .prologue
-    .line 616
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 611
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1070
+    .line 881
     return-void
 .end method

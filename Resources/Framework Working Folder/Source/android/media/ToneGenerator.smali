@@ -8,16 +8,6 @@
 
 .field public static final MIN_VOLUME:I = 0x0
 
-.field public static final TONE_ANSI_BUSY:I = 0x64
-
-.field public static final TONE_ANSI_CALL_WAITING:I = 0x66
-
-.field public static final TONE_ANSI_CONGESTION:I = 0x65
-
-.field public static final TONE_ANSI_DIAL:I = 0x63
-
-.field public static final TONE_ANSI_RINGTONE:I = 0x67
-
 .field public static final TONE_CDMA_ABBR_ALERT:I = 0x61
 
 .field public static final TONE_CDMA_ABBR_INTERCEPT:I = 0x25
@@ -130,8 +120,6 @@
 
 .field public static final TONE_CDMA_NETWORK_BUSY:I = 0x28
 
-.field public static final TONE_CDMA_NETWORK_BUSY_KDDI:I = 0x6e
-
 .field public static final TONE_CDMA_NETWORK_BUSY_ONE_SHOT:I = 0x60
 
 .field public static final TONE_CDMA_NETWORK_CALLWAITING:I = 0x2b
@@ -178,21 +166,9 @@
 
 .field public static final TONE_DTMF_D:I = 0xf
 
-.field public static final TONE_DTMF_GAN_LITE:I = 0x6f
-
 .field public static final TONE_DTMF_P:I = 0xb
 
 .field public static final TONE_DTMF_S:I = 0xa
-
-.field public static final TONE_HTC_CDMA_EMERGENCY_ALERT:I = 0x6b
-
-.field public static final TONE_HTC_CDMA_OTA:I = 0x6d
-
-.field public static final TONE_JAPAN_BUSY:I = 0x69
-
-.field public static final TONE_JAPAN_DIAL:I = 0x68
-
-.field public static final TONE_JAPAN_RADIO_ACK:I = 0x6a
 
 .field public static final TONE_PROP_ACK:I = 0x19
 
@@ -207,8 +183,6 @@
 .field public static final TONE_SUP_BUSY:I = 0x11
 
 .field public static final TONE_SUP_CALL_WAITING:I = 0x16
-
-.field public static final TONE_SUP_CALL_WAITING_ATT:I = 0x6c
 
 .field public static final TONE_SUP_CONFIRM:I = 0x20
 
@@ -244,13 +218,13 @@
     .parameter "volume"
 
     .prologue
-    .line 804
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 739
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 805
+    .line 740
     invoke-direct {p0, p1, p2}, Landroid/media/ToneGenerator;->native_setup(II)V
 
-    .line 806
+    .line 741
     return-void
 .end method
 
@@ -266,7 +240,7 @@
     .registers 1
 
     .prologue
-    .line 944
+    .line 879
     invoke-direct {p0}, Landroid/media/ToneGenerator;->native_finalize()V
 
     return-void
@@ -280,7 +254,7 @@
     .parameter "toneType"
 
     .prologue
-    .line 915
+    .line 850
     const/4 v0, -0x1
 
     invoke-virtual {p0, p1, v0}, Landroid/media/ToneGenerator;->startTone(II)Z

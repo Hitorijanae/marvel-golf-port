@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 553
+    .line 542
     iput-object p1, p0, Landroid/webkit/HTML5VideoViewProxy$1;->this$0:Landroid/webkit/HTML5VideoViewProxy;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,22 +39,22 @@
     .parameter "msg"
 
     .prologue
-    .line 556
+    .line 545
     iget v5, p1, Landroid/os/Message;->what:I
 
     sparse-switch v5, :sswitch_data_78
 
-    .line 584
+    .line 573
     :goto_5
     return-void
 
-    .line 558
+    .line 547
     :sswitch_6
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v2, Ljava/util/Map;
 
-    .line 559
+    .line 548
     .local v2, map:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     const-string v5, "dur"
 
@@ -64,7 +64,7 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 560
+    .line 549
     .local v0, duration:Ljava/lang/Integer;
     const-string/jumbo v5, "width"
 
@@ -74,9 +74,9 @@
 
     check-cast v4, Ljava/lang/Integer;
 
-    .line 561
+    .line 550
     .local v4, width:Ljava/lang/Integer;
-    const-string/jumbo v5, "height"
+    const-string v5, "height"
 
     invoke-interface {v2, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -84,7 +84,7 @@
 
     check-cast v1, Ljava/lang/Integer;
 
-    .line 562
+    .line 551
     .local v1, height:Ljava/lang/Integer;
     iget-object v5, p0, Landroid/webkit/HTML5VideoViewProxy$1;->this$0:Landroid/webkit/HTML5VideoViewProxy;
 
@@ -109,12 +109,12 @@
 
     goto :goto_5
 
-    .line 567
+    .line 556
     .end local v0           #duration:Ljava/lang/Integer;
     .end local v1           #height:Ljava/lang/Integer;
     .end local v2           #map:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     .end local v4           #width:Ljava/lang/Integer;
-    :sswitch_3a
+    :sswitch_39
     iget-object v5, p0, Landroid/webkit/HTML5VideoViewProxy$1;->this$0:Landroid/webkit/HTML5VideoViewProxy;
 
     const/4 v6, 0x0
@@ -122,7 +122,7 @@
     #setter for: Landroid/webkit/HTML5VideoViewProxy;->mSeekPosition:I
     invoke-static {v5, v6}, Landroid/webkit/HTML5VideoViewProxy;->access$802(Landroid/webkit/HTML5VideoViewProxy;I)I
 
-    .line 568
+    .line 557
     iget-object v5, p0, Landroid/webkit/HTML5VideoViewProxy$1;->this$0:Landroid/webkit/HTML5VideoViewProxy;
 
     iget-object v6, p0, Landroid/webkit/HTML5VideoViewProxy$1;->this$0:Landroid/webkit/HTML5VideoViewProxy;
@@ -134,8 +134,8 @@
 
     goto :goto_5
 
-    .line 571
-    :sswitch_4a
+    .line 560
+    :sswitch_49
     iget-object v5, p0, Landroid/webkit/HTML5VideoViewProxy$1;->this$0:Landroid/webkit/HTML5VideoViewProxy;
 
     iget-object v6, p0, Landroid/webkit/HTML5VideoViewProxy$1;->this$0:Landroid/webkit/HTML5VideoViewProxy;
@@ -147,13 +147,13 @@
 
     goto :goto_5
 
-    .line 574
-    :sswitch_54
+    .line 563
+    :sswitch_53
     iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v3, Landroid/graphics/Bitmap;
 
-    .line 575
+    .line 564
     .local v3, poster:Landroid/graphics/Bitmap;
     iget-object v5, p0, Landroid/webkit/HTML5VideoViewProxy$1;->this$0:Landroid/webkit/HTML5VideoViewProxy;
 
@@ -166,9 +166,9 @@
 
     goto :goto_5
 
-    .line 578
+    .line 567
     .end local v3           #poster:Landroid/graphics/Bitmap;
-    :sswitch_62
+    :sswitch_61
     iget-object v5, p0, Landroid/webkit/HTML5VideoViewProxy$1;->this$0:Landroid/webkit/HTML5VideoViewProxy;
 
     iget v6, p1, Landroid/os/Message;->arg1:I
@@ -182,8 +182,8 @@
 
     goto :goto_5
 
-    .line 581
-    :sswitch_6e
+    .line 570
+    :sswitch_6d
     iget-object v5, p0, Landroid/webkit/HTML5VideoViewProxy$1;->this$0:Landroid/webkit/HTML5VideoViewProxy;
 
     iget-object v6, p0, Landroid/webkit/HTML5VideoViewProxy$1;->this$0:Landroid/webkit/HTML5VideoViewProxy;
@@ -195,14 +195,16 @@
 
     goto :goto_5
 
-    .line 556
+    .line 545
+    nop
+
     :sswitch_data_78
     .sparse-switch
         0xc8 -> :sswitch_6
-        0xc9 -> :sswitch_3a
-        0xca -> :sswitch_54
-        0xcb -> :sswitch_4a
-        0xcc -> :sswitch_6e
-        0x12c -> :sswitch_62
+        0xc9 -> :sswitch_39
+        0xca -> :sswitch_53
+        0xcb -> :sswitch_49
+        0xcc -> :sswitch_6d
+        0x12c -> :sswitch_61
     .end sparse-switch
 .end method

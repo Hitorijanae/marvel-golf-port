@@ -6,7 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/text/NoCopySpan$MetaSpan;,
         Landroid/text/NoCopySpan$Concrete;
     }
 .end annotation

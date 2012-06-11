@@ -34,8 +34,6 @@
 
 .field static final TRANSACTION_disable:I = 0x6
 
-.field static final TRANSACTION_glow:I = 0xe
-
 .field static final TRANSACTION_removeIcon:I = 0x2
 
 .field static final TRANSACTION_removeNotification:I = 0x5
@@ -146,9 +144,9 @@
     const/4 v3, 0x1
 
     .line 39
-    sparse-switch p1, :sswitch_data_10e
+    sparse-switch p1, :sswitch_data_100
 
-    .line 180
+    .line 172
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v3
@@ -514,25 +512,8 @@
 
     goto/16 :goto_9
 
-    .line 173
-    :sswitch_100
-    const-string v4, "com.android.internal.statusbar.IStatusBar"
-
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 175
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    .line 176
-    .local v0, _arg0:I
-    invoke-virtual {p0, v0}, Lcom/android/internal/statusbar/IStatusBar$Stub;->glow(I)V
-
-    goto/16 :goto_9
-
     .line 39
-    :sswitch_data_10e
+    :sswitch_data_100
     .sparse-switch
         0x1 -> :sswitch_10
         0x2 -> :sswitch_2d
@@ -547,7 +528,6 @@
         0xb -> :sswitch_c4
         0xc -> :sswitch_da
         0xd -> :sswitch_f6
-        0xe -> :sswitch_100
         0x5f4e5446 -> :sswitch_a
     .end sparse-switch
 .end method

@@ -6,8 +6,6 @@
 # static fields
 .field private static final NO_ALPHA:I = 0xff
 
-.field private static final bArabicDisplay:Z
-
 
 # instance fields
 .field private mDisabledAlpha:F
@@ -30,35 +28,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .registers 2
-
-    .prologue
-    const/16 v1, 0x19
-
-    .line 32
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_LANGUAGE_flag:S
-
-    if-eq v0, v1, :cond_a
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_LANGUAGE_flag:S
-
-    if-ne v0, v1, :cond_e
-
-    :cond_a
-    const/4 v0, 0x1
-
-    :goto_b
-    sput-boolean v0, Landroid/widget/AbsSeekBar;->bArabicDisplay:Z
-
-    return-void
-
-    :cond_e
-    const/4 v0, 0x0
-
-    goto :goto_b
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
     .registers 3
     .parameter "context"
@@ -66,16 +35,16 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 63
+    .line 58
     invoke-direct {p0, p1}, Landroid/widget/ProgressBar;-><init>(Landroid/content/Context;)V
 
-    .line 47
+    .line 42
     iput-boolean v0, p0, Landroid/widget/AbsSeekBar;->mIsUserSeekable:Z
 
-    .line 53
+    .line 48
     iput v0, p0, Landroid/widget/AbsSeekBar;->mKeyProgressIncrement:I
 
-    .line 64
+    .line 59
     return-void
 .end method
 
@@ -87,16 +56,16 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 67
+    .line 62
     invoke-direct {p0, p1, p2}, Landroid/widget/ProgressBar;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 47
+    .line 42
     iput-boolean v0, p0, Landroid/widget/AbsSeekBar;->mIsUserSeekable:Z
 
-    .line 53
+    .line 48
     iput v0, p0, Landroid/widget/AbsSeekBar;->mKeyProgressIncrement:I
 
-    .line 68
+    .line 63
     return-void
 .end method
 
@@ -111,33 +80,33 @@
 
     const/4 v4, 0x0
 
-    .line 71
+    .line 66
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/ProgressBar;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 47
+    .line 42
     iput-boolean v5, p0, Landroid/widget/AbsSeekBar;->mIsUserSeekable:Z
 
-    .line 53
+    .line 48
     iput v5, p0, Landroid/widget/AbsSeekBar;->mKeyProgressIncrement:I
 
-    .line 73
+    .line 68
     sget-object v3, Lcom/android/internal/R$styleable;->SeekBar:[I
 
     invoke-virtual {p1, p2, v3, p3, v4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 75
+    .line 70
     .local v0, a:Landroid/content/res/TypedArray;
     invoke-virtual {v0, v4}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    .line 76
+    .line 71
     .local v1, thumb:Landroid/graphics/drawable/Drawable;
     invoke-virtual {p0, v1}, Landroid/widget/AbsSeekBar;->setThumb(Landroid/graphics/drawable/Drawable;)V
 
-    .line 78
+    .line 73
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getThumbOffset()I
 
     move-result v3
@@ -146,21 +115,21 @@
 
     move-result v2
 
-    .line 80
+    .line 75
     .local v2, thumbOffset:I
     invoke-virtual {p0, v2}, Landroid/widget/AbsSeekBar;->setThumbOffset(I)V
 
-    .line 81
+    .line 76
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 83
+    .line 78
     sget-object v3, Lcom/android/internal/R$styleable;->Theme:[I
 
     invoke-virtual {p1, p2, v3, v4, v4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 85
+    .line 80
     const/4 v3, 0x3
 
     const/high16 v4, 0x3f00
@@ -171,10 +140,10 @@
 
     iput v3, p0, Landroid/widget/AbsSeekBar;->mDisabledAlpha:F
 
-    .line 86
+    .line 81
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 88
+    .line 83
     invoke-static {p1}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
 
     move-result-object v3
@@ -185,7 +154,7 @@
 
     iput v3, p0, Landroid/widget/AbsSeekBar;->mScaledTouchSlop:I
 
-    .line 89
+    .line 84
     return-void
 .end method
 
@@ -193,19 +162,19 @@
     .registers 3
 
     .prologue
-    .line 466
+    .line 419
     iget-object v0, p0, Landroid/widget/AbsSeekBar;->mParent:Landroid/view/ViewParent;
 
     if-eqz v0, :cond_a
 
-    .line 467
+    .line 420
     iget-object v0, p0, Landroid/widget/AbsSeekBar;->mParent:Landroid/view/ViewParent;
 
     const/4 v1, 0x1
 
     invoke-interface {v0, v1}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
 
-    .line 469
+    .line 422
     :cond_a
     return-void
 .end method
@@ -218,7 +187,7 @@
     .parameter "gap"
 
     .prologue
-    .line 275
+    .line 270
     iget v7, p0, Landroid/widget/AbsSeekBar;->mPaddingLeft:I
 
     sub-int v7, p1, v7
@@ -227,56 +196,56 @@
 
     sub-int v0, v7, v8
 
-    .line 276
+    .line 271
     .local v0, available:I
     invoke-virtual {p2}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v5
 
-    .line 277
+    .line 272
     .local v5, thumbWidth:I
     invoke-virtual {p2}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v3
 
-    .line 278
+    .line 273
     .local v3, thumbHeight:I
     sub-int/2addr v0, v5
 
-    .line 281
+    .line 276
     iget v7, p0, Landroid/widget/AbsSeekBar;->mThumbOffset:I
 
     mul-int/lit8 v7, v7, 0x2
 
     add-int/2addr v0, v7
 
-    .line 283
+    .line 278
     int-to-float v7, v0
 
     mul-float/2addr v7, p3
 
     float-to-int v4, v7
 
-    .line 286
+    .line 281
     .local v4, thumbPos:I
     const/high16 v7, -0x8000
 
     if-ne p4, v7, :cond_2b
 
-    .line 287
+    .line 282
     invoke-virtual {p2}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v2
 
-    .line 288
+    .line 283
     .local v2, oldBounds:Landroid/graphics/Rect;
     iget v6, v2, Landroid/graphics/Rect;->top:I
 
-    .line 289
+    .line 284
     .local v6, topBound:I
     iget v1, v2, Landroid/graphics/Rect;->bottom:I
 
-    .line 296
+    .line 291
     .end local v2           #oldBounds:Landroid/graphics/Rect;
     .local v1, bottomBound:I
     :goto_25
@@ -284,16 +253,16 @@
 
     invoke-virtual {p2, v4, v6, v7, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 297
+    .line 292
     return-void
 
-    .line 291
+    .line 286
     .end local v1           #bottomBound:I
     .end local v6           #topBound:I
     :cond_2b
     move v6, p4
 
-    .line 292
+    .line 287
     .restart local v6       #topBound:I
     add-int v1, p4, v3
 
@@ -306,12 +275,12 @@
     .parameter "event"
 
     .prologue
-    .line 415
+    .line 394
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getWidth()I
 
     move-result v4
 
-    .line 416
+    .line 395
     .local v4, width:I
     iget v6, p0, Landroid/widget/AbsSeekBar;->mPaddingLeft:I
 
@@ -321,7 +290,7 @@
 
     sub-int v0, v6, v7
 
-    .line 417
+    .line 396
     .local v0, available:I
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
@@ -329,32 +298,27 @@
 
     float-to-int v5, v6
 
-    .line 419
+    .line 398
     .local v5, x:I
     const/4 v2, 0x0
 
-    .line 422
+    .line 399
     .local v2, progress:F
-    sget-boolean v6, Landroid/widget/AbsSeekBar;->bArabicDisplay:Z
-
-    if-nez v6, :cond_3c
-
-    .line 424
     iget v6, p0, Landroid/widget/AbsSeekBar;->mPaddingLeft:I
 
-    if-ge v5, v6, :cond_28
+    if-ge v5, v6, :cond_24
 
-    .line 425
+    .line 400
     const/4 v3, 0x0
 
-    .line 455
+    .line 408
     .local v3, scale:F
-    :goto_1b
+    :goto_17
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getMax()I
 
     move-result v1
 
-    .line 456
+    .line 409
     .local v1, max:I
     int-to-float v6, v1
 
@@ -362,35 +326,35 @@
 
     add-float/2addr v2, v6
 
-    .line 458
+    .line 411
     float-to-int v6, v2
 
     const/4 v7, 0x1
 
     invoke-virtual {p0, v6, v7}, Landroid/widget/AbsSeekBar;->setProgress(IZ)V
 
-    .line 459
+    .line 412
     return-void
 
-    .line 426
+    .line 401
     .end local v1           #max:I
     .end local v3           #scale:F
-    :cond_28
+    :cond_24
     iget v6, p0, Landroid/widget/AbsSeekBar;->mPaddingRight:I
 
     sub-int v6, v4, v6
 
-    if-le v5, v6, :cond_31
+    if-le v5, v6, :cond_2d
 
-    .line 427
+    .line 402
     const/high16 v3, 0x3f80
 
     .restart local v3       #scale:F
-    goto :goto_1b
+    goto :goto_17
 
-    .line 429
+    .line 404
     .end local v3           #scale:F
-    :cond_31
+    :cond_2d
     iget v6, p0, Landroid/widget/AbsSeekBar;->mPaddingLeft:I
 
     sub-int v6, v5, v6
@@ -401,126 +365,11 @@
 
     div-float v3, v6, v7
 
-    .line 430
+    .line 405
     .restart local v3       #scale:F
     iget v2, p0, Landroid/widget/AbsSeekBar;->mTouchProgressOffset:F
 
-    goto :goto_1b
-
-    .line 434
-    .end local v3           #scale:F
-    :cond_3c
-    iget-object v6, p0, Landroid/widget/AbsSeekBar;->mTag:Ljava/lang/Object;
-
-    if-eqz v6, :cond_6b
-
-    iget-object v6, p0, Landroid/widget/AbsSeekBar;->mTag:Ljava/lang/Object;
-
-    invoke-virtual {v6}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "mirror"
-
-    invoke-virtual {v6, v7}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_6b
-
-    .line 435
-    iget v6, p0, Landroid/widget/AbsSeekBar;->mPaddingLeft:I
-
-    if-ge v5, v6, :cond_56
-
-    .line 436
-    const/high16 v3, 0x3f80
-
-    .restart local v3       #scale:F
-    goto :goto_1b
-
-    .line 437
-    .end local v3           #scale:F
-    :cond_56
-    iget v6, p0, Landroid/widget/AbsSeekBar;->mPaddingRight:I
-
-    sub-int v6, v4, v6
-
-    if-le v5, v6, :cond_5e
-
-    .line 438
-    const/4 v3, 0x0
-
-    .restart local v3       #scale:F
-    goto :goto_1b
-
-    .line 440
-    .end local v3           #scale:F
-    :cond_5e
-    iget v6, p0, Landroid/widget/AbsSeekBar;->mPaddingLeft:I
-
-    sub-int v6, v5, v6
-
-    sub-int v6, v0, v6
-
-    int-to-float v6, v6
-
-    int-to-float v7, v0
-
-    div-float v3, v6, v7
-
-    .line 441
-    .restart local v3       #scale:F
-    iget v2, p0, Landroid/widget/AbsSeekBar;->mTouchProgressOffset:F
-
-    goto :goto_1b
-
-    .line 444
-    .end local v3           #scale:F
-    :cond_6b
-    iget v6, p0, Landroid/widget/AbsSeekBar;->mPaddingLeft:I
-
-    if-ge v5, v6, :cond_71
-
-    .line 445
-    const/4 v3, 0x0
-
-    .restart local v3       #scale:F
-    goto :goto_1b
-
-    .line 446
-    .end local v3           #scale:F
-    :cond_71
-    iget v6, p0, Landroid/widget/AbsSeekBar;->mPaddingRight:I
-
-    sub-int v6, v4, v6
-
-    if-le v5, v6, :cond_7a
-
-    .line 447
-    const/high16 v3, 0x3f80
-
-    .restart local v3       #scale:F
-    goto :goto_1b
-
-    .line 449
-    .end local v3           #scale:F
-    :cond_7a
-    iget v6, p0, Landroid/widget/AbsSeekBar;->mPaddingLeft:I
-
-    sub-int v6, v5, v6
-
-    int-to-float v6, v6
-
-    int-to-float v7, v0
-
-    div-float v3, v6, v7
-
-    .line 450
-    .restart local v3       #scale:F
-    iget v2, p0, Landroid/widget/AbsSeekBar;->mTouchProgressOffset:F
-
-    goto :goto_1b
+    goto :goto_17
 .end method
 
 .method private updateThumbPos(II)V
@@ -531,22 +380,22 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 237
+    .line 232
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getCurrentDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 238
+    .line 233
     .local v0, d:Landroid/graphics/drawable/Drawable;
     iget-object v5, p0, Landroid/widget/AbsSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
-    .line 239
+    .line 234
     .local v5, thumb:Landroid/graphics/drawable/Drawable;
     if-nez v5, :cond_45
 
     move v6, v8
 
-    .line 242
+    .line 237
     .local v6, thumbHeight:I
     :goto_a
     iget v9, p0, Landroid/widget/AbsSeekBar;->mMaxHeight:I
@@ -563,13 +412,13 @@
 
     move-result v7
 
-    .line 244
+    .line 239
     .local v7, trackHeight:I
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getMax()I
 
     move-result v3
 
-    .line 245
+    .line 240
     .local v3, max:I
     if-lez v3, :cond_4a
 
@@ -583,28 +432,28 @@
 
     div-float v4, v9, v10
 
-    .line 247
+    .line 242
     .local v4, scale:F
     :goto_25
     if-le v6, v7, :cond_4c
 
-    .line 248
+    .line 243
     if-eqz v5, :cond_2c
 
-    .line 249
+    .line 244
     invoke-direct {p0, p1, v5, v4, v8}, Landroid/widget/AbsSeekBar;->setThumbPos(ILandroid/graphics/drawable/Drawable;FI)V
 
-    .line 251
+    .line 246
     :cond_2c
     sub-int v9, v6, v7
 
     div-int/lit8 v2, v9, 0x2
 
-    .line 252
+    .line 247
     .local v2, gapForCenteringTrack:I
     if-eqz v0, :cond_44
 
-    .line 254
+    .line 249
     iget v9, p0, Landroid/widget/AbsSeekBar;->mPaddingRight:I
 
     sub-int v9, p1, v9
@@ -625,13 +474,13 @@
 
     invoke-virtual {v0, v8, v2, v9, v10}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 269
+    .line 264
     .end local v2           #gapForCenteringTrack:I
     :cond_44
     :goto_44
     return-void
 
-    .line 239
+    .line 234
     .end local v3           #max:I
     .end local v4           #scale:F
     .end local v6           #thumbHeight:I
@@ -643,7 +492,7 @@
 
     goto :goto_a
 
-    .line 245
+    .line 240
     .restart local v3       #max:I
     .restart local v6       #thumbHeight:I
     .restart local v7       #trackHeight:I
@@ -652,12 +501,12 @@
 
     goto :goto_25
 
-    .line 259
+    .line 254
     .restart local v4       #scale:F
     :cond_4c
     if-eqz v0, :cond_5f
 
-    .line 261
+    .line 256
     iget v9, p0, Landroid/widget/AbsSeekBar;->mPaddingRight:I
 
     sub-int v9, p1, v9
@@ -676,17 +525,17 @@
 
     invoke-virtual {v0, v8, v8, v9, v10}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 264
+    .line 259
     :cond_5f
     sub-int v8, v7, v6
 
     div-int/lit8 v1, v8, 0x2
 
-    .line 265
+    .line 260
     .local v1, gap:I
     if-eqz v5, :cond_44
 
-    .line 266
+    .line 261
     invoke-direct {p0, p1, v5, v4, v1}, Landroid/widget/AbsSeekBar;->setThumbPos(ILandroid/graphics/drawable/Drawable;FI)V
 
     goto :goto_44
@@ -698,19 +547,19 @@
     .registers 5
 
     .prologue
-    .line 202
+    .line 197
     invoke-super {p0}, Landroid/widget/ProgressBar;->drawableStateChanged()V
 
-    .line 204
+    .line 199
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getProgressDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 205
+    .line 200
     .local v0, progressDrawable:Landroid/graphics/drawable/Drawable;
     if-eqz v0, :cond_14
 
-    .line 206
+    .line 201
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->isEnabled()Z
 
     move-result v2
@@ -722,7 +571,7 @@
     :goto_11
     invoke-virtual {v0, v2}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
-    .line 209
+    .line 204
     :cond_14
     iget-object v2, p0, Landroid/widget/AbsSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
@@ -736,23 +585,23 @@
 
     if-eqz v2, :cond_29
 
-    .line 210
+    .line 205
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getDrawableState()[I
 
     move-result-object v1
 
-    .line 211
+    .line 206
     .local v1, state:[I
     iget-object v2, p0, Landroid/widget/AbsSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v2, v1}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
-    .line 213
+    .line 208
     .end local v1           #state:[I
     :cond_29
     return-void
 
-    .line 206
+    .line 201
     :cond_2a
     const/high16 v2, 0x437f
 
@@ -769,7 +618,7 @@
     .registers 2
 
     .prologue
-    .line 175
+    .line 170
     iget v0, p0, Landroid/widget/AbsSeekBar;->mKeyProgressIncrement:I
 
     return v0
@@ -779,7 +628,7 @@
     .registers 2
 
     .prologue
-    .line 142
+    .line 137
     iget v0, p0, Landroid/widget/AbsSeekBar;->mThumbOffset:I
 
     return v0
@@ -789,10 +638,10 @@
     .registers 2
 
     .prologue
-    .line 196
+    .line 191
     invoke-super {p0}, Landroid/widget/ProgressBar;->jumpDrawablesToCurrentState()V
 
-    .line 197
+    .line 192
     iget-object v0, p0, Landroid/widget/AbsSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
     if-eqz v0, :cond_c
@@ -801,7 +650,7 @@
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->jumpToCurrentState()V
 
-    .line 198
+    .line 193
     :cond_c
     return-void
 .end method
@@ -811,69 +660,21 @@
     .parameter "canvas"
 
     .prologue
-    .line 301
+    .line 296
     monitor-enter p0
 
     :try_start_1
     invoke-super {p0, p1}, Landroid/widget/ProgressBar;->onDraw(Landroid/graphics/Canvas;)V
 
-    .line 302
+    .line 297
     iget-object v0, p0, Landroid/widget/AbsSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_65
+    if-eqz v0, :cond_1f
 
-    .line 303
-    sget-boolean v0, Landroid/widget/AbsSeekBar;->bArabicDisplay:Z
-
-    if-eqz v0, :cond_34
-
-    .line 305
-    iget-object v0, p0, Landroid/widget/AbsSeekBar;->mTag:Ljava/lang/Object;
-
-    if-eqz v0, :cond_34
-
-    iget-object v0, p0, Landroid/widget/AbsSeekBar;->mTag:Ljava/lang/Object;
-
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "mirror"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_34
-
-    .line 306
+    .line 298
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
-    .line 307
-    invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getMeasuredWidth()I
-
-    move-result v0
-
-    int-to-float v0, v0
-
-    invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getMeasuredHeight()I
-
-    move-result v1
-
-    int-to-float v1, v1
-
-    invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V
-
-    .line 308
-    const/high16 v0, 0x4334
-
-    invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->rotate(F)V
-
-    .line 312
-    :cond_34
-    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
-
-    .line 315
+    .line 301
     iget v0, p0, Landroid/widget/AbsSeekBar;->mPaddingLeft:I
 
     iget v1, p0, Landroid/widget/AbsSeekBar;->mThumbOffset:I
@@ -888,51 +689,24 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 316
+    .line 302
     iget-object v0, p0, Landroid/widget/AbsSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 317
+    .line 303
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
+    :try_end_1f
+    .catchall {:try_start_1 .. :try_end_1f} :catchall_21
 
-    .line 319
-    sget-boolean v0, Landroid/widget/AbsSeekBar;->bArabicDisplay:Z
-
-    if-eqz v0, :cond_65
-
-    .line 321
-    iget-object v0, p0, Landroid/widget/AbsSeekBar;->mTag:Ljava/lang/Object;
-
-    if-eqz v0, :cond_65
-
-    iget-object v0, p0, Landroid/widget/AbsSeekBar;->mTag:Ljava/lang/Object;
-
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "mirror"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_65
-
-    .line 322
-    invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
-    :try_end_65
-    .catchall {:try_start_1 .. :try_end_65} :catchall_67
-
-    .line 326
-    :cond_65
+    .line 305
+    :cond_1f
     monitor-exit p0
 
     return-void
 
-    .line 301
-    :catchall_67
+    .line 296
+    :catchall_21
     move-exception v0
 
     monitor-exit p0
@@ -944,7 +718,7 @@
     .registers 1
 
     .prologue
-    .line 490
+    .line 443
     return-void
 .end method
 
@@ -956,23 +730,23 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 494
+    .line 447
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->isEnabled()Z
 
     move-result v2
 
     if-eqz v2, :cond_e
 
-    .line 495
+    .line 448
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getProgress()I
 
     move-result v0
 
-    .line 496
+    .line 449
     .local v0, progress:I
     packed-switch p1, :pswitch_data_30
 
-    .line 511
+    .line 464
     .end local v0           #progress:I
     :cond_e
     invoke-super {p0, p1, p2}, Landroid/widget/ProgressBar;->onKeyDown(ILandroid/view/KeyEvent;)Z
@@ -982,24 +756,24 @@
     :goto_12
     return v1
 
-    .line 498
+    .line 451
     .restart local v0       #progress:I
     :pswitch_13
     if-lez v0, :cond_e
 
-    .line 499
+    .line 452
     iget v2, p0, Landroid/widget/AbsSeekBar;->mKeyProgressIncrement:I
 
     sub-int v2, v0, v2
 
     invoke-virtual {p0, v2, v1}, Landroid/widget/AbsSeekBar;->setProgress(IZ)V
 
-    .line 500
+    .line 453
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->onKeyChange()V
 
     goto :goto_12
 
-    .line 504
+    .line 457
     :pswitch_20
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getMax()I
 
@@ -1007,19 +781,19 @@
 
     if-ge v0, v2, :cond_e
 
-    .line 505
+    .line 458
     iget v2, p0, Landroid/widget/AbsSeekBar;->mKeyProgressIncrement:I
 
     add-int/2addr v2, v0
 
     invoke-virtual {p0, v2, v1}, Landroid/widget/AbsSeekBar;->setProgress(IZ)V
 
-    .line 506
+    .line 459
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->onKeyChange()V
 
     goto :goto_12
 
-    .line 496
+    .line 449
     :pswitch_data_30
     .packed-switch 0x15
         :pswitch_13
@@ -1035,7 +809,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 330
+    .line 309
     monitor-enter p0
 
     :try_start_2
@@ -1043,26 +817,26 @@
 
     move-result-object v0
 
-    .line 332
+    .line 311
     .local v0, d:Landroid/graphics/drawable/Drawable;
     iget-object v4, p0, Landroid/widget/AbsSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
     if-nez v4, :cond_4d
 
-    .line 333
+    .line 312
     .local v3, thumbHeight:I
     :goto_a
     const/4 v2, 0x0
 
-    .line 334
+    .line 313
     .local v2, dw:I
     const/4 v1, 0x0
 
-    .line 335
+    .line 314
     .local v1, dh:I
     if-eqz v0, :cond_32
 
-    .line 336
+    .line 315
     iget v4, p0, Landroid/widget/AbsSeekBar;->mMinWidth:I
 
     iget v5, p0, Landroid/widget/AbsSeekBar;->mMaxWidth:I
@@ -1079,7 +853,7 @@
 
     move-result v2
 
-    .line 337
+    .line 316
     iget v4, p0, Landroid/widget/AbsSeekBar;->mMinHeight:I
 
     iget v5, p0, Landroid/widget/AbsSeekBar;->mMaxHeight:I
@@ -1096,12 +870,12 @@
 
     move-result v1
 
-    .line 338
+    .line 317
     invoke-static {v3, v1}, Ljava/lang/Math;->max(II)I
 
     move-result v1
 
-    .line 340
+    .line 319
     :cond_32
     iget v4, p0, Landroid/widget/AbsSeekBar;->mPaddingLeft:I
 
@@ -1111,7 +885,7 @@
 
     add-int/2addr v2, v4
 
-    .line 341
+    .line 320
     iget v4, p0, Landroid/widget/AbsSeekBar;->mPaddingTop:I
 
     iget v5, p0, Landroid/widget/AbsSeekBar;->mPaddingBottom:I
@@ -1120,7 +894,7 @@
 
     add-int/2addr v1, v4
 
-    .line 343
+    .line 322
     const/4 v4, 0x0
 
     invoke-static {v2, p1, v4}, Landroid/widget/AbsSeekBar;->resolveSizeAndState(III)I
@@ -1137,12 +911,12 @@
     :try_end_4b
     .catchall {:try_start_2 .. :try_end_4b} :catchall_54
 
-    .line 345
+    .line 324
     monitor-exit p0
 
     return-void
 
-    .line 332
+    .line 311
     .end local v1           #dh:I
     .end local v2           #dw:I
     .end local v3           #thumbHeight:I
@@ -1158,7 +932,7 @@
 
     goto :goto_a
 
-    .line 330
+    .line 309
     .end local v0           #d:Landroid/graphics/drawable/Drawable;
     :catchall_54
     move-exception v4
@@ -1174,17 +948,17 @@
     .parameter "fromUser"
 
     .prologue
-    .line 217
+    .line 212
     invoke-super {p0, p1, p2}, Landroid/widget/ProgressBar;->onProgressRefresh(FZ)V
 
-    .line 218
+    .line 213
     iget-object v0, p0, Landroid/widget/AbsSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
-    .line 219
+    .line 214
     .local v0, thumb:Landroid/graphics/drawable/Drawable;
     if-eqz v0, :cond_13
 
-    .line 220
+    .line 215
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getWidth()I
 
     move-result v1
@@ -1193,10 +967,10 @@
 
     invoke-direct {p0, v1, v0, p1, v2}, Landroid/widget/AbsSeekBar;->setThumbPos(ILandroid/graphics/drawable/Drawable;FI)V
 
-    .line 226
+    .line 221
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->invalidate()V
 
-    .line 228
+    .line 223
     :cond_13
     return-void
 .end method
@@ -1209,10 +983,10 @@
     .parameter "oldh"
 
     .prologue
-    .line 233
+    .line 228
     invoke-direct {p0, p1, p2}, Landroid/widget/AbsSeekBar;->updateThumbPos(II)V
 
-    .line 234
+    .line 229
     return-void
 .end method
 
@@ -1220,12 +994,12 @@
     .registers 2
 
     .prologue
-    .line 475
+    .line 428
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/widget/AbsSeekBar;->mIsDragging:Z
 
-    .line 476
+    .line 429
     return-void
 .end method
 
@@ -1233,12 +1007,12 @@
     .registers 2
 
     .prologue
-    .line 483
+    .line 436
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/widget/AbsSeekBar;->mIsDragging:Z
 
-    .line 484
+    .line 437
     return-void
 .end method
 
@@ -1251,7 +1025,7 @@
 
     const/4 v2, 0x0
 
-    .line 349
+    .line 328
     iget-boolean v3, p0, Landroid/widget/AbsSeekBar;->mIsUserSeekable:Z
 
     if-eqz v3, :cond_c
@@ -1265,12 +1039,12 @@
     :cond_c
     move v1, v2
 
-    .line 411
+    .line 390
     :cond_d
     :goto_d
     return v1
 
-    .line 353
+    .line 332
     :cond_e
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
@@ -1280,7 +1054,7 @@
 
     goto :goto_d
 
-    .line 355
+    .line 334
     :pswitch_16
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->isInScrollingContainer()Z
 
@@ -1288,7 +1062,7 @@
 
     if-eqz v2, :cond_23
 
-    .line 356
+    .line 335
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v2
@@ -1297,16 +1071,16 @@
 
     goto :goto_d
 
-    .line 358
+    .line 337
     :cond_23
     invoke-virtual {p0, v1}, Landroid/widget/AbsSeekBar;->setPressed(Z)V
 
-    .line 359
+    .line 338
     iget-object v2, p0, Landroid/widget/AbsSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
     if-eqz v2, :cond_33
 
-    .line 360
+    .line 339
     iget-object v2, p0, Landroid/widget/AbsSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
@@ -1315,36 +1089,36 @@
 
     invoke-virtual {p0, v2}, Landroid/widget/AbsSeekBar;->invalidate(Landroid/graphics/Rect;)V
 
-    .line 362
+    .line 341
     :cond_33
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->onStartTrackingTouch()V
 
-    .line 363
+    .line 342
     invoke-direct {p0, p1}, Landroid/widget/AbsSeekBar;->trackTouchEvent(Landroid/view/MotionEvent;)V
 
-    .line 364
+    .line 343
     invoke-direct {p0}, Landroid/widget/AbsSeekBar;->attemptClaimDrag()V
 
     goto :goto_d
 
-    .line 369
+    .line 348
     :pswitch_3d
     iget-boolean v2, p0, Landroid/widget/AbsSeekBar;->mIsDragging:Z
 
     if-eqz v2, :cond_45
 
-    .line 370
+    .line 349
     invoke-direct {p0, p1}, Landroid/widget/AbsSeekBar;->trackTouchEvent(Landroid/view/MotionEvent;)V
 
     goto :goto_d
 
-    .line 372
+    .line 351
     :cond_45
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v0
 
-    .line 373
+    .line 352
     .local v0, x:F
     iget v2, p0, Landroid/widget/AbsSeekBar;->mTouchDownX:F
 
@@ -1362,15 +1136,15 @@
 
     if-lez v2, :cond_d
 
-    .line 374
+    .line 353
     invoke-virtual {p0, v1}, Landroid/widget/AbsSeekBar;->setPressed(Z)V
 
-    .line 375
+    .line 354
     iget-object v2, p0, Landroid/widget/AbsSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
     if-eqz v2, :cond_68
 
-    .line 376
+    .line 355
     iget-object v2, p0, Landroid/widget/AbsSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
@@ -1379,71 +1153,71 @@
 
     invoke-virtual {p0, v2}, Landroid/widget/AbsSeekBar;->invalidate(Landroid/graphics/Rect;)V
 
-    .line 378
+    .line 357
     :cond_68
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->onStartTrackingTouch()V
 
-    .line 379
+    .line 358
     invoke-direct {p0, p1}, Landroid/widget/AbsSeekBar;->trackTouchEvent(Landroid/view/MotionEvent;)V
 
-    .line 380
+    .line 359
     invoke-direct {p0}, Landroid/widget/AbsSeekBar;->attemptClaimDrag()V
 
     goto :goto_d
 
-    .line 386
+    .line 365
     .end local v0           #x:F
     :pswitch_72
     iget-boolean v3, p0, Landroid/widget/AbsSeekBar;->mIsDragging:Z
 
     if-eqz v3, :cond_83
 
-    .line 387
+    .line 366
     invoke-direct {p0, p1}, Landroid/widget/AbsSeekBar;->trackTouchEvent(Landroid/view/MotionEvent;)V
 
-    .line 388
+    .line 367
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->onStopTrackingTouch()V
 
-    .line 389
+    .line 368
     invoke-virtual {p0, v2}, Landroid/widget/AbsSeekBar;->setPressed(Z)V
 
-    .line 400
+    .line 379
     :goto_7f
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->invalidate()V
 
     goto :goto_d
 
-    .line 393
+    .line 372
     :cond_83
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->onStartTrackingTouch()V
 
-    .line 394
+    .line 373
     invoke-direct {p0, p1}, Landroid/widget/AbsSeekBar;->trackTouchEvent(Landroid/view/MotionEvent;)V
 
-    .line 395
+    .line 374
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->onStopTrackingTouch()V
 
     goto :goto_7f
 
-    .line 404
+    .line 383
     :pswitch_8d
     iget-boolean v3, p0, Landroid/widget/AbsSeekBar;->mIsDragging:Z
 
     if-eqz v3, :cond_97
 
-    .line 405
+    .line 384
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->onStopTrackingTouch()V
 
-    .line 406
+    .line 385
     invoke-virtual {p0, v2}, Landroid/widget/AbsSeekBar;->setPressed(Z)V
 
-    .line 408
+    .line 387
     :cond_97
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->invalidate()V
 
     goto/16 :goto_d
 
-    .line 353
+    .line 332
     :pswitch_data_9c
     .packed-switch 0x0
         :pswitch_16
@@ -1458,7 +1232,7 @@
     .parameter "increment"
 
     .prologue
-    .line 163
+    .line 158
     if-gez p1, :cond_3
 
     neg-int p1, p1
@@ -1467,7 +1241,7 @@
     :cond_3
     iput p1, p0, Landroid/widget/AbsSeekBar;->mKeyProgressIncrement:I
 
-    .line 164
+    .line 159
     return-void
 .end method
 
@@ -1476,13 +1250,13 @@
     .parameter "max"
 
     .prologue
-    .line 180
+    .line 175
     monitor-enter p0
 
     :try_start_1
     invoke-super {p0, p1}, Landroid/widget/ProgressBar;->setMax(I)V
 
-    .line 182
+    .line 177
     iget v0, p0, Landroid/widget/AbsSeekBar;->mKeyProgressIncrement:I
 
     if-eqz v0, :cond_13
@@ -1499,7 +1273,7 @@
 
     if-le v0, v1, :cond_27
 
-    .line 185
+    .line 180
     :cond_13
     const/4 v0, 0x1
 
@@ -1525,13 +1299,13 @@
     :try_end_27
     .catchall {:try_start_1 .. :try_end_27} :catchall_29
 
-    .line 187
+    .line 182
     :cond_27
     monitor-exit p0
 
     return-void
 
-    .line 180
+    .line 175
     :catchall_29
     move-exception v0
 
@@ -1545,7 +1319,7 @@
     .parameter "thumb"
 
     .prologue
-    .line 104
+    .line 99
     iget-object v2, p0, Landroid/widget/AbsSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
     if-eqz v2, :cond_59
@@ -1554,25 +1328,25 @@
 
     if-eq p1, v2, :cond_59
 
-    .line 105
+    .line 100
     iget-object v2, p0, Landroid/widget/AbsSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
     const/4 v3, 0x0
 
     invoke-virtual {v2, v3}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
-    .line 106
+    .line 101
     const/4 v0, 0x1
 
-    .line 110
+    .line 105
     .local v0, needUpdate:Z
     :goto_f
     if-eqz p1, :cond_39
 
-    .line 111
+    .line 106
     invoke-virtual {p1, p0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
-    .line 116
+    .line 111
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v2
@@ -1581,7 +1355,7 @@
 
     iput v2, p0, Landroid/widget/AbsSeekBar;->mThumbOffset:I
 
-    .line 119
+    .line 114
     if-eqz v0, :cond_39
 
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
@@ -1608,21 +1382,21 @@
 
     if-eq v2, v3, :cond_39
 
-    .line 122
+    .line 117
     :cond_36
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->requestLayout()V
 
-    .line 125
+    .line 120
     :cond_39
     iput-object p1, p0, Landroid/widget/AbsSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
-    .line 126
+    .line 121
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->invalidate()V
 
-    .line 127
+    .line 122
     if-eqz v0, :cond_58
 
-    .line 128
+    .line 123
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getWidth()I
 
     move-result v2
@@ -1633,28 +1407,28 @@
 
     invoke-direct {p0, v2, v3}, Landroid/widget/AbsSeekBar;->updateThumbPos(II)V
 
-    .line 129
+    .line 124
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->isStateful()Z
 
     move-result v2
 
     if-eqz v2, :cond_58
 
-    .line 132
+    .line 127
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getDrawableState()[I
 
     move-result-object v1
 
-    .line 133
+    .line 128
     .local v1, state:[I
     invoke-virtual {p1, v1}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
-    .line 136
+    .line 131
     .end local v1           #state:[I
     :cond_58
     return-void
 
-    .line 108
+    .line 103
     .end local v0           #needUpdate:Z
     :cond_59
     const/4 v0, 0x0
@@ -1668,13 +1442,13 @@
     .parameter "thumbOffset"
 
     .prologue
-    .line 152
+    .line 147
     iput p1, p0, Landroid/widget/AbsSeekBar;->mThumbOffset:I
 
-    .line 153
+    .line 148
     invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->invalidate()V
 
-    .line 154
+    .line 149
     return-void
 .end method
 
@@ -1683,7 +1457,7 @@
     .parameter "who"
 
     .prologue
-    .line 191
+    .line 186
     iget-object v0, p0, Landroid/widget/AbsSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
     if-eq p1, v0, :cond_a

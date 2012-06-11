@@ -33,7 +33,7 @@
 
     .prologue
     .line 283
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -73,16 +73,16 @@
     :try_start_13
     invoke-static {v4}, Landroid/gesture/Gesture;->deserialize(Ljava/io/DataInputStream;)Landroid/gesture/Gesture;
     :try_end_16
-    .catchall {:try_start_13 .. :try_end_16} :catchall_29
+    .catchall {:try_start_13 .. :try_end_16} :catchall_2c
     .catch Ljava/io/IOException; {:try_start_13 .. :try_end_16} :catch_20
 
     move-result-object v1
 
     .line 296
-    :goto_17
     invoke-static {v4}, Landroid/gesture/GestureUtils;->closeStream(Ljava/io/Closeable;)V
 
     .line 299
+    :goto_1a
     if-eqz v1, :cond_1f
 
     .line 300
@@ -106,13 +106,15 @@
 
     invoke-static {v5, v6, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_28
-    .catchall {:try_start_21 .. :try_end_28} :catchall_29
-
-    goto :goto_17
+    .catchall {:try_start_21 .. :try_end_28} :catchall_2c
 
     .line 296
+    invoke-static {v4}, Landroid/gesture/GestureUtils;->closeStream(Ljava/io/Closeable;)V
+
+    goto :goto_1a
+
     .end local v0           #e:Ljava/io/IOException;
-    :catchall_29
+    :catchall_2c
     move-exception v5
 
     invoke-static {v4}, Landroid/gesture/GestureUtils;->closeStream(Ljava/io/Closeable;)V

@@ -37,7 +37,11 @@
 
 .field public static final EXTRA_SHOW_FRAGMENT_SHORT_TITLE:Ljava/lang/String; = ":android:show_fragment_short_title"
 
+.field public static final EXTRA_SHOW_FRAGMENT_SHORT_TITLE_TEXT:Ljava/lang/String; = ":android:show_fragment_short_title_text"
+
 .field public static final EXTRA_SHOW_FRAGMENT_TITLE:Ljava/lang/String; = ":android:show_fragment_title"
+
+.field public static final EXTRA_SHOW_FRAGMENT_TITLE_TEXT:Ljava/lang/String; = ":android:show_fragment_title_text"
 
 .field private static final FIRST_REQUEST_CODE:I = 0x64
 
@@ -91,21 +95,21 @@
     .line 116
     invoke-direct {p0}, Landroid/app/ListActivity;-><init>()V
 
-    .line 181
+    .line 190
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
 
-    .line 210
+    .line 219
     new-instance v0, Landroid/preference/PreferenceActivity$1;
 
     invoke-direct {v0, p0}, Landroid/preference/PreferenceActivity$1;-><init>(Landroid/preference/PreferenceActivity;)V
 
     iput-object v0, p0, Landroid/preference/PreferenceActivity;->mHandler:Landroid/os/Handler;
 
-    .line 299
+    .line 308
     return-void
 .end method
 
@@ -137,7 +141,7 @@
 
     .prologue
     .line 116
-    iget-object v0, p0, Landroid/app/ListActivity;->mAdapter:Landroid/widget/ListAdapter;
+    iget-object v0, p0, Landroid/preference/PreferenceActivity;->mAdapter:Landroid/widget/ListAdapter;
 
     return-object v0
 .end method
@@ -148,7 +152,7 @@
 
     .prologue
     .line 116
-    iget-object v0, p0, Landroid/app/ListActivity;->mAdapter:Landroid/widget/ListAdapter;
+    iget-object v0, p0, Landroid/preference/PreferenceActivity;->mAdapter:Landroid/widget/ListAdapter;
 
     return-object v0
 .end method
@@ -168,38 +172,38 @@
     .registers 3
 
     .prologue
-    .line 1304
+    .line 1358
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    .line 1305
+    .line 1359
     .local v0, preferenceScreen:Landroid/preference/PreferenceScreen;
     if-eqz v0, :cond_19
 
-    .line 1306
+    .line 1360
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getListView()Landroid/widget/ListView;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->bind(Landroid/widget/ListView;)V
 
-    .line 1307
+    .line 1361
     iget-object v1, p0, Landroid/preference/PreferenceActivity;->mSavedInstanceState:Landroid/os/Bundle;
 
     if-eqz v1, :cond_19
 
-    .line 1308
+    .line 1362
     iget-object v1, p0, Landroid/preference/PreferenceActivity;->mSavedInstanceState:Landroid/os/Bundle;
 
     invoke-super {p0, v1}, Landroid/app/ListActivity;->onRestoreInstanceState(Landroid/os/Bundle;)V
 
-    .line 1309
+    .line 1363
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/preference/PreferenceActivity;->mSavedInstanceState:Landroid/os/Bundle;
 
-    .line 1312
+    .line 1366
     :cond_19
     return-void
 .end method
@@ -210,7 +214,7 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 1299
+    .line 1353
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->hasMessages(I)Z
@@ -219,11 +223,11 @@
 
     if-eqz v0, :cond_a
 
-    .line 1301
+    .line 1355
     :goto_9
     return-void
 
-    .line 1300
+    .line 1354
     :cond_a
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mHandler:Landroid/os/Handler;
 
@@ -240,17 +244,17 @@
     .registers 3
 
     .prologue
-    .line 1327
+    .line 1381
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     if-nez v0, :cond_18
 
-    .line 1328
-    iget-object v0, p0, Landroid/app/ListActivity;->mAdapter:Landroid/widget/ListAdapter;
+    .line 1382
+    iget-object v0, p0, Landroid/preference/PreferenceActivity;->mAdapter:Landroid/widget/ListAdapter;
 
     if-nez v0, :cond_10
 
-    .line 1329
+    .line 1383
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "This should be called after super.onCreate."
@@ -259,7 +263,7 @@
 
     throw v0
 
-    .line 1331
+    .line 1385
     :cond_10
     new-instance v0, Ljava/lang/RuntimeException;
 
@@ -269,7 +273,7 @@
 
     throw v0
 
-    .line 1334
+    .line 1388
     :cond_18
     return-void
 .end method
@@ -281,7 +285,7 @@
     .parameter "direction"
 
     .prologue
-    .line 1115
+    .line 1164
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v2
@@ -292,12 +296,12 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/app/FragmentManager;->popBackStack(Ljava/lang/String;I)V
 
-    .line 1117
+    .line 1166
     invoke-static {p0, p1, p2}, Landroid/app/Fragment;->instantiate(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Landroid/app/Fragment;
 
     move-result-object v0
 
-    .line 1118
+    .line 1167
     .local v0, f:Landroid/app/Fragment;
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getFragmentManager()Landroid/app/FragmentManager;
 
@@ -307,21 +311,21 @@
 
     move-result-object v1
 
-    .line 1119
+    .line 1168
     .local v1, transaction:Landroid/app/FragmentTransaction;
     const/16 v2, 0x1003
 
     invoke-virtual {v1, v2}, Landroid/app/FragmentTransaction;->setTransition(I)Landroid/app/FragmentTransaction;
 
-    .line 1120
-    const v2, 0x10202d4
+    .line 1169
+    const v2, 0x10202e8
 
     invoke-virtual {v1, v2, v0}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
-    .line 1121
+    .line 1170
     invoke-virtual {v1}, Landroid/app/FragmentTransaction;->commitAllowingStateLoss()I
 
-    .line 1122
+    .line 1171
     return-void
 .end method
 
@@ -334,10 +338,10 @@
     .end annotation
 
     .prologue
-    .line 1385
+    .line 1439
     invoke-direct {p0}, Landroid/preference/PreferenceActivity;->requirePreferenceManager()V
 
-    .line 1387
+    .line 1441
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
@@ -350,7 +354,7 @@
 
     invoke-virtual {p0, v0}, Landroid/preference/PreferenceActivity;->setPreferenceScreen(Landroid/preference/PreferenceScreen;)V
 
-    .line 1388
+    .line 1442
     return-void
 .end method
 
@@ -361,10 +365,10 @@
     .end annotation
 
     .prologue
-    .line 1401
+    .line 1455
     invoke-direct {p0}, Landroid/preference/PreferenceActivity;->requirePreferenceManager()V
 
-    .line 1403
+    .line 1457
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
@@ -377,7 +381,7 @@
 
     invoke-virtual {p0, v0}, Landroid/preference/PreferenceActivity;->setPreferenceScreen(Landroid/preference/PreferenceScreen;)V
 
-    .line 1405
+    .line 1459
     return-void
 .end method
 
@@ -401,12 +405,12 @@
     .local p2, from:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/preference/PreferenceActivity$Header;>;"
     const/4 v8, 0x1
 
-    .line 1156
+    .line 1205
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 1157
+    .line 1206
     .local v2, matches:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/preference/PreferenceActivity$Header;>;"
     const/4 v1, 0x0
 
@@ -418,14 +422,14 @@
 
     if-ge v1, v4, :cond_2b
 
-    .line 1158
+    .line 1207
     invoke-virtual {p2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/preference/PreferenceActivity$Header;
 
-    .line 1159
+    .line 1208
     .local v3, oh:Landroid/preference/PreferenceActivity$Header;
     if-eq p1, v3, :cond_25
 
@@ -445,25 +449,25 @@
 
     if-nez v4, :cond_3a
 
-    .line 1161
+    .line 1210
     :cond_25
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
-    .line 1162
+    .line 1211
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1179
+    .line 1228
     .end local v3           #oh:Landroid/preference/PreferenceActivity$Header;
     :cond_2b
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    .line 1180
+    .line 1229
     .local v0, NM:I
     if-ne v0, v8, :cond_72
 
-    .line 1181
+    .line 1230
     const/4 v4, 0x0
 
     invoke-virtual {v2, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -474,12 +478,12 @@
 
     move-object v3, v4
 
-    .line 1197
+    .line 1246
     :cond_39
     :goto_39
     return-object v3
 
-    .line 1165
+    .line 1214
     .end local v0           #NM:I
     .restart local v3       #oh:Landroid/preference/PreferenceActivity$Header;
     :cond_3a
@@ -487,7 +491,7 @@
 
     if-eqz v4, :cond_4e
 
-    .line 1166
+    .line 1215
     iget-object v4, p1, Landroid/preference/PreferenceActivity$Header;->fragment:Ljava/lang/String;
 
     iget-object v5, v3, Landroid/preference/PreferenceActivity$Header;->fragment:Ljava/lang/String;
@@ -498,23 +502,23 @@
 
     if-eqz v4, :cond_4b
 
-    .line 1167
+    .line 1216
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1157
+    .line 1206
     :cond_4b
     :goto_4b
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_7
 
-    .line 1169
+    .line 1218
     :cond_4e
     iget-object v4, p1, Landroid/preference/PreferenceActivity$Header;->intent:Landroid/content/Intent;
 
     if-eqz v4, :cond_60
 
-    .line 1170
+    .line 1219
     iget-object v4, p1, Landroid/preference/PreferenceActivity$Header;->intent:Landroid/content/Intent;
 
     iget-object v5, v3, Landroid/preference/PreferenceActivity$Header;->intent:Landroid/content/Intent;
@@ -525,18 +529,18 @@
 
     if-eqz v4, :cond_4b
 
-    .line 1171
+    .line 1220
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_4b
 
-    .line 1173
+    .line 1222
     :cond_60
     iget-object v4, p1, Landroid/preference/PreferenceActivity$Header;->title:Ljava/lang/CharSequence;
 
     if-eqz v4, :cond_4b
 
-    .line 1174
+    .line 1223
     iget-object v4, p1, Landroid/preference/PreferenceActivity$Header;->title:Ljava/lang/CharSequence;
 
     iget-object v5, v3, Landroid/preference/PreferenceActivity$Header;->title:Ljava/lang/CharSequence;
@@ -547,31 +551,31 @@
 
     if-eqz v4, :cond_4b
 
-    .line 1175
+    .line 1224
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_4b
 
-    .line 1182
+    .line 1231
     .end local v3           #oh:Landroid/preference/PreferenceActivity$Header;
     .restart local v0       #NM:I
     :cond_72
     if-le v0, v8, :cond_aa
 
-    .line 1183
+    .line 1232
     const/4 v1, 0x0
 
     :goto_75
     if-ge v1, v0, :cond_aa
 
-    .line 1184
+    .line 1233
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/preference/PreferenceActivity$Header;
 
-    .line 1185
+    .line 1234
     .restart local v3       #oh:Landroid/preference/PreferenceActivity$Header;
     iget-object v4, p1, Landroid/preference/PreferenceActivity$Header;->fragmentArguments:Landroid/os/Bundle;
 
@@ -587,7 +591,7 @@
 
     if-nez v4, :cond_39
 
-    .line 1189
+    .line 1238
     :cond_8b
     iget-object v4, p1, Landroid/preference/PreferenceActivity$Header;->extras:Landroid/os/Bundle;
 
@@ -603,7 +607,7 @@
 
     if-nez v4, :cond_39
 
-    .line 1192
+    .line 1241
     :cond_99
     iget-object v4, p1, Landroid/preference/PreferenceActivity$Header;->title:Ljava/lang/CharSequence;
 
@@ -619,13 +623,13 @@
 
     if-nez v4, :cond_39
 
-    .line 1183
+    .line 1232
     :cond_a7
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_75
 
-    .line 1197
+    .line 1246
     .end local v3           #oh:Landroid/preference/PreferenceActivity$Header;
     :cond_aa
     const/4 v3, 0x0
@@ -640,15 +644,15 @@
     .end annotation
 
     .prologue
-    .line 1431
+    .line 1485
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     if-nez v0, :cond_6
 
-    .line 1432
+    .line 1486
     const/4 v0, 0x0
 
-    .line 1435
+    .line 1489
     :goto_5
     return-object v0
 
@@ -669,37 +673,37 @@
     .parameter "resultData"
 
     .prologue
-    .line 1270
+    .line 1324
     iget-boolean v0, p0, Landroid/preference/PreferenceActivity;->mSinglePane:Z
 
     if-eqz v0, :cond_b
 
-    .line 1271
+    .line 1325
     invoke-virtual {p0, p2, p3}, Landroid/preference/PreferenceActivity;->setResult(ILandroid/content/Intent;)V
 
-    .line 1272
+    .line 1326
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->finish()V
 
-    .line 1283
+    .line 1337
     :cond_a
     :goto_a
     return-void
 
-    .line 1275
+    .line 1329
     :cond_b
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->onBackPressed()V
 
-    .line 1276
+    .line 1330
     if-eqz p1, :cond_a
 
-    .line 1277
+    .line 1331
     invoke-virtual {p1}, Landroid/app/Fragment;->getTargetFragment()Landroid/app/Fragment;
 
     move-result-object v0
 
     if-eqz v0, :cond_a
 
-    .line 1278
+    .line 1332
     invoke-virtual {p1}, Landroid/app/Fragment;->getTargetFragment()Landroid/app/Fragment;
 
     move-result-object v0
@@ -717,7 +721,7 @@
     .registers 2
 
     .prologue
-    .line 1452
+    .line 1506
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mNextButton:Landroid/widget/Button;
 
     return-object v0
@@ -729,7 +733,7 @@
     .end annotation
 
     .prologue
-    .line 1323
+    .line 1377
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     return-object v0
@@ -741,19 +745,19 @@
     .end annotation
 
     .prologue
-    .line 1369
+    .line 1423
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     if-eqz v0, :cond_b
 
-    .line 1370
+    .line 1424
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     invoke-virtual {v0}, Landroid/preference/PreferenceManager;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    .line 1372
+    .line 1426
     :goto_a
     return-object v0
 
@@ -767,7 +771,7 @@
     .registers 2
 
     .prologue
-    .line 649
+    .line 672
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getListView()Landroid/widget/ListView;
 
     move-result-object v0
@@ -797,7 +801,7 @@
     .registers 2
 
     .prologue
-    .line 1448
+    .line 1502
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mNextButton:Landroid/widget/Button;
 
     if-eqz v0, :cond_6
@@ -819,7 +823,7 @@
     .prologue
     const/4 v1, 0x2
 
-    .line 726
+    .line 749
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->hasMessages(I)Z
@@ -828,12 +832,12 @@
 
     if-nez v0, :cond_e
 
-    .line 727
+    .line 750
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 729
+    .line 752
     :cond_e
     return-void
 .end method
@@ -842,7 +846,7 @@
     .registers 2
 
     .prologue
-    .line 658
+    .line 681
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->hasHeaders()Z
 
     move-result v0
@@ -883,11 +887,11 @@
     .end annotation
 
     .prologue
-    .line 739
+    .line 762
     .local p2, target:Ljava/util/List;,"Ljava/util/List<Landroid/preference/PreferenceActivity$Header;>;"
     const/4 v9, 0x0
 
-    .line 741
+    .line 764
     .local v9, parser:Landroid/content/res/XmlResourceParser;
     :try_start_1
     invoke-virtual/range {p0 .. p0}, Landroid/preference/PreferenceActivity;->getResources()Landroid/content/res/Resources;
@@ -900,12 +904,12 @@
 
     move-result-object v9
 
-    .line 742
+    .line 765
     invoke-static {v9}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v1
 
-    .line 746
+    .line 769
     .local v1, attrs:Landroid/util/AttributeSet;
     :cond_f
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->next()I
@@ -921,13 +925,13 @@
 
     if-ne v12, v13, :cond_f
 
-    .line 750
+    .line 773
     :cond_19
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v7
 
-    .line 751
+    .line 774
     .local v7, nodeName:Ljava/lang/String;
     const-string/jumbo v13, "preference-headers"
 
@@ -937,7 +941,7 @@
 
     if-nez v13, :cond_5d
 
-    .line 752
+    .line 775
     new-instance v13, Ljava/lang/RuntimeException;
 
     new-instance v14, Ljava/lang/StringBuilder;
@@ -978,16 +982,16 @@
     :try_end_4d
     .catchall {:try_start_1 .. :try_end_4d} :catchall_56
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_4d} :catch_4d
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_4d} :catch_139
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_4d} :catch_138
 
-    .line 852
+    .line 875
     .end local v1           #attrs:Landroid/util/AttributeSet;
     .end local v7           #nodeName:Ljava/lang/String;
     .end local v12           #type:I
     :catch_4d
     move-exception v3
 
-    .line 853
+    .line 876
     .local v3, e:Lorg/xmlpull/v1/XmlPullParserException;
     :try_start_4e
     new-instance v13, Ljava/lang/RuntimeException;
@@ -1000,7 +1004,7 @@
     :try_end_56
     .catchall {:try_start_4e .. :try_end_56} :catchall_56
 
-    .line 857
+    .line 880
     .end local v3           #e:Lorg/xmlpull/v1/XmlPullParserException;
     :catchall_56
     move-exception v13
@@ -1012,21 +1016,21 @@
     :cond_5c
     throw v13
 
-    .line 757
+    .line 780
     .restart local v1       #attrs:Landroid/util/AttributeSet;
     .restart local v7       #nodeName:Ljava/lang/String;
     .restart local v12       #type:I
     :cond_5d
     const/4 v2, 0x0
 
-    .line 759
+    .line 782
     .local v2, curBundle:Landroid/os/Bundle;
     :try_start_5e
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->getDepth()I
 
     move-result v8
 
-    .line 761
+    .line 784
     .local v8, outerDepth:I
     :cond_62
     :goto_62
@@ -1036,7 +1040,7 @@
 
     const/4 v13, 0x1
 
-    if-eq v12, v13, :cond_185
+    if-eq v12, v13, :cond_183
 
     const/4 v13, 0x3
 
@@ -1046,9 +1050,9 @@
 
     move-result v13
 
-    if-le v13, v8, :cond_185
+    if-le v13, v8, :cond_183
 
-    .line 762
+    .line 785
     :cond_72
     const/4 v13, 0x3
 
@@ -1058,26 +1062,26 @@
 
     if-eq v12, v13, :cond_62
 
-    .line 766
+    .line 789
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v7
 
-    .line 767
-    const-string/jumbo v13, "header"
+    .line 790
+    const-string v13, "header"
 
     invoke-virtual {v13, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v13
 
-    if-eqz v13, :cond_180
+    if-eqz v13, :cond_17e
 
-    .line 768
+    .line 791
     new-instance v4, Landroid/preference/PreferenceActivity$Header;
 
     invoke-direct {v4}, Landroid/preference/PreferenceActivity$Header;-><init>()V
 
-    .line 770
+    .line 793
     .local v4, header:Landroid/preference/PreferenceActivity$Header;
     invoke-virtual/range {p0 .. p0}, Landroid/preference/PreferenceActivity;->getResources()Landroid/content/res/Resources;
 
@@ -1089,7 +1093,7 @@
 
     move-result-object v10
 
-    .line 772
+    .line 795
     .local v10, sa:Landroid/content/res/TypedArray;
     const/4 v13, 0x1
 
@@ -1103,120 +1107,120 @@
 
     iput-wide v13, v4, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    .line 775
+    .line 798
     const/4 v13, 0x2
 
     invoke-virtual {v10, v13}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
 
     move-result-object v11
 
-    .line 777
+    .line 800
     .local v11, tv:Landroid/util/TypedValue;
-    if-eqz v11, :cond_b1
+    if-eqz v11, :cond_b0
 
     iget v13, v11, Landroid/util/TypedValue;->type:I
 
     const/4 v14, 0x3
 
-    if-ne v13, v14, :cond_b1
+    if-ne v13, v14, :cond_b0
 
-    .line 778
+    .line 801
     iget v13, v11, Landroid/util/TypedValue;->resourceId:I
 
-    if-eqz v13, :cond_142
+    if-eqz v13, :cond_141
 
-    .line 779
+    .line 802
     iget v13, v11, Landroid/util/TypedValue;->resourceId:I
 
     iput v13, v4, Landroid/preference/PreferenceActivity$Header;->titleRes:I
 
-    .line 784
-    :cond_b1
-    :goto_b1
+    .line 807
+    :cond_b0
+    :goto_b0
     const/4 v13, 0x3
 
     invoke-virtual {v10, v13}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
 
     move-result-object v11
 
-    .line 786
-    if-eqz v11, :cond_c5
+    .line 809
+    if-eqz v11, :cond_c4
 
     iget v13, v11, Landroid/util/TypedValue;->type:I
 
     const/4 v14, 0x3
 
-    if-ne v13, v14, :cond_c5
+    if-ne v13, v14, :cond_c4
 
-    .line 787
+    .line 810
     iget v13, v11, Landroid/util/TypedValue;->resourceId:I
 
-    if-eqz v13, :cond_148
+    if-eqz v13, :cond_147
 
-    .line 788
+    .line 811
     iget v13, v11, Landroid/util/TypedValue;->resourceId:I
 
     iput v13, v4, Landroid/preference/PreferenceActivity$Header;->summaryRes:I
 
-    .line 793
-    :cond_c5
-    :goto_c5
+    .line 816
+    :cond_c4
+    :goto_c4
     const/4 v13, 0x5
 
     invoke-virtual {v10, v13}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
 
     move-result-object v11
 
-    .line 795
-    if-eqz v11, :cond_d9
+    .line 818
+    if-eqz v11, :cond_d8
 
     iget v13, v11, Landroid/util/TypedValue;->type:I
 
     const/4 v14, 0x3
 
-    if-ne v13, v14, :cond_d9
+    if-ne v13, v14, :cond_d8
 
-    .line 796
+    .line 819
     iget v13, v11, Landroid/util/TypedValue;->resourceId:I
 
-    if-eqz v13, :cond_14e
+    if-eqz v13, :cond_14d
 
-    .line 797
+    .line 820
     iget v13, v11, Landroid/util/TypedValue;->resourceId:I
 
     iput v13, v4, Landroid/preference/PreferenceActivity$Header;->breadCrumbTitleRes:I
 
-    .line 802
-    :cond_d9
-    :goto_d9
+    .line 825
+    :cond_d8
+    :goto_d8
     const/4 v13, 0x6
 
     invoke-virtual {v10, v13}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
 
     move-result-object v11
 
-    .line 804
-    if-eqz v11, :cond_ed
+    .line 827
+    if-eqz v11, :cond_ec
 
     iget v13, v11, Landroid/util/TypedValue;->type:I
 
     const/4 v14, 0x3
 
-    if-ne v13, v14, :cond_ed
+    if-ne v13, v14, :cond_ec
 
-    .line 805
+    .line 828
     iget v13, v11, Landroid/util/TypedValue;->resourceId:I
 
-    if-eqz v13, :cond_153
+    if-eqz v13, :cond_152
 
-    .line 806
+    .line 829
     iget v13, v11, Landroid/util/TypedValue;->resourceId:I
 
     iput v13, v4, Landroid/preference/PreferenceActivity$Header;->breadCrumbShortTitleRes:I
 
-    .line 811
-    :cond_ed
-    :goto_ed
+    .line 834
+    :cond_ec
+    :goto_ec
     const/4 v13, 0x0
 
     const/4 v14, 0x0
@@ -1227,7 +1231,7 @@
 
     iput v13, v4, Landroid/preference/PreferenceActivity$Header;->iconRes:I
 
-    .line 813
+    .line 836
     const/4 v13, 0x4
 
     invoke-virtual {v10, v13}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
@@ -1236,63 +1240,63 @@
 
     iput-object v13, v4, Landroid/preference/PreferenceActivity$Header;->fragment:Ljava/lang/String;
 
-    .line 815
+    .line 838
     invoke-virtual {v10}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 817
-    if-nez v2, :cond_106
+    .line 840
+    if-nez v2, :cond_105
 
-    .line 818
+    .line 841
     new-instance v2, Landroid/os/Bundle;
 
     .end local v2           #curBundle:Landroid/os/Bundle;
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
 
-    .line 821
+    .line 844
     .restart local v2       #curBundle:Landroid/os/Bundle;
-    :cond_106
+    :cond_105
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->getDepth()I
 
     move-result v5
 
-    .line 823
+    .line 846
     .local v5, innerDepth:I
-    :cond_10a
-    :goto_10a
+    :cond_109
+    :goto_109
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->next()I
 
     move-result v12
 
     const/4 v13, 0x1
 
-    if-eq v12, v13, :cond_170
+    if-eq v12, v13, :cond_16e
 
     const/4 v13, 0x3
 
-    if-ne v12, v13, :cond_11a
+    if-ne v12, v13, :cond_119
 
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->getDepth()I
 
     move-result v13
 
-    if-le v13, v5, :cond_170
+    if-le v13, v5, :cond_16e
 
-    .line 824
-    :cond_11a
+    .line 847
+    :cond_119
     const/4 v13, 0x3
 
-    if-eq v12, v13, :cond_10a
+    if-eq v12, v13, :cond_109
 
     const/4 v13, 0x4
 
-    if-eq v12, v13, :cond_10a
+    if-eq v12, v13, :cond_109
 
-    .line 828
+    .line 851
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v6
 
-    .line 829
+    .line 852
     .local v6, innerNodeName:Ljava/lang/String;
     const-string v13, "extra"
 
@@ -1300,9 +1304,9 @@
 
     move-result v13
 
-    if-eqz v13, :cond_158
+    if-eqz v13, :cond_157
 
-    .line 830
+    .line 853
     invoke-virtual/range {p0 .. p0}, Landroid/preference/PreferenceActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v13
@@ -1311,16 +1315,16 @@
 
     invoke-virtual {v13, v14, v1, v2}, Landroid/content/res/Resources;->parseBundleExtra(Ljava/lang/String;Landroid/util/AttributeSet;Landroid/os/Bundle;)V
 
-    .line 831
-    invoke-static {v9}, Lcom/android/internal/util/XmlUtils;->skipCurrentTag(Lorg/xmlpull/v1/XmlPullParser;)V
-    :try_end_138
-    .catchall {:try_start_5e .. :try_end_138} :catchall_56
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_5e .. :try_end_138} :catch_4d
-    .catch Ljava/io/IOException; {:try_start_5e .. :try_end_138} :catch_139
-
-    goto :goto_10a
-
     .line 854
+    invoke-static {v9}, Lcom/android/internal/util/XmlUtils;->skipCurrentTag(Lorg/xmlpull/v1/XmlPullParser;)V
+    :try_end_137
+    .catchall {:try_start_5e .. :try_end_137} :catchall_56
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_5e .. :try_end_137} :catch_4d
+    .catch Ljava/io/IOException; {:try_start_5e .. :try_end_137} :catch_138
+
+    goto :goto_109
+
+    .line 877
     .end local v1           #attrs:Landroid/util/AttributeSet;
     .end local v2           #curBundle:Landroid/os/Bundle;
     .end local v4           #header:Landroid/preference/PreferenceActivity$Header;
@@ -1331,12 +1335,12 @@
     .end local v10           #sa:Landroid/content/res/TypedArray;
     .end local v11           #tv:Landroid/util/TypedValue;
     .end local v12           #type:I
-    :catch_139
+    :catch_138
     move-exception v3
 
-    .line 855
+    .line 878
     .local v3, e:Ljava/io/IOException;
-    :try_start_13a
+    :try_start_139
     new-instance v13, Ljava/lang/RuntimeException;
 
     const-string v14, "Error parsing headers"
@@ -1344,10 +1348,10 @@
     invoke-direct {v13, v14, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v13
-    :try_end_142
-    .catchall {:try_start_13a .. :try_end_142} :catchall_56
+    :try_end_141
+    .catchall {:try_start_139 .. :try_end_141} :catchall_56
 
-    .line 781
+    .line 804
     .end local v3           #e:Ljava/io/IOException;
     .restart local v1       #attrs:Landroid/util/AttributeSet;
     .restart local v2       #curBundle:Landroid/os/Bundle;
@@ -1357,51 +1361,51 @@
     .restart local v10       #sa:Landroid/content/res/TypedArray;
     .restart local v11       #tv:Landroid/util/TypedValue;
     .restart local v12       #type:I
-    :cond_142
-    :try_start_142
+    :cond_141
+    :try_start_141
     iget-object v13, v11, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
 
     iput-object v13, v4, Landroid/preference/PreferenceActivity$Header;->title:Ljava/lang/CharSequence;
 
-    goto/16 :goto_b1
+    goto/16 :goto_b0
 
-    .line 790
-    :cond_148
+    .line 813
+    :cond_147
     iget-object v13, v11, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
 
     iput-object v13, v4, Landroid/preference/PreferenceActivity$Header;->summary:Ljava/lang/CharSequence;
 
-    goto/16 :goto_c5
+    goto/16 :goto_c4
 
-    .line 799
-    :cond_14e
+    .line 822
+    :cond_14d
     iget-object v13, v11, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
 
     iput-object v13, v4, Landroid/preference/PreferenceActivity$Header;->breadCrumbTitle:Ljava/lang/CharSequence;
 
-    goto :goto_d9
+    goto :goto_d8
 
-    .line 808
-    :cond_153
+    .line 831
+    :cond_152
     iget-object v13, v11, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
 
     iput-object v13, v4, Landroid/preference/PreferenceActivity$Header;->breadCrumbShortTitle:Ljava/lang/CharSequence;
 
-    goto :goto_ed
+    goto :goto_ec
 
-    .line 833
+    .line 856
     .restart local v5       #innerDepth:I
     .restart local v6       #innerNodeName:Ljava/lang/String;
-    :cond_158
-    const-string/jumbo v13, "intent"
+    :cond_157
+    const-string v13, "intent"
 
     invoke-virtual {v6, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v13
 
-    if-eqz v13, :cond_16c
+    if-eqz v13, :cond_16a
 
-    .line 834
+    .line 857
     invoke-virtual/range {p0 .. p0}, Landroid/preference/PreferenceActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v13
@@ -1412,59 +1416,59 @@
 
     iput-object v13, v4, Landroid/preference/PreferenceActivity$Header;->intent:Landroid/content/Intent;
 
-    goto :goto_10a
+    goto :goto_109
 
-    .line 837
-    :cond_16c
+    .line 860
+    :cond_16a
     invoke-static {v9}, Lcom/android/internal/util/XmlUtils;->skipCurrentTag(Lorg/xmlpull/v1/XmlPullParser;)V
 
-    goto :goto_10a
+    goto :goto_109
 
-    .line 841
+    .line 864
     .end local v6           #innerNodeName:Ljava/lang/String;
-    :cond_170
+    :cond_16e
     invoke-virtual {v2}, Landroid/os/Bundle;->size()I
 
     move-result v13
 
-    if-lez v13, :cond_179
+    if-lez v13, :cond_177
 
-    .line 842
+    .line 865
     iput-object v2, v4, Landroid/preference/PreferenceActivity$Header;->fragmentArguments:Landroid/os/Bundle;
 
-    .line 843
+    .line 866
     const/4 v2, 0x0
 
-    .line 846
-    :cond_179
+    .line 869
+    :cond_177
     move-object/from16 v0, p2
 
     invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_62
 
-    .line 848
+    .line 871
     .end local v4           #header:Landroid/preference/PreferenceActivity$Header;
     .end local v5           #innerDepth:I
     .end local v10           #sa:Landroid/content/res/TypedArray;
     .end local v11           #tv:Landroid/util/TypedValue;
-    :cond_180
+    :cond_17e
     invoke-static {v9}, Lcom/android/internal/util/XmlUtils;->skipCurrentTag(Lorg/xmlpull/v1/XmlPullParser;)V
-    :try_end_183
-    .catchall {:try_start_142 .. :try_end_183} :catchall_56
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_142 .. :try_end_183} :catch_4d
-    .catch Ljava/io/IOException; {:try_start_142 .. :try_end_183} :catch_139
+    :try_end_181
+    .catchall {:try_start_141 .. :try_end_181} :catchall_56
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_141 .. :try_end_181} :catch_4d
+    .catch Ljava/io/IOException; {:try_start_141 .. :try_end_181} :catch_138
 
     goto/16 :goto_62
 
-    .line 857
-    :cond_185
-    if-eqz v9, :cond_18a
+    .line 880
+    :cond_183
+    if-eqz v9, :cond_188
 
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 860
-    :cond_18a
+    .line 883
+    :cond_188
     return-void
 .end method
 
@@ -1475,20 +1479,20 @@
     .parameter "data"
 
     .prologue
-    .line 935
+    .line 958
     invoke-super {p0, p1, p2, p3}, Landroid/app/ListActivity;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 937
+    .line 960
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     if-eqz v0, :cond_c
 
-    .line 938
+    .line 961
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/preference/PreferenceManager;->dispatchActivityResult(IILandroid/content/Intent;)V
 
-    .line 940
+    .line 963
     :cond_c
     return-void
 .end method
@@ -1507,7 +1511,7 @@
     .end annotation
 
     .prologue
-    .line 719
+    .line 742
     .local p1, target:Ljava/util/List;,"Ljava/util/List<Landroid/preference/PreferenceActivity$Header;>;"
     return-void
 .end method
@@ -1520,14 +1524,14 @@
     .parameter "shortTitleRes"
 
     .prologue
-    .line 1005
+    .line 1028
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.MAIN"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1006
+    .line 1029
     .local v0, intent:Landroid/content/Intent;
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -1535,34 +1539,88 @@
 
     invoke-virtual {v0, p0, v1}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
-    .line 1007
+    .line 1030
     const-string v1, ":android:show_fragment"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1008
+    .line 1031
     const-string v1, ":android:show_fragment_args"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
 
-    .line 1009
+    .line 1032
     const-string v1, ":android:show_fragment_title"
 
     invoke-virtual {v0, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 1010
+    .line 1033
     const-string v1, ":android:show_fragment_short_title"
 
     invoke-virtual {v0, v1, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 1011
+    .line 1034
     const-string v1, ":android:no_headers"
 
     const/4 v2, 0x1
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 1012
+    .line 1035
+    return-object v0
+.end method
+
+.method public onBuildStartFragmentIntent(Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/Intent;
+    .registers 8
+    .parameter "fragmentName"
+    .parameter "args"
+    .parameter "titleText"
+    .parameter "shortTitleText"
+
+    .prologue
+    .line 1042
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "android.intent.action.MAIN"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 1043
+    .local v0, intent:Landroid/content/Intent;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    invoke-virtual {v0, p0, v1}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
+
+    .line 1044
+    const-string v1, ":android:show_fragment"
+
+    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 1045
+    const-string v1, ":android:show_fragment_args"
+
+    invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
+
+    .line 1046
+    const-string v1, ":android:show_fragment_title_text"
+
+    invoke-virtual {v0, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;
+
+    .line 1047
+    const-string v1, ":android:show_fragment_short_title_text"
+
+    invoke-virtual {v0, v1, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;
+
+    .line 1048
+    const-string v1, ":android:no_headers"
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    .line 1049
     return-object v0
 .end method
 
@@ -1570,18 +1628,18 @@
     .registers 2
 
     .prologue
-    .line 944
+    .line 967
     invoke-super {p0}, Landroid/app/ListActivity;->onContentChanged()V
 
-    .line 946
+    .line 969
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     if-eqz v0, :cond_a
 
-    .line 947
+    .line 970
     invoke-direct {p0}, Landroid/preference/PreferenceActivity;->postBindPreferences()V
 
-    .line 949
+    .line 972
     :cond_a
     return-void
 .end method
@@ -1591,10 +1649,10 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 501
+    .line 510
     invoke-super/range {p0 .. p1}, Landroid/app/ListActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 503
+    .line 512
     const v17, 0x1090073
 
     move-object/from16 v0, p0
@@ -1603,8 +1661,8 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceActivity;->setContentView(I)V
 
-    .line 505
-    const v17, 0x10202d2
+    .line 514
+    const v17, 0x10202e6
 
     move-object/from16 v0, p0
 
@@ -1622,8 +1680,8 @@
 
     iput-object v0, v1, Landroid/preference/PreferenceActivity;->mListFooter:Landroid/widget/FrameLayout;
 
-    .line 506
-    const v17, 0x10202d3
+    .line 515
+    const v17, 0x10202e7
 
     move-object/from16 v0, p0
 
@@ -1641,12 +1699,12 @@
 
     iput-object v0, v1, Landroid/preference/PreferenceActivity;->mPrefsContainer:Landroid/view/ViewGroup;
 
-    .line 507
+    .line 516
     invoke-virtual/range {p0 .. p0}, Landroid/preference/PreferenceActivity;->onIsHidingHeaders()Z
 
     move-result v8
 
-    .line 508
+    .line 517
     .local v8, hidingHeaders:Z
     if-nez v8, :cond_3f
 
@@ -1666,7 +1724,7 @@
 
     iput-boolean v0, v1, Landroid/preference/PreferenceActivity;->mSinglePane:Z
 
-    .line 509
+    .line 518
     invoke-virtual/range {p0 .. p0}, Landroid/preference/PreferenceActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v17
@@ -1677,7 +1735,7 @@
 
     move-result-object v10
 
-    .line 510
+    .line 519
     .local v10, initialFragment:Ljava/lang/String;
     invoke-virtual/range {p0 .. p0}, Landroid/preference/PreferenceActivity;->getIntent()Landroid/content/Intent;
 
@@ -1689,7 +1747,7 @@
 
     move-result-object v9
 
-    .line 511
+    .line 520
     .local v9, initialArguments:Landroid/os/Bundle;
     invoke-virtual/range {p0 .. p0}, Landroid/preference/PreferenceActivity;->getIntent()Landroid/content/Intent;
 
@@ -1703,7 +1761,7 @@
 
     move-result v13
 
-    .line 512
+    .line 521
     .local v13, initialTitle:I
     invoke-virtual/range {p0 .. p0}, Landroid/preference/PreferenceActivity;->getIntent()Landroid/content/Intent;
 
@@ -1717,11 +1775,11 @@
 
     move-result v11
 
-    .line 514
+    .line 523
     .local v11, initialShortTitle:I
     if-eqz p1, :cond_1ce
 
-    .line 517
+    .line 526
     const-string v17, ":android:headers"
 
     move-object/from16 v0, p1
@@ -1732,11 +1790,11 @@
 
     move-result-object v7
 
-    .line 518
+    .line 527
     .local v7, headers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/preference/PreferenceActivity$Header;>;"
     if-eqz v7, :cond_bf
 
-    .line 519
+    .line 528
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
@@ -1747,7 +1805,7 @@
 
     invoke-virtual {v0, v7}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 520
+    .line 529
     const-string v17, ":android:cur_header"
 
     const/16 v18, -0x1
@@ -1762,7 +1820,7 @@
 
     move-result v5
 
-    .line 522
+    .line 531
     .local v5, curHeader:I
     if-ltz v5, :cond_bf
 
@@ -1780,7 +1838,7 @@
 
     if-ge v5, v0, :cond_bf
 
-    .line 523
+    .line 532
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
@@ -1801,12 +1859,12 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceActivity;->setSelectedHeader(Landroid/preference/PreferenceActivity$Header;)V
 
-    .line 562
+    .line 578
     .end local v5           #curHeader:I
     .end local v7           #headers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/preference/PreferenceActivity$Header;>;"
     :cond_bf
     :goto_bf
-    if-eqz v10, :cond_22e
+    if-eqz v10, :cond_268
 
     move-object/from16 v0, p0
 
@@ -1814,10 +1872,10 @@
 
     move/from16 v17, v0
 
-    if-eqz v17, :cond_22e
+    if-eqz v17, :cond_268
 
-    .line 564
-    const v17, 0x10202d1
+    .line 580
+    const v17, 0x10202e5
 
     move-object/from16 v0, p0
 
@@ -1831,7 +1889,7 @@
 
     invoke-virtual/range {v17 .. v18}, Landroid/view/View;->setVisibility(I)V
 
-    .line 565
+    .line 581
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/preference/PreferenceActivity;->mPrefsContainer:Landroid/view/ViewGroup;
@@ -1842,19 +1900,19 @@
 
     invoke-virtual/range {v17 .. v18}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    .line 566
-    if-eqz v13, :cond_f9
+    .line 582
+    if-eqz v13, :cond_24b
 
-    .line 567
+    .line 583
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v13}, Landroid/preference/PreferenceActivity;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v14
 
-    .line 568
+    .line 584
     .local v14, initialTitleStr:Ljava/lang/CharSequence;
-    if-eqz v11, :cond_22b
+    if-eqz v11, :cond_248
 
     move-object/from16 v0, p0
 
@@ -1862,14 +1920,14 @@
 
     move-result-object v12
 
-    .line 570
+    .line 586
     .local v12, initialShortTitleStr:Ljava/lang/CharSequence;
     :goto_f4
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v14, v12}, Landroid/preference/PreferenceActivity;->showBreadCrumbs(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
 
-    .line 593
+    .line 616
     .end local v12           #initialShortTitleStr:Ljava/lang/CharSequence;
     .end local v14           #initialTitleStr:Ljava/lang/CharSequence;
     :cond_f9
@@ -1878,7 +1936,7 @@
 
     move-result-object v15
 
-    .line 594
+    .line 617
     .local v15, intent:Landroid/content/Intent;
     const-string v17, "extra_prefs_show_button_bar"
 
@@ -1894,8 +1952,8 @@
 
     if-eqz v17, :cond_1c9
 
-    .line 596
-    const v17, 0x10202d5
+    .line 619
+    const v17, 0x10202e9
 
     move-object/from16 v0, p0
 
@@ -1909,8 +1967,8 @@
 
     invoke-virtual/range {v17 .. v18}, Landroid/view/View;->setVisibility(I)V
 
-    .line 598
-    const v17, 0x10202d6
+    .line 621
+    const v17, 0x10202ea
 
     move-object/from16 v0, p0
 
@@ -1922,7 +1980,7 @@
 
     check-cast v3, Landroid/widget/Button;
 
-    .line 599
+    .line 622
     .local v3, backButton:Landroid/widget/Button;
     new-instance v17, Landroid/preference/PreferenceActivity$2;
 
@@ -1936,8 +1994,8 @@
 
     invoke-virtual {v3, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 605
-    const v17, 0x10202d7
+    .line 628
+    const v17, 0x10202eb
 
     move-object/from16 v0, p0
 
@@ -1949,7 +2007,7 @@
 
     check-cast v16, Landroid/widget/Button;
 
-    .line 606
+    .line 629
     .local v16, skipButton:Landroid/widget/Button;
     new-instance v17, Landroid/preference/PreferenceActivity$3;
 
@@ -1961,8 +2019,8 @@
 
     invoke-virtual/range {v16 .. v17}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 612
-    const v17, 0x10202d8
+    .line 635
+    const v17, 0x10202ec
 
     move-object/from16 v0, p0
 
@@ -1980,7 +2038,7 @@
 
     iput-object v0, v1, Landroid/preference/PreferenceActivity;->mNextButton:Landroid/widget/Button;
 
-    .line 613
+    .line 636
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/preference/PreferenceActivity;->mNextButton:Landroid/widget/Button;
@@ -1997,7 +2055,7 @@
 
     invoke-virtual/range {v17 .. v18}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 621
+    .line 644
     const-string v17, "extra_prefs_set_next_text"
 
     move-object/from16 v0, v17
@@ -2008,7 +2066,7 @@
 
     if-eqz v17, :cond_197
 
-    .line 622
+    .line 645
     const-string v17, "extra_prefs_set_next_text"
 
     move-object/from16 v0, v17
@@ -2017,15 +2075,15 @@
 
     move-result-object v4
 
-    .line 623
+    .line 646
     .local v4, buttonText:Ljava/lang/String;
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v17
 
-    if-eqz v17, :cond_2d7
+    if-eqz v17, :cond_311
 
-    .line 624
+    .line 647
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/preference/PreferenceActivity;->mNextButton:Landroid/widget/Button;
@@ -2036,7 +2094,7 @@
 
     invoke-virtual/range {v17 .. v18}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 630
+    .line 653
     .end local v4           #buttonText:Ljava/lang/String;
     :cond_197
     :goto_197
@@ -2050,7 +2108,7 @@
 
     if-eqz v17, :cond_1b6
 
-    .line 631
+    .line 654
     const-string v17, "extra_prefs_set_back_text"
 
     move-object/from16 v0, v17
@@ -2059,22 +2117,22 @@
 
     move-result-object v4
 
-    .line 632
+    .line 655
     .restart local v4       #buttonText:Ljava/lang/String;
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v17
 
-    if-eqz v17, :cond_2e4
+    if-eqz v17, :cond_31e
 
-    .line 633
+    .line 656
     const/16 v17, 0x8
 
     move/from16 v0, v17
 
     invoke-virtual {v3, v0}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 639
+    .line 662
     .end local v4           #buttonText:Ljava/lang/String;
     :cond_1b6
     :goto_1b6
@@ -2092,18 +2150,18 @@
 
     if-eqz v17, :cond_1c9
 
-    .line 640
+    .line 663
     const/16 v17, 0x0
 
     invoke-virtual/range {v16 .. v17}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 643
+    .line 666
     .end local v3           #backButton:Landroid/widget/Button;
     .end local v16           #skipButton:Landroid/widget/Button;
     :cond_1c9
     return-void
 
-    .line 508
+    .line 517
     .end local v9           #initialArguments:Landroid/os/Bundle;
     .end local v10           #initialFragment:Ljava/lang/String;
     .end local v11           #initialShortTitle:I
@@ -2114,13 +2172,13 @@
 
     goto/16 :goto_41
 
-    .line 528
+    .line 537
     .restart local v9       #initialArguments:Landroid/os/Bundle;
     .restart local v10       #initialFragment:Ljava/lang/String;
     .restart local v11       #initialShortTitle:I
     .restart local v13       #initialTitle:I
     :cond_1ce
-    if-eqz v10, :cond_1f6
+    if-eqz v10, :cond_213
 
     move-object/from16 v0, p0
 
@@ -2128,24 +2186,24 @@
 
     move/from16 v17, v0
 
-    if-eqz v17, :cond_1f6
+    if-eqz v17, :cond_213
 
-    .line 532
+    .line 541
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v10, v9}, Landroid/preference/PreferenceActivity;->switchToHeader(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 533
-    if-eqz v13, :cond_bf
+    .line 542
+    if-eqz v13, :cond_1f6
 
-    .line 534
+    .line 543
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v13}, Landroid/preference/PreferenceActivity;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v14
 
-    .line 535
+    .line 544
     .restart local v14       #initialTitleStr:Ljava/lang/CharSequence;
     if-eqz v11, :cond_1f4
 
@@ -2155,7 +2213,7 @@
 
     move-result-object v12
 
-    .line 537
+    .line 546
     .restart local v12       #initialShortTitleStr:Ljava/lang/CharSequence;
     :goto_1ed
     move-object/from16 v0, p0
@@ -2164,16 +2222,53 @@
 
     goto/16 :goto_bf
 
-    .line 535
+    .line 544
     .end local v12           #initialShortTitleStr:Ljava/lang/CharSequence;
     :cond_1f4
     const/4 v12, 0x0
 
     goto :goto_1ed
 
-    .line 542
+    .line 548
     .end local v14           #initialTitleStr:Ljava/lang/CharSequence;
     :cond_1f6
+    invoke-virtual/range {p0 .. p0}, Landroid/preference/PreferenceActivity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v17
+
+    const-string v18, ":android:show_fragment_title_text"
+
+    invoke-virtual/range {v17 .. v18}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v14
+
+    .line 549
+    .restart local v14       #initialTitleStr:Ljava/lang/CharSequence;
+    if-eqz v14, :cond_bf
+
+    .line 550
+    invoke-virtual/range {p0 .. p0}, Landroid/preference/PreferenceActivity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v17
+
+    const-string v18, ":android:show_fragment_short_title_text"
+
+    invoke-virtual/range {v17 .. v18}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v12
+
+    .line 552
+    .restart local v12       #initialShortTitleStr:Ljava/lang/CharSequence;
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v14, v12}, Landroid/preference/PreferenceActivity;->showBreadCrumbs(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_bf
+
+    .line 558
+    .end local v12           #initialShortTitleStr:Ljava/lang/CharSequence;
+    .end local v14           #initialTitleStr:Ljava/lang/CharSequence;
+    :cond_213
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
@@ -2186,7 +2281,7 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceActivity;->onBuildHeaders(Ljava/util/List;)V
 
-    .line 547
+    .line 563
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
@@ -2199,7 +2294,7 @@
 
     if-lez v17, :cond_bf
 
-    .line 548
+    .line 564
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/preference/PreferenceActivity;->mSinglePane:Z
@@ -2208,15 +2303,15 @@
 
     if-nez v17, :cond_bf
 
-    .line 549
-    if-nez v10, :cond_224
+    .line 565
+    if-nez v10, :cond_241
 
-    .line 550
+    .line 566
     invoke-virtual/range {p0 .. p0}, Landroid/preference/PreferenceActivity;->onGetInitialHeader()Landroid/preference/PreferenceActivity$Header;
 
     move-result-object v6
 
-    .line 551
+    .line 567
     .local v6, h:Landroid/preference/PreferenceActivity$Header;
     move-object/from16 v0, p0
 
@@ -2224,25 +2319,62 @@
 
     goto/16 :goto_bf
 
-    .line 553
+    .line 569
     .end local v6           #h:Landroid/preference/PreferenceActivity$Header;
-    :cond_224
+    :cond_241
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v10, v9}, Landroid/preference/PreferenceActivity;->switchToHeader(Ljava/lang/String;Landroid/os/Bundle;)V
 
     goto/16 :goto_bf
 
-    .line 568
+    .line 584
     .restart local v14       #initialTitleStr:Ljava/lang/CharSequence;
-    :cond_22b
+    :cond_248
     const/4 v12, 0x0
 
     goto/16 :goto_f4
 
-    .line 572
+    .line 588
     .end local v14           #initialTitleStr:Ljava/lang/CharSequence;
-    :cond_22e
+    :cond_24b
+    invoke-virtual/range {p0 .. p0}, Landroid/preference/PreferenceActivity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v17
+
+    const-string v18, ":android:show_fragment_title_text"
+
+    invoke-virtual/range {v17 .. v18}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v14
+
+    .line 589
+    .restart local v14       #initialTitleStr:Ljava/lang/CharSequence;
+    if-eqz v14, :cond_f9
+
+    .line 590
+    invoke-virtual/range {p0 .. p0}, Landroid/preference/PreferenceActivity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v17
+
+    const-string v18, ":android:show_fragment_short_title_text"
+
+    invoke-virtual/range {v17 .. v18}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v12
+
+    .line 592
+    .restart local v12       #initialShortTitleStr:Ljava/lang/CharSequence;
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v14, v12}, Landroid/preference/PreferenceActivity;->showBreadCrumbs(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_f9
+
+    .line 595
+    .end local v12           #initialShortTitleStr:Ljava/lang/CharSequence;
+    .end local v14           #initialTitleStr:Ljava/lang/CharSequence;
+    :cond_268
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
@@ -2253,9 +2385,9 @@
 
     move-result v17
 
-    if-lez v17, :cond_285
+    if-lez v17, :cond_2bf
 
-    .line 573
+    .line 596
     new-instance v17, Landroid/preference/PreferenceActivity$HeaderAdapter;
 
     move-object/from16 v0, p0
@@ -2278,7 +2410,7 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceActivity;->setListAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 574
+    .line 597
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/preference/PreferenceActivity;->mSinglePane:Z
@@ -2287,7 +2419,7 @@
 
     if-nez v17, :cond_f9
 
-    .line 576
+    .line 599
     invoke-virtual/range {p0 .. p0}, Landroid/preference/PreferenceActivity;->getListView()Landroid/widget/ListView;
 
     move-result-object v17
@@ -2296,16 +2428,16 @@
 
     invoke-virtual/range {v17 .. v18}, Landroid/widget/ListView;->setChoiceMode(I)V
 
-    .line 577
+    .line 600
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/preference/PreferenceActivity;->mCurHeader:Landroid/preference/PreferenceActivity$Header;
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_278
+    if-eqz v17, :cond_2b2
 
-    .line 578
+    .line 601
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/preference/PreferenceActivity;->mCurHeader:Landroid/preference/PreferenceActivity$Header;
@@ -2318,8 +2450,8 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceActivity;->setSelectedHeader(Landroid/preference/PreferenceActivity$Header;)V
 
-    .line 580
-    :cond_278
+    .line 603
+    :cond_2b2
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/preference/PreferenceActivity;->mPrefsContainer:Landroid/view/ViewGroup;
@@ -2332,8 +2464,8 @@
 
     goto/16 :goto_f9
 
-    .line 585
-    :cond_285
+    .line 608
+    :cond_2bf
     const v17, 0x1090074
 
     move-object/from16 v0, p0
@@ -2342,8 +2474,8 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceActivity;->setContentView(I)V
 
-    .line 586
-    const v17, 0x10202d2
+    .line 609
+    const v17, 0x10202e6
 
     move-object/from16 v0, p0
 
@@ -2361,8 +2493,8 @@
 
     iput-object v0, v1, Landroid/preference/PreferenceActivity;->mListFooter:Landroid/widget/FrameLayout;
 
-    .line 587
-    const v17, 0x10202d4
+    .line 610
+    const v17, 0x10202e8
 
     move-object/from16 v0, p0
 
@@ -2380,7 +2512,7 @@
 
     iput-object v0, v1, Landroid/preference/PreferenceActivity;->mPrefsContainer:Landroid/view/ViewGroup;
 
-    .line 588
+    .line 611
     new-instance v17, Landroid/preference/PreferenceManager;
 
     const/16 v18, 0x64
@@ -2399,7 +2531,7 @@
 
     iput-object v0, v1, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
-    .line 589
+    .line 612
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
@@ -2414,12 +2546,12 @@
 
     goto/16 :goto_f9
 
-    .line 627
+    .line 650
     .restart local v3       #backButton:Landroid/widget/Button;
     .restart local v4       #buttonText:Ljava/lang/String;
     .restart local v15       #intent:Landroid/content/Intent;
     .restart local v16       #skipButton:Landroid/widget/Button;
-    :cond_2d7
+    :cond_311
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/preference/PreferenceActivity;->mNextButton:Landroid/widget/Button;
@@ -2432,8 +2564,8 @@
 
     goto/16 :goto_197
 
-    .line 636
-    :cond_2e4
+    .line 659
+    :cond_31e
     invoke-virtual {v3, v4}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_1b6
@@ -2443,20 +2575,20 @@
     .registers 2
 
     .prologue
-    .line 883
+    .line 906
     invoke-super {p0}, Landroid/app/ListActivity;->onDestroy()V
 
-    .line 885
+    .line 908
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     if-eqz v0, :cond_c
 
-    .line 886
+    .line 909
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     invoke-virtual {v0}, Landroid/preference/PreferenceManager;->dispatchActivityDestroy()V
 
-    .line 888
+    .line 911
     :cond_c
     return-void
 .end method
@@ -2465,7 +2597,7 @@
     .registers 3
 
     .prologue
-    .line 691
+    .line 714
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
 
     const/4 v1, 0x0
@@ -2483,7 +2615,7 @@
     .registers 2
 
     .prologue
-    .line 701
+    .line 724
     const/4 v0, 0x0
 
     return-object v0
@@ -2495,34 +2627,34 @@
     .parameter "position"
 
     .prologue
-    .line 971
+    .line 994
     iget-object v0, p1, Landroid/preference/PreferenceActivity$Header;->fragment:Ljava/lang/String;
 
     if-eqz v0, :cond_20
 
-    .line 972
+    .line 995
     iget-boolean v0, p0, Landroid/preference/PreferenceActivity;->mSinglePane:Z
 
     if-eqz v0, :cond_1c
 
-    .line 973
+    .line 996
     iget v5, p1, Landroid/preference/PreferenceActivity$Header;->breadCrumbTitleRes:I
 
-    .line 974
+    .line 997
     .local v5, titleRes:I
     iget v6, p1, Landroid/preference/PreferenceActivity$Header;->breadCrumbShortTitleRes:I
 
-    .line 975
+    .line 998
     .local v6, shortTitleRes:I
     if-nez v5, :cond_11
 
-    .line 976
+    .line 999
     iget v5, p1, Landroid/preference/PreferenceActivity$Header;->titleRes:I
 
-    .line 977
+    .line 1000
     const/4 v6, 0x0
 
-    .line 979
+    .line 1002
     :cond_11
     iget-object v1, p1, Landroid/preference/PreferenceActivity$Header;->fragment:Ljava/lang/String;
 
@@ -2536,26 +2668,26 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/preference/PreferenceActivity;->startWithFragment(Ljava/lang/String;Landroid/os/Bundle;Landroid/app/Fragment;III)V
 
-    .line 987
+    .line 1010
     .end local v5           #titleRes:I
     .end local v6           #shortTitleRes:I
     :cond_1b
     :goto_1b
     return-void
 
-    .line 982
+    .line 1005
     :cond_1c
     invoke-virtual {p0, p1}, Landroid/preference/PreferenceActivity;->switchToHeader(Landroid/preference/PreferenceActivity$Header;)V
 
     goto :goto_1b
 
-    .line 984
+    .line 1007
     :cond_20
     iget-object v0, p1, Landroid/preference/PreferenceActivity$Header;->intent:Landroid/content/Intent;
 
     if-eqz v0, :cond_1b
 
-    .line 985
+    .line 1008
     iget-object v0, p1, Landroid/preference/PreferenceActivity$Header;->intent:Landroid/content/Intent;
 
     invoke-virtual {p0, v0}, Landroid/preference/PreferenceActivity;->startActivity(Landroid/content/Intent;)V
@@ -2567,7 +2699,7 @@
     .registers 4
 
     .prologue
-    .line 680
+    .line 703
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -2587,7 +2719,7 @@
     .registers 4
 
     .prologue
-    .line 667
+    .line 690
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -2598,7 +2730,7 @@
 
     move-result v0
 
-    .line 669
+    .line 692
     .local v0, preferMultiPane:Z
     return v0
 .end method
@@ -2611,22 +2743,22 @@
     .parameter "id"
 
     .prologue
-    .line 953
+    .line 976
     invoke-super/range {p0 .. p5}, Landroid/app/ListActivity;->onListItemClick(Landroid/widget/ListView;Landroid/view/View;IJ)V
 
-    .line 955
-    iget-object v1, p0, Landroid/app/ListActivity;->mAdapter:Landroid/widget/ListAdapter;
+    .line 978
+    iget-object v1, p0, Landroid/preference/PreferenceActivity;->mAdapter:Landroid/widget/ListAdapter;
 
     if-eqz v1, :cond_16
 
-    .line 956
-    iget-object v1, p0, Landroid/app/ListActivity;->mAdapter:Landroid/widget/ListAdapter;
+    .line 979
+    iget-object v1, p0, Landroid/preference/PreferenceActivity;->mAdapter:Landroid/widget/ListAdapter;
 
     invoke-interface {v1, p3}, Landroid/widget/ListAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 957
+    .line 980
     .local v0, item:Ljava/lang/Object;
     instance-of v1, v0, Landroid/preference/PreferenceActivity$Header;
 
@@ -2637,7 +2769,7 @@
     .end local v0           #item:Ljava/lang/Object;
     invoke-virtual {p0, v0, p3}, Landroid/preference/PreferenceActivity;->onHeaderClick(Landroid/preference/PreferenceActivity$Header;I)V
 
-    .line 959
+    .line 982
     :cond_16
     return-void
 .end method
@@ -2647,17 +2779,17 @@
     .parameter "intent"
 
     .prologue
-    .line 1440
+    .line 1494
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     if-eqz v0, :cond_9
 
-    .line 1441
+    .line 1495
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     invoke-virtual {v0, p1}, Landroid/preference/PreferenceManager;->dispatchNewIntent(Landroid/content/Intent;)V
 
-    .line 1443
+    .line 1497
     :cond_9
     return-void
 .end method
@@ -2668,7 +2800,7 @@
     .parameter "pref"
 
     .prologue
-    .line 1287
+    .line 1341
     invoke-virtual {p2}, Landroid/preference/Preference;->getFragment()Ljava/lang/String;
 
     move-result-object v1
@@ -2693,7 +2825,7 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/preference/PreferenceActivity;->startPreferencePanel(Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/CharSequence;Landroid/app/Fragment;I)V
 
-    .line 1289
+    .line 1343
     const/4 v0, 0x1
 
     return v0
@@ -2707,7 +2839,7 @@
     .end annotation
 
     .prologue
-    .line 1415
+    .line 1469
     const/4 v0, 0x0
 
     return v0
@@ -2718,44 +2850,44 @@
     .parameter "state"
 
     .prologue
-    .line 916
+    .line 939
     iget-object v2, p0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     if-eqz v2, :cond_18
 
-    .line 917
+    .line 940
     const-string v2, ":android:preferences"
 
     invoke-virtual {p1, v2}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v0
 
-    .line 918
+    .line 941
     .local v0, container:Landroid/os/Bundle;
     if-eqz v0, :cond_18
 
-    .line 919
+    .line 942
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
-    .line 920
+    .line 943
     .local v1, preferenceScreen:Landroid/preference/PreferenceScreen;
     if-eqz v1, :cond_18
 
-    .line 921
+    .line 944
     invoke-virtual {v1, v0}, Landroid/preference/PreferenceScreen;->restoreHierarchyState(Landroid/os/Bundle;)V
 
-    .line 922
+    .line 945
     iput-object p1, p0, Landroid/preference/PreferenceActivity;->mSavedInstanceState:Landroid/os/Bundle;
 
-    .line 931
+    .line 954
     .end local v0           #container:Landroid/os/Bundle;
     .end local v1           #preferenceScreen:Landroid/preference/PreferenceScreen;
     :goto_17
     return-void
 
-    .line 930
+    .line 953
     :cond_18
     invoke-super {p0, p1}, Landroid/app/ListActivity;->onRestoreInstanceState(Landroid/os/Bundle;)V
 
@@ -2767,10 +2899,10 @@
     .parameter "outState"
 
     .prologue
-    .line 892
+    .line 915
     invoke-super {p0, p1}, Landroid/app/ListActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 894
+    .line 917
     iget-object v3, p0, Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
@@ -2779,19 +2911,19 @@
 
     if-lez v3, :cond_25
 
-    .line 895
+    .line 918
     const-string v3, ":android:headers"
 
     iget-object v4, p0, Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
 
     invoke-virtual {p1, v3, v4}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    .line 896
+    .line 919
     iget-object v3, p0, Landroid/preference/PreferenceActivity;->mCurHeader:Landroid/preference/PreferenceActivity$Header;
 
     if-eqz v3, :cond_25
 
-    .line 897
+    .line 920
     iget-object v3, p0, Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
 
     iget-object v4, p0, Landroid/preference/PreferenceActivity;->mCurHeader:Landroid/preference/PreferenceActivity$Header;
@@ -2800,46 +2932,46 @@
 
     move-result v1
 
-    .line 898
+    .line 921
     .local v1, index:I
     if-ltz v1, :cond_25
 
-    .line 899
+    .line 922
     const-string v3, ":android:cur_header"
 
     invoke-virtual {p1, v3, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 904
+    .line 927
     .end local v1           #index:I
     :cond_25
     iget-object v3, p0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     if-eqz v3, :cond_3c
 
-    .line 905
+    .line 928
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v2
 
-    .line 906
+    .line 929
     .local v2, preferenceScreen:Landroid/preference/PreferenceScreen;
     if-eqz v2, :cond_3c
 
-    .line 907
+    .line 930
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 908
+    .line 931
     .local v0, container:Landroid/os/Bundle;
     invoke-virtual {v2, v0}, Landroid/preference/PreferenceScreen;->saveHierarchyState(Landroid/os/Bundle;)V
 
-    .line 909
+    .line 932
     const-string v3, ":android:preferences"
 
     invoke-virtual {p1, v3, v0}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 912
+    .line 935
     .end local v0           #container:Landroid/os/Bundle;
     .end local v2           #preferenceScreen:Landroid/preference/PreferenceScreen;
     :cond_3c
@@ -2850,20 +2982,20 @@
     .registers 2
 
     .prologue
-    .line 874
+    .line 897
     invoke-super {p0}, Landroid/app/ListActivity;->onStop()V
 
-    .line 876
+    .line 899
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     if-eqz v0, :cond_c
 
-    .line 877
+    .line 900
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     invoke-virtual {v0}, Landroid/preference/PreferenceManager;->dispatchActivityStop()V
 
-    .line 879
+    .line 902
     :cond_c
     return-void
 .end method
@@ -2873,12 +3005,12 @@
     .parameter "view"
 
     .prologue
-    .line 866
+    .line 889
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mListFooter:Landroid/widget/FrameLayout;
 
     invoke-virtual {v0}, Landroid/widget/FrameLayout;->removeAllViews()V
 
-    .line 867
+    .line 890
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mListFooter:Landroid/widget/FrameLayout;
 
     new-instance v1, Landroid/widget/FrameLayout$LayoutParams;
@@ -2891,7 +3023,7 @@
 
     invoke-virtual {v0, p1, v1}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 870
+    .line 893
     return-void
 .end method
 
@@ -2902,17 +3034,17 @@
     .parameter "listener"
 
     .prologue
-    .line 1087
+    .line 1136
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mFragmentBreadCrumbs:Landroid/app/FragmentBreadCrumbs;
 
     if-eqz v0, :cond_9
 
-    .line 1088
+    .line 1137
     iget-object v0, p0, Landroid/preference/PreferenceActivity;->mFragmentBreadCrumbs:Landroid/app/FragmentBreadCrumbs;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/app/FragmentBreadCrumbs;->setParentTitle(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/view/View$OnClickListener;)V
 
-    .line 1090
+    .line 1139
     :cond_9
     return-void
 .end method
@@ -2924,10 +3056,10 @@
     .end annotation
 
     .prologue
-    .line 1346
+    .line 1400
     invoke-direct {p0}, Landroid/preference/PreferenceActivity;->requirePreferenceManager()V
 
-    .line 1348
+    .line 1402
     iget-object v1, p0, Landroid/preference/PreferenceActivity;->mPreferenceManager:Landroid/preference/PreferenceManager;
 
     invoke-virtual {v1, p1}, Landroid/preference/PreferenceManager;->setPreferences(Landroid/preference/PreferenceScreen;)Z
@@ -2938,10 +3070,10 @@
 
     if-eqz p1, :cond_1d
 
-    .line 1349
+    .line 1403
     invoke-direct {p0}, Landroid/preference/PreferenceActivity;->postBindPreferences()V
 
-    .line 1350
+    .line 1404
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
@@ -2950,14 +3082,14 @@
 
     move-result-object v0
 
-    .line 1352
+    .line 1406
     .local v0, title:Ljava/lang/CharSequence;
     if-eqz v0, :cond_1d
 
-    .line 1353
+    .line 1407
     invoke-virtual {p0, v0}, Landroid/preference/PreferenceActivity;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 1356
+    .line 1410
     .end local v0           #title:Ljava/lang/CharSequence;
     :cond_1d
     return-void
@@ -2968,21 +3100,21 @@
     .parameter "header"
 
     .prologue
-    .line 1093
+    .line 1142
     iput-object p1, p0, Landroid/preference/PreferenceActivity;->mCurHeader:Landroid/preference/PreferenceActivity$Header;
 
-    .line 1094
+    .line 1143
     iget-object v1, p0, Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
 
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
 
     move-result v0
 
-    .line 1095
+    .line 1144
     .local v0, index:I
     if-ltz v0, :cond_16
 
-    .line 1096
+    .line 1145
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getListView()Landroid/widget/ListView;
 
     move-result-object v1
@@ -2991,14 +3123,14 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/widget/ListView;->setItemChecked(IZ)V
 
-    .line 1100
+    .line 1149
     :goto_12
     invoke-virtual {p0, p1}, Landroid/preference/PreferenceActivity;->showBreadCrumbs(Landroid/preference/PreferenceActivity$Header;)V
 
-    .line 1101
+    .line 1150
     return-void
 
-    .line 1098
+    .line 1147
     :cond_16
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getListView()Landroid/widget/ListView;
 
@@ -3014,10 +3146,10 @@
     .parameter "header"
 
     .prologue
-    .line 1104
+    .line 1153
     if-eqz p1, :cond_26
 
-    .line 1105
+    .line 1154
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -3026,7 +3158,7 @@
 
     move-result-object v0
 
-    .line 1106
+    .line 1155
     .local v0, title:Ljava/lang/CharSequence;
     if-nez v0, :cond_14
 
@@ -3038,7 +3170,7 @@
 
     move-result-object v0
 
-    .line 1107
+    .line 1156
     :cond_14
     if-nez v0, :cond_1a
 
@@ -3046,7 +3178,7 @@
 
     move-result-object v0
 
-    .line 1108
+    .line 1157
     :cond_1a
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getResources()Landroid/content/res/Resources;
 
@@ -3058,12 +3190,12 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/preference/PreferenceActivity;->showBreadCrumbs(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
 
-    .line 1112
+    .line 1161
     .end local v0           #title:Ljava/lang/CharSequence;
     :goto_25
     return-void
 
-    .line 1110
+    .line 1159
     :cond_26
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getTitle()Ljava/lang/CharSequence;
 
@@ -3084,19 +3216,19 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 1057
+    .line 1106
     iget-object v2, p0, Landroid/preference/PreferenceActivity;->mFragmentBreadCrumbs:Landroid/app/FragmentBreadCrumbs;
 
     if-nez v2, :cond_27
 
-    .line 1058
+    .line 1107
     const v2, 0x1020016
 
     invoke-virtual {p0, v2}, Landroid/preference/PreferenceActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 1061
+    .line 1110
     .local v0, crumbs:Landroid/view/View;
     :try_start_c
     check-cast v0, Landroid/app/FragmentBreadCrumbs;
@@ -3106,31 +3238,31 @@
     :try_end_10
     .catch Ljava/lang/ClassCastException; {:try_start_c .. :try_end_10} :catch_1a
 
-    .line 1065
+    .line 1114
     iget-object v2, p0, Landroid/preference/PreferenceActivity;->mFragmentBreadCrumbs:Landroid/app/FragmentBreadCrumbs;
 
     if-nez v2, :cond_1c
 
-    .line 1066
+    .line 1115
     if-eqz p1, :cond_19
 
-    .line 1067
+    .line 1116
     invoke-virtual {p0, p1}, Landroid/preference/PreferenceActivity;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 1076
+    .line 1125
     :cond_19
     :goto_19
     return-void
 
-    .line 1062
+    .line 1111
     :catch_1a
     move-exception v1
 
-    .line 1063
+    .line 1112
     .local v1, e:Ljava/lang/ClassCastException;
     goto :goto_19
 
-    .line 1071
+    .line 1120
     .end local v1           #e:Ljava/lang/ClassCastException;
     :cond_1c
     iget-object v2, p0, Landroid/preference/PreferenceActivity;->mFragmentBreadCrumbs:Landroid/app/FragmentBreadCrumbs;
@@ -3139,18 +3271,18 @@
 
     invoke-virtual {v2, v3}, Landroid/app/FragmentBreadCrumbs;->setMaxVisible(I)V
 
-    .line 1072
+    .line 1121
     iget-object v2, p0, Landroid/preference/PreferenceActivity;->mFragmentBreadCrumbs:Landroid/app/FragmentBreadCrumbs;
 
     invoke-virtual {v2, p0}, Landroid/app/FragmentBreadCrumbs;->setActivity(Landroid/app/Activity;)V
 
-    .line 1074
+    .line 1123
     :cond_27
     iget-object v2, p0, Landroid/preference/PreferenceActivity;->mFragmentBreadCrumbs:Landroid/app/FragmentBreadCrumbs;
 
     invoke-virtual {v2, p1, p2}, Landroid/app/FragmentBreadCrumbs;->setTitle(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
 
-    .line 1075
+    .line 1124
     iget-object v2, p0, Landroid/preference/PreferenceActivity;->mFragmentBreadCrumbs:Landroid/app/FragmentBreadCrumbs;
 
     invoke-virtual {v2, v4, v4, v4}, Landroid/app/FragmentBreadCrumbs;->setParentTitle(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/view/View$OnClickListener;)V
@@ -3164,7 +3296,7 @@
     .parameter "push"
 
     .prologue
-    .line 1208
+    .line 1257
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v1
@@ -3173,33 +3305,33 @@
 
     move-result-object v0
 
-    .line 1209
+    .line 1258
     .local v0, transaction:Landroid/app/FragmentTransaction;
-    const v1, 0x10202d4
+    const v1, 0x10202e8
 
     invoke-virtual {v0, v1, p1}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
-    .line 1210
+    .line 1259
     if-eqz p2, :cond_1e
 
-    .line 1211
+    .line 1260
     const/16 v1, 0x1001
 
     invoke-virtual {v0, v1}, Landroid/app/FragmentTransaction;->setTransition(I)Landroid/app/FragmentTransaction;
 
-    .line 1212
+    .line 1261
     const-string v1, ":android:prefs"
 
     invoke-virtual {v0, v1}, Landroid/app/FragmentTransaction;->addToBackStack(Ljava/lang/String;)Landroid/app/FragmentTransaction;
 
-    .line 1216
+    .line 1265
     :goto_1a
     invoke-virtual {v0}, Landroid/app/FragmentTransaction;->commitAllowingStateLoss()I
 
-    .line 1217
+    .line 1266
     return-void
 
-    .line 1214
+    .line 1263
     :cond_1e
     const/16 v1, 0x1003
 
@@ -3218,12 +3350,39 @@
     .parameter "resultRequestCode"
 
     .prologue
-    .line 1240
+    .line 1289
     iget-boolean v0, p0, Landroid/preference/PreferenceActivity;->mSinglePane:Z
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_1e
 
-    .line 1241
+    .line 1291
+    if-nez p3, :cond_13
+
+    if-eqz p4, :cond_13
+
+    .line 1292
+    const/4 v6, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p5
+
+    move v4, p6
+
+    move-object v5, p4
+
+    invoke-virtual/range {v0 .. v6}, Landroid/preference/PreferenceActivity;->startWithFragment(Ljava/lang/String;Landroid/os/Bundle;Landroid/app/Fragment;ILjava/lang/CharSequence;Ljava/lang/CharSequence;)V
+
+    .line 1312
+    :goto_12
+    return-void
+
+    .line 1294
+    :cond_13
     const/4 v6, 0x0
 
     move-object v0, p0
@@ -3240,25 +3399,23 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/preference/PreferenceActivity;->startWithFragment(Ljava/lang/String;Landroid/os/Bundle;Landroid/app/Fragment;III)V
 
-    .line 1258
-    :goto_e
-    return-void
+    goto :goto_12
 
-    .line 1243
-    :cond_f
+    .line 1297
+    :cond_1e
     invoke-static {p0, p1, p2}, Landroid/app/Fragment;->instantiate(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Landroid/app/Fragment;
 
     move-result-object v7
 
-    .line 1244
+    .line 1298
     .local v7, f:Landroid/app/Fragment;
-    if-eqz p5, :cond_18
+    if-eqz p5, :cond_27
 
-    .line 1245
+    .line 1299
     invoke-virtual {v7, p5, p6}, Landroid/app/Fragment;->setTargetFragment(Landroid/app/Fragment;I)V
 
-    .line 1247
-    :cond_18
+    .line 1301
+    :cond_27
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
@@ -3267,43 +3424,43 @@
 
     move-result-object v8
 
-    .line 1248
+    .line 1302
     .local v8, transaction:Landroid/app/FragmentTransaction;
-    const v0, 0x10202d4
+    const v0, 0x10202e8
 
     invoke-virtual {v8, v0, v7}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
-    .line 1249
-    if-eqz p3, :cond_39
+    .line 1303
+    if-eqz p3, :cond_48
 
-    .line 1250
+    .line 1304
     invoke-virtual {v8, p3}, Landroid/app/FragmentTransaction;->setBreadCrumbTitle(I)Landroid/app/FragmentTransaction;
 
-    .line 1254
-    :cond_2b
-    :goto_2b
+    .line 1308
+    :cond_3a
+    :goto_3a
     const/16 v0, 0x1001
 
     invoke-virtual {v8, v0}, Landroid/app/FragmentTransaction;->setTransition(I)Landroid/app/FragmentTransaction;
 
-    .line 1255
+    .line 1309
     const-string v0, ":android:prefs"
 
     invoke-virtual {v8, v0}, Landroid/app/FragmentTransaction;->addToBackStack(Ljava/lang/String;)Landroid/app/FragmentTransaction;
 
-    .line 1256
+    .line 1310
     invoke-virtual {v8}, Landroid/app/FragmentTransaction;->commitAllowingStateLoss()I
 
-    goto :goto_e
+    goto :goto_12
 
-    .line 1251
-    :cond_39
-    if-eqz p4, :cond_2b
+    .line 1305
+    :cond_48
+    if-eqz p4, :cond_3a
 
-    .line 1252
+    .line 1306
     invoke-virtual {v8, p4}, Landroid/app/FragmentTransaction;->setBreadCrumbTitle(Ljava/lang/CharSequence;)Landroid/app/FragmentTransaction;
 
-    goto :goto_2b
+    goto :goto_3a
 .end method
 
 .method public startWithFragment(Ljava/lang/String;Landroid/os/Bundle;Landroid/app/Fragment;I)V
@@ -3316,7 +3473,7 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 1021
+    .line 1058
     move-object v0, p0
 
     move-object v1, p1
@@ -3331,7 +3488,7 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/preference/PreferenceActivity;->startWithFragment(Ljava/lang/String;Landroid/os/Bundle;Landroid/app/Fragment;III)V
 
-    .line 1022
+    .line 1059
     return-void
 .end method
 
@@ -3345,23 +3502,56 @@
     .parameter "shortTitleRes"
 
     .prologue
-    .line 1043
+    .line 1080
     invoke-virtual {p0, p1, p2, p5, p6}, Landroid/preference/PreferenceActivity;->onBuildStartFragmentIntent(Ljava/lang/String;Landroid/os/Bundle;II)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 1044
+    .line 1081
     .local v0, intent:Landroid/content/Intent;
     if-nez p3, :cond_a
 
-    .line 1045
+    .line 1082
     invoke-virtual {p0, v0}, Landroid/preference/PreferenceActivity;->startActivity(Landroid/content/Intent;)V
 
-    .line 1049
+    .line 1086
     :goto_9
     return-void
 
-    .line 1047
+    .line 1084
+    :cond_a
+    invoke-virtual {p3, v0, p4}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
+
+    goto :goto_9
+.end method
+
+.method public startWithFragment(Ljava/lang/String;Landroid/os/Bundle;Landroid/app/Fragment;ILjava/lang/CharSequence;Ljava/lang/CharSequence;)V
+    .registers 8
+    .parameter "fragmentName"
+    .parameter "args"
+    .parameter "resultTo"
+    .parameter "resultRequestCode"
+    .parameter "titleText"
+    .parameter "shortTitleText"
+
+    .prologue
+    .line 1092
+    invoke-virtual {p0, p1, p2, p5, p6}, Landroid/preference/PreferenceActivity;->onBuildStartFragmentIntent(Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    .line 1093
+    .local v0, intent:Landroid/content/Intent;
+    if-nez p3, :cond_a
+
+    .line 1094
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceActivity;->startActivity(Landroid/content/Intent;)V
+
+    .line 1098
+    :goto_9
+    return-void
+
+    .line 1096
     :cond_a
     invoke-virtual {p3, v0, p4}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
@@ -3373,12 +3563,12 @@
     .parameter "header"
 
     .prologue
-    .line 1143
+    .line 1192
     iget-object v1, p0, Landroid/preference/PreferenceActivity;->mCurHeader:Landroid/preference/PreferenceActivity$Header;
 
     if-ne v1, p1, :cond_f
 
-    .line 1146
+    .line 1195
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v1
@@ -3389,11 +3579,11 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/app/FragmentManager;->popBackStack(Ljava/lang/String;I)V
 
-    .line 1153
+    .line 1202
     :goto_e
     return-void
 
-    .line 1149
+    .line 1198
     :cond_f
     iget-object v1, p0, Landroid/preference/PreferenceActivity;->mHeaders:Ljava/util/ArrayList;
 
@@ -3411,7 +3601,7 @@
 
     sub-int v0, v1, v2
 
-    .line 1150
+    .line 1199
     .local v0, direction:I
     iget-object v1, p1, Landroid/preference/PreferenceActivity$Header;->fragment:Ljava/lang/String;
 
@@ -3419,7 +3609,7 @@
 
     invoke-direct {p0, v1, v2, v0}, Landroid/preference/PreferenceActivity;->switchToHeaderInner(Ljava/lang/String;Landroid/os/Bundle;I)V
 
-    .line 1151
+    .line 1200
     invoke-virtual {p0, p1}, Landroid/preference/PreferenceActivity;->setSelectedHeader(Landroid/preference/PreferenceActivity$Header;)V
 
     goto :goto_e
@@ -3431,16 +3621,16 @@
     .parameter "args"
 
     .prologue
-    .line 1132
+    .line 1181
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroid/preference/PreferenceActivity;->setSelectedHeader(Landroid/preference/PreferenceActivity$Header;)V
 
-    .line 1133
+    .line 1182
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Landroid/preference/PreferenceActivity;->switchToHeaderInner(Ljava/lang/String;Landroid/os/Bundle;I)V
 
-    .line 1134
+    .line 1183
     return-void
 .end method

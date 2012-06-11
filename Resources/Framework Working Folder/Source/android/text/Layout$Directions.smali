@@ -24,12 +24,12 @@
     .parameter "dirs"
 
     .prologue
-    .line 2190
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 1713
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2191
+    .line 1714
     iput-object p1, p0, Landroid/text/Layout$Directions;->mDirections:[I
 
-    .line 2192
+    .line 1715
     return-void
 .end method

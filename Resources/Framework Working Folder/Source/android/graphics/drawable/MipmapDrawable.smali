@@ -154,7 +154,7 @@
     .local v5, type:I
     const/4 v6, 0x1
 
-    if-eq v5, v6, :cond_76
+    if-eq v5, v6, :cond_75
 
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
@@ -165,7 +165,7 @@
 
     const/4 v6, 0x3
 
-    if-eq v5, v6, :cond_76
+    if-eq v5, v6, :cond_75
 
     .line 143
     :cond_1b
@@ -178,7 +178,7 @@
 
     move-result-object v6
 
-    const-string/jumbo v7, "item"
+    const-string v7, "item"
 
     invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -204,7 +204,7 @@
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 160
-    if-eqz v3, :cond_45
+    if-eqz v3, :cond_44
 
     .line 161
     invoke-virtual {p1, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -213,7 +213,7 @@
 
     .line 174
     .local v2, dr:Landroid/graphics/drawable/Drawable;
-    :goto_3f
+    :goto_3e
     iget-object v6, p0, Landroid/graphics/drawable/MipmapDrawable;->mMipmapContainerState:Landroid/graphics/drawable/MipmapDrawable$MipmapContainerState;
 
     invoke-virtual {v6, v2}, Landroid/graphics/drawable/MipmapDrawable$MipmapContainerState;->addDrawable(Landroid/graphics/drawable/Drawable;)V
@@ -222,17 +222,17 @@
 
     .line 163
     .end local v2           #dr:Landroid/graphics/drawable/Drawable;
-    :cond_45
+    :cond_44
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v5
 
     const/4 v6, 0x4
 
-    if-eq v5, v6, :cond_45
+    if-eq v5, v6, :cond_44
 
     .line 165
-    if-eq v5, v9, :cond_71
+    if-eq v5, v9, :cond_70
 
     .line 166
     new-instance v6, Lorg/xmlpull/v1/XmlPullParserException;
@@ -270,20 +270,20 @@
     throw v6
 
     .line 171
-    :cond_71
+    :cond_70
     invoke-static {p1, p2, p3}, Landroid/graphics/drawable/Drawable;->createFromXmlInner(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
     .restart local v2       #dr:Landroid/graphics/drawable/Drawable;
-    goto :goto_3f
+    goto :goto_3e
 
     .line 177
     .end local v0           #a:Landroid/content/res/TypedArray;
     .end local v1           #depth:I
     .end local v2           #dr:Landroid/graphics/drawable/Drawable;
     .end local v3           #drawableRes:I
-    :cond_76
+    :cond_75
     invoke-direct {p0}, Landroid/graphics/drawable/MipmapDrawable;->onDrawableAdded()V
 
     .line 178

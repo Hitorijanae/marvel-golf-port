@@ -28,7 +28,7 @@
 
     .prologue
     .line 41
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 42
     iput-object p1, p0, Landroid/os/storage/IMountService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
@@ -119,7 +119,6 @@
     .line 656
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 655
     throw v3
 .end method
 
@@ -209,7 +208,6 @@
     .line 271
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 270
     throw v3
 .end method
 
@@ -283,7 +281,6 @@
     .line 622
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 621
     throw v3
 .end method
 
@@ -368,77 +365,6 @@
     .line 294
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 293
-    throw v3
-.end method
-
-.method public enableModemLink()I
-    .registers 7
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 761
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 762
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 765
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
-    const-string v3, "IMountService"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 766
-    iget-object v3, p0, Landroid/os/storage/IMountService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x21
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 767
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 768
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_23
-
-    move-result v2
-
-    .line 770
-    .local v2, _result:I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 771
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 773
-    return v2
-
-    .line 770
-    .end local v2           #_result:I
-    :catchall_23
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 771
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 770
     throw v3
 .end method
 
@@ -512,7 +438,6 @@
     .line 639
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 638
     throw v3
 .end method
 
@@ -586,7 +511,6 @@
     .line 316
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 315
     throw v3
 .end method
 
@@ -649,7 +573,6 @@
     .line 480
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 479
     throw v2
 .end method
 
@@ -723,7 +646,6 @@
     .line 205
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 204
     throw v3
 .end method
 
@@ -757,7 +679,7 @@
     .line 600
     iget-object v3, p0, Landroid/os/storage/IMountService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x23
+    const/16 v4, 0x20
 
     const/4 v5, 0x0
 
@@ -793,7 +715,6 @@
     .line 605
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 604
     throw v3
 .end method
 
@@ -877,7 +798,6 @@
     .line 570
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 569
     throw v3
 .end method
 
@@ -915,7 +835,7 @@
     .line 705
     iget-object v3, p0, Landroid/os/storage/IMountService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x22
+    const/16 v4, 0x1f
 
     const/4 v5, 0x0
 
@@ -951,7 +871,6 @@
     .line 710
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 709
     throw v3
 .end method
 
@@ -1021,7 +940,6 @@
     .line 443
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 442
     throw v3
 .end method
 
@@ -1095,7 +1013,6 @@
     .line 424
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 423
     throw v3
 .end method
 
@@ -1169,7 +1086,6 @@
     .line 225
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 224
     throw v3
 .end method
 
@@ -1245,7 +1161,6 @@
     .line 690
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 689
     throw v3
 .end method
 
@@ -1319,7 +1234,6 @@
     .line 245
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 244
     throw v3
 .end method
 
@@ -1396,7 +1310,6 @@
     .line 589
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 588
     throw v3
 .end method
 
@@ -1477,7 +1390,6 @@
     .line 550
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 549
     throw v3
 .end method
 
@@ -1558,7 +1470,6 @@
     .line 382
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 381
     throw v3
 .end method
 
@@ -1635,7 +1546,6 @@
     .line 102
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 101
     throw v3
 .end method
 
@@ -1712,81 +1622,6 @@
     .line 141
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 140
-    throw v3
-.end method
-
-.method public mountISO(Ljava/lang/String;)I
-    .registers 8
-    .parameter "path"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 798
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 799
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 802
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
-    const-string v3, "IMountService"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 803
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 804
-    iget-object v3, p0, Landroid/os/storage/IMountService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x26
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 805
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 806
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_26
-
-    move-result v2
-
-    .line 808
-    .local v2, _result:I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 809
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 811
-    return v2
-
-    .line 808
-    .end local v2           #_result:I
-    :catchall_26
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 809
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 808
     throw v3
 .end method
 
@@ -1878,7 +1713,6 @@
     .line 505
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 504
     throw v2
 .end method
 
@@ -1960,7 +1794,6 @@
     .line 340
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 339
     throw v3
 .end method
 
@@ -2034,7 +1867,6 @@
     .line 162
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 161
     throw v3
 .end method
 
@@ -2114,7 +1946,6 @@
     .line 67
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 66
     throw v2
 .end method
 
@@ -2192,243 +2023,6 @@
     .line 404
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 403
-    throw v3
-.end method
-
-.method public setAutoMountISOEnabled(Z)V
-    .registers 7
-    .parameter "enable"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 721
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 722
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 724
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
-    const-string v3, "IMountService"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 725
-    if-eqz p1, :cond_11
-
-    const/4 v2, 0x1
-
-    :cond_11
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 726
-    iget-object v2, p0, Landroid/os/storage/IMountService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x1f
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 727
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1f
-    .catchall {:try_start_9 .. :try_end_1f} :catchall_26
-
-    .line 730
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 731
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 733
-    return-void
-
-    .line 730
-    :catchall_26
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 731
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 730
-    throw v2
-.end method
-
-.method public setMountISOEnabled(Z)I
-    .registers 8
-    .parameter "enable"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v3, 0x0
-
-    .line 740
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 741
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 744
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
-    const-string v4, "IMountService"
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 745
-    if-eqz p1, :cond_11
-
-    const/4 v3, 0x1
-
-    :cond_11
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 746
-    iget-object v3, p0, Landroid/os/storage/IMountService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x20
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 747
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 748
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_22
-    .catchall {:try_start_9 .. :try_end_22} :catchall_2a
-
-    move-result v2
-
-    .line 750
-    .local v2, _result:I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 751
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 753
-    return v2
-
-    .line 750
-    .end local v2           #_result:I
-    :catchall_2a
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 751
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 750
-    throw v3
-.end method
-
-.method public setPCtoolISOEnabled(Z)I
-    .registers 8
-    .parameter "enable"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v3, 0x0
-
-    .line 781
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 782
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 785
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
-    const-string v4, "IMountService"
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 786
-    if-eqz p1, :cond_11
-
-    const/4 v3, 0x1
-
-    :cond_11
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 787
-    iget-object v3, p0, Landroid/os/storage/IMountService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x25
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 788
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 789
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_22
-    .catchall {:try_start_9 .. :try_end_22} :catchall_2a
-
-    move-result v2
-
-    .line 791
-    .local v2, _result:I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 792
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 794
-    return v2
-
-    .line 791
-    .end local v2           #_result:I
-    :catchall_2a
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 792
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 791
     throw v3
 .end method
 
@@ -2502,7 +2096,6 @@
     .line 122
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 121
     throw v2
 .end method
 
@@ -2582,78 +2175,7 @@
     .line 463
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 462
     throw v2
-.end method
-
-.method public unmountISO()I
-    .registers 7
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 815
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 816
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 819
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
-    const-string v3, "IMountService"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 820
-    iget-object v3, p0, Landroid/os/storage/IMountService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x27
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 821
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 822
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_23
-
-    move-result v2
-
-    .line 824
-    .local v2, _result:I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 825
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 827
-    return v2
-
-    .line 824
-    .end local v2           #_result:I
-    :catchall_23
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 825
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 824
-    throw v3
 .end method
 
 .method public unmountObb(Ljava/lang/String;ZLandroid/os/storage/IObbActionListener;I)V
@@ -2751,7 +2273,6 @@
     .line 530
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 529
     throw v2
 .end method
 
@@ -2836,7 +2357,6 @@
     .line 362
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 361
     throw v3
 .end method
 
@@ -2935,7 +2455,6 @@
     .line 185
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 184
     throw v2
 .end method
 
@@ -3015,7 +2534,6 @@
     .line 84
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 83
     throw v2
 .end method
 
@@ -3053,7 +2571,7 @@
     .line 669
     iget-object v3, p0, Landroid/os/storage/IMountService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x24
+    const/16 v4, 0x21
 
     const/4 v5, 0x0
 
@@ -3089,6 +2607,5 @@
     .line 674
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 673
     throw v3
 .end method

@@ -15,18 +15,6 @@
 
 
 # static fields
-.field public static final ACTION_RUIM_NUMERIC:Ljava/lang/String; = "android.provider.Telephony.RUIM_NUMERIC"
-
-.field public static final ACTION_RUIM_READY:Ljava/lang/String; = "android.provider.Telephony.RUIM_READY"
-
-.field public static final EXTRA_FLASH_PLMN:Ljava/lang/String; = "flashPlmn"
-
-.field public static final EXTRA_MCC:Ljava/lang/String; = "mccString"
-
-.field public static final EXTRA_NETWORK_STATE:Ljava/lang/String; = "networkState"
-
-.field public static final EXTRA_PHONE_TYPE:Ljava/lang/String; = "phone_type"
-
 .field public static final EXTRA_PLMN:Ljava/lang/String; = "plmn"
 
 .field public static final EXTRA_SHOW_PLMN:Ljava/lang/String; = "showPlmn"
@@ -34,12 +22,6 @@
 .field public static final EXTRA_SHOW_SPN:Ljava/lang/String; = "showSpn"
 
 .field public static final EXTRA_SPN:Ljava/lang/String; = "spn"
-
-.field public static final EXTRA_UNREGISTERED:Ljava/lang/String; = "unregistered_icc"
-
-.field public static final EXTRA_UNREGISTERED_CODE:Ljava/lang/String; = "unregistered_icc_code"
-
-.field public static final MCC_STRING_UPDATED_ACTION:Ljava/lang/String; = "android.provider.Telephony.MCC_STRING_UPDATED"
 
 .field public static final SECRET_CODE_ACTION:Ljava/lang/String; = "android.provider.Telephony.SECRET_CODE"
 
@@ -51,9 +33,9 @@
     .registers 1
 
     .prologue
-    .line 3542
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 1800
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3544
+    .line 1802
     return-void
 .end method

@@ -31,12 +31,12 @@
     .parameter
 
     .prologue
-    .line 93
+    .line 90
     iput-object p1, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->this$0:Landroid/inputmethodservice/AbstractInputMethodService;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 94
+    .line 91
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->mEnabled:Z
@@ -53,7 +53,7 @@
     .parameter "callback"
 
     .prologue
-    .line 138
+    .line 135
     iget-object v1, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->this$0:Landroid/inputmethodservice/AbstractInputMethodService;
 
     iget-object v2, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->this$0:Landroid/inputmethodservice/AbstractInputMethodService;
@@ -64,14 +64,14 @@
 
     move-result v0
 
-    .line 140
+    .line 137
     .local v0, handled:Z
     if-eqz p3, :cond_f
 
-    .line 141
+    .line 138
     invoke-interface {p3, p1, v0}, Landroid/view/inputmethod/InputMethodSession$EventCallback;->finishedEvent(IZ)V
 
-    .line 143
+    .line 140
     :cond_f
     return-void
 .end method
@@ -83,21 +83,21 @@
     .parameter "callback"
 
     .prologue
-    .line 150
+    .line 147
     iget-object v1, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->this$0:Landroid/inputmethodservice/AbstractInputMethodService;
 
     invoke-virtual {v1, p2}, Landroid/inputmethodservice/AbstractInputMethodService;->onTrackballEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
-    .line 151
+    .line 148
     .local v0, handled:Z
     if-eqz p3, :cond_b
 
-    .line 152
+    .line 149
     invoke-interface {p3, p1, v0}, Landroid/view/inputmethod/InputMethodSession$EventCallback;->finishedEvent(IZ)V
 
-    .line 154
+    .line 151
     :cond_b
     return-void
 .end method
@@ -106,7 +106,7 @@
     .registers 2
 
     .prologue
-    .line 102
+    .line 99
     iget-boolean v0, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->mEnabled:Z
 
     return v0
@@ -116,7 +116,7 @@
     .registers 2
 
     .prologue
-    .line 111
+    .line 108
     iget-boolean v0, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->mRevoked:Z
 
     return v0
@@ -126,17 +126,17 @@
     .registers 2
 
     .prologue
-    .line 129
+    .line 126
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->mRevoked:Z
 
-    .line 130
+    .line 127
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->mEnabled:Z
 
-    .line 131
+    .line 128
     return-void
 .end method
 
@@ -145,15 +145,15 @@
     .parameter "enabled"
 
     .prologue
-    .line 119
+    .line 116
     iget-boolean v0, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->mRevoked:Z
 
     if-nez v0, :cond_6
 
-    .line 120
+    .line 117
     iput-boolean p1, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->mEnabled:Z
 
-    .line 122
+    .line 119
     :cond_6
     return-void
 .end method

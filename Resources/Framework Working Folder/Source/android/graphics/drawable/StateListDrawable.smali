@@ -333,7 +333,7 @@
     .local v14, type:I
     const/4 v15, 0x1
 
-    if-eq v14, v15, :cond_114
+    if-eq v14, v15, :cond_113
 
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
@@ -344,7 +344,7 @@
 
     const/4 v15, 0x3
 
-    if-eq v14, v15, :cond_114
+    if-eq v14, v15, :cond_113
 
     .line 144
     :cond_87
@@ -359,7 +359,7 @@
 
     move-result-object v15
 
-    const-string/jumbo v16, "item"
+    const-string v16, "item"
 
     invoke-virtual/range {v15 .. v16}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -393,8 +393,8 @@
 
     .end local v9           #j:I
     .local v10, j:I
-    :goto_a3
-    if-ge v7, v11, :cond_ad
+    :goto_a2
+    if-ge v7, v11, :cond_ac
 
     .line 159
     move-object/from16 v0, p3
@@ -405,17 +405,17 @@
 
     .line 160
     .local v12, stateResId:I
-    if-nez v12, :cond_c1
+    if-nez v12, :cond_c0
 
     .line 169
     .end local v12           #stateResId:I
-    :cond_ad
+    :cond_ac
     invoke-static {v13, v10}, Landroid/util/StateSet;->trimStateSet([II)[I
 
     move-result-object v13
 
     .line 172
-    if-eqz v6, :cond_e2
+    if-eqz v6, :cond_e1
 
     .line 173
     move-object/from16 v0, p1
@@ -426,7 +426,7 @@
 
     .line 186
     .local v5, dr:Landroid/graphics/drawable/Drawable;
-    :goto_b9
+    :goto_b8
     move-object/from16 v0, p0
 
     iget-object v15, v0, Landroid/graphics/drawable/StateListDrawable;->mStateListState:Landroid/graphics/drawable/StateListDrawable$StateListState;
@@ -438,10 +438,10 @@
     .line 161
     .end local v5           #dr:Landroid/graphics/drawable/Drawable;
     .restart local v12       #stateResId:I
-    :cond_c1
+    :cond_c0
     const v15, 0x1010199
 
-    if-ne v12, v15, :cond_d2
+    if-ne v12, v15, :cond_d1
 
     .line 162
     const/4 v15, 0x0
@@ -458,18 +458,18 @@
     .end local v10           #j:I
     .end local v12           #stateResId:I
     .restart local v9       #j:I
-    :goto_ce
+    :goto_cd
     add-int/lit8 v7, v7, 0x1
 
     move v10, v9
 
     .end local v9           #j:I
     .restart local v10       #j:I
-    goto :goto_a3
+    goto :goto_a2
 
     .line 164
     .restart local v12       #stateResId:I
-    :cond_d2
+    :cond_d1
     add-int/lit8 v9, v10, 0x1
 
     .end local v10           #j:I
@@ -482,37 +482,37 @@
 
     move-result v15
 
-    if-eqz v15, :cond_e0
+    if-eqz v15, :cond_df
 
     .end local v12           #stateResId:I
-    :goto_dd
+    :goto_dc
     aput v12, v13, v10
 
-    goto :goto_ce
+    goto :goto_cd
 
     .restart local v12       #stateResId:I
-    :cond_e0
+    :cond_df
     neg-int v12, v12
 
-    goto :goto_dd
+    goto :goto_dc
 
     .line 175
     .end local v9           #j:I
     .end local v12           #stateResId:I
     .restart local v10       #j:I
-    :cond_e2
+    :cond_e1
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v14
 
     const/4 v15, 0x4
 
-    if-eq v14, v15, :cond_e2
+    if-eq v14, v15, :cond_e1
 
     .line 177
     const/4 v15, 0x2
 
-    if-eq v14, v15, :cond_10f
+    if-eq v14, v15, :cond_10e
 
     .line 178
     new-instance v15, Lorg/xmlpull/v1/XmlPullParserException;
@@ -550,13 +550,13 @@
     throw v15
 
     .line 183
-    :cond_10f
+    :cond_10e
     invoke-static/range {p1 .. p3}, Landroid/graphics/drawable/Drawable;->createFromXmlInner(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v5
 
     .restart local v5       #dr:Landroid/graphics/drawable/Drawable;
-    goto :goto_b9
+    goto :goto_b8
 
     .line 189
     .end local v4           #depth:I
@@ -566,7 +566,7 @@
     .end local v10           #j:I
     .end local v11           #numAttrs:I
     .end local v13           #states:[I
-    :cond_114
+    :cond_113
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/drawable/StateListDrawable;->getState()[I
 
     move-result-object v15

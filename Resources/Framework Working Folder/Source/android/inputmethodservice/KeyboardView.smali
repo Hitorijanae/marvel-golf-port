@@ -406,7 +406,7 @@
 
     .line 289
     .local v0, a:Landroid/content/res/TypedArray;
-    const-string/jumbo v7, "layout_inflater"
+    const-string v7, "layout_inflater"
 
     invoke-virtual {p1, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -433,8 +433,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_6c
-    if-ge v2, v5, :cond_d1
+    :goto_6b
+    if-ge v2, v5, :cond_d0
 
     .line 299
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -446,23 +446,23 @@
     packed-switch v1, :pswitch_data_192
 
     .line 298
-    :goto_75
+    :goto_74
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_6c
+    goto :goto_6b
 
     .line 303
-    :pswitch_78
+    :pswitch_77
     invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v7
 
     iput-object v7, p0, Landroid/inputmethodservice/KeyboardView;->mKeyBackground:Landroid/graphics/drawable/Drawable;
 
-    goto :goto_75
+    goto :goto_74
 
     .line 306
-    :pswitch_7f
+    :pswitch_7e
     const/4 v7, 0x0
 
     invoke-virtual {v0, v1, v7}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
@@ -471,10 +471,10 @@
 
     iput v7, p0, Landroid/inputmethodservice/KeyboardView;->mVerticalCorrection:I
 
-    goto :goto_75
+    goto :goto_74
 
     .line 309
-    :pswitch_87
+    :pswitch_86
     const/4 v7, 0x0
 
     invoke-virtual {v0, v1, v7}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -482,10 +482,10 @@
     move-result v6
 
     .line 310
-    goto :goto_75
+    goto :goto_74
 
     .line 312
-    :pswitch_8d
+    :pswitch_8c
     const/4 v7, 0x0
 
     invoke-virtual {v0, v1, v7}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
@@ -494,10 +494,10 @@
 
     iput v7, p0, Landroid/inputmethodservice/KeyboardView;->mPreviewOffset:I
 
-    goto :goto_75
+    goto :goto_74
 
     .line 315
-    :pswitch_95
+    :pswitch_94
     const/16 v7, 0x50
 
     invoke-virtual {v0, v1, v7}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -506,10 +506,10 @@
 
     iput v7, p0, Landroid/inputmethodservice/KeyboardView;->mPreviewHeight:I
 
-    goto :goto_75
+    goto :goto_74
 
     .line 318
-    :pswitch_9e
+    :pswitch_9d
     const/16 v7, 0x12
 
     invoke-virtual {v0, v1, v7}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -518,10 +518,10 @@
 
     iput v7, p0, Landroid/inputmethodservice/KeyboardView;->mKeyTextSize:I
 
-    goto :goto_75
+    goto :goto_74
 
     .line 321
-    :pswitch_a7
+    :pswitch_a6
     const/high16 v7, -0x100
 
     invoke-virtual {v0, v1, v7}, Landroid/content/res/TypedArray;->getColor(II)I
@@ -530,10 +530,10 @@
 
     iput v7, p0, Landroid/inputmethodservice/KeyboardView;->mKeyTextColor:I
 
-    goto :goto_75
+    goto :goto_74
 
     .line 324
-    :pswitch_b0
+    :pswitch_af
     const/16 v7, 0xe
 
     invoke-virtual {v0, v1, v7}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -542,10 +542,10 @@
 
     iput v7, p0, Landroid/inputmethodservice/KeyboardView;->mLabelTextSize:I
 
-    goto :goto_75
+    goto :goto_74
 
     .line 327
-    :pswitch_b9
+    :pswitch_b8
     const/4 v7, 0x0
 
     invoke-virtual {v0, v1, v7}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -554,10 +554,10 @@
 
     iput v7, p0, Landroid/inputmethodservice/KeyboardView;->mPopupLayout:I
 
-    goto :goto_75
+    goto :goto_74
 
     .line 330
-    :pswitch_c1
+    :pswitch_c0
     const/4 v7, 0x0
 
     invoke-virtual {v0, v1, v7}, Landroid/content/res/TypedArray;->getColor(II)I
@@ -566,10 +566,10 @@
 
     iput v7, p0, Landroid/inputmethodservice/KeyboardView;->mShadowColor:I
 
-    goto :goto_75
+    goto :goto_74
 
     .line 333
-    :pswitch_c9
+    :pswitch_c8
     const/4 v7, 0x0
 
     invoke-virtual {v0, v1, v7}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -578,12 +578,12 @@
 
     iput v7, p0, Landroid/inputmethodservice/KeyboardView;->mShadowRadius:F
 
-    goto :goto_75
+    goto :goto_74
 
     .line 338
     .end local v1           #attr:I
-    :cond_d1
-    iget-object v7, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    :cond_d0
+    iget-object v7, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
     sget-object v8, Lcom/android/internal/R$styleable;->Theme:[I
 
@@ -610,7 +610,7 @@
     iput-object v7, p0, Landroid/inputmethodservice/KeyboardView;->mPreviewPopup:Landroid/widget/PopupWindow;
 
     .line 343
-    if-eqz v6, :cond_18d
+    if-eqz v6, :cond_18c
 
     .line 344
     const/4 v7, 0x0
@@ -649,7 +649,7 @@
     invoke-virtual {v7, v8}, Landroid/widget/PopupWindow;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 352
-    :goto_10a
+    :goto_109
     iget-object v7, p0, Landroid/inputmethodservice/KeyboardView;->mPreviewPopup:Landroid/widget/PopupWindow;
 
     const/4 v8, 0x0
@@ -761,7 +761,7 @@
 
     move-result-object v7
 
-    const v8, 0x111001f
+    const v8, 0x1110023
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -797,27 +797,29 @@
     return-void
 
     .line 349
-    :cond_18d
+    :cond_18c
     const/4 v7, 0x0
 
     iput-boolean v7, p0, Landroid/inputmethodservice/KeyboardView;->mShowPreview:Z
 
-    goto/16 :goto_10a
+    goto/16 :goto_109
 
     .line 301
+    nop
+
     :pswitch_data_192
     .packed-switch 0x0
-        :pswitch_c1
-        :pswitch_c9
-        :pswitch_78
-        :pswitch_9e
-        :pswitch_b0
-        :pswitch_a7
-        :pswitch_87
-        :pswitch_8d
-        :pswitch_95
-        :pswitch_7f
-        :pswitch_b9
+        :pswitch_c0
+        :pswitch_c8
+        :pswitch_77
+        :pswitch_9d
+        :pswitch_af
+        :pswitch_a6
+        :pswitch_86
+        :pswitch_8c
+        :pswitch_94
+        :pswitch_7e
+        :pswitch_b8
     .end packed-switch
 .end method
 
@@ -1987,7 +1989,7 @@
     .local v23, padding:Landroid/graphics/Rect;
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mPaddingLeft:I
+    iget v0, v0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
     move/from16 v16, v0
 
@@ -1995,7 +1997,7 @@
     .local v16, kbdPaddingLeft:I
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mPaddingTop:I
+    iget v0, v0, Landroid/inputmethodservice/KeyboardView;->mPaddingTop:I
 
     move/from16 v17, v0
 
@@ -2645,7 +2647,7 @@
 
     float-to-int v0, v0
 
-    iget v1, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v1, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
     sub-int v2, v0, v1
 
@@ -2657,7 +2659,7 @@
 
     float-to-int v0, v0
 
-    iget v1, p0, Landroid/view/View;->mPaddingTop:I
+    iget v1, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingTop:I
 
     sub-int v3, v0, v1
 
@@ -3451,7 +3453,7 @@
 
     .line 972
     .local v2, text:Ljava/lang/String;
-    iget-object v4, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -3524,9 +3526,9 @@
     .restart local v1       #speakPassword:Z
     .restart local v2       #text:Ljava/lang/String;
     :sswitch_49
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x104049f
+    const v4, 0x10404a7
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3537,9 +3539,9 @@
 
     .line 983
     :sswitch_53
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x10404a0
+    const v4, 0x10404a8
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3550,9 +3552,9 @@
 
     .line 986
     :sswitch_5d
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x10404a1
+    const v4, 0x10404a9
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3563,9 +3565,9 @@
 
     .line 989
     :sswitch_67
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x10404a2
+    const v4, 0x10404aa
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3576,9 +3578,9 @@
 
     .line 992
     :sswitch_71
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x10404a3
+    const v4, 0x10404ab
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3589,9 +3591,9 @@
 
     .line 995
     :sswitch_7b
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x10404a4
+    const v4, 0x10404ac
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3602,9 +3604,9 @@
 
     .line 998
     :sswitch_85
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x10404a5
+    const v4, 0x10404ad
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3629,9 +3631,9 @@
 
     .line 1009
     :cond_99
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x10404b3
+    const v4, 0x10404bb
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3641,9 +3643,9 @@
 
     .line 1011
     :cond_a3
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x10404b4
+    const v4, 0x10404bc
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3812,7 +3814,7 @@
 
     sub-int/2addr v6, v7
 
-    iget v7, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v7, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
     add-int/2addr v6, v7
 
@@ -4482,13 +4484,13 @@
 
     iget v2, v0, Landroid/inputmethodservice/Keyboard$Key;->x:I
 
-    iget v3, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v3, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
     add-int/2addr v2, v3
 
     iget v3, v0, Landroid/inputmethodservice/Keyboard$Key;->y:I
 
-    iget v4, p0, Landroid/view/View;->mPaddingTop:I
+    iget v4, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingTop:I
 
     add-int/2addr v3, v4
 
@@ -4498,7 +4500,7 @@
 
     add-int/2addr v4, v5
 
-    iget v5, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v5, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
     add-int/2addr v4, v5
 
@@ -4508,7 +4510,7 @@
 
     add-int/2addr v5, v6
 
-    iget v6, p0, Landroid/view/View;->mPaddingTop:I
+    iget v6, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingTop:I
 
     add-int/2addr v5, v6
 
@@ -4520,13 +4522,13 @@
     .line 1047
     iget v1, v0, Landroid/inputmethodservice/Keyboard$Key;->x:I
 
-    iget v2, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v2, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
     add-int/2addr v1, v2
 
     iget v2, v0, Landroid/inputmethodservice/Keyboard$Key;->y:I
 
-    iget v3, p0, Landroid/view/View;->mPaddingTop:I
+    iget v3, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingTop:I
 
     add-int/2addr v2, v3
 
@@ -4536,7 +4538,7 @@
 
     add-int/2addr v3, v4
 
-    iget v4, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v4, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
     add-int/2addr v3, v4
 
@@ -4546,7 +4548,7 @@
 
     add-int/2addr v4, v5
 
-    iget v5, p0, Landroid/view/View;->mPaddingTop:I
+    iget v5, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingTop:I
 
     add-int/2addr v4, v5
 
@@ -4713,7 +4715,7 @@
 
     float-to-int v4, v4
 
-    iget v5, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v5, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
     sub-int v2, v4, v5
 
@@ -4725,7 +4727,7 @@
 
     float-to-int v4, v4
 
-    iget v5, p0, Landroid/view/View;->mPaddingTop:I
+    iget v5, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingTop:I
 
     sub-int v3, v4, v5
 
@@ -4797,7 +4799,7 @@
 
     .line 1079
     .local v2, popupKeyboardId:I
-    if-eqz v2, :cond_113
+    if-eqz v2, :cond_112
 
     .line 1080
     iget-object v1, p0, Landroid/inputmethodservice/KeyboardView;->mMiniKeyboardCache:Ljava/util/Map;
@@ -4813,14 +4815,14 @@
     .line 1081
     iget-object v1, p0, Landroid/inputmethodservice/KeyboardView;->mMiniKeyboardContainer:Landroid/view/View;
 
-    if-nez v1, :cond_11f
+    if-nez v1, :cond_11e
 
     .line 1082
     invoke-virtual {p0}, Landroid/inputmethodservice/KeyboardView;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    const-string/jumbo v3, "layout_inflater"
+    const-string v3, "layout_inflater"
 
     invoke-virtual {v1, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -4862,12 +4864,12 @@
 
     .line 1089
     .local v6, closeButton:Landroid/view/View;
-    if-eqz v6, :cond_47
+    if-eqz v6, :cond_46
 
     invoke-virtual {v6, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 1090
-    :cond_47
+    :cond_46
     iget-object v1, p0, Landroid/inputmethodservice/KeyboardView;->mMiniKeyboard:Landroid/inputmethodservice/KeyboardView;
 
     new-instance v3, Landroid/inputmethodservice/KeyboardView$3;
@@ -4879,7 +4881,7 @@
     .line 1114
     iget-object v1, p1, Landroid/inputmethodservice/Keyboard$Key;->popupCharacters:Ljava/lang/CharSequence;
 
-    if-eqz v1, :cond_114
+    if-eqz v1, :cond_113
 
     .line 1115
     new-instance v0, Landroid/inputmethodservice/Keyboard;
@@ -4906,7 +4908,7 @@
 
     .line 1120
     .local v0, keyboard:Landroid/inputmethodservice/Keyboard;
-    :goto_6a
+    :goto_69
     iget-object v1, p0, Landroid/inputmethodservice/KeyboardView;->mMiniKeyboard:Landroid/inputmethodservice/KeyboardView;
 
     invoke-virtual {v1, v0}, Landroid/inputmethodservice/KeyboardView;->setKeyboard(Landroid/inputmethodservice/Keyboard;)V
@@ -4948,7 +4950,7 @@
     .end local v0           #keyboard:Landroid/inputmethodservice/Keyboard;
     .end local v6           #closeButton:Landroid/view/View;
     .end local v7           #inflater:Landroid/view/LayoutInflater;
-    :goto_90
+    :goto_8f
     iget-object v1, p0, Landroid/inputmethodservice/KeyboardView;->mCoordinates:[I
 
     invoke-virtual {p0, v1}, Landroid/inputmethodservice/KeyboardView;->getLocationInWindow([I)V
@@ -4956,7 +4958,7 @@
     .line 1132
     iget v1, p1, Landroid/inputmethodservice/Keyboard$Key;->x:I
 
-    iget v3, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v3, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
     add-int/2addr v1, v3
 
@@ -4965,7 +4967,7 @@
     .line 1133
     iget v1, p1, Landroid/inputmethodservice/Keyboard$Key;->y:I
 
-    iget v3, p0, Landroid/view/View;->mPaddingTop:I
+    iget v3, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingTop:I
 
     add-int/2addr v1, v3
 
@@ -5040,11 +5042,11 @@
     .local v9, y:I
     iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mMiniKeyboard:Landroid/inputmethodservice/KeyboardView;
 
-    if-gez v8, :cond_12b
+    if-gez v8, :cond_12a
 
     move v1, v10
 
-    :goto_df
+    :goto_de
     invoke-virtual {v3, v1, v9}, Landroid/inputmethodservice/KeyboardView;->setPopupOffset(II)V
 
     .line 1139
@@ -5101,13 +5103,13 @@
     .line 1149
     .end local v8           #x:I
     .end local v9           #y:I
-    :cond_113
+    :cond_112
     return v10
 
     .line 1118
     .restart local v6       #closeButton:Landroid/view/View;
     .restart local v7       #inflater:Landroid/view/LayoutInflater;
-    :cond_114
+    :cond_113
     new-instance v0, Landroid/inputmethodservice/Keyboard;
 
     invoke-virtual {p0}, Landroid/inputmethodservice/KeyboardView;->getContext()Landroid/content/Context;
@@ -5117,13 +5119,13 @@
     invoke-direct {v0, v1, v2}, Landroid/inputmethodservice/Keyboard;-><init>(Landroid/content/Context;I)V
 
     .restart local v0       #keyboard:Landroid/inputmethodservice/Keyboard;
-    goto/16 :goto_6a
+    goto/16 :goto_69
 
     .line 1128
     .end local v0           #keyboard:Landroid/inputmethodservice/Keyboard;
     .end local v6           #closeButton:Landroid/view/View;
     .end local v7           #inflater:Landroid/view/LayoutInflater;
-    :cond_11f
+    :cond_11e
     iget-object v1, p0, Landroid/inputmethodservice/KeyboardView;->mMiniKeyboardContainer:Landroid/view/View;
 
     invoke-virtual {v1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -5134,15 +5136,15 @@
 
     iput-object v1, p0, Landroid/inputmethodservice/KeyboardView;->mMiniKeyboard:Landroid/inputmethodservice/KeyboardView;
 
-    goto/16 :goto_90
+    goto/16 :goto_8f
 
     .restart local v8       #x:I
     .restart local v9       #y:I
-    :cond_12b
+    :cond_12a
     move v1, v8
 
     .line 1138
-    goto :goto_df
+    goto :goto_de
 .end method
 
 .method public onMeasure(II)V
@@ -5157,15 +5159,15 @@
     if-nez v1, :cond_12
 
     .line 588
-    iget v1, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v1, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
-    iget v2, p0, Landroid/view/View;->mPaddingRight:I
+    iget v2, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingRight:I
 
     add-int/2addr v1, v2
 
-    iget v2, p0, Landroid/view/View;->mPaddingTop:I
+    iget v2, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingTop:I
 
-    iget v3, p0, Landroid/view/View;->mPaddingBottom:I
+    iget v3, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingBottom:I
 
     add-int/2addr v2, v3
 
@@ -5183,11 +5185,11 @@
 
     move-result v1
 
-    iget v2, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v2, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
     add-int/2addr v1, v2
 
-    iget v2, p0, Landroid/view/View;->mPaddingRight:I
+    iget v2, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingRight:I
 
     add-int v0, v1, v2
 
@@ -5214,11 +5216,11 @@
 
     move-result v1
 
-    iget v2, p0, Landroid/view/View;->mPaddingTop:I
+    iget v2, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingTop:I
 
     add-int/2addr v1, v2
 
-    iget v2, p0, Landroid/view/View;->mPaddingBottom:I
+    iget v2, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingBottom:I
 
     add-int/2addr v1, v2
 

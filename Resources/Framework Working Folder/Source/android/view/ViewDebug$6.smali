@@ -36,7 +36,7 @@
     .parameter
 
     .prologue
-    .line 1275
+    .line 1263
     iput-object p1, p0, Landroid/view/ViewDebug$6;->val$cache:[Landroid/graphics/Bitmap;
 
     iput-object p2, p0, Landroid/view/ViewDebug$6;->val$captureView:Landroid/view/View;
@@ -45,7 +45,7 @@
 
     iput-object p4, p0, Landroid/view/ViewDebug$6;->val$latch:Ljava/util/concurrent/CountDownLatch;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -56,7 +56,7 @@
     .registers 8
 
     .prologue
-    .line 1278
+    .line 1266
     :try_start_0
     iget-object v1, p0, Landroid/view/ViewDebug$6;->val$cache:[Landroid/graphics/Bitmap;
 
@@ -76,23 +76,23 @@
 
     aput-object v3, v1, v2
     :try_end_10
-    .catchall {:try_start_0 .. :try_end_10} :catchall_21
+    .catchall {:try_start_0 .. :try_end_10} :catchall_24
     .catch Ljava/lang/OutOfMemoryError; {:try_start_0 .. :try_end_10} :catch_16
 
-    .line 1283
+    .line 1271
     iget-object v1, p0, Landroid/view/ViewDebug$6;->val$latch:Ljava/util/concurrent/CountDownLatch;
 
-    :goto_12
     invoke-virtual {v1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
-    .line 1285
+    .line 1273
+    :goto_15
     return-void
 
-    .line 1280
+    .line 1268
     :catch_16
     move-exception v0
 
-    .line 1281
+    .line 1269
     .local v0, e:Ljava/lang/OutOfMemoryError;
     :try_start_17
     const-string v1, "View"
@@ -101,15 +101,17 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1e
-    .catchall {:try_start_17 .. :try_end_1e} :catchall_21
+    .catchall {:try_start_17 .. :try_end_1e} :catchall_24
 
-    .line 1283
+    .line 1271
     iget-object v1, p0, Landroid/view/ViewDebug$6;->val$latch:Ljava/util/concurrent/CountDownLatch;
 
-    goto :goto_12
+    invoke-virtual {v1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+
+    goto :goto_15
 
     .end local v0           #e:Ljava/lang/OutOfMemoryError;
-    :catchall_21
+    :catchall_24
     move-exception v1
 
     iget-object v2, p0, Landroid/view/ViewDebug$6;->val$latch:Ljava/util/concurrent/CountDownLatch;

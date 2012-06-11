@@ -102,8 +102,6 @@
 
 .field public static final MM_STATE:Ljava/lang/String; = "mm_st"
 
-.field public static final PHONE_TYPE:Ljava/lang/String; = "phone_type"
-
 .field public static final PREVIOUSLY_SENT_BY:Ljava/lang/String; = "p_s_by"
 
 .field public static final PREVIOUSLY_SENT_DATE:Ljava/lang/String; = "p_s_d"

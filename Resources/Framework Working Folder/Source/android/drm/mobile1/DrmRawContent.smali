@@ -6,7 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/drm/mobile1/DrmRawContent$DrmInputDecryptStream;,
         Landroid/drm/mobile1/DrmRawContent$DrmInputStream;
     }
 .end annotation
@@ -14,14 +13,6 @@
 
 # static fields
 .field public static final DRM_COMBINED_DELIVERY:I = 0x2
-
-.field public static final DRM_CONTENT_TRANSFER_ECODING_7BIT:I = 0x0
-
-.field public static final DRM_CONTENT_TRANSFER_ECODING_8BIT:I = 0x1
-
-.field public static final DRM_CONTENT_TRANSFER_ECODING_BASE64:I = 0x3
-
-.field public static final DRM_CONTENT_TRANSFER_ECODING_BINARY:I = 0x2
 
 .field public static final DRM_FORWARD_LOCK:I = 0x1
 
@@ -47,10 +38,6 @@
 
 .field private static final JNI_DRM_UNKNOWN_DATA_LEN:I = -0x3
 
-.field private static final LOGD:Z = true
-
-.field private static final TAG:Ljava/lang/String; = "DrmRawContent"
-
 
 # instance fields
 .field private id:I
@@ -65,15 +52,13 @@
 
 .field private rightsIssuer:Ljava/lang/String;
 
-.field private transferEncoding:I
-
 
 # direct methods
 .method static constructor <clinit>()V
     .registers 3
 
     .prologue
-    .line 925
+    .line 458
     :try_start_0
     const-string v1, "drm1_jni"
 
@@ -81,17 +66,17 @@
     :try_end_5
     .catch Ljava/lang/UnsatisfiedLinkError; {:try_start_0 .. :try_end_5} :catch_6
 
-    .line 930
+    .line 463
     .local v0, ule:Ljava/lang/UnsatisfiedLinkError;
     :goto_5
     return-void
 
-    .line 927
+    .line 460
     .end local v0           #ule:Ljava/lang/UnsatisfiedLinkError;
     :catch_6
     move-exception v0
 
-    .line 928
+    .line 461
     .restart local v0       #ule:Ljava/lang/UnsatisfiedLinkError;
     sget-object v1, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
@@ -103,7 +88,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;ILjava/lang/String;)V
-    .registers 9
+    .registers 8
     .parameter "inRawdata"
     .parameter "len"
     .parameter "mimeTypeStr"
@@ -115,15 +100,15 @@
     .end annotation
 
     .prologue
-    const/4 v4, -0x1
+    const/4 v3, -0x1
 
-    .line 147
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 131
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 150
-    iput v4, p0, Landroid/drm/mobile1/DrmRawContent;->id:I
+    .line 134
+    iput v3, p0, Landroid/drm/mobile1/DrmRawContent;->id:I
 
-    .line 151
+    .line 135
     new-instance v1, Ljava/io/BufferedInputStream;
 
     const/16 v2, 0x400
@@ -132,55 +117,55 @@
 
     iput-object v1, p0, Landroid/drm/mobile1/DrmRawContent;->inData:Ljava/io/BufferedInputStream;
 
-    .line 152
+    .line 136
     iput p2, p0, Landroid/drm/mobile1/DrmRawContent;->inDataLen:I
 
-    .line 154
+    .line 138
     const-string v1, "application/vnd.oma.drm.message"
 
     invoke-virtual {v1, p3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_25
+    if-eqz v1, :cond_24
 
-    .line 155
+    .line 139
     const/4 v0, 0x1
 
-    .line 161
+    .line 145
     .local v0, mimeType:I
     :goto_1a
-    if-gtz p2, :cond_38
+    if-gtz p2, :cond_37
 
-    .line 162
+    .line 146
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v2, "len must be > 0"
+    const-string v2, "len must be > 0"
 
     invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
-    .line 156
+    .line 140
     .end local v0           #mimeType:I
-    :cond_25
+    :cond_24
     const-string v1, "application/vnd.oma.drm.content"
 
     invoke-virtual {v1, p3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2f
+    if-eqz v1, :cond_2e
 
-    .line 157
+    .line 141
     const/4 v0, 0x2
 
     .restart local v0       #mimeType:I
     goto :goto_1a
 
-    .line 159
+    .line 143
     .end local v0           #mimeType:I
-    :cond_2f
+    :cond_2e
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "mimeType must be DRM_MIMETYPE_MESSAGE or DRM_MIMETYPE_CONTENT"
@@ -189,9 +174,9 @@
 
     throw v1
 
-    .line 165
+    .line 149
     .restart local v0       #mimeType:I
-    :cond_38
+    :cond_37
     iget-object v1, p0, Landroid/drm/mobile1/DrmRawContent;->inData:Ljava/io/BufferedInputStream;
 
     iget v2, p0, Landroid/drm/mobile1/DrmRawContent;->inDataLen:I
@@ -202,37 +187,12 @@
 
     iput v1, p0, Landroid/drm/mobile1/DrmRawContent;->id:I
 
-    .line 167
-    const-string v1, "DrmRawContent"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "id = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget v3, p0, Landroid/drm/mobile1/DrmRawContent;->id:I
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 170
+    .line 151
     iget v1, p0, Landroid/drm/mobile1/DrmRawContent;->id:I
 
-    if-ne v4, v1, :cond_6a
+    if-ne v3, v1, :cond_4e
 
-    .line 171
+    .line 152
     new-instance v1, Landroid/drm/mobile1/DrmException;
 
     const-string/jumbo v2, "nativeConstructDrmContent() returned JNI_DRM_FAILURE"
@@ -241,77 +201,27 @@
 
     throw v1
 
-    .line 174
-    :cond_6a
+    .line 155
+    :cond_4e
     invoke-direct {p0}, Landroid/drm/mobile1/DrmRawContent;->nativeGetRightsAddress()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/drm/mobile1/DrmRawContent;->rightsIssuer:Ljava/lang/String;
 
-    .line 176
-    const-string v1, "DrmRawContent"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "rightsIssuer = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Landroid/drm/mobile1/DrmRawContent;->rightsIssuer:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 180
+    .line 158
     invoke-direct {p0}, Landroid/drm/mobile1/DrmRawContent;->nativeGetDeliveryMethod()I
 
     move-result v1
 
     iput v1, p0, Landroid/drm/mobile1/DrmRawContent;->rawType:I
 
-    .line 182
-    const-string v1, "DrmRawContent"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "rawType = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget v3, p0, Landroid/drm/mobile1/DrmRawContent;->rawType:I
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 184
+    .line 159
     iget v1, p0, Landroid/drm/mobile1/DrmRawContent;->rawType:I
 
-    if-ne v4, v1, :cond_b9
+    if-ne v3, v1, :cond_67
 
-    .line 185
+    .line 160
     new-instance v1, Landroid/drm/mobile1/DrmException;
 
     const-string/jumbo v2, "nativeGetDeliveryMethod() returned JNI_DRM_FAILURE"
@@ -320,45 +230,20 @@
 
     throw v1
 
-    .line 188
-    :cond_b9
+    .line 163
+    :cond_67
     invoke-direct {p0}, Landroid/drm/mobile1/DrmRawContent;->nativeGetContentType()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/drm/mobile1/DrmRawContent;->mediaType:Ljava/lang/String;
 
-    .line 190
-    const-string v1, "DrmRawContent"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "mediaType ="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Landroid/drm/mobile1/DrmRawContent;->mediaType:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 192
+    .line 164
     iget-object v1, p0, Landroid/drm/mobile1/DrmRawContent;->mediaType:Ljava/lang/String;
 
-    if-nez v1, :cond_e7
+    if-nez v1, :cond_7a
 
-    .line 193
+    .line 165
     new-instance v1, Landroid/drm/mobile1/DrmException;
 
     const-string/jumbo v2, "nativeGetContentType() returned null"
@@ -367,55 +252,8 @@
 
     throw v1
 
-    .line 197
-    :cond_e7
-    invoke-direct {p0}, Landroid/drm/mobile1/DrmRawContent;->nativeGetContentTransferEncoding()I
-
-    move-result v1
-
-    iput v1, p0, Landroid/drm/mobile1/DrmRawContent;->transferEncoding:I
-
-    .line 200
-    const-string v1, "DrmRawContent"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "transferEncoding ="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget v3, p0, Landroid/drm/mobile1/DrmRawContent;->transferEncoding:I
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 203
-    iget v1, p0, Landroid/drm/mobile1/DrmRawContent;->transferEncoding:I
-
-    if-ne v4, v1, :cond_115
-
-    .line 204
-    new-instance v1, Landroid/drm/mobile1/DrmException;
-
-    const-string/jumbo v2, "nativeGetContentTransferEncoding() returned JNI_DRM_FAILURE"
-
-    invoke-direct {v1, v2}, Landroid/drm/mobile1/DrmException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    .line 207
-    :cond_115
+    .line 166
+    :cond_7a
     return-void
 .end method
 
@@ -424,7 +262,7 @@
     .parameter "x0"
 
     .prologue
-    .line 26
+    .line 24
     invoke-direct {p0}, Landroid/drm/mobile1/DrmRawContent;->nativeGetContentLength()I
 
     move-result v0
@@ -441,25 +279,8 @@
     .parameter "x4"
 
     .prologue
-    .line 26
+    .line 24
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/drm/mobile1/DrmRawContent;->nativeReadContent([BIII)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic access$200(Landroid/drm/mobile1/DrmRawContent;[B[BII)I
-    .registers 6
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
-
-    .prologue
-    .line 26
-    invoke-direct {p0, p1, p2, p3, p4}, Landroid/drm/mobile1/DrmRawContent;->nativeDrmDecrypt([B[BII)I
 
     move-result v0
 
@@ -469,25 +290,7 @@
 .method private native nativeConstructDrmContent(Ljava/io/InputStream;II)I
 .end method
 
-.method private native nativeDrmDecrypt([B[BII)I
-.end method
-
-.method private native nativeDrmEncrypt([B[BII)I
-.end method
-
-.method private native nativeGetBoundary()Ljava/lang/String;
-.end method
-
-.method private native nativeGetContentId()Ljava/lang/String;
-.end method
-
 .method private native nativeGetContentLength()I
-.end method
-
-.method private native nativeGetContentOffset()I
-.end method
-
-.method private native nativeGetContentTransferEncoding()I
 .end method
 
 .method private native nativeGetContentType()Ljava/lang/String;
@@ -504,131 +307,26 @@
 
 
 # virtual methods
-.method public encrypt([B[BIZ)I
-    .registers 6
-    .parameter "input"
-    .parameter "output"
-    .parameter "length"
-    .parameter "containLastBlock"
-
-    .prologue
-    .line 392
-    if-eqz p4, :cond_8
-
-    .line 393
-    const/4 v0, 0x1
-
-    invoke-direct {p0, p1, p2, p3, v0}, Landroid/drm/mobile1/DrmRawContent;->nativeDrmEncrypt([B[BII)I
-
-    move-result v0
-
-    .line 395
-    :goto_7
-    return v0
-
-    :cond_8
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, p2, p3, v0}, Landroid/drm/mobile1/DrmRawContent;->nativeDrmEncrypt([B[BII)I
-
-    move-result v0
-
-    goto :goto_7
-.end method
-
 .method protected native finalize()V
 .end method
 
-.method public getBoundary()Ljava/lang/String;
-    .registers 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/drm/mobile1/DrmException;
-        }
-    .end annotation
-
-    .prologue
-    .line 219
-    invoke-direct {p0}, Landroid/drm/mobile1/DrmRawContent;->nativeGetBoundary()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getContentDecryptStream(Landroid/drm/mobile1/DrmRights;)Ljava/io/InputStream;
-    .registers 4
-    .parameter "rights"
-
-    .prologue
-    .line 282
-    iget v0, p0, Landroid/drm/mobile1/DrmRawContent;->rawType:I
-
-    const/4 v1, 0x1
-
-    if-eq v0, v1, :cond_d
-
-    .line 283
-    if-nez p1, :cond_d
-
-    .line 284
-    new-instance v0, Ljava/lang/NullPointerException;
-
-    invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
-
-    throw v0
-
-    .line 287
-    :cond_d
-    new-instance v0, Landroid/drm/mobile1/DrmRawContent$DrmInputDecryptStream;
-
-    invoke-direct {v0, p0, p1}, Landroid/drm/mobile1/DrmRawContent$DrmInputDecryptStream;-><init>(Landroid/drm/mobile1/DrmRawContent;Landroid/drm/mobile1/DrmRights;)V
-
-    return-object v0
-.end method
-
-.method public getContentId(Landroid/drm/mobile1/DrmRights;)Ljava/lang/String;
+.method public getContentInputStream(Landroid/drm/mobile1/DrmRights;)Ljava/io/InputStream;
     .registers 3
     .parameter "rights"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/drm/mobile1/DrmException;
-        }
-    .end annotation
 
     .prologue
-    .line 385
-    invoke-direct {p0}, Landroid/drm/mobile1/DrmRawContent;->nativeGetContentId()Ljava/lang/String;
+    .line 199
+    if-nez p1, :cond_8
 
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getContentInputStream(Landroid/drm/mobile1/DrmRights;)Ljava/io/InputStream;
-    .registers 4
-    .parameter "rights"
-
-    .prologue
-    .line 262
-    iget v0, p0, Landroid/drm/mobile1/DrmRawContent;->rawType:I
-
-    const/4 v1, 0x1
-
-    if-eq v0, v1, :cond_d
-
-    .line 263
-    if-nez p1, :cond_d
-
-    .line 264
+    .line 200
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 267
-    :cond_d
+    .line 202
+    :cond_8
     new-instance v0, Landroid/drm/mobile1/DrmRawContent$DrmInputStream;
 
     invoke-direct {v0, p0, p1}, Landroid/drm/mobile1/DrmRawContent$DrmInputStream;-><init>(Landroid/drm/mobile1/DrmRawContent;Landroid/drm/mobile1/DrmRights;)V
@@ -637,68 +335,6 @@
 .end method
 
 .method public getContentLength(Landroid/drm/mobile1/DrmRights;)I
-    .registers 6
-    .parameter "rights"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/drm/mobile1/DrmException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v1, -0x1
-
-    .line 315
-    iget v2, p0, Landroid/drm/mobile1/DrmRawContent;->rawType:I
-
-    const/4 v3, 0x1
-
-    if-eq v2, v3, :cond_e
-
-    .line 316
-    if-nez p1, :cond_e
-
-    .line 317
-    new-instance v1, Ljava/lang/NullPointerException;
-
-    invoke-direct {v1}, Ljava/lang/NullPointerException;-><init>()V
-
-    throw v1
-
-    .line 320
-    :cond_e
-    invoke-direct {p0}, Landroid/drm/mobile1/DrmRawContent;->nativeGetContentLength()I
-
-    move-result v0
-
-    .line 322
-    .local v0, mediaLen:I
-    if-ne v1, v0, :cond_1d
-
-    .line 323
-    new-instance v1, Landroid/drm/mobile1/DrmException;
-
-    const-string/jumbo v2, "nativeGetContentLength() returned JNI_DRM_FAILURE"
-
-    invoke-direct {v1, v2}, Landroid/drm/mobile1/DrmException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    .line 325
-    :cond_1d
-    const/4 v2, -0x3
-
-    if-ne v2, v0, :cond_21
-
-    move v0, v1
-
-    .line 328
-    .end local v0           #mediaLen:I
-    :cond_21
-    return v0
-.end method
-
-.method public getContentOffset(Landroid/drm/mobile1/DrmRights;)I
     .registers 5
     .parameter "rights"
     .annotation system Ldalvik/annotation/Throws;
@@ -710,16 +346,27 @@
     .prologue
     const/4 v1, -0x1
 
-    .line 353
-    invoke-direct {p0}, Landroid/drm/mobile1/DrmRawContent;->nativeGetContentOffset()I
+    .line 229
+    if-nez p1, :cond_9
+
+    .line 230
+    new-instance v1, Ljava/lang/NullPointerException;
+
+    invoke-direct {v1}, Ljava/lang/NullPointerException;-><init>()V
+
+    throw v1
+
+    .line 232
+    :cond_9
+    invoke-direct {p0}, Landroid/drm/mobile1/DrmRawContent;->nativeGetContentLength()I
 
     move-result v0
 
-    .line 355
-    .local v0, mediaOffset:I
-    if-ne v1, v0, :cond_10
+    .line 234
+    .local v0, mediaLen:I
+    if-ne v1, v0, :cond_18
 
-    .line 356
+    .line 235
     new-instance v1, Landroid/drm/mobile1/DrmException;
 
     const-string/jumbo v2, "nativeGetContentLength() returned JNI_DRM_FAILURE"
@@ -728,17 +375,17 @@
 
     throw v1
 
-    .line 358
-    :cond_10
+    .line 237
+    :cond_18
     const/4 v2, -0x3
 
-    if-ne v2, v0, :cond_14
+    if-ne v2, v0, :cond_1c
 
     move v0, v1
 
-    .line 361
-    .end local v0           #mediaOffset:I
-    :cond_14
+    .line 240
+    .end local v0           #mediaLen:I
+    :cond_1c
     return v0
 .end method
 
@@ -746,7 +393,7 @@
     .registers 2
 
     .prologue
-    .line 296
+    .line 211
     iget-object v0, p0, Landroid/drm/mobile1/DrmRawContent;->mediaType:Ljava/lang/String;
 
     return-object v0
@@ -756,7 +403,7 @@
     .registers 2
 
     .prologue
-    .line 244
+    .line 188
     iget v0, p0, Landroid/drm/mobile1/DrmRawContent;->rawType:I
 
     return v0
@@ -766,28 +413,8 @@
     .registers 2
 
     .prologue
-    .line 231
+    .line 175
     iget-object v0, p0, Landroid/drm/mobile1/DrmRawContent;->rightsIssuer:Ljava/lang/String;
 
     return-object v0
-.end method
-
-.method public getSessionId()I
-    .registers 2
-
-    .prologue
-    .line 251
-    iget v0, p0, Landroid/drm/mobile1/DrmRawContent;->id:I
-
-    return v0
-.end method
-
-.method public getTransferEncoding()I
-    .registers 2
-
-    .prologue
-    .line 214
-    iget v0, p0, Landroid/drm/mobile1/DrmRawContent;->transferEncoding:I
-
-    return v0
 .end method

@@ -22,20 +22,12 @@
 
 
 # virtual methods
-.method public animationEnd()V
-    .registers 1
-
-    .prologue
-    .line 99
-    return-void
-.end method
-
 .method public closeSystemDialogs(Ljava/lang/String;)V
     .registers 2
     .parameter "reason"
 
     .prologue
-    .line 69
+    .line 59
     return-void
 .end method
 
@@ -44,7 +36,7 @@
     .parameter "visible"
 
     .prologue
-    .line 57
+    .line 47
     return-void
 .end method
 
@@ -53,7 +45,7 @@
     .parameter "event"
 
     .prologue
-    .line 81
+    .line 71
     return-void
 .end method
 
@@ -61,7 +53,7 @@
     .registers 1
 
     .prologue
-    .line 60
+    .line 50
     return-void
 .end method
 
@@ -73,10 +65,10 @@
     .parameter "localChanges"
 
     .prologue
-    .line 85
+    .line 75
     iput p1, p0, Lcom/android/internal/view/BaseIWindow;->mSeq:I
 
-    .line 86
+    .line 76
     return-void
 .end method
 
@@ -90,10 +82,10 @@
     .parameter "sync"
 
     .prologue
-    .line 90
+    .line 80
     if-eqz p6, :cond_c
 
-    .line 92
+    .line 82
     :try_start_2
     iget-object v0, p0, Lcom/android/internal/view/BaseIWindow;->mSession:Landroid/view/IWindowSession;
 
@@ -107,12 +99,12 @@
     :try_end_c
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_c} :catch_d
 
-    .line 96
+    .line 86
     :cond_c
     :goto_c
     return-void
 
-    .line 93
+    .line 83
     :catch_d
     move-exception v0
 
@@ -128,10 +120,10 @@
     .parameter "sync"
 
     .prologue
-    .line 72
+    .line 62
     if-eqz p5, :cond_b
 
-    .line 74
+    .line 64
     :try_start_2
     iget-object v0, p0, Lcom/android/internal/view/BaseIWindow;->mSession:Landroid/view/IWindowSession;
 
@@ -143,12 +135,12 @@
     :try_end_b
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_b} :catch_c
 
-    .line 78
+    .line 68
     :cond_b
     :goto_b
     return-void
 
-    .line 75
+    .line 65
     :catch_c
     move-exception v0
 
@@ -162,7 +154,7 @@
     .parameter "out"
 
     .prologue
-    .line 66
+    .line 56
     return-void
 .end method
 
@@ -199,33 +191,6 @@
     goto :goto_7
 .end method
 
-.method public resizedlocated(IILandroid/graphics/Rect;Landroid/graphics/Rect;ZLandroid/content/res/Configuration;II)V
-    .registers 9
-    .parameter "w"
-    .parameter "h"
-    .parameter "coveredInsets"
-    .parameter "visibleInsets"
-    .parameter "reportDraw"
-    .parameter "newConfig"
-    .parameter "x"
-    .parameter "y"
-
-    .prologue
-    .line 51
-    invoke-virtual/range {p0 .. p6}, Lcom/android/internal/view/BaseIWindow;->resized(IILandroid/graphics/Rect;Landroid/graphics/Rect;ZLandroid/content/res/Configuration;)V
-
-    .line 52
-    return-void
-.end method
-
-.method public rotationAnimEnd()V
-    .registers 1
-
-    .prologue
-    .line 102
-    return-void
-.end method
-
 .method public setSession(Landroid/view/IWindowSession;)V
     .registers 2
     .parameter "session"
@@ -244,6 +209,6 @@
     .parameter "touchEnabled"
 
     .prologue
-    .line 63
+    .line 53
     return-void
 .end method

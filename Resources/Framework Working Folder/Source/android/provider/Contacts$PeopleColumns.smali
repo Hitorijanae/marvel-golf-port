@@ -23,18 +23,10 @@
     .end annotation
 .end field
 
-.field public static final DEFAULT_ACTION:Ljava/lang/String; = "default_action"
-
 .field public static final DISPLAY_NAME:Ljava/lang/String; = "display_name"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
-
-.field public static final EXTRA_GROUP:Ljava/lang/String; = "extra_group"
-
-.field public static final FIRST_NAME:Ljava/lang/String; = "firstName"
-
-.field public static final LAST_NAME:Ljava/lang/String; = "lastName"
 
 .field public static final LAST_TIME_CONTACTED:Ljava/lang/String; = "last_time_contacted"
     .annotation runtime Ljava/lang/Deprecated;
@@ -46,28 +38,20 @@
     .end annotation
 .end field
 
-.field public static final NAME_PATTERN:Ljava/lang/String; = "name_pattern"
-
 .field public static final NOTES:Ljava/lang/String; = "notes"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
-
-.field public static final NUMBER_INDICATOR:Ljava/lang/String; = "numIndicator"
 
 .field public static final PHONETIC_NAME:Ljava/lang/String; = "phonetic_name"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
 
-.field public static final PHOTO:Ljava/lang/String; = "photo"
-
 .field public static final PHOTO_VERSION:Ljava/lang/String; = "photo_version"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
-
-.field public static final PICASA_URL:Ljava/lang/String; = "picasaUrl"
 
 .field public static final SEND_TO_VOICEMAIL:Ljava/lang/String; = "send_to_voicemail"
     .annotation runtime Ljava/lang/Deprecated;

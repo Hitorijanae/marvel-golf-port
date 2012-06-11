@@ -172,7 +172,7 @@
 
     invoke-static {v0}, Landroid/speech/srec/MicrophoneInputStream;->AudioRecordStop(I)V
     :try_end_a
-    .catchall {:try_start_5 .. :try_end_a} :catchall_12
+    .catchall {:try_start_5 .. :try_end_a} :catchall_16
 
     .line 86
     :try_start_a
@@ -180,7 +180,7 @@
 
     invoke-static {v0}, Landroid/speech/srec/MicrophoneInputStream;->AudioRecordDelete(I)V
     :try_end_f
-    .catchall {:try_start_a .. :try_end_f} :catchall_1f
+    .catchall {:try_start_a .. :try_end_f} :catchall_12
 
     .line 88
     iput v2, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
@@ -189,28 +189,27 @@
     :cond_11
     return-void
 
-    .line 85
+    .line 88
     :catchall_12
     move-exception v0
 
+    iput v2, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
+
+    throw v0
+
+    .line 85
+    :catchall_16
+    move-exception v0
+
     .line 86
-    :try_start_13
+    :try_start_17
     iget v1, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
 
     invoke-static {v1}, Landroid/speech/srec/MicrophoneInputStream;->AudioRecordDelete(I)V
-    :try_end_18
-    .catchall {:try_start_13 .. :try_end_18} :catchall_1b
+    :try_end_1c
+    .catchall {:try_start_17 .. :try_end_1c} :catchall_1f
 
     .line 88
-    iput v2, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
-
-    .line 85
-    throw v0
-
-    .line 88
-    :catchall_1b
-    move-exception v0
-
     iput v2, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
 
     throw v0

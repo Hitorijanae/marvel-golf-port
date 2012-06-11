@@ -135,14 +135,6 @@
     .end annotation
 .end method
 
-.method public abstract sendActionUpPositionForAnimation(FFLandroid/view/IWindow;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract sendWallpaperCommand(Landroid/os/IBinder;Ljava/lang/String;IIILandroid/os/Bundle;Z)Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -176,22 +168,6 @@
 .end method
 
 .method public abstract setWallpaperPosition(Landroid/os/IBinder;FFFF)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract updatePenWorkingMode(Landroid/view/IWindow;I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract updateTransitionParameter(Landroid/view/IWindow;Landroid/graphics/Rect;Landroid/graphics/Rect;FFZ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -54,7 +54,7 @@
 
     .prologue
     .line 52
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 46
     new-instance v0, Landroid/graphics/Rect;
@@ -1040,7 +1040,7 @@
     .local v9, numTouchables:I
     move-object/from16 v0, p1
 
-    iget-object v13, v0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v13, v0, Landroid/view/ViewGroup;->mContext:Landroid/content/Context;
 
     invoke-static {v13}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
 

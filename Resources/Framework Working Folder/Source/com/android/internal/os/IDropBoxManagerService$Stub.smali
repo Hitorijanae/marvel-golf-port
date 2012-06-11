@@ -28,8 +28,6 @@
 
 .field static final TRANSACTION_add:I = 0x1
 
-.field static final TRANSACTION_addWithTime:I = 0x4
-
 .field static final TRANSACTION_getNextEntry:I = 0x3
 
 .field static final TRANSACTION_isTagEnabled:I = 0x2
@@ -126,9 +124,9 @@
     const/4 v5, 0x1
 
     .line 45
-    sparse-switch p1, :sswitch_data_84
+    sparse-switch p1, :sswitch_data_64
 
-    .line 111
+    .line 95
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v5
@@ -262,63 +260,12 @@
 
     goto :goto_9
 
-    .line 96
-    .end local v0           #_arg0:Ljava/lang/String;
-    .end local v1           #_arg1:J
-    .end local v3           #_result:Landroid/os/DropBoxManager$Entry;
-    :sswitch_64
-    const-string v4, "com.android.internal.os.IDropBoxManagerService"
-
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 98
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_82
-
-    .line 99
-    sget-object v4, Landroid/os/DropBoxManager$Entry;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v4, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/os/DropBoxManager$Entry;
-
-    .line 105
-    .local v0, _arg0:Landroid/os/DropBoxManager$Entry;
-    :goto_77
-    invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v1
-
-    .line 106
-    .restart local v1       #_arg1:J
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/internal/os/IDropBoxManagerService$Stub;->addWithTime(Landroid/os/DropBoxManager$Entry;J)V
-
-    .line 107
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    goto :goto_9
-
-    .line 102
-    .end local v0           #_arg0:Landroid/os/DropBoxManager$Entry;
-    .end local v1           #_arg1:J
-    :cond_82
-    const/4 v0, 0x0
-
-    .restart local v0       #_arg0:Landroid/os/DropBoxManager$Entry;
-    goto :goto_77
-
     .line 45
-    :sswitch_data_84
+    :sswitch_data_64
     .sparse-switch
         0x1 -> :sswitch_10
         0x2 -> :sswitch_2c
         0x3 -> :sswitch_43
-        0x4 -> :sswitch_64
         0x5f4e5446 -> :sswitch_a
     .end sparse-switch
 .end method

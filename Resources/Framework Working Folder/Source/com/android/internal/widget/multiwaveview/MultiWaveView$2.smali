@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 117
+    .line 170
     iput-object p1, p0, Lcom/android/internal/widget/multiwaveview/MultiWaveView$2;->this$0:Lcom/android/internal/widget/multiwaveview/MultiWaveView;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -39,12 +39,12 @@
     .parameter "animator"
 
     .prologue
-    .line 119
+    .line 172
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/MultiWaveView$2;->this$0:Lcom/android/internal/widget/multiwaveview/MultiWaveView;
 
     invoke-virtual {v0}, Lcom/android/internal/widget/multiwaveview/MultiWaveView;->ping()V
 
-    .line 120
+    .line 173
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/MultiWaveView$2;->this$0:Lcom/android/internal/widget/multiwaveview/MultiWaveView;
 
     const/4 v1, 0x0
@@ -66,6 +66,6 @@
     #calls: Lcom/android/internal/widget/multiwaveview/MultiWaveView;->switchToState(IFF)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/internal/widget/multiwaveview/MultiWaveView;->access$200(Lcom/android/internal/widget/multiwaveview/MultiWaveView;IFF)V
 
-    .line 121
+    .line 174
     return-void
 .end method

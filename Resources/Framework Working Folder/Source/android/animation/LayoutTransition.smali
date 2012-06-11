@@ -170,7 +170,7 @@
     const/4 v10, 0x2
 
     .line 234
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 126
     iput-object v7, p0, Landroid/animation/LayoutTransition;->mDisappearingAnim:Landroid/animation/Animator;
@@ -295,10 +295,10 @@
     .line 235
     sget-object v6, Landroid/animation/LayoutTransition;->defaultChangeIn:Landroid/animation/ObjectAnimator;
 
-    if-nez v6, :cond_147
+    if-nez v6, :cond_146
 
     .line 237
-    const-string/jumbo v6, "left"
+    const-string v6, "left"
 
     new-array v8, v10, [I
 
@@ -523,7 +523,7 @@
     .end local v3           #pvhScrollX:Landroid/animation/PropertyValuesHolder;
     .end local v4           #pvhScrollY:Landroid/animation/PropertyValuesHolder;
     .end local v5           #pvhTop:Landroid/animation/PropertyValuesHolder;
-    :cond_147
+    :cond_146
     sget-object v6, Landroid/animation/LayoutTransition;->defaultChangeIn:Landroid/animation/ObjectAnimator;
 
     iput-object v6, p0, Landroid/animation/LayoutTransition;->mChangingAppearingAnim:Landroid/animation/Animator;
@@ -547,6 +547,8 @@
     return-void
 
     .line 237
+    nop
+
     :array_158
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t

@@ -194,7 +194,7 @@
 
     .prologue
     .line 35
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 641
     return-void
@@ -305,7 +305,7 @@
     .line 436
     invoke-interface {v6}, Landroid/database/Cursor;->getCount()I
     :try_end_1f
-    .catchall {:try_start_4 .. :try_end_1f} :catchall_36
+    .catchall {:try_start_4 .. :try_end_1f} :catchall_39
     .catch Ljava/lang/IllegalStateException; {:try_start_4 .. :try_end_1f} :catch_2b
 
     move-result v0
@@ -318,11 +318,11 @@
     :goto_23
     if-eqz v6, :cond_28
 
-    :goto_25
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     .line 442
     :cond_28
+    :goto_28
     return v8
 
     :cond_29
@@ -344,22 +344,24 @@
 
     invoke-static {v0, v1, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_33
-    .catchall {:try_start_2c .. :try_end_33} :catchall_36
+    .catchall {:try_start_2c .. :try_end_33} :catchall_39
 
     .line 440
     if-eqz v6, :cond_28
 
-    goto :goto_25
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    goto :goto_28
 
     .end local v7           #e:Ljava/lang/IllegalStateException;
-    :catchall_36
+    :catchall_39
     move-exception v0
 
-    if-eqz v6, :cond_3c
+    if-eqz v6, :cond_3f
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_3c
+    :cond_3f
     throw v0
 .end method
 
@@ -670,7 +672,7 @@
 
     invoke-virtual {p0, v0, p1, v1}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
     :try_end_32
-    .catchall {:try_start_1 .. :try_end_32} :catchall_43
+    .catchall {:try_start_1 .. :try_end_32} :catchall_46
     .catch Ljava/lang/IllegalStateException; {:try_start_1 .. :try_end_32} :catch_38
 
     .line 485
@@ -678,11 +680,11 @@
     :cond_32
     if-eqz v6, :cond_37
 
-    :goto_34
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     .line 487
     :cond_37
+    :goto_37
     return-void
 
     .line 481
@@ -698,22 +700,24 @@
 
     invoke-static {v0, v1, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_40
-    .catchall {:try_start_39 .. :try_end_40} :catchall_43
+    .catchall {:try_start_39 .. :try_end_40} :catchall_46
 
     .line 485
     if-eqz v6, :cond_37
 
-    goto :goto_34
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    goto :goto_37
 
     .end local v7           #e:Ljava/lang/IllegalStateException;
-    :catchall_43
+    :catchall_46
     move-exception v0
 
-    if-eqz v6, :cond_49
+    if-eqz v6, :cond_4c
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_49
+    :cond_4c
     throw v0
 .end method
 
@@ -841,8 +845,8 @@
 
     new-array v0, v0, [Ljava/lang/String;
     :try_end_1c
-    .catchall {:try_start_3 .. :try_end_1c} :catchall_4b
-    .catch Ljava/lang/IllegalStateException; {:try_start_3 .. :try_end_1c} :catch_39
+    .catchall {:try_start_3 .. :try_end_1c} :catchall_51
+    .catch Ljava/lang/IllegalStateException; {:try_start_3 .. :try_end_1c} :catch_40
 
     .line 380
     if-eqz v6, :cond_21
@@ -875,7 +879,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_52
+    if-eqz v0, :cond_39
 
     .line 373
     const/4 v0, 0x0
@@ -886,23 +890,36 @@
 
     aput-object v0, v9, v8
     :try_end_36
-    .catchall {:try_start_22 .. :try_end_36} :catchall_4b
-    .catch Ljava/lang/IllegalStateException; {:try_start_22 .. :try_end_36} :catch_39
+    .catchall {:try_start_22 .. :try_end_36} :catchall_51
+    .catch Ljava/lang/IllegalStateException; {:try_start_22 .. :try_end_36} :catch_40
 
     .line 374
     add-int/lit8 v8, v8, 0x1
 
     goto :goto_29
 
-    .line 376
+    .line 380
+    :cond_39
+    if-eqz v6, :cond_3e
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
     .end local v2           #projection:[Ljava/lang/String;
     .end local v8           #i:I
-    :catch_39
+    :cond_3e
+    :goto_3e
+    move-object v0, v9
+
+    .line 382
+    goto :goto_21
+
+    .line 376
+    :catch_40
     move-exception v7
 
     .line 377
     .local v7, e:Ljava/lang/IllegalStateException;
-    :try_start_3a
+    :try_start_41
     const-string v0, "browser"
 
     const-string v1, "getVisitedHistory"
@@ -913,39 +930,26 @@
     const/4 v0, 0x0
 
     new-array v9, v0, [Ljava/lang/String;
-    :try_end_44
-    .catchall {:try_start_3a .. :try_end_44} :catchall_4b
+    :try_end_4b
+    .catchall {:try_start_41 .. :try_end_4b} :catchall_51
 
     .line 380
-    if-eqz v6, :cond_49
+    if-eqz v6, :cond_3e
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    goto :goto_3e
 
     .end local v7           #e:Ljava/lang/IllegalStateException;
-    :goto_46
-    invoke-interface {v6}, Landroid/database/Cursor;->close()V
-
-    :cond_49
-    move-object v0, v9
-
-    .line 382
-    goto :goto_21
-
-    .line 380
-    :catchall_4b
+    :catchall_51
     move-exception v0
 
-    if-eqz v6, :cond_51
+    if-eqz v6, :cond_57
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_51
+    :cond_57
     throw v0
-
-    .restart local v2       #projection:[Ljava/lang/String;
-    .restart local v8       #i:I
-    :cond_52
-    if-eqz v6, :cond_49
-
-    goto :goto_46
 .end method
 
 .method private static final getVisitedLike(Landroid/content/ContentResolver;Ljava/lang/String;)Landroid/database/Cursor;
@@ -965,13 +969,13 @@
 
     .line 265
     .local v6, compareString:Ljava/lang/String;
-    const-string/jumbo v0, "http://"
+    const-string v0, "http://"
 
     invoke-virtual {v6, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_76
+    if-eqz v0, :cond_73
 
     .line 266
     const/4 v0, 0x7
@@ -981,15 +985,15 @@
     move-result-object v6
 
     .line 271
-    :cond_11
-    :goto_11
+    :cond_10
+    :goto_10
     const-string/jumbo v0, "www."
 
     invoke-virtual {v6, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_1e
 
     .line 272
     const/4 v0, 0x4
@@ -999,12 +1003,12 @@
     move-result-object v6
 
     .line 274
-    :cond_1f
+    :cond_1e
     const/4 v8, 0x0
 
     .line 275
     .local v8, whereClause:Ljava/lang/StringBuilder;
-    if-eqz v7, :cond_87
+    if-eqz v7, :cond_83
 
     .line 276
     new-instance v8, Ljava/lang/StringBuilder;
@@ -1020,7 +1024,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "https://"
+    const-string v1, "https://"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1044,7 +1048,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "https://www."
+    const-string v1, "https://www."
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1061,7 +1065,7 @@
     invoke-static {v8, v0}, Landroid/database/DatabaseUtils;->appendEscapedSQLString(Ljava/lang/StringBuilder;Ljava/lang/String;)V
 
     .line 297
-    :goto_5b
+    :goto_58
     sget-object v1, Landroid/provider/BrowserContract$History;->CONTENT_URI:Landroid/net/Uri;
 
     const/4 v0, 0x2
@@ -1096,14 +1100,14 @@
 
     .line 267
     .end local v8           #whereClause:Ljava/lang/StringBuilder;
-    :cond_76
-    const-string/jumbo v0, "https://"
+    :cond_73
+    const-string v0, "https://"
 
     invoke-virtual {v6, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_10
 
     .line 268
     const/16 v0, 0x8
@@ -1115,11 +1119,11 @@
     .line 269
     const/4 v7, 0x1
 
-    goto :goto_11
+    goto :goto_10
 
     .line 283
     .restart local v8       #whereClause:Ljava/lang/StringBuilder;
-    :cond_87
+    :cond_83
     new-instance v8, Ljava/lang/StringBuilder;
 
     .end local v8           #whereClause:Ljava/lang/StringBuilder;
@@ -1165,7 +1169,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "http://"
+    const-string v1, "http://"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1189,7 +1193,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "http://"
+    const-string v1, "http://"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1205,7 +1209,7 @@
 
     invoke-static {v8, v0}, Landroid/database/DatabaseUtils;->appendEscapedSQLString(Ljava/lang/StringBuilder;Ljava/lang/String;)V
 
-    goto/16 :goto_5b
+    goto/16 :goto_58
 .end method
 
 .method public static final requestAllIcons(Landroid/content/ContentResolver;Ljava/lang/String;Landroid/webkit/WebIconDatabase$IconListener;)V
@@ -1267,7 +1271,7 @@
 
     .prologue
     .line 198
-    const v0, 0x10403d9
+    const v0, 0x10403e1
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1441,7 +1445,7 @@
     .line 413
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
     :try_end_50
-    .catchall {:try_start_1 .. :try_end_50} :catchall_68
+    .catchall {:try_start_1 .. :try_end_50} :catchall_6b
     .catch Ljava/lang/IllegalStateException; {:try_start_1 .. :try_end_50} :catch_5c
 
     move-result v0
@@ -1454,11 +1458,11 @@
     :cond_53
     if-eqz v6, :cond_58
 
-    :goto_55
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     .line 421
     :cond_58
+    :goto_58
     return-void
 
     .line 409
@@ -1484,22 +1488,24 @@
 
     invoke-static {v0, v1, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_65
-    .catchall {:try_start_5d .. :try_end_65} :catchall_68
+    .catchall {:try_start_5d .. :try_end_65} :catchall_6b
 
     .line 419
     if-eqz v6, :cond_58
 
-    goto :goto_55
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    goto :goto_58
 
     .end local v7           #e:Ljava/lang/IllegalStateException;
-    :catchall_68
+    :catchall_6b
     move-exception v0
 
-    if-eqz v6, :cond_6e
+    if-eqz v6, :cond_71
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_6e
+    :cond_71
     throw v0
 .end method
 
@@ -1531,7 +1537,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_5e
+    if-eqz v7, :cond_61
 
     .line 319
     new-instance v5, Landroid/content/ContentValues;
@@ -1588,19 +1594,19 @@
 
     invoke-virtual {p0, v7, v5, v8, v9}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
     :try_end_40
-    .catchall {:try_start_5 .. :try_end_40} :catchall_a3
+    .catchall {:try_start_5 .. :try_end_40} :catchall_a6
     .catch Ljava/lang/IllegalStateException; {:try_start_5 .. :try_end_40} :catch_52
 
     .line 351
     :goto_40
     if-eqz v0, :cond_45
 
-    .end local v5           #values:Landroid/content/ContentValues;
-    :goto_42
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
     .line 353
+    .end local v5           #values:Landroid/content/ContentValues;
     :cond_45
+    :goto_45
     return-void
 
     .line 323
@@ -1617,7 +1623,7 @@
 
     invoke-virtual {v5, v7, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
     :try_end_51
-    .catchall {:try_start_46 .. :try_end_51} :catchall_a3
+    .catchall {:try_start_46 .. :try_end_51} :catchall_a6
     .catch Ljava/lang/IllegalStateException; {:try_start_46 .. :try_end_51} :catch_52
 
     goto :goto_27
@@ -1636,17 +1642,19 @@
 
     invoke-static {v7, v8, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_5b
-    .catchall {:try_start_53 .. :try_end_5b} :catchall_a3
+    .catchall {:try_start_53 .. :try_end_5b} :catchall_a6
 
     .line 351
     if-eqz v0, :cond_45
 
-    goto :goto_42
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    goto :goto_45
 
     .line 329
     .end local v1           #e:Ljava/lang/IllegalStateException;
-    :cond_5e
-    :try_start_5e
+    :cond_61
+    :try_start_61
     invoke-static {p0}, Landroid/provider/Browser;->truncateHistory(Landroid/content/ContentResolver;)V
 
     .line 330
@@ -1656,7 +1664,7 @@
 
     .line 333
     .restart local v5       #values:Landroid/content/ContentValues;
-    if-eqz p2, :cond_aa
+    if-eqz p2, :cond_ad
 
     .line 334
     const/4 v6, 0x1
@@ -1667,7 +1675,7 @@
 
     .line 340
     .local v4, user_entered:I
-    :goto_6a
+    :goto_6d
     const-string/jumbo v7, "url"
 
     invoke-virtual {v5, v7, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
@@ -1719,9 +1727,9 @@
     sget-object v7, Landroid/provider/BrowserContract$History;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-virtual {p0, v7, v5}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
-    :try_end_a2
-    .catchall {:try_start_5e .. :try_end_a2} :catchall_a3
-    .catch Ljava/lang/IllegalStateException; {:try_start_5e .. :try_end_a2} :catch_52
+    :try_end_a5
+    .catchall {:try_start_61 .. :try_end_a5} :catchall_a6
+    .catch Ljava/lang/IllegalStateException; {:try_start_61 .. :try_end_a5} :catch_52
 
     goto :goto_40
 
@@ -1729,19 +1737,19 @@
     .end local v4           #user_entered:I
     .end local v5           #values:Landroid/content/ContentValues;
     .end local v6           #visits:I
-    :catchall_a3
+    :catchall_a6
     move-exception v7
 
-    if-eqz v0, :cond_a9
+    if-eqz v0, :cond_ac
 
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
-    :cond_a9
+    :cond_ac
     throw v7
 
     .line 337
     .restart local v5       #values:Landroid/content/ContentValues;
-    :cond_aa
+    :cond_ad
     const/4 v6, 0x0
 
     .line 338
@@ -1749,5 +1757,5 @@
     const/4 v4, 0x1
 
     .restart local v4       #user_entered:I
-    goto :goto_6a
+    goto :goto_6d
 .end method

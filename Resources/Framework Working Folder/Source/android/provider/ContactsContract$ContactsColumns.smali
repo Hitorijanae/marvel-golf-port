@@ -23,8 +23,6 @@
 
 .field public static final IS_USER_PROFILE:Ljava/lang/String; = "is_user_profile"
 
-.field public static final LOCATION_ID:Ljava/lang/String; = "location_id"
-
 .field public static final LOOKUP_KEY:Ljava/lang/String; = "lookup"
 
 .field public static final NAME_RAW_CONTACT_ID:Ljava/lang/String; = "name_raw_contact_id"

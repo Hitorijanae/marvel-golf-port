@@ -32,8 +32,8 @@
     .registers 1
 
     .prologue
-    .line 40
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 36
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,7 +44,7 @@
     .registers 2
 
     .prologue
-    .line 40
+    .line 36
     invoke-virtual {p0}, Landroid/view/VelocityTracker$1;->newInstance()Landroid/view/VelocityTracker;
 
     move-result-object v0
@@ -56,7 +56,7 @@
     .registers 3
 
     .prologue
-    .line 42
+    .line 38
     new-instance v0, Landroid/view/VelocityTracker;
 
     const/4 v1, 0x0
@@ -71,7 +71,7 @@
     .parameter "x0"
 
     .prologue
-    .line 40
+    .line 36
     check-cast p1, Landroid/view/VelocityTracker;
 
     .end local p1
@@ -85,7 +85,7 @@
     .parameter "element"
 
     .prologue
-    .line 46
+    .line 42
     return-void
 .end method
 
@@ -94,7 +94,7 @@
     .parameter "x0"
 
     .prologue
-    .line 40
+    .line 36
     check-cast p1, Landroid/view/VelocityTracker;
 
     .end local p1
@@ -108,9 +108,9 @@
     .parameter "element"
 
     .prologue
-    .line 49
+    .line 45
     invoke-virtual {p1}, Landroid/view/VelocityTracker;->clear()V
 
-    .line 50
+    .line 46
     return-void
 .end method

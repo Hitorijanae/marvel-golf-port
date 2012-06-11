@@ -110,33 +110,33 @@
     .line 726
     const/4 v0, -0x1
 
-    iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v0, p0, Landroid/widget/TableLayout$LayoutParams;->width:I
 
     .line 727
     invoke-virtual {p1, p3}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_12
 
     .line 728
-    const-string/jumbo v0, "layout_height"
+    const-string v0, "layout_height"
 
     invoke-virtual {p1, p3, v0}, Landroid/content/res/TypedArray;->getLayoutDimension(ILjava/lang/String;)I
 
     move-result v0
 
-    iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v0, p0, Landroid/widget/TableLayout$LayoutParams;->height:I
 
     .line 732
-    :goto_12
+    :goto_11
     return-void
 
     .line 730
-    :cond_13
+    :cond_12
     const/4 v0, -0x2
 
-    iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v0, p0, Landroid/widget/TableLayout$LayoutParams;->height:I
 
-    goto :goto_12
+    goto :goto_11
 .end method

@@ -16,11 +16,7 @@
 
 .field private static final JNI_DRM_FAILURE:I = -0x1
 
-.field private static final JNI_DRM_SUCCESS:I = 0x0
-
-.field private static final LOGD:Z = true
-
-.field private static final TAG:Ljava/lang/String; = "DrmRightsManager"
+.field private static final JNI_DRM_SUCCESS:I
 
 .field private static singleton:Landroid/drm/mobile1/DrmRightsManager;
 
@@ -30,12 +26,12 @@
     .registers 3
 
     .prologue
-    .line 70
+    .line 64
     const/4 v1, 0x0
 
     sput-object v1, Landroid/drm/mobile1/DrmRightsManager;->singleton:Landroid/drm/mobile1/DrmRightsManager;
 
-    .line 273
+    .line 249
     :try_start_3
     const-string v1, "drm1_jni"
 
@@ -43,17 +39,17 @@
     :try_end_8
     .catch Ljava/lang/UnsatisfiedLinkError; {:try_start_3 .. :try_end_8} :catch_9
 
-    .line 278
+    .line 254
     .local v0, ule:Ljava/lang/UnsatisfiedLinkError;
     :goto_8
     return-void
 
-    .line 275
+    .line 251
     .end local v0           #ule:Ljava/lang/UnsatisfiedLinkError;
     :catch_9
     move-exception v0
 
-    .line 276
+    .line 252
     .restart local v0       #ule:Ljava/lang/UnsatisfiedLinkError;
     sget-object v1, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
@@ -68,10 +64,10 @@
     .registers 1
 
     .prologue
-    .line 76
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 70
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 77
+    .line 71
     return-void
 .end method
 
@@ -79,7 +75,7 @@
     .registers 2
 
     .prologue
-    .line 85
+    .line 79
     const-class v1, Landroid/drm/mobile1/DrmRightsManager;
 
     monitor-enter v1
@@ -87,48 +83,27 @@
     :try_start_3
     sget-object v0, Landroid/drm/mobile1/DrmRightsManager;->singleton:Landroid/drm/mobile1/DrmRightsManager;
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_e
 
-    .line 86
+    .line 80
     new-instance v0, Landroid/drm/mobile1/DrmRightsManager;
 
     invoke-direct {v0}, Landroid/drm/mobile1/DrmRightsManager;-><init>()V
 
     sput-object v0, Landroid/drm/mobile1/DrmRightsManager;->singleton:Landroid/drm/mobile1/DrmRightsManager;
 
-    .line 103
-    :goto_e
+    .line 83
+    :cond_e
     sget-object v0, Landroid/drm/mobile1/DrmRightsManager;->singleton:Landroid/drm/mobile1/DrmRightsManager;
     :try_end_10
-    .catchall {:try_start_3 .. :try_end_10} :catchall_20
+    .catchall {:try_start_3 .. :try_end_10} :catchall_12
 
     monitor-exit v1
 
     return-object v0
 
-    .line 96
-    :cond_12
-    const/4 v0, 0x0
-
-    :try_start_13
-    sput-object v0, Landroid/drm/mobile1/DrmRightsManager;->singleton:Landroid/drm/mobile1/DrmRightsManager;
-
-    .line 97
-    invoke-static {}, Ljava/lang/System;->gc()V
-
-    .line 99
-    new-instance v0, Landroid/drm/mobile1/DrmRightsManager;
-
-    invoke-direct {v0}, Landroid/drm/mobile1/DrmRightsManager;-><init>()V
-
-    sput-object v0, Landroid/drm/mobile1/DrmRightsManager;->singleton:Landroid/drm/mobile1/DrmRightsManager;
-    :try_end_1f
-    .catchall {:try_start_13 .. :try_end_1f} :catchall_20
-
-    goto :goto_e
-
-    .line 85
-    :catchall_20
+    .line 79
+    :catchall_12
     move-exception v0
 
     monitor-exit v1
@@ -158,7 +133,7 @@
     .parameter "rights"
 
     .prologue
-    .line 205
+    .line 181
     monitor-enter p0
 
     :try_start_1
@@ -168,19 +143,19 @@
 
     move-result v0
 
-    .line 207
+    .line 183
     .local v0, res:I
     const/4 v1, -0x1
 
     if-ne v1, v0, :cond_8
 
-    .line 209
+    .line 185
     :cond_8
     monitor-exit p0
 
     return-void
 
-    .line 205
+    .line 181
     .end local v0           #res:I
     :catchall_a
     move-exception v1
@@ -198,7 +173,7 @@
 
     const/4 v6, -0x1
 
-    .line 167
+    .line 145
     monitor-enter p0
 
     :try_start_3
@@ -206,7 +181,7 @@
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    .line 170
+    .line 148
     .local v3, rightsList:Ljava/util/List;
     invoke-direct {p0}, Landroid/drm/mobile1/DrmRightsManager;->nativeGetNumOfRights()I
     :try_end_b
@@ -214,13 +189,13 @@
 
     move-result v1
 
-    .line 172
+    .line 150
     .local v1, num:I
     if-ne v6, v1, :cond_11
 
     move-object v3, v4
 
-    .line 193
+    .line 171
     .end local v3           #rightsList:Ljava/util/List;
     :cond_f
     :goto_f
@@ -228,16 +203,16 @@
 
     return-object v3
 
-    .line 175
+    .line 153
     .restart local v3       #rightsList:Ljava/util/List;
     :cond_11
     if-lez v1, :cond_f
 
-    .line 176
+    .line 154
     :try_start_13
     new-array v2, v1, [Landroid/drm/mobile1/DrmRights;
 
-    .line 179
+    .line 157
     .local v2, rightsArray:[Landroid/drm/mobile1/DrmRights;
     const/4 v0, 0x0
 
@@ -245,52 +220,52 @@
     :goto_16
     if-ge v0, v1, :cond_22
 
-    .line 180
+    .line 158
     new-instance v5, Landroid/drm/mobile1/DrmRights;
 
     invoke-direct {v5}, Landroid/drm/mobile1/DrmRights;-><init>()V
 
     aput-object v5, v2, v0
 
-    .line 179
+    .line 157
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_16
 
-    .line 183
+    .line 161
     :cond_22
     invoke-direct {p0, v2, v1}, Landroid/drm/mobile1/DrmRightsManager;->nativeGetRightsList([Landroid/drm/mobile1/DrmRights;I)I
 
     move-result v1
 
-    .line 185
+    .line 163
     if-ne v6, v1, :cond_2a
 
     move-object v3, v4
 
-    .line 186
+    .line 164
     goto :goto_f
 
-    .line 189
+    .line 167
     :cond_2a
     const/4 v0, 0x0
 
     :goto_2b
     if-ge v0, v1, :cond_f
 
-    .line 190
+    .line 168
     aget-object v4, v2, v0
 
     invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_32
     .catchall {:try_start_13 .. :try_end_32} :catchall_35
 
-    .line 189
+    .line 167
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_2b
 
-    .line 167
+    .line 145
     .end local v0           #i:I
     .end local v1           #num:I
     .end local v2           #rightsArray:[Landroid/drm/mobile1/DrmRights;
@@ -316,12 +291,12 @@
     .end annotation
 
     .prologue
-    .line 115
+    .line 95
     monitor-enter p0
 
     const/4 v0, 0x0
 
-    .line 117
+    .line 97
     .local v0, mimeType:I
     :try_start_2
     const-string v3, "application/vnd.oma.drm.rights+xml"
@@ -334,23 +309,23 @@
 
     if-eqz v3, :cond_10
 
-    .line 118
+    .line 98
     const/4 v0, 0x3
 
-    .line 126
+    .line 106
     :goto_b
     if-gtz p2, :cond_30
 
-    .line 127
+    .line 107
     const/4 v2, 0x0
 
-    .line 137
+    .line 117
     :cond_e
     monitor-exit p0
 
     return-object v2
 
-    .line 119
+    .line 99
     :cond_10
     :try_start_10
     const-string v3, "application/vnd.oma.drm.rights+wbxml"
@@ -361,12 +336,12 @@
 
     if-eqz v3, :cond_1a
 
-    .line 120
+    .line 100
     const/4 v0, 0x4
 
     goto :goto_b
 
-    .line 121
+    .line 101
     :cond_1a
     const-string v3, "application/vnd.oma.drm.message"
 
@@ -376,12 +351,12 @@
 
     if-eqz v3, :cond_24
 
-    .line 122
+    .line 102
     const/4 v0, 0x1
 
     goto :goto_b
 
-    .line 124
+    .line 104
     :cond_24
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
@@ -393,7 +368,7 @@
     :try_end_2d
     .catchall {:try_start_10 .. :try_end_2d} :catchall_2d
 
-    .line 115
+    .line 95
     :catchall_2d
     move-exception v3
 
@@ -401,26 +376,26 @@
 
     throw v3
 
-    .line 129
+    .line 109
     :cond_30
     :try_start_30
     new-instance v2, Landroid/drm/mobile1/DrmRights;
 
     invoke-direct {v2}, Landroid/drm/mobile1/DrmRights;-><init>()V
 
-    .line 132
+    .line 112
     .local v2, rights:Landroid/drm/mobile1/DrmRights;
     invoke-direct {p0, p1, p2, v0, v2}, Landroid/drm/mobile1/DrmRightsManager;->nativeInstallDrmRights(Ljava/io/InputStream;IILandroid/drm/mobile1/DrmRights;)I
 
     move-result v1
 
-    .line 134
+    .line 114
     .local v1, res:I
     const/4 v3, -0x1
 
     if-ne v3, v1, :cond_e
 
-    .line 135
+    .line 115
     new-instance v3, Landroid/drm/mobile1/DrmException;
 
     const-string/jumbo v4, "nativeInstallDrmRights() returned JNI_DRM_FAILURE"
@@ -437,7 +412,7 @@
     .parameter "content"
 
     .prologue
-    .line 148
+    .line 128
     monitor-enter p0
 
     :try_start_1
@@ -445,7 +420,7 @@
 
     invoke-direct {v1}, Landroid/drm/mobile1/DrmRights;-><init>()V
 
-    .line 151
+    .line 131
     .local v1, rights:Landroid/drm/mobile1/DrmRights;
     invoke-direct {p0, p1, v1}, Landroid/drm/mobile1/DrmRightsManager;->nativeQueryRights(Landroid/drm/mobile1/DrmRawContent;Landroid/drm/mobile1/DrmRights;)I
     :try_end_9
@@ -453,23 +428,23 @@
 
     move-result v0
 
-    .line 153
+    .line 133
     .local v0, res:I
     const/4 v2, -0x1
 
     if-ne v2, v0, :cond_e
 
-    .line 154
+    .line 134
     const/4 v1, 0x0
 
-    .line 156
+    .line 136
     .end local v1           #rights:Landroid/drm/mobile1/DrmRights;
     :cond_e
     monitor-exit p0
 
     return-object v1
 
-    .line 148
+    .line 128
     .end local v0           #res:I
     :catchall_10
     move-exception v2

@@ -38,8 +38,6 @@
 
 .field private mExplicitConnect:Z
 
-.field private mFrequency:I
-
 .field private mHiddenSSID:Z
 
 .field private mIpAddress:Ljava/net/InetAddress;
@@ -188,7 +186,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/EnumMap;->put(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 325
+    .line 312
     new-instance v0, Landroid/net/wifi/WifiInfo$1;
 
     invoke-direct {v0}, Landroid/net/wifi/WifiInfo$1;-><init>()V
@@ -208,41 +206,38 @@
 
     const/4 v1, -0x1
 
-    .line 77
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 75
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 78
+    .line 76
     iput-object v0, p0, Landroid/net/wifi/WifiInfo;->mSSID:Ljava/lang/String;
 
-    .line 79
+    .line 77
     iput-object v0, p0, Landroid/net/wifi/WifiInfo;->mBSSID:Ljava/lang/String;
 
-    .line 80
+    .line 78
     iput v1, p0, Landroid/net/wifi/WifiInfo;->mNetworkId:I
 
-    .line 81
+    .line 79
     sget-object v0, Landroid/net/wifi/SupplicantState;->UNINITIALIZED:Landroid/net/wifi/SupplicantState;
 
     iput-object v0, p0, Landroid/net/wifi/WifiInfo;->mSupplicantState:Landroid/net/wifi/SupplicantState;
 
-    .line 82
+    .line 80
     const/16 v0, -0x270f
 
     iput v0, p0, Landroid/net/wifi/WifiInfo;->mRssi:I
 
-    .line 83
+    .line 81
     iput v1, p0, Landroid/net/wifi/WifiInfo;->mLinkSpeed:I
 
-    .line 84
-    iput v1, p0, Landroid/net/wifi/WifiInfo;->mFrequency:I
-
-    .line 85
+    .line 82
     iput-boolean v2, p0, Landroid/net/wifi/WifiInfo;->mHiddenSSID:Z
 
-    .line 86
+    .line 83
     iput-boolean v2, p0, Landroid/net/wifi/WifiInfo;->mExplicitConnect:Z
 
-    .line 87
+    .line 84
     return-void
 .end method
 
@@ -251,63 +246,63 @@
     .parameter "source"
 
     .prologue
-    .line 93
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 90
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 94
+    .line 91
     if-eqz p1, :cond_2d
 
-    .line 95
+    .line 92
     iget-object v0, p1, Landroid/net/wifi/WifiInfo;->mSupplicantState:Landroid/net/wifi/SupplicantState;
 
     iput-object v0, p0, Landroid/net/wifi/WifiInfo;->mSupplicantState:Landroid/net/wifi/SupplicantState;
 
-    .line 96
+    .line 93
     iget-object v0, p1, Landroid/net/wifi/WifiInfo;->mBSSID:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/net/wifi/WifiInfo;->mBSSID:Ljava/lang/String;
 
-    .line 97
+    .line 94
     iget-object v0, p1, Landroid/net/wifi/WifiInfo;->mSSID:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/net/wifi/WifiInfo;->mSSID:Ljava/lang/String;
 
-    .line 98
+    .line 95
     iget v0, p1, Landroid/net/wifi/WifiInfo;->mNetworkId:I
 
     iput v0, p0, Landroid/net/wifi/WifiInfo;->mNetworkId:I
 
-    .line 99
+    .line 96
     iget-boolean v0, p1, Landroid/net/wifi/WifiInfo;->mHiddenSSID:Z
 
     iput-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mHiddenSSID:Z
 
-    .line 100
+    .line 97
     iget v0, p1, Landroid/net/wifi/WifiInfo;->mRssi:I
 
     iput v0, p0, Landroid/net/wifi/WifiInfo;->mRssi:I
 
-    .line 101
+    .line 98
     iget v0, p1, Landroid/net/wifi/WifiInfo;->mLinkSpeed:I
 
     iput v0, p0, Landroid/net/wifi/WifiInfo;->mLinkSpeed:I
 
-    .line 102
+    .line 99
     iget-object v0, p1, Landroid/net/wifi/WifiInfo;->mIpAddress:Ljava/net/InetAddress;
 
     iput-object v0, p0, Landroid/net/wifi/WifiInfo;->mIpAddress:Ljava/net/InetAddress;
 
-    .line 103
+    .line 100
     iget-object v0, p1, Landroid/net/wifi/WifiInfo;->mMacAddress:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/net/wifi/WifiInfo;->mMacAddress:Ljava/lang/String;
 
-    .line 104
+    .line 101
     iget-boolean v0, p1, Landroid/net/wifi/WifiInfo;->mExplicitConnect:Z
 
     iput-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mExplicitConnect:Z
 
-    .line 106
+    .line 103
     :cond_2d
     return-void
 .end method
@@ -365,7 +360,7 @@
     .parameter "suppState"
 
     .prologue
-    .line 256
+    .line 245
     sget-object v0, Landroid/net/wifi/WifiInfo;->stateMap:Ljava/util/EnumMap;
 
     invoke-virtual {v0, p0}, Ljava/util/EnumMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -382,7 +377,7 @@
     .parameter "stateName"
 
     .prologue
-    .line 270
+    .line 259
     const-string v1, "4WAY_HANDSHAKE"
 
     invoke-virtual {v1, p0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -391,14 +386,14 @@
 
     if-eqz v1, :cond_b
 
-    .line 271
+    .line 260
     sget-object v1, Landroid/net/wifi/SupplicantState;->FOUR_WAY_HANDSHAKE:Landroid/net/wifi/SupplicantState;
 
-    .line 276
+    .line 265
     :goto_a
     return-object v1
 
-    .line 274
+    .line 263
     :cond_b
     :try_start_b
     invoke-virtual {p0}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
@@ -413,11 +408,11 @@
 
     goto :goto_a
 
-    .line 275
+    .line 264
     :catch_14
     move-exception v0
 
-    .line 276
+    .line 265
     .local v0, e:Ljava/lang/IllegalArgumentException;
     sget-object v1, Landroid/net/wifi/SupplicantState;->INVALID:Landroid/net/wifi/SupplicantState;
 
@@ -430,7 +425,7 @@
     .registers 2
 
     .prologue
-    .line 302
+    .line 290
     const/4 v0, 0x0
 
     return v0
@@ -440,27 +435,17 @@
     .registers 2
 
     .prologue
-    .line 135
+    .line 132
     iget-object v0, p0, Landroid/net/wifi/WifiInfo;->mBSSID:Ljava/lang/String;
 
     return-object v0
-.end method
-
-.method public getFrequency()I
-    .registers 2
-
-    .prologue
-    .line 166
-    iget v0, p0, Landroid/net/wifi/WifiInfo;->mFrequency:I
-
-    return v0
 .end method
 
 .method public getHiddenSSID()Z
     .registers 2
 
     .prologue
-    .line 242
+    .line 231
     iget-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mHiddenSSID:Z
 
     return v0
@@ -470,7 +455,7 @@
     .registers 2
 
     .prologue
-    .line 233
+    .line 222
     iget-object v0, p0, Landroid/net/wifi/WifiInfo;->mIpAddress:Ljava/net/InetAddress;
 
     if-eqz v0, :cond_a
@@ -484,7 +469,7 @@
     :cond_a
     const/4 v0, 0x0
 
-    .line 234
+    .line 223
     :goto_b
     return v0
 
@@ -502,7 +487,7 @@
     .registers 2
 
     .prologue
-    .line 158
+    .line 155
     iget v0, p0, Landroid/net/wifi/WifiInfo;->mLinkSpeed:I
 
     return v0
@@ -512,7 +497,7 @@
     .registers 2
 
     .prologue
-    .line 182
+    .line 171
     iget-object v0, p0, Landroid/net/wifi/WifiInfo;->mMacAddress:Ljava/lang/String;
 
     return-object v0
@@ -522,7 +507,7 @@
     .registers 2
 
     .prologue
-    .line 212
+    .line 201
     iget v0, p0, Landroid/net/wifi/WifiInfo;->mNetworkId:I
 
     return v0
@@ -532,7 +517,7 @@
     .registers 2
 
     .prologue
-    .line 145
+    .line 142
     iget v0, p0, Landroid/net/wifi/WifiInfo;->mRssi:I
 
     return v0
@@ -542,7 +527,7 @@
     .registers 2
 
     .prologue
-    .line 122
+    .line 119
     iget-object v0, p0, Landroid/net/wifi/WifiInfo;->mSSID:Ljava/lang/String;
 
     return-object v0
@@ -552,7 +537,7 @@
     .registers 2
 
     .prologue
-    .line 221
+    .line 210
     iget-object v0, p0, Landroid/net/wifi/WifiInfo;->mSupplicantState:Landroid/net/wifi/SupplicantState;
 
     return-object v0
@@ -562,7 +547,7 @@
     .registers 2
 
     .prologue
-    .line 194
+    .line 183
     iget-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mExplicitConnect:Z
 
     return v0
@@ -573,10 +558,10 @@
     .parameter "BSSID"
 
     .prologue
-    .line 126
+    .line 123
     iput-object p1, p0, Landroid/net/wifi/WifiInfo;->mBSSID:Ljava/lang/String;
 
-    .line 127
+    .line 124
     return-void
 .end method
 
@@ -585,22 +570,10 @@
     .parameter "explicitConnect"
 
     .prologue
-    .line 201
+    .line 190
     iput-boolean p1, p0, Landroid/net/wifi/WifiInfo;->mExplicitConnect:Z
 
-    .line 202
-    return-void
-.end method
-
-.method setFrequency(I)V
-    .registers 2
-    .parameter "frequency"
-
-    .prologue
-    .line 170
-    iput p1, p0, Landroid/net/wifi/WifiInfo;->mFrequency:I
-
-    .line 171
+    .line 191
     return-void
 .end method
 
@@ -609,10 +582,10 @@
     .parameter "hiddenSSID"
 
     .prologue
-    .line 247
+    .line 236
     iput-boolean p1, p0, Landroid/net/wifi/WifiInfo;->mHiddenSSID:Z
 
-    .line 248
+    .line 237
     return-void
 .end method
 
@@ -621,10 +594,10 @@
     .parameter "address"
 
     .prologue
-    .line 229
+    .line 218
     iput-object p1, p0, Landroid/net/wifi/WifiInfo;->mIpAddress:Ljava/net/InetAddress;
 
-    .line 230
+    .line 219
     return-void
 .end method
 
@@ -633,10 +606,10 @@
     .parameter "linkSpeed"
 
     .prologue
-    .line 162
+    .line 159
     iput p1, p0, Landroid/net/wifi/WifiInfo;->mLinkSpeed:I
 
-    .line 163
+    .line 160
     return-void
 .end method
 
@@ -645,10 +618,10 @@
     .parameter "macAddress"
 
     .prologue
-    .line 178
+    .line 167
     iput-object p1, p0, Landroid/net/wifi/WifiInfo;->mMacAddress:Ljava/lang/String;
 
-    .line 179
+    .line 168
     return-void
 .end method
 
@@ -657,10 +630,10 @@
     .parameter "id"
 
     .prologue
-    .line 186
+    .line 175
     iput p1, p0, Landroid/net/wifi/WifiInfo;->mNetworkId:I
 
-    .line 187
+    .line 176
     return-void
 .end method
 
@@ -669,10 +642,10 @@
     .parameter "rssi"
 
     .prologue
-    .line 149
+    .line 146
     iput p1, p0, Landroid/net/wifi/WifiInfo;->mRssi:I
 
-    .line 150
+    .line 147
     return-void
 .end method
 
@@ -681,15 +654,15 @@
     .parameter "SSID"
 
     .prologue
-    .line 109
+    .line 106
     iput-object p1, p0, Landroid/net/wifi/WifiInfo;->mSSID:Ljava/lang/String;
 
-    .line 111
+    .line 108
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mHiddenSSID:Z
 
-    .line 112
+    .line 109
     return-void
 .end method
 
@@ -698,10 +671,10 @@
     .parameter "state"
 
     .prologue
-    .line 225
+    .line 214
     iput-object p1, p0, Landroid/net/wifi/WifiInfo;->mSupplicantState:Landroid/net/wifi/SupplicantState;
 
-    .line 226
+    .line 215
     return-void
 .end method
 
@@ -710,14 +683,14 @@
     .parameter "stateName"
 
     .prologue
-    .line 266
+    .line 255
     invoke-static {p1}, Landroid/net/wifi/WifiInfo;->valueOf(Ljava/lang/String;)Landroid/net/wifi/SupplicantState;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/net/wifi/WifiInfo;->mSupplicantState:Landroid/net/wifi/SupplicantState;
 
-    .line 267
+    .line 256
     return-void
 .end method
 
@@ -725,16 +698,16 @@
     .registers 5
 
     .prologue
-    .line 283
+    .line 272
     new-instance v1, Ljava/lang/StringBuffer;
 
     invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
-    .line 284
+    .line 273
     .local v1, sb:Ljava/lang/StringBuffer;
     const-string v0, "<none>"
 
-    .line 286
+    .line 275
     .local v0, none:Ljava/lang/String;
     const-string v2, "SSID: "
 
@@ -744,7 +717,7 @@
 
     iget-object v2, p0, Landroid/net/wifi/WifiInfo;->mSSID:Ljava/lang/String;
 
-    if-nez v2, :cond_82
+    if-nez v2, :cond_76
 
     move-object v2, v0
 
@@ -761,7 +734,7 @@
 
     iget-object v2, p0, Landroid/net/wifi/WifiInfo;->mBSSID:Ljava/lang/String;
 
-    if-nez v2, :cond_85
+    if-nez v2, :cond_79
 
     move-object v2, v0
 
@@ -778,7 +751,7 @@
 
     iget-object v2, p0, Landroid/net/wifi/WifiInfo;->mMacAddress:Ljava/lang/String;
 
-    if-nez v2, :cond_88
+    if-nez v2, :cond_7c
 
     move-object v2, v0
 
@@ -795,7 +768,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/WifiInfo;->mSupplicantState:Landroid/net/wifi/SupplicantState;
 
-    if-nez v3, :cond_8b
+    if-nez v3, :cond_7f
 
     .end local v0           #none:Ljava/lang/String;
     :goto_3e
@@ -827,18 +800,6 @@
 
     move-result-object v2
 
-    const-string v3, ", Frequency: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object v2
-
-    iget v3, p0, Landroid/net/wifi/WifiInfo;->mFrequency:I
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
-
-    move-result-object v2
-
     const-string v3, ", Net ID: "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -861,31 +822,31 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Z)Ljava/lang/StringBuffer;
 
-    .line 297
+    .line 285
     invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v2
 
     return-object v2
 
-    .line 286
+    .line 275
     .restart local v0       #none:Ljava/lang/String;
-    :cond_82
+    :cond_76
     iget-object v2, p0, Landroid/net/wifi/WifiInfo;->mSSID:Ljava/lang/String;
 
     goto :goto_12
 
-    :cond_85
+    :cond_79
     iget-object v2, p0, Landroid/net/wifi/WifiInfo;->mBSSID:Ljava/lang/String;
 
     goto :goto_21
 
-    :cond_88
+    :cond_7c
     iget-object v2, p0, Landroid/net/wifi/WifiInfo;->mMacAddress:Ljava/lang/String;
 
     goto :goto_30
 
-    :cond_8b
+    :cond_7f
     iget-object v0, p0, Landroid/net/wifi/WifiInfo;->mSupplicantState:Landroid/net/wifi/SupplicantState;
 
     goto :goto_3e
@@ -901,35 +862,30 @@
 
     const/4 v1, 0x0
 
-    .line 307
+    .line 295
     iget v2, p0, Landroid/net/wifi/WifiInfo;->mNetworkId:I
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 308
+    .line 296
     iget v2, p0, Landroid/net/wifi/WifiInfo;->mRssi:I
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 309
+    .line 297
     iget v2, p0, Landroid/net/wifi/WifiInfo;->mLinkSpeed:I
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 310
-    iget v2, p0, Landroid/net/wifi/WifiInfo;->mFrequency:I
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 311
+    .line 298
     iget-object v2, p0, Landroid/net/wifi/WifiInfo;->mIpAddress:Ljava/net/InetAddress;
 
-    if-eqz v2, :cond_44
+    if-eqz v2, :cond_3f
 
-    .line 312
+    .line 299
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 313
+    .line 300
     iget-object v2, p0, Landroid/net/wifi/WifiInfo;->mIpAddress:Ljava/net/InetAddress;
 
     invoke-virtual {v2}, Ljava/net/InetAddress;->getAddress()[B
@@ -938,49 +894,49 @@
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeByteArray([B)V
 
-    .line 317
-    :goto_26
+    .line 304
+    :goto_21
     invoke-virtual {p0}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 318
+    .line 305
     iget-object v2, p0, Landroid/net/wifi/WifiInfo;->mBSSID:Ljava/lang/String;
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 319
+    .line 306
     iget-object v2, p0, Landroid/net/wifi/WifiInfo;->mMacAddress:Ljava/lang/String;
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 320
+    .line 307
     iget-boolean v2, p0, Landroid/net/wifi/WifiInfo;->mExplicitConnect:Z
 
-    if-eqz v2, :cond_48
+    if-eqz v2, :cond_43
 
-    :goto_3b
+    :goto_36
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 321
+    .line 308
     iget-object v0, p0, Landroid/net/wifi/WifiInfo;->mSupplicantState:Landroid/net/wifi/SupplicantState;
 
     invoke-virtual {v0, p1, p2}, Landroid/net/wifi/SupplicantState;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 322
+    .line 309
     return-void
 
-    .line 315
-    :cond_44
+    .line 302
+    :cond_3f
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeByte(B)V
 
-    goto :goto_26
+    goto :goto_21
 
-    :cond_48
+    :cond_43
     move v0, v1
 
-    .line 320
-    goto :goto_3b
+    .line 307
+    goto :goto_36
 .end method

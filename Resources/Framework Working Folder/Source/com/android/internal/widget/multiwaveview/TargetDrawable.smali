@@ -42,7 +42,7 @@
     .registers 2
 
     .prologue
-    const/4 v1, 0x2
+    const/4 v1, 0x3
 
     .line 30
     new-array v0, v1, [I
@@ -54,37 +54,39 @@
     .line 32
     new-array v0, v1, [I
 
-    fill-array-data v0, :array_20
+    fill-array-data v0, :array_22
 
     sput-object v0, Lcom/android/internal/widget/multiwaveview/TargetDrawable;->STATE_INACTIVE:[I
 
     .line 34
-    new-array v0, v1, [I
+    const/4 v0, 0x2
 
-    fill-array-data v0, :array_28
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_2c
 
     sput-object v0, Lcom/android/internal/widget/multiwaveview/TargetDrawable;->STATE_FOCUSED:[I
 
     return-void
 
     .line 30
-    nop
-
     :array_18
     .array-data 0x4
         0x9et 0x0t 0x1t 0x1t
         0xa2t 0x0t 0x1t 0x1t
+        0x64t 0xfft 0xfet 0xfet
     .end array-data
 
     .line 32
-    :array_20
+    :array_22
     .array-data 0x4
         0x9et 0x0t 0x1t 0x1t
         0x5et 0xfft 0xfet 0xfet
+        0x64t 0xfft 0xfet 0xfet
     .end array-data
 
     .line 34
-    :array_28
+    :array_2c
     .array-data 0x4
         0x9et 0x0t 0x1t 0x1t
         0x9ct 0x0t 0x1t 0x1t
@@ -128,7 +130,7 @@
     const/high16 v0, 0x3f80
 
     .line 78
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 37
     iput v1, p0, Lcom/android/internal/widget/multiwaveview/TargetDrawable;->mTranslationX:F

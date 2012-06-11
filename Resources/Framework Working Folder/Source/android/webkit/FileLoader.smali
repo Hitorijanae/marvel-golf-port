@@ -196,9 +196,9 @@
 
     .line 89
     .local v1, exMessage:Ljava/lang/String;
-    iget-object v2, p0, Landroid/webkit/StreamLoader;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Landroid/webkit/FileLoader;->mContext:Landroid/content/Context;
 
-    const v3, 0x104012a
+    const v3, 0x1040126
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -268,7 +268,7 @@
     :try_start_7
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/webkit/StreamLoader;->mContext:Landroid/content/Context;
+    iget-object v12, v0, Landroid/webkit/FileLoader;->mContext:Landroid/content/Context;
 
     invoke-virtual {v12}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
 
@@ -284,7 +284,7 @@
 
     move-object/from16 v0, p0
 
-    iput-object v12, v0, Landroid/webkit/StreamLoader;->mDataStream:Ljava/io/InputStream;
+    iput-object v12, v0, Landroid/webkit/FileLoader;->mDataStream:Ljava/io/InputStream;
     :try_end_1b
     .catch Ljava/io/FileNotFoundException; {:try_start_7 .. :try_end_1b} :catch_2a
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_1b} :catch_243
@@ -295,7 +295,7 @@
     :try_start_1b
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/webkit/StreamLoader;->mLoadListener:Landroid/webkit/LoadListener;
+    iget-object v12, v0, Landroid/webkit/FileLoader;->mLoadListener:Landroid/webkit/LoadListener;
 
     const/4 v13, 0x1
 
@@ -321,7 +321,7 @@
     .local v5, ex:Ljava/io/FileNotFoundException;
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/webkit/StreamLoader;->mContext:Landroid/content/Context;
+    iget-object v12, v0, Landroid/webkit/FileLoader;->mContext:Landroid/content/Context;
 
     invoke-virtual {v12}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
 
@@ -337,7 +337,7 @@
 
     move-object/from16 v0, p0
 
-    iput-object v12, v0, Landroid/webkit/StreamLoader;->mDataStream:Ljava/io/InputStream;
+    iput-object v12, v0, Landroid/webkit/FileLoader;->mDataStream:Ljava/io/InputStream;
     :try_end_3f
     .catch Ljava/io/FileNotFoundException; {:try_start_1b .. :try_end_3f} :catch_40
     .catch Ljava/io/IOException; {:try_start_1b .. :try_end_3f} :catch_243
@@ -353,7 +353,7 @@
     .restart local v5       #ex:Ljava/io/FileNotFoundException;
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/webkit/StreamLoader;->mLoadListener:Landroid/webkit/LoadListener;
+    iget-object v12, v0, Landroid/webkit/FileLoader;->mLoadListener:Landroid/webkit/LoadListener;
 
     const/16 v13, -0xe
 
@@ -410,15 +410,15 @@
     .line 112
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/webkit/StreamLoader;->mLoadListener:Landroid/webkit/LoadListener;
+    iget-object v12, v0, Landroid/webkit/FileLoader;->mLoadListener:Landroid/webkit/LoadListener;
 
     const/16 v13, -0xd
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Landroid/webkit/StreamLoader;->mContext:Landroid/content/Context;
+    iget-object v14, v0, Landroid/webkit/FileLoader;->mContext:Landroid/content/Context;
 
-    const v15, 0x104012a
+    const v15, 0x1040126
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -496,15 +496,15 @@
     .line 121
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/webkit/StreamLoader;->mLoadListener:Landroid/webkit/LoadListener;
+    iget-object v12, v0, Landroid/webkit/FileLoader;->mLoadListener:Landroid/webkit/LoadListener;
 
     const/16 v13, -0xd
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Landroid/webkit/StreamLoader;->mContext:Landroid/content/Context;
+    iget-object v14, v0, Landroid/webkit/FileLoader;->mContext:Landroid/content/Context;
 
-    const v15, 0x104012a
+    const v15, 0x1040126
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -553,7 +553,7 @@
     :try_start_e9
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/webkit/StreamLoader;->mContext:Landroid/content/Context;
+    iget-object v12, v0, Landroid/webkit/FileLoader;->mContext:Landroid/content/Context;
 
     invoke-virtual {v12}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
@@ -569,7 +569,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Landroid/webkit/StreamLoader;->mContext:Landroid/content/Context;
+    iget-object v14, v0, Landroid/webkit/FileLoader;->mContext:Landroid/content/Context;
 
     invoke-virtual {v14}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
@@ -621,7 +621,7 @@
     .local v11, value:Landroid/util/TypedValue;
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/webkit/StreamLoader;->mContext:Landroid/content/Context;
+    iget-object v12, v0, Landroid/webkit/FileLoader;->mContext:Landroid/content/Context;
 
     invoke-virtual {v12}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -641,7 +641,7 @@
     .line 138
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/webkit/StreamLoader;->mContext:Landroid/content/Context;
+    iget-object v12, v0, Landroid/webkit/FileLoader;->mContext:Landroid/content/Context;
 
     invoke-virtual {v12}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
 
@@ -663,7 +663,7 @@
 
     move-object/from16 v0, p0
 
-    iput-object v12, v0, Landroid/webkit/StreamLoader;->mDataStream:Ljava/io/InputStream;
+    iput-object v12, v0, Landroid/webkit/FileLoader;->mDataStream:Ljava/io/InputStream;
     :try_end_150
     .catch Ljava/lang/ClassNotFoundException; {:try_start_e9 .. :try_end_150} :catch_16c
     .catch Ljava/lang/SecurityException; {:try_start_e9 .. :try_end_150} :catch_193
@@ -685,15 +685,15 @@
     :try_start_152
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/webkit/StreamLoader;->mLoadListener:Landroid/webkit/LoadListener;
+    iget-object v12, v0, Landroid/webkit/FileLoader;->mLoadListener:Landroid/webkit/LoadListener;
 
     const/16 v13, -0xd
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Landroid/webkit/StreamLoader;->mContext:Landroid/content/Context;
+    iget-object v14, v0, Landroid/webkit/FileLoader;->mContext:Landroid/content/Context;
 
-    const v15, 0x104012a
+    const v15, 0x1040126
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -751,7 +751,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Landroid/webkit/StreamLoader;->mContext:Landroid/content/Context;
+    iget-object v13, v0, Landroid/webkit/FileLoader;->mContext:Landroid/content/Context;
 
     invoke-virtual {v13}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
@@ -835,7 +835,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Landroid/webkit/StreamLoader;->mContext:Landroid/content/Context;
+    iget-object v13, v0, Landroid/webkit/FileLoader;->mContext:Landroid/content/Context;
 
     invoke-virtual {v13}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
@@ -934,15 +934,15 @@
     .line 164
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/webkit/StreamLoader;->mLoadListener:Landroid/webkit/LoadListener;
+    iget-object v12, v0, Landroid/webkit/FileLoader;->mLoadListener:Landroid/webkit/LoadListener;
 
     const/16 v13, -0xd
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Landroid/webkit/StreamLoader;->mContext:Landroid/content/Context;
+    iget-object v14, v0, Landroid/webkit/FileLoader;->mContext:Landroid/content/Context;
 
-    const v15, 0x104012a
+    const v15, 0x1040126
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -967,7 +967,7 @@
 
     move-object/from16 v0, p0
 
-    iput-object v12, v0, Landroid/webkit/StreamLoader;->mDataStream:Ljava/io/InputStream;
+    iput-object v12, v0, Landroid/webkit/FileLoader;->mDataStream:Ljava/io/InputStream;
 
     .line 170
     new-instance v12, Ljava/io/File;
@@ -984,7 +984,7 @@
 
     move-object/from16 v0, p0
 
-    iput-wide v12, v0, Landroid/webkit/StreamLoader;->mContentLength:J
+    iput-wide v12, v0, Landroid/webkit/FileLoader;->mContentLength:J
     :try_end_241
     .catch Ljava/io/FileNotFoundException; {:try_start_16d .. :try_end_241} :catch_40
     .catch Ljava/io/IOException; {:try_start_16d .. :try_end_241} :catch_243
@@ -999,7 +999,7 @@
     .local v5, ex:Ljava/io/IOException;
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/webkit/StreamLoader;->mLoadListener:Landroid/webkit/LoadListener;
+    iget-object v12, v0, Landroid/webkit/FileLoader;->mLoadListener:Landroid/webkit/LoadListener;
 
     const/16 v13, -0xd
 

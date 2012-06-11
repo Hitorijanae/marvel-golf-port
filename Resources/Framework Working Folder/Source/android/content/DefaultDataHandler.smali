@@ -45,7 +45,7 @@
 
     .prologue
     .line 74
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 83
     new-instance v0, Ljava/util/Stack;
@@ -470,12 +470,12 @@
 
     move-result v7
 
-    if-eqz v7, :cond_76
+    if-eqz v7, :cond_75
 
     .line 136
     iget-object v7, p0, Landroid/content/DefaultDataHandler;->mValues:Landroid/content/ContentValues;
 
-    if-eqz v7, :cond_60
+    if-eqz v7, :cond_5f
 
     .line 138
     iget-object v7, p0, Landroid/content/DefaultDataHandler;->mUris:Ljava/util/Stack;
@@ -503,7 +503,7 @@
 
     .line 142
     .local v3, nextUri:Landroid/net/Uri;
-    if-nez v3, :cond_52
+    if-nez v3, :cond_51
 
     .line 143
     new-instance v8, Lorg/xml/sax/SAXException;
@@ -512,7 +512,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "insert to uri "
+    const-string v9, "insert to uri "
 
     invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -549,7 +549,7 @@
     throw v8
 
     .line 147
-    :cond_52
+    :cond_51
     iget-object v7, p0, Landroid/content/DefaultDataHandler;->mUris:Ljava/util/Stack;
 
     invoke-virtual {v7}, Ljava/util/Stack;->pop()Ljava/lang/Object;
@@ -564,18 +564,18 @@
 
     .line 197
     .end local v3           #nextUri:Landroid/net/Uri;
-    :goto_5f
+    :goto_5e
     return-void
 
     .line 152
-    :cond_60
+    :cond_5f
     invoke-interface {p4}, Lorg/xml/sax/Attributes;->getLength()I
 
     move-result v0
 
     .line 153
     .local v0, attrLen:I
-    if-nez v0, :cond_72
+    if-nez v0, :cond_71
 
     .line 155
     iget-object v7, p0, Landroid/content/DefaultDataHandler;->mUris:Ljava/util/Stack;
@@ -588,24 +588,24 @@
 
     invoke-virtual {v7, v8}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_5f
+    goto :goto_5e
 
     .line 157
-    :cond_72
+    :cond_71
     invoke-direct {p0, p4}, Landroid/content/DefaultDataHandler;->parseRow(Lorg/xml/sax/Attributes;)V
 
-    goto :goto_5f
+    goto :goto_5e
 
     .line 160
     .end local v0           #attrLen:I
-    :cond_76
+    :cond_75
     const-string v7, "col"
 
     invoke-virtual {v7, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_d2
+    if-eqz v7, :cond_cf
 
     .line 161
     invoke-interface {p4}, Lorg/xml/sax/Attributes;->getLength()I
@@ -616,7 +616,7 @@
     .restart local v0       #attrLen:I
     const/4 v7, 0x2
 
-    if-eq v0, v7, :cond_9f
+    if-eq v0, v7, :cond_9d
 
     .line 163
     new-instance v7, Lorg/xml/sax/SAXException;
@@ -625,7 +625,7 @@
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "illegal attributes number "
+    const-string v9, "illegal attributes number "
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -644,7 +644,7 @@
     throw v7
 
     .line 165
-    :cond_9f
+    :cond_9d
     const/4 v7, 0x0
 
     invoke-interface {p4, v7}, Lorg/xml/sax/Attributes;->getValue(I)Ljava/lang/String;
@@ -659,26 +659,26 @@
 
     .line 167
     .local v6, value:Ljava/lang/String;
-    if-eqz v2, :cond_c9
+    if-eqz v2, :cond_c7
 
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
     move-result v7
 
-    if-lez v7, :cond_c9
+    if-lez v7, :cond_c7
 
-    if-eqz v6, :cond_c9
+    if-eqz v6, :cond_c7
 
     invoke-virtual {v6}, Ljava/lang/String;->length()I
 
     move-result v7
 
-    if-lez v7, :cond_c9
+    if-lez v7, :cond_c7
 
     .line 168
     iget-object v7, p0, Landroid/content/DefaultDataHandler;->mValues:Landroid/content/ContentValues;
 
-    if-nez v7, :cond_c3
+    if-nez v7, :cond_c1
 
     .line 169
     new-instance v7, Landroid/content/ContentValues;
@@ -688,18 +688,18 @@
     iput-object v7, p0, Landroid/content/DefaultDataHandler;->mValues:Landroid/content/ContentValues;
 
     .line 171
-    :cond_c3
+    :cond_c1
     iget-object v7, p0, Landroid/content/DefaultDataHandler;->mValues:Landroid/content/ContentValues;
 
     invoke-virtual {v7, v2, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_5f
+    goto :goto_5e
 
     .line 173
-    :cond_c9
+    :cond_c7
     new-instance v7, Lorg/xml/sax/SAXException;
 
-    const-string/jumbo v8, "illegal attributes value"
+    const-string v8, "illegal attributes value"
 
     invoke-direct {v7, v8}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/String;)V
 
@@ -709,14 +709,14 @@
     .end local v0           #attrLen:I
     .end local v2           #key:Ljava/lang/String;
     .end local v6           #value:Ljava/lang/String;
-    :cond_d2
+    :cond_cf
     const-string v7, "del"
 
     invoke-virtual {v7, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_144
+    if-eqz v7, :cond_141
 
     .line 176
     const-string/jumbo v7, "uri"
@@ -731,7 +731,7 @@
 
     .line 177
     .local v5, u:Landroid/net/Uri;
-    if-nez v5, :cond_10d
+    if-nez v5, :cond_10a
 
     .line 178
     new-instance v7, Lorg/xml/sax/SAXException;
@@ -771,7 +771,7 @@
     throw v7
 
     .line 181
-    :cond_10d
+    :cond_10a
     invoke-interface {p4}, Lorg/xml/sax/Attributes;->getLength()I
 
     move-result v7
@@ -780,7 +780,7 @@
 
     .line 182
     .restart local v0       #attrLen:I
-    if-lez v0, :cond_130
+    if-lez v0, :cond_12d
 
     .line 183
     new-array v4, v0, [Ljava/lang/String;
@@ -790,8 +790,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_118
-    if-ge v1, v0, :cond_125
+    :goto_115
+    if-ge v1, v0, :cond_122
 
     .line 185
     add-int/lit8 v7, v1, 0x2
@@ -805,10 +805,10 @@
     .line 184
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_118
+    goto :goto_115
 
     .line 187
-    :cond_125
+    :cond_122
     iget-object v7, p0, Landroid/content/DefaultDataHandler;->mContentResolver:Landroid/content/ContentResolver;
 
     invoke-interface {p4, v8}, Lorg/xml/sax/Attributes;->getValue(I)Ljava/lang/String;
@@ -817,13 +817,13 @@
 
     invoke-virtual {v7, v5, v8, v4}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
 
-    goto/16 :goto_5f
+    goto/16 :goto_5e
 
     .line 188
     .end local v1           #i:I
     .end local v4           #selectionArgs:[Ljava/lang/String;
-    :cond_130
-    if-nez v0, :cond_13d
+    :cond_12d
+    if-nez v0, :cond_13a
 
     .line 189
     iget-object v7, p0, Landroid/content/DefaultDataHandler;->mContentResolver:Landroid/content/ContentResolver;
@@ -834,20 +834,20 @@
 
     invoke-virtual {v7, v5, v8, v9}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
 
-    goto/16 :goto_5f
+    goto/16 :goto_5e
 
     .line 191
-    :cond_13d
+    :cond_13a
     iget-object v7, p0, Landroid/content/DefaultDataHandler;->mContentResolver:Landroid/content/ContentResolver;
 
     invoke-virtual {v7, v5, v9, v9}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
 
-    goto/16 :goto_5f
+    goto/16 :goto_5e
 
     .line 195
     .end local v0           #attrLen:I
     .end local v5           #u:Landroid/net/Uri;
-    :cond_144
+    :cond_141
     new-instance v7, Lorg/xml/sax/SAXException;
 
     new-instance v8, Ljava/lang/StringBuilder;

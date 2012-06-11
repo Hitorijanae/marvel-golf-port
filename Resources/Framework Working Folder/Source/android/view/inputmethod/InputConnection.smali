@@ -2,9 +2,6 @@
 .super Ljava/lang/Object;
 .source "InputConnection.java"
 
-# interfaces
-.implements Landroid/view/inputmethod/HtcIfInputConnection;
-
 
 # static fields
 .field public static final GET_EXTRACTED_TEXT_MONITOR:I = 0x1

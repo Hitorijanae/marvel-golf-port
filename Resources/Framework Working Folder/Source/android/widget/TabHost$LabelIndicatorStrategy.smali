@@ -30,15 +30,15 @@
     .parameter "label"
 
     .prologue
-    .line 527
+    .line 523
     iput-object p1, p0, Landroid/widget/TabHost$LabelIndicatorStrategy;->this$0:Landroid/widget/TabHost;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 528
+    .line 524
     iput-object p2, p0, Landroid/widget/TabHost$LabelIndicatorStrategy;->mLabel:Ljava/lang/CharSequence;
 
-    .line 529
+    .line 525
     return-void
 .end method
 
@@ -49,7 +49,7 @@
     .parameter "x2"
 
     .prologue
-    .line 523
+    .line 519
     invoke-direct {p0, p1, p2}, Landroid/widget/TabHost$LabelIndicatorStrategy;-><init>(Landroid/widget/TabHost;Ljava/lang/CharSequence;)V
 
     return-void
@@ -61,16 +61,16 @@
     .registers 8
 
     .prologue
-    .line 532
+    .line 528
     iget-object v4, p0, Landroid/widget/TabHost$LabelIndicatorStrategy;->this$0:Landroid/widget/TabHost;
 
     invoke-virtual {v4}, Landroid/widget/TabHost;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 533
+    .line 529
     .local v0, context:Landroid/content/Context;
-    const-string/jumbo v4, "layout_inflater"
+    const-string v4, "layout_inflater"
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -78,7 +78,7 @@
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    .line 535
+    .line 531
     .local v1, inflater:Landroid/view/LayoutInflater;
     iget-object v4, p0, Landroid/widget/TabHost$LabelIndicatorStrategy;->this$0:Landroid/widget/TabHost;
 
@@ -100,7 +100,7 @@
 
     move-result-object v2
 
-    .line 539
+    .line 535
     .local v2, tabIndicator:Landroid/view/View;
     const v4, 0x1020016
 
@@ -110,37 +110,13 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    .line 540
+    .line 536
     .local v3, tv:Landroid/widget/TextView;
     iget-object v4, p0, Landroid/widget/TabHost$LabelIndicatorStrategy;->mLabel:Ljava/lang/CharSequence;
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 543
-    iget-object v4, p0, Landroid/widget/TabHost$LabelIndicatorStrategy;->this$0:Landroid/widget/TabHost;
-
-    #getter for: Landroid/widget/TabHost;->mTabLayoutId:I
-    invoke-static {v4}, Landroid/widget/TabHost;->access$900(Landroid/widget/TabHost;)I
-
-    move-result v4
-
-    const v5, 0x109009e
-
-    if-ne v4, v5, :cond_64
-
-    .line 544
-    const-string/jumbo v4, "tab_indicator_holo"
-
-    const v5, 0x108057c
-
-    invoke-static {v0, v4, v5}, Landroid/widget/HtcSkinUtil;->getDrawableResIdentifier(Landroid/content/Context;Ljava/lang/String;I)I
-
-    move-result v4
-
-    invoke-virtual {v2, v4}, Landroid/view/View;->setBackgroundResource(I)V
-
-    .line 552
-    :goto_46
+    .line 538
     invoke-virtual {v0}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
     move-result-object v4
@@ -149,19 +125,19 @@
 
     const/4 v5, 0x4
 
-    if-gt v4, v5, :cond_63
+    if-gt v4, v5, :cond_4a
 
-    .line 554
-    const v4, 0x108057d
+    .line 540
+    const v4, 0x10805a7
 
     invoke-virtual {v2, v4}, Landroid/view/View;->setBackgroundResource(I)V
 
-    .line 555
+    .line 541
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v5, 0x106007d
+    const v5, 0x1060075
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -169,21 +145,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
 
-    .line 558
-    :cond_63
+    .line 544
+    :cond_4a
     return-object v2
-
-    .line 547
-    :cond_64
-    const-string/jumbo v4, "tab_indicator"
-
-    const v5, 0x108057a
-
-    invoke-static {v0, v4, v5}, Landroid/widget/HtcSkinUtil;->getDrawableResIdentifier(Landroid/content/Context;Ljava/lang/String;I)I
-
-    move-result v4
-
-    invoke-virtual {v2, v4}, Landroid/view/View;->setBackgroundResource(I)V
-
-    goto :goto_46
 .end method

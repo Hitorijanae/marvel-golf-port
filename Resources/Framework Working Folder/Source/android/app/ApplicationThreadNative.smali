@@ -68,12 +68,12 @@
     .registers 1
 
     .prologue
-    .line 576
+    .line 549
     return-object p0
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 104
+    .registers 102
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -86,9 +86,9 @@
 
     .prologue
     .line 70
-    packed-switch p1, :pswitch_data_706
+    packed-switch p1, :pswitch_data_6ce
 
-    .line 571
+    .line 544
     :pswitch_3
     invoke-super/range {p0 .. p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
@@ -129,10 +129,10 @@
 
     if-eqz v5, :cond_37
 
-    const/16 v97, 0x1
+    const/16 v96, 0x1
 
     .line 77
-    .local v97, userLeaving:Z
+    .local v96, userLeaving:Z
     :goto_23
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -144,7 +144,7 @@
 
     move/from16 v1, v76
 
-    move/from16 v2, v97
+    move/from16 v2, v96
 
     move/from16 v3, v24
 
@@ -158,7 +158,7 @@
     .line 75
     .end local v24           #configChanges:I
     .end local v76           #finished:Z
-    .end local v97           #userLeaving:Z
+    .end local v96           #userLeaving:Z
     :cond_34
     const/16 v76, 0x0
 
@@ -167,7 +167,7 @@
     .line 76
     .restart local v76       #finished:Z
     :cond_37
-    const/16 v97, 0x0
+    const/16 v96, 0x0
 
     goto :goto_23
 
@@ -194,10 +194,10 @@
 
     if-eqz v5, :cond_5c
 
-    const/16 v94, 0x1
+    const/16 v93, 0x1
 
     .line 87
-    .local v94, show:Z
+    .local v93, show:Z
     :goto_4d
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -207,7 +207,7 @@
     .restart local v24       #configChanges:I
     move-object/from16 v0, p0
 
-    move/from16 v1, v94
+    move/from16 v1, v93
 
     move/from16 v2, v24
 
@@ -220,9 +220,9 @@
 
     .line 86
     .end local v24           #configChanges:I
-    .end local v94           #show:Z
+    .end local v93           #show:Z
     :cond_5c
-    const/16 v94, 0x0
+    const/16 v93, 0x0
 
     goto :goto_4d
 
@@ -248,14 +248,14 @@
 
     if-eqz v5, :cond_7b
 
-    const/16 v94, 0x1
+    const/16 v93, 0x1
 
     .line 97
-    .restart local v94       #show:Z
+    .restart local v93       #show:Z
     :goto_72
     move-object/from16 v0, p0
 
-    move/from16 v1, v94
+    move/from16 v1, v93
 
     invoke-virtual {v0, v7, v1}, Landroid/app/ApplicationThreadNative;->scheduleWindowVisibility(Landroid/os/IBinder;Z)V
 
@@ -265,9 +265,9 @@
     goto :goto_7
 
     .line 96
-    .end local v94           #show:Z
+    .end local v93           #show:Z
     :cond_7b
-    const/16 v94, 0x0
+    const/16 v93, 0x0
 
     goto :goto_72
 
@@ -293,14 +293,14 @@
 
     if-eqz v5, :cond_9b
 
-    const/16 v95, 0x1
+    const/16 v94, 0x1
 
     .line 106
-    .local v95, sleeping:Z
+    .local v94, sleeping:Z
     :goto_91
     move-object/from16 v0, p0
 
-    move/from16 v1, v95
+    move/from16 v1, v94
 
     invoke-virtual {v0, v7, v1}, Landroid/app/ApplicationThreadNative;->scheduleSleeping(Landroid/os/IBinder;Z)V
 
@@ -310,9 +310,9 @@
     goto/16 :goto_7
 
     .line 105
-    .end local v95           #sleeping:Z
+    .end local v94           #sleeping:Z
     :cond_9b
-    const/16 v95, 0x0
+    const/16 v94, 0x0
 
     goto :goto_91
 
@@ -984,16 +984,16 @@
 
     if-eqz v5, :cond_283
 
-    const/16 v91, 0x1
+    const/16 v90, 0x1
 
     .line 215
-    .local v91, rebind:Z
+    .local v90, rebind:Z
     :goto_277
     move-object/from16 v0, p0
 
     move-object/from16 v1, v36
 
-    move/from16 v2, v91
+    move/from16 v2, v90
 
     invoke-virtual {v0, v1, v6, v2}, Landroid/app/ApplicationThreadNative;->scheduleBindService(Landroid/os/IBinder;Landroid/content/Intent;Z)V
 
@@ -1003,9 +1003,9 @@
     goto/16 :goto_7
 
     .line 214
-    .end local v91           #rebind:Z
+    .end local v90           #rebind:Z
     :cond_283
-    const/16 v91, 0x0
+    const/16 v90, 0x0
 
     goto :goto_277
 
@@ -1559,16 +1559,16 @@
     .line 327
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v90
+    move-result-object v89
 
     .line 328
-    .local v90, proxy:Ljava/lang/String;
+    .local v89, proxy:Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v87
+    move-result-object v86
 
     .line 329
-    .local v87, port:Ljava/lang/String;
+    .local v86, port:Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v74
@@ -1577,9 +1577,9 @@
     .local v74, exclList:Ljava/lang/String;
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v90
+    move-object/from16 v1, v89
 
-    move-object/from16 v2, v87
+    move-object/from16 v2, v86
 
     move-object/from16 v3, v74
 
@@ -1592,8 +1592,8 @@
 
     .line 335
     .end local v74           #exclList:Ljava/lang/String;
-    .end local v87           #port:Ljava/lang/String;
-    .end local v90           #proxy:Ljava/lang/String;
+    .end local v86           #port:Ljava/lang/String;
+    .end local v89           #proxy:Ljava/lang/String;
     :pswitch_41a
     const-string v5, "android.app.IApplicationThread"
 
@@ -1626,10 +1626,10 @@
     .local v75, fd:Landroid/os/ParcelFileDescriptor;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v92
+    move-result-object v91
 
     .line 344
-    .local v92, service:Landroid/os/IBinder;
+    .local v91, service:Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStringArray()[Ljava/lang/String;
 
     move-result-object v40
@@ -1645,7 +1645,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v92
+    move-object/from16 v1, v91
 
     move-object/from16 v2, v40
 
@@ -1655,7 +1655,7 @@
     :try_start_449
     invoke-virtual/range {v75 .. v75}, Landroid/os/ParcelFileDescriptor;->close()V
     :try_end_44c
-    .catch Ljava/io/IOException; {:try_start_449 .. :try_end_44c} :catch_6f6
+    .catch Ljava/io/IOException; {:try_start_449 .. :try_end_44c} :catch_6bf
 
     .line 352
     :cond_44c
@@ -1667,7 +1667,7 @@
     .line 356
     .end local v40           #args:[Ljava/lang/String;
     .end local v75           #fd:Landroid/os/ParcelFileDescriptor;
-    .end local v92           #service:Landroid/os/IBinder;
+    .end local v91           #service:Landroid/os/IBinder;
     :pswitch_44f
     const-string v5, "android.app.IApplicationThread"
 
@@ -1821,23 +1821,23 @@
 
     if-eqz v5, :cond_4e0
 
-    const/16 v96, 0x1
+    const/16 v95, 0x1
 
     .line 388
-    .local v96, start:Z
+    .local v95, start:Z
     :goto_4be
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v89
+    move-result v88
 
     .line 389
-    .local v89, profileType:I
+    .local v88, profileType:I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v85
+    move-result-object v84
 
     .line 390
-    .local v85, path:Ljava/lang/String;
+    .local v84, path:Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
@@ -1853,13 +1853,13 @@
     :goto_4d0
     move-object/from16 v0, p0
 
-    move/from16 v1, v96
+    move/from16 v1, v95
 
-    move-object/from16 v2, v85
+    move-object/from16 v2, v84
 
     move-object/from16 v3, v75
 
-    move/from16 v4, v89
+    move/from16 v4, v88
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/app/ApplicationThreadNative;->profilerControl(ZLjava/lang/String;Landroid/os/ParcelFileDescriptor;I)V
 
@@ -1870,27 +1870,27 @@
 
     .line 387
     .end local v75           #fd:Landroid/os/ParcelFileDescriptor;
-    .end local v85           #path:Ljava/lang/String;
-    .end local v89           #profileType:I
-    .end local v96           #start:Z
+    .end local v84           #path:Ljava/lang/String;
+    .end local v88           #profileType:I
+    .end local v95           #start:Z
     :cond_4e0
-    const/16 v96, 0x0
+    const/16 v95, 0x0
 
     goto :goto_4be
 
     .line 390
-    .restart local v85       #path:Ljava/lang/String;
-    .restart local v89       #profileType:I
-    .restart local v96       #start:Z
+    .restart local v84       #path:Ljava/lang/String;
+    .restart local v88       #profileType:I
+    .restart local v95       #start:Z
     :cond_4e3
     const/16 v75, 0x0
 
     goto :goto_4d0
 
     .line 398
-    .end local v85           #path:Ljava/lang/String;
-    .end local v89           #profileType:I
-    .end local v96           #start:Z
+    .end local v84           #path:Ljava/lang/String;
+    .end local v88           #profileType:I
+    .end local v95           #start:Z
     :pswitch_4e6
     const-string v5, "android.app.IApplicationThread"
 
@@ -2027,15 +2027,15 @@
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 426
-    new-instance v82, Landroid/os/Debug$MemoryInfo;
+    new-instance v81, Landroid/os/Debug$MemoryInfo;
 
-    invoke-direct/range {v82 .. v82}, Landroid/os/Debug$MemoryInfo;-><init>()V
+    invoke-direct/range {v81 .. v81}, Landroid/os/Debug$MemoryInfo;-><init>()V
 
     .line 427
-    .local v82, mi:Landroid/os/Debug$MemoryInfo;
+    .local v81, mi:Landroid/os/Debug$MemoryInfo;
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v82
+    move-object/from16 v1, v81
 
     invoke-virtual {v0, v1}, Landroid/app/ApplicationThreadNative;->getMemoryInfo(Landroid/os/Debug$MemoryInfo;)V
 
@@ -2045,7 +2045,7 @@
     .line 429
     const/4 v5, 0x0
 
-    move-object/from16 v0, v82
+    move-object/from16 v0, v81
 
     move-object/from16 v1, p3
 
@@ -2057,7 +2057,7 @@
     goto/16 :goto_7
 
     .line 435
-    .end local v82           #mi:Landroid/os/Debug$MemoryInfo;
+    .end local v81           #mi:Landroid/os/Debug$MemoryInfo;
     :pswitch_56c
     const-string v5, "android.app.IApplicationThread"
 
@@ -2074,15 +2074,15 @@
     .local v72, cmd:I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStringArray()[Ljava/lang/String;
 
-    move-result-object v84
+    move-result-object v83
 
     .line 438
-    .local v84, packages:[Ljava/lang/String;
+    .local v83, packages:[Ljava/lang/String;
     move-object/from16 v0, p0
 
     move/from16 v1, v72
 
-    move-object/from16 v2, v84
+    move-object/from16 v2, v83
 
     invoke-virtual {v0, v1, v2}, Landroid/app/ApplicationThreadNative;->dispatchPackageBroadcast(I[Ljava/lang/String;)V
 
@@ -2093,7 +2093,7 @@
 
     .line 444
     .end local v72           #cmd:I
-    .end local v84           #packages:[Ljava/lang/String;
+    .end local v83           #packages:[Ljava/lang/String;
     :pswitch_587
     const-string v5, "android.app.IApplicationThread"
 
@@ -2104,13 +2104,13 @@
     .line 445
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v83
+    move-result-object v82
 
     .line 446
-    .local v83, msg:Ljava/lang/String;
+    .local v82, msg:Ljava/lang/String;
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v83
+    move-object/from16 v1, v82
 
     invoke-virtual {v0, v1}, Landroid/app/ApplicationThreadNative;->scheduleCrash(Ljava/lang/String;)V
 
@@ -2120,7 +2120,7 @@
     goto/16 :goto_7
 
     .line 452
-    .end local v83           #msg:Ljava/lang/String;
+    .end local v82           #msg:Ljava/lang/String;
     :pswitch_59c
     const-string v5, "android.app.IApplicationThread"
 
@@ -2135,17 +2135,17 @@
 
     if-eqz v5, :cond_5c7
 
-    const/16 v81, 0x1
+    const/16 v80, 0x1
 
     .line 454
-    .local v81, managed:Z
+    .local v80, managed:Z
     :goto_5ab
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v85
+    move-result-object v84
 
     .line 455
-    .restart local v85       #path:Ljava/lang/String;
+    .restart local v84       #path:Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
@@ -2161,9 +2161,9 @@
     :goto_5b9
     move-object/from16 v0, p0
 
-    move/from16 v1, v81
+    move/from16 v1, v80
 
-    move-object/from16 v2, v85
+    move-object/from16 v2, v84
 
     move-object/from16 v3, v75
 
@@ -2176,24 +2176,24 @@
 
     .line 453
     .end local v75           #fd:Landroid/os/ParcelFileDescriptor;
-    .end local v81           #managed:Z
-    .end local v85           #path:Ljava/lang/String;
+    .end local v80           #managed:Z
+    .end local v84           #path:Ljava/lang/String;
     :cond_5c7
-    const/16 v81, 0x0
+    const/16 v80, 0x0
 
     goto :goto_5ab
 
     .line 455
-    .restart local v81       #managed:Z
-    .restart local v85       #path:Ljava/lang/String;
+    .restart local v80       #managed:Z
+    .restart local v84       #path:Ljava/lang/String;
     :cond_5ca
     const/16 v75, 0x0
 
     goto :goto_5b9
 
     .line 462
-    .end local v81           #managed:Z
-    .end local v85           #path:Ljava/lang/String;
+    .end local v80           #managed:Z
+    .end local v84           #path:Ljava/lang/String;
     :pswitch_5cd
     const-string v5, "android.app.IApplicationThread"
 
@@ -2216,10 +2216,10 @@
     .local v66, activity:Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v88
+    move-result-object v87
 
     .line 466
-    .local v88, prefix:Ljava/lang/String;
+    .local v87, prefix:Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStringArray()[Ljava/lang/String;
 
     move-result-object v40
@@ -2237,7 +2237,7 @@
 
     move-object/from16 v1, v66
 
-    move-object/from16 v2, v88
+    move-object/from16 v2, v87
 
     move-object/from16 v3, v40
 
@@ -2247,7 +2247,7 @@
     :try_start_5f5
     invoke-virtual/range {v75 .. v75}, Landroid/os/ParcelFileDescriptor;->close()V
     :try_end_5f8
-    .catch Ljava/io/IOException; {:try_start_5f5 .. :try_end_5f8} :catch_6f9
+    .catch Ljava/io/IOException; {:try_start_5f5 .. :try_end_5f8} :catch_6c2
 
     .line 474
     :cond_5f8
@@ -2260,7 +2260,7 @@
     .end local v40           #args:[Ljava/lang/String;
     .end local v66           #activity:Landroid/os/IBinder;
     .end local v75           #fd:Landroid/os/ParcelFileDescriptor;
-    .end local v88           #prefix:Ljava/lang/String;
+    .end local v87           #prefix:Ljava/lang/String;
     :pswitch_5fb
     const-string v5, "android.app.IApplicationThread"
 
@@ -2271,13 +2271,13 @@
     .line 479
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
-    move-result-object v93
+    move-result-object v92
 
     .line 480
-    .local v93, settings:Landroid/os/Bundle;
+    .local v92, settings:Landroid/os/Bundle;
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v93
+    move-object/from16 v1, v92
 
     invoke-virtual {v0, v1}, Landroid/app/ApplicationThreadNative;->setCoreSettings(Landroid/os/Bundle;)V
 
@@ -2287,7 +2287,7 @@
     goto/16 :goto_7
 
     .line 485
-    .end local v93           #settings:Landroid/os/Bundle;
+    .end local v92           #settings:Landroid/os/Bundle;
     :pswitch_610
     const-string v5, "android.app.IApplicationThread"
 
@@ -2298,10 +2298,10 @@
     .line 486
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v86
+    move-result-object v85
 
     .line 487
-    .local v86, pkg:Ljava/lang/String;
+    .local v85, pkg:Ljava/lang/String;
     sget-object v5, Landroid/content/res/CompatibilityInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
@@ -2316,7 +2316,7 @@
     .local v73, compat:Landroid/content/res/CompatibilityInfo;
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v86
+    move-object/from16 v1, v85
 
     move-object/from16 v2, v73
 
@@ -2329,7 +2329,7 @@
 
     .line 493
     .end local v73           #compat:Landroid/content/res/CompatibilityInfo;
-    .end local v86           #pkg:Ljava/lang/String;
+    .end local v85           #pkg:Ljava/lang/String;
     :pswitch_631
     const-string v5, "android.app.IApplicationThread"
 
@@ -2340,13 +2340,13 @@
     .line 494
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v80
+    move-result v79
 
     .line 495
-    .local v80, level:I
+    .local v79, level:I
     move-object/from16 v0, p0
 
-    move/from16 v1, v80
+    move/from16 v1, v79
 
     invoke-virtual {v0, v1}, Landroid/app/ApplicationThreadNative;->scheduleTrimMemory(I)V
 
@@ -2356,7 +2356,7 @@
     goto/16 :goto_7
 
     .line 501
-    .end local v80           #level:I
+    .end local v79           #level:I
     :pswitch_646
     const-string v5, "android.app.IApplicationThread"
 
@@ -2399,10 +2399,10 @@
 
     .line 506
     .restart local v40       #args:[Ljava/lang/String;
-    const/16 v82, 0x0
+    const/16 v81, 0x0
 
     .line 507
-    .restart local v82       #mi:Landroid/os/Debug$MemoryInfo;
+    .restart local v81       #mi:Landroid/os/Debug$MemoryInfo;
     if-eqz v75, :cond_67c
 
     .line 509
@@ -2423,13 +2423,13 @@
     :try_end_678
     .catchall {:try_start_669 .. :try_end_678} :catchall_690
 
-    move-result-object v82
+    move-result-object v81
 
     .line 512
     :try_start_679
     invoke-virtual/range {v75 .. v75}, Landroid/os/ParcelFileDescriptor;->close()V
     :try_end_67c
-    .catch Ljava/io/IOException; {:try_start_679 .. :try_end_67c} :catch_6fe
+    .catch Ljava/io/IOException; {:try_start_679 .. :try_end_67c} :catch_6c5
 
     .line 518
     :cond_67c
@@ -2439,7 +2439,7 @@
     .line 519
     const/4 v5, 0x0
 
-    move-object/from16 v0, v82
+    move-object/from16 v0, v81
 
     move-object/from16 v1, p3
 
@@ -2454,7 +2454,7 @@
     .end local v40           #args:[Ljava/lang/String;
     .end local v67           #all:Z
     .end local v71           #checkin:Z
-    .end local v82           #mi:Landroid/os/Debug$MemoryInfo;
+    .end local v81           #mi:Landroid/os/Debug$MemoryInfo;
     :cond_68a
     const/16 v71, 0x0
 
@@ -2470,7 +2470,7 @@
     .line 511
     .restart local v40       #args:[Ljava/lang/String;
     .restart local v67       #all:Z
-    .restart local v82       #mi:Landroid/os/Debug$MemoryInfo;
+    .restart local v81       #mi:Landroid/os/Debug$MemoryInfo;
     :catchall_690
     move-exception v5
 
@@ -2478,9 +2478,9 @@
     :try_start_691
     invoke-virtual/range {v75 .. v75}, Landroid/os/ParcelFileDescriptor;->close()V
     :try_end_694
-    .catch Ljava/io/IOException; {:try_start_691 .. :try_end_694} :catch_6fc
+    .catch Ljava/io/IOException; {:try_start_691 .. :try_end_694} :catch_6c7
 
-    .line 511
+    .line 515
     :goto_694
     throw v5
 
@@ -2489,7 +2489,7 @@
     .end local v67           #all:Z
     .end local v71           #checkin:Z
     .end local v75           #fd:Landroid/os/ParcelFileDescriptor;
-    .end local v82           #mi:Landroid/os/Debug$MemoryInfo;
+    .end local v81           #mi:Landroid/os/Debug$MemoryInfo;
     :pswitch_695
     const-string v5, "android.app.IApplicationThread"
 
@@ -2530,7 +2530,7 @@
     :try_start_6b1
     invoke-virtual/range {v75 .. v75}, Landroid/os/ParcelFileDescriptor;->close()V
     :try_end_6b4
-    .catch Ljava/io/IOException; {:try_start_6b1 .. :try_end_6b4} :catch_703
+    .catch Ljava/io/IOException; {:try_start_6b1 .. :try_end_6b4} :catch_6c9
 
     .line 539
     :cond_6b4
@@ -2550,136 +2550,62 @@
     :try_start_6bb
     invoke-virtual/range {v75 .. v75}, Landroid/os/ParcelFileDescriptor;->close()V
     :try_end_6be
-    .catch Ljava/io/IOException; {:try_start_6bb .. :try_end_6be} :catch_701
+    .catch Ljava/io/IOException; {:try_start_6bb .. :try_end_6be} :catch_6cb
 
-    .line 532
+    .line 536
     :goto_6be
     throw v5
 
-    .line 547
-    .end local v40           #args:[Ljava/lang/String;
-    .end local v75           #fd:Landroid/os/ParcelFileDescriptor;
-    :pswitch_6bf
-    const-string v5, "android.app.IApplicationThread"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 548
-    invoke-virtual/range {p0 .. p0}, Landroid/app/ApplicationThreadNative;->dumpMainHandlerLog()V
-
-    .line 549
-    const/4 v5, 0x1
-
-    goto/16 :goto_7
-
-    .line 554
-    :pswitch_6cc
-    const-string v5, "android.app.IApplicationThread"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 555
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v79
-
-    .line 556
-    .local v79, isTopApp:I
-    move-object/from16 v0, p0
-
-    move/from16 v1, v79
-
-    invoke-virtual {v0, v1}, Landroid/app/ApplicationThreadNative;->scheduleChangeTopApp(I)V
-
-    .line 557
-    const/4 v5, 0x1
-
-    goto/16 :goto_7
-
-    .line 562
-    .end local v79           #isTopApp:I
-    :pswitch_6e1
-    const-string v5, "android.app.IApplicationThread"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 563
-    invoke-virtual/range {p0 .. p0}, Landroid/app/ApplicationThreadNative;->getBitmapAllocation()I
-
-    move-result v98
-
-    .line 564
-    .local v98, value:I
-    move-object/from16 v0, p3
-
-    move/from16 v1, v98
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 565
-    const/4 v5, 0x1
-
-    goto/16 :goto_7
-
     .line 349
-    .end local v98           #value:I
-    .restart local v40       #args:[Ljava/lang/String;
-    .restart local v75       #fd:Landroid/os/ParcelFileDescriptor;
-    .restart local v92       #service:Landroid/os/IBinder;
-    :catch_6f6
+    .restart local v91       #service:Landroid/os/IBinder;
+    :catch_6bf
     move-exception v5
 
     goto/16 :goto_44c
 
     .line 471
-    .end local v92           #service:Landroid/os/IBinder;
+    .end local v91           #service:Landroid/os/IBinder;
     .restart local v66       #activity:Landroid/os/IBinder;
-    .restart local v88       #prefix:Ljava/lang/String;
-    :catch_6f9
+    .restart local v87       #prefix:Ljava/lang/String;
+    :catch_6c2
     move-exception v5
 
     goto/16 :goto_5f8
 
     .line 513
     .end local v66           #activity:Landroid/os/IBinder;
-    .end local v88           #prefix:Ljava/lang/String;
+    .end local v87           #prefix:Ljava/lang/String;
     .restart local v67       #all:Z
     .restart local v71       #checkin:Z
-    .restart local v82       #mi:Landroid/os/Debug$MemoryInfo;
-    :catch_6fc
+    .restart local v81       #mi:Landroid/os/Debug$MemoryInfo;
+    :catch_6c5
+    move-exception v5
+
+    goto :goto_67c
+
+    :catch_6c7
     move-exception v20
 
     goto :goto_694
 
-    :catch_6fe
-    move-exception v5
-
-    goto/16 :goto_67c
-
     .line 534
     .end local v67           #all:Z
     .end local v71           #checkin:Z
-    .end local v82           #mi:Landroid/os/Debug$MemoryInfo;
-    :catch_701
-    move-exception v20
-
-    goto :goto_6be
-
-    :catch_703
+    .end local v81           #mi:Landroid/os/Debug$MemoryInfo;
+    :catch_6c9
     move-exception v5
 
     goto :goto_6b4
 
+    :catch_6cb
+    move-exception v20
+
+    goto :goto_6be
+
     .line 70
     nop
 
-    :pswitch_data_706
+    :pswitch_data_6ce
     .packed-switch 0x1
         :pswitch_8
         :pswitch_3
@@ -2725,64 +2651,5 @@
         :pswitch_631
         :pswitch_646
         :pswitch_695
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_6cc
-        :pswitch_6bf
-        :pswitch_6e1
     .end packed-switch
 .end method

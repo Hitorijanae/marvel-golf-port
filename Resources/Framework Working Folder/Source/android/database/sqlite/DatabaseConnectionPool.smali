@@ -70,14 +70,14 @@
 
     .prologue
     .line 51
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 36
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x10e0026
+    const v1, 0x10e0025
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 

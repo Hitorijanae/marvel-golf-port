@@ -145,7 +145,7 @@
     const/4 v1, 0x1
 
     .line 77
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 78
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -254,7 +254,7 @@
     const/4 v1, 0x0
 
     .line 38
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 39
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -364,7 +364,7 @@
 
     .prologue
     .line 60
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 61
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -873,19 +873,19 @@
     .line 193
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->isKey:Z
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_e
 
     .line 194
     new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string/jumbo v1, "keys aren\'t parcelable"
+    const-string v1, "keys aren\'t parcelable"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 197
-    :cond_f
+    :cond_e
     iget-object v0, p0, Landroid/content/SyncAdapterType;->authority:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
@@ -898,39 +898,39 @@
     .line 199
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->userVisible:Z
 
-    if-eqz v0, :cond_3e
+    if-eqz v0, :cond_3d
 
     move v0, v1
 
-    :goto_1e
+    :goto_1d
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 200
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->supportsUploading:Z
 
-    if-eqz v0, :cond_40
+    if-eqz v0, :cond_3f
 
     move v0, v1
 
-    :goto_26
+    :goto_25
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 201
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->isAlwaysSyncable:Z
 
-    if-eqz v0, :cond_42
+    if-eqz v0, :cond_41
 
     move v0, v1
 
-    :goto_2e
+    :goto_2d
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 202
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->allowParallelSyncs:Z
 
-    if-eqz v0, :cond_44
+    if-eqz v0, :cond_43
 
-    :goto_35
+    :goto_34
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 203
@@ -941,27 +941,27 @@
     .line 204
     return-void
 
-    :cond_3e
+    :cond_3d
     move v0, v2
 
     .line 199
-    goto :goto_1e
+    goto :goto_1d
 
-    :cond_40
+    :cond_3f
     move v0, v2
 
     .line 200
-    goto :goto_26
+    goto :goto_25
 
-    :cond_42
+    :cond_41
     move v0, v2
 
     .line 201
-    goto :goto_2e
+    goto :goto_2d
 
-    :cond_44
+    :cond_43
     move v1, v2
 
     .line 202
-    goto :goto_35
+    goto :goto_34
 .end method

@@ -51,29 +51,29 @@
     .parameter "name"
 
     .prologue
-    .line 206
+    .line 197
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_c
 
-    .line 209
-    invoke-virtual {p0, p1}, Landroid/database/AbstractWindowedCursor;->generateNewWindowCursor(Ljava/lang/String;)Landroid/database/CursorWindow;
+    .line 198
+    new-instance v0, Landroid/database/CursorWindow;
 
-    move-result-object v0
+    invoke-direct {v0, p1}, Landroid/database/CursorWindow;-><init>(Ljava/lang/String;)V
 
     iput-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    .line 214
-    :goto_a
+    .line 202
+    :goto_b
     return-void
 
-    .line 212
-    :cond_b
+    .line 200
+    :cond_c
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
     invoke-virtual {v0}, Landroid/database/CursorWindow;->clear()V
 
-    goto :goto_a
+    goto :goto_b
 .end method
 
 .method protected closeWindow()V
@@ -112,25 +112,12 @@
     .line 57
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v1, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v1, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v0, v1, p1, p2}, Landroid/database/CursorWindow;->copyStringToBuffer(IILandroid/database/CharArrayBuffer;)V
 
     .line 58
     return-void
-.end method
-
-.method protected generateNewWindowCursor(Ljava/lang/String;)Landroid/database/CursorWindow;
-    .registers 3
-    .parameter "name"
-
-    .prologue
-    .line 194
-    new-instance v0, Landroid/database/CursorWindow;
-
-    invoke-direct {v0, p1}, Landroid/database/CursorWindow;-><init>(Ljava/lang/String;)V
-
-    return-object v0
 .end method
 
 .method public getBlob(I)[B
@@ -144,7 +131,7 @@
     .line 45
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v1, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v1, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v0, v1, p1}, Landroid/database/CursorWindow;->getBlob(II)[B
 
@@ -164,7 +151,7 @@
     .line 87
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v1, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v1, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v0, v1, p1}, Landroid/database/CursorWindow;->getDouble(II)D
 
@@ -184,7 +171,7 @@
     .line 81
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v1, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v1, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v0, v1, p1}, Landroid/database/CursorWindow;->getFloat(II)F
 
@@ -204,7 +191,7 @@
     .line 69
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v1, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v1, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v0, v1, p1}, Landroid/database/CursorWindow;->getInt(II)I
 
@@ -224,7 +211,7 @@
     .line 75
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v1, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v1, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v0, v1, p1}, Landroid/database/CursorWindow;->getLong(II)J
 
@@ -244,7 +231,7 @@
     .line 63
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v1, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v1, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v0, v1, p1}, Landroid/database/CursorWindow;->getShort(II)S
 
@@ -264,7 +251,7 @@
     .line 51
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v1, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v1, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v0, v1, p1}, Landroid/database/CursorWindow;->getString(II)Ljava/lang/String;
 
@@ -284,7 +271,7 @@
     .line 131
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v1, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v1, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v0, v1, p1}, Landroid/database/CursorWindow;->getType(II)I
 
@@ -413,7 +400,7 @@
     .line 93
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v1, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v1, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v0, v1, p1}, Landroid/database/CursorWindow;->getType(II)I
 
@@ -463,13 +450,13 @@
     .registers 1
 
     .prologue
-    .line 219
+    .line 207
     invoke-super {p0}, Landroid/database/AbstractCursor;->onDeactivateOrClose()V
 
-    .line 220
+    .line 208
     invoke-virtual {p0}, Landroid/database/AbstractWindowedCursor;->closeWindow()V
 
-    .line 221
+    .line 209
     return-void
 .end method
 

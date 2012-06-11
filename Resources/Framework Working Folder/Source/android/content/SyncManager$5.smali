@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 317
+    .line 254
     iput-object p1, p0, Landroid/content/SyncManager$5;->this$0:Landroid/content/SyncManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,27 +35,87 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 5
+    .registers 6
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 319
-    const-string v0, "SyncManager"
+    .line 256
+    iget-object v1, p0, Landroid/content/SyncManager$5;->this$0:Landroid/content/SyncManager;
 
-    const-string v1, "Writing sync state before shutdown..."
+    #getter for: Landroid/content/SyncManager;->mDataConnectionIsConnected:Z
+    invoke-static {v1}, Landroid/content/SyncManager;->access$500(Landroid/content/SyncManager;)Z
 
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v0
 
-    .line 320
-    iget-object v0, p0, Landroid/content/SyncManager$5;->this$0:Landroid/content/SyncManager;
+    .line 260
+    .local v0, wasConnected:Z
+    iget-object v1, p0, Landroid/content/SyncManager$5;->this$0:Landroid/content/SyncManager;
 
-    invoke-virtual {v0}, Landroid/content/SyncManager;->getSyncStorageEngine()Landroid/content/SyncStorageEngine;
+    iget-object v2, p0, Landroid/content/SyncManager$5;->this$0:Landroid/content/SyncManager;
 
-    move-result-object v0
+    #calls: Landroid/content/SyncManager;->readDataConnectionState()Z
+    invoke-static {v2}, Landroid/content/SyncManager;->access$600(Landroid/content/SyncManager;)Z
 
-    invoke-virtual {v0}, Landroid/content/SyncStorageEngine;->writeAllState()V
+    move-result v2
 
-    .line 321
+    #setter for: Landroid/content/SyncManager;->mDataConnectionIsConnected:Z
+    invoke-static {v1, v2}, Landroid/content/SyncManager;->access$502(Landroid/content/SyncManager;Z)Z
+
+    .line 261
+    iget-object v1, p0, Landroid/content/SyncManager$5;->this$0:Landroid/content/SyncManager;
+
+    #getter for: Landroid/content/SyncManager;->mDataConnectionIsConnected:Z
+    invoke-static {v1}, Landroid/content/SyncManager;->access$500(Landroid/content/SyncManager;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3d
+
+    .line 262
+    if-nez v0, :cond_38
+
+    .line 263
+    const-string v1, "SyncManager"
+
+    const/4 v2, 0x2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2b
+
+    .line 264
+    const-string v1, "SyncManager"
+
+    const-string v2, "Reconnection detected: clearing all backoffs"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 266
+    :cond_2b
+    iget-object v1, p0, Landroid/content/SyncManager$5;->this$0:Landroid/content/SyncManager;
+
+    #getter for: Landroid/content/SyncManager;->mSyncStorageEngine:Landroid/content/SyncStorageEngine;
+    invoke-static {v1}, Landroid/content/SyncManager;->access$700(Landroid/content/SyncManager;)Landroid/content/SyncStorageEngine;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/content/SyncManager$5;->this$0:Landroid/content/SyncManager;
+
+    iget-object v2, v2, Landroid/content/SyncManager;->mSyncQueue:Landroid/content/SyncQueue;
+
+    invoke-virtual {v1, v2}, Landroid/content/SyncStorageEngine;->clearAllBackoffs(Landroid/content/SyncQueue;)V
+
+    .line 268
+    :cond_38
+    iget-object v1, p0, Landroid/content/SyncManager$5;->this$0:Landroid/content/SyncManager;
+
+    #calls: Landroid/content/SyncManager;->sendCheckAlarmsMessage()V
+    invoke-static {v1}, Landroid/content/SyncManager;->access$100(Landroid/content/SyncManager;)V
+
+    .line 270
+    :cond_3d
     return-void
 .end method

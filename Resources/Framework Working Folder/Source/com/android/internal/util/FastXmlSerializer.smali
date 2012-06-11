@@ -316,7 +316,7 @@
     const/16 v1, 0x2000
 
     .line 39
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 53
     new-array v0, v1, [C
@@ -1267,19 +1267,19 @@
 
     .prologue
     .line 280
-    const-string/jumbo v0, "http://xmlpull.org/v1/doc/features.html#indent-output"
+    const-string v0, "http://xmlpull.org/v1/doc/features.html#indent-output"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_9
 
     .line 281
     return-void
 
     .line 283
-    :cond_a
+    :cond_9
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

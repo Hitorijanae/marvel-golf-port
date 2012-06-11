@@ -30,39 +30,39 @@
     .parameter "handler"
 
     .prologue
-    .line 1102
+    .line 1070
     iput-object p1, p0, Landroid/media/AudioTrack$NativeEventHandlerDelegate;->this$0:Landroid/media/AudioTrack;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1103
+    .line 1071
     iput-object p2, p0, Landroid/media/AudioTrack$NativeEventHandlerDelegate;->mAudioTrack:Landroid/media/AudioTrack;
 
-    .line 1106
+    .line 1074
     if-eqz p3, :cond_17
 
-    .line 1107
+    .line 1075
     invoke-virtual {p3}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
 
     move-result-object v0
 
-    .line 1114
+    .line 1082
     .local v0, looper:Landroid/os/Looper;
     :goto_d
     if-eqz v0, :cond_1c
 
-    .line 1116
+    .line 1084
     new-instance v1, Landroid/media/AudioTrack$NativeEventHandlerDelegate$1;
 
     invoke-direct {v1, p0, v0, p1}, Landroid/media/AudioTrack$NativeEventHandlerDelegate$1;-><init>(Landroid/media/AudioTrack$NativeEventHandlerDelegate;Landroid/os/Looper;Landroid/media/AudioTrack;)V
 
     iput-object v1, p0, Landroid/media/AudioTrack$NativeEventHandlerDelegate;->mHandler:Landroid/os/Handler;
 
-    .line 1147
+    .line 1115
     :goto_16
     return-void
 
-    .line 1110
+    .line 1078
     .end local v0           #looper:Landroid/os/Looper;
     :cond_17
     #getter for: Landroid/media/AudioTrack;->mInitializationLooper:Landroid/os/Looper;
@@ -73,7 +73,7 @@
     .restart local v0       #looper:Landroid/os/Looper;
     goto :goto_d
 
-    .line 1145
+    .line 1113
     :cond_1c
     const/4 v1, 0x0
 
@@ -87,7 +87,7 @@
     .parameter "x0"
 
     .prologue
-    .line 1098
+    .line 1066
     iget-object v0, p0, Landroid/media/AudioTrack$NativeEventHandlerDelegate;->mAudioTrack:Landroid/media/AudioTrack;
 
     return-object v0
@@ -99,7 +99,7 @@
     .registers 2
 
     .prologue
-    .line 1150
+    .line 1118
     iget-object v0, p0, Landroid/media/AudioTrack$NativeEventHandlerDelegate;->mHandler:Landroid/os/Handler;
 
     return-object v0

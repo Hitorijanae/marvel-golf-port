@@ -23,14 +23,6 @@
     .end annotation
 .end method
 
-.method public abstract disableDeskMode(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract enableCarMode(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -39,23 +31,7 @@
     .end annotation
 .end method
 
-.method public abstract enableDeskMode(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getCurrentModeType()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getDockState()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

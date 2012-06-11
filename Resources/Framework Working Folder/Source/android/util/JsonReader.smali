@@ -72,7 +72,7 @@
     const/4 v1, 0x0
 
     .line 233
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 181
     new-instance v0, Llibcore/internal/StringPool;
@@ -119,19 +119,19 @@
     iput-boolean v1, p0, Landroid/util/JsonReader;->skipping:Z
 
     .line 234
-    if-nez p1, :cond_35
+    if-nez p1, :cond_34
 
     .line 235
     new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string/jumbo v1, "in == null"
+    const-string v1, "in == null"
 
     invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 237
-    :cond_35
+    :cond_34
     iput-object p1, p0, Landroid/util/JsonReader;->in:Ljava/io/Reader;
 
     .line 238

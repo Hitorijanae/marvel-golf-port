@@ -50,9 +50,9 @@
     .line 94
     iget v1, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v1, :sswitch_data_bc
+    sparse-switch v1, :sswitch_data_ae
 
-    .line 129
+    .line 124
     const-string v1, "WpsStateMachine"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -75,7 +75,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 132
+    .line 127
     :goto_1d
     const/4 v1, 0x1
 
@@ -102,7 +102,7 @@
 
     iget v1, v1, Landroid/net/wifi/WpsInfo;->setup:I
 
-    packed-switch v1, :pswitch_data_ca
+    packed-switch v1, :pswitch_data_b8
 
     .line 109
     new-instance v0, Landroid/net/wifi/WpsResult;
@@ -242,7 +242,7 @@
 
     goto/16 :goto_1d
 
-    .line 122
+    .line 121
     .end local v0           #result:Landroid/net/wifi/WpsResult;
     :sswitch_a1
     iget-object v1, p0, Landroid/net/wifi/WpsStateMachine$DefaultState;->this$0:Landroid/net/wifi/WpsStateMachine;
@@ -259,34 +259,15 @@
 
     goto/16 :goto_1d
 
-    .line 126
-    :sswitch_ae
-    iget-object v1, p0, Landroid/net/wifi/WpsStateMachine$DefaultState;->this$0:Landroid/net/wifi/WpsStateMachine;
-
-    iget-object v2, p0, Landroid/net/wifi/WpsStateMachine$DefaultState;->this$0:Landroid/net/wifi/WpsStateMachine;
-
-    #getter for: Landroid/net/wifi/WpsStateMachine;->mInactiveState:Lcom/android/internal/util/State;
-    invoke-static {v2}, Landroid/net/wifi/WpsStateMachine;->access$300(Landroid/net/wifi/WpsStateMachine;)Lcom/android/internal/util/State;
-
-    move-result-object v2
-
-    #calls: Landroid/net/wifi/WpsStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v1, v2}, Landroid/net/wifi/WpsStateMachine;->access$500(Landroid/net/wifi/WpsStateMachine;Lcom/android/internal/util/IState;)V
-
-    goto/16 :goto_1d
-
     .line 94
-    nop
-
-    :sswitch_data_bc
+    :sswitch_data_ae
     .sparse-switch
         0x20059 -> :sswitch_1f
-        0x2005d -> :sswitch_a1
-        0x2007a -> :sswitch_ae
+        0x2007a -> :sswitch_a1
     .end sparse-switch
 
     .line 98
-    :pswitch_data_ca
+    :pswitch_data_b8
     .packed-switch 0x0
         :pswitch_5c
         :pswitch_72

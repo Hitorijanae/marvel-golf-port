@@ -139,34 +139,34 @@
     .line 277
     iget v6, v5, Landroid/net/wifi/WpsInfo;->setup:I
 
-    packed-switch v6, :pswitch_data_98
+    packed-switch v6, :pswitch_data_94
 
     .line 302
     :goto_15
-    if-eqz p1, :cond_1d
+    if-eqz p1, :cond_1c
 
-    const-string/jumbo v6, "join"
+    const-string v6, "join"
 
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 304
-    :cond_1d
+    :cond_1c
     iget v2, p0, Landroid/net/wifi/p2p/WifiP2pConfig;->groupOwnerIntent:I
 
     .line 305
     .local v2, groupOwnerIntent:I
-    if-ltz v2, :cond_25
+    if-ltz v2, :cond_24
 
     const/16 v6, 0xf
 
-    if-le v2, v6, :cond_26
+    if-le v2, v6, :cond_25
 
     .line 306
-    :cond_25
+    :cond_24
     const/4 v2, 0x3
 
     .line 308
-    :cond_26
+    :cond_25
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -197,12 +197,12 @@
     move-result-object v3
 
     .local v3, i$:Ljava/util/Iterator;
-    :goto_42
+    :goto_41
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_91
+    if-eqz v6, :cond_8e
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -233,14 +233,14 @@
 
     move-result-object v1
 
-    goto :goto_42
+    goto :goto_41
 
     .line 279
     .end local v1           #command:Ljava/lang/String;
     .end local v2           #groupOwnerIntent:I
     .end local v3           #i$:Ljava/util/Iterator;
     .end local v4           #s:Ljava/lang/String;
-    :pswitch_66
+    :pswitch_65
     const-string/jumbo v6, "pbc"
 
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -248,7 +248,7 @@
     goto :goto_15
 
     .line 283
-    :pswitch_6d
+    :pswitch_6c
     const-string/jumbo v6, "pin"
 
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -261,26 +261,26 @@
     goto :goto_15
 
     .line 287
-    :pswitch_79
+    :pswitch_78
     iget-object v6, v5, Landroid/net/wifi/WpsInfo;->pin:Ljava/lang/String;
 
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 288
-    const-string/jumbo v6, "keypad"
+    const-string v6, "keypad"
 
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_15
 
     .line 291
-    :pswitch_85
+    :pswitch_83
     iget-object v6, v5, Landroid/net/wifi/WpsInfo;->pin:Ljava/lang/String;
 
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 292
-    const-string/jumbo v6, "label"
+    const-string v6, "label"
 
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -290,7 +290,7 @@
     .restart local v1       #command:Ljava/lang/String;
     .restart local v2       #groupOwnerIntent:I
     .restart local v3       #i$:Ljava/util/Iterator;
-    :cond_91
+    :cond_8e
     invoke-static {v1}, Landroid/net/wifi/WifiNative;->doStringCommand(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
@@ -298,14 +298,12 @@
     goto/16 :goto_3
 
     .line 277
-    nop
-
-    :pswitch_data_98
+    :pswitch_data_94
     .packed-switch 0x0
-        :pswitch_66
-        :pswitch_6d
-        :pswitch_79
-        :pswitch_85
+        :pswitch_65
+        :pswitch_6c
+        :pswitch_78
+        :pswitch_83
     .end packed-switch
 .end method
 
@@ -524,13 +522,13 @@
 
     .line 364
     .local v5, token:Ljava/lang/String;
-    const-string/jumbo v8, "intended_addr="
+    const-string v8, "intended_addr="
 
     invoke-virtual {v5, v8}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_2e
+    if-eqz v8, :cond_2d
 
     .line 365
     const-string v8, "="
@@ -556,7 +554,7 @@
 
     .line 362
     .end local v3           #nameValue:[Ljava/lang/String;
-    :cond_2e
+    :cond_2d
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_13

@@ -49,7 +49,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_54
+    if-nez v2, :cond_53
 
     .line 161
     iget-object v2, p0, Landroid/bluetooth/HeadsetBase$1;->this$0:Landroid/bluetooth/HeadsetBase;
@@ -92,7 +92,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "headset read error "
+    const-string v4, "headset read error "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -116,7 +116,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_4f
+    if-eqz v2, :cond_4e
 
     .line 169
     iget-object v2, p0, Landroid/bluetooth/HeadsetBase$1;->this$0:Landroid/bluetooth/HeadsetBase;
@@ -135,7 +135,7 @@
     invoke-virtual {v2}, Landroid/os/Message;->sendToTarget()V
 
     .line 172
-    :cond_4f
+    :cond_4e
     iget-object v2, p0, Landroid/bluetooth/HeadsetBase$1;->this$0:Landroid/bluetooth/HeadsetBase;
 
     #calls: Landroid/bluetooth/HeadsetBase;->disconnectNative()V
@@ -144,6 +144,6 @@
     .line 177
     .end local v0           #input:Ljava/lang/String;
     .end local v1           #last_read_error:I
-    :cond_54
+    :cond_53
     return-void
 .end method

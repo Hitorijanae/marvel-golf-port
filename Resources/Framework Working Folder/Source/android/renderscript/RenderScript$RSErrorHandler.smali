@@ -28,8 +28,8 @@
     .registers 1
 
     .prologue
-    .line 719
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 722
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -40,6 +40,6 @@
     .registers 1
 
     .prologue
-    .line 723
+    .line 726
     return-void
 .end method

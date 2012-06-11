@@ -74,7 +74,7 @@
 
     .prologue
     .line 95
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 96
     iput-object p1, p0, Lcom/android/internal/os/ZygoteConnection;->mSocket:Landroid/net/LocalSocket;
@@ -1002,7 +1002,7 @@
     :try_start_2a
     invoke-virtual {v6}, Ljava/io/DataInputStream;->close()V
     :try_end_2d
-    .catch Ljava/io/IOException; {:try_start_2a .. :try_end_2d} :catch_45
+    .catch Ljava/io/IOException; {:try_start_2a .. :try_end_2d} :catch_b7
 
     .line 920
     :goto_2d
@@ -1050,13 +1050,13 @@
     goto :goto_2d
 
     .line 914
-    .end local v2           #ex:Ljava/io/IOException;
     :catch_45
     move-exception v10
 
     goto :goto_2d
 
     .line 912
+    .end local v2           #ex:Ljava/io/IOException;
     :catchall_47
     move-exception v10
 
@@ -1064,9 +1064,9 @@
     :try_start_48
     invoke-virtual {v6}, Ljava/io/DataInputStream;->close()V
     :try_end_4b
-    .catch Ljava/io/IOException; {:try_start_48 .. :try_end_4b} :catch_b7
+    .catch Ljava/io/IOException; {:try_start_48 .. :try_end_4b} :catch_ba
 
-    .line 912
+    .line 915
     :goto_4b
     throw v10
 
@@ -1230,6 +1230,11 @@
     .restart local v5       #innerPid:I
     .restart local v6       #is:Ljava/io/DataInputStream;
     :catch_b7
+    move-exception v10
+
+    goto/16 :goto_2d
+
+    :catch_ba
     move-exception v11
 
     goto :goto_4b
@@ -1320,7 +1325,7 @@
     .local v0, argc:I
     const/16 v5, 0x400
 
-    if-le v0, v5, :cond_2d
+    if-le v0, v5, :cond_2b
 
     .line 563
     new-instance v5, Ljava/io/IOException;
@@ -1341,14 +1346,14 @@
     .local v1, ex:Ljava/lang/NumberFormatException;
     const-string v5, "Zygote"
 
-    const-string/jumbo v6, "invalid Zygote wire format: non-int at argc"
+    const-string v6, "invalid Zygote wire format: non-int at argc"
 
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 558
     new-instance v5, Ljava/io/IOException;
 
-    const-string/jumbo v6, "invalid wire format"
+    const-string v6, "invalid wire format"
 
     invoke-direct {v5, v6}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
@@ -1358,7 +1363,7 @@
     .end local v1           #ex:Ljava/lang/NumberFormatException;
     .restart local v0       #argc:I
     .restart local v4       #s:Ljava/lang/String;
-    :cond_2d
+    :cond_2b
     new-array v3, v0, [Ljava/lang/String;
 
     .line 567
@@ -1366,7 +1371,7 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_30
+    :goto_2e
     if-ge v2, v0, :cond_9
 
     .line 568
@@ -1381,7 +1386,7 @@
     .line 569
     aget-object v5, v3, v2
 
-    if-nez v5, :cond_47
+    if-nez v5, :cond_45
 
     .line 571
     new-instance v5, Ljava/io/IOException;
@@ -1393,10 +1398,10 @@
     throw v5
 
     .line 567
-    :cond_47
+    :cond_45
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_30
+    goto :goto_2e
 .end method
 
 .method private setChildPgid(I)V
@@ -1566,7 +1571,7 @@
     .line 192
     const/4 v11, 0x1
 
-    .line 258
+    .line 262
     .end local v0           #args:[Ljava/lang/String;
     .end local v2           #descriptors:[Ljava/io/FileDescriptor;
     :goto_11
@@ -1767,10 +1772,10 @@
 
     invoke-static {v11, v12, v13, v14, v9}, Ldalvik/system/Zygote;->forkAndSpecialize(II[II[[I)I
     :try_end_9e
-    .catch Ljava/io/IOException; {:try_start_50 .. :try_end_9e} :catch_eb
-    .catch Llibcore/io/ErrnoException; {:try_start_50 .. :try_end_9e} :catch_e8
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_50 .. :try_end_9e} :catch_e5
-    .catch Lcom/android/internal/os/ZygoteSecurityException; {:try_start_50 .. :try_end_9e} :catch_e2
+    .catch Ljava/io/IOException; {:try_start_50 .. :try_end_9e} :catch_ef
+    .catch Llibcore/io/ErrnoException; {:try_start_50 .. :try_end_9e} :catch_ec
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_50 .. :try_end_9e} :catch_e9
+    .catch Lcom/android/internal/os/ZygoteSecurityException; {:try_start_50 .. :try_end_9e} :catch_e6
 
     move-result v7
 
@@ -1793,7 +1798,7 @@
     .line 249
     invoke-direct {p0, v5, v2, v1, v4}, Lcom/android/internal/os/ZygoteConnection;->handleChildProc(Lcom/android/internal/os/ZygoteConnection$Arguments;[Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;Ljava/io/PrintStream;)V
     :try_end_a9
-    .catchall {:try_start_a2 .. :try_end_a9} :catchall_da
+    .catchall {:try_start_a2 .. :try_end_a9} :catchall_de
 
     .line 253
     const/4 v11, 0x1
@@ -1802,7 +1807,6 @@
     invoke-static {v1}, Llibcore/io/IoUtils;->closeQuietly(Ljava/io/FileDescriptor;)V
 
     .line 262
-    :goto_ad
     invoke-static {v10}, Llibcore/io/IoUtils;->closeQuietly(Ljava/io/FileDescriptor;)V
 
     goto/16 :goto_11
@@ -1874,16 +1878,20 @@
     .line 258
     invoke-direct {p0, v7, v2, v10, v5}, Lcom/android/internal/os/ZygoteConnection;->handleParentProc(I[Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;Lcom/android/internal/os/ZygoteConnection$Arguments;)Z
     :try_end_d5
-    .catchall {:try_start_ce .. :try_end_d5} :catchall_da
+    .catchall {:try_start_ce .. :try_end_d5} :catchall_de
 
     move-result v11
 
     .line 261
     invoke-static {v1}, Llibcore/io/IoUtils;->closeQuietly(Ljava/io/FileDescriptor;)V
 
-    goto :goto_ad
+    .line 262
+    invoke-static {v10}, Llibcore/io/IoUtils;->closeQuietly(Ljava/io/FileDescriptor;)V
 
-    :catchall_da
+    goto/16 :goto_11
+
+    .line 261
+    :catchall_de
     move-exception v11
 
     invoke-static {v1}, Llibcore/io/IoUtils;->closeQuietly(Ljava/io/FileDescriptor;)V
@@ -1891,13 +1899,12 @@
     .line 262
     invoke-static {v10}, Llibcore/io/IoUtils;->closeQuietly(Ljava/io/FileDescriptor;)V
 
-    .line 261
     throw v11
 
     .line 239
     .end local v5           #parsedArgs:Lcom/android/internal/os/ZygoteConnection$Arguments;
     .restart local v6       #parsedArgs:Lcom/android/internal/os/ZygoteConnection$Arguments;
-    :catch_e2
+    :catch_e6
     move-exception v3
 
     move-object v5, v6
@@ -1909,7 +1916,7 @@
     .line 237
     .end local v5           #parsedArgs:Lcom/android/internal/os/ZygoteConnection$Arguments;
     .restart local v6       #parsedArgs:Lcom/android/internal/os/ZygoteConnection$Arguments;
-    :catch_e5
+    :catch_e9
     move-exception v3
 
     move-object v5, v6
@@ -1921,7 +1928,7 @@
     .line 235
     .end local v5           #parsedArgs:Lcom/android/internal/os/ZygoteConnection$Arguments;
     .restart local v6       #parsedArgs:Lcom/android/internal/os/ZygoteConnection$Arguments;
-    :catch_e8
+    :catch_ec
     move-exception v3
 
     move-object v5, v6
@@ -1933,7 +1940,7 @@
     .line 233
     .end local v5           #parsedArgs:Lcom/android/internal/os/ZygoteConnection$Arguments;
     .restart local v6       #parsedArgs:Lcom/android/internal/os/ZygoteConnection$Arguments;
-    :catch_eb
+    :catch_ef
     move-exception v3
 
     move-object v5, v6

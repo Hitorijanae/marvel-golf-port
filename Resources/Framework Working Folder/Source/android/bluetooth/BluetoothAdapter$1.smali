@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 1193
+    .line 1027
     iput-object p1, p0, Landroid/bluetooth/BluetoothAdapter$1;->this$0:Landroid/bluetooth/BluetoothAdapter;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -40,10 +40,10 @@
     .parameter "msg"
 
     .prologue
-    .line 1196
+    .line 1030
     iget v1, p1, Landroid/os/Message;->what:I
 
-    .line 1200
+    .line 1034
     .local v1, handle:I
     :try_start_2
     iget-object v2, p0, Landroid/bluetooth/BluetoothAdapter$1;->this$0:Landroid/bluetooth/BluetoothAdapter;
@@ -57,11 +57,11 @@
     :try_end_b
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_b} :catch_c
 
-    .line 1202
+    .line 1036
     :goto_b
     return-void
 
-    .line 1201
+    .line 1035
     :catch_c
     move-exception v0
 

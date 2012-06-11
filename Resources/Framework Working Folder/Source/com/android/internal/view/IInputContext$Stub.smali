@@ -48,14 +48,6 @@
 
 .field static final TRANSACTION_getSelectedText:I = 0x15
 
-.field static final TRANSACTION_getSelectionEnd:I = 0x17
-
-.field static final TRANSACTION_getSelectionStart:I = 0x16
-
-.field static final TRANSACTION_getSubText:I = 0x1a
-
-.field static final TRANSACTION_getText:I = 0x19
-
 .field static final TRANSACTION_getTextAfterCursor:I = 0x2
 
 .field static final TRANSACTION_getTextBeforeCursor:I = 0x1
@@ -65,8 +57,6 @@
 .field static final TRANSACTION_performEditorAction:I = 0xc
 
 .field static final TRANSACTION_performPrivateCommand:I = 0x13
-
-.field static final TRANSACTION_replaceText:I = 0x18
 
 .field static final TRANSACTION_reportFullscreenMode:I = 0x10
 
@@ -168,9 +158,9 @@
     const/4 v4, 0x1
 
     .line 43
-    sparse-switch p1, :sswitch_data_250
+    sparse-switch p1, :sswitch_data_1de
 
-    .line 339
+    .line 286
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v4
@@ -844,162 +834,8 @@
 
     goto/16 :goto_8
 
-    .line 287
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:I
-    .end local v2           #_arg2:Lcom/android/internal/view/IInputContextCallback;
-    :sswitch_1de
-    const-string v5, "com.android.internal.view.IInputContext"
-
-    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 289
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/android/internal/view/IInputContextCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputContextCallback;
-
-    move-result-object v0
-
-    .line 290
-    .local v0, _arg0:Lcom/android/internal/view/IInputContextCallback;
-    invoke-virtual {p0, v0}, Lcom/android/internal/view/IInputContext$Stub;->getSelectionStart(Lcom/android/internal/view/IInputContextCallback;)V
-
-    goto/16 :goto_8
-
-    .line 295
-    .end local v0           #_arg0:Lcom/android/internal/view/IInputContextCallback;
-    :sswitch_1f0
-    const-string v5, "com.android.internal.view.IInputContext"
-
-    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 297
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/android/internal/view/IInputContextCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputContextCallback;
-
-    move-result-object v0
-
-    .line 298
-    .restart local v0       #_arg0:Lcom/android/internal/view/IInputContextCallback;
-    invoke-virtual {p0, v0}, Lcom/android/internal/view/IInputContext$Stub;->getSelectionEnd(Lcom/android/internal/view/IInputContextCallback;)V
-
-    goto/16 :goto_8
-
-    .line 303
-    .end local v0           #_arg0:Lcom/android/internal/view/IInputContextCallback;
-    :sswitch_202
-    const-string v5, "com.android.internal.view.IInputContext"
-
-    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 305
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    .line 307
-    .local v0, _arg0:I
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    .line 309
-    .restart local v1       #_arg1:I
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v5
-
-    if-eqz v5, :cond_222
-
-    .line 310
-    sget-object v5, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v5, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/CharSequence;
-
-    .line 315
-    .local v2, _arg2:Ljava/lang/CharSequence;
-    :goto_21d
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/internal/view/IInputContext$Stub;->replaceText(IILjava/lang/CharSequence;)V
-
-    goto/16 :goto_8
-
-    .line 313
-    .end local v2           #_arg2:Ljava/lang/CharSequence;
-    :cond_222
-    const/4 v2, 0x0
-
-    .restart local v2       #_arg2:Ljava/lang/CharSequence;
-    goto :goto_21d
-
-    .line 320
-    .end local v0           #_arg0:I
-    .end local v1           #_arg1:I
-    .end local v2           #_arg2:Ljava/lang/CharSequence;
-    :sswitch_224
-    const-string v5, "com.android.internal.view.IInputContext"
-
-    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 322
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/android/internal/view/IInputContextCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputContextCallback;
-
-    move-result-object v0
-
-    .line 323
-    .local v0, _arg0:Lcom/android/internal/view/IInputContextCallback;
-    invoke-virtual {p0, v0}, Lcom/android/internal/view/IInputContext$Stub;->getText(Lcom/android/internal/view/IInputContextCallback;)V
-
-    goto/16 :goto_8
-
-    .line 328
-    .end local v0           #_arg0:Lcom/android/internal/view/IInputContextCallback;
-    :sswitch_236
-    const-string v5, "com.android.internal.view.IInputContext"
-
-    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 330
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    .line 332
-    .local v0, _arg0:I
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    .line 334
-    .restart local v1       #_arg1:I
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/android/internal/view/IInputContextCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputContextCallback;
-
-    move-result-object v2
-
-    .line 335
-    .local v2, _arg2:Lcom/android/internal/view/IInputContextCallback;
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/internal/view/IInputContext$Stub;->getSubText(IILcom/android/internal/view/IInputContextCallback;)V
-
-    goto/16 :goto_8
-
     .line 43
-    :sswitch_data_250
+    :sswitch_data_1de
     .sparse-switch
         0x1 -> :sswitch_f
         0x2 -> :sswitch_2c
@@ -1022,11 +858,6 @@
         0x13 -> :sswitch_194
         0x14 -> :sswitch_1b2
         0x15 -> :sswitch_1c4
-        0x16 -> :sswitch_1de
-        0x17 -> :sswitch_1f0
-        0x18 -> :sswitch_202
-        0x19 -> :sswitch_224
-        0x1a -> :sswitch_236
         0x5f4e5446 -> :sswitch_9
     .end sparse-switch
 .end method

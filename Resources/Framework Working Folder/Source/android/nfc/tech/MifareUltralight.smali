@@ -57,7 +57,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2c
+    if-nez v2, :cond_2b
 
     invoke-virtual {p1}, Landroid/nfc/Tag;->getId()[B
 
@@ -69,7 +69,7 @@
 
     const/4 v3, 0x4
 
-    if-ne v2, v3, :cond_2c
+    if-ne v2, v3, :cond_2b
 
     .line 112
     invoke-virtual {p1, v4}, Landroid/nfc/Tag;->getTechExtras(I)Landroid/os/Bundle;
@@ -78,13 +78,13 @@
 
     .line 113
     .local v1, extras:Landroid/os/Bundle;
-    const-string/jumbo v2, "isulc"
+    const-string v2, "isulc"
 
     invoke-virtual {v1, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2d
+    if-eqz v2, :cond_2c
 
     .line 114
     const/4 v2, 0x2
@@ -93,18 +93,18 @@
 
     .line 119
     .end local v1           #extras:Landroid/os/Bundle;
-    :cond_2c
-    :goto_2c
+    :cond_2b
+    :goto_2b
     return-void
 
     .line 116
     .restart local v1       #extras:Landroid/os/Bundle;
-    :cond_2d
+    :cond_2c
     const/4 v2, 0x1
 
     iput v2, p0, Landroid/nfc/tech/MifareUltralight;->mType:I
 
-    goto :goto_2c
+    goto :goto_2b
 .end method
 
 .method public static get(Landroid/nfc/Tag;)Landroid/nfc/tech/MifareUltralight;
@@ -254,7 +254,7 @@
     .prologue
     .line 261
     :try_start_0
-    iget-object v1, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
+    iget-object v1, p0, Landroid/nfc/tech/MifareUltralight;->mTag:Landroid/nfc/Tag;
 
     invoke-virtual {v1}, Landroid/nfc/Tag;->getTagService()Landroid/nfc/INfcTag;
 
@@ -376,7 +376,7 @@
     .prologue
     .line 242
     :try_start_0
-    iget-object v2, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
+    iget-object v2, p0, Landroid/nfc/tech/MifareUltralight;->mTag:Landroid/nfc/Tag;
 
     invoke-virtual {v2}, Landroid/nfc/Tag;->getTagService()Landroid/nfc/INfcTag;
 

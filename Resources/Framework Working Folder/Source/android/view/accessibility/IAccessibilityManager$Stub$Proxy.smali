@@ -28,7 +28,7 @@
 
     .prologue
     .line 138
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 139
     iput-object p1, p0, Landroid/view/accessibility/IAccessibilityManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
@@ -135,7 +135,6 @@
     .line 255
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 254
     throw v3
 .end method
 
@@ -222,7 +221,6 @@
     .line 163
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 162
     throw v3
 .end method
 
@@ -318,7 +316,6 @@
     .line 222
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 221
     throw v3
 .end method
 
@@ -400,7 +397,6 @@
     .line 204
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 203
     throw v3
 .end method
 
@@ -473,7 +469,6 @@
     .line 237
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 236
     throw v2
 .end method
 
@@ -553,7 +548,6 @@
     .line 286
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 285
     throw v2
 .end method
 
@@ -633,7 +627,6 @@
     .line 271
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 270
     throw v2
 .end method
 
@@ -736,7 +729,6 @@
     .line 187
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 186
     throw v3
 
     :cond_3d

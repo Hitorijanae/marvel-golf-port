@@ -23,8 +23,8 @@
     .registers 1
 
     .prologue
-    .line 163
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 158
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -36,7 +36,7 @@
     .parameter "e"
 
     .prologue
-    .line 189
+    .line 184
     const/4 v0, 0x0
 
     return v0
@@ -47,7 +47,7 @@
     .parameter "e"
 
     .prologue
-    .line 193
+    .line 188
     const/4 v0, 0x0
 
     return v0
@@ -58,7 +58,7 @@
     .parameter "e"
 
     .prologue
-    .line 185
+    .line 180
     const/4 v0, 0x0
 
     return v0
@@ -72,7 +72,7 @@
     .parameter "velocityY"
 
     .prologue
-    .line 178
+    .line 173
     const/4 v0, 0x0
 
     return v0
@@ -83,7 +83,7 @@
     .parameter "e"
 
     .prologue
-    .line 169
+    .line 164
     return-void
 .end method
 
@@ -95,7 +95,7 @@
     .parameter "distanceY"
 
     .prologue
-    .line 173
+    .line 168
     const/4 v0, 0x0
 
     return v0
@@ -106,7 +106,7 @@
     .parameter "e"
 
     .prologue
-    .line 182
+    .line 177
     return-void
 .end method
 
@@ -115,7 +115,7 @@
     .parameter "e"
 
     .prologue
-    .line 197
+    .line 192
     const/4 v0, 0x0
 
     return v0
@@ -126,7 +126,7 @@
     .parameter "e"
 
     .prologue
-    .line 165
+    .line 160
     const/4 v0, 0x0
 
     return v0

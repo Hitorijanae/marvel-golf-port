@@ -139,7 +139,7 @@
     .line 1088
     iput-object p1, p0, Landroid/widget/GridLayout$Axis;->this$0:Landroid/widget/GridLayout;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 1059
     iput v0, p0, Landroid/widget/GridLayout$Axis;->definedCount:I
@@ -1813,13 +1813,13 @@
     .line 1453
     iget-boolean v10, p0, Landroid/widget/GridLayout$Axis;->horizontal:Z
 
-    if-eqz v10, :cond_27
+    if-eqz v10, :cond_26
 
-    const-string/jumbo v2, "horizontal"
+    const-string v2, "horizontal"
 
     .line 1454
     .local v2, axisName:Ljava/lang/String;
-    :goto_7
+    :goto_6
     invoke-virtual {p0}, Landroid/widget/GridLayout$Axis;->getCount()I
 
     move-result v10
@@ -1835,10 +1835,10 @@
     const/4 v9, 0x0
 
     .local v9, p:I
-    :goto_f
+    :goto_e
     array-length v10, p1
 
-    if-ge v9, v10, :cond_32
+    if-ge v9, v10, :cond_31
 
     .line 1458
     invoke-direct {p0, p2}, Landroid/widget/GridLayout$Axis;->init([I)V
@@ -1847,8 +1847,8 @@
     const/4 v5, 0x0
 
     .local v5, i:I
-    :goto_16
-    if-ge v5, v0, :cond_36
+    :goto_15
+    if-ge v5, v0, :cond_35
 
     .line 1462
     const/4 v3, 0x0
@@ -1861,8 +1861,8 @@
     array-length v7, p1
 
     .local v7, length:I
-    :goto_1b
-    if-ge v6, v7, :cond_2b
+    :goto_1a
+    if-ge v6, v7, :cond_2a
 
     .line 1464
     aget-object v10, p1, v6
@@ -1876,7 +1876,7 @@
     .line 1463
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1b
+    goto :goto_1a
 
     .line 1453
     .end local v0           #N:I
@@ -1887,10 +1887,10 @@
     .end local v7           #length:I
     .end local v8           #originalCulprits:[Z
     .end local v9           #p:I
-    :cond_27
+    :cond_26
     const-string/jumbo v2, "vertical"
 
-    goto :goto_7
+    goto :goto_6
 
     .line 1466
     .restart local v0       #N:I
@@ -1901,11 +1901,11 @@
     .restart local v7       #length:I
     .restart local v8       #originalCulprits:[Z
     .restart local v9       #p:I
-    :cond_2b
-    if-nez v3, :cond_33
+    :cond_2a
+    if-nez v3, :cond_32
 
     .line 1467
-    if-eqz v8, :cond_32
+    if-eqz v8, :cond_31
 
     .line 1468
     invoke-direct {p0, v2, p1, v8}, Landroid/widget/GridLayout$Axis;->logError(Ljava/lang/String;[Landroid/widget/GridLayout$Arc;[Z)V
@@ -1915,7 +1915,7 @@
     .end local v5           #i:I
     .end local v6           #j:I
     .end local v7           #length:I
-    :cond_32
+    :cond_31
     return-void
 
     .line 1461
@@ -1923,16 +1923,16 @@
     .restart local v5       #i:I
     .restart local v6       #j:I
     .restart local v7       #length:I
-    :cond_33
+    :cond_32
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_16
+    goto :goto_15
 
     .line 1474
     .end local v3           #changed:Z
     .end local v6           #j:I
     .end local v7           #length:I
-    :cond_36
+    :cond_35
     array-length v10, p1
 
     new-array v4, v10, [Z
@@ -1941,8 +1941,8 @@
     .local v4, culprits:[Z
     const/4 v5, 0x0
 
-    :goto_3a
-    if-ge v5, v0, :cond_51
+    :goto_39
+    if-ge v5, v0, :cond_50
 
     .line 1476
     const/4 v6, 0x0
@@ -1951,8 +1951,8 @@
     array-length v7, p1
 
     .restart local v7       #length:I
-    :goto_3e
-    if-ge v6, v7, :cond_4e
+    :goto_3d
+    if-ge v6, v7, :cond_4d
 
     .line 1477
     aget-boolean v10, v4, v6
@@ -1970,36 +1970,36 @@
     .line 1476
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_3e
+    goto :goto_3d
 
     .line 1475
-    :cond_4e
+    :cond_4d
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_3a
+    goto :goto_39
 
     .line 1481
     .end local v6           #j:I
     .end local v7           #length:I
-    :cond_51
-    if-nez v9, :cond_54
+    :cond_50
+    if-nez v9, :cond_53
 
     .line 1482
     move-object v8, v4
 
     .line 1485
-    :cond_54
+    :cond_53
     const/4 v5, 0x0
 
-    :goto_55
+    :goto_54
     array-length v10, p1
 
-    if-ge v5, v10, :cond_6e
+    if-ge v5, v10, :cond_6d
 
     .line 1486
     aget-boolean v10, v4, v5
 
-    if-eqz v10, :cond_68
+    if-eqz v10, :cond_67
 
     .line 1487
     aget-object v1, p1, v5
@@ -2014,28 +2014,28 @@
 
     iget v11, v11, Landroid/widget/GridLayout$Interval;->max:I
 
-    if-ge v10, v11, :cond_6b
+    if-ge v10, v11, :cond_6a
 
     .line 1485
     .end local v1           #arc:Landroid/widget/GridLayout$Arc;
-    :cond_68
+    :cond_67
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_55
+    goto :goto_54
 
     .line 1492
     .restart local v1       #arc:Landroid/widget/GridLayout$Arc;
-    :cond_6b
+    :cond_6a
     const/4 v10, 0x0
 
     iput-boolean v10, v1, Landroid/widget/GridLayout$Arc;->valid:Z
 
     .line 1457
     .end local v1           #arc:Landroid/widget/GridLayout$Arc;
-    :cond_6e
+    :cond_6d
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_f
+    goto :goto_e
 .end method
 
 .method private topologicalSort(Ljava/util/List;)[Landroid/widget/GridLayout$Arc;

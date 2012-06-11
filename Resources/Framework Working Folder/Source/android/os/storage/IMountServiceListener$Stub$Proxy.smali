@@ -28,7 +28,7 @@
 
     .prologue
     .line 95
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 96
     iput-object p1, p0, Landroid/os/storage/IMountServiceListener$Stub$Proxy;->mRemote:Landroid/os/IBinder;
@@ -130,7 +130,6 @@
     .line 149
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 148
     throw v2
 .end method
 
@@ -210,6 +209,5 @@
     .line 123
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 122
     throw v2
 .end method

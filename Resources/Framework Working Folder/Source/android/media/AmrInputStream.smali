@@ -131,7 +131,7 @@
 
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
     :try_end_b
-    .catchall {:try_start_2 .. :try_end_b} :catchall_22
+    .catchall {:try_start_2 .. :try_end_b} :catchall_37
 
     .line 109
     :cond_b
@@ -147,7 +147,7 @@
 
     invoke-static {v0}, Landroid/media/AmrInputStream;->GsmAmrEncoderCleanup(I)V
     :try_end_16
-    .catchall {:try_start_d .. :try_end_16} :catchall_4f
+    .catchall {:try_start_d .. :try_end_16} :catchall_26
 
     .line 114
     :cond_16
@@ -160,7 +160,7 @@
 
     invoke-static {v0}, Landroid/media/AmrInputStream;->GsmAmrEncoderDelete(I)V
     :try_end_1f
-    .catchall {:try_start_16 .. :try_end_1f} :catchall_60
+    .catchall {:try_start_16 .. :try_end_1f} :catchall_22
 
     .line 116
     :cond_1f
@@ -169,109 +169,105 @@
     .line 120
     return-void
 
-    .line 109
+    .line 116
     :catchall_22
+    move-exception v0
+
+    iput v2, p0, Landroid/media/AmrInputStream;->mGae:I
+
+    throw v0
+
+    .line 113
+    :catchall_26
+    move-exception v0
+
+    .line 114
+    :try_start_27
+    iget v1, p0, Landroid/media/AmrInputStream;->mGae:I
+
+    if-eqz v1, :cond_30
+
+    iget v1, p0, Landroid/media/AmrInputStream;->mGae:I
+
+    invoke-static {v1}, Landroid/media/AmrInputStream;->GsmAmrEncoderDelete(I)V
+    :try_end_30
+    .catchall {:try_start_27 .. :try_end_30} :catchall_33
+
+    .line 116
+    :cond_30
+    iput v2, p0, Landroid/media/AmrInputStream;->mGae:I
+
+    throw v0
+
+    :catchall_33
+    move-exception v0
+
+    iput v2, p0, Landroid/media/AmrInputStream;->mGae:I
+
+    throw v0
+
+    .line 109
+    :catchall_37
     move-exception v0
 
     iput-object v1, p0, Landroid/media/AmrInputStream;->mInputStream:Ljava/io/InputStream;
 
     .line 111
-    :try_start_25
+    :try_start_3a
     iget v1, p0, Landroid/media/AmrInputStream;->mGae:I
 
-    if-eqz v1, :cond_2e
+    if-eqz v1, :cond_43
 
     iget v1, p0, Landroid/media/AmrInputStream;->mGae:I
 
     invoke-static {v1}, Landroid/media/AmrInputStream;->GsmAmrEncoderCleanup(I)V
-    :try_end_2e
-    .catchall {:try_start_25 .. :try_end_2e} :catchall_3a
+    :try_end_43
+    .catchall {:try_start_3a .. :try_end_43} :catchall_53
 
     .line 114
-    :cond_2e
-    :try_start_2e
+    :cond_43
+    :try_start_43
     iget v1, p0, Landroid/media/AmrInputStream;->mGae:I
 
-    if-eqz v1, :cond_37
+    if-eqz v1, :cond_4c
 
     iget v1, p0, Landroid/media/AmrInputStream;->mGae:I
 
     invoke-static {v1}, Landroid/media/AmrInputStream;->GsmAmrEncoderDelete(I)V
-    :try_end_37
-    .catchall {:try_start_2e .. :try_end_37} :catchall_4b
+    :try_end_4c
+    .catchall {:try_start_43 .. :try_end_4c} :catchall_4f
 
     .line 116
-    :cond_37
-    iput v2, p0, Landroid/media/AmrInputStream;->mGae:I
-
-    .line 109
-    throw v0
-
-    .line 113
-    :catchall_3a
-    move-exception v0
-
-    .line 114
-    :try_start_3b
-    iget v1, p0, Landroid/media/AmrInputStream;->mGae:I
-
-    if-eqz v1, :cond_44
-
-    iget v1, p0, Landroid/media/AmrInputStream;->mGae:I
-
-    invoke-static {v1}, Landroid/media/AmrInputStream;->GsmAmrEncoderDelete(I)V
-    :try_end_44
-    .catchall {:try_start_3b .. :try_end_44} :catchall_47
-
-    .line 116
-    :cond_44
-    iput v2, p0, Landroid/media/AmrInputStream;->mGae:I
-
-    .line 113
-    throw v0
-
-    .line 116
-    :catchall_47
-    move-exception v0
-
+    :cond_4c
     iput v2, p0, Landroid/media/AmrInputStream;->mGae:I
 
     throw v0
 
-    :catchall_4b
-    move-exception v0
-
-    iput v2, p0, Landroid/media/AmrInputStream;->mGae:I
-
-    throw v0
-
-    .line 113
     :catchall_4f
     move-exception v0
 
+    iput v2, p0, Landroid/media/AmrInputStream;->mGae:I
+
+    throw v0
+
+    .line 113
+    :catchall_53
+    move-exception v0
+
     .line 114
-    :try_start_50
+    :try_start_54
     iget v1, p0, Landroid/media/AmrInputStream;->mGae:I
 
-    if-eqz v1, :cond_59
+    if-eqz v1, :cond_5d
 
     iget v1, p0, Landroid/media/AmrInputStream;->mGae:I
 
     invoke-static {v1}, Landroid/media/AmrInputStream;->GsmAmrEncoderDelete(I)V
-    :try_end_59
-    .catchall {:try_start_50 .. :try_end_59} :catchall_5c
+    :try_end_5d
+    .catchall {:try_start_54 .. :try_end_5d} :catchall_60
 
     .line 116
-    :cond_59
-    iput v2, p0, Landroid/media/AmrInputStream;->mGae:I
-
-    .line 113
-    throw v0
-
-    .line 116
-    :catchall_5c
-    move-exception v0
-
+    :cond_5d
     iput v2, p0, Landroid/media/AmrInputStream;->mGae:I
 
     throw v0

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 584
+    .line 590
     iput-object p1, p0, Landroid/widget/NumberPicker$2;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,12 +44,12 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 586
+    .line 592
     invoke-static {}, Landroid/view/inputmethod/InputMethodManager;->peekInstance()Landroid/view/inputmethod/InputMethodManager;
 
     move-result-object v0
 
-    .line 587
+    .line 593
     .local v0, inputMethodManager:Landroid/view/inputmethod/InputMethodManager;
     if-eqz v0, :cond_1c
 
@@ -66,7 +66,7 @@
 
     if-eqz v1, :cond_1c
 
-    .line 588
+    .line 594
     iget-object v1, p0, Landroid/widget/NumberPicker$2;->this$0:Landroid/widget/NumberPicker;
 
     invoke-virtual {v1}, Landroid/widget/NumberPicker;->getWindowToken()Landroid/os/IBinder;
@@ -75,7 +75,7 @@
 
     invoke-virtual {v0, v1, v3}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 590
+    .line 596
     :cond_1c
     iget-object v1, p0, Landroid/widget/NumberPicker$2;->this$0:Landroid/widget/NumberPicker;
 
@@ -86,16 +86,16 @@
 
     invoke-virtual {v1}, Landroid/widget/EditText;->clearFocus()V
 
-    .line 591
+    .line 597
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v1
 
-    const v2, 0x10202c7
+    const v2, 0x10202db
 
     if-ne v1, v2, :cond_35
 
-    .line 592
+    .line 598
     iget-object v1, p0, Landroid/widget/NumberPicker$2;->this$0:Landroid/widget/NumberPicker;
 
     const/4 v2, 0x1
@@ -103,11 +103,11 @@
     #calls: Landroid/widget/NumberPicker;->changeCurrentByOne(Z)V
     invoke-static {v1, v2}, Landroid/widget/NumberPicker;->access$100(Landroid/widget/NumberPicker;Z)V
 
-    .line 596
+    .line 602
     :goto_34
     return-void
 
-    .line 594
+    .line 600
     :cond_35
     iget-object v1, p0, Landroid/widget/NumberPicker$2;->this$0:Landroid/widget/NumberPicker;
 

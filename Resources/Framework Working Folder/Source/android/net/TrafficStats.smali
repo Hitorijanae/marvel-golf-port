@@ -29,7 +29,7 @@
     .line 94
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/net/TrafficStats;->sProfilingLock:Ljava/lang/Object;
 
@@ -41,7 +41,7 @@
 
     .prologue
     .line 42
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -77,7 +77,7 @@
     .parameter "context"
 
     .prologue
-    .line 507
+    .line 502
     const-string/jumbo v3, "netstats"
 
     invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -88,13 +88,13 @@
 
     move-result-object v1
 
-    .line 509
+    .line 504
     .local v1, statsService:Landroid/net/INetworkStatsService;
     invoke-static {}, Landroid/os/Process;->myUid()I
 
     move-result v2
 
-    .line 511
+    .line 506
     .local v2, uid:I
     :try_start_f
     invoke-interface {v1, v2}, Landroid/net/INetworkStatsService;->getDataLayerSnapshotForUid(I)Landroid/net/NetworkStats;
@@ -105,35 +105,17 @@
 
     return-object v3
 
-    .line 512
+    .line 507
     :catch_14
     move-exception v0
 
-    .line 513
+    .line 508
     .local v0, e:Landroid/os/RemoteException;
     new-instance v3, Ljava/lang/RuntimeException;
 
     invoke-direct {v3, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v3
-.end method
-
-.method public static native getInterfaceRxPackets(Ljava/lang/String;)J
-.end method
-
-.method public static native getInterfaceTxPackets(Ljava/lang/String;)J
-.end method
-
-.method public static native getMobilePhoneRxBytes(I)J
-.end method
-
-.method public static native getMobilePhoneRxPackets(I)J
-.end method
-
-.method public static native getMobilePhoneTxBytes(I)J
-.end method
-
-.method public static native getMobilePhoneTxPackets(I)J
 .end method
 
 .method public static native getMobileRxBytes()J

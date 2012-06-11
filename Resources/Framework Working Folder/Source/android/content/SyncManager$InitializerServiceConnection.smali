@@ -38,48 +38,48 @@
     .parameter "handler"
 
     .prologue
-    .line 490
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 449
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 491
+    .line 450
     iput-object p1, p0, Landroid/content/SyncManager$InitializerServiceConnection;->mAccount:Landroid/accounts/Account;
 
-    .line 492
+    .line 451
     iput-object p2, p0, Landroid/content/SyncManager$InitializerServiceConnection;->mAuthority:Ljava/lang/String;
 
-    .line 493
+    .line 452
     iput-object p3, p0, Landroid/content/SyncManager$InitializerServiceConnection;->mContext:Landroid/content/Context;
 
-    .line 494
+    .line 453
     iput-object p4, p0, Landroid/content/SyncManager$InitializerServiceConnection;->mHandler:Landroid/os/Handler;
 
-    .line 495
+    .line 454
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/content/SyncManager$InitializerServiceConnection;->mInitialized:Z
 
-    .line 496
+    .line 455
     return-void
 .end method
 
-.method static synthetic access$700(Landroid/content/SyncManager$InitializerServiceConnection;)Landroid/content/Context;
+.method static synthetic access$800(Landroid/content/SyncManager$InitializerServiceConnection;)Landroid/content/Context;
     .registers 2
     .parameter "x0"
 
     .prologue
-    .line 482
+    .line 441
     iget-object v0, p0, Landroid/content/SyncManager$InitializerServiceConnection;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
 
-.method static synthetic access$702(Landroid/content/SyncManager$InitializerServiceConnection;Landroid/content/Context;)Landroid/content/Context;
+.method static synthetic access$802(Landroid/content/SyncManager$InitializerServiceConnection;Landroid/content/Context;)Landroid/content/Context;
     .registers 2
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 482
+    .line 441
     iput-object p1, p0, Landroid/content/SyncManager$InitializerServiceConnection;->mContext:Landroid/content/Context;
 
     return-object p1
@@ -95,18 +95,18 @@
     .prologue
     const-wide/16 v4, 0x1388
 
-    .line 500
+    .line 459
     :try_start_2
     iget-boolean v1, p0, Landroid/content/SyncManager$InitializerServiceConnection;->mInitialized:Z
 
     if-nez v1, :cond_43
 
-    .line 501
+    .line 460
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/content/SyncManager$InitializerServiceConnection;->mInitialized:Z
 
-    .line 502
+    .line 461
     const-string v1, "SyncManager"
 
     const/4 v2, 0x2
@@ -117,7 +117,7 @@
 
     if-eqz v1, :cond_38
 
-    .line 503
+    .line 462
     const-string v1, "SyncManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -154,7 +154,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 505
+    .line 464
     :cond_38
     invoke-static {p2}, Landroid/content/ISyncAdapter$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/ISyncAdapter;
 
@@ -166,10 +166,10 @@
 
     invoke-interface {v1, v2, v3}, Landroid/content/ISyncAdapter;->initialize(Landroid/accounts/Account;Ljava/lang/String;)V
     :try_end_43
-    .catchall {:try_start_2 .. :try_end_43} :catchall_7d
+    .catchall {:try_start_2 .. :try_end_43} :catchall_80
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_43} :catch_4e
 
-    .line 514
+    .line 473
     :cond_43
     iget-object v1, p0, Landroid/content/SyncManager$InitializerServiceConnection;->mHandler:Landroid/os/Handler;
 
@@ -177,17 +177,17 @@
 
     invoke-direct {v2, p0}, Landroid/content/SyncManager$InitializerServiceConnection$1;-><init>(Landroid/content/SyncManager$InitializerServiceConnection;)V
 
-    :goto_4a
     invoke-virtual {v1, v2, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 523
+    .line 482
+    :goto_4d
     return-void
 
-    .line 507
+    .line 466
     :catch_4e
     move-exception v0
 
-    .line 509
+    .line 468
     .local v0, e:Landroid/os/RemoteException;
     :try_start_4f
     const-string v1, "SyncManager"
@@ -226,19 +226,21 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_75
-    .catchall {:try_start_4f .. :try_end_75} :catchall_7d
+    .catchall {:try_start_4f .. :try_end_75} :catchall_80
 
-    .line 514
+    .line 473
     iget-object v1, p0, Landroid/content/SyncManager$InitializerServiceConnection;->mHandler:Landroid/os/Handler;
 
     new-instance v2, Landroid/content/SyncManager$InitializerServiceConnection$1;
 
     invoke-direct {v2, p0}, Landroid/content/SyncManager$InitializerServiceConnection$1;-><init>(Landroid/content/SyncManager$InitializerServiceConnection;)V
 
-    goto :goto_4a
+    invoke-virtual {v1, v2, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    goto :goto_4d
 
     .end local v0           #e:Landroid/os/RemoteException;
-    :catchall_7d
+    :catchall_80
     move-exception v1
 
     iget-object v2, p0, Landroid/content/SyncManager$InitializerServiceConnection;->mHandler:Landroid/os/Handler;
@@ -257,22 +259,22 @@
     .parameter "name"
 
     .prologue
-    .line 526
+    .line 485
     iget-object v0, p0, Landroid/content/SyncManager$InitializerServiceConnection;->mContext:Landroid/content/Context;
 
     if-eqz v0, :cond_c
 
-    .line 527
+    .line 486
     iget-object v0, p0, Landroid/content/SyncManager$InitializerServiceConnection;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0, p0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
-    .line 528
+    .line 487
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/content/SyncManager$InitializerServiceConnection;->mContext:Landroid/content/Context;
 
-    .line 530
+    .line 489
     :cond_c
     return-void
 .end method

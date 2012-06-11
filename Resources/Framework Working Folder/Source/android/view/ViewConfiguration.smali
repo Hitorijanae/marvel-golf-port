@@ -141,7 +141,7 @@
     const/16 v0, 0xc
 
     .line 251
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 252
     iput v0, p0, Landroid/view/ViewConfiguration;->mEdgeSlop:I
@@ -223,7 +223,7 @@
     const/high16 v11, 0x3f00
 
     .line 279
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 280
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -640,7 +640,7 @@
 
     .prologue
     .line 406
-    const-string/jumbo v0, "long_press_timeout"
+    const-string v0, "long_press_timeout"
 
     const/16 v1, 0x1f4
 

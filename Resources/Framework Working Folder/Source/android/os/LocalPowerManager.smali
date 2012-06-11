@@ -6,17 +6,9 @@
 # static fields
 .field public static final BUTTON_EVENT:I = 0x1
 
-.field public static final KEYPAD_EVENT:I = 0x7
-
 .field public static final OTHER_EVENT:I = 0x0
 
-.field public static final PEN_EVENT:I = 0x6
-
 .field public static final POKE_LOCK_IGNORE_TOUCH_EVENTS:I = 0x1
-
-.field public static final POKE_LOCK_LONGEST_TIMEOUT:I = 0x20
-
-.field public static final POKE_LOCK_LONG_TIMEOUT:I = 0x10
 
 .field public static final POKE_LOCK_MEDIUM_TIMEOUT:I = 0x4
 

@@ -349,7 +349,6 @@
     :cond_61
     move-object v13, v12
 
-    .line 451
     .end local v12           #result:Landroid/net/Downloads$StatusInfo;
     .restart local v13       #result:Landroid/net/Downloads$StatusInfo;
     goto :goto_25
@@ -419,7 +418,6 @@
     .line 460
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 459
     :cond_85
     throw v2
 .end method

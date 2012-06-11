@@ -17,7 +17,7 @@
 
     .prologue
     .line 30
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 116
     return-void
@@ -381,7 +381,7 @@
     if-eqz v1, :cond_46
 
     .line 78
-    invoke-virtual {v8}, Ljava/nio/ByteBuffer;->remaining()I
+    invoke-virtual {v8}, Ljava/nio/Buffer;->remaining()I
 
     move-result v7
 
@@ -611,7 +611,7 @@
 
     .local v5, i:I
     :goto_36
-    if-ge v5, v2, :cond_4e
+    if-ge v5, v2, :cond_49
 
     .line 219
     array-length v9, v6
@@ -633,7 +633,7 @@
 
     invoke-virtual {p1, v6, v9, v0}, Ljava/io/OutputStream;->write([BII)V
     :try_end_47
-    .catchall {:try_start_8 .. :try_end_47} :catchall_49
+    .catchall {:try_start_8 .. :try_end_47} :catchall_4d
 
     .line 222
     add-int/2addr v5, v0
@@ -643,28 +643,23 @@
 
     .line 225
     .end local v0           #chunkSize:I
+    :cond_49
+    invoke-virtual {v1, v7}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+
+    .line 227
+    return-void
+
+    .line 225
     .end local v2           #encodedSize:I
     .end local v3           #header:Ljava/nio/ByteBuffer;
     .end local v4           #height:I
     .end local v5           #i:I
     .end local v6           #ioBuffer:[B
     .end local v8           #width:I
-    :catchall_49
+    :catchall_4d
     move-exception v9
 
     invoke-virtual {v1, v7}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     throw v9
-
-    .restart local v2       #encodedSize:I
-    .restart local v3       #header:Ljava/nio/ByteBuffer;
-    .restart local v4       #height:I
-    .restart local v5       #i:I
-    .restart local v6       #ioBuffer:[B
-    .restart local v8       #width:I
-    :cond_4e
-    invoke-virtual {v1, v7}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
-
-    .line 227
-    return-void
 .end method

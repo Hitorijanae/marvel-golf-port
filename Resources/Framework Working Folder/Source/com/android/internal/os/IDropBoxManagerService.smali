@@ -23,14 +23,6 @@
     .end annotation
 .end method
 
-.method public abstract addWithTime(Landroid/os/DropBoxManager$Entry;J)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getNextEntry(Ljava/lang/String;J)Landroid/os/DropBoxManager$Entry;
     .annotation system Ldalvik/annotation/Throws;
         value = {

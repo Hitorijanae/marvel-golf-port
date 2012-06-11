@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 137
+    .line 138
     iput-object p1, p0, Landroid/widget/SearchView$1;->this$0:Landroid/widget/SearchView;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,14 +41,14 @@
     .registers 4
 
     .prologue
-    .line 139
+    .line 140
     iget-object v1, p0, Landroid/widget/SearchView$1;->this$0:Landroid/widget/SearchView;
 
     invoke-virtual {v1}, Landroid/widget/SearchView;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    const-string/jumbo v2, "input_method"
+    const-string v2, "input_method"
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -56,18 +56,18 @@
 
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 142
-    .local v0, imm:Landroid/view/inputmethod/InputMethodManager;
-    if-eqz v0, :cond_16
-
     .line 143
+    .local v0, imm:Landroid/view/inputmethod/InputMethodManager;
+    if-eqz v0, :cond_15
+
+    .line 144
     const/4 v1, 0x0
 
     const/4 v2, 0x0
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->showSoftInputUnchecked(ILandroid/os/ResultReceiver;)V
 
-    .line 145
-    :cond_16
+    .line 146
+    :cond_15
     return-void
 .end method

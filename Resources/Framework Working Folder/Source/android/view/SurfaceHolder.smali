@@ -16,9 +16,9 @@
 # static fields
 .field public static final STEREOSCOPIC_3D_FORMAT_INTERLEAVED:I = 0x40000
 
-.field public static final STEREOSCOPIC_3D_FORMAT_OFF:I = 0x0
+.field public static final STEREOSCOPIC_3D_FORMAT_SIDE_BY_SIDE_HALF_L_R:I = 0x10000
 
-.field public static final STEREOSCOPIC_3D_FORMAT_SIDE_BY_SIDE:I = 0x10000
+.field public static final STEREOSCOPIC_3D_FORMAT_SIDE_BY_SIDE_R_L:I = 0x80000
 
 .field public static final STEREOSCOPIC_3D_FORMAT_TOP_BOTTOM:I = 0x20000
 
@@ -65,9 +65,6 @@
 .method public abstract removeCallback(Landroid/view/SurfaceHolder$Callback;)V
 .end method
 
-.method public abstract setExternalDisplay(I)V
-.end method
-
 .method public abstract setFixedSize(II)V
 .end method
 
@@ -78,9 +75,6 @@
 .end method
 
 .method public abstract setSizeFromLayout()V
-.end method
-
-.method public abstract setStereoscopic3DFormat(I)V
 .end method
 
 .method public abstract setType(I)V

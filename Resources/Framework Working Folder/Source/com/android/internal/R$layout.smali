@@ -109,18 +109,6 @@
 
 .field public static final heavy_weight_switcher:I = 0x1090043
 
-.field public static final htc_list_item_2text_2stamp:I = 0x10900e5
-
-.field public static final htc_list_item_2text_bright:I = 0x10900e6
-
-.field public static final htc_list_item_image_2text_image_bright:I = 0x10900e7
-
-.field public static final htc_list_item_imageicon_2text_2stamp:I = 0x10900e8
-
-.field public static final htc_list_item_imageicon_text:I = 0x10900e9
-
-.field public static final htc_list_item_separator:I = 0x10900ea
-
 .field public static final icon_menu_item_layout:I = 0x1090044
 
 .field public static final icon_menu_layout:I = 0x1090045
@@ -136,8 +124,6 @@
 .field public static final keyboard_popup_keyboard:I = 0x109004a
 
 .field public static final keyguard:I = 0x109004b
-
-.field public static final keyguard_screen_device_unlock:I = 0x10900eb
 
 .field public static final keyguard_screen_glogin_unlock:I = 0x109004c
 
@@ -196,8 +182,6 @@
 .field public static final permissions_account_and_authtokentype:I = 0x1090066
 
 .field public static final permissions_package_list_item:I = 0x1090067
-
-.field public static final pin_keyboard:I = 0x10900ec
 
 .field public static final popup_menu_item_layout:I = 0x1090068
 
@@ -403,100 +387,14 @@
 
 .field public static final zoom_magnify:I = 0x10900b9
 
-.field public static final zzz_fragment_bread_crumb_item:I = 0x10900ba
-
-.field public static final zzz_fragment_bread_crumbs:I = 0x10900bb
-
-.field public static final zzz_preference:I = 0x10900bc
-
-.field public static final zzz_preference_category:I = 0x10900bd
-
-.field public static final zzz_preference_category_holo:I = 0x10900be
-
-.field public static final zzz_preference_dialog:I = 0x10900bf
-
-.field public static final zzz_preference_dialog_edittext:I = 0x10900c0
-
-.field public static final zzz_preference_header_item:I = 0x10900c1
-
-.field public static final zzz_preference_inverse:I = 0x10900c2
-
-.field public static final zzz_preference_list_content:I = 0x10900c3
-
-.field public static final zzz_preference_list_content_single:I = 0x10900c4
-
-.field public static final zzz_preference_widget_seekbar:I = 0x10900c5
-
-.field public static final zzz_seekbar_dialog:I = 0x10900c6
-
-.field public static final zzz_sms_roaming_guard_dlg:I = 0x10900c7
-
-.field public static final zzz_sms_roaming_guide_dlg:I = 0x10900c8
-
-.field public static final zzz_status_bar_content_two_lines:I = 0x10900c9
-
-.field public static final zzz_status_bar_content_two_lines_original:I = 0x10900ca
-
-.field public static final zzz_volume_adjust:I = 0x10900cb
-
-.field public static final zzz_volume_adjust_item:I = 0x10900cc
-
-.field public static final zzz_wireless_display_notify:I = 0x10900cd
-
-.field public static final zzzhtc_alert_dialog_holo:I = 0x10900ce
-
-.field public static final zzzz_action_menu_item_layout:I = 0x10900cf
-
-.field public static final zzzz_action_menu_overflow_layout:I = 0x10900d0
-
-.field public static final zzzz_character_picker:I = 0x10900d1
-
-.field public static final zzzz_character_picker_button:I = 0x10900d2
-
-.field public static final zzzz_htc_list_item_2text_2stamp:I = 0x10900d3
-
-.field public static final zzzz_htc_list_item_2text_bright:I = 0x10900d4
-
-.field public static final zzzz_htc_list_item_image_2text_image_bright:I = 0x10900d5
-
-.field public static final zzzz_htc_list_item_imageicon_2text_2stamp:I = 0x10900d6
-
-.field public static final zzzz_htc_list_item_imageicon_text:I = 0x10900d7
-
-.field public static final zzzz_htc_list_item_separator:I = 0x10900d8
-
-.field public static final zzzz_keyguard_screen_device_unlock:I = 0x10900d9
-
-.field public static final zzzz_keyguard_screen_password_landscape:I = 0x10900da
-
-.field public static final zzzz_keyguard_screen_password_portrait:I = 0x10900db
-
-.field public static final zzzz_keyguard_screen_sim_pin_landscape:I = 0x10900dc
-
-.field public static final zzzz_keyguard_screen_sim_pin_portrait:I = 0x10900dd
-
-.field public static final zzzz_pin_keyboard:I = 0x10900de
-
-.field public static final zzzz_search_bar:I = 0x10900df
-
-.field public static final zzzz_select_dialog_multichoice:I = 0x10900e0
-
-.field public static final zzzz_select_dialog_singlechoice:I = 0x10900e1
-
-.field public static final zzzz_status_bar_content_two_lines:I = 0x10900e2
-
-.field public static final zzzz_string_picker:I = 0x10900e3
-
-.field public static final zzzz_string_picker_button:I = 0x10900e4
-
 
 # direct methods
 .method public constructor <init>()V
     .registers 1
 
     .prologue
-    .line 16814
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 14743
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

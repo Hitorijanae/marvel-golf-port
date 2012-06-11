@@ -33,7 +33,7 @@
     const/4 v0, 0x0
 
     .line 57
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 48
     iput v0, p0, Landroid/database/sqlite/SQLiteCompiledSql;->nStatement:I
@@ -158,16 +158,15 @@
     :try_start_2
     iget v2, p0, Landroid/database/sqlite/SQLiteCompiledSql;->nStatement:I
     :try_end_4
-    .catchall {:try_start_2 .. :try_end_4} :catchall_48
+    .catchall {:try_start_2 .. :try_end_4} :catchall_4f
 
     if-nez v2, :cond_a
 
     .line 129
-    :cond_6
-    :goto_6
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
     .line 131
+    :goto_9
     return-void
 
     .line 112
@@ -178,19 +177,28 @@
     iget v3, p0, Landroid/database/sqlite/SQLiteCompiledSql;->nStatement:I
 
     invoke-virtual {v2, v3}, Landroid/database/sqlite/SQLiteDatabase;->isInQueueOfStatementsToBeFinalized(I)Z
+    :try_end_11
+    .catchall {:try_start_a .. :try_end_11} :catchall_4f
 
     move-result v2
 
-    if-nez v2, :cond_6
+    if-eqz v2, :cond_18
+
+    .line 129
+    invoke-super {p0}, Ljava/lang/Object;->finalize()V
+
+    goto :goto_9
 
     .line 119
+    :cond_18
+    :try_start_18
     iget-boolean v2, p0, Landroid/database/sqlite/SQLiteCompiledSql;->mInUse:Z
 
-    if-eqz v2, :cond_44
+    if-eqz v2, :cond_48
 
     iget-object v2, p0, Landroid/database/sqlite/SQLiteCompiledSql;->mStackTrace:Ljava/lang/Throwable;
 
-    if-eqz v2, :cond_44
+    if-eqz v2, :cond_48
 
     .line 120
     iget-object v2, p0, Landroid/database/sqlite/SQLiteCompiledSql;->mSqlStmt:Ljava/lang/String;
@@ -215,12 +223,12 @@
 
     const/4 v4, 0x0
 
-    if-le v0, v1, :cond_33
+    if-le v0, v1, :cond_37
 
     move v0, v1
 
     .end local v0           #len:I
-    :cond_33
+    :cond_37
     invoke-virtual {v3, v4, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v1
@@ -238,15 +246,17 @@
     invoke-static {v1, v2}, Landroid/os/StrictMode;->onSqliteObjectLeaked(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 127
-    :cond_44
+    :cond_48
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteCompiledSql;->releaseSqlStatement()V
-    :try_end_47
-    .catchall {:try_start_a .. :try_end_47} :catchall_48
-
-    goto :goto_6
+    :try_end_4b
+    .catchall {:try_start_18 .. :try_end_4b} :catchall_4f
 
     .line 129
-    :catchall_48
+    invoke-super {p0}, Ljava/lang/Object;->finalize()V
+
+    goto :goto_9
+
+    :catchall_4f
     move-exception v1
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V

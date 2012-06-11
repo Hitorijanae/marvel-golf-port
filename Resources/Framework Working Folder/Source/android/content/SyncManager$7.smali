@@ -1,6 +1,9 @@
 .class Landroid/content/SyncManager$7;
-.super Landroid/content/ISyncStatusObserver$Stub;
+.super Ljava/lang/Object;
 .source "SyncManager.java"
+
+# interfaces
+.implements Landroid/content/pm/RegisteredServicesCacheListener;
 
 
 # annotations
@@ -11,6 +14,16 @@
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x0
     name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Landroid/content/pm/RegisteredServicesCacheListener",
+        "<",
+        "Landroid/content/SyncAdapterType;",
+        ">;"
+    }
 .end annotation
 
 
@@ -24,27 +37,56 @@
     .parameter
 
     .prologue
-    .line 414
+    .line 317
     iput-object p1, p0, Landroid/content/SyncManager$7;->this$0:Landroid/content/SyncManager;
 
-    invoke-direct {p0}, Landroid/content/ISyncStatusObserver$Stub;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onStatusChanged(I)V
-    .registers 3
-    .parameter "which"
+.method public onServiceChanged(Landroid/content/SyncAdapterType;Z)V
+    .registers 10
+    .parameter "type"
+    .parameter "removed"
 
     .prologue
-    .line 417
+    const/4 v1, 0x0
+
+    .line 319
+    if-nez p2, :cond_e
+
+    .line 320
     iget-object v0, p0, Landroid/content/SyncManager$7;->this$0:Landroid/content/SyncManager;
 
-    #calls: Landroid/content/SyncManager;->sendCheckAlarmsMessage()V
-    invoke-static {v0}, Landroid/content/SyncManager;->access$100(Landroid/content/SyncManager;)V
+    iget-object v2, p1, Landroid/content/SyncAdapterType;->authority:Ljava/lang/String;
 
-    .line 418
+    const-wide/16 v4, 0x0
+
+    const/4 v6, 0x0
+
+    move-object v3, v1
+
+    invoke-virtual/range {v0 .. v6}, Landroid/content/SyncManager;->scheduleSync(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;JZ)V
+
+    .line 323
+    :cond_e
+    return-void
+.end method
+
+.method public bridge synthetic onServiceChanged(Ljava/lang/Object;Z)V
+    .registers 3
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 317
+    check-cast p1, Landroid/content/SyncAdapterType;
+
+    .end local p1
+    invoke-virtual {p0, p1, p2}, Landroid/content/SyncManager$7;->onServiceChanged(Landroid/content/SyncAdapterType;Z)V
+
     return-void
 .end method

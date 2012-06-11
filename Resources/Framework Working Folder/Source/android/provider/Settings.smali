@@ -6,8 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/provider/Settings$HTCservices;,
-        Landroid/provider/Settings$Gservices;,
         Landroid/provider/Settings$Bookmarks;,
         Landroid/provider/Settings$Secure;,
         Landroid/provider/Settings$System;,
@@ -67,8 +65,6 @@
 
 .field public static final ACTION_QUICK_LAUNCH_SETTINGS:Ljava/lang/String; = "android.settings.QUICK_LAUNCH_SETTINGS"
 
-.field public static final ACTION_RESOLUTION_PICKER:Ljava/lang/String; = "com.htc.content.intent.action.Resolution_dialog"
-
 .field public static final ACTION_SEARCH_SETTINGS:Ljava/lang/String; = "android.search.action.SEARCH_SETTINGS"
 
 .field public static final ACTION_SECURITY_SETTINGS:Ljava/lang/String; = "android.settings.SECURITY_SETTINGS"
@@ -82,8 +78,6 @@
 .field public static final ACTION_SYNC_SETTINGS:Ljava/lang/String; = "android.settings.SYNC_SETTINGS"
 
 .field public static final ACTION_SYSTEM_UPDATE_SETTINGS:Ljava/lang/String; = "android.settings.SYSTEM_UPDATE_SETTINGS"
-
-.field public static final ACTION_UAK_KEY_HAPPEN:Ljava/lang/String; = "ACTION_UAK_TRIGGLE"
 
 .field public static final ACTION_USER_DICTIONARY_INSERT:Ljava/lang/String; = "com.android.settings.USER_DICTIONARY_INSERT"
 
@@ -101,27 +95,15 @@
 
 .field public static final CALL_METHOD_GET_SYSTEM:Ljava/lang/String; = "GET_system"
 
-.field public static final DISPLAY_RESOLUTION_TYPE_480P:I = 0x2
-
-.field public static final DISPLAY_RESOLUTION_TYPE_720P:I = 0x1
-
-.field public static final DISPLAY_RESOLUTION_TYPE_AUTO:I = 0x0
-
-.field public static final DISPLAY_RESOLUTION_TYPE_START:I = -0x1
-
 .field public static final EXTRA_AUTHORITIES:Ljava/lang/String; = "authorities"
 
 .field public static final EXTRA_INPUT_METHOD_ID:Ljava/lang/String; = "input_method_id"
 
-.field public static final EXTRA_RESOLUTION_TYPE:Ljava/lang/String; = "com.htc.content.intent.extra.Extra_DEF_TYPE"
-
-.field public static final EXTRA_UAK_KEY_EVENT_LONGPRESS:Ljava/lang/String; = "EXTRA_UAK_KEY_EVENT_LONGPRESS"
-
-.field public static final EXTRA_UAK_KEY_TYPE:Ljava/lang/String; = "EXTRA_UAK_KEY_TYPE"
-
 .field private static final JID_RESOURCE_PREFIX:Ljava/lang/String; = "android"
 
 .field private static final LOCAL_LOGV:Z = false
+
+.field public static final SETTINGS_CHANGED:Ljava/lang/String; = "android.settings.SETTINGS_CHANGED_ACTION"
 
 .field private static final TAG:Ljava/lang/String; = "Settings"
 
@@ -131,260 +113,11 @@
     .registers 1
 
     .prologue
-    .line 84
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 54
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 7959
+    .line 4811
     return-void
-.end method
-
-.method private static Log(Ljava/lang/String;)V
-    .registers 2
-    .parameter "message"
-
-    .prologue
-    .line 8291
-    const-string v0, "Settings"
-
-    invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 8292
-    return-void
-.end method
-
-.method static synthetic access$000(Ljava/lang/String;)V
-    .registers 1
-    .parameter "x0"
-
-    .prologue
-    .line 84
-    invoke-static {p0}, Landroid/provider/Settings;->Log(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method private static getCommandResult(Ljava/lang/String;)Ljava/lang/String;
-    .registers 10
-    .parameter "command"
-
-    .prologue
-    .line 8244
-    new-instance v1, Ljava/lang/StringBuffer;
-
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
-
-    .line 8245
-    .local v1, content:Ljava/lang/StringBuffer;
-    new-instance v3, Ljava/lang/StringBuffer;
-
-    invoke-direct {v3}, Ljava/lang/StringBuffer;-><init>()V
-
-    .line 8249
-    .local v3, error:Ljava/lang/StringBuffer;
-    :try_start_a
-    invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p0}, Ljava/lang/Runtime;->exec(Ljava/lang/String;)Ljava/lang/Process;
-
-    move-result-object v5
-
-    .line 8252
-    .local v5, process:Ljava/lang/Process;
-    new-instance v0, Ljava/io/BufferedReader;
-
-    new-instance v6, Ljava/io/InputStreamReader;
-
-    invoke-virtual {v5}, Ljava/lang/Process;->getInputStream()Ljava/io/InputStream;
-
-    move-result-object v7
-
-    invoke-direct {v6, v7}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
-
-    invoke-direct {v0, v6}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
-
-    .line 8254
-    .local v0, br:Ljava/io/BufferedReader;
-    :goto_20
-    invoke-virtual {v0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
-
-    move-result-object v4
-
-    .local v4, line:Ljava/lang/String;
-    if-eqz v4, :cond_3f
-
-    .line 8255
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    .line 8256
-    const-string v6, "\n"
-
-    invoke-virtual {v1, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-    :try_end_2e
-    .catch Ljava/io/IOException; {:try_start_a .. :try_end_2e} :catch_2f
-    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_2e} :catch_5f
-
-    goto :goto_20
-
-    .line 8274
-    .end local v0           #br:Ljava/io/BufferedReader;
-    .end local v4           #line:Ljava/lang/String;
-    .end local v5           #process:Ljava/lang/Process;
-    :catch_2f
-    move-exception v2
-
-    .line 8275
-    .local v2, e:Ljava/io/IOException;
-    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
-
-    .line 8276
-    const-string v6, "Settings"
-
-    const-string v7, "getCommandResults() got an IOException!"
-
-    invoke-static {v6, v7, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 8282
-    .end local v2           #e:Ljava/io/IOException;
-    :cond_3a
-    :goto_3a
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    return-object v6
-
-    .line 8258
-    .restart local v0       #br:Ljava/io/BufferedReader;
-    .restart local v4       #line:Ljava/lang/String;
-    .restart local v5       #process:Ljava/lang/Process;
-    :cond_3f
-    :try_start_3f
-    invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
-
-    .line 8261
-    new-instance v0, Ljava/io/BufferedReader;
-
-    .end local v0           #br:Ljava/io/BufferedReader;
-    new-instance v6, Ljava/io/InputStreamReader;
-
-    invoke-virtual {v5}, Ljava/lang/Process;->getErrorStream()Ljava/io/InputStream;
-
-    move-result-object v7
-
-    invoke-direct {v6, v7}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
-
-    invoke-direct {v0, v6}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
-
-    .line 8263
-    .restart local v0       #br:Ljava/io/BufferedReader;
-    :goto_50
-    invoke-virtual {v0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_6b
-
-    .line 8264
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    .line 8265
-    const-string v6, "\n"
-
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-    :try_end_5e
-    .catch Ljava/io/IOException; {:try_start_3f .. :try_end_5e} :catch_2f
-    .catch Ljava/lang/Exception; {:try_start_3f .. :try_end_5e} :catch_5f
-
-    goto :goto_50
-
-    .line 8277
-    .end local v0           #br:Ljava/io/BufferedReader;
-    .end local v4           #line:Ljava/lang/String;
-    .end local v5           #process:Ljava/lang/Process;
-    :catch_5f
-    move-exception v2
-
-    .line 8278
-    .local v2, e:Ljava/lang/Exception;
-    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
-
-    .line 8279
-    const-string v6, "Settings"
-
-    const-string v7, "getCommandResults() got an Exception!"
-
-    invoke-static {v6, v7, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_3a
-
-    .line 8267
-    .end local v2           #e:Ljava/lang/Exception;
-    .restart local v0       #br:Ljava/io/BufferedReader;
-    .restart local v4       #line:Ljava/lang/String;
-    .restart local v5       #process:Ljava/lang/Process;
-    :cond_6b
-    :try_start_6b
-    invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
-
-    .line 8270
-    invoke-virtual {v3}, Ljava/lang/StringBuffer;->length()I
-
-    move-result v6
-
-    if-lez v6, :cond_3a
-
-    .line 8271
-    const-string v6, "Settings"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "Failed to execute the command: "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 8272
-    const-string v6, "Settings"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "Error: \n"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_a4
-    .catch Ljava/io/IOException; {:try_start_6b .. :try_end_a4} :catch_2f
-    .catch Ljava/lang/Exception; {:try_start_6b .. :try_end_a4} :catch_5f
-
-    goto :goto_3a
 .end method
 
 .method public static getGTalkDeviceId(J)Ljava/lang/String;
@@ -392,7 +125,7 @@
     .parameter "androidId"
 
     .prologue
-    .line 8308
+    .line 5016
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -416,12 +149,4 @@
     move-result-object v0
 
     return-object v0
-.end method
-
-.method private static traceCallingStack()V
-    .registers 0
-
-    .prologue
-    .line 8163
-    return-void
 .end method

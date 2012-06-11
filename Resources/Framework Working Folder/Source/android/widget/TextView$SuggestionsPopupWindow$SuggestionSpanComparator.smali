@@ -37,10 +37,10 @@
     .parameter
 
     .prologue
-    .line 10711
+    .line 9679
     iput-object p1, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionSpanComparator;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -51,7 +51,7 @@
     .parameter "x1"
 
     .prologue
-    .line 10711
+    .line 9679
     invoke-direct {p0, p1}, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionSpanComparator;-><init>(Landroid/widget/TextView$SuggestionsPopupWindow;)V
 
     return-void
@@ -71,29 +71,29 @@
 
     const/4 v7, 0x1
 
-    .line 10713
+    .line 9681
     invoke-virtual {p1}, Landroid/text/style/SuggestionSpan;->getFlags()I
 
     move-result v2
 
-    .line 10714
+    .line 9682
     .local v2, flag1:I
     invoke-virtual {p2}, Landroid/text/style/SuggestionSpan;->getFlags()I
 
     move-result v3
 
-    .line 10715
+    .line 9683
     .local v3, flag2:I
     if-eq v2, v3, :cond_38
 
-    .line 10717
+    .line 9685
     and-int/lit8 v8, v2, 0x1
 
     if-eqz v8, :cond_26
 
     move v0, v7
 
-    .line 10718
+    .line 9686
     .local v0, easy1:Z
     :goto_12
     and-int/lit8 v8, v3, 0x1
@@ -102,7 +102,7 @@
 
     move v1, v7
 
-    .line 10719
+    .line 9687
     .local v1, easy2:Z
     :goto_17
     and-int/lit8 v8, v2, 0x2
@@ -111,7 +111,7 @@
 
     move v4, v7
 
-    .line 10720
+    .line 9688
     .local v4, misspelled1:Z
     :goto_1c
     and-int/lit8 v8, v3, 0x2
@@ -120,14 +120,14 @@
 
     move v5, v7
 
-    .line 10721
+    .line 9689
     .local v5, misspelled2:Z
     :cond_21
     if-eqz v0, :cond_2c
 
     if-nez v4, :cond_2c
 
-    .line 10727
+    .line 9695
     .end local v0           #easy1:Z
     .end local v1           #easy2:Z
     .end local v4           #misspelled1:Z
@@ -139,24 +139,24 @@
     :cond_26
     move v0, v5
 
-    .line 10717
+    .line 9685
     goto :goto_12
 
     .restart local v0       #easy1:Z
     :cond_28
     move v1, v5
 
-    .line 10718
+    .line 9686
     goto :goto_17
 
     .restart local v1       #easy2:Z
     :cond_2a
     move v4, v5
 
-    .line 10719
+    .line 9687
     goto :goto_1c
 
-    .line 10722
+    .line 9690
     .restart local v4       #misspelled1:Z
     .restart local v5       #misspelled2:Z
     :cond_2c
@@ -168,18 +168,18 @@
 
     goto :goto_25
 
-    .line 10723
+    .line 9691
     :cond_32
     if-nez v4, :cond_25
 
-    .line 10724
+    .line 9692
     if-eqz v5, :cond_38
 
     move v6, v7
 
     goto :goto_25
 
-    .line 10727
+    .line 9695
     .end local v0           #easy1:Z
     .end local v1           #easy2:Z
     .end local v4           #misspelled1:Z
@@ -188,7 +188,7 @@
     iget-object v6, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionSpanComparator;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
 
     #getter for: Landroid/widget/TextView$SuggestionsPopupWindow;->mSpansLengths:Ljava/util/HashMap;
-    invoke-static {v6}, Landroid/widget/TextView$SuggestionsPopupWindow;->access$5100(Landroid/widget/TextView$SuggestionsPopupWindow;)Ljava/util/HashMap;
+    invoke-static {v6}, Landroid/widget/TextView$SuggestionsPopupWindow;->access$4100(Landroid/widget/TextView$SuggestionsPopupWindow;)Ljava/util/HashMap;
 
     move-result-object v6
 
@@ -205,7 +205,7 @@
     iget-object v6, p0, Landroid/widget/TextView$SuggestionsPopupWindow$SuggestionSpanComparator;->this$1:Landroid/widget/TextView$SuggestionsPopupWindow;
 
     #getter for: Landroid/widget/TextView$SuggestionsPopupWindow;->mSpansLengths:Ljava/util/HashMap;
-    invoke-static {v6}, Landroid/widget/TextView$SuggestionsPopupWindow;->access$5100(Landroid/widget/TextView$SuggestionsPopupWindow;)Ljava/util/HashMap;
+    invoke-static {v6}, Landroid/widget/TextView$SuggestionsPopupWindow;->access$4100(Landroid/widget/TextView$SuggestionsPopupWindow;)Ljava/util/HashMap;
 
     move-result-object v6
 
@@ -230,7 +230,7 @@
     .parameter "x1"
 
     .prologue
-    .line 10711
+    .line 9679
     check-cast p1, Landroid/text/style/SuggestionSpan;
 
     .end local p1

@@ -19,7 +19,7 @@
 
     .prologue
     .line 91
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -54,16 +54,16 @@
     .line 127
     .local v2, parser:Lorg/ccil/cowan/tagsoup/Parser;
     :try_start_5
-    const-string/jumbo v3, "http://www.ccil.org/~cowan/tagsoup/properties/schema"
+    const-string v3, "http://www.ccil.org/~cowan/tagsoup/properties/schema"
 
     invoke-static {}, Landroid/text/Html$HtmlParser;->access$000()Lorg/ccil/cowan/tagsoup/HTMLSchema;
 
     move-result-object v4
 
     invoke-virtual {v2, v3, v4}, Lorg/ccil/cowan/tagsoup/Parser;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
-    :try_end_f
-    .catch Lorg/xml/sax/SAXNotRecognizedException; {:try_start_5 .. :try_end_f} :catch_19
-    .catch Lorg/xml/sax/SAXNotSupportedException; {:try_start_5 .. :try_end_f} :catch_20
+    :try_end_e
+    .catch Lorg/xml/sax/SAXNotRecognizedException; {:try_start_5 .. :try_end_e} :catch_18
+    .catch Lorg/xml/sax/SAXNotSupportedException; {:try_start_5 .. :try_end_e} :catch_1f
 
     .line 136
     new-instance v0, Landroid/text/HtmlToSpannedConverter;
@@ -80,7 +80,7 @@
 
     .line 128
     .end local v0           #converter:Landroid/text/HtmlToSpannedConverter;
-    :catch_19
+    :catch_18
     move-exception v1
 
     .line 130
@@ -93,7 +93,7 @@
 
     .line 131
     .end local v1           #e:Lorg/xml/sax/SAXNotRecognizedException;
-    :catch_20
+    :catch_1f
     move-exception v1
 
     .line 133

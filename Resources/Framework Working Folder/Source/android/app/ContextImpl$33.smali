@@ -19,7 +19,7 @@
     .registers 1
 
     .prologue
-    .line 495
+    .line 458
     invoke-direct {p0}, Landroid/app/ContextImpl$ServiceFetcher;-><init>()V
 
     return-void
@@ -27,29 +27,19 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
-    .registers 5
+.method public getService(Landroid/app/ContextImpl;)Ljava/lang/Object;
+    .registers 3
     .parameter "ctx"
 
     .prologue
-    .line 497
-    const-string/jumbo v2, "wifip2p"
+    .line 460
+    iget-object v0, p1, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
 
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    iget-object v0, v0, Landroid/app/LoadedApk;->mCompatibilityInfo:Landroid/view/CompatibilityInfoHolder;
+
+    invoke-static {v0}, Landroid/view/WindowManagerImpl;->getDefault(Landroid/view/CompatibilityInfoHolder;)Landroid/view/WindowManager;
 
     move-result-object v0
 
-    .line 498
-    .local v0, b:Landroid/os/IBinder;
-    invoke-static {v0}, Landroid/net/wifi/p2p/IWifiP2pManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/wifi/p2p/IWifiP2pManager;
-
-    move-result-object v1
-
-    .line 499
-    .local v1, service:Landroid/net/wifi/p2p/IWifiP2pManager;
-    new-instance v2, Landroid/net/wifi/p2p/WifiP2pManager;
-
-    invoke-direct {v2, v1}, Landroid/net/wifi/p2p/WifiP2pManager;-><init>(Landroid/net/wifi/p2p/IWifiP2pManager;)V
-
-    return-object v2
+    return-object v0
 .end method

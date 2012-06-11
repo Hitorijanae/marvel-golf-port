@@ -36,54 +36,36 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .registers 5
+    .registers 4
     .parameter "selfChange"
 
     .prologue
     .line 104
-    iget-object v1, p0, Landroid/content/ContentQueryMap$1;->this$0:Landroid/content/ContentQueryMap;
+    iget-object v0, p0, Landroid/content/ContentQueryMap$1;->this$0:Landroid/content/ContentQueryMap;
 
-    invoke-virtual {v1}, Landroid/content/ContentQueryMap;->countObservers()I
+    invoke-virtual {v0}, Landroid/content/ContentQueryMap;->countObservers()I
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_17
+    if-eqz v0, :cond_e
 
-    .line 108
-    :try_start_8
-    iget-object v1, p0, Landroid/content/ContentQueryMap$1;->this$0:Landroid/content/ContentQueryMap;
+    .line 105
+    iget-object v0, p0, Landroid/content/ContentQueryMap$1;->this$0:Landroid/content/ContentQueryMap;
 
-    invoke-virtual {v1}, Landroid/content/ContentQueryMap;->requery()V
-    :try_end_d
-    .catch Landroid/database/sqlite/SQLiteDiskIOException; {:try_start_8 .. :try_end_d} :catch_e
+    invoke-virtual {v0}, Landroid/content/ContentQueryMap;->requery()V
 
-    .line 117
+    .line 109
     :goto_d
     return-void
 
-    .line 110
-    :catch_e
-    move-exception v0
+    .line 107
+    :cond_e
+    iget-object v0, p0, Landroid/content/ContentQueryMap$1;->this$0:Landroid/content/ContentQueryMap;
 
-    .line 111
-    .local v0, ex:Landroid/database/sqlite/SQLiteDiskIOException;
-    const-string v1, "ContentQueryMap"
-
-    const-string v2, "SQLiteDiskIOException"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_d
-
-    .line 115
-    .end local v0           #ex:Landroid/database/sqlite/SQLiteDiskIOException;
-    :cond_17
-    iget-object v1, p0, Landroid/content/ContentQueryMap$1;->this$0:Landroid/content/ContentQueryMap;
-
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
     #setter for: Landroid/content/ContentQueryMap;->mDirty:Z
-    invoke-static {v1, v2}, Landroid/content/ContentQueryMap;->access$002(Landroid/content/ContentQueryMap;Z)Z
+    invoke-static {v0, v1}, Landroid/content/ContentQueryMap;->access$002(Landroid/content/ContentQueryMap;Z)Z
 
     goto :goto_d
 .end method

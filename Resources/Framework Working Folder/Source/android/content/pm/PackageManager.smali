@@ -2,10 +2,6 @@
 .super Ljava/lang/Object;
 .source "PackageManager.java"
 
-# interfaces
-.implements Landroid/content/pm/HtcIfPackageManager;
-.implements Landroid/content/pm/HtcIfPackageManager_EX;
-
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -31,8 +27,6 @@
 .field public static final DELETE_FAILED_INTERNAL_ERROR:I = -0x1
 
 .field public static final DELETE_SUCCEEDED:I = 0x1
-
-.field public static final DIRTY_INSTALLER:Ljava/lang/String; = "DirtyInstaller"
 
 .field public static final DONT_DELETE_DATA:I = 0x1
 
@@ -110,8 +104,6 @@
 
 .field public static final FEATURE_TOUCHSCREEN_MULTITOUCH_JAZZHAND:Ljava/lang/String; = "android.hardware.touchscreen.multitouch.jazzhand"
 
-.field public static final FEATURE_TOUCHSCREEN_PEN:Ljava/lang/String; = "android.hardware.touchscreen.pen"
-
 .field public static final FEATURE_USB_ACCESSORY:Ljava/lang/String; = "android.hardware.usb.accessory"
 
 .field public static final FEATURE_USB_HOST:Ljava/lang/String; = "android.hardware.usb.host"
@@ -151,10 +143,6 @@
 .field public static final GET_UNINSTALLED_PACKAGES:I = 0x2000
 
 .field public static final GET_URI_PERMISSION_PATTERNS:I = 0x800
-
-.field public static final HTC_FOTA_APP_INSTALLER:Ljava/lang/String; = "HTCFotaAppInstaller"
-
-.field public static final HTC_INSTALLER:Ljava/lang/String; = "HTCInstaller"
 
 .field public static final INSTALL_ALLOW_TEST:I = 0x4
 
@@ -290,10 +278,10 @@
     .registers 1
 
     .prologue
-    .line 43
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 44
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 49
+    .line 50
     return-void
 .end method
 
@@ -302,7 +290,7 @@
     .parameter "uid"
 
     .prologue
-    .line 2704
+    .line 2659
     const v0, 0x186a0
 
     rem-int v0, p0, v0
@@ -318,7 +306,7 @@
     .prologue
     const v1, 0x186a0
 
-    .line 2696
+    .line 2651
     mul-int v0, p0, v1
 
     rem-int v1, p1, v1
@@ -333,7 +321,7 @@
     .parameter "uid"
 
     .prologue
-    .line 2688
+    .line 2643
     const v0, 0x186a0
 
     div-int v0, p0, v0
@@ -347,7 +335,7 @@
     .parameter "uid2"
 
     .prologue
-    .line 2680
+    .line 2635
     invoke-static {p0}, Landroid/content/pm/PackageManager;->getUserId(I)I
 
     move-result v0
@@ -388,9 +376,6 @@
 .end method
 
 .method public abstract canonicalToCurrentPackageNames([Ljava/lang/String;)[Ljava/lang/String;
-.end method
-
-.method public abstract checkAppDirectedSmsExisted(Ljava/lang/String;)Z
 .end method
 
 .method public abstract checkPermission(Ljava/lang/String;Ljava/lang/String;)I
@@ -514,22 +499,13 @@
     .end annotation
 .end method
 
-.method public abstract getCachedAppName(Ljava/lang/String;)Ljava/lang/String;
-.end method
-
 .method public abstract getComponentEnabledSetting(Landroid/content/ComponentName;)I
 .end method
 
 .method public abstract getDefaultActivityIcon()Landroid/graphics/drawable/Drawable;
 .end method
 
-.method public abstract getDirectedSmsReceivers(Ljava/lang/String;)[Ljava/lang/String;
-.end method
-
 .method public abstract getDrawable(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
-.end method
-
-.method public abstract getInstallLocation()I
 .end method
 
 .method public abstract getInstalledApplications(I)Ljava/util/List;
@@ -539,18 +515,6 @@
             "Ljava/util/List",
             "<",
             "Landroid/content/pm/ApplicationInfo;",
-            ">;"
-        }
-    .end annotation
-.end method
-
-.method public abstract getInstalledHTCPackages()Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
             ">;"
         }
     .end annotation
@@ -568,7 +532,7 @@
     .end annotation
 .end method
 
-.method public abstract getInstalledSkinPackages()Ljava/util/List;
+.method public abstract getInstalledThemePackages()Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -609,47 +573,47 @@
 
     const/4 v5, 0x0
 
-    .line 2179
+    .line 2134
     new-instance v8, Landroid/content/pm/PackageParser;
 
     invoke-direct {v8, p1}, Landroid/content/pm/PackageParser;-><init>(Ljava/lang/String;)V
 
-    .line 2180
+    .line 2135
     .local v8, packageParser:Landroid/content/pm/PackageParser;
     new-instance v7, Landroid/util/DisplayMetrics;
 
     invoke-direct {v7}, Landroid/util/DisplayMetrics;-><init>()V
 
-    .line 2181
+    .line 2136
     .local v7, metrics:Landroid/util/DisplayMetrics;
     invoke-virtual {v7}, Landroid/util/DisplayMetrics;->setToDefaults()V
 
-    .line 2182
+    .line 2137
     new-instance v9, Ljava/io/File;
 
     invoke-direct {v9, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 2183
+    .line 2138
     .local v9, sourceFile:Ljava/io/File;
     invoke-virtual {v8, v9, p1, v7, v5}, Landroid/content/pm/PackageParser;->parsePackage(Ljava/io/File;Ljava/lang/String;Landroid/util/DisplayMetrics;I)Landroid/content/pm/PackageParser$Package;
 
     move-result-object v0
 
-    .line 2185
+    .line 2140
     .local v0, pkg:Landroid/content/pm/PackageParser$Package;
     if-nez v0, :cond_1d
 
-    .line 2191
+    .line 2146
     :goto_1c
     return-object v1
 
-    .line 2188
+    .line 2143
     :cond_1d
     and-int/lit8 v2, p2, 0x40
 
     if-eqz v2, :cond_24
 
-    .line 2189
+    .line 2144
     invoke-virtual {v8, v0, v5}, Landroid/content/pm/PackageParser;->collectCertificates(Landroid/content/pm/PackageParser$Package;I)Z
 
     :cond_24
@@ -657,7 +621,7 @@
 
     move-wide v5, v3
 
-    .line 2191
+    .line 2146
     invoke-static/range {v0 .. v6}, Landroid/content/pm/PackageParser;->generatePackageInfo(Landroid/content/pm/PackageParser$Package;[IIJJ)Landroid/content/pm/PackageInfo;
 
     move-result-object v1
@@ -831,9 +795,6 @@
 .method public abstract movePackage(Ljava/lang/String;Landroid/content/pm/IPackageMoveObserver;I)V
 .end method
 
-.method public abstract nextPackageToClean(Ljava/lang/String;)Ljava/lang/String;
-.end method
-
 .method public abstract queryBroadcastReceivers(Landroid/content/Intent;I)Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -966,16 +927,10 @@
 .method public abstract resolveService(Landroid/content/Intent;I)Landroid/content/pm/ResolveInfo;
 .end method
 
-.method public abstract setAppName(Ljava/lang/String;Ljava/lang/String;)V
-.end method
-
 .method public abstract setApplicationEnabledSetting(Ljava/lang/String;II)V
 .end method
 
 .method public abstract setComponentEnabledSetting(Landroid/content/ComponentName;II)V
-.end method
-
-.method public abstract setEnabledSettingEx([Ljava/lang/String;[Ljava/lang/String;)V
 .end method
 
 .method public abstract setInstallerPackageName(Ljava/lang/String;Ljava/lang/String;)V

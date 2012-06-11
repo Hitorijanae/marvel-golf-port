@@ -29,8 +29,6 @@
 
 .field public static final NETWORK:Ljava/lang/String; = "android.permission-group.NETWORK"
 
-.field public static final NETWORK_4G:Ljava/lang/String; = "android.permission-group.NETWORK_4G"
-
 .field public static final PERSONAL_INFO:Ljava/lang/String; = "android.permission-group.PERSONAL_INFO"
 
 .field public static final PHONE_CALLS:Ljava/lang/String; = "android.permission-group.PHONE_CALLS"
@@ -45,8 +43,8 @@
     .registers 1
 
     .prologue
-    .line 728
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 672
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

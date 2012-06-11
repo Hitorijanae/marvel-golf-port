@@ -144,7 +144,7 @@
     const/4 v5, 0x1
 
     .line 202
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 91
     const v3, 0x7fffffff
@@ -1934,7 +1934,7 @@
     .line 471
     iget-object v3, p0, Landroid/preference/Preference;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v4, "layout_inflater"
+    const-string v4, "layout_inflater"
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -1964,12 +1964,12 @@
 
     .line 478
     .local v2, widgetFrame:Landroid/view/ViewGroup;
-    if-eqz v2, :cond_26
+    if-eqz v2, :cond_25
 
     .line 479
     iget v3, p0, Landroid/preference/Preference;->mWidgetLayoutResId:I
 
-    if-eqz v3, :cond_27
+    if-eqz v3, :cond_26
 
     .line 480
     iget v3, p0, Landroid/preference/Preference;->mWidgetLayoutResId:I
@@ -1977,17 +1977,17 @@
     invoke-virtual {v1, v3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     .line 485
-    :cond_26
-    :goto_26
+    :cond_25
+    :goto_25
     return-object v0
 
     .line 482
-    :cond_27
+    :cond_26
     const/16 v3, 0x8
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    goto :goto_26
+    goto :goto_25
 .end method
 
 .method public onDependencyChanged(Landroid/preference/Preference;Z)V

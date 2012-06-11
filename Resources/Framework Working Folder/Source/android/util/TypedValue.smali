@@ -148,7 +148,7 @@
 
     aput-object v2, v0, v1
 
-    const-string/jumbo v1, "in"
+    const-string v1, "in"
 
     aput-object v1, v0, v6
 
@@ -176,6 +176,8 @@
     return-void
 
     .line 191
+    nop
+
     :array_3c
     .array-data 0x4
         0x0t 0x0t 0x80t 0x3bt
@@ -190,7 +192,7 @@
 
     .prologue
     .line 23
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 174
     const/4 v0, -0x1

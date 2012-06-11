@@ -92,8 +92,6 @@
     .end annotation
 .end field
 
-.field private static mCanDumpMonitoredSql:D
-
 .field private static sBlockSize:I
 
 .field private static sQueryLogTimeInMillis:I
@@ -708,7 +706,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "lock held on "
+    const-string v7, "lock held on "
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -754,7 +752,7 @@
     .local v4, msg:Ljava/lang/String;
     sget-boolean v6, Landroid/database/sqlite/SQLiteDebug;->DEBUG_LOCK_TIME_TRACKING_STACK_TRACE:Z
 
-    if-eqz v6, :cond_7f
+    if-eqz v6, :cond_7e
 
     .line 522
     const-string v6, "SQLiteDatabase"
@@ -768,7 +766,7 @@
     goto :goto_21
 
     .line 524
-    :cond_7f
+    :cond_7e
     const-string v6, "SQLiteDatabase"
 
     invoke-static {v6, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I

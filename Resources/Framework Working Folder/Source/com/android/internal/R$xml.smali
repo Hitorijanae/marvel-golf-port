@@ -39,13 +39,11 @@
 
 .field public static final preferred_time_zones:I = 0x10f000b
 
-.field public static final storage_list:I = 0x10f000c
+.field public static final profile_default:I = 0x10f000c
 
-.field public static final time_zones_by_country:I = 0x10f000d
+.field public static final storage_list:I = 0x10f000d
 
-.field public static final zzz_cdmaapns:I = 0x10f000e
-
-.field public static final zzz_m_pdp_limit:I = 0x10f000f
+.field public static final time_zones_by_country:I = 0x10f000e
 
 
 # direct methods
@@ -53,7 +51,8 @@
     .registers 1
 
     .prologue
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 20126
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

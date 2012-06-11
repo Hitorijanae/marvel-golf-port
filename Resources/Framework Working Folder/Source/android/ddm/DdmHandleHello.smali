@@ -182,7 +182,7 @@
 
     .line 113
     .local v4, serverProtoVers:I
-    const-string/jumbo v8, "java.vm.name"
+    const-string v8, "java.vm.name"
 
     const-string v9, "?"
 
@@ -192,7 +192,7 @@
 
     .line 114
     .local v6, vmName:Ljava/lang/String;
-    const-string/jumbo v8, "java.vm.version"
+    const-string v8, "java.vm.version"
 
     const-string v9, "?"
 
@@ -303,7 +303,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_7d
+    if-eqz v8, :cond_7b
 
     .line 139
     const/4 v8, 0x0
@@ -311,7 +311,7 @@
     invoke-static {v8}, Landroid/ddm/DdmHandleHello;->sendWAIT(I)V
 
     .line 141
-    :cond_7d
+    :cond_7b
     return-object v3
 .end method
 

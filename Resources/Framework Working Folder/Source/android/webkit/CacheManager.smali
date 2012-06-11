@@ -117,7 +117,7 @@
 
     .prologue
     .line 53
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 96
     return-void
@@ -1056,23 +1056,23 @@
     :cond_9c
     iget-object v4, v2, Landroid/webkit/CacheManager$CacheResult;->etag:Ljava/lang/String;
 
-    if-eqz v4, :cond_a8
+    if-eqz v4, :cond_a7
 
     .line 434
-    const-string/jumbo v4, "if-none-match"
+    const-string v4, "if-none-match"
 
     iget-object v5, v2, Landroid/webkit/CacheManager$CacheResult;->etag:Ljava/lang/String;
 
     invoke-interface {p3, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 436
-    :cond_a8
+    :cond_a7
     iget-object v4, v2, Landroid/webkit/CacheManager$CacheResult;->lastModified:Ljava/lang/String;
 
     if-eqz v4, :cond_8
 
     .line 437
-    const-string/jumbo v4, "if-modified-since"
+    const-string v4, "if-modified-since"
 
     iget-object v5, v2, Landroid/webkit/CacheManager$CacheResult;->lastModified:Ljava/lang/String;
 
@@ -1123,16 +1123,6 @@
     sget-object v0, Landroid/webkit/CacheManager;->mBaseDir:Ljava/io/File;
 
     return-object v0
-.end method
-
-.method public static getCacheSize()J
-    .registers 2
-
-    .prologue
-    .line 972
-    sget-wide v0, Landroid/webkit/CacheManager;->CACHE_THRESHOLD:J
-
-    return-wide v0
 .end method
 
 .method private static getDatabaseKey(Ljava/lang/String;J)Ljava/lang/String;
@@ -1504,7 +1494,7 @@
 
     .line 858
     .local v2, cacheControl:Ljava/lang/String;
-    if-eqz v2, :cond_186
+    if-eqz v2, :cond_185
 
     .line 859
     invoke-virtual {v2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
@@ -1533,7 +1523,7 @@
 
     move/from16 v0, v18
 
-    if-ge v8, v0, :cond_186
+    if-ge v8, v0, :cond_185
 
     .line 862
     const-string/jumbo v18, "no-store"
@@ -1544,7 +1534,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_ee
+    if-eqz v18, :cond_ed
 
     .line 863
     const/4 v13, 0x0
@@ -1605,7 +1595,7 @@
 
     invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v20, "illegal expires: "
+    const-string v20, "illegal expires: "
 
     invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1635,7 +1625,7 @@
     .restart local v8       #i:I
     .restart local v9       #lastModified:Ljava/lang/String;
     .restart local v12       #noCache:Z
-    :cond_ee
+    :cond_ed
     const-string/jumbo v18, "no-cache"
 
     aget-object v19, v3, v8
@@ -1644,7 +1634,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_103
+    if-eqz v18, :cond_102
 
     .line 870
     const-wide/16 v18, 0x0
@@ -1657,14 +1647,14 @@
     const/4 v12, 0x1
 
     .line 861
-    :cond_100
-    :goto_100
+    :cond_ff
+    :goto_ff
     add-int/lit8 v8, v8, 0x1
 
     goto :goto_9a
 
     .line 876
-    :cond_103
+    :cond_102
     aget-object v18, v3, v8
 
     const-string/jumbo v19, "max-age"
@@ -1673,9 +1663,9 @@
 
     move-result v18
 
-    if-eqz v18, :cond_100
+    if-eqz v18, :cond_ff
 
-    if-nez v12, :cond_100
+    if-nez v12, :cond_ff
 
     .line 877
     aget-object v18, v3, v8
@@ -1688,7 +1678,7 @@
 
     .line 878
     .local v17, separator:I
-    if-gez v17, :cond_122
+    if-gez v17, :cond_121
 
     .line 879
     aget-object v18, v3, v8
@@ -1700,8 +1690,8 @@
     move-result v17
 
     .line 881
-    :cond_122
-    if-lez v17, :cond_100
+    :cond_121
+    if-lez v17, :cond_ff
 
     .line 882
     aget-object v18, v3, v8
@@ -1714,7 +1704,7 @@
 
     .line 884
     .local v14, s:Ljava/lang/String;
-    :try_start_12c
+    :try_start_12b
     invoke-static {v14}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v15
@@ -1725,7 +1715,7 @@
 
     cmp-long v18, v15, v18
 
-    if-ltz v18, :cond_100
+    if-ltz v18, :cond_ff
 
     .line 886
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -1741,14 +1731,14 @@
     move-wide/from16 v0, v18
 
     iput-wide v0, v13, Landroid/webkit/CacheManager$CacheResult;->expires:J
-    :try_end_144
-    .catch Ljava/lang/NumberFormatException; {:try_start_12c .. :try_end_144} :catch_145
+    :try_end_143
+    .catch Ljava/lang/NumberFormatException; {:try_start_12b .. :try_end_143} :catch_144
 
-    goto :goto_100
+    goto :goto_ff
 
     .line 889
     .end local v15           #sec:J
-    :catch_145
+    :catch_144
     move-exception v7
 
     .line 890
@@ -1761,7 +1751,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_15e
+    if-eqz v18, :cond_15d
 
     .line 892
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -1776,10 +1766,10 @@
 
     iput-wide v0, v13, Landroid/webkit/CacheManager$CacheResult;->expires:J
 
-    goto :goto_100
+    goto :goto_ff
 
     .line 894
-    :cond_15e
+    :cond_15d
     const-string v18, "cache"
 
     new-instance v19, Ljava/lang/StringBuilder;
@@ -1817,7 +1807,7 @@
 
     iput-wide v0, v13, Landroid/webkit/CacheManager$CacheResult;->expires:J
 
-    goto/16 :goto_100
+    goto/16 :goto_ff
 
     .line 908
     .end local v3           #controls:[Ljava/lang/String;
@@ -1826,7 +1816,7 @@
     .end local v12           #noCache:Z
     .end local v14           #s:Ljava/lang/String;
     .end local v17           #separator:I
-    :cond_186
+    :cond_185
     const-string/jumbo v18, "no-cache"
 
     invoke-virtual/range {p1 .. p1}, Landroid/net/http/Headers;->getPragma()Ljava/lang/String;
@@ -1837,7 +1827,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_199
+    if-eqz v18, :cond_198
 
     .line 909
     const-wide/16 v18, 0x0
@@ -1847,7 +1837,7 @@
     iput-wide v0, v13, Landroid/webkit/CacheManager$CacheResult;->expires:J
 
     .line 914
-    :cond_199
+    :cond_198
     iget-wide v0, v13, Landroid/webkit/CacheManager$CacheResult;->expires:J
 
     move-wide/from16 v18, v0
@@ -1869,7 +1859,7 @@
 
     move/from16 v1, v19
 
-    if-ne v0, v1, :cond_1ba
+    if-ne v0, v1, :cond_1b9
 
     .line 918
     const-wide v18, 0x7fffffffffffffffL
@@ -1881,7 +1871,7 @@
     goto/16 :goto_1b
 
     .line 919
-    :cond_1ba
+    :cond_1b9
     iget v0, v13, Landroid/webkit/CacheManager$CacheResult;->httpStatusCode:I
 
     move/from16 v18, v0
@@ -1892,7 +1882,7 @@
 
     move/from16 v1, v19
 
-    if-eq v0, v1, :cond_1d2
+    if-eq v0, v1, :cond_1d1
 
     iget v0, v13, Landroid/webkit/CacheManager$CacheResult;->httpStatusCode:I
 
@@ -1904,10 +1894,10 @@
 
     move/from16 v1, v19
 
-    if-ne v0, v1, :cond_1da
+    if-ne v0, v1, :cond_1d9
 
     .line 921
-    :cond_1d2
+    :cond_1d1
     const-wide/16 v18, 0x0
 
     move-wide/from16 v0, v18
@@ -1917,12 +1907,12 @@
     goto/16 :goto_1b
 
     .line 922
-    :cond_1da
+    :cond_1d9
     iget-object v0, v13, Landroid/webkit/CacheManager$CacheResult;->lastModified:Ljava/lang/String;
 
     move-object/from16 v18, v0
 
-    if-nez v18, :cond_204
+    if-nez v18, :cond_203
 
     .line 929
     const-string/jumbo v18, "text/html"
@@ -1935,7 +1925,7 @@
 
     move-result v18
 
-    if-nez v18, :cond_1fc
+    if-nez v18, :cond_1fb
 
     .line 930
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -1953,7 +1943,7 @@
     goto/16 :goto_1b
 
     .line 934
-    :cond_1fc
+    :cond_1fb
     const-wide/16 v18, 0x0
 
     move-wide/from16 v0, v18
@@ -1963,7 +1953,7 @@
     goto/16 :goto_1b
 
     .line 943
-    :cond_204
+    :cond_203
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v18
@@ -1974,19 +1964,19 @@
 
     .line 945
     .local v10, lastmod:J
-    :try_start_20d
+    :try_start_20c
     iget-object v0, v13, Landroid/webkit/CacheManager$CacheResult;->lastModified:Ljava/lang/String;
 
     move-object/from16 v18, v0
 
     invoke-static/range {v18 .. v18}, Landroid/net/http/AndroidHttpClient;->parseDate(Ljava/lang/String;)J
-    :try_end_214
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_20d .. :try_end_214} :catch_231
+    :try_end_213
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_20c .. :try_end_213} :catch_230
 
     move-result-wide v10
 
     .line 949
-    :goto_215
+    :goto_214
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v18
@@ -1999,7 +1989,7 @@
 
     cmp-long v18, v4, v18
 
-    if-lez v18, :cond_250
+    if-lez v18, :cond_24e
 
     .line 951
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -2020,7 +2010,7 @@
 
     .line 946
     .end local v4           #difference:J
-    :catch_231
+    :catch_230
     move-exception v7
 
     .line 947
@@ -2031,7 +2021,7 @@
 
     invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v20, "illegal lastModified: "
+    const-string v20, "illegal lastModified: "
 
     invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2051,12 +2041,12 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_215
+    goto :goto_214
 
     .line 955
     .end local v7           #ex:Ljava/lang/IllegalArgumentException;
     .restart local v4       #difference:J
-    :cond_250
+    :cond_24e
     iput-wide v10, v13, Landroid/webkit/CacheManager$CacheResult;->expires:J
 
     goto/16 :goto_1b
@@ -2338,40 +2328,6 @@
     invoke-static {}, Landroid/webkit/CacheManager;->removeAllCacheFiles()Z
 
     goto :goto_14
-.end method
-
-.method public static setCacheSize(J)V
-    .registers 6
-    .parameter "lCacheSize_Byte"
-
-    .prologue
-    .line 966
-    sput-wide p0, Landroid/webkit/CacheManager;->CACHE_THRESHOLD:J
-
-    .line 967
-    sget-wide v0, Landroid/webkit/CacheManager;->CACHE_THRESHOLD:J
-
-    const-wide/16 v2, 0x3
-
-    div-long/2addr v0, v2
-
-    sput-wide v0, Landroid/webkit/CacheManager;->CACHE_TRIM_AMOUNT:J
-
-    .line 968
-    sget-wide v0, Landroid/webkit/CacheManager;->CACHE_THRESHOLD:J
-
-    sget-wide v2, Landroid/webkit/CacheManager;->CACHE_TRIM_AMOUNT:J
-
-    sub-long/2addr v0, v2
-
-    const-wide/16 v2, 0x2
-
-    div-long/2addr v0, v2
-
-    sput-wide v0, Landroid/webkit/CacheManager;->CACHE_MAX_SIZE:J
-
-    .line 969
-    return-void
 .end method
 
 .method private static setupFiles(Ljava/lang/String;Landroid/webkit/CacheManager$CacheResult;)V

@@ -15,27 +15,13 @@
 
 
 # static fields
-.field public static final ACCESS_4G_RADIO_DISABLE:Ljava/lang/String; = "android.permission.ACCESS_4G_RADIO_DISABLE"
-
-.field public static final ACCESS_4G_STATE:Ljava/lang/String; = "android.permission.ACCESS_4G_STATE"
-
-.field public static final ACCESS_AUTOBOT_FILENODE:Ljava/lang/String; = "android.permission.ACCESS_AUTOBOT_FILENODE"
-
-.field public static final ACCESS_BLUETOOTH_PRINTER:Ljava/lang/String; = "android.permission.ACCESS_BLUETOOTH_PRINTER"
-
 .field public static final ACCESS_CACHE_FILESYSTEM:Ljava/lang/String; = "android.permission.ACCESS_CACHE_FILESYSTEM"
 
 .field public static final ACCESS_CHECKIN_PROPERTIES:Ljava/lang/String; = "android.permission.ACCESS_CHECKIN_PROPERTIES"
 
 .field public static final ACCESS_COARSE_LOCATION:Ljava/lang/String; = "android.permission.ACCESS_COARSE_LOCATION"
 
-.field public static final ACCESS_CW_FOLDER:Ljava/lang/String; = "android.permission.ACCESS_CW_FOLDER"
-
 .field public static final ACCESS_FINE_LOCATION:Ljava/lang/String; = "android.permission.ACCESS_FINE_LOCATION"
-
-.field public static final ACCESS_FM_RECEIVER:Ljava/lang/String; = "android.permission.ACCESS_FM_RECEIVER"
-
-.field public static final ACCESS_FM_TRANSMITTER:Ljava/lang/String; = "android.permission.ACCESS_FM_TRANSMITTER"
 
 .field public static final ACCESS_LOCATION_EXTRA_COMMANDS:Ljava/lang/String; = "android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"
 
@@ -44,8 +30,6 @@
 .field public static final ACCESS_MTP:Ljava/lang/String; = "android.permission.ACCESS_MTP"
 
 .field public static final ACCESS_NETWORK_STATE:Ljava/lang/String; = "android.permission.ACCESS_NETWORK_STATE"
-
-.field public static final ACCESS_RECOVERY_FOLDER:Ljava/lang/String; = "android.permission.ACCESS_RECOVERY_FOLDER"
 
 .field public static final ACCESS_SURFACE_FLINGER:Ljava/lang/String; = "android.permission.ACCESS_SURFACE_FLINGER"
 
@@ -113,8 +97,6 @@
 
 .field public static final CAMERA:Ljava/lang/String; = "android.permission.CAMERA"
 
-.field public static final CHANGE_4G_STATE:Ljava/lang/String; = "android.permission.CHANGE_4G_STATE"
-
 .field public static final CHANGE_BACKGROUND_DATA_SETTING:Ljava/lang/String; = "android.permission.CHANGE_BACKGROUND_DATA_SETTING"
 
 .field public static final CHANGE_COMPONENT_ENABLED_STATE:Ljava/lang/String; = "android.permission.CHANGE_COMPONENT_ENABLED_STATE"
@@ -153,11 +135,7 @@
 
 .field public static final DISABLE_KEYGUARD:Ljava/lang/String; = "android.permission.DISABLE_KEYGUARD"
 
-.field public static final DPM_INTERNAL_OPERATION:Ljava/lang/String; = "android.permission.DPM_INTERNAL_OPERATION"
-
 .field public static final DUMP:Ljava/lang/String; = "android.permission.DUMP"
-
-.field public static final DYNAMIC_SET_APP_NAME:Ljava/lang/String; = "android.permission.DYNAMIC_SET_APP_NAME"
 
 .field public static final EXPAND_STATUS_BAR:Ljava/lang/String; = "android.permission.EXPAND_STATUS_BAR"
 
@@ -180,10 +158,6 @@
 .field public static final GLOBAL_SEARCH_CONTROL:Ljava/lang/String; = "android.permission.GLOBAL_SEARCH_CONTROL"
 
 .field public static final HARDWARE_TEST:Ljava/lang/String; = "android.permission.HARDWARE_TEST"
-
-.field public static final INITIATE_4G_SCAN:Ljava/lang/String; = "android.permission.INITIATE_4G_SCAN"
-
-.field public static final INITIATE_4G_SCAN_DATA_SERVICE_DISRUPTIVE:Ljava/lang/String; = "android.permission.INITIATE_4G_SCAN_DATA_SERVICE_DISRUPTIVE"
 
 .field public static final INJECT_EVENTS:Ljava/lang/String; = "android.permission.INJECT_EVENTS"
 
@@ -221,8 +195,6 @@
 
 .field public static final NET_ADMIN:Ljava/lang/String; = "android.permission.NET_ADMIN"
 
-.field public static final NET_RAW:Ljava/lang/String; = "android.permission.NET_RAW"
-
 .field public static final NFC:Ljava/lang/String; = "android.permission.NFC"
 
 .field public static final PACKAGE_USAGE_STATS:Ljava/lang/String; = "android.permission.PACKAGE_USAGE_STATS"
@@ -235,6 +207,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
+
+.field public static final PREVENT_POWER_KEY:Ljava/lang/String; = "android.permission.PREVENT_POWER_KEY"
 
 .field public static final PROCESS_OUTGOING_CALLS:Ljava/lang/String; = "android.permission.PROCESS_OUTGOING_CALLS"
 
@@ -267,8 +241,6 @@
 .field public static final READ_SYNC_STATS:Ljava/lang/String; = "android.permission.READ_SYNC_STATS"
 
 .field public static final READ_USER_DICTIONARY:Ljava/lang/String; = "android.permission.READ_USER_DICTIONARY"
-
-.field public static final READ_WRITE_OMA_DRM:Ljava/lang/String; = "android.permission.READ_WRITE_OMA_DRM"
 
 .field public static final REBOOT:Ljava/lang/String; = "android.permission.REBOOT"
 
@@ -354,10 +326,6 @@
 
 .field public static final VIBRATE:Ljava/lang/String; = "android.permission.VIBRATE"
 
-.field public static final VPN:Ljava/lang/String; = "android.permission.VPN"
-
-.field public static final VZW_HUX:Ljava/lang/String; = "android.permission.VZW_HUX"
-
 .field public static final WAKE_LOCK:Ljava/lang/String; = "android.permission.WAKE_LOCK"
 
 .field public static final WRITE_APN_SETTINGS:Ljava/lang/String; = "android.permission.WRITE_APN_SETTINGS"
@@ -395,7 +363,7 @@
 
     .prologue
     .line 11
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

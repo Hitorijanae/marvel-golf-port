@@ -124,7 +124,7 @@
 
     .prologue
     .line 100
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 101
     iput-object p1, p0, Lcom/google/android/util/AbstractMessageParser;->text:Ljava/lang/String;
@@ -1687,7 +1687,7 @@
     .line 443
     .end local v5           #scheme:Ljava/lang/String;
     :goto_55
-    if-nez v3, :cond_129
+    if-nez v3, :cond_128
 
     .line 444
     :goto_57
@@ -1697,7 +1697,7 @@
 
     move-result v9
 
-    if-ge v4, v9, :cond_129
+    if-ge v4, v9, :cond_128
 
     iget-object v9, p0, Lcom/google/android/util/AbstractMessageParser;->text:Ljava/lang/String;
 
@@ -1709,7 +1709,7 @@
 
     move-result v9
 
-    if-nez v9, :cond_129
+    if-nez v9, :cond_128
 
     .line 446
     add-int/lit8 v4, v4, 0x1
@@ -1856,7 +1856,7 @@
 
     move-result v10
 
-    if-ne v4, v10, :cond_e4
+    if-ne v4, v10, :cond_e3
 
     .line 407
     const/4 v3, 0x1
@@ -1864,13 +1864,13 @@
     .line 436
     :cond_df
     :goto_df
-    const-string/jumbo v7, "http://"
+    const-string v7, "http://"
 
     .line 437
     goto/16 :goto_55
 
     .line 409
-    :cond_e4
+    :cond_e3
     iget-object v10, p0, Lcom/google/android/util/AbstractMessageParser;->text:Ljava/lang/String;
 
     invoke-virtual {v10, v4}, Ljava/lang/String;->charAt(I)C
@@ -1881,7 +1881,7 @@
     .restart local v0       #ch:C
     const/16 v10, 0x3f
 
-    if-ne v0, v10, :cond_110
+    if-ne v0, v10, :cond_10f
 
     .line 413
     add-int/lit8 v9, v4, 0x1
@@ -1892,7 +1892,7 @@
 
     move-result v10
 
-    if-ne v9, v10, :cond_fa
+    if-ne v9, v10, :cond_f9
 
     .line 414
     const/4 v3, 0x1
@@ -1900,7 +1900,7 @@
     goto :goto_df
 
     .line 416
-    :cond_fa
+    :cond_f9
     iget-object v9, p0, Lcom/google/android/util/AbstractMessageParser;->text:Ljava/lang/String;
 
     add-int/lit8 v10, v4, 0x1
@@ -1915,7 +1915,7 @@
 
     move-result v9
 
-    if-nez v9, :cond_10e
+    if-nez v9, :cond_10d
 
     invoke-static {v1}, Lcom/google/android/util/AbstractMessageParser;->isPunctuation(C)Z
 
@@ -1924,19 +1924,19 @@
     if-eqz v9, :cond_df
 
     .line 418
-    :cond_10e
+    :cond_10d
     const/4 v3, 0x1
 
     goto :goto_df
 
     .line 421
     .end local v1           #ch2:C
-    :cond_110
+    :cond_10f
     invoke-static {v0}, Lcom/google/android/util/AbstractMessageParser;->isPunctuation(C)Z
 
     move-result v10
 
-    if-eqz v10, :cond_118
+    if-eqz v10, :cond_117
 
     .line 422
     const/4 v3, 0x1
@@ -1944,12 +1944,12 @@
     goto :goto_df
 
     .line 423
-    :cond_118
+    :cond_117
     invoke-static {v0}, Ljava/lang/Character;->isWhitespace(C)Z
 
     move-result v10
 
-    if-eqz v10, :cond_120
+    if-eqz v10, :cond_11f
 
     .line 424
     const/4 v3, 0x1
@@ -1957,7 +1957,7 @@
     goto :goto_df
 
     .line 425
-    :cond_120
+    :cond_11f
     const/16 v10, 0x2f
 
     if-eq v0, v10, :cond_df
@@ -1971,7 +1971,7 @@
     .line 450
     .end local v0           #ch:C
     .end local v2           #domain:Ljava/lang/String;
-    :cond_129
+    :cond_128
     iget-object v9, p0, Lcom/google/android/util/AbstractMessageParser;->text:Ljava/lang/String;
 
     invoke-virtual {v9, v6, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -2295,7 +2295,7 @@
 
     move-result v4
 
-    if-ge v3, v4, :cond_84
+    if-ge v3, v4, :cond_83
 
     .line 147
     iget v3, p0, Lcom/google/android/util/AbstractMessageParser;->nextChar:I
@@ -2304,7 +2304,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_65
+    if-nez v3, :cond_64
 
     .line 148
     if-eqz v2, :cond_5c
@@ -2315,25 +2315,25 @@
 
     move-result v3
 
-    if-nez v3, :cond_65
+    if-nez v3, :cond_64
 
     .line 149
     :cond_5c
     new-instance v3, Ljava/lang/AssertionError;
 
-    const-string/jumbo v4, "last chunk did not end at word break"
+    const-string v4, "last chunk did not end at word break"
 
     invoke-direct {v3, v4}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
     throw v3
 
     .line 153
-    :cond_65
+    :cond_64
     invoke-direct {p0}, Lcom/google/android/util/AbstractMessageParser;->parseSmiley()Z
 
     move-result v3
 
-    if-eqz v3, :cond_6d
+    if-eqz v3, :cond_6c
 
     .line 154
     const/4 v2, 0x1
@@ -2341,7 +2341,7 @@
     goto :goto_40
 
     .line 156
-    :cond_6d
+    :cond_6c
     const/4 v2, 0x0
 
     .line 158
@@ -2369,18 +2369,18 @@
     goto :goto_40
 
     .line 165
-    :cond_84
+    :cond_83
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_85
+    :goto_84
     iget-object v3, p0, Lcom/google/android/util/AbstractMessageParser;->tokens:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v3
 
-    if-ge v0, v3, :cond_dc
+    if-ge v0, v3, :cond_db
 
     .line 166
     iget-object v3, p0, Lcom/google/android/util/AbstractMessageParser;->tokens:Ljava/util/ArrayList;
@@ -2395,10 +2395,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_d9
+    if-eqz v3, :cond_d8
 
     .line 167
-    if-lez v0, :cond_b6
+    if-lez v0, :cond_b5
 
     iget-object v3, p0, Lcom/google/android/util/AbstractMessageParser;->tokens:Ljava/util/ArrayList;
 
@@ -2410,7 +2410,7 @@
 
     instance-of v3, v3, Lcom/google/android/util/AbstractMessageParser$Html;
 
-    if-eqz v3, :cond_b6
+    if-eqz v3, :cond_b5
 
     .line 168
     iget-object v3, p0, Lcom/google/android/util/AbstractMessageParser;->tokens:Ljava/util/ArrayList;
@@ -2426,7 +2426,7 @@
     invoke-virtual {v3}, Lcom/google/android/util/AbstractMessageParser$Html;->trimLeadingWhitespace()V
 
     .line 170
-    :cond_b6
+    :cond_b5
     add-int/lit8 v3, v0, 0x1
 
     iget-object v4, p0, Lcom/google/android/util/AbstractMessageParser;->tokens:Ljava/util/ArrayList;
@@ -2435,7 +2435,7 @@
 
     move-result v4
 
-    if-ge v3, v4, :cond_d9
+    if-ge v3, v4, :cond_d8
 
     iget-object v3, p0, Lcom/google/android/util/AbstractMessageParser;->tokens:Ljava/util/ArrayList;
 
@@ -2447,7 +2447,7 @@
 
     instance-of v3, v3, Lcom/google/android/util/AbstractMessageParser$Html;
 
-    if-eqz v3, :cond_d9
+    if-eqz v3, :cond_d8
 
     .line 171
     iget-object v3, p0, Lcom/google/android/util/AbstractMessageParser;->tokens:Ljava/util/ArrayList;
@@ -2463,23 +2463,23 @@
     invoke-virtual {v3}, Lcom/google/android/util/AbstractMessageParser$Html;->trimTrailingWhitespace()V
 
     .line 165
-    :cond_d9
+    :cond_d8
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_85
+    goto :goto_84
 
     .line 177
-    :cond_dc
+    :cond_db
     const/4 v0, 0x0
 
-    :goto_dd
+    :goto_dc
     iget-object v3, p0, Lcom/google/android/util/AbstractMessageParser;->tokens:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v3
 
-    if-ge v0, v3, :cond_110
+    if-ge v0, v3, :cond_10f
 
     .line 178
     iget-object v3, p0, Lcom/google/android/util/AbstractMessageParser;->tokens:Ljava/util/ArrayList;
@@ -2494,7 +2494,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_10d
+    if-eqz v3, :cond_10c
 
     iget-object v3, p0, Lcom/google/android/util/AbstractMessageParser;->tokens:Ljava/util/ArrayList;
 
@@ -2514,7 +2514,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_10d
+    if-nez v3, :cond_10c
 
     .line 180
     iget-object v3, p0, Lcom/google/android/util/AbstractMessageParser;->tokens:Ljava/util/ArrayList;
@@ -2525,13 +2525,13 @@
     add-int/lit8 v0, v0, -0x1
 
     .line 177
-    :cond_10d
+    :cond_10c
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_dd
+    goto :goto_dc
 
     .line 185
-    :cond_110
+    :cond_10f
     invoke-direct {p0, v1}, Lcom/google/android/util/AbstractMessageParser;->buildParts(Ljava/lang/String;)V
 
     goto/16 :goto_c

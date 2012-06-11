@@ -61,8 +61,6 @@
 
 .field private mDropDownWidth:I
 
-.field private mEnableListPopupAnimation:Z
-
 .field private mForceIgnoreOutsideTouch:Z
 
 .field private mHandler:Landroid/os/Handler;
@@ -74,12 +72,6 @@
 .field private mItemSelectedListener:Landroid/widget/AdapterView$OnItemSelectedListener;
 
 .field mListItemExpandMaximum:I
-
-.field private mListPopupBackgroundColor:I
-
-.field private mListPopupDivider:Landroid/graphics/drawable/Drawable;
-
-.field private mListPopupDividerHeight:I
 
 .field private mModal:Z
 
@@ -155,15 +147,13 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .registers 9
+    .registers 8
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyleAttr"
     .parameter "defStyleRes"
 
     .prologue
-    const/4 v3, -0x1
-
     const/4 v0, -0x2
 
     const/4 v2, 0x0
@@ -171,7 +161,7 @@
     const/4 v1, 0x0
 
     .line 192
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 61
     iput v0, p0, Landroid/widget/ListPopupWindow;->mDropDownHeight:I
@@ -234,18 +224,6 @@
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Landroid/widget/ListPopupWindow;->mTempRect:Landroid/graphics/Rect;
-
-    .line 1289
-    iput-object v1, p0, Landroid/widget/ListPopupWindow;->mListPopupDivider:Landroid/graphics/drawable/Drawable;
-
-    .line 1290
-    iput v3, p0, Landroid/widget/ListPopupWindow;->mListPopupDividerHeight:I
-
-    .line 1291
-    iput-boolean v2, p0, Landroid/widget/ListPopupWindow;->mEnableListPopupAnimation:Z
-
-    .line 1292
-    iput v3, p0, Landroid/widget/ListPopupWindow;->mListPopupBackgroundColor:I
 
     .line 193
     iput-object p1, p0, Landroid/widget/ListPopupWindow;->mContext:Landroid/content/Context;
@@ -325,7 +303,7 @@
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
 
-    if-nez v1, :cond_1a5
+    if-nez v1, :cond_161
 
     .line 968
     move-object/from16 v0, p0
@@ -351,7 +329,7 @@
 
     iget-boolean v1, v0, Landroid/widget/ListPopupWindow;->mModal:Z
 
-    if-nez v1, :cond_192
+    if-nez v1, :cond_14e
 
     const/4 v1, 0x1
 
@@ -463,114 +441,34 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ListPopupWindow$DropDownListView;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
 
-    .line 1017
+    .line 1016
     :cond_88
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Landroid/widget/ListPopupWindow;->mListPopupDivider:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v1, :cond_99
-
-    .line 1018
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/widget/ListPopupWindow;->mListPopupDivider:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {v1, v2}, Landroid/widget/ListPopupWindow$DropDownListView;->setDivider(Landroid/graphics/drawable/Drawable;)V
-
-    .line 1019
-    :cond_99
-    move-object/from16 v0, p0
-
-    iget v1, v0, Landroid/widget/ListPopupWindow;->mListPopupDividerHeight:I
-
-    const/4 v2, -0x1
-
-    if-eq v1, v2, :cond_ab
-
-    .line 1020
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
-
-    move-object/from16 v0, p0
-
-    iget v2, v0, Landroid/widget/ListPopupWindow;->mListPopupDividerHeight:I
-
-    invoke-virtual {v1, v2}, Landroid/widget/ListPopupWindow$DropDownListView;->setDividerHeight(I)V
-
-    .line 1021
-    :cond_ab
-    move-object/from16 v0, p0
-
-    iget-boolean v1, v0, Landroid/widget/ListPopupWindow;->mEnableListPopupAnimation:Z
-
-    if-eqz v1, :cond_ba
-
-    .line 1022
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
-
-    const/4 v2, 0x4
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v1, v2, v3}, Landroid/widget/ListPopupWindow$DropDownListView;->enableAnimation(IZ)V
-
-    .line 1023
-    :cond_ba
-    move-object/from16 v0, p0
-
-    iget v1, v0, Landroid/widget/ListPopupWindow;->mListPopupBackgroundColor:I
-
-    const/4 v2, -0x1
-
-    if-eq v1, v2, :cond_cc
-
-    .line 1024
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
-
-    move-object/from16 v0, p0
-
-    iget v2, v0, Landroid/widget/ListPopupWindow;->mListPopupBackgroundColor:I
-
-    invoke-virtual {v1, v2}, Landroid/widget/ListPopupWindow$DropDownListView;->setBackgroundColor(I)V
-
-    .line 1027
-    :cond_cc
     move-object/from16 v0, p0
 
     iget-object v9, v0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
 
-    .line 1029
+    .line 1018
     .local v9, dropDownView:Landroid/view/ViewGroup;
     move-object/from16 v0, p0
 
     iget-object v13, v0, Landroid/widget/ListPopupWindow;->mPromptView:Landroid/view/View;
 
-    .line 1030
+    .line 1019
     .local v13, hintView:Landroid/view/View;
-    if-eqz v13, :cond_12d
+    if-eqz v13, :cond_e9
 
-    .line 1033
+    .line 1022
     new-instance v11, Landroid/widget/LinearLayout;
 
     invoke-direct {v11, v8}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 1034
+    .line 1023
     .local v11, hintContainer:Landroid/widget/LinearLayout;
     const/4 v1, 0x1
 
     invoke-virtual {v11, v1}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    .line 1036
+    .line 1025
     new-instance v12, Landroid/widget/LinearLayout$LayoutParams;
 
     const/4 v1, -0x1
@@ -581,15 +479,15 @@
 
     invoke-direct {v12, v1, v2, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
 
-    .line 1040
+    .line 1029
     .local v12, hintParams:Landroid/widget/LinearLayout$LayoutParams;
     move-object/from16 v0, p0
 
     iget v1, v0, Landroid/widget/ListPopupWindow;->mPromptPosition:I
 
-    packed-switch v1, :pswitch_data_1e2
+    packed-switch v1, :pswitch_data_19e
 
-    .line 1052
+    .line 1041
     const-string v1, "ListPopupWindow"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -616,8 +514,8 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1058
-    :goto_10b
+    .line 1047
+    :goto_c7
     move-object/from16 v0, p0
 
     iget v1, v0, Landroid/widget/ListPopupWindow;->mDropDownWidth:I
@@ -628,17 +526,17 @@
 
     move-result v20
 
-    .line 1059
+    .line 1048
     .local v20, widthSpec:I
     const/4 v10, 0x0
 
-    .line 1060
+    .line 1049
     .local v10, heightSpec:I
     move/from16 v0, v20
 
     invoke-virtual {v13, v0, v10}, Landroid/view/View;->measure(II)V
 
-    .line 1062
+    .line 1051
     invoke-virtual {v13}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v12
@@ -646,43 +544,43 @@
     .end local v12           #hintParams:Landroid/widget/LinearLayout$LayoutParams;
     check-cast v12, Landroid/widget/LinearLayout$LayoutParams;
 
-    .line 1063
+    .line 1052
     .restart local v12       #hintParams:Landroid/widget/LinearLayout$LayoutParams;
     invoke-virtual {v13}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v1
 
-    iget v2, v12, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+    iget v2, v12, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
 
     add-int/2addr v1, v2
 
-    iget v2, v12, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+    iget v2, v12, Landroid/widget/LinearLayout$LayoutParams;->bottomMargin:I
 
     add-int v17, v1, v2
 
-    .line 1066
+    .line 1055
     move-object v9, v11
 
-    .line 1069
+    .line 1058
     .end local v10           #heightSpec:I
     .end local v11           #hintContainer:Landroid/widget/LinearLayout;
     .end local v12           #hintParams:Landroid/widget/LinearLayout$LayoutParams;
     .end local v20           #widthSpec:I
-    :cond_12d
+    :cond_e9
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
 
     invoke-virtual {v1, v9}, Landroid/widget/PopupWindow;->setContentView(Landroid/view/View;)V
 
-    .line 1083
+    .line 1072
     .end local v8           #context:Landroid/content/Context;
     .end local v13           #hintView:Landroid/view/View;
-    :cond_134
-    :goto_134
+    :cond_f0
+    :goto_f0
     const/16 v18, 0x0
 
-    .line 1084
+    .line 1073
     .local v18, padding:I
     move-object/from16 v0, p0
 
@@ -692,18 +590,18 @@
 
     move-result-object v7
 
-    .line 1085
+    .line 1074
     .local v7, background:Landroid/graphics/drawable/Drawable;
-    if-eqz v7, :cond_166
+    if-eqz v7, :cond_122
 
-    .line 1086
+    .line 1075
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mTempRect:Landroid/graphics/Rect;
 
     invoke-virtual {v7, v1}, Landroid/graphics/drawable/Drawable;->getPadding(Landroid/graphics/Rect;)Z
 
-    .line 1087
+    .line 1076
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mTempRect:Landroid/graphics/Rect;
@@ -718,14 +616,14 @@
 
     add-int v18, v1, v2
 
-    .line 1091
+    .line 1080
     move-object/from16 v0, p0
 
     iget-boolean v1, v0, Landroid/widget/ListPopupWindow;->mDropDownVerticalOffsetSet:Z
 
-    if-nez v1, :cond_166
+    if-nez v1, :cond_122
 
-    .line 1092
+    .line 1081
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mTempRect:Landroid/graphics/Rect;
@@ -738,8 +636,8 @@
 
     iput v1, v0, Landroid/widget/ListPopupWindow;->mDropDownVerticalOffset:I
 
-    .line 1097
-    :cond_166
+    .line 1086
+    :cond_122
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
@@ -750,13 +648,13 @@
 
     const/4 v2, 0x2
 
-    if-ne v1, v2, :cond_1ca
+    if-ne v1, v2, :cond_186
 
     const/4 v14, 0x1
 
-    .line 1099
+    .line 1088
     .local v14, ignoreBottomDecorations:Z
-    :goto_172
+    :goto_12e
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
@@ -773,13 +671,13 @@
 
     move-result v16
 
-    .line 1102
+    .line 1091
     .local v16, maxHeight:I
     move-object/from16 v0, p0
 
     iget-boolean v1, v0, Landroid/widget/ListPopupWindow;->mDropDownAlwaysVisible:Z
 
-    if-nez v1, :cond_18f
+    if-nez v1, :cond_14b
 
     move-object/from16 v0, p0
 
@@ -787,14 +685,14 @@
 
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_1cc
+    if-ne v1, v2, :cond_188
 
-    .line 1103
-    :cond_18f
+    .line 1092
+    :cond_14b
     add-int v1, v16, v18
 
-    .line 1112
-    :goto_191
+    .line 1101
+    :goto_14d
     return v1
 
     .line 986
@@ -804,40 +702,40 @@
     .end local v16           #maxHeight:I
     .end local v18           #padding:I
     .restart local v8       #context:Landroid/content/Context;
-    :cond_192
+    :cond_14e
     const/4 v1, 0x0
 
     goto/16 :goto_20
 
-    .line 1042
+    .line 1031
     .restart local v9       #dropDownView:Landroid/view/ViewGroup;
     .restart local v11       #hintContainer:Landroid/widget/LinearLayout;
     .restart local v12       #hintParams:Landroid/widget/LinearLayout$LayoutParams;
     .restart local v13       #hintView:Landroid/view/View;
-    :pswitch_195
+    :pswitch_151
     invoke-virtual {v11, v9, v12}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1043
+    .line 1032
     invoke-virtual {v11, v13}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    goto/16 :goto_10b
+    goto/16 :goto_c7
 
-    .line 1047
-    :pswitch_19d
+    .line 1036
+    :pswitch_159
     invoke-virtual {v11, v13}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 1048
+    .line 1037
     invoke-virtual {v11, v9, v12}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    goto/16 :goto_10b
+    goto/16 :goto_c7
 
-    .line 1071
+    .line 1060
     .end local v8           #context:Landroid/content/Context;
     .end local v9           #dropDownView:Landroid/view/ViewGroup;
     .end local v11           #hintContainer:Landroid/widget/LinearLayout;
     .end local v12           #hintParams:Landroid/widget/LinearLayout$LayoutParams;
     .end local v13           #hintView:Landroid/view/View;
-    :cond_1a5
+    :cond_161
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
@@ -848,7 +746,7 @@
 
     check-cast v9, Landroid/view/ViewGroup;
 
-    .line 1072
+    .line 1061
     .restart local v9       #dropDownView:Landroid/view/ViewGroup;
     move-object/from16 v0, p0
 
@@ -856,47 +754,47 @@
 
     move-object/from16 v19, v0
 
-    .line 1073
+    .line 1062
     .local v19, view:Landroid/view/View;
-    if-eqz v19, :cond_134
+    if-eqz v19, :cond_f0
 
-    .line 1074
+    .line 1063
     invoke-virtual/range {v19 .. v19}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v12
 
     check-cast v12, Landroid/widget/LinearLayout$LayoutParams;
 
-    .line 1076
+    .line 1065
     .restart local v12       #hintParams:Landroid/widget/LinearLayout$LayoutParams;
     invoke-virtual/range {v19 .. v19}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v1
 
-    iget v2, v12, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+    iget v2, v12, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
 
     add-int/2addr v1, v2
 
-    iget v2, v12, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+    iget v2, v12, Landroid/widget/LinearLayout$LayoutParams;->bottomMargin:I
 
     add-int v17, v1, v2
 
-    goto/16 :goto_134
+    goto/16 :goto_f0
 
-    .line 1097
+    .line 1086
     .end local v12           #hintParams:Landroid/widget/LinearLayout$LayoutParams;
     .end local v19           #view:Landroid/view/View;
     .restart local v7       #background:Landroid/graphics/drawable/Drawable;
     .restart local v18       #padding:I
-    :cond_1ca
+    :cond_186
     const/4 v14, 0x0
 
-    goto :goto_172
+    goto :goto_12e
 
-    .line 1106
+    .line 1095
     .restart local v14       #ignoreBottomDecorations:Z
     .restart local v16       #maxHeight:I
-    :cond_1cc
+    :cond_188
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
@@ -915,25 +813,25 @@
 
     move-result v15
 
-    .line 1110
+    .line 1099
     .local v15, listContent:I
-    if-lez v15, :cond_1de
+    if-lez v15, :cond_19a
 
     add-int v17, v17, v18
 
-    .line 1112
-    :cond_1de
+    .line 1101
+    :cond_19a
     add-int v1, v15, v17
 
-    goto :goto_191
+    goto :goto_14d
 
-    .line 1040
+    .line 1029
     nop
 
-    :pswitch_data_1e2
+    :pswitch_data_19e
     .packed-switch 0x0
-        :pswitch_19d
-        :pswitch_195
+        :pswitch_159
+        :pswitch_151
     .end packed-switch
 .end method
 
@@ -1037,19 +935,6 @@
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     .line 617
-    return-void
-.end method
-
-.method enableListPopupAnimation()V
-    .registers 2
-
-    .prologue
-    .line 1314
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Landroid/widget/ListPopupWindow;->mEnableListPopupAnimation:Z
-
-    .line 1315
     return-void
 .end method
 
@@ -2102,42 +1987,6 @@
     iput p1, p0, Landroid/widget/ListPopupWindow;->mListItemExpandMaximum:I
 
     .line 794
-    return-void
-.end method
-
-.method setListPopupBackgroundColor(I)V
-    .registers 2
-    .parameter "color"
-
-    .prologue
-    .line 1322
-    iput p1, p0, Landroid/widget/ListPopupWindow;->mListPopupBackgroundColor:I
-
-    .line 1323
-    return-void
-.end method
-
-.method setListPopupDivider(Landroid/graphics/drawable/Drawable;)V
-    .registers 2
-    .parameter "d"
-
-    .prologue
-    .line 1298
-    iput-object p1, p0, Landroid/widget/ListPopupWindow;->mListPopupDivider:Landroid/graphics/drawable/Drawable;
-
-    .line 1299
-    return-void
-.end method
-
-.method setListPopupDividerHeight(I)V
-    .registers 2
-    .parameter "h"
-
-    .prologue
-    .line 1306
-    iput p1, p0, Landroid/widget/ListPopupWindow;->mListPopupDividerHeight:I
-
-    .line 1307
     return-void
 .end method
 

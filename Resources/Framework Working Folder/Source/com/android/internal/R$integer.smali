@@ -15,15 +15,7 @@
 
 
 # static fields
-.field public static final actionBar_actionDivPadding:I = 0x10e0040
-
-.field public static final actionBar_activeItemLMax:I = 0x10e003f
-
-.field public static final actionBar_activeItemPMax:I = 0x10e003e
-
-.field public static final actionBar_marginOffset:I = 0x10e003d
-
-.field public static final config_MaxConcurrentDownloadsAllowed:I = 0x10e0028
+.field public static final config_MaxConcurrentDownloadsAllowed:I = 0x10e0027
 
 .field public static final config_activityDefaultDur:I = 0x10e0005
 
@@ -35,15 +27,15 @@
 
 .field public static final config_criticalBatteryWarningLevel:I = 0x10e0013
 
-.field public static final config_cursorWindowSize:I = 0x10e002a
+.field public static final config_cursorWindowSize:I = 0x10e0029
 
-.field public static final config_datause_notification_type:I = 0x10e0025
+.field public static final config_datause_notification_type:I = 0x10e0024
 
-.field public static final config_datause_polling_period_sec:I = 0x10e0022
+.field public static final config_datause_polling_period_sec:I = 0x10e0021
 
-.field public static final config_datause_threshold_bytes:I = 0x10e0023
+.field public static final config_datause_threshold_bytes:I = 0x10e0022
 
-.field public static final config_datause_throttle_kbitsps:I = 0x10e0024
+.field public static final config_datause_throttle_kbitsps:I = 0x10e0023
 
 .field public static final config_defaultNotificationLedOff:I = 0x10e0017
 
@@ -53,9 +45,9 @@
 
 .field public static final config_deskDockRotation:I = 0x10e000c
 
-.field public static final config_downloadDataDirLowSpaceThreshold:I = 0x10e0029
+.field public static final config_downloadDataDirLowSpaceThreshold:I = 0x10e0028
 
-.field public static final config_downloadDataDirSize:I = 0x10e0027
+.field public static final config_downloadDataDirSize:I = 0x10e0026
 
 .field public static final config_lidKeyboardAccessibility:I = 0x10e0010
 
@@ -63,7 +55,7 @@
 
 .field public static final config_lidOpenRotation:I = 0x10e000b
 
-.field public static final config_lightSensorWarmupTime:I = 0x10e0020
+.field public static final config_lightSensorWarmupTime:I = 0x10e001f
 
 .field public static final config_longAnimTime:I = 0x10e0002
 
@@ -79,7 +71,7 @@
 
 .field public static final config_mediumAnimTime:I = 0x10e0001
 
-.field public static final config_networkPolicyDefaultWarning:I = 0x10e002c
+.field public static final config_networkPolicyDefaultWarning:I = 0x10e002b
 
 .field public static final config_networkTransitionTimeout:I = 0x10e0007
 
@@ -93,7 +85,7 @@
 
 .field public static final config_notificationsBatteryMediumARGB:I = 0x10e0019
 
-.field public static final config_ntpTimeout:I = 0x10e002b
+.field public static final config_ntpTimeout:I = 0x10e002a
 
 .field public static final config_radioScanningTimeout:I = 0x10e0006
 
@@ -101,49 +93,25 @@
 
 .field public static final config_shortAnimTime:I = 0x10e0000
 
-.field public static final config_useAutoBrightnessAlgorithm:I = 0x10e001f
-
-.field public static final config_virtualKeyQuietTimeMillis:I = 0x10e0021
+.field public static final config_virtualKeyQuietTimeMillis:I = 0x10e0020
 
 .field public static final config_wifi_framework_scan_interval:I = 0x10e000a
 
 .field public static final config_wifi_supplicant_scan_interval:I = 0x10e0009
 
-.field public static final dark_shadow_xoffset:I = 0x10e0034
+.field public static final db_connection_pool_size:I = 0x10e0025
 
-.field public static final dark_shadow_yoffset:I = 0x10e0035
+.field public static final max_action_buttons:I = 0x10e002c
 
-.field public static final db_connection_pool_size:I = 0x10e0026
+.field public static final preference_fragment_scrollbarStyle:I = 0x10e0030
 
-.field public static final htc_config_max_pan_devices:I = 0x10e003c
+.field public static final preference_screen_header_scrollbarStyle:I = 0x10e002f
 
-.field public static final htc_config_networkTransitionTimeout:I = 0x10e003b
+.field public static final preferences_left_pane_weight:I = 0x10e002d
 
-.field public static final light_shadow_xoffset:I = 0x10e0032
-
-.field public static final light_shadow_yoffset:I = 0x10e0033
-
-.field public static final max_action_buttons:I = 0x10e002d
-
-.field public static final preference_fragment_scrollbarStyle:I = 0x10e0031
-
-.field public static final preference_screen_header_scrollbarStyle:I = 0x10e0030
-
-.field public static final preferences_left_pane_weight:I = 0x10e002e
-
-.field public static final preferences_right_pane_weight:I = 0x10e002f
+.field public static final preferences_right_pane_weight:I = 0x10e002e
 
 .field public static final status_bar_notification_info_maxnum:I = 0x10e0003
-
-.field public static final zzz_config_lidKeyboardAccessibility:I = 0x10e003a
-
-.field public static final zzz_config_virtualKeyVibePattern_item1:I = 0x10e0036
-
-.field public static final zzz_config_virtualKeyVibePattern_item2:I = 0x10e0037
-
-.field public static final zzz_config_virtualKeyVibePattern_item3:I = 0x10e0038
-
-.field public static final zzz_config_virtualKeyVibePattern_item4:I = 0x10e0039
 
 
 # direct methods
@@ -151,8 +119,8 @@
     .registers 1
 
     .prologue
-    .line 16512
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 14475
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 4816
+    .line 4410
     iput-object p1, p0, Landroid/view/ViewRootImpl$3;->this$0:Landroid/view/ViewRootImpl;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,7 +42,7 @@
     .parameter "callback"
 
     .prologue
-    .line 4830
+    .line 4424
     return-void
 .end method
 
@@ -50,7 +50,7 @@
     .registers 2
 
     .prologue
-    .line 4822
+    .line 4416
     iget-object v0, p0, Landroid/view/ViewRootImpl$3;->this$0:Landroid/view/ViewRootImpl;
 
     #getter for: Landroid/view/ViewRootImpl;->mSurface:Landroid/view/Surface;
@@ -65,7 +65,7 @@
     .registers 2
 
     .prologue
-    .line 4867
+    .line 4455
     const/4 v0, 0x0
 
     return-object v0
@@ -75,7 +75,7 @@
     .registers 2
 
     .prologue
-    .line 4826
+    .line 4420
     const/4 v0, 0x0
 
     return v0
@@ -85,7 +85,7 @@
     .registers 2
 
     .prologue
-    .line 4857
+    .line 4445
     const/4 v0, 0x0
 
     return-object v0
@@ -96,7 +96,7 @@
     .parameter "dirty"
 
     .prologue
-    .line 4861
+    .line 4449
     const/4 v0, 0x0
 
     return-object v0
@@ -107,16 +107,7 @@
     .parameter "callback"
 
     .prologue
-    .line 4833
-    return-void
-.end method
-
-.method public setExternalDisplay(I)V
-    .registers 2
-    .parameter "format"
-
-    .prologue
-    .line 4851
+    .line 4427
     return-void
 .end method
 
@@ -126,7 +117,7 @@
     .parameter "height"
 
     .prologue
-    .line 4836
+    .line 4430
     return-void
 .end method
 
@@ -135,7 +126,7 @@
     .parameter "format"
 
     .prologue
-    .line 4842
+    .line 4436
     return-void
 .end method
 
@@ -144,7 +135,7 @@
     .parameter "screenOn"
 
     .prologue
-    .line 4854
+    .line 4442
     return-void
 .end method
 
@@ -152,16 +143,7 @@
     .registers 1
 
     .prologue
-    .line 4839
-    return-void
-.end method
-
-.method public setStereoscopic3DFormat(I)V
-    .registers 2
-    .parameter "format"
-
-    .prologue
-    .line 4848
+    .line 4433
     return-void
 .end method
 
@@ -170,7 +152,7 @@
     .parameter "type"
 
     .prologue
-    .line 4845
+    .line 4439
     return-void
 .end method
 
@@ -179,6 +161,6 @@
     .parameter "canvas"
 
     .prologue
-    .line 4865
+    .line 4453
     return-void
 .end method

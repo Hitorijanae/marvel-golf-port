@@ -107,35 +107,35 @@
     .line 121
     new-array v0, v2, [B
 
-    fill-array-data v0, :array_12c
+    fill-array-data v0, :array_126
 
     sput-object v0, Landroid/nfc/NdefRecord;->RTD_SMART_POSTER:[B
 
     .line 126
     new-array v0, v2, [B
 
-    fill-array-data v0, :array_132
+    fill-array-data v0, :array_12c
 
     sput-object v0, Landroid/nfc/NdefRecord;->RTD_ALTERNATIVE_CARRIER:[B
 
     .line 131
     new-array v0, v2, [B
 
-    fill-array-data v0, :array_138
+    fill-array-data v0, :array_132
 
     sput-object v0, Landroid/nfc/NdefRecord;->RTD_HANDOVER_CARRIER:[B
 
     .line 136
     new-array v0, v2, [B
 
-    fill-array-data v0, :array_13e
+    fill-array-data v0, :array_138
 
     sput-object v0, Landroid/nfc/NdefRecord;->RTD_HANDOVER_REQUEST:[B
 
     .line 141
     new-array v0, v2, [B
 
-    fill-array-data v0, :array_144
+    fill-array-data v0, :array_13e
 
     sput-object v0, Landroid/nfc/NdefRecord;->RTD_HANDOVER_SELECT:[B
 
@@ -157,23 +157,23 @@
 
     aput-object v1, v0, v3
 
-    const-string/jumbo v1, "http://www."
+    const-string v1, "http://www."
 
     aput-object v1, v0, v4
 
-    const-string/jumbo v1, "https://www."
+    const-string v1, "https://www."
 
     aput-object v1, v0, v2
 
     const/4 v1, 0x3
 
-    const-string/jumbo v2, "http://"
+    const-string v2, "http://"
 
     aput-object v2, v0, v1
 
     const/4 v1, 0x4
 
-    const-string/jumbo v2, "https://"
+    const-string v2, "https://"
 
     aput-object v2, v0, v1
 
@@ -251,7 +251,7 @@
 
     const/16 v1, 0x11
 
-    const-string/jumbo v2, "imap:"
+    const-string v2, "imap:"
 
     aput-object v2, v0, v1
 
@@ -317,7 +317,7 @@
 
     const/16 v1, 0x1c
 
-    const-string/jumbo v2, "irdaobex://"
+    const-string v2, "irdaobex://"
 
     aput-object v2, v0, v1
 
@@ -369,7 +369,7 @@
     return-void
 
     .line 121
-    :array_12c
+    :array_126
     .array-data 0x1
         0x53t
         0x70t
@@ -378,7 +378,7 @@
     .line 126
     nop
 
-    :array_132
+    :array_12c
     .array-data 0x1
         0x61t
         0x63t
@@ -387,7 +387,7 @@
     .line 131
     nop
 
-    :array_138
+    :array_132
     .array-data 0x1
         0x48t
         0x63t
@@ -396,7 +396,7 @@
     .line 136
     nop
 
-    :array_13e
+    :array_138
     .array-data 0x1
         0x48t
         0x72t
@@ -405,7 +405,7 @@
     .line 141
     nop
 
-    :array_144
+    :array_13e
     .array-data 0x1
         0x48t
         0x73t
@@ -449,7 +449,7 @@
 
     .prologue
     .line 239
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 241
     if-eqz p2, :cond_9
@@ -579,7 +579,7 @@
     const/4 v0, 0x0
 
     .line 274
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 276
     iput-byte v1, p0, Landroid/nfc/NdefRecord;->mFlags:B

@@ -94,10 +94,10 @@
     .registers 1
 
     .prologue
-    .line 245
+    .line 253
     invoke-static {}, Landroid/view/Surface;->nativeClassInit()V
 
-    .line 495
+    .line 501
     new-instance v0, Landroid/view/Surface$1;
 
     invoke-direct {v0}, Landroid/view/Surface$1;-><init>()V
@@ -111,10 +111,10 @@
     .registers 3
 
     .prologue
-    .line 275
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 283
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 279
+    .line 287
     new-instance v0, Landroid/view/Surface$CompatibleCanvas;
 
     const/4 v1, 0x0
@@ -123,7 +123,7 @@
 
     iput-object v0, p0, Landroid/view/Surface;->mCanvas:Landroid/graphics/Canvas;
 
-    .line 280
+    .line 288
     return-void
 .end method
 
@@ -133,7 +133,7 @@
 
     .prologue
     .line 48
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 52
     new-instance v0, Landroid/view/Surface$CompatibleCanvas;
@@ -161,13 +161,13 @@
     .end annotation
 
     .prologue
-    .line 282
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 290
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 283
+    .line 291
     invoke-direct {p0, p1}, Landroid/view/Surface;->init(Landroid/os/Parcel;)V
 
-    .line 284
+    .line 292
     return-void
 .end method
 
@@ -204,10 +204,10 @@
     .end annotation
 
     .prologue
-    .line 250
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 258
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 254
+    .line 262
     new-instance v0, Landroid/view/Surface$CompatibleCanvas;
 
     const/4 v1, 0x0
@@ -216,7 +216,7 @@
 
     iput-object v0, p0, Landroid/view/Surface;->mCanvas:Landroid/graphics/Canvas;
 
-    .line 255
+    .line 263
     const/4 v3, 0x0
 
     move-object v0, p0
@@ -237,7 +237,7 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/view/Surface;->init(Landroid/view/SurfaceSession;ILjava/lang/String;IIIII)V
 
-    .line 256
+    .line 264
     return-void
 .end method
 
@@ -258,10 +258,10 @@
     .end annotation
 
     .prologue
-    .line 261
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 269
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 265
+    .line 273
     new-instance v0, Landroid/view/Surface$CompatibleCanvas;
 
     const/4 v1, 0x0
@@ -270,13 +270,13 @@
 
     iput-object v0, p0, Landroid/view/Surface;->mCanvas:Landroid/graphics/Canvas;
 
-    .line 266
+    .line 274
     invoke-direct/range {p0 .. p8}, Landroid/view/Surface;->init(Landroid/view/SurfaceSession;ILjava/lang/String;IIIII)V
 
-    .line 267
+    .line 275
     iput-object p3, p0, Landroid/view/Surface;->mName:Ljava/lang/String;
 
-    .line 268
+    .line 276
     return-void
 .end method
 
@@ -340,25 +340,25 @@
 .method public static native screenshot(IIII)Landroid/graphics/Bitmap;
 .end method
 
-.method private native setExternalDisplayNative(I)V
-.end method
-
 .method public static setOrientation(II)V
     .registers 3
     .parameter "display"
     .parameter "orientation"
 
     .prologue
-    .line 428
+    .line 434
     const/4 v0, 0x0
 
     invoke-static {p0, p1, v0}, Landroid/view/Surface;->setOrientation(III)V
 
-    .line 429
+    .line 435
     return-void
 .end method
 
 .method public static native setOrientation(III)V
+.end method
+
+.method private native setStereoscopic3DFormatNative(I)V
 .end method
 
 .method public static native unfreezeDisplay(I)V
@@ -373,16 +373,13 @@
     .registers 2
 
     .prologue
-    .line 98
+    .line 106
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public native destroy()V
-.end method
-
-.method public native destroy3DAnimation()V
 .end method
 
 .method protected finalize()V
@@ -394,13 +391,13 @@
     .end annotation
 
     .prologue
-    .line 515
+    .line 521
     :try_start_0
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
     :try_end_3
     .catchall {:try_start_0 .. :try_end_3} :catchall_3b
 
-    .line 517
+    .line 523
     iget v0, p0, Landroid/view/Surface;->mNativeSurface:I
 
     if-nez v0, :cond_b
@@ -409,7 +406,7 @@
 
     if-eqz v0, :cond_37
 
-    .line 522
+    .line 528
     :cond_b
     const-string v0, "Surface"
 
@@ -453,14 +450,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 526
+    .line 532
     :cond_37
     invoke-virtual {p0}, Landroid/view/Surface;->release()V
 
-    .line 528
+    .line 534
     return-void
 
-    .line 517
+    .line 523
     :catchall_3b
     move-exception v0
 
@@ -472,7 +469,7 @@
 
     if-eqz v1, :cond_70
 
-    .line 522
+    .line 528
     :cond_44
     const-string v1, "Surface"
 
@@ -516,11 +513,10 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 526
+    .line 532
     :cond_70
     invoke-virtual {p0}, Landroid/view/Surface;->release()V
 
-    .line 517
     throw v0
 .end method
 
@@ -531,7 +527,7 @@
     .registers 2
 
     .prologue
-    .line 309
+    .line 317
     iget v0, p0, Landroid/view/Surface;->mSurfaceGenerationId:I
 
     return v0
@@ -568,9 +564,6 @@
 .method public native release()V
 .end method
 
-.method public native set3DAnimationAttribute([Ljava/lang/String;[Ljava/lang/String;)V
-.end method
-
 .method public native setAlpha(F)V
 .end method
 
@@ -579,13 +572,13 @@
     .parameter "translator"
 
     .prologue
-    .line 377
+    .line 385
     if-eqz p1, :cond_10
 
-    .line 378
+    .line 386
     iget v0, p1, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
 
-    .line 379
+    .line 387
     .local v0, appScale:F
     new-instance v1, Landroid/graphics/Matrix;
 
@@ -593,26 +586,14 @@
 
     iput-object v1, p0, Landroid/view/Surface;->mCompatibleMatrix:Landroid/graphics/Matrix;
 
-    .line 380
+    .line 388
     iget-object v1, p0, Landroid/view/Surface;->mCompatibleMatrix:Landroid/graphics/Matrix;
 
     invoke-virtual {v1, v0, v0}, Landroid/graphics/Matrix;->setScale(FF)V
 
-    .line 382
+    .line 390
     .end local v0           #appScale:F
     :cond_10
-    return-void
-.end method
-
-.method public setExternalDisplay(I)V
-    .registers 2
-    .parameter "format"
-
-    .prologue
-    .line 80
-    invoke-direct {p0, p1}, Landroid/view/Surface;->setExternalDisplayNative(I)V
-
-    .line 81
     return-void
 .end method
 
@@ -637,7 +618,7 @@
     .parameter "y"
 
     .prologue
-    .line 469
+    .line 475
     int-to-float v0, p1
 
     int-to-float v1, p2
@@ -650,20 +631,29 @@
 .method public native setSize(II)V
 .end method
 
+.method public setStereoscopic3DFormat(I)V
+    .registers 2
+    .parameter "format"
+
+    .prologue
+    .line 83
+    invoke-direct {p0, p1}, Landroid/view/Surface;->setStereoscopic3DFormatNative(I)V
+
+    .line 84
+    return-void
+.end method
+
 .method public native setTransparentRegionHint(Landroid/graphics/Region;)V
 .end method
 
 .method public native show()V
 .end method
 
-.method public native step3DAnimation(F)V
-.end method
-
 .method public toString()Ljava/lang/String;
     .registers 3
 
     .prologue
-    .line 94
+    .line 102
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

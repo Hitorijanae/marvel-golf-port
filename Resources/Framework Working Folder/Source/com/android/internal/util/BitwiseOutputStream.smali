@@ -26,7 +26,7 @@
 
     .prologue
     .line 52
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 53
     new-array v0, p1, [B
@@ -174,7 +174,7 @@
     .line 92
     if-ltz p1, :cond_6
 
-    if-le p1, v5, :cond_26
+    if-le p1, v5, :cond_25
 
     .line 93
     :cond_6
@@ -184,7 +184,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "illegal write ("
+    const-string v4, "illegal write ("
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -209,7 +209,7 @@
     throw v2
 
     .line 95
-    :cond_26
+    :cond_25
     invoke-direct {p0, p1}, Lcom/android/internal/util/BitwiseOutputStream;->possExpand(I)V
 
     .line 96
@@ -261,7 +261,7 @@
     aput-byte v3, v2, v0
 
     .line 102
-    if-ge v1, v5, :cond_58
+    if-ge v1, v5, :cond_57
 
     iget-object v2, p0, Lcom/android/internal/util/BitwiseOutputStream;->mBuf:[B
 
@@ -278,7 +278,7 @@
     aput-byte v4, v2, v3
 
     .line 103
-    :cond_58
+    :cond_57
     return-void
 .end method
 

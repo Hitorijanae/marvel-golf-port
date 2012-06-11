@@ -39,16 +39,16 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 606
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 569
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 604
+    .line 567
     iput-boolean v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mClassInstanceLimitNeedCow:Z
 
-    .line 607
+    .line 570
     iput v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mMask:I
 
-    .line 608
+    .line 571
     return-void
 .end method
 
@@ -57,30 +57,30 @@
     .parameter "base"
 
     .prologue
-    .line 613
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 576
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 604
+    .line 567
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mClassInstanceLimitNeedCow:Z
 
-    .line 614
+    .line 577
     iget v0, p1, Landroid/os/StrictMode$VmPolicy;->mask:I
 
     iput v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mMask:I
 
-    .line 615
+    .line 578
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mClassInstanceLimitNeedCow:Z
 
-    .line 616
+    .line 579
     iget-object v0, p1, Landroid/os/StrictMode$VmPolicy;->classInstanceLimit:Ljava/util/HashMap;
 
     iput-object v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mClassInstanceLimit:Ljava/util/HashMap;
 
-    .line 617
+    .line 580
     return-void
 .end method
 
@@ -89,14 +89,14 @@
     .parameter "bit"
 
     .prologue
-    .line 714
+    .line 677
     iget v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mMask:I
 
     or-int/2addr v0, p1
 
     iput v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mMask:I
 
-    .line 715
+    .line 678
     return-object p0
 .end method
 
@@ -106,7 +106,7 @@
     .registers 5
 
     .prologue
-    .line 744
+    .line 691
     iget v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mMask:I
 
     if-eqz v0, :cond_d
@@ -117,10 +117,10 @@
 
     if-nez v0, :cond_d
 
-    .line 747
+    .line 694
     invoke-virtual {p0}, Landroid/os/StrictMode$VmPolicy$Builder;->penaltyLog()Landroid/os/StrictMode$VmPolicy$Builder;
 
-    .line 749
+    .line 696
     :cond_d
     new-instance v1, Landroid/os/StrictMode$VmPolicy;
 
@@ -151,7 +151,7 @@
     .registers 2
 
     .prologue
-    .line 647
+    .line 610
     const/16 v0, 0x800
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$VmPolicy$Builder;->enable(I)Landroid/os/StrictMode$VmPolicy$Builder;
@@ -165,7 +165,7 @@
     .registers 2
 
     .prologue
-    .line 658
+    .line 621
     const/16 v0, 0xe00
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$VmPolicy$Builder;->enable(I)Landroid/os/StrictMode$VmPolicy$Builder;
@@ -179,7 +179,7 @@
     .registers 2
 
     .prologue
-    .line 684
+    .line 647
     const/16 v0, 0x400
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$VmPolicy$Builder;->enable(I)Landroid/os/StrictMode$VmPolicy$Builder;
@@ -193,7 +193,7 @@
     .registers 2
 
     .prologue
-    .line 672
+    .line 635
     const/16 v0, 0x200
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$VmPolicy$Builder;->enable(I)Landroid/os/StrictMode$VmPolicy$Builder;
@@ -207,7 +207,7 @@
     .registers 2
 
     .prologue
-    .line 693
+    .line 656
     const/16 v0, 0x40
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$VmPolicy$Builder;->enable(I)Landroid/os/StrictMode$VmPolicy$Builder;
@@ -221,7 +221,7 @@
     .registers 2
 
     .prologue
-    .line 710
+    .line 673
     const/16 v0, 0x80
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$VmPolicy$Builder;->enable(I)Landroid/os/StrictMode$VmPolicy$Builder;
@@ -235,7 +235,7 @@
     .registers 2
 
     .prologue
-    .line 700
+    .line 663
     const/16 v0, 0x10
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$VmPolicy$Builder;->enable(I)Landroid/os/StrictMode$VmPolicy$Builder;
@@ -251,32 +251,32 @@
     .parameter "instanceLimit"
 
     .prologue
-    .line 624
-    if-nez p1, :cond_b
+    .line 587
+    if-nez p1, :cond_a
 
-    .line 625
+    .line 588
     new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string/jumbo v1, "klass == null"
+    const-string v1, "klass == null"
 
     invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 627
-    :cond_b
+    .line 590
+    :cond_a
     iget-boolean v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mClassInstanceLimitNeedCow:Z
 
-    if-eqz v0, :cond_43
+    if-eqz v0, :cond_42
 
-    .line 628
+    .line 591
     iget-object v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mClassInstanceLimit:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_26
+    if-eqz v0, :cond_25
 
     iget-object v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mClassInstanceLimit:Ljava/util/HashMap;
 
@@ -290,19 +290,19 @@
 
     move-result v0
 
-    if-ne v0, p2, :cond_26
+    if-ne v0, p2, :cond_25
 
-    .line 640
-    :goto_25
+    .line 603
+    :goto_24
     return-object p0
 
-    .line 633
-    :cond_26
+    .line 596
+    :cond_25
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mClassInstanceLimitNeedCow:Z
 
-    .line 634
+    .line 597
     iget-object v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mClassInstanceLimit:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Ljava/util/HashMap;->clone()Ljava/lang/Object;
@@ -313,16 +313,16 @@
 
     iput-object v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mClassInstanceLimit:Ljava/util/HashMap;
 
-    .line 638
-    :cond_33
-    :goto_33
+    .line 601
+    :cond_32
+    :goto_32
     iget v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mMask:I
 
     or-int/lit16 v0, v0, 0x1000
 
     iput v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mMask:I
 
-    .line 639
+    .line 602
     iget-object v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mClassInstanceLimit:Ljava/util/HashMap;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -331,36 +331,20 @@
 
     invoke-virtual {v0, p1, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_25
+    goto :goto_24
 
-    .line 635
-    :cond_43
+    .line 598
+    :cond_42
     iget-object v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mClassInstanceLimit:Ljava/util/HashMap;
 
-    if-nez v0, :cond_33
+    if-nez v0, :cond_32
 
-    .line 636
+    .line 599
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Landroid/os/StrictMode$VmPolicy$Builder;->mClassInstanceLimit:Ljava/util/HashMap;
 
-    goto :goto_33
-.end method
-
-.method setHtcVmPolicy()Landroid/os/StrictMode$VmPolicy$Builder;
-    .registers 3
-
-    .prologue
-    .line 722
-    const v0, 0x3f0290
-
-    .line 731
-    .local v0, nMask:I
-    invoke-direct {p0, v0}, Landroid/os/StrictMode$VmPolicy$Builder;->enable(I)Landroid/os/StrictMode$VmPolicy$Builder;
-
-    move-result-object v1
-
-    return-object v1
+    goto :goto_32
 .end method

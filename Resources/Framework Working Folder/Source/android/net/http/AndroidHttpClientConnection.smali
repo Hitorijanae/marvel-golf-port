@@ -35,7 +35,7 @@
     const/4 v0, 0x0
 
     .line 83
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 70
     iput-object v0, p0, Landroid/net/http/AndroidHttpClientConnection;->inbuffer:Lorg/apache/http/io/SessionInputBuffer;
@@ -233,7 +233,7 @@
     if-ltz v1, :cond_33
 
     .line 109
-    if-lez v1, :cond_79
+    if-lez v1, :cond_77
 
     move v2, v3
 
@@ -265,7 +265,7 @@
     iput-object v2, p0, Landroid/net/http/AndroidHttpClientConnection;->outbuffer:Lorg/apache/http/io/SessionOutputBuffer;
 
     .line 117
-    const-string/jumbo v2, "http.connection.max-header-count"
+    const-string v2, "http.connection.max-header-count"
 
     invoke-interface {p2, v2, v4}, Lorg/apache/http/params/HttpParams;->getIntParameter(Ljava/lang/String;I)I
 
@@ -274,7 +274,7 @@
     iput v2, p0, Landroid/net/http/AndroidHttpClientConnection;->maxHeaderCount:I
 
     .line 119
-    const-string/jumbo v2, "http.connection.max-line-length"
+    const-string v2, "http.connection.max-line-length"
 
     invoke-interface {p2, v2, v4}, Lorg/apache/http/params/HttpParams;->getIntParameter(Ljava/lang/String;I)I
 
@@ -320,7 +320,7 @@
 
     .line 109
     .end local v0           #buffersize:I
-    :cond_79
+    :cond_77
     const/4 v2, 0x0
 
     goto :goto_30

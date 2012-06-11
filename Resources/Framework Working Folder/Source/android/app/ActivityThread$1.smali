@@ -1,4 +1,4 @@
-.class final Landroid/app/ActivityThread$1;
+.class Landroid/app/ActivityThread$1;
 .super Ljava/lang/Object;
 .source "ActivityThread.java"
 
@@ -7,23 +7,30 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/app/ActivityThread;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Landroid/app/ActivityThread;->attach(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x0
     name = null
 .end annotation
 
 
+# instance fields
+.field final synthetic this$0:Landroid/app/ActivityThread;
+
+
 # direct methods
-.method constructor <init>()V
-    .registers 1
+.method constructor <init>(Landroid/app/ActivityThread;)V
+    .registers 2
+    .parameter
 
     .prologue
-    .line 3566
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 4473
+    iput-object p1, p0, Landroid/app/ActivityThread$1;->this$0:Landroid/app/ActivityThread;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -31,32 +38,14 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .registers 2
 
     .prologue
-    .line 3568
-    invoke-static {}, Landroid/graphics/Canvas;->freeCaches()V
+    .line 4475
+    iget-object v0, p0, Landroid/app/ActivityThread$1;->this$0:Landroid/app/ActivityThread;
 
-    .line 3569
-    invoke-static {}, Ldalvik/system/VMRuntime;->getRuntime()Ldalvik/system/VMRuntime;
+    invoke-virtual {v0}, Landroid/app/ActivityThread;->ensureJitEnabled()V
 
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Ldalvik/system/VMRuntime;->gcSoftReferences(Z)V
-
-    .line 3572
-    invoke-static {}, Lcom/htc/profileflag/ProfileConfig;->getFreeFileMap()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_14
-
-    .line 3573
-    invoke-static {}, Landroid/os/Process;->releaseFileMapMemory()V
-
-    .line 3577
-    :cond_14
+    .line 4476
     return-void
 .end method

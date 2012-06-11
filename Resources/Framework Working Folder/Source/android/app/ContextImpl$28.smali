@@ -1,5 +1,5 @@
 .class final Landroid/app/ContextImpl$28;
-.super Landroid/app/ContextImpl$StaticServiceFetcher;
+.super Landroid/app/ContextImpl$ServiceFetcher;
 .source "ContextImpl.java"
 
 
@@ -19,34 +19,23 @@
     .registers 1
 
     .prologue
-    .line 464
-    invoke-direct {p0}, Landroid/app/ContextImpl$StaticServiceFetcher;-><init>()V
+    .line 426
+    invoke-direct {p0}, Landroid/app/ContextImpl$ServiceFetcher;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public createStaticService()Ljava/lang/Object;
-    .registers 4
+.method public createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
+    .registers 3
+    .parameter "ctx"
 
     .prologue
-    .line 466
-    const-string/jumbo v1, "throttle"
+    .line 428
+    new-instance v0, Landroid/app/UiModeManager;
 
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-direct {v0}, Landroid/app/UiModeManager;-><init>()V
 
-    move-result-object v0
-
-    .line 467
-    .local v0, b:Landroid/os/IBinder;
-    new-instance v1, Landroid/net/ThrottleManager;
-
-    invoke-static {v0}, Landroid/net/IThrottleManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/IThrottleManager;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2}, Landroid/net/ThrottleManager;-><init>(Landroid/net/IThrottleManager;)V
-
-    return-object v1
+    return-object v0
 .end method

@@ -16,7 +16,7 @@
 
     .prologue
     .line 44
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -183,8 +183,8 @@
     :try_start_2b
     invoke-virtual {p1}, Landroid/database/sqlite/SQLiteDatabase;->getAttachedDbs()Ljava/util/List;
     :try_end_2e
-    .catchall {:try_start_2b .. :try_end_2e} :catchall_60
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_2b .. :try_end_2e} :catch_54
+    .catchall {:try_start_2b .. :try_end_2e} :catchall_54
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_2b .. :try_end_2e} :catch_78
 
     move-result-object v0
 
@@ -193,12 +193,12 @@
     :try_start_2f
     invoke-virtual {p1}, Landroid/database/sqlite/SQLiteDatabase;->close()V
     :try_end_32
-    .catchall {:try_start_2f .. :try_end_32} :catchall_60
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_2f .. :try_end_32} :catch_56
+    .catchall {:try_start_2f .. :try_end_32} :catchall_54
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_2f .. :try_end_32} :catch_7a
 
     .line 84
     :goto_32
-    if-eqz v0, :cond_58
+    if-eqz v0, :cond_4c
 
     .line 85
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -239,39 +239,15 @@
 
     invoke-direct {p0, v3}, Landroid/database/DefaultDatabaseErrorHandler;->deleteDatabaseFile(Ljava/lang/String;)V
 
-    .line 84
-    :cond_53
-    throw v4
-
-    .line 74
-    :catch_54
-    move-exception v3
-
-    goto :goto_2f
-
-    .line 79
-    :catch_56
-    move-exception v3
-
-    goto :goto_32
-
-    .line 91
-    :cond_58
-    invoke-virtual {p1}, Landroid/database/sqlite/SQLiteDatabase;->getPath()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {p0, v3}, Landroid/database/DefaultDatabaseErrorHandler;->deleteDatabaseFile(Ljava/lang/String;)V
-
     goto :goto_29
 
     .line 84
-    :catchall_60
+    :catchall_54
     move-exception v3
 
     move-object v4, v3
 
-    if-eqz v0, :cond_4c
+    if-eqz v0, :cond_70
 
     .line 85
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -279,12 +255,12 @@
     move-result-object v1
 
     .restart local v1       #i$:Ljava/util/Iterator;
-    :goto_68
+    :goto_5c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_53
+    if-eqz v3, :cond_77
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -300,5 +276,30 @@
 
     invoke-direct {p0, v3}, Landroid/database/DefaultDatabaseErrorHandler;->deleteDatabaseFile(Ljava/lang/String;)V
 
-    goto :goto_68
+    goto :goto_5c
+
+    .line 91
+    .end local v1           #i$:Ljava/util/Iterator;
+    .end local v2           #p:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/String;Ljava/lang/String;>;"
+    :cond_70
+    invoke-virtual {p1}, Landroid/database/sqlite/SQLiteDatabase;->getPath()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {p0, v3}, Landroid/database/DefaultDatabaseErrorHandler;->deleteDatabaseFile(Ljava/lang/String;)V
+
+    :cond_77
+    throw v4
+
+    .line 74
+    :catch_78
+    move-exception v3
+
+    goto :goto_2f
+
+    .line 79
+    :catch_7a
+    move-exception v3
+
+    goto :goto_32
 .end method

@@ -153,8 +153,6 @@
 
 .field public static final animationDuration:I = 0x1010112
 
-.field public static final animationName:I = 0x101041f
-
 .field public static final animationOrder:I = 0x10101ce
 
 .field public static final animationResolution:I = 0x101031a
@@ -264,7 +262,7 @@
 
 .field public static final candidatesTextStyleSpans:I = 0x1010230
 
-.field public static final cantSaveState:I = 0x101041e
+.field public static final cantSaveState:I = 0x101041d
 
 .field public static final capitalize:I = 0x1010169
     .annotation runtime Ljava/lang/Deprecated;
@@ -1011,8 +1009,6 @@
 
 .field public static final leftChevronDrawable:I = 0x1010400
 
-.field public static final levelId:I = 0x101041c
-
 .field public static final lineSpacingExtra:I = 0x1010217
 
 .field public static final lineSpacingMultiplier:I = 0x1010218
@@ -1145,7 +1141,7 @@
 
 .field public static final negativeButtonText:I = 0x10101f6
 
-.field public static final neverEncrypt:I = 0x101041d
+.field public static final neverEncrypt:I = 0x101041c
 
 .field public static final nextFocusDown:I = 0x10100e4
 
@@ -1241,16 +1237,6 @@
 .field public static final panelMenuListWidth:I = 0x10103b5
 
 .field public static final panelTextAppearance:I = 0x1010062
-
-.field public static final parameter1:I = 0x1010420
-
-.field public static final parameter2:I = 0x1010421
-
-.field public static final parameter3:I = 0x1010422
-
-.field public static final parameter4:I = 0x1010423
-
-.field public static final parameter5:I = 0x1010424
 
 .field public static final password:I = 0x101015c
     .annotation runtime Ljava/lang/Deprecated;
@@ -2179,8 +2165,8 @@
     .registers 1
 
     .prologue
-    .line 1815
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 568
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

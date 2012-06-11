@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1003
+    .line 991
     iput-object p1, p0, Landroid/view/ViewDebug$1;->val$view:Landroid/view/View;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,11 +41,11 @@
     .registers 2
 
     .prologue
-    .line 1005
+    .line 993
     iget-object v0, p0, Landroid/view/ViewDebug$1;->val$view:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->requestLayout()V
 
-    .line 1006
+    .line 994
     return-void
 .end method

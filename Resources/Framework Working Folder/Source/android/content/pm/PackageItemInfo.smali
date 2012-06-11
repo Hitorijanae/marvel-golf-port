@@ -32,10 +32,10 @@
     .registers 1
 
     .prologue
-    .line 89
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 84
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 90
+    .line 85
     return-void
 .end method
 
@@ -44,15 +44,15 @@
     .parameter "orig"
 
     .prologue
-    .line 92
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 87
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 93
+    .line 88
     iget-object v0, p1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
-    .line 94
+    .line 89
     iget-object v0, p0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     if-eqz v0, :cond_13
@@ -65,23 +65,23 @@
 
     iput-object v0, p0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
-    .line 95
+    .line 90
     :cond_13
     iget-object v0, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    .line 96
+    .line 91
     iget v0, p1, Landroid/content/pm/PackageItemInfo;->labelRes:I
 
     iput v0, p0, Landroid/content/pm/PackageItemInfo;->labelRes:I
 
-    .line 97
+    .line 92
     iget-object v0, p1, Landroid/content/pm/PackageItemInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
 
     iput-object v0, p0, Landroid/content/pm/PackageItemInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
 
-    .line 98
+    .line 93
     iget-object v0, p0, Landroid/content/pm/PackageItemInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
 
     if-eqz v0, :cond_2f
@@ -98,23 +98,23 @@
 
     iput-object v0, p0, Landroid/content/pm/PackageItemInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
 
-    .line 99
+    .line 94
     :cond_2f
     iget v0, p1, Landroid/content/pm/PackageItemInfo;->icon:I
 
     iput v0, p0, Landroid/content/pm/PackageItemInfo;->icon:I
 
-    .line 100
+    .line 95
     iget v0, p1, Landroid/content/pm/PackageItemInfo;->logo:I
 
     iput v0, p0, Landroid/content/pm/PackageItemInfo;->logo:I
 
-    .line 101
+    .line 96
     iget-object v0, p1, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
     iput-object v0, p0, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
-    .line 102
+    .line 97
     return-void
 .end method
 
@@ -123,31 +123,31 @@
     .parameter "source"
 
     .prologue
-    .line 264
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 248
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 265
+    .line 249
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
-    .line 266
+    .line 250
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    .line 267
+    .line 251
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/content/pm/PackageItemInfo;->labelRes:I
 
-    .line 268
+    .line 252
     sget-object v0, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -158,28 +158,28 @@
 
     iput-object v0, p0, Landroid/content/pm/PackageItemInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
 
-    .line 270
+    .line 254
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/content/pm/PackageItemInfo;->icon:I
 
-    .line 271
+    .line 255
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/content/pm/PackageItemInfo;->logo:I
 
-    .line 272
+    .line 256
     invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
-    .line 273
+    .line 257
     return-void
 .end method
 
@@ -191,7 +191,7 @@
     .parameter "prefix"
 
     .prologue
-    .line 252
+    .line 236
     return-void
 .end method
 
@@ -201,12 +201,12 @@
     .parameter "prefix"
 
     .prologue
-    .line 239
+    .line 223
     iget-object v0, p0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     if-eqz v0, :cond_21
 
-    .line 240
+    .line 224
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -233,7 +233,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 242
+    .line 226
     :cond_21
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -261,7 +261,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 243
+    .line 227
     iget v0, p0, Landroid/content/pm/PackageItemInfo;->labelRes:I
 
     if-nez v0, :cond_4a
@@ -272,9 +272,9 @@
 
     iget v0, p0, Landroid/content/pm/PackageItemInfo;->icon:I
 
-    if-eqz v0, :cond_87
+    if-eqz v0, :cond_86
 
-    .line 244
+    .line 228
     :cond_4a
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -284,7 +284,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "labelRes=0x"
+    const-string v1, "labelRes=0x"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -334,8 +334,8 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 248
-    :cond_87
+    .line 232
+    :cond_86
     return-void
 .end method
 
@@ -343,7 +343,7 @@
     .registers 2
 
     .prologue
-    .line 284
+    .line 268
     const/4 v0, 0x0
 
     return-object v0
@@ -354,7 +354,7 @@
     .parameter "pm"
 
     .prologue
-    .line 176
+    .line 160
     invoke-virtual {p1}, Landroid/content/pm/PackageManager;->getDefaultActivityIcon()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -367,78 +367,50 @@
     .parameter "pm"
 
     .prologue
-    .line 212
+    .line 196
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
-    .registers 8
+    .registers 6
     .parameter "pm"
 
     .prologue
-    .line 144
-    iget v3, p0, Landroid/content/pm/PackageItemInfo;->icon:I
+    .line 139
+    iget v1, p0, Landroid/content/pm/PackageItemInfo;->icon:I
 
-    if-eqz v3, :cond_24
+    if-eqz v1, :cond_13
 
-    .line 145
-    iget-object v3, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    .line 140
+    iget-object v1, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    iget v4, p0, Landroid/content/pm/PackageItemInfo;->icon:I
+    iget v2, p0, Landroid/content/pm/PackageItemInfo;->icon:I
 
     invoke-virtual {p0}, Landroid/content/pm/PackageItemInfo;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {p1, v3, v4, v5}, Landroid/content/pm/PackageManager;->getDrawable(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v2
-
-    .line 146
-    .local v2, dr:Landroid/graphics/drawable/Drawable;
-    if-eqz v2, :cond_24
-
-    .line 149
-    instance-of v3, v2, Landroid/graphics/drawable/BitmapDrawable;
-
-    if-eqz v3, :cond_23
-
-    move-object v1, v2
-
-    .line 150
-    check-cast v1, Landroid/graphics/drawable/BitmapDrawable;
-
-    .line 151
-    .local v1, bitmapDrawable:Landroid/graphics/drawable/BitmapDrawable;
-    invoke-virtual {v1}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
+    invoke-virtual {p1, v1, v2, v3}, Landroid/content/pm/PackageManager;->getDrawable(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 152
-    .local v0, bitmap:Landroid/graphics/Bitmap;
-    if-eqz v0, :cond_23
+    .line 141
+    .local v0, dr:Landroid/graphics/drawable/Drawable;
+    if-eqz v0, :cond_13
 
-    .line 153
-    const/4 v3, 0x0
+    .line 145
+    .end local v0           #dr:Landroid/graphics/drawable/Drawable;
+    :goto_12
+    return-object v0
 
-    invoke-virtual {v0, v3}, Landroid/graphics/Bitmap;->setRestorable(Z)V
-
-    .line 161
-    .end local v0           #bitmap:Landroid/graphics/Bitmap;
-    .end local v1           #bitmapDrawable:Landroid/graphics/drawable/BitmapDrawable;
-    .end local v2           #dr:Landroid/graphics/drawable/Drawable;
-    :cond_23
-    :goto_23
-    return-object v2
-
-    :cond_24
+    :cond_13
     invoke-virtual {p0, p1}, Landroid/content/pm/PackageItemInfo;->loadDefaultIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v2
+    move-result-object v0
 
-    goto :goto_23
+    goto :goto_12
 .end method
 
 .method public loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
@@ -446,25 +418,25 @@
     .parameter "pm"
 
     .prologue
-    .line 116
+    .line 111
     iget-object v1, p0, Landroid/content/pm/PackageItemInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
 
     if-eqz v1, :cond_7
 
-    .line 117
+    .line 112
     iget-object v1, p0, Landroid/content/pm/PackageItemInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
 
-    .line 128
+    .line 123
     :goto_6
     return-object v1
 
-    .line 119
+    .line 114
     :cond_7
     iget v1, p0, Landroid/content/pm/PackageItemInfo;->labelRes:I
 
     if-eqz v1, :cond_22
 
-    .line 120
+    .line 115
     iget-object v1, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     iget v2, p0, Landroid/content/pm/PackageItemInfo;->labelRes:I
@@ -477,11 +449,11 @@
 
     move-result-object v0
 
-    .line 121
+    .line 116
     .local v0, label:Ljava/lang/CharSequence;
     if-eqz v0, :cond_22
 
-    .line 122
+    .line 117
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -492,19 +464,19 @@
 
     goto :goto_6
 
-    .line 125
+    .line 120
     .end local v0           #label:Ljava/lang/CharSequence;
     :cond_22
     iget-object v1, p0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     if-eqz v1, :cond_29
 
-    .line 126
+    .line 121
     iget-object v1, p0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     goto :goto_6
 
-    .line 128
+    .line 123
     :cond_29
     iget-object v1, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
@@ -516,12 +488,12 @@
     .parameter "pm"
 
     .prologue
-    .line 191
+    .line 175
     iget v1, p0, Landroid/content/pm/PackageItemInfo;->logo:I
 
     if-eqz v1, :cond_13
 
-    .line 192
+    .line 176
     iget-object v1, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     iget v2, p0, Landroid/content/pm/PackageItemInfo;->logo:I
@@ -534,11 +506,11 @@
 
     move-result-object v0
 
-    .line 193
+    .line 177
     .local v0, d:Landroid/graphics/drawable/Drawable;
     if-eqz v0, :cond_13
 
-    .line 197
+    .line 181
     .end local v0           #d:Landroid/graphics/drawable/Drawable;
     :goto_12
     return-object v0
@@ -557,23 +529,23 @@
     .parameter "name"
 
     .prologue
-    .line 229
+    .line 213
     iget-object v1, p0, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
     if-eqz v1, :cond_17
 
-    .line 230
+    .line 214
     iget-object v1, p0, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
     invoke-virtual {v1, p2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 231
+    .line 215
     .local v0, resid:I
     if-eqz v0, :cond_17
 
-    .line 232
+    .line 216
     iget-object v1, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {p0}, Landroid/content/pm/PackageItemInfo;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
@@ -584,7 +556,7 @@
 
     move-result-object v1
 
-    .line 235
+    .line 219
     .end local v0           #resid:I
     :goto_16
     return-object v1
@@ -601,41 +573,41 @@
     .parameter "parcelableFlags"
 
     .prologue
-    .line 255
+    .line 239
     iget-object v0, p0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 256
+    .line 240
     iget-object v0, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 257
+    .line 241
     iget v0, p0, Landroid/content/pm/PackageItemInfo;->labelRes:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 258
+    .line 242
     iget-object v0, p0, Landroid/content/pm/PackageItemInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
 
     invoke-static {v0, p1, p2}, Landroid/text/TextUtils;->writeToParcel(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V
 
-    .line 259
+    .line 243
     iget v0, p0, Landroid/content/pm/PackageItemInfo;->icon:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 260
+    .line 244
     iget v0, p0, Landroid/content/pm/PackageItemInfo;->logo:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 261
+    .line 245
     iget-object v0, p0, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    .line 262
+    .line 246
     return-void
 .end method

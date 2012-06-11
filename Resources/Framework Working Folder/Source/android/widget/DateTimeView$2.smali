@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 293
+    .line 256
     iput-object p1, p0, Landroid/widget/DateTimeView$2;->this$0:Landroid/widget/DateTimeView;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -40,18 +40,18 @@
     .parameter "selfChange"
 
     .prologue
-    .line 296
+    .line 259
     iget-object v0, p0, Landroid/widget/DateTimeView$2;->this$0:Landroid/widget/DateTimeView;
 
     const/4 v1, 0x0
 
-    iput-object v1, v0, Landroid/widget/DateTimeView;->mLastFormat:Landroid/text/format/DateFormat;
+    iput-object v1, v0, Landroid/widget/DateTimeView;->mLastFormat:Ljava/text/DateFormat;
 
-    .line 297
+    .line 260
     iget-object v0, p0, Landroid/widget/DateTimeView$2;->this$0:Landroid/widget/DateTimeView;
 
     invoke-virtual {v0}, Landroid/widget/DateTimeView;->update()V
 
-    .line 298
+    .line 261
     return-void
 .end method

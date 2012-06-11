@@ -187,19 +187,7 @@
     return-void
 .end method
 
-.method static synthetic access$500(Landroid/net/wifi/WpsStateMachine;Lcom/android/internal/util/IState;)V
-    .registers 2
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 49
-    invoke-virtual {p0, p1}, Landroid/net/wifi/WpsStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-
-    return-void
-.end method
-
-.method static synthetic access$600(Landroid/net/wifi/WpsStateMachine;)Landroid/net/wifi/WifiStateMachine;
+.method static synthetic access$500(Landroid/net/wifi/WpsStateMachine;)Landroid/net/wifi/WifiStateMachine;
     .registers 2
     .parameter "x0"
 
@@ -210,31 +198,19 @@
     return-object v0
 .end method
 
+.method static synthetic access$600(Landroid/net/wifi/WpsStateMachine;Lcom/android/internal/util/IState;)V
+    .registers 2
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 49
+    invoke-virtual {p0, p1}, Landroid/net/wifi/WpsStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+
+    return-void
+.end method
+
 .method static synthetic access$700(Landroid/net/wifi/WpsStateMachine;Lcom/android/internal/util/IState;)V
-    .registers 2
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 49
-    invoke-virtual {p0, p1}, Landroid/net/wifi/WpsStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-
-    return-void
-.end method
-
-.method static synthetic access$800(Landroid/net/wifi/WpsStateMachine;Lcom/android/internal/util/IState;)V
-    .registers 2
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 49
-    invoke-virtual {p0, p1}, Landroid/net/wifi/WpsStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-
-    return-void
-.end method
-
-.method static synthetic access$900(Landroid/net/wifi/WpsStateMachine;Lcom/android/internal/util/IState;)V
     .registers 2
     .parameter "x0"
     .parameter "x1"

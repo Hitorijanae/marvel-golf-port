@@ -352,7 +352,7 @@
     .line 161
     iget-object v1, p0, Lcom/android/internal/http/multipart/MultipartEntity;->multipartBoundary:[B
 
-    if-nez v1, :cond_1c
+    if-nez v1, :cond_1b
 
     .line 162
     const/4 v0, 0x0
@@ -361,12 +361,12 @@
     .local v0, temp:Ljava/lang/String;
     iget-object v1, p0, Lcom/android/internal/http/multipart/MultipartEntity;->params:Lorg/apache/http/params/HttpParams;
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_13
 
     .line 164
     iget-object v1, p0, Lcom/android/internal/http/multipart/MultipartEntity;->params:Lorg/apache/http/params/HttpParams;
 
-    const-string/jumbo v2, "http.method.multipart.boundary"
+    const-string v2, "http.method.multipart.boundary"
 
     invoke-interface {v1, v2}, Lorg/apache/http/params/HttpParams;->getParameter(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -377,8 +377,8 @@
 
     .line 166
     .restart local v0       #temp:Ljava/lang/String;
-    :cond_14
-    if-eqz v0, :cond_1f
+    :cond_13
+    if-eqz v0, :cond_1e
 
     .line 167
     invoke-static {v0}, Lorg/apache/http/util/EncodingUtils;->getAsciiBytes(Ljava/lang/String;)[B
@@ -389,22 +389,22 @@
 
     .line 172
     .end local v0           #temp:Ljava/lang/String;
-    :cond_1c
-    :goto_1c
+    :cond_1b
+    :goto_1b
     iget-object v1, p0, Lcom/android/internal/http/multipart/MultipartEntity;->multipartBoundary:[B
 
     return-object v1
 
     .line 169
     .restart local v0       #temp:Ljava/lang/String;
-    :cond_1f
+    :cond_1e
     invoke-static {}, Lcom/android/internal/http/multipart/MultipartEntity;->generateMultipartBoundary()[B
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/internal/http/multipart/MultipartEntity;->multipartBoundary:[B
 
-    goto :goto_1c
+    goto :goto_1b
 .end method
 
 .method public isRepeatable()Z

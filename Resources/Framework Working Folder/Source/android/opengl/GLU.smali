@@ -27,7 +27,7 @@
 
     .prologue
     .line 26
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -38,7 +38,7 @@
 
     .prologue
     .line 36
-    sparse-switch p0, :sswitch_data_22
+    sparse-switch p0, :sswitch_data_1e
 
     .line 52
     const/4 v0, 0x0
@@ -54,52 +54,50 @@
 
     .line 40
     :sswitch_9
-    const-string/jumbo v0, "invalid enum"
+    const-string v0, "invalid enum"
 
     goto :goto_4
 
     .line 42
-    :sswitch_d
-    const-string/jumbo v0, "invalid value"
+    :sswitch_c
+    const-string v0, "invalid value"
 
     goto :goto_4
 
     .line 44
-    :sswitch_11
-    const-string/jumbo v0, "invalid operation"
+    :sswitch_f
+    const-string v0, "invalid operation"
 
     goto :goto_4
 
     .line 46
-    :sswitch_15
+    :sswitch_12
     const-string/jumbo v0, "stack overflow"
 
     goto :goto_4
 
     .line 48
-    :sswitch_19
+    :sswitch_16
     const-string/jumbo v0, "stack underflow"
 
     goto :goto_4
 
     .line 50
-    :sswitch_1d
+    :sswitch_1a
     const-string/jumbo v0, "out of memory"
 
     goto :goto_4
 
     .line 36
-    nop
-
-    :sswitch_data_22
+    :sswitch_data_1e
     .sparse-switch
         0x0 -> :sswitch_5
         0x500 -> :sswitch_9
-        0x501 -> :sswitch_d
-        0x502 -> :sswitch_11
-        0x503 -> :sswitch_15
-        0x504 -> :sswitch_19
-        0x505 -> :sswitch_1d
+        0x501 -> :sswitch_c
+        0x502 -> :sswitch_f
+        0x503 -> :sswitch_12
+        0x504 -> :sswitch_16
+        0x505 -> :sswitch_1a
     .end sparse-switch
 .end method
 

@@ -24,29 +24,17 @@
     .registers 1
 
     .prologue
-    .line 31
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
-
     .line 32
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 33
     return-void
 .end method
 
 .method public static native SetUnstableMemoryState(Z)I
 .end method
 
-.method public static native acquireCpuApDvcsWakeLock()V
-.end method
-
-.method public static native acquireCpuPerfWakeLock()V
-.end method
-
 .method public static native acquireWakeLock(ILjava/lang/String;)V
-.end method
-
-.method public static native disableTouchPokeCpu()V
-.end method
-
-.method public static native enableTouchPokeCpu()V
 .end method
 
 .method public static reboot(Ljava/lang/String;)V
@@ -59,10 +47,10 @@
     .end annotation
 
     .prologue
-    .line 121
+    .line 104
     invoke-static {p0}, Landroid/os/Power;->rebootNative(Ljava/lang/String;)V
 
-    .line 122
+    .line 105
     return-void
 .end method
 
@@ -74,19 +62,10 @@
     .end annotation
 .end method
 
-.method public static native releaseCpuApDvcsWakeLock()V
-.end method
-
-.method public static native releaseCpuPerfWakeLock()V
-.end method
-
 .method public static native releaseWakeLock(Ljava/lang/String;)V
 .end method
 
 .method public static native setLastUserActivityTimeout(J)I
-.end method
-
-.method public static native setPowerSavePolicy(I)V
 .end method
 
 .method public static native setScreenState(Z)I
@@ -95,10 +74,4 @@
 .method public static native shutdown()V
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
-.end method
-
-.method public static native shutdownEFSSync()V
-.end method
-
-.method public static native shutdownEFSSync_wait(I)V
 .end method

@@ -34,21 +34,21 @@
     .parameter "icp"
 
     .prologue
-    .line 1688
+    .line 1625
     iput-object p1, p0, Landroid/content/ContentResolver$ParcelFileDescriptorInner;->this$0:Landroid/content/ContentResolver;
 
-    .line 1689
+    .line 1626
     invoke-direct {p0, p2}, Landroid/os/ParcelFileDescriptor;-><init>(Landroid/os/ParcelFileDescriptor;)V
 
-    .line 1686
+    .line 1623
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/content/ContentResolver$ParcelFileDescriptorInner;->mReleaseProviderFlag:Z
 
-    .line 1690
+    .line 1627
     iput-object p3, p0, Landroid/content/ContentResolver$ParcelFileDescriptorInner;->mContentProvider:Landroid/content/IContentProvider;
 
-    .line 1691
+    .line 1628
     return-void
 .end method
 
@@ -63,27 +63,27 @@
     .end annotation
 
     .prologue
-    .line 1695
+    .line 1632
     iget-boolean v0, p0, Landroid/content/ContentResolver$ParcelFileDescriptorInner;->mReleaseProviderFlag:Z
 
     if-nez v0, :cond_11
 
-    .line 1696
+    .line 1633
     invoke-super {p0}, Landroid/os/ParcelFileDescriptor;->close()V
 
-    .line 1697
+    .line 1634
     iget-object v0, p0, Landroid/content/ContentResolver$ParcelFileDescriptorInner;->this$0:Landroid/content/ContentResolver;
 
     iget-object v1, p0, Landroid/content/ContentResolver$ParcelFileDescriptorInner;->mContentProvider:Landroid/content/IContentProvider;
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->releaseProvider(Landroid/content/IContentProvider;)Z
 
-    .line 1698
+    .line 1635
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/content/ContentResolver$ParcelFileDescriptorInner;->mReleaseProviderFlag:Z
 
-    .line 1700
+    .line 1637
     :cond_11
     return-void
 .end method
@@ -97,15 +97,15 @@
     .end annotation
 
     .prologue
-    .line 1704
+    .line 1641
     iget-boolean v0, p0, Landroid/content/ContentResolver$ParcelFileDescriptorInner;->mReleaseProviderFlag:Z
 
     if-nez v0, :cond_7
 
-    .line 1705
+    .line 1642
     invoke-virtual {p0}, Landroid/content/ContentResolver$ParcelFileDescriptorInner;->close()V
 
-    .line 1707
+    .line 1644
     :cond_7
     return-void
 .end method

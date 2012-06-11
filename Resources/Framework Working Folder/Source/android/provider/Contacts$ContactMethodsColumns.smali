@@ -63,14 +63,6 @@
     .end annotation
 .end field
 
-.field public static final TYPE_EXCHANGE_BASE:I = 0x3e8
-
-.field public static final TYPE_EXCHANGE_MAIL_1:I = 0x3e9
-
-.field public static final TYPE_EXCHANGE_MAIL_2:I = 0x3ea
-
-.field public static final TYPE_EXCHANGE_MAIL_3:I = 0x3eb
-
 .field public static final TYPE_HOME:I = 0x1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -80,14 +72,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
-
-.field public static final TYPE_PCSYNC_BASE:I = 0x3e8
-
-.field public static final TYPE_PCSYNC_MAIL_1:I = 0x3e9
-
-.field public static final TYPE_PCSYNC_MAIL_2:I = 0x3ea
-
-.field public static final TYPE_PCSYNC_MAIL_3:I = 0x3eb
 
 .field public static final TYPE_WORK:I = 0x2
     .annotation runtime Ljava/lang/Deprecated;

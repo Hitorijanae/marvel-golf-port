@@ -32,14 +32,6 @@
 
 .field static final TRANSACTION_setSelectedText:I = 0x5
 
-.field static final TRANSACTION_setSelectionEnd:I = 0x7
-
-.field static final TRANSACTION_setSelectionStart:I = 0x6
-
-.field static final TRANSACTION_setSubText:I = 0x9
-
-.field static final TRANSACTION_setText:I = 0x8
-
 .field static final TRANSACTION_setTextAfterCursor:I = 0x2
 
 .field static final TRANSACTION_setTextBeforeCursor:I = 0x1
@@ -134,9 +126,9 @@
     const/4 v2, 0x1
 
     .line 41
-    sparse-switch p1, :sswitch_data_e6
+    sparse-switch p1, :sswitch_data_96
 
-    .line 161
+    .line 119
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v2
@@ -356,132 +348,16 @@
     .restart local v0       #_arg0:Ljava/lang/CharSequence;
     goto :goto_8a
 
-    .line 120
-    .end local v0           #_arg0:Ljava/lang/CharSequence;
-    :sswitch_95
-    const-string v3, "com.android.internal.view.IInputContextCallback"
-
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 122
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    .line 123
-    .local v0, _arg0:I
-    invoke-virtual {p0, v0}, Lcom/android/internal/view/IInputContextCallback$Stub;->setSelectionStart(I)V
-
-    goto/16 :goto_8
-
-    .line 128
-    .end local v0           #_arg0:I
-    :sswitch_a3
-    const-string v3, "com.android.internal.view.IInputContextCallback"
-
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 130
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    .line 131
-    .restart local v0       #_arg0:I
-    invoke-virtual {p0, v0}, Lcom/android/internal/view/IInputContextCallback$Stub;->setSelectionEnd(I)V
-
-    goto/16 :goto_8
-
-    .line 136
-    .end local v0           #_arg0:I
-    :sswitch_b1
-    const-string v3, "com.android.internal.view.IInputContextCallback"
-
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 138
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-eqz v3, :cond_c9
-
-    .line 139
-    sget-object v3, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v3, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/CharSequence;
-
-    .line 144
-    .local v0, _arg0:Ljava/lang/CharSequence;
-    :goto_c4
-    invoke-virtual {p0, v0}, Lcom/android/internal/view/IInputContextCallback$Stub;->setText(Ljava/lang/CharSequence;)V
-
-    goto/16 :goto_8
-
-    .line 142
-    .end local v0           #_arg0:Ljava/lang/CharSequence;
-    :cond_c9
-    const/4 v0, 0x0
-
-    .restart local v0       #_arg0:Ljava/lang/CharSequence;
-    goto :goto_c4
-
-    .line 149
-    .end local v0           #_arg0:Ljava/lang/CharSequence;
-    :sswitch_cb
-    const-string v3, "com.android.internal.view.IInputContextCallback"
-
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 151
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-eqz v3, :cond_e3
-
-    .line 152
-    sget-object v3, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v3, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/CharSequence;
-
-    .line 157
-    .restart local v0       #_arg0:Ljava/lang/CharSequence;
-    :goto_de
-    invoke-virtual {p0, v0}, Lcom/android/internal/view/IInputContextCallback$Stub;->setSubText(Ljava/lang/CharSequence;)V
-
-    goto/16 :goto_8
-
-    .line 155
-    .end local v0           #_arg0:Ljava/lang/CharSequence;
-    :cond_e3
-    const/4 v0, 0x0
-
-    .restart local v0       #_arg0:Ljava/lang/CharSequence;
-    goto :goto_de
-
     .line 41
     nop
 
-    :sswitch_data_e6
+    :sswitch_data_96
     .sparse-switch
         0x1 -> :sswitch_f
         0x2 -> :sswitch_2c
         0x3 -> :sswitch_49
         0x4 -> :sswitch_5a
         0x5 -> :sswitch_77
-        0x6 -> :sswitch_95
-        0x7 -> :sswitch_a3
-        0x8 -> :sswitch_b1
-        0x9 -> :sswitch_cb
         0x5f4e5446 -> :sswitch_9
     .end sparse-switch
 .end method

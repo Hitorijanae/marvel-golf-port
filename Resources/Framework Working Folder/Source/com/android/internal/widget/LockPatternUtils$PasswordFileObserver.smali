@@ -21,10 +21,10 @@
     .parameter "mask"
 
     .prologue
-    .line 151
+    .line 147
     invoke-direct {p0, p1, p2}, Landroid/os/FileObserver;-><init>(Ljava/lang/String;I)V
 
-    .line 152
+    .line 148
     return-void
 .end method
 
@@ -42,23 +42,23 @@
 
     const/4 v1, 0x0
 
-    .line 156
+    .line 152
     const-string v2, "gesture.key"
 
     invoke-virtual {v2, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_2e
 
-    .line 157
+    .line 153
     const-string v2, "LockPatternUtils"
 
-    const-string/jumbo v3, "lock pattern file changed"
+    const-string v3, "lock pattern file changed"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 158
+    .line 154
     invoke-static {}, Lcom/android/internal/widget/LockPatternUtils;->access$100()Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v2
@@ -77,40 +77,40 @@
 
     cmp-long v3, v3, v5
 
-    if-lez v3, :cond_2d
+    if-lez v3, :cond_2c
 
-    :goto_29
+    :goto_28
     invoke-virtual {v2, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 163
-    :cond_2c
-    :goto_2c
+    .line 159
+    :cond_2b
+    :goto_2b
     return-void
 
-    :cond_2d
+    :cond_2c
     move v0, v1
 
-    .line 158
-    goto :goto_29
+    .line 154
+    goto :goto_28
 
-    .line 159
-    :cond_2f
+    .line 155
+    :cond_2e
     const-string/jumbo v2, "password.key"
 
     invoke-virtual {v2, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2c
+    if-eqz v2, :cond_2b
 
-    .line 160
+    .line 156
     const-string v2, "LockPatternUtils"
 
-    const-string/jumbo v3, "lock password file changed"
+    const-string v3, "lock password file changed"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 161
+    .line 157
     invoke-static {}, Lcom/android/internal/widget/LockPatternUtils;->access$300()Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v2
@@ -129,15 +129,15 @@
 
     cmp-long v3, v3, v5
 
-    if-lez v3, :cond_59
+    if-lez v3, :cond_57
 
-    :goto_55
+    :goto_53
     invoke-virtual {v2, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    goto :goto_2c
+    goto :goto_2b
 
-    :cond_59
+    :cond_57
     move v0, v1
 
-    goto :goto_55
+    goto :goto_53
 .end method

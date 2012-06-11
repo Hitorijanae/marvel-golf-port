@@ -100,7 +100,7 @@
 
     .prologue
     .line 92
-    const-string/jumbo v0, "log.closeguard.Animation"
+    const-string v0, "log.closeguard.Animation"
 
     const/4 v1, 0x0
 
@@ -122,7 +122,7 @@
     const/4 v2, 0x0
 
     .line 214
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 98
     iput-boolean v2, p0, Landroid/view/animation/Animation;->mEnded:Z
@@ -226,7 +226,7 @@
     const/4 v4, 0x0
 
     .line 225
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 98
     iput-boolean v4, p0, Landroid/view/animation/Animation;->mEnded:Z

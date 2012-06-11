@@ -15,14 +15,10 @@
 
 
 # static fields
-.field public static final CONTENT_TYPE:Ljava/lang/String; = "vnd.android.cursor.dir/phone_lookup"
-
 .field public static final LABEL:Ljava/lang/String; = "label"
 
 .field public static final NORMALIZED_NUMBER:Ljava/lang/String; = "normalized_number"
 
 .field public static final NUMBER:Ljava/lang/String; = "number"
-
-.field public static final QUERY_PARAMETER_SIP_ADDRESS:Ljava/lang/String; = "sip"
 
 .field public static final TYPE:Ljava/lang/String; = "type"

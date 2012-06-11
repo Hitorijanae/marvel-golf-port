@@ -46,14 +46,14 @@
     .registers 3
 
     .prologue
-    .line 379
+    .line 372
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Landroid/graphics/Color;->sColorNameMap:Ljava/util/HashMap;
 
-    .line 380
+    .line 373
     sget-object v0, Landroid/graphics/Color;->sColorNameMap:Ljava/util/HashMap;
 
     const-string v1, "black"
@@ -66,7 +66,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 381
+    .line 374
     sget-object v0, Landroid/graphics/Color;->sColorNameMap:Ljava/util/HashMap;
 
     const-string v1, "darkgray"
@@ -79,7 +79,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 382
+    .line 375
     sget-object v0, Landroid/graphics/Color;->sColorNameMap:Ljava/util/HashMap;
 
     const-string v1, "gray"
@@ -92,10 +92,10 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 383
+    .line 376
     sget-object v0, Landroid/graphics/Color;->sColorNameMap:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "lightgray"
+    const-string v1, "lightgray"
 
     const v2, -0x333334
 
@@ -105,7 +105,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 384
+    .line 377
     sget-object v0, Landroid/graphics/Color;->sColorNameMap:Ljava/util/HashMap;
 
     const-string/jumbo v1, "white"
@@ -118,7 +118,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 385
+    .line 378
     sget-object v0, Landroid/graphics/Color;->sColorNameMap:Ljava/util/HashMap;
 
     const-string/jumbo v1, "red"
@@ -131,7 +131,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 386
+    .line 379
     sget-object v0, Landroid/graphics/Color;->sColorNameMap:Ljava/util/HashMap;
 
     const-string v1, "green"
@@ -144,7 +144,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 387
+    .line 380
     sget-object v0, Landroid/graphics/Color;->sColorNameMap:Ljava/util/HashMap;
 
     const-string v1, "blue"
@@ -157,7 +157,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 388
+    .line 381
     sget-object v0, Landroid/graphics/Color;->sColorNameMap:Ljava/util/HashMap;
 
     const-string/jumbo v1, "yellow"
@@ -170,7 +170,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 389
+    .line 382
     sget-object v0, Landroid/graphics/Color;->sColorNameMap:Ljava/util/HashMap;
 
     const-string v1, "cyan"
@@ -183,7 +183,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 390
+    .line 383
     sget-object v0, Landroid/graphics/Color;->sColorNameMap:Ljava/util/HashMap;
 
     const-string/jumbo v1, "magenta"
@@ -196,7 +196,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 391
+    .line 384
     return-void
 .end method
 
@@ -205,7 +205,7 @@
 
     .prologue
     .line 36
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -223,33 +223,33 @@
 
     const/high16 v11, 0x3f80
 
-    .line 261
+    .line 254
     invoke-static {p0, v9, v11}, Landroid/util/MathUtils;->constrain(FFF)F
 
     move-result p0
 
-    .line 262
+    .line 255
     invoke-static {p1, v9, v11}, Landroid/util/MathUtils;->constrain(FFF)F
 
     move-result p1
 
-    .line 263
+    .line 256
     invoke-static {p2, v9, v11}, Landroid/util/MathUtils;->constrain(FFF)F
 
     move-result p2
 
-    .line 265
+    .line 258
     const/4 v7, 0x0
 
-    .line 266
+    .line 259
     .local v7, red:F
     const/4 v2, 0x0
 
-    .line 267
+    .line 260
     .local v2, green:F
     const/4 v0, 0x0
 
-    .line 269
+    .line 262
     .local v0, blue:F
     float-to-int v9, p0
 
@@ -261,23 +261,23 @@
 
     mul-float v3, v9, v10
 
-    .line 270
+    .line 263
     .local v3, hf:F
     float-to-int v4, v3
 
-    .line 271
+    .line 264
     .local v4, ihf:I
     int-to-float v9, v4
 
     sub-float v1, v3, v9
 
-    .line 272
+    .line 265
     .local v1, f:F
     sub-float v9, v11, p1
 
     mul-float v5, p2, v9
 
-    .line 273
+    .line 266
     .local v5, pv:F
     mul-float v9, p1, v1
 
@@ -285,7 +285,7 @@
 
     mul-float v6, p2, v9
 
-    .line 274
+    .line 267
     .local v6, qv:F
     sub-float v9, v11, v1
 
@@ -295,11 +295,11 @@
 
     mul-float v8, p2, v9
 
-    .line 276
+    .line 269
     .local v8, tv:F
     packed-switch v4, :pswitch_data_60
 
-    .line 309
+    .line 302
     :goto_34
     const/high16 v9, -0x100
 
@@ -327,84 +327,84 @@
 
     return v9
 
-    .line 278
+    .line 271
     :pswitch_47
     move v7, p2
 
-    .line 279
+    .line 272
     move v2, v8
 
-    .line 280
+    .line 273
     move v0, v5
 
-    .line 281
+    .line 274
     goto :goto_34
 
-    .line 283
+    .line 276
     :pswitch_4b
     move v7, v6
 
-    .line 284
+    .line 277
     move v2, p2
 
-    .line 285
+    .line 278
     move v0, v5
 
-    .line 286
+    .line 279
     goto :goto_34
 
-    .line 288
+    .line 281
     :pswitch_4f
     move v7, v5
 
-    .line 289
+    .line 282
     move v2, p2
 
-    .line 290
+    .line 283
     move v0, v8
 
-    .line 291
+    .line 284
     goto :goto_34
 
-    .line 293
+    .line 286
     :pswitch_53
     move v7, v5
 
-    .line 294
+    .line 287
     move v2, v6
 
-    .line 295
+    .line 288
     move v0, p2
 
-    .line 296
+    .line 289
     goto :goto_34
 
-    .line 298
+    .line 291
     :pswitch_57
     move v7, v8
 
-    .line 299
+    .line 292
     move v2, v5
 
-    .line 300
+    .line 293
     move v0, p2
 
-    .line 301
+    .line 294
     goto :goto_34
 
-    .line 303
+    .line 296
     :pswitch_5b
     move v7, p2
 
-    .line 304
+    .line 297
     move v2, v5
 
-    .line 305
+    .line 298
     move v0, v6
 
     goto :goto_34
 
-    .line 276
+    .line 269
     nop
 
     :pswitch_data_60
@@ -423,7 +423,7 @@
     .parameter "hsb"
 
     .prologue
-    .line 244
+    .line 237
     const/4 v0, 0x0
 
     aget v0, p0, v0
@@ -449,14 +449,14 @@
     .parameter "hsv"
 
     .prologue
-    .line 367
+    .line 360
     array-length v0, p1
 
     const/4 v1, 0x3
 
     if-ge v0, v1, :cond_c
 
-    .line 368
+    .line 361
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "3 components required for hsv"
@@ -465,7 +465,7 @@
 
     throw v0
 
-    .line 370
+    .line 363
     :cond_c
     invoke-static {p0, p1}, Landroid/graphics/Color;->nativeHSVToColor(I[F)I
 
@@ -479,7 +479,7 @@
     .parameter "hsv"
 
     .prologue
-    .line 352
+    .line 345
     const/16 v0, 0xff
 
     invoke-static {v0, p0}, Landroid/graphics/Color;->HSVToColor(I[F)I
@@ -497,14 +497,14 @@
     .parameter "hsv"
 
     .prologue
-    .line 324
+    .line 317
     array-length v0, p3
 
     const/4 v1, 0x3
 
     if-ge v0, v1, :cond_c
 
-    .line 325
+    .line 318
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "3 components required for hsv"
@@ -513,11 +513,11 @@
 
     throw v0
 
-    .line 327
+    .line 320
     :cond_c
     invoke-static {p0, p1, p2, p3}, Landroid/graphics/Color;->nativeRGBToHSV(III[F)V
 
-    .line 328
+    .line 321
     return-void
 .end method
 
@@ -540,7 +540,7 @@
     .parameter "blue"
 
     .prologue
-    .line 114
+    .line 107
     shl-int/lit8 v0, p0, 0x18
 
     shl-int/lit8 v1, p1, 0x10
@@ -572,22 +572,22 @@
     .parameter "color"
 
     .prologue
-    .line 194
+    .line 187
     shr-int/lit8 v4, p0, 0x10
 
     and-int/lit16 v3, v4, 0xff
 
-    .line 195
+    .line 188
     .local v3, r:I
     shr-int/lit8 v4, p0, 0x8
 
     and-int/lit16 v2, v4, 0xff
 
-    .line 196
+    .line 189
     .local v2, g:I
     and-int/lit16 v1, p0, 0xff
 
-    .line 198
+    .line 191
     .local v1, b:I
     invoke-static {v3, v2}, Ljava/lang/Math;->max(II)I
 
@@ -597,7 +597,7 @@
 
     move-result v0
 
-    .line 200
+    .line 193
     .local v0, V:I
     int-to-float v4, v0
 
@@ -614,7 +614,7 @@
     .parameter "hsv"
 
     .prologue
-    .line 339
+    .line 332
     shr-int/lit8 v0, p0, 0x10
 
     and-int/lit16 v0, v0, 0xff
@@ -627,7 +627,7 @@
 
     invoke-static {v0, v1, v2, p1}, Landroid/graphics/Color;->RGBToHSV(III[F)V
 
-    .line 340
+    .line 333
     return-void
 .end method
 
@@ -649,22 +649,22 @@
     .parameter "color"
 
     .prologue
-    .line 125
+    .line 118
     shr-int/lit8 v10, p0, 0x10
 
     and-int/lit16 v7, v10, 0xff
 
-    .line 126
+    .line 119
     .local v7, r:I
     shr-int/lit8 v10, p0, 0x8
 
     and-int/lit16 v6, v10, 0xff
 
-    .line 127
+    .line 120
     .local v6, g:I
     and-int/lit16 v2, p0, 0xff
 
-    .line 129
+    .line 122
     .local v2, b:I
     invoke-static {v7, v6}, Ljava/lang/Math;->max(II)I
 
@@ -674,7 +674,7 @@
 
     move-result v1
 
-    .line 130
+    .line 123
     .local v1, V:I
     invoke-static {v7, v6}, Ljava/lang/Math;->min(II)I
 
@@ -684,27 +684,27 @@
 
     move-result v8
 
-    .line 134
+    .line 127
     .local v8, temp:I
     if-ne v1, v8, :cond_1e
 
-    .line 135
+    .line 128
     const/4 v0, 0x0
 
-    .line 156
+    .line 149
     .local v0, H:F
     :cond_1d
     :goto_1d
     return v0
 
-    .line 137
+    .line 130
     .end local v0           #H:F
     :cond_1e
     sub-int v10, v1, v8
 
     int-to-float v9, v10
 
-    .line 138
+    .line 131
     .local v9, vtemp:F
     sub-int v10, v1, v7
 
@@ -712,7 +712,7 @@
 
     div-float v5, v10, v9
 
-    .line 139
+    .line 132
     .local v5, cr:F
     sub-int v10, v1, v6
 
@@ -720,7 +720,7 @@
 
     div-float v4, v10, v9
 
-    .line 140
+    .line 133
     .local v4, cg:F
     sub-int v10, v1, v2
 
@@ -728,40 +728,40 @@
 
     div-float v3, v10, v9
 
-    .line 142
+    .line 135
     .local v3, cb:F
     if-ne v7, v1, :cond_40
 
-    .line 143
+    .line 136
     sub-float v0, v3, v4
 
-    .line 150
+    .line 143
     .restart local v0       #H:F
     :goto_34
     const/high16 v10, 0x40c0
 
     div-float/2addr v0, v10
 
-    .line 151
+    .line 144
     const/4 v10, 0x0
 
     cmpg-float v10, v0, v10
 
     if-gez v10, :cond_1d
 
-    .line 152
+    .line 145
     const/high16 v10, 0x3f80
 
     add-float/2addr v0, v10
 
     goto :goto_1d
 
-    .line 144
+    .line 137
     .end local v0           #H:F
     :cond_40
     if-ne v6, v1, :cond_48
 
-    .line 145
+    .line 138
     const/high16 v10, 0x4000
 
     add-float/2addr v10, v5
@@ -771,7 +771,7 @@
     .restart local v0       #H:F
     goto :goto_34
 
-    .line 147
+    .line 140
     .end local v0           #H:F
     :cond_48
     const/high16 v10, 0x4080
@@ -795,7 +795,7 @@
     .parameter "colorString"
 
     .prologue
-    .line 213
+    .line 206
     const/4 v2, 0x0
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
@@ -806,7 +806,7 @@
 
     if-ne v2, v3, :cond_31
 
-    .line 215
+    .line 208
     const/4 v2, 0x1
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -819,7 +819,7 @@
 
     move-result-wide v0
 
-    .line 216
+    .line 209
     .local v0, color:J
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
@@ -829,21 +829,21 @@
 
     if-ne v2, v3, :cond_21
 
-    .line 218
+    .line 211
     const-wide/32 v2, -0x1000000
 
     or-long/2addr v0, v2
 
-    .line 222
+    .line 215
     :cond_1f
     long-to-int v2, v0
 
-    .line 226
+    .line 219
     .end local v0           #color:J
     :goto_20
     return v2
 
-    .line 219
+    .line 212
     .restart local v0       #color:J
     :cond_21
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -854,7 +854,7 @@
 
     if-eq v2, v3, :cond_1f
 
-    .line 220
+    .line 213
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Unknown color"
@@ -863,7 +863,7 @@
 
     throw v2
 
-    .line 224
+    .line 217
     .end local v0           #color:J
     :cond_31
     sget-object v2, Landroid/graphics/Color;->sColorNameMap:Ljava/util/HashMap;
@@ -880,18 +880,18 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 225
+    .line 218
     .local v0, color:Ljava/lang/Integer;
     if-eqz v0, :cond_46
 
-    .line 226
+    .line 219
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
 
     goto :goto_20
 
-    .line 229
+    .line 222
     :cond_46
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -916,28 +916,13 @@
 .end method
 
 .method public static rgb(III)I
-    .registers 4
-    .parameter "red"
-    .parameter "green"
-    .parameter "blue"
-
-    .prologue
-    .line 93
-    invoke-static {p0, p1, p2}, Landroid/graphics/Color;->rgb_w(III)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method private static final rgb_w(III)I
     .registers 5
     .parameter "red"
     .parameter "green"
     .parameter "blue"
 
     .prologue
-    .line 100
+    .line 93
     const/high16 v0, -0x100
 
     shl-int/lit8 v1, p0, 0x10
@@ -958,22 +943,22 @@
     .parameter "color"
 
     .prologue
-    .line 167
+    .line 160
     shr-int/lit8 v6, p0, 0x10
 
     and-int/lit16 v4, v6, 0xff
 
-    .line 168
+    .line 161
     .local v4, r:I
     shr-int/lit8 v6, p0, 0x8
 
     and-int/lit16 v3, v6, 0xff
 
-    .line 169
+    .line 162
     .local v3, g:I
     and-int/lit16 v2, p0, 0xff
 
-    .line 172
+    .line 165
     .local v2, b:I
     invoke-static {v4, v3}, Ljava/lang/Math;->max(II)I
 
@@ -983,7 +968,7 @@
 
     move-result v1
 
-    .line 173
+    .line 166
     .local v1, V:I
     invoke-static {v4, v3}, Ljava/lang/Math;->min(II)I
 
@@ -993,19 +978,19 @@
 
     move-result v5
 
-    .line 177
+    .line 170
     .local v5, temp:I
     if-ne v1, v5, :cond_1e
 
-    .line 178
+    .line 171
     const/4 v0, 0x0
 
-    .line 183
+    .line 176
     .local v0, S:F
     :goto_1d
     return v0
 
-    .line 180
+    .line 173
     .end local v0           #S:F
     :cond_1e
     sub-int v6, v1, v5

@@ -30,7 +30,7 @@
     .line 56
     iput-object p1, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodImpl;->this$0:Landroid/inputmethodservice/AbstractInputMethodService;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,9 +43,6 @@
 
     .prologue
     .line 63
-    if-eqz p1, :cond_b
-
-    .line 64
     iget-object v0, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodImpl;->this$0:Landroid/inputmethodservice/AbstractInputMethodService;
 
     invoke-virtual {v0}, Landroid/inputmethodservice/AbstractInputMethodService;->onCreateInputMethodSessionInterface()Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;
@@ -54,50 +51,37 @@
 
     invoke-interface {p1, v0}, Landroid/view/inputmethod/InputMethod$SessionCallback;->sessionCreated(Landroid/view/inputmethod/InputMethodSession;)V
 
-    .line 65
-    :cond_b
+    .line 64
     return-void
 .end method
 
 .method public revokeSession(Landroid/view/inputmethod/InputMethodSession;)V
-    .registers 3
+    .registers 2
     .parameter "session"
 
     .prologue
-    .line 83
-    instance-of v0, p1, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;
-
-    if-eqz v0, :cond_9
-
-    .line 84
+    .line 81
     check-cast p1, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;
 
     .end local p1
     invoke-virtual {p1}, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->revokeSelf()V
 
-    .line 85
-    :cond_9
+    .line 82
     return-void
 .end method
 
 .method public setSessionEnabled(Landroid/view/inputmethod/InputMethodSession;Z)V
-    .registers 4
+    .registers 3
     .parameter "session"
     .parameter "enabled"
 
     .prologue
-    .line 73
-    instance-of v0, p1, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;
-
-    if-eqz v0, :cond_9
-
-    .line 74
+    .line 72
     check-cast p1, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;
 
     .end local p1
     invoke-virtual {p1, p2}, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->setEnabled(Z)V
 
-    .line 75
-    :cond_9
+    .line 73
     return-void
 .end method

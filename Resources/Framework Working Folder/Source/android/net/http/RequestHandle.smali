@@ -76,7 +76,7 @@
     .prologue
     .line 64
     .local p5, headers:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 50
     const/4 v0, 0x0
@@ -1488,7 +1488,7 @@
 
     const/16 v5, -0x9
 
-    const v6, 0x1040127
+    const v6, 0x1040123
 
     invoke-virtual {v4, v5, v6}, Landroid/net/http/Request;->error(II)V
 
@@ -1500,21 +1500,21 @@
     :cond_24
     iget-object v4, p0, Landroid/net/http/RequestHandle;->mUrl:Ljava/lang/String;
 
-    const-string/jumbo v5, "https:"
+    const-string v5, "https:"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_3f
+    if-eqz v4, :cond_3d
 
-    const-string/jumbo v4, "http:"
+    const-string v4, "http:"
 
     invoke-virtual {p1, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_3f
+    if-eqz v4, :cond_3d
 
     .line 174
     iget-object v4, p0, Landroid/net/http/RequestHandle;->mHeaders:Ljava/util/Map;
@@ -1524,11 +1524,11 @@
     invoke-interface {v4, v5}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 177
-    :cond_3f
+    :cond_3d
     iput-object p1, p0, Landroid/net/http/RequestHandle;->mUrl:Ljava/lang/String;
 
     .line 179
-    :try_start_41
+    :try_start_3f
     new-instance v4, Landroid/net/WebAddress;
 
     iget-object v5, p0, Landroid/net/http/RequestHandle;->mUrl:Ljava/lang/String;
@@ -1536,11 +1536,11 @@
     invoke-direct {v4, v5}, Landroid/net/WebAddress;-><init>(Ljava/lang/String;)V
 
     iput-object v4, p0, Landroid/net/http/RequestHandle;->mUri:Landroid/net/WebAddress;
-    :try_end_4a
-    .catch Landroid/net/ParseException; {:try_start_41 .. :try_end_4a} :catch_97
+    :try_end_48
+    .catch Landroid/net/ParseException; {:try_start_3f .. :try_end_48} :catch_95
 
     .line 185
-    :goto_4a
+    :goto_48
     iget-object v4, p0, Landroid/net/http/RequestHandle;->mHeaders:Ljava/util/Map;
 
     const-string v5, "Cookie"
@@ -1560,13 +1560,13 @@
 
     .line 187
     .local v0, cookie:Ljava/lang/String;
-    if-eqz v0, :cond_6a
+    if-eqz v0, :cond_68
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v4
 
-    if-lez v4, :cond_6a
+    if-lez v4, :cond_68
 
     .line 188
     iget-object v4, p0, Landroid/net/http/RequestHandle;->mHeaders:Ljava/util/Map;
@@ -1576,16 +1576,16 @@
     invoke-interface {v4, v5, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 191
-    :cond_6a
+    :cond_68
     const/16 v4, 0x12e
 
-    if-eq p2, v4, :cond_72
+    if-eq p2, v4, :cond_70
 
     const/16 v4, 0x12f
 
-    if-ne p2, v4, :cond_80
+    if-ne p2, v4, :cond_7e
 
-    :cond_72
+    :cond_70
     iget-object v4, p0, Landroid/net/http/RequestHandle;->mMethod:Ljava/lang/String;
 
     const-string v5, "POST"
@@ -1594,7 +1594,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_80
+    if-eqz v4, :cond_7e
 
     .line 195
     const-string v4, "GET"
@@ -1602,26 +1602,26 @@
     iput-object v4, p0, Landroid/net/http/RequestHandle;->mMethod:Ljava/lang/String;
 
     .line 199
-    :cond_80
+    :cond_7e
     const/16 v4, 0x133
 
-    if-ne p2, v4, :cond_9e
+    if-ne p2, v4, :cond_9c
 
     .line 201
-    :try_start_84
+    :try_start_82
     iget-object v4, p0, Landroid/net/http/RequestHandle;->mBodyProvider:Ljava/io/InputStream;
 
-    if-eqz v4, :cond_8d
+    if-eqz v4, :cond_8b
 
     iget-object v4, p0, Landroid/net/http/RequestHandle;->mBodyProvider:Ljava/io/InputStream;
 
     invoke-virtual {v4}, Ljava/io/InputStream;->reset()V
-    :try_end_8d
-    .catch Ljava/io/IOException; {:try_start_84 .. :try_end_8d} :catch_9c
+    :try_end_8b
+    .catch Ljava/io/IOException; {:try_start_82 .. :try_end_8b} :catch_9a
 
     .line 215
-    :cond_8d
-    :goto_8d
+    :cond_8b
+    :goto_8b
     iget-object v3, p0, Landroid/net/http/RequestHandle;->mHeaders:Ljava/util/Map;
 
     invoke-interface {v3, p3}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
@@ -1636,19 +1636,19 @@
 
     .line 180
     .end local v0           #cookie:Ljava/lang/String;
-    :catch_97
+    :catch_95
     move-exception v1
 
     .line 181
     .local v1, e:Landroid/net/ParseException;
     invoke-virtual {v1}, Landroid/net/ParseException;->printStackTrace()V
 
-    goto :goto_4a
+    goto :goto_48
 
     .line 202
     .end local v1           #e:Landroid/net/ParseException;
     .restart local v0       #cookie:Ljava/lang/String;
-    :catch_9c
+    :catch_9a
     move-exception v2
 
     .line 206
@@ -1657,7 +1657,7 @@
 
     .line 210
     .end local v2           #ex:Ljava/io/IOException;
-    :cond_9e
+    :cond_9c
     iget-object v3, p0, Landroid/net/http/RequestHandle;->mHeaders:Ljava/util/Map;
 
     const-string v4, "Content-Type"
@@ -1669,7 +1669,7 @@
 
     iput-object v3, p0, Landroid/net/http/RequestHandle;->mBodyProvider:Ljava/io/InputStream;
 
-    goto :goto_8d
+    goto :goto_8b
 .end method
 
 .method public waitUntilComplete()V

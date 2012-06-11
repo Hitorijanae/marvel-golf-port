@@ -25,13 +25,13 @@
     .parameter "mainThread"
 
     .prologue
-    .line 1887
+    .line 1638
     invoke-direct {p0, p1}, Landroid/content/ContentResolver;-><init>(Landroid/content/Context;)V
 
-    .line 1888
+    .line 1639
     iput-object p2, p0, Landroid/app/ContextImpl$ApplicationContentResolver;->mMainThread:Landroid/app/ActivityThread;
 
-    .line 1889
+    .line 1640
     return-void
 .end method
 
@@ -43,7 +43,7 @@
     .parameter "name"
 
     .prologue
-    .line 1898
+    .line 1649
     iget-object v0, p0, Landroid/app/ContextImpl$ApplicationContentResolver;->mMainThread:Landroid/app/ActivityThread;
 
     invoke-virtual {v0, p1, p2}, Landroid/app/ActivityThread;->acquireExistingProvider(Landroid/content/Context;Ljava/lang/String;)Landroid/content/IContentProvider;
@@ -59,7 +59,7 @@
     .parameter "name"
 
     .prologue
-    .line 1893
+    .line 1644
     iget-object v0, p0, Landroid/app/ContextImpl$ApplicationContentResolver;->mMainThread:Landroid/app/ActivityThread;
 
     invoke-virtual {v0, p1, p2}, Landroid/app/ActivityThread;->acquireProvider(Landroid/content/Context;Ljava/lang/String;)Landroid/content/IContentProvider;
@@ -74,7 +74,7 @@
     .parameter "provider"
 
     .prologue
-    .line 1903
+    .line 1654
     iget-object v0, p0, Landroid/app/ContextImpl$ApplicationContentResolver;->mMainThread:Landroid/app/ActivityThread;
 
     invoke-virtual {v0, p1}, Landroid/app/ActivityThread;->releaseProvider(Landroid/content/IContentProvider;)Z

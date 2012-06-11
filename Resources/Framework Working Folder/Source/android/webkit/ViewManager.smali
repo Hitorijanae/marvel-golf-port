@@ -45,7 +45,7 @@
 
     .prologue
     .line 101
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 28
     new-instance v1, Ljava/util/ArrayList;
@@ -225,10 +225,10 @@
 
     .line 132
     .local v5, lp:Landroid/widget/AbsoluteLayout$LayoutParams;
-    iput v7, v5, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v7, v5, Landroid/widget/AbsoluteLayout$LayoutParams;->width:I
 
     .line 133
-    iput v3, v5, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v3, v5, Landroid/widget/AbsoluteLayout$LayoutParams;->height:I
 
     .line 134
     iput v8, v5, Landroid/widget/AbsoluteLayout$LayoutParams;->x:I

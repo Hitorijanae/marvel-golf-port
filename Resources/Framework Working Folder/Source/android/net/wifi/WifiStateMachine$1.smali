@@ -1,14 +1,11 @@
 .class Landroid/net/wifi/WifiStateMachine$1;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "WifiStateMachine.java"
-
-# interfaces
-.implements Landroid/content/ServiceConnection;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/net/wifi/WifiStateMachine;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Landroid/net/wifi/WifiStateMachine;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,73 +24,51 @@
     .parameter
 
     .prologue
-    .line 747
+    .line 589
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$1;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .registers 6
-    .parameter "name"
-    .parameter "service"
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .registers 9
+    .parameter "context"
+    .parameter "intent"
 
     .prologue
-    .line 752
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$1;->this$0:Landroid/net/wifi/WifiStateMachine;
+    .line 592
+    const-string v2, "availableArray"
 
-    #setter for: Landroid/net/wifi/WifiStateMachine;->mCWService:Landroid/os/IBinder;
-    invoke-static {v1, p2}, Landroid/net/wifi/WifiStateMachine;->access$002(Landroid/net/wifi/WifiStateMachine;Landroid/os/IBinder;)Landroid/os/IBinder;
-    :try_end_5
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_5} :catch_d
+    invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringArrayListExtra(Ljava/lang/String;)Ljava/util/ArrayList;
 
-    .line 756
-    :goto_5
-    const-string v1, "WifiStateMachine"
+    move-result-object v1
 
-    const-string v2, "[C+W] mCWService is connected"
+    .line 594
+    .local v1, available:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    const-string v2, "activeArray"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringArrayListExtra(Ljava/lang/String;)Ljava/util/ArrayList;
 
-    .line 757
-    return-void
+    move-result-object v0
 
-    .line 753
-    :catch_d
-    move-exception v0
+    .line 596
+    .local v0, active:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$1;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    .line 754
-    .local v0, e:Ljava/lang/IllegalArgumentException;
-    invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    const v3, 0x2001d
 
-    goto :goto_5
-.end method
+    new-instance v4, Landroid/net/wifi/WifiStateMachine$TetherStateChange;
 
-.method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .registers 4
-    .parameter "name"
+    iget-object v5, p0, Landroid/net/wifi/WifiStateMachine$1;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    .prologue
-    .line 761
-    const-string v0, "WifiStateMachine"
+    invoke-direct {v4, v5, v1, v0}, Landroid/net/wifi/WifiStateMachine$TetherStateChange;-><init>(Landroid/net/wifi/WifiStateMachine;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
 
-    const-string v1, "[C+W] mCWService is disconnected"
+    invoke-virtual {v2, v3, v4}, Landroid/net/wifi/WifiStateMachine;->sendMessage(ILjava/lang/Object;)V
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 762
-    iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$1;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    const/4 v1, 0x0
-
-    #setter for: Landroid/net/wifi/WifiStateMachine;->mCWService:Landroid/os/IBinder;
-    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$002(Landroid/net/wifi/WifiStateMachine;Landroid/os/IBinder;)Landroid/os/IBinder;
-
-    .line 763
+    .line 597
     return-void
 .end method

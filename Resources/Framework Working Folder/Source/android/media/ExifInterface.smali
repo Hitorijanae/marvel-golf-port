@@ -124,7 +124,7 @@
     .line 114
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/media/ExifInterface;->sLock:Ljava/lang/Object;
 
@@ -142,7 +142,7 @@
 
     .prologue
     .line 119
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 120
     iput-object p1, p0, Landroid/media/ExifInterface;->mFilename:Ljava/lang/String;
@@ -421,7 +421,7 @@
     .local v2, attrStr:Ljava/lang/String;
     monitor-exit v10
     :try_end_13
-    .catchall {:try_start_c .. :try_end_13} :catchall_5b
+    .catchall {:try_start_c .. :try_end_13} :catchall_5a
 
     .line 208
     invoke-virtual {v2, v11}, Ljava/lang/String;->indexOf(I)I
@@ -449,7 +449,7 @@
 
     .local v6, i:I
     :goto_23
-    if-ge v6, v4, :cond_64
+    if-ge v6, v4, :cond_63
 
     .line 215
     const/16 v9, 0x3d
@@ -499,13 +499,13 @@
     add-int/2addr v8, v0
 
     .line 228
-    const-string/jumbo v9, "hasThumbnail"
+    const-string v9, "hasThumbnail"
 
     invoke-virtual {v1, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_5e
+    if-eqz v9, :cond_5d
 
     .line 229
     const-string/jumbo v9, "true"
@@ -517,7 +517,7 @@
     iput-boolean v9, p0, Landroid/media/ExifInterface;->mHasThumbnail:Z
 
     .line 213
-    :goto_58
+    :goto_57
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_23
@@ -532,13 +532,13 @@
     .end local v6           #i:I
     .end local v7           #lenPos:I
     .end local v8           #ptr:I
-    :catchall_5b
+    :catchall_5a
     move-exception v9
 
-    :try_start_5c
+    :try_start_5b
     monitor-exit v10
-    :try_end_5d
-    .catchall {:try_start_5c .. :try_end_5d} :catchall_5b
+    :try_end_5c
+    .catchall {:try_start_5b .. :try_end_5c} :catchall_5a
 
     throw v9
 
@@ -552,12 +552,12 @@
     .restart local v6       #i:I
     .restart local v7       #lenPos:I
     .restart local v8       #ptr:I
-    :cond_5e
+    :cond_5d
     iget-object v9, p0, Landroid/media/ExifInterface;->mAttributes:Ljava/util/HashMap;
 
     invoke-virtual {v9, v1, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_58
+    goto :goto_57
 
     .line 234
     .end local v0           #attrLen:I
@@ -565,7 +565,7 @@
     .end local v3           #attrValue:Ljava/lang/String;
     .end local v5           #equalPos:I
     .end local v7           #lenPos:I
-    :cond_64
+    :cond_63
     return-void
 .end method
 
@@ -1131,19 +1131,19 @@
     .local v5, size:I
     iget-object v7, p0, Landroid/media/ExifInterface;->mAttributes:Ljava/util/HashMap;
 
-    const-string/jumbo v8, "hasThumbnail"
+    const-string v8, "hasThumbnail"
 
     invoke-virtual {v7, v8}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_18
+    if-eqz v7, :cond_17
 
     .line 251
     add-int/lit8 v5, v5, -0x1
 
     .line 253
-    :cond_18
+    :cond_17
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -1176,13 +1176,13 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :cond_38
-    :goto_38
+    :cond_37
+    :goto_37
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_8d
+    if-eqz v7, :cond_8b
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1200,13 +1200,13 @@
 
     .line 256
     .local v2, key:Ljava/lang/String;
-    const-string/jumbo v7, "hasThumbnail"
+    const-string v7, "hasThumbnail"
 
     invoke-virtual {v2, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-nez v7, :cond_38
+    if-nez v7, :cond_37
 
     .line 260
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -1265,13 +1265,13 @@
     .line 263
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_38
+    goto :goto_37
 
     .line 265
     .end local v1           #iter:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
     .end local v2           #key:Ljava/lang/String;
     .end local v6           #val:Ljava/lang/String;
-    :cond_8d
+    :cond_8b
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -1283,7 +1283,7 @@
     monitor-enter v8
 
     .line 267
-    :try_start_94
+    :try_start_92
     iget-object v7, p0, Landroid/media/ExifInterface;->mFilename:Ljava/lang/String;
 
     invoke-direct {p0, v7, v3}, Landroid/media/ExifInterface;->saveAttributesNative(Ljava/lang/String;Ljava/lang/String;)V
@@ -1300,12 +1300,12 @@
     return-void
 
     .line 269
-    :catchall_a0
+    :catchall_9e
     move-exception v7
 
     monitor-exit v8
-    :try_end_a2
-    .catchall {:try_start_94 .. :try_end_a2} :catchall_a0
+    :try_end_a0
+    .catchall {:try_start_92 .. :try_end_a0} :catchall_9e
 
     throw v7
 .end method

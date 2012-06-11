@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1440
+    .line 1320
     iput-object p1, p0, Landroid/app/ActivityThread$Idler;->this$0:Landroid/app/ActivityThread;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,7 +41,7 @@
     .parameter "x1"
 
     .prologue
-    .line 1440
+    .line 1320
     invoke-direct {p0, p1}, Landroid/app/ActivityThread$Idler;-><init>(Landroid/app/ActivityThread;)V
 
     return-void
@@ -55,16 +55,16 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 1442
+    .line 1322
     iget-object v4, p0, Landroid/app/ActivityThread$Idler;->this$0:Landroid/app/ActivityThread;
 
     iget-object v0, v4, Landroid/app/ActivityThread;->mNewActivities:Landroid/app/ActivityThread$ActivityClientRecord;
 
-    .line 1443
+    .line 1323
     .local v0, a:Landroid/app/ActivityThread$ActivityClientRecord;
     const/4 v3, 0x0
 
-    .line 1444
+    .line 1324
     .local v3, stopProfiling:Z
     iget-object v4, p0, Landroid/app/ActivityThread$Idler;->this$0:Landroid/app/ActivityThread;
 
@@ -88,24 +88,24 @@
 
     if-eqz v4, :cond_1d
 
-    .line 1446
+    .line 1326
     const/4 v3, 0x1
 
-    .line 1448
+    .line 1328
     :cond_1d
     if-eqz v0, :cond_42
 
-    .line 1449
+    .line 1329
     iget-object v4, p0, Landroid/app/ActivityThread$Idler;->this$0:Landroid/app/ActivityThread;
 
     iput-object v6, v4, Landroid/app/ActivityThread;->mNewActivities:Landroid/app/ActivityThread$ActivityClientRecord;
 
-    .line 1450
+    .line 1330
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
     move-result-object v1
 
-    .line 1457
+    .line 1337
     .local v1, am:Landroid/app/IActivityManager;
     :cond_27
     iget-object v4, v0, Landroid/app/ActivityThread$ActivityClientRecord;->activity:Landroid/app/Activity;
@@ -118,7 +118,7 @@
 
     if-nez v4, :cond_3b
 
-    .line 1459
+    .line 1339
     :try_start_31
     iget-object v4, v0, Landroid/app/ActivityThread$ActivityClientRecord;->token:Landroid/os/IBinder;
 
@@ -126,53 +126,53 @@
 
     invoke-interface {v1, v4, v5, v3}, Landroid/app/IActivityManager;->activityIdle(Landroid/os/IBinder;Landroid/content/res/Configuration;Z)V
 
-    .line 1460
+    .line 1340
     const/4 v4, 0x0
 
     iput-object v4, v0, Landroid/app/ActivityThread$ActivityClientRecord;->createdConfig:Landroid/content/res/Configuration;
     :try_end_3b
     .catch Landroid/os/RemoteException; {:try_start_31 .. :try_end_3b} :catch_52
 
-    .line 1465
+    .line 1345
     :cond_3b
     :goto_3b
     move-object v2, v0
 
-    .line 1466
+    .line 1346
     .local v2, prev:Landroid/app/ActivityThread$ActivityClientRecord;
     iget-object v0, v0, Landroid/app/ActivityThread$ActivityClientRecord;->nextIdle:Landroid/app/ActivityThread$ActivityClientRecord;
 
-    .line 1467
+    .line 1347
     iput-object v6, v2, Landroid/app/ActivityThread$ActivityClientRecord;->nextIdle:Landroid/app/ActivityThread$ActivityClientRecord;
 
-    .line 1468
+    .line 1348
     if-nez v0, :cond_27
 
-    .line 1470
+    .line 1350
     .end local v1           #am:Landroid/app/IActivityManager;
     .end local v2           #prev:Landroid/app/ActivityThread$ActivityClientRecord;
     :cond_42
     if-eqz v3, :cond_4b
 
-    .line 1471
+    .line 1351
     iget-object v4, p0, Landroid/app/ActivityThread$Idler;->this$0:Landroid/app/ActivityThread;
 
     iget-object v4, v4, Landroid/app/ActivityThread;->mProfiler:Landroid/app/ActivityThread$Profiler;
 
     invoke-virtual {v4}, Landroid/app/ActivityThread$Profiler;->stopProfiling()V
 
-    .line 1473
+    .line 1353
     :cond_4b
     iget-object v4, p0, Landroid/app/ActivityThread$Idler;->this$0:Landroid/app/ActivityThread;
 
     invoke-virtual {v4}, Landroid/app/ActivityThread;->ensureJitEnabled()V
 
-    .line 1474
+    .line 1354
     const/4 v4, 0x0
 
     return v4
 
-    .line 1461
+    .line 1341
     .restart local v1       #am:Landroid/app/IActivityManager;
     :catch_52
     move-exception v4

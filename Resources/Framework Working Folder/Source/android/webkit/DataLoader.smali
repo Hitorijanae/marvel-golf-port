@@ -93,14 +93,14 @@
 
     invoke-direct {v4, v2}, Ljava/io/ByteArrayInputStream;-><init>([B)V
 
-    iput-object v4, p0, Landroid/webkit/StreamLoader;->mDataStream:Ljava/io/InputStream;
+    iput-object v4, p0, Landroid/webkit/DataLoader;->mDataStream:Ljava/io/InputStream;
 
     .line 58
     array-length v4, v2
 
     int-to-long v4, v4
 
-    iput-wide v4, p0, Landroid/webkit/StreamLoader;->mContentLength:J
+    iput-wide v4, p0, Landroid/webkit/DataLoader;->mContentLength:J
 
     .line 60
     :cond_46
@@ -133,12 +133,12 @@
     const/4 v0, 0x1
 
     .line 64
-    iget-object v1, p0, Landroid/webkit/StreamLoader;->mDataStream:Ljava/io/InputStream;
+    iget-object v1, p0, Landroid/webkit/DataLoader;->mDataStream:Ljava/io/InputStream;
 
     if-eqz v1, :cond_f
 
     .line 65
-    iget-object v1, p0, Landroid/webkit/StreamLoader;->mLoadListener:Landroid/webkit/LoadListener;
+    iget-object v1, p0, Landroid/webkit/DataLoader;->mLoadListener:Landroid/webkit/LoadListener;
 
     const/16 v2, 0xc8
 
@@ -152,13 +152,13 @@
 
     .line 68
     :cond_f
-    iget-object v0, p0, Landroid/webkit/StreamLoader;->mLoadListener:Landroid/webkit/LoadListener;
+    iget-object v0, p0, Landroid/webkit/DataLoader;->mLoadListener:Landroid/webkit/LoadListener;
 
     const/4 v1, -0x1
 
-    iget-object v2, p0, Landroid/webkit/StreamLoader;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Landroid/webkit/DataLoader;->mContext:Landroid/content/Context;
 
-    const v3, 0x104011f
+    const v3, 0x104011b
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

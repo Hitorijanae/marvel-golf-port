@@ -60,7 +60,7 @@
     const/4 v3, -0x2
 
     .line 188
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 176
     const/4 v0, 0x0
@@ -309,10 +309,10 @@
     .local v3, trans:Landroid/view/animation/Animation;
     const-wide/16 v5, 0xfa
 
-    invoke-virtual {v3, v5, v6}, Landroid/view/animation/TranslateAnimation;->setDuration(J)V
+    invoke-virtual {v3, v5, v6}, Landroid/view/animation/Animation;->setDuration(J)V
 
     .line 242
-    invoke-virtual {v3, v4}, Landroid/view/animation/TranslateAnimation;->setFillAfter(Z)V
+    invoke-virtual {v3, v4}, Landroid/view/animation/Animation;->setFillAfter(Z)V
 
     .line 243
     iget-object v4, p0, Lcom/android/internal/widget/SlidingTab$Slider;->tab:Landroid/widget/ImageView;
@@ -1470,7 +1470,7 @@
     .local v3, trans:Landroid/view/animation/Animation;
     const-wide/16 v4, 0xfa
 
-    invoke-virtual {v3, v4, v5}, Landroid/view/animation/TranslateAnimation;->setDuration(J)V
+    invoke-virtual {v3, v4, v5}, Landroid/view/animation/Animation;->setDuration(J)V
 
     .line 259
     iget-object v4, p0, Lcom/android/internal/widget/SlidingTab$Slider;->tab:Landroid/widget/ImageView;

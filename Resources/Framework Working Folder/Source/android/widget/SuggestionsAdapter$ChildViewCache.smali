@@ -33,7 +33,7 @@
 
     .prologue
     .line 298
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 299
     const v0, 0x1020014
@@ -80,7 +80,7 @@
     iput-object v0, p0, Landroid/widget/SuggestionsAdapter$ChildViewCache;->mIcon2:Landroid/widget/ImageView;
 
     .line 303
-    const v0, 0x10202ef
+    const v0, 0x1020303
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -35,14 +35,14 @@
     .registers 1
 
     .prologue
-    .line 4120
+    .line 3803
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/view/ViewRootImpl$InputEventMessage;->sPoolSync:Ljava/lang/Object;
 
-    .line 4122
+    .line 3805
     const/4 v0, 0x0
 
     sput v0, Landroid/view/ViewRootImpl$InputEventMessage;->sPoolSize:I
@@ -55,18 +55,18 @@
     .parameter "m"
 
     .prologue
-    .line 4126
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 3809
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4127
+    .line 3810
     iput-object p1, p0, Landroid/view/ViewRootImpl$InputEventMessage;->mMessage:Landroid/os/Message;
 
-    .line 4128
+    .line 3811
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/view/ViewRootImpl$InputEventMessage;->mNext:Landroid/view/ViewRootImpl$InputEventMessage;
 
-    .line 4129
+    .line 3812
     return-void
 .end method
 
@@ -75,63 +75,63 @@
     .parameter "msg"
 
     .prologue
-    .line 4136
+    .line 3819
     sget-object v2, Landroid/view/ViewRootImpl$InputEventMessage;->sPoolSync:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 4137
+    .line 3820
     :try_start_3
     sget-object v1, Landroid/view/ViewRootImpl$InputEventMessage;->sPool:Landroid/view/ViewRootImpl$InputEventMessage;
 
     if-eqz v1, :cond_1a
 
-    .line 4138
+    .line 3821
     sget-object v0, Landroid/view/ViewRootImpl$InputEventMessage;->sPool:Landroid/view/ViewRootImpl$InputEventMessage;
 
-    .line 4139
+    .line 3822
     .local v0, m:Landroid/view/ViewRootImpl$InputEventMessage;
     iget-object v1, v0, Landroid/view/ViewRootImpl$InputEventMessage;->mNext:Landroid/view/ViewRootImpl$InputEventMessage;
 
     sput-object v1, Landroid/view/ViewRootImpl$InputEventMessage;->sPool:Landroid/view/ViewRootImpl$InputEventMessage;
 
-    .line 4140
+    .line 3823
     const/4 v1, 0x0
 
     iput-object v1, v0, Landroid/view/ViewRootImpl$InputEventMessage;->mNext:Landroid/view/ViewRootImpl$InputEventMessage;
 
-    .line 4141
+    .line 3824
     sget v1, Landroid/view/ViewRootImpl$InputEventMessage;->sPoolSize:I
 
     add-int/lit8 v1, v1, -0x1
 
     sput v1, Landroid/view/ViewRootImpl$InputEventMessage;->sPoolSize:I
 
-    .line 4142
+    .line 3825
     iput-object p0, v0, Landroid/view/ViewRootImpl$InputEventMessage;->mMessage:Landroid/os/Message;
 
-    .line 4143
+    .line 3826
     monitor-exit v2
 
-    .line 4146
+    .line 3829
     .end local v0           #m:Landroid/view/ViewRootImpl$InputEventMessage;
     :goto_19
     return-object v0
 
-    .line 4145
+    .line 3828
     :cond_1a
     monitor-exit v2
     :try_end_1b
     .catchall {:try_start_3 .. :try_end_1b} :catchall_21
 
-    .line 4146
+    .line 3829
     new-instance v0, Landroid/view/ViewRootImpl$InputEventMessage;
 
     invoke-direct {v0, p0}, Landroid/view/ViewRootImpl$InputEventMessage;-><init>(Landroid/os/Message;)V
 
     goto :goto_19
 
-    .line 4145
+    .line 3828
     :catchall_21
     move-exception v1
 
@@ -149,17 +149,17 @@
     .registers 4
 
     .prologue
-    .line 4153
+    .line 3836
     iget-object v0, p0, Landroid/view/ViewRootImpl$InputEventMessage;->mMessage:Landroid/os/Message;
 
     invoke-virtual {v0}, Landroid/os/Message;->recycle()V
 
-    .line 4154
+    .line 3837
     sget-object v1, Landroid/view/ViewRootImpl$InputEventMessage;->sPoolSync:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 4155
+    .line 3838
     :try_start_8
     sget v0, Landroid/view/ViewRootImpl$InputEventMessage;->sPoolSize:I
 
@@ -167,29 +167,29 @@
 
     if-ge v0, v2, :cond_1a
 
-    .line 4156
+    .line 3839
     sget-object v0, Landroid/view/ViewRootImpl$InputEventMessage;->sPool:Landroid/view/ViewRootImpl$InputEventMessage;
 
     iput-object v0, p0, Landroid/view/ViewRootImpl$InputEventMessage;->mNext:Landroid/view/ViewRootImpl$InputEventMessage;
 
-    .line 4157
+    .line 3840
     sput-object p0, Landroid/view/ViewRootImpl$InputEventMessage;->sPool:Landroid/view/ViewRootImpl$InputEventMessage;
 
-    .line 4158
+    .line 3841
     sget v0, Landroid/view/ViewRootImpl$InputEventMessage;->sPoolSize:I
 
     add-int/lit8 v0, v0, 0x1
 
     sput v0, Landroid/view/ViewRootImpl$InputEventMessage;->sPoolSize:I
 
-    .line 4160
+    .line 3843
     :cond_1a
     monitor-exit v1
 
-    .line 4162
+    .line 3845
     return-void
 
-    .line 4160
+    .line 3843
     :catchall_1c
     move-exception v0
 

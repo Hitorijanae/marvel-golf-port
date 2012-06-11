@@ -29,46 +29,44 @@
 
 # direct methods
 .method public constructor <init>(Landroid/webkit/WebView$InvokeListBox;)V
-    .registers 6
+    .registers 5
     .parameter
 
     .prologue
-    .line 10749
+    .line 8973
     iput-object p1, p0, Landroid/webkit/WebView$InvokeListBox$MyArrayListAdapter;->this$1:Landroid/webkit/WebView$InvokeListBox;
 
-    .line 10750
+    .line 8974
     iget-object v0, p1, Landroid/webkit/WebView$InvokeListBox;->this$0:Landroid/webkit/WebView;
 
     #getter for: Landroid/webkit/WebView;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Landroid/webkit/WebView;->access$11300(Landroid/webkit/WebView;)Landroid/content/Context;
+    invoke-static {v0}, Landroid/webkit/WebView;->access$10200(Landroid/webkit/WebView;)Landroid/content/Context;
 
     move-result-object v1
 
     #getter for: Landroid/webkit/WebView$InvokeListBox;->mMultiple:Z
-    invoke-static {p1}, Landroid/webkit/WebView$InvokeListBox;->access$11400(Landroid/webkit/WebView$InvokeListBox;)Z
+    invoke-static {p1}, Landroid/webkit/WebView$InvokeListBox;->access$10300(Landroid/webkit/WebView$InvokeListBox;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_19
 
-    const v0, 0x2090085
+    const v0, 0x1090013
 
     :goto_11
-    const v2, 0x1020014
-
     #getter for: Landroid/webkit/WebView$InvokeListBox;->mContainers:[Landroid/webkit/WebView$InvokeListBox$Container;
-    invoke-static {p1}, Landroid/webkit/WebView$InvokeListBox;->access$11500(Landroid/webkit/WebView$InvokeListBox;)[Landroid/webkit/WebView$InvokeListBox$Container;
+    invoke-static {p1}, Landroid/webkit/WebView$InvokeListBox;->access$10400(Landroid/webkit/WebView$InvokeListBox;)[Landroid/webkit/WebView$InvokeListBox$Container;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-direct {p0, v1, v0, v2, v3}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;II[Ljava/lang/Object;)V
+    invoke-direct {p0, v1, v0, v2}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
 
-    .line 10759
+    .line 8978
     return-void
 
-    .line 10750
-    :cond_1c
-    const v0, 0x2090007
+    .line 8974
+    :cond_19
+    const v0, 0x10900b4
 
     goto :goto_11
 .end method
@@ -78,7 +76,7 @@
     .parameter "position"
 
     .prologue
-    .line 10850
+    .line 9036
     if-ltz p1, :cond_8
 
     invoke-virtual {p0}, Landroid/webkit/WebView$InvokeListBox$MyArrayListAdapter;->getCount()I
@@ -87,11 +85,11 @@
 
     if-lt p1, v0, :cond_a
 
-    .line 10851
+    .line 9037
     :cond_8
     const/4 v0, 0x0
 
-    .line 10853
+    .line 9039
     :goto_9
     return-object v0
 
@@ -111,7 +109,7 @@
     .registers 2
 
     .prologue
-    .line 10867
+    .line 9053
     const/4 v0, 0x0
 
     return v0
@@ -122,19 +120,19 @@
     .parameter "position"
 
     .prologue
-    .line 10858
+    .line 9044
     invoke-direct {p0, p1}, Landroid/webkit/WebView$InvokeListBox$MyArrayListAdapter;->item(I)Landroid/webkit/WebView$InvokeListBox$Container;
 
     move-result-object v0
 
-    .line 10859
+    .line 9045
     .local v0, item:Landroid/webkit/WebView$InvokeListBox$Container;
     if-nez v0, :cond_9
 
-    .line 10860
+    .line 9046
     const-wide/16 v1, -0x1
 
-    .line 10862
+    .line 9048
     :goto_8
     return-wide v1
 
@@ -147,264 +145,173 @@
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .registers 14
+    .registers 12
     .parameter "position"
     .parameter "convertView"
     .parameter "parent"
 
     .prologue
-    .line 10777
+    const/4 v7, 0x0
+
+    const v6, 0x1080012
+
+    const/4 v5, 0x1
+
+    .line 8988
+    invoke-super {p0, p1, v7, p3}, Landroid/widget/ArrayAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object p2
+
+    .line 8989
     invoke-direct {p0, p1}, Landroid/webkit/WebView$InvokeListBox$MyArrayListAdapter;->item(I)Landroid/webkit/WebView$InvokeListBox$Container;
 
     move-result-object v0
 
-    .line 10779
+    .line 8990
     .local v0, c:Landroid/webkit/WebView$InvokeListBox$Container;
-    if-eqz v0, :cond_af
+    if-eqz v0, :cond_74
 
-    const/4 v8, -0x1
+    iget v4, v0, Landroid/webkit/WebView$InvokeListBox$Container;->mEnabled:I
 
-    iget v9, v0, Landroid/webkit/WebView$InvokeListBox$Container;->mEnabled:I
+    if-eq v5, v4, :cond_74
 
-    if-ne v8, v9, :cond_af
+    .line 8993
+    new-instance v3, Landroid/widget/LinearLayout;
 
-    .line 10780
-    new-instance v1, Landroid/widget/CheckedTextView;
+    iget-object v4, p0, Landroid/webkit/WebView$InvokeListBox$MyArrayListAdapter;->this$1:Landroid/webkit/WebView$InvokeListBox;
 
-    iget-object v8, p0, Landroid/webkit/WebView$InvokeListBox$MyArrayListAdapter;->this$1:Landroid/webkit/WebView$InvokeListBox;
-
-    iget-object v8, v8, Landroid/webkit/WebView$InvokeListBox;->this$0:Landroid/webkit/WebView;
+    iget-object v4, v4, Landroid/webkit/WebView$InvokeListBox;->this$0:Landroid/webkit/WebView;
 
     #getter for: Landroid/webkit/WebView;->mContext:Landroid/content/Context;
-    invoke-static {v8}, Landroid/webkit/WebView;->access$11600(Landroid/webkit/WebView;)Landroid/content/Context;
+    invoke-static {v4}, Landroid/webkit/WebView;->access$10500(Landroid/webkit/WebView;)Landroid/content/Context;
 
-    move-result-object v8
+    move-result-object v4
 
-    invoke-direct {v1, v8}, Landroid/widget/CheckedTextView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v3, v4}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 10781
-    .local v1, ctv:Landroid/widget/CheckedTextView;
-    invoke-virtual {p0, p1}, Landroid/webkit/WebView$InvokeListBox$MyArrayListAdapter;->getItem(I)Ljava/lang/Object;
+    .line 8994
+    .local v3, layout:Landroid/widget/LinearLayout;
+    invoke-virtual {v3, v5}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    move-result-object v8
+    .line 8995
+    if-lez p1, :cond_38
 
-    check-cast v8, Landroid/webkit/WebView$InvokeListBox$Container;
+    .line 8996
+    new-instance v2, Landroid/view/View;
 
-    invoke-virtual {v8}, Landroid/webkit/WebView$InvokeListBox$Container;->toString()Ljava/lang/String;
+    iget-object v4, p0, Landroid/webkit/WebView$InvokeListBox$MyArrayListAdapter;->this$1:Landroid/webkit/WebView$InvokeListBox;
 
-    move-result-object v8
-
-    invoke-virtual {v1, v8}, Landroid/widget/CheckedTextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 10782
-    iget-object v8, p0, Landroid/webkit/WebView$InvokeListBox$MyArrayListAdapter;->this$1:Landroid/webkit/WebView$InvokeListBox;
-
-    iget-object v8, v8, Landroid/webkit/WebView$InvokeListBox;->this$0:Landroid/webkit/WebView;
+    iget-object v4, v4, Landroid/webkit/WebView$InvokeListBox;->this$0:Landroid/webkit/WebView;
 
     #getter for: Landroid/webkit/WebView;->mContext:Landroid/content/Context;
-    invoke-static {v8}, Landroid/webkit/WebView;->access$11700(Landroid/webkit/WebView;)Landroid/content/Context;
+    invoke-static {v4}, Landroid/webkit/WebView;->access$10600(Landroid/webkit/WebView;)Landroid/content/Context;
 
-    move-result-object v8
+    move-result-object v4
 
-    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-direct {v2, v4}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
-    move-result-object v8
+    .line 8997
+    .local v2, dividerTop:Landroid/view/View;
+    invoke-virtual {v2, v6}, Landroid/view/View;->setBackgroundResource(I)V
 
-    invoke-virtual {v8}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    .line 8999
+    invoke-virtual {v3, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    move-result-object v8
+    .line 9002
+    .end local v2           #dividerTop:Landroid/view/View;
+    :cond_38
+    const/4 v4, -0x1
 
-    iget v7, v8, Landroid/util/DisplayMetrics;->density:F
+    iget v5, v0, Landroid/webkit/WebView$InvokeListBox$Container;->mEnabled:I
 
-    .line 10783
-    .local v7, scale:F
-    const/high16 v8, 0x4140
+    if-ne v4, v5, :cond_6f
 
-    mul-float/2addr v8, v7
+    .line 9005
+    iget-object v4, p0, Landroid/webkit/WebView$InvokeListBox$MyArrayListAdapter;->this$1:Landroid/webkit/WebView$InvokeListBox;
 
-    float-to-int v5, v8
+    #getter for: Landroid/webkit/WebView$InvokeListBox;->mMultiple:Z
+    invoke-static {v4}, Landroid/webkit/WebView$InvokeListBox;->access$10300(Landroid/webkit/WebView$InvokeListBox;)Z
 
-    .line 10784
-    .local v5, nPaddingLeft:I
-    const/high16 v8, 0x40e0
+    move-result v4
 
-    mul-float/2addr v8, v7
+    if-eqz v4, :cond_50
 
-    float-to-int v6, v8
+    .line 9006
+    instance-of v4, p2, Landroid/widget/CheckedTextView;
 
-    .line 10785
-    .local v6, nPaddingRight:I
-    iget-object v8, p0, Landroid/webkit/WebView$InvokeListBox$MyArrayListAdapter;->this$1:Landroid/webkit/WebView$InvokeListBox;
+    invoke-static {v4}, Ljunit/framework/Assert;->assertTrue(Z)V
 
-    iget-object v8, v8, Landroid/webkit/WebView$InvokeListBox;->this$0:Landroid/webkit/WebView;
+    move-object v4, p2
 
-    #getter for: Landroid/webkit/WebView;->mContext:Landroid/content/Context;
-    invoke-static {v8}, Landroid/webkit/WebView;->access$11800(Landroid/webkit/WebView;)Landroid/content/Context;
+    .line 9007
+    check-cast v4, Landroid/widget/CheckedTextView;
 
-    move-result-object v8
+    invoke-virtual {v4, v7}, Landroid/widget/CheckedTextView;->setCheckMarkDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v9, 0x2030038
+    .line 9015
+    :cond_50
+    :goto_50
+    invoke-virtual {v3, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    invoke-virtual {v1, v8, v9}, Landroid/widget/CheckedTextView;->setTextAppearance(Landroid/content/Context;I)V
+    .line 9016
+    invoke-virtual {p0}, Landroid/webkit/WebView$InvokeListBox$MyArrayListAdapter;->getCount()I
 
-    .line 10787
-    const v8, 0x2080099
+    move-result v4
 
-    invoke-virtual {v1, v8}, Landroid/widget/CheckedTextView;->setBackgroundResource(I)V
+    add-int/lit8 v4, v4, -0x1
 
-    .line 10788
-    const/16 v8, 0x10
+    if-ge p1, v4, :cond_6e
 
-    invoke-virtual {v1, v8}, Landroid/widget/CheckedTextView;->setGravity(I)V
+    .line 9017
+    new-instance v1, Landroid/view/View;
 
-    .line 10789
-    const/4 v8, 0x0
+    iget-object v4, p0, Landroid/webkit/WebView$InvokeListBox$MyArrayListAdapter;->this$1:Landroid/webkit/WebView$InvokeListBox;
 
-    const/4 v9, 0x0
-
-    invoke-virtual {v1, v5, v8, v6, v9}, Landroid/widget/CheckedTextView;->setPadding(IIII)V
-
-    .line 10790
-    iget-object v8, p0, Landroid/webkit/WebView$InvokeListBox$MyArrayListAdapter;->this$1:Landroid/webkit/WebView$InvokeListBox;
-
-    iget-object v8, v8, Landroid/webkit/WebView$InvokeListBox;->this$0:Landroid/webkit/WebView;
+    iget-object v4, v4, Landroid/webkit/WebView$InvokeListBox;->this$0:Landroid/webkit/WebView;
 
     #getter for: Landroid/webkit/WebView;->mContext:Landroid/content/Context;
-    invoke-static {v8}, Landroid/webkit/WebView;->access$11900(Landroid/webkit/WebView;)Landroid/content/Context;
+    invoke-static {v4}, Landroid/webkit/WebView;->access$10700(Landroid/webkit/WebView;)Landroid/content/Context;
 
-    move-result-object v8
+    move-result-object v4
 
-    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-direct {v1, v4}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
-    move-result-object v8
+    .line 9018
+    .local v1, dividerBottom:Landroid/view/View;
+    invoke-virtual {v1, v6}, Landroid/view/View;->setBackgroundResource(I)V
 
-    const v9, 0x2050012
+    .line 9020
+    invoke-virtual {v3, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    .line 9024
+    .end local v1           #dividerBottom:Landroid/view/View;
+    .end local v3           #layout:Landroid/widget/LinearLayout;
+    :cond_6e
+    :goto_6e
+    return-object v3
 
-    move-result v3
+    .line 9012
+    .restart local v3       #layout:Landroid/widget/LinearLayout;
+    :cond_6f
+    const/4 v4, 0x0
 
-    .line 10791
-    .local v3, list_height:I
-    invoke-virtual {v1, v3}, Landroid/widget/CheckedTextView;->setMinHeight(I)V
+    invoke-virtual {p2, v4}, Landroid/view/View;->setEnabled(Z)V
 
-    .line 10792
-    new-instance v4, Landroid/widget/AbsListView$LayoutParams;
+    goto :goto_50
 
-    const/4 v8, -0x1
+    .end local v3           #layout:Landroid/widget/LinearLayout;
+    :cond_74
+    move-object v3, p2
 
-    invoke-direct {v4, v8, v3}, Landroid/widget/AbsListView$LayoutParams;-><init>(II)V
-
-    .line 10793
-    .local v4, lp:Landroid/widget/AbsListView$LayoutParams;
-    invoke-virtual {v1, v4}, Landroid/widget/CheckedTextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 10794
-    sget-object v8, Landroid/text/TextUtils$TruncateAt;->MARQUEE:Landroid/text/TextUtils$TruncateAt;
-
-    invoke-virtual {v1, v8}, Landroid/widget/CheckedTextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
-
-    .line 10795
-    move-object p2, v1
-
-    .line 10801
-    .end local v1           #ctv:Landroid/widget/CheckedTextView;
-    .end local v3           #list_height:I
-    .end local v4           #lp:Landroid/widget/AbsListView$LayoutParams;
-    .end local v5           #nPaddingLeft:I
-    .end local v6           #nPaddingRight:I
-    .end local v7           #scale:F
-    :goto_82
-    if-eqz v0, :cond_ba
-
-    const/4 v8, 0x1
-
-    iget v9, v0, Landroid/webkit/WebView$InvokeListBox$Container;->mEnabled:I
-
-    if-eq v8, v9, :cond_ba
-
-    .line 10804
-    new-instance v2, Landroid/widget/LinearLayout;
-
-    iget-object v8, p0, Landroid/webkit/WebView$InvokeListBox$MyArrayListAdapter;->this$1:Landroid/webkit/WebView$InvokeListBox;
-
-    iget-object v8, v8, Landroid/webkit/WebView$InvokeListBox;->this$0:Landroid/webkit/WebView;
-
-    #getter for: Landroid/webkit/WebView;->mContext:Landroid/content/Context;
-    invoke-static {v8}, Landroid/webkit/WebView;->access$12000(Landroid/webkit/WebView;)Landroid/content/Context;
-
-    move-result-object v8
-
-    invoke-direct {v2, v8}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
-
-    .line 10805
-    .local v2, layout:Landroid/widget/LinearLayout;
-    const/4 v8, 0x1
-
-    invoke-virtual {v2, v8}, Landroid/widget/LinearLayout;->setOrientation(I)V
-
-    .line 10813
-    const/4 v8, -0x1
-
-    iget v9, v0, Landroid/webkit/WebView$InvokeListBox$Container;->mEnabled:I
-
-    if-ne v8, v9, :cond_b5
-
-    .line 10819
-    instance-of v8, p2, Landroid/widget/CheckedTextView;
-
-    invoke-static {v8}, Ljunit/framework/Assert;->assertTrue(Z)V
-
-    move-object v8, p2
-
-    .line 10820
-    check-cast v8, Landroid/widget/CheckedTextView;
-
-    const/4 v9, 0x0
-
-    invoke-virtual {v8, v9}, Landroid/widget/CheckedTextView;->setCheckMarkDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    .line 10829
-    :goto_ab
-    invoke-virtual {v2, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
-
-    .line 10838
-    .end local v2           #layout:Landroid/widget/LinearLayout;
-    :goto_ae
-    return-object v2
-
-    .line 10797
-    :cond_af
-    const/4 v8, 0x0
-
-    invoke-super {p0, p1, v8, p3}, Landroid/widget/ArrayAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object p2
-
-    goto :goto_82
-
-    .line 10826
-    .restart local v2       #layout:Landroid/widget/LinearLayout;
-    :cond_b5
-    const/4 v8, 0x0
-
-    invoke-virtual {p2, v8}, Landroid/view/View;->setEnabled(Z)V
-
-    goto :goto_ab
-
-    .end local v2           #layout:Landroid/widget/LinearLayout;
-    :cond_ba
-    move-object v2, p2
-
-    .line 10838
-    goto :goto_ae
+    .line 9024
+    goto :goto_6e
 .end method
 
 .method public hasStableIds()Z
     .registers 2
 
     .prologue
-    .line 10846
+    .line 9032
     const/4 v0, 0x0
 
     return v0
@@ -419,16 +326,16 @@
 
     const/4 v2, 0x0
 
-    .line 10872
+    .line 9058
     invoke-direct {p0, p1}, Landroid/webkit/WebView$InvokeListBox$MyArrayListAdapter;->item(I)Landroid/webkit/WebView$InvokeListBox$Container;
 
     move-result-object v0
 
-    .line 10873
+    .line 9059
     .local v0, item:Landroid/webkit/WebView$InvokeListBox$Container;
     if-nez v0, :cond_9
 
-    .line 10876
+    .line 9062
     :goto_8
     return v2
 

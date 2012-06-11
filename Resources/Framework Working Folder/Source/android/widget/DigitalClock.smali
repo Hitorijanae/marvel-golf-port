@@ -139,7 +139,7 @@
 
     .prologue
     .line 62
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/DigitalClock;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -199,24 +199,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_b
 
     .line 113
-    const-string/jumbo v0, "k:mm:ss"
+    const-string v0, "k:mm:ss"
 
     iput-object v0, p0, Landroid/widget/DigitalClock;->mFormat:Ljava/lang/String;
 
     .line 117
-    :goto_b
+    :goto_a
     return-void
 
     .line 115
-    :cond_c
+    :cond_b
     const-string v0, "h:mm:ss aa"
 
     iput-object v0, p0, Landroid/widget/DigitalClock;->mFormat:Ljava/lang/String;
 
-    goto :goto_b
+    goto :goto_a
 .end method
 
 

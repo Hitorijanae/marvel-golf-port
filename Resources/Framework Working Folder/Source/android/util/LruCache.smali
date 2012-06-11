@@ -49,7 +49,7 @@
     .prologue
     .line 76
     .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 77
     if-gtz p1, :cond_e
@@ -419,23 +419,23 @@
     .line 91
     .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
     .local p1, key:Ljava/lang/Object;,"TK;"
-    if-nez p1, :cond_b
+    if-nez p1, :cond_a
 
     .line 92
     new-instance v2, Ljava/lang/NullPointerException;
 
-    const-string/jumbo v3, "key == null"
+    const-string v3, "key == null"
 
     invoke-direct {v2, v3}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     throw v2
 
     .line 96
-    :cond_b
+    :cond_a
     monitor-enter p0
 
     .line 97
-    :try_start_c
+    :try_start_b
     iget-object v2, p0, Landroid/util/LruCache;->map:Ljava/util/LinkedHashMap;
 
     invoke-virtual {v2, p1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -444,7 +444,7 @@
 
     .line 98
     .local v1, mapValue:Ljava/lang/Object;,"TV;"
-    if-eqz v1, :cond_1d
+    if-eqz v1, :cond_1c
 
     .line 99
     iget v2, p0, Landroid/util/LruCache;->hitCount:I
@@ -459,11 +459,11 @@
     move-object v0, v1
 
     .line 134
-    :goto_1c
+    :goto_1b
     return-object v0
 
     .line 102
-    :cond_1d
+    :cond_1c
     iget v2, p0, Landroid/util/LruCache;->missCount:I
 
     add-int/lit8 v2, v2, 0x1
@@ -472,8 +472,8 @@
 
     .line 103
     monitor-exit p0
-    :try_end_24
-    .catchall {:try_start_c .. :try_end_24} :catchall_2c
+    :try_end_23
+    .catchall {:try_start_b .. :try_end_23} :catchall_2b
 
     .line 112
     invoke-virtual {p0, p1}, Landroid/util/LruCache;->create(Ljava/lang/Object;)Ljava/lang/Object;
@@ -482,34 +482,34 @@
 
     .line 113
     .local v0, createdValue:Ljava/lang/Object;,"TV;"
-    if-nez v0, :cond_2f
+    if-nez v0, :cond_2e
 
     .line 114
     const/4 v0, 0x0
 
-    goto :goto_1c
+    goto :goto_1b
 
     .line 103
     .end local v0           #createdValue:Ljava/lang/Object;,"TV;"
     .end local v1           #mapValue:Ljava/lang/Object;,"TV;"
-    :catchall_2c
+    :catchall_2b
     move-exception v2
 
-    :try_start_2d
+    :try_start_2c
     monitor-exit p0
-    :try_end_2e
-    .catchall {:try_start_2d .. :try_end_2e} :catchall_2c
+    :try_end_2d
+    .catchall {:try_start_2c .. :try_end_2d} :catchall_2b
 
     throw v2
 
     .line 117
     .restart local v0       #createdValue:Ljava/lang/Object;,"TV;"
     .restart local v1       #mapValue:Ljava/lang/Object;,"TV;"
-    :cond_2f
+    :cond_2e
     monitor-enter p0
 
     .line 118
-    :try_start_30
+    :try_start_2f
     iget v2, p0, Landroid/util/LruCache;->createCount:I
 
     add-int/lit8 v2, v2, 0x1
@@ -524,7 +524,7 @@
     move-result-object v1
 
     .line 121
-    if-eqz v1, :cond_4c
+    if-eqz v1, :cond_4b
 
     .line 123
     iget-object v2, p0, Landroid/util/LruCache;->map:Ljava/util/LinkedHashMap;
@@ -532,13 +532,13 @@
     invoke-virtual {v2, p1, v1}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 127
-    :goto_43
+    :goto_42
     monitor-exit p0
-    :try_end_44
-    .catchall {:try_start_30 .. :try_end_44} :catchall_56
+    :try_end_43
+    .catchall {:try_start_2f .. :try_end_43} :catchall_55
 
     .line 129
-    if-eqz v1, :cond_59
+    if-eqz v1, :cond_58
 
     .line 130
     const/4 v2, 0x0
@@ -548,11 +548,11 @@
     move-object v0, v1
 
     .line 131
-    goto :goto_1c
+    goto :goto_1b
 
     .line 125
-    :cond_4c
-    :try_start_4c
+    :cond_4b
+    :try_start_4b
     iget v2, p0, Landroid/util/LruCache;->size:I
 
     invoke-direct {p0, p1, v0}, Landroid/util/LruCache;->safeSizeOf(Ljava/lang/Object;Ljava/lang/Object;)I
@@ -563,25 +563,25 @@
 
     iput v2, p0, Landroid/util/LruCache;->size:I
 
-    goto :goto_43
+    goto :goto_42
 
     .line 127
-    :catchall_56
+    :catchall_55
     move-exception v2
 
     monitor-exit p0
-    :try_end_58
-    .catchall {:try_start_4c .. :try_end_58} :catchall_56
+    :try_end_57
+    .catchall {:try_start_4b .. :try_end_57} :catchall_55
 
     throw v2
 
     .line 133
-    :cond_59
+    :cond_58
     iget v2, p0, Landroid/util/LruCache;->maxSize:I
 
     invoke-direct {p0, v2}, Landroid/util/LruCache;->trimToSize(I)V
 
-    goto :goto_1c
+    goto :goto_1b
 .end method
 
 .method public final declared-synchronized hitCount()I
@@ -676,24 +676,24 @@
     .local p2, value:Ljava/lang/Object;,"TV;"
     if-eqz p1, :cond_4
 
-    if-nez p2, :cond_d
+    if-nez p2, :cond_c
 
     .line 146
     :cond_4
     new-instance v1, Ljava/lang/NullPointerException;
 
-    const-string/jumbo v2, "key == null || value == null"
+    const-string v2, "key == null || value == null"
 
     invoke-direct {v1, v2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
     .line 150
-    :cond_d
+    :cond_c
     monitor-enter p0
 
     .line 151
-    :try_start_e
+    :try_start_d
     iget v1, p0, Landroid/util/LruCache;->putCount:I
 
     add-int/lit8 v1, v1, 0x1
@@ -720,7 +720,7 @@
 
     .line 154
     .local v0, previous:Ljava/lang/Object;,"TV;"
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_2d
 
     .line 155
     iget v1, p0, Landroid/util/LruCache;->size:I
@@ -734,13 +734,13 @@
     iput v1, p0, Landroid/util/LruCache;->size:I
 
     .line 157
-    :cond_2e
+    :cond_2d
     monitor-exit p0
-    :try_end_2f
-    .catchall {:try_start_e .. :try_end_2f} :catchall_3b
+    :try_end_2e
+    .catchall {:try_start_d .. :try_end_2e} :catchall_3a
 
     .line 159
-    if-eqz v0, :cond_35
+    if-eqz v0, :cond_34
 
     .line 160
     const/4 v1, 0x0
@@ -748,7 +748,7 @@
     invoke-virtual {p0, v1, p1, v0, p2}, Landroid/util/LruCache;->entryRemoved(ZLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 163
-    :cond_35
+    :cond_34
     iget v1, p0, Landroid/util/LruCache;->maxSize:I
 
     invoke-direct {p0, v1}, Landroid/util/LruCache;->trimToSize(I)V
@@ -758,13 +758,13 @@
 
     .line 157
     .end local v0           #previous:Ljava/lang/Object;,"TV;"
-    :catchall_3b
+    :catchall_3a
     move-exception v1
 
-    :try_start_3c
+    :try_start_3b
     monitor-exit p0
-    :try_end_3d
-    .catchall {:try_start_3c .. :try_end_3d} :catchall_3b
+    :try_end_3c
+    .catchall {:try_start_3b .. :try_end_3c} :catchall_3a
 
     throw v1
 .end method
@@ -807,23 +807,23 @@
     .line 207
     .local p0, this:Landroid/util/LruCache;,"Landroid/util/LruCache<TK;TV;>;"
     .local p1, key:Ljava/lang/Object;,"TK;"
-    if-nez p1, :cond_b
+    if-nez p1, :cond_a
 
     .line 208
     new-instance v1, Ljava/lang/NullPointerException;
 
-    const-string/jumbo v2, "key == null"
+    const-string v2, "key == null"
 
     invoke-direct {v1, v2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
     .line 212
-    :cond_b
+    :cond_a
     monitor-enter p0
 
     .line 213
-    :try_start_c
+    :try_start_b
     iget-object v1, p0, Landroid/util/LruCache;->map:Ljava/util/LinkedHashMap;
 
     invoke-virtual {v1, p1}, Ljava/util/LinkedHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -832,7 +832,7 @@
 
     .line 214
     .local v0, previous:Ljava/lang/Object;,"TV;"
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_1c
 
     .line 215
     iget v1, p0, Landroid/util/LruCache;->size:I
@@ -846,13 +846,13 @@
     iput v1, p0, Landroid/util/LruCache;->size:I
 
     .line 217
-    :cond_1d
+    :cond_1c
     monitor-exit p0
-    :try_end_1e
-    .catchall {:try_start_c .. :try_end_1e} :catchall_26
+    :try_end_1d
+    .catchall {:try_start_b .. :try_end_1d} :catchall_25
 
     .line 219
-    if-eqz v0, :cond_25
+    if-eqz v0, :cond_24
 
     .line 220
     const/4 v1, 0x0
@@ -862,18 +862,18 @@
     invoke-virtual {p0, v1, p1, v0, v2}, Landroid/util/LruCache;->entryRemoved(ZLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 223
-    :cond_25
+    :cond_24
     return-object v0
 
     .line 217
     .end local v0           #previous:Ljava/lang/Object;,"TV;"
-    :catchall_26
+    :catchall_25
     move-exception v1
 
-    :try_start_27
+    :try_start_26
     monitor-exit p0
-    :try_end_28
-    .catchall {:try_start_27 .. :try_end_28} :catchall_26
+    :try_end_27
+    .catchall {:try_start_26 .. :try_end_27} :catchall_25
 
     throw v1
 .end method

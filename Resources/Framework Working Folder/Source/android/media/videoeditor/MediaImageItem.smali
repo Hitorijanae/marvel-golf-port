@@ -1628,11 +1628,11 @@
     .line 350
     .local p1, effects:Ljava/util/List;,"Ljava/util/List<Landroid/media/videoeditor/Effect;>;"
     .local p2, overlays:Ljava/util/List;,"Ljava/util/List<Landroid/media/videoeditor/Overlay;>;"
-    iget-object v5, p0, Landroid/media/videoeditor/MediaItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
+    iget-object v5, p0, Landroid/media/videoeditor/MediaImageItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
 
     if-eqz v5, :cond_54
 
-    iget-object v5, p0, Landroid/media/videoeditor/MediaItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
+    iget-object v5, p0, Landroid/media/videoeditor/MediaImageItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v5}, Landroid/media/videoeditor/Transition;->isGenerated()Z
 
@@ -1641,7 +1641,7 @@
     if-eqz v5, :cond_54
 
     .line 351
-    iget-object v5, p0, Landroid/media/videoeditor/MediaItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
+    iget-object v5, p0, Landroid/media/videoeditor/MediaImageItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v5}, Landroid/media/videoeditor/Transition;->getDuration()J
 
@@ -1678,14 +1678,14 @@
     if-gez v5, :cond_16
 
     .line 362
-    iget-object v5, p0, Landroid/media/videoeditor/MediaItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
+    iget-object v5, p0, Landroid/media/videoeditor/MediaImageItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v5}, Landroid/media/videoeditor/Transition;->invalidate()V
 
     .line 367
     .end local v0           #effect:Landroid/media/videoeditor/Effect;
     :cond_2f
-    iget-object v5, p0, Landroid/media/videoeditor/MediaItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
+    iget-object v5, p0, Landroid/media/videoeditor/MediaImageItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v5}, Landroid/media/videoeditor/Transition;->isGenerated()Z
 
@@ -1722,7 +1722,7 @@
     if-gez v5, :cond_3b
 
     .line 377
-    iget-object v5, p0, Landroid/media/videoeditor/MediaItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
+    iget-object v5, p0, Landroid/media/videoeditor/MediaImageItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v5}, Landroid/media/videoeditor/Transition;->invalidate()V
 
@@ -1739,11 +1739,11 @@
 
     .prologue
     .line 390
-    iget-object v7, p0, Landroid/media/videoeditor/MediaItem;->mEndTransition:Landroid/media/videoeditor/Transition;
+    iget-object v7, p0, Landroid/media/videoeditor/MediaImageItem;->mEndTransition:Landroid/media/videoeditor/Transition;
 
     if-eqz v7, :cond_6c
 
-    iget-object v7, p0, Landroid/media/videoeditor/MediaItem;->mEndTransition:Landroid/media/videoeditor/Transition;
+    iget-object v7, p0, Landroid/media/videoeditor/MediaImageItem;->mEndTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v7}, Landroid/media/videoeditor/Transition;->isGenerated()Z
 
@@ -1752,7 +1752,7 @@
     if-eqz v7, :cond_6c
 
     .line 391
-    iget-object v7, p0, Landroid/media/videoeditor/MediaItem;->mEndTransition:Landroid/media/videoeditor/Transition;
+    iget-object v7, p0, Landroid/media/videoeditor/MediaImageItem;->mEndTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v7}, Landroid/media/videoeditor/Transition;->getDuration()J
 
@@ -1805,14 +1805,14 @@
     if-lez v7, :cond_1a
 
     .line 404
-    iget-object v7, p0, Landroid/media/videoeditor/MediaItem;->mEndTransition:Landroid/media/videoeditor/Transition;
+    iget-object v7, p0, Landroid/media/videoeditor/MediaImageItem;->mEndTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v7}, Landroid/media/videoeditor/Transition;->invalidate()V
 
     .line 409
     .end local v0           #effect:Landroid/media/videoeditor/Effect;
     :cond_3b
-    iget-object v7, p0, Landroid/media/videoeditor/MediaItem;->mEndTransition:Landroid/media/videoeditor/Transition;
+    iget-object v7, p0, Landroid/media/videoeditor/MediaImageItem;->mEndTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v7}, Landroid/media/videoeditor/Transition;->isGenerated()Z
 
@@ -1865,7 +1865,7 @@
     if-lez v7, :cond_4b
 
     .line 421
-    iget-object v7, p0, Landroid/media/videoeditor/MediaItem;->mEndTransition:Landroid/media/videoeditor/Transition;
+    iget-object v7, p0, Landroid/media/videoeditor/MediaImageItem;->mEndTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v7}, Landroid/media/videoeditor/Transition;->invalidate()V
 
@@ -2166,7 +2166,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/media/videoeditor/MediaItem;->mFilename:Ljava/lang/String;
+    iget-object v15, v0, Landroid/media/videoeditor/MediaImageItem;->mFilename:Ljava/lang/String;
 
     invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2563,7 +2563,7 @@
 
     .prologue
     .line 207
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mFilename:Ljava/lang/String;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mFilename:Ljava/lang/String;
 
     const-string v1, ".jpg"
 
@@ -2573,7 +2573,7 @@
 
     if-nez v0, :cond_28
 
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mFilename:Ljava/lang/String;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mFilename:Ljava/lang/String;
 
     const-string v1, ".jpeg"
 
@@ -2583,7 +2583,7 @@
 
     if-nez v0, :cond_28
 
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mFilename:Ljava/lang/String;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mFilename:Ljava/lang/String;
 
     const-string v1, ".JPG"
 
@@ -2593,7 +2593,7 @@
 
     if-nez v0, :cond_28
 
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mFilename:Ljava/lang/String;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mFilename:Ljava/lang/String;
 
     const-string v1, ".JPEG"
 
@@ -2613,7 +2613,7 @@
 
     .line 210
     :cond_2a
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mFilename:Ljava/lang/String;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mFilename:Ljava/lang/String;
 
     const-string v1, ".png"
 
@@ -2623,7 +2623,7 @@
 
     if-nez v0, :cond_3e
 
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mFilename:Ljava/lang/String;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mFilename:Ljava/lang/String;
 
     const-string v1, ".PNG"
 
@@ -2895,7 +2895,7 @@
     return-object v0
 
     :cond_15
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mFilename:Ljava/lang/String;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mFilename:Ljava/lang/String;
 
     invoke-direct {p0, v0, p1, p2}, Landroid/media/videoeditor/MediaImageItem;->scaleImage(Ljava/lang/String;II)Landroid/graphics/Bitmap;
 
@@ -2930,7 +2930,7 @@
     .line 627
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Landroid/media/videoeditor/MediaItem;->mFilename:Ljava/lang/String;
+    iget-object v3, v0, Landroid/media/videoeditor/MediaImageItem;->mFilename:Ljava/lang/String;
 
     move-object/from16 v0, p0
 
@@ -3145,14 +3145,14 @@
 
     .prologue
     .line 653
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
 
     if-eqz v0, :cond_1a
 
     .line 654
     const-wide/16 v5, 0x0
 
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v0}, Landroid/media/videoeditor/Transition;->getDuration()J
 
@@ -3171,18 +3171,18 @@
     if-eqz v0, :cond_1a
 
     .line 655
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v0}, Landroid/media/videoeditor/Transition;->invalidate()V
 
     .line 659
     :cond_1a
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mEndTransition:Landroid/media/videoeditor/Transition;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mEndTransition:Landroid/media/videoeditor/Transition;
 
     if-eqz v0, :cond_38
 
     .line 660
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mEndTransition:Landroid/media/videoeditor/Transition;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mEndTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v0}, Landroid/media/videoeditor/Transition;->getDuration()J
 
@@ -3209,7 +3209,7 @@
     if-eqz v0, :cond_38
 
     .line 663
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mEndTransition:Landroid/media/videoeditor/Transition;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mEndTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v0}, Landroid/media/videoeditor/Transition;->invalidate()V
 
@@ -3228,12 +3228,12 @@
 
     .prologue
     .line 677
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
 
     if-eqz v0, :cond_25
 
     .line 678
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v0}, Landroid/media/videoeditor/Transition;->getDuration()J
 
@@ -3272,7 +3272,7 @@
     if-eq v9, v10, :cond_4f
 
     .line 692
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v0}, Landroid/media/videoeditor/Transition;->invalidate()V
 
@@ -3282,12 +3282,12 @@
     .end local v10           #oldOverlap:Z
     :cond_25
     :goto_25
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mEndTransition:Landroid/media/videoeditor/Transition;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mEndTransition:Landroid/media/videoeditor/Transition;
 
     if-eqz v0, :cond_4e
 
     .line 703
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mEndTransition:Landroid/media/videoeditor/Transition;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mEndTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v0}, Landroid/media/videoeditor/Transition;->getDuration()J
 
@@ -3330,7 +3330,7 @@
     if-eq v9, v10, :cond_67
 
     .line 717
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mEndTransition:Landroid/media/videoeditor/Transition;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mEndTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v0}, Landroid/media/videoeditor/Transition;->invalidate()V
 
@@ -3368,7 +3368,7 @@
 
     .line 697
     :cond_61
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mBeginTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v0}, Landroid/media/videoeditor/Transition;->invalidate()V
 
@@ -3405,7 +3405,7 @@
 
     .line 722
     :cond_7f
-    iget-object v0, p0, Landroid/media/videoeditor/MediaItem;->mEndTransition:Landroid/media/videoeditor/Transition;
+    iget-object v0, p0, Landroid/media/videoeditor/MediaImageItem;->mEndTransition:Landroid/media/videoeditor/Transition;
 
     invoke-virtual {v0}, Landroid/media/videoeditor/Transition;->invalidate()V
 

@@ -88,7 +88,7 @@
     const/4 v2, 0x0
 
     .line 138
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 139
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -252,7 +252,7 @@
     const/4 v0, 0x0
 
     .line 127
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 128
     iput-boolean p1, p0, Landroid/content/SyncResult;->syncAlreadyInProgress:Z
@@ -681,22 +681,22 @@
     :cond_8b
     iget-boolean v1, p0, Landroid/content/SyncResult;->syncAlreadyInProgress:Z
 
-    if-eqz v1, :cond_95
+    if-eqz v1, :cond_94
 
     .line 313
-    const-string/jumbo v1, "l1"
+    const-string v1, "l1"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 315
-    :cond_95
+    :cond_94
     iget-object v1, p0, Landroid/content/SyncResult;->stats:Landroid/content/SyncStats;
 
     iget-wide v1, v1, Landroid/content/SyncStats;->numIoExceptions:J
 
     cmp-long v1, v1, v4
 
-    if-lez v1, :cond_aa
+    if-lez v1, :cond_a9
 
     .line 316
     const-string v1, "I"
@@ -712,7 +712,7 @@
     invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuffer;->append(J)Ljava/lang/StringBuffer;
 
     .line 318
-    :cond_aa
+    :cond_a9
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v1

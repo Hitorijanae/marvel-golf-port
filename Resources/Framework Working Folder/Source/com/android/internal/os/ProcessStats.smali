@@ -281,7 +281,7 @@
     const/4 v1, 0x0
 
     .line 253
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 64
     new-array v0, v2, [J
@@ -346,7 +346,7 @@
     iput-boolean v0, p0, Lcom/android/internal/os/ProcessStats;->mFirst:Z
 
     .line 157
-    const/16 v0, 0x100
+    const/16 v0, 0x200
 
     new-array v0, v0, [B
 
@@ -1275,217 +1275,143 @@
     .parameter "out"
 
     .prologue
+    const/16 v13, 0x14
+
+    const/4 v12, 0x0
+
     .line 557
-    move-object v7, p1
+    move-object v6, p1
 
     .line 558
-    .local v7, tempTimes:[J
-    iget-object v6, p0, Lcom/android/internal/os/ProcessStats;->mCpuSpeeds:[J
+    .local v6, tempTimes:[J
+    iget-object v5, p0, Lcom/android/internal/os/ProcessStats;->mCpuSpeeds:[J
+
+    .line 559
+    .local v5, tempSpeeds:[J
+    const/16 v0, 0x14
 
     .line 560
-    .local v6, tempSpeeds:[J
-    const/16 v0, 0x20
+    .local v0, MAX_SPEEDS:I
+    if-nez p1, :cond_e
 
     .line 561
-    .local v0, MAX_SPEEDS:I
-    if-nez p1, :cond_f
+    new-array v6, v13, [J
 
     .line 562
-    const/16 v11, 0x20
+    new-array v5, v13, [J
 
-    new-array v7, v11, [J
-
-    .line 563
-    const/16 v11, 0x20
-
-    new-array v6, v11, [J
+    .line 564
+    :cond_e
+    const/4 v3, 0x0
 
     .line 565
-    :cond_f
-    const/4 v4, 0x0
+    .local v3, speed:I
+    const-string v10, "/sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state"
 
-    .line 566
-    .local v4, speed:I
-    const-string v11, "/sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state"
+    invoke-direct {p0, v10, v12}, Lcom/android/internal/os/ProcessStats;->readFile(Ljava/lang/String;C)Ljava/lang/String;
 
-    const/4 v12, 0x0
+    move-result-object v1
 
-    invoke-direct {p0, v11, v12}, Lcom/android/internal/os/ProcessStats;->readFile(Ljava/lang/String;C)Ljava/lang/String;
-
-    move-result-object v2
+    .line 567
+    .local v1, file:Ljava/lang/String;
+    if-eqz v1, :cond_3c
 
     .line 568
-    .local v2, file:Ljava/lang/String;
-    if-eqz v2, :cond_40
+    new-instance v4, Ljava/util/StringTokenizer;
+
+    const-string v10, "\n "
+
+    invoke-direct {v4, v1, v10}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 569
-    new-instance v5, Ljava/util/StringTokenizer;
+    .local v4, st:Ljava/util/StringTokenizer;
+    :cond_1e
+    :goto_1e
+    invoke-virtual {v4}, Ljava/util/StringTokenizer;->hasMoreElements()Z
 
-    const-string v11, "\n "
+    move-result v10
 
-    invoke-direct {v5, v2, v11}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    if-eqz v10, :cond_3c
 
     .line 570
-    .local v5, st:Ljava/util/StringTokenizer;
-    :cond_20
-    :goto_20
-    invoke-virtual {v5}, Ljava/util/StringTokenizer;->hasMoreElements()Z
+    invoke-virtual {v4}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
-    move-result v11
+    move-result-object v7
 
-    if-eqz v11, :cond_40
+    .line 572
+    .local v7, token:Ljava/lang/String;
+    :try_start_28
+    invoke-static {v7}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
-    .line 571
-    invoke-virtual {v5}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
-
-    move-result-object v8
+    move-result-wide v8
 
     .line 573
-    .local v8, token:Ljava/lang/String;
-    :try_start_2a
-    invoke-static {v8}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-
-    move-result-wide v9
+    .local v8, val:J
+    aput-wide v8, v5, v3
 
     .line 574
-    .local v9, val:J
-    aput-wide v9, v6, v4
+    invoke-virtual {v4}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
+
+    move-result-object v7
 
     .line 575
-    invoke-virtual {v5}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
+    invoke-static {v7}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
-    move-result-object v8
+    move-result-wide v8
 
     .line 576
-    invoke-static {v8}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-
-    move-result-wide v9
+    aput-wide v8, v6, v3
+    :try_end_38
+    .catch Ljava/lang/NumberFormatException; {:try_start_28 .. :try_end_38} :catch_4d
 
     .line 577
-    aput-wide v9, v7, v4
-    :try_end_3a
-    .catch Ljava/lang/NumberFormatException; {:try_start_2a .. :try_end_3a} :catch_55
-    .catch Ljava/lang/Exception; {:try_start_2a .. :try_end_3a} :catch_76
+    add-int/lit8 v3, v3, 0x1
 
     .line 578
-    add-int/lit8 v4, v4, 0x1
+    if-ne v3, v13, :cond_1e
 
-    .line 579
-    const/16 v11, 0x20
-
-    if-ne v4, v11, :cond_20
-
-    .line 596
-    .end local v5           #st:Ljava/util/StringTokenizer;
-    .end local v8           #token:Ljava/lang/String;
-    .end local v9           #val:J
-    :cond_40
-    if-nez p1, :cond_54
-
-    .line 597
-    new-array p1, v4, [J
-
-    .line 598
-    new-array v11, v4, [J
-
-    iput-object v11, p0, Lcom/android/internal/os/ProcessStats;->mCpuSpeeds:[J
-
-    .line 599
-    const/4 v11, 0x0
-
-    iget-object v12, p0, Lcom/android/internal/os/ProcessStats;->mCpuSpeeds:[J
-
-    const/4 v13, 0x0
-
-    invoke-static {v6, v11, v12, v13, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 600
-    const/4 v11, 0x0
-
-    const/4 v12, 0x0
-
-    invoke-static {v7, v11, p1, v12, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 602
-    :cond_54
-    return-object p1
-
-    .line 584
-    .restart local v5       #st:Ljava/util/StringTokenizer;
-    .restart local v8       #token:Ljava/lang/String;
-    :catch_55
-    move-exception v3
-
-    .line 585
-    .local v3, nfe:Ljava/lang/NumberFormatException;
-    const-string v11, "ProcessStats"
-
-    const-string v12, "Unable to parse time_in_state"
-
-    invoke-static {v11, v12}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 586
-    const-string v11, "ProcessStats"
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v13, "file content =\n"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v11, v12}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_20
+    .line 588
+    .end local v4           #st:Ljava/util/StringTokenizer;
+    .end local v7           #token:Ljava/lang/String;
+    .end local v8           #val:J
+    :cond_3c
+    if-nez p1, :cond_4c
 
     .line 589
-    .end local v3           #nfe:Ljava/lang/NumberFormatException;
-    :catch_76
-    move-exception v1
+    new-array p1, v3, [J
 
     .line 590
-    .local v1, e:Ljava/lang/Exception;
-    const-string v11, "ProcessStats"
+    new-array v10, v3, [J
 
-    const-string v12, "/sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state might be damaged"
-
-    invoke-static {v11, v12}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    iput-object v10, p0, Lcom/android/internal/os/ProcessStats;->mCpuSpeeds:[J
 
     .line 591
-    const-string v11, "ProcessStats"
+    iget-object v10, p0, Lcom/android/internal/os/ProcessStats;->mCpuSpeeds:[J
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    invoke-static {v5, v12, v10, v12, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    .line 592
+    invoke-static {v6, v12, p1, v12, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    const-string v13, "file content =\n"
+    .line 594
+    :cond_4c
+    return-object p1
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 583
+    .restart local v4       #st:Ljava/util/StringTokenizer;
+    .restart local v7       #token:Ljava/lang/String;
+    :catch_4d
+    move-exception v2
 
-    move-result-object v12
+    .line 584
+    .local v2, nfe:Ljava/lang/NumberFormatException;
+    const-string v10, "ProcessStats"
 
-    invoke-virtual {v12, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v11, "Unable to parse time_in_state"
 
-    move-result-object v12
+    invoke-static {v10, v11}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v11, v12}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_20
+    goto :goto_1e
 .end method
 
 .method private getName(Lcom/android/internal/os/ProcessStats$Stats;Ljava/lang/String;)V
@@ -1494,10 +1420,10 @@
     .parameter "cmdlineFile"
 
     .prologue
-    .line 855
+    .line 838
     iget-object v2, p1, Lcom/android/internal/os/ProcessStats$Stats;->name:Ljava/lang/String;
 
-    .line 856
+    .line 839
     .local v2, newName:Ljava/lang/String;
     iget-object v3, p1, Lcom/android/internal/os/ProcessStats$Stats;->name:Ljava/lang/String;
 
@@ -1523,7 +1449,7 @@
 
     if-eqz v3, :cond_43
 
-    .line 858
+    .line 841
     :cond_1a
     const/4 v3, 0x0
 
@@ -1531,7 +1457,7 @@
 
     move-result-object v0
 
-    .line 859
+    .line 842
     .local v0, cmdName:Ljava/lang/String;
     if-eqz v0, :cond_3f
 
@@ -1543,17 +1469,17 @@
 
     if-le v3, v4, :cond_3f
 
-    .line 860
+    .line 843
     move-object v2, v0
 
-    .line 861
+    .line 844
     const-string v3, "/"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
 
     move-result v1
 
-    .line 862
+    .line 845
     .local v1, i:I
     if-lez v1, :cond_3f
 
@@ -1565,22 +1491,22 @@
 
     if-ge v1, v3, :cond_3f
 
-    .line 863
+    .line 846
     add-int/lit8 v3, v1, 0x1
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 866
+    .line 849
     .end local v1           #i:I
     :cond_3f
     if-nez v2, :cond_43
 
-    .line 867
+    .line 850
     iget-object v2, p1, Lcom/android/internal/os/ProcessStats$Stats;->baseName:Ljava/lang/String;
 
-    .line 870
+    .line 853
     .end local v0           #cmdName:Ljava/lang/String;
     :cond_43
     iget-object v3, p1, Lcom/android/internal/os/ProcessStats$Stats;->name:Ljava/lang/String;
@@ -1595,11 +1521,11 @@
 
     if-nez v3, :cond_59
 
-    .line 871
+    .line 854
     :cond_4f
     iput-object v2, p1, Lcom/android/internal/os/ProcessStats$Stats;->name:Ljava/lang/String;
 
-    .line 872
+    .line 855
     iget-object v3, p1, Lcom/android/internal/os/ProcessStats$Stats;->name:Ljava/lang/String;
 
     invoke-virtual {p0, v3}, Lcom/android/internal/os/ProcessStats;->onMeasureProcessName(Ljava/lang/String;)I
@@ -1608,7 +1534,7 @@
 
     iput v3, p1, Lcom/android/internal/os/ProcessStats$Stats;->nameWidth:I
 
-    .line 874
+    .line 857
     :cond_59
     return-void
 .end method
@@ -1629,15 +1555,15 @@
     .parameter "majFaults"
 
     .prologue
-    .line 764
+    .line 758
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 765
+    .line 759
     if-nez p5, :cond_6
 
     const/4 p5, 0x1
 
-    .line 766
+    .line 760
     :cond_6
     add-int v1, p6, p7
 
@@ -1657,32 +1583,32 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/android/internal/os/ProcessStats;->printRatio(Ljava/io/PrintWriter;JJ)V
 
-    .line 767
+    .line 761
     const-string v1, "% "
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 768
+    .line 762
     if-ltz p3, :cond_23
 
-    .line 769
+    .line 763
     invoke-virtual {p1, p3}, Ljava/io/PrintWriter;->print(I)V
 
-    .line 770
+    .line 764
     const-string v1, "/"
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 772
+    .line 766
     :cond_23
     invoke-virtual {p1, p4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 773
+    .line 767
     const-string v1, ": "
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 774
+    .line 768
     int-to-long v3, p6
 
     int-to-long v5, p5
@@ -1693,12 +1619,12 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/android/internal/os/ProcessStats;->printRatio(Ljava/io/PrintWriter;JJ)V
 
-    .line 775
+    .line 769
     const-string v1, "% user + "
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 776
+    .line 770
     int-to-long v3, p7
 
     int-to-long v5, p5
@@ -1709,20 +1635,20 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/android/internal/os/ProcessStats;->printRatio(Ljava/io/PrintWriter;JJ)V
 
-    .line 777
+    .line 771
     const-string v1, "% kernel"
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 778
+    .line 772
     if-lez p8, :cond_56
 
-    .line 779
+    .line 773
     const-string v1, " + "
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 780
+    .line 774
     int-to-long v3, p8
 
     int-to-long v5, p5
@@ -1733,21 +1659,21 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/android/internal/os/ProcessStats;->printRatio(Ljava/io/PrintWriter;JJ)V
 
-    .line 781
+    .line 775
     const-string v1, "% iowait"
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 783
+    .line 777
     :cond_56
     if-lez p9, :cond_6b
 
-    .line 784
+    .line 778
     const-string v1, " + "
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 785
+    .line 779
     move/from16 v0, p9
 
     int-to-long v3, v0
@@ -1760,21 +1686,21 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/android/internal/os/ProcessStats;->printRatio(Ljava/io/PrintWriter;JJ)V
 
-    .line 786
+    .line 780
     const-string v1, "% irq"
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 788
+    .line 782
     :cond_6b
     if-lez p10, :cond_80
 
-    .line 789
+    .line 783
     const-string v1, " + "
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 790
+    .line 784
     move/from16 v0, p10
 
     int-to-long v3, v0
@@ -1787,65 +1713,65 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/android/internal/os/ProcessStats;->printRatio(Ljava/io/PrintWriter;JJ)V
 
-    .line 791
+    .line 785
     const-string v1, "% softirq"
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 793
+    .line 787
     :cond_80
     if-gtz p11, :cond_84
 
     if-lez p12, :cond_ab
 
-    .line 794
+    .line 788
     :cond_84
     const-string v1, " / faults:"
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 795
+    .line 789
     if-lez p11, :cond_9a
 
-    .line 796
+    .line 790
     const-string v1, " "
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 797
+    .line 791
     move/from16 v0, p11
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(I)V
 
-    .line 798
+    .line 792
     const-string v1, " minor"
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 800
+    .line 794
     :cond_9a
     if-lez p12, :cond_ab
 
-    .line 801
+    .line 795
     const-string v1, " "
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 802
+    .line 796
     move/from16 v0, p12
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(I)V
 
-    .line 803
+    .line 797
     const-string v1, " major"
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 806
+    .line 800
     :cond_ab
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
-    .line 807
+    .line 801
     return-void
 .end method
 
@@ -1858,32 +1784,32 @@
     .prologue
     const-wide/16 v8, 0xa
 
-    .line 749
+    .line 743
     const-wide/16 v6, 0x3e8
 
     mul-long/2addr v6, p2
 
     div-long v4, v6, p4
 
-    .line 750
+    .line 744
     .local v4, thousands:J
     div-long v0, v4, v8
 
-    .line 751
+    .line 745
     .local v0, hundreds:J
     invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->print(J)V
 
-    .line 752
+    .line 746
     cmp-long v6, v0, v8
 
     if-gez v6, :cond_22
 
-    .line 753
+    .line 747
     mul-long v6, v0, v8
 
     sub-long v2, v4, v6
 
-    .line 754
+    .line 748
     .local v2, remainder:J
     const-wide/16 v6, 0x0
 
@@ -1891,15 +1817,15 @@
 
     if-eqz v6, :cond_22
 
-    .line 755
+    .line 749
     const/16 v6, 0x2e
 
     invoke-virtual {p1, v6}, Ljava/io/PrintWriter;->print(C)V
 
-    .line 756
+    .line 750
     invoke-virtual {p1, v2, v3}, Ljava/io/PrintWriter;->print(J)V
 
-    .line 759
+    .line 753
     .end local v2           #remainder:J
     :cond_22
     return-void
@@ -1911,71 +1837,59 @@
     .parameter "endChar"
 
     .prologue
-    .line 813
+    .line 807
     invoke-static {}, Landroid/os/StrictMode;->allowThreadDiskReads()Landroid/os/StrictMode$ThreadPolicy;
 
     move-result-object v4
 
-    .line 814
+    .line 808
     .local v4, savedPolicy:Landroid/os/StrictMode$ThreadPolicy;
     const/4 v1, 0x0
 
+    .line 810
     .local v1, is:Ljava/io/FileInputStream;
-    move-object v2, v1
+    :try_start_5
+    new-instance v2, Ljava/io/FileInputStream;
 
-    .line 819
+    invoke-direct {v2, p1}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
+    :try_end_a
+    .catchall {:try_start_5 .. :try_end_a} :catchall_52
+    .catch Ljava/io/FileNotFoundException; {:try_start_5 .. :try_end_a} :catch_3e
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_a} :catch_48
+
+    .line 811
     .end local v1           #is:Ljava/io/FileInputStream;
     .local v2, is:Ljava/io/FileInputStream;
-    :goto_6
-    :try_start_6
-    new-instance v1, Ljava/io/FileInputStream;
-
-    invoke-direct {v1, p1}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
-    :try_end_b
-    .catchall {:try_start_6 .. :try_end_b} :catchall_67
-    .catch Ljava/io/FileNotFoundException; {:try_start_6 .. :try_end_b} :catch_72
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_b} :catch_80
-
-    .line 820
-    .end local v2           #is:Ljava/io/FileInputStream;
-    .restart local v1       #is:Ljava/io/FileInputStream;
-    :try_start_b
+    :try_start_a
     iget-object v5, p0, Lcom/android/internal/os/ProcessStats;->mBuffer:[B
 
-    invoke-virtual {v1, v5}, Ljava/io/FileInputStream;->read([B)I
+    invoke-virtual {v2, v5}, Ljava/io/FileInputStream;->read([B)I
 
     move-result v3
 
-    .line 821
+    .line 812
     .local v3, len:I
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
 
-    .line 823
-    iget-object v5, p0, Lcom/android/internal/os/ProcessStats;->mBuffer:[B
+    .line 814
+    if-lez v3, :cond_33
 
-    array-length v5, v5
-
-    if-ge v3, v5, :cond_35
-
-    .line 831
-    if-lez v3, :cond_8e
-
-    .line 833
+    .line 816
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1c
-    if-ge v0, v3, :cond_24
+    :goto_16
+    if-ge v0, v3, :cond_1e
 
-    .line 834
+    .line 817
     iget-object v5, p0, Lcom/android/internal/os/ProcessStats;->mBuffer:[B
 
     aget-byte v5, v5, v0
 
-    if-ne v5, p2, :cond_64
+    if-ne v5, p2, :cond_30
 
-    .line 838
-    :cond_24
+    .line 821
+    :cond_1e
     new-instance v5, Ljava/lang/String;
 
     iget-object v6, p0, Lcom/android/internal/os/ProcessStats;->mBuffer:[B
@@ -1983,242 +1897,203 @@
     const/4 v7, 0x0
 
     invoke-direct {v5, v6, v7, v0}, Ljava/lang/String;-><init>([BII)V
-    :try_end_2c
-    .catchall {:try_start_b .. :try_end_2c} :catchall_96
-    .catch Ljava/io/FileNotFoundException; {:try_start_b .. :try_end_2c} :catch_9a
-    .catch Ljava/io/IOException; {:try_start_b .. :try_end_2c} :catch_98
-
-    .line 843
-    if-eqz v1, :cond_31
-
-    .line 845
-    :try_start_2e
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
-    :try_end_31
-    .catch Ljava/io/IOException; {:try_start_2e .. :try_end_31} :catch_8c
-
-    .line 849
-    :cond_31
-    :goto_31
-    invoke-static {v4}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
-
-    .line 851
-    .end local v0           #i:I
-    .end local v3           #len:I
-    :goto_34
-    return-object v5
-
-    .line 825
-    .restart local v3       #len:I
-    :cond_35
-    shr-int/lit8 v5, v3, 0x1
-
-    add-int/2addr v3, v5
+    :try_end_26
+    .catchall {:try_start_a .. :try_end_26} :catchall_66
+    .catch Ljava/io/FileNotFoundException; {:try_start_a .. :try_end_26} :catch_6c
+    .catch Ljava/io/IOException; {:try_start_a .. :try_end_26} :catch_69
 
     .line 826
-    :try_start_38
-    const-string v5, "ProcessStats"
+    if-eqz v2, :cond_2b
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    .line 828
+    :try_start_28
+    invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
+    :try_end_2b
+    .catch Ljava/io/IOException; {:try_start_28 .. :try_end_2b} :catch_5c
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    .line 832
+    :cond_2b
+    :goto_2b
+    invoke-static {v4}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
-    const-string v7, "Exceeds buffer size when reading "
+    move-object v1, v2
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string v7, ", extend to "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 827
-    new-array v5, v3, [B
-
-    iput-object v5, p0, Lcom/android/internal/os/ProcessStats;->mBuffer:[B
-    :try_end_62
-    .catchall {:try_start_38 .. :try_end_62} :catchall_96
-    .catch Ljava/io/FileNotFoundException; {:try_start_38 .. :try_end_62} :catch_9a
-    .catch Ljava/io/IOException; {:try_start_38 .. :try_end_62} :catch_98
-
-    move-object v2, v1
-
-    .end local v1           #is:Ljava/io/FileInputStream;
-    .restart local v2       #is:Ljava/io/FileInputStream;
-    goto :goto_6
-
-    .line 833
+    .line 834
+    .end local v0           #i:I
     .end local v2           #is:Ljava/io/FileInputStream;
-    .restart local v0       #i:I
+    .end local v3           #len:I
     .restart local v1       #is:Ljava/io/FileInputStream;
-    :cond_64
+    :goto_2f
+    return-object v5
+
+    .line 816
+    .end local v1           #is:Ljava/io/FileInputStream;
+    .restart local v0       #i:I
+    .restart local v2       #is:Ljava/io/FileInputStream;
+    .restart local v3       #len:I
+    :cond_30
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1c
+    goto :goto_16
 
-    .line 843
+    .line 826
     .end local v0           #i:I
-    .end local v1           #is:Ljava/io/FileInputStream;
+    :cond_33
+    if-eqz v2, :cond_38
+
+    .line 828
+    :try_start_35
+    invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
+    :try_end_38
+    .catch Ljava/io/IOException; {:try_start_35 .. :try_end_38} :catch_5e
+
+    .line 832
+    :cond_38
+    :goto_38
+    invoke-static {v4}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
+
+    move-object v1, v2
+
+    .line 834
+    .end local v2           #is:Ljava/io/FileInputStream;
     .end local v3           #len:I
-    .restart local v2       #is:Ljava/io/FileInputStream;
-    :catchall_67
-    move-exception v5
-
-    move-object v1, v2
-
-    .end local v2           #is:Ljava/io/FileInputStream;
     .restart local v1       #is:Ljava/io/FileInputStream;
-    :goto_69
-    if-eqz v1, :cond_6e
-
-    .line 845
-    :try_start_6b
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
-    :try_end_6e
-    .catch Ljava/io/IOException; {:try_start_6b .. :try_end_6e} :catch_8a
-
-    .line 849
-    :cond_6e
-    :goto_6e
-    invoke-static {v4}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
-
-    .line 843
-    throw v5
-
-    .line 840
-    .end local v1           #is:Ljava/io/FileInputStream;
-    .restart local v2       #is:Ljava/io/FileInputStream;
-    :catch_72
-    move-exception v5
-
-    move-object v1, v2
-
-    .line 843
-    .end local v2           #is:Ljava/io/FileInputStream;
-    .restart local v1       #is:Ljava/io/FileInputStream;
-    :goto_74
-    if-eqz v1, :cond_79
-
-    .line 845
-    :try_start_76
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
-    :try_end_79
-    .catch Ljava/io/IOException; {:try_start_76 .. :try_end_79} :catch_7e
-
-    .line 849
-    :cond_79
-    :goto_79
-    invoke-static {v4}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
-
-    .line 851
+    :goto_3c
     const/4 v5, 0x0
 
-    goto :goto_34
+    goto :goto_2f
 
-    .line 846
-    :catch_7e
+    .line 823
+    :catch_3e
     move-exception v5
 
-    goto :goto_79
+    .line 826
+    :goto_3f
+    if-eqz v1, :cond_44
 
-    .line 841
+    .line 828
+    :try_start_41
+    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
+    :try_end_44
+    .catch Ljava/io/IOException; {:try_start_41 .. :try_end_44} :catch_60
+
+    .line 832
+    :cond_44
+    :goto_44
+    invoke-static {v4}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
+
+    goto :goto_3c
+
+    .line 824
+    :catch_48
+    move-exception v5
+
+    .line 826
+    :goto_49
+    if-eqz v1, :cond_4e
+
+    .line 828
+    :try_start_4b
+    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
+    :try_end_4e
+    .catch Ljava/io/IOException; {:try_start_4b .. :try_end_4e} :catch_62
+
+    .line 832
+    :cond_4e
+    :goto_4e
+    invoke-static {v4}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
+
+    goto :goto_3c
+
+    .line 826
+    :catchall_52
+    move-exception v5
+
+    :goto_53
+    if-eqz v1, :cond_58
+
+    .line 828
+    :try_start_55
+    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
+    :try_end_58
+    .catch Ljava/io/IOException; {:try_start_55 .. :try_end_58} :catch_64
+
+    .line 832
+    :cond_58
+    :goto_58
+    invoke-static {v4}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
+
+    throw v5
+
+    .line 829
+    .end local v1           #is:Ljava/io/FileInputStream;
+    .restart local v0       #i:I
+    .restart local v2       #is:Ljava/io/FileInputStream;
+    .restart local v3       #len:I
+    :catch_5c
+    move-exception v6
+
+    goto :goto_2b
+
+    .end local v0           #i:I
+    :catch_5e
+    move-exception v5
+
+    goto :goto_38
+
+    .end local v2           #is:Ljava/io/FileInputStream;
+    .end local v3           #len:I
+    .restart local v1       #is:Ljava/io/FileInputStream;
+    :catch_60
+    move-exception v5
+
+    goto :goto_44
+
+    :catch_62
+    move-exception v5
+
+    goto :goto_4e
+
+    :catch_64
+    move-exception v6
+
+    goto :goto_58
+
+    .line 826
     .end local v1           #is:Ljava/io/FileInputStream;
     .restart local v2       #is:Ljava/io/FileInputStream;
-    :catch_80
+    :catchall_66
     move-exception v5
 
     move-object v1, v2
 
-    .line 843
     .end local v2           #is:Ljava/io/FileInputStream;
     .restart local v1       #is:Ljava/io/FileInputStream;
-    :goto_82
-    if-eqz v1, :cond_79
+    goto :goto_53
 
-    .line 845
-    :try_start_84
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
-    :try_end_87
-    .catch Ljava/io/IOException; {:try_start_84 .. :try_end_87} :catch_88
-
-    goto :goto_79
-
-    .line 846
-    :catch_88
+    .line 824
+    .end local v1           #is:Ljava/io/FileInputStream;
+    .restart local v2       #is:Ljava/io/FileInputStream;
+    :catch_69
     move-exception v5
 
-    goto :goto_79
+    move-object v1, v2
 
-    :catch_8a
-    move-exception v6
+    .end local v2           #is:Ljava/io/FileInputStream;
+    .restart local v1       #is:Ljava/io/FileInputStream;
+    goto :goto_49
 
-    goto :goto_6e
-
-    .restart local v0       #i:I
-    .restart local v3       #len:I
-    :catch_8c
-    move-exception v6
-
-    goto :goto_31
-
-    .line 843
-    .end local v0           #i:I
-    :cond_8e
-    if-eqz v1, :cond_79
-
-    .line 845
-    :try_start_90
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
-    :try_end_93
-    .catch Ljava/io/IOException; {:try_start_90 .. :try_end_93} :catch_94
-
-    goto :goto_79
-
-    .line 846
-    :catch_94
+    .line 823
+    .end local v1           #is:Ljava/io/FileInputStream;
+    .restart local v2       #is:Ljava/io/FileInputStream;
+    :catch_6c
     move-exception v5
 
-    goto :goto_79
+    move-object v1, v2
 
-    .line 843
-    .end local v3           #len:I
-    :catchall_96
-    move-exception v5
-
-    goto :goto_69
-
-    .line 841
-    :catch_98
-    move-exception v5
-
-    goto :goto_82
-
-    .line 840
-    :catch_9a
-    move-exception v5
-
-    goto :goto_74
+    .end local v2           #is:Ljava/io/FileInputStream;
+    .restart local v1       #is:Ljava/io/FileInputStream;
+    goto :goto_3f
 .end method
 
 
@@ -2229,24 +2104,24 @@
     .prologue
     const/4 v8, 0x1
 
-    .line 635
+    .line 627
     iget-boolean v6, p0, Lcom/android/internal/os/ProcessStats;->mWorkingProcsSorted:Z
 
     if-nez v6, :cond_65
 
-    .line 636
+    .line 628
     iget-object v6, p0, Lcom/android/internal/os/ProcessStats;->mWorkingProcs:Ljava/util/ArrayList;
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->clear()V
 
-    .line 637
+    .line 629
     iget-object v6, p0, Lcom/android/internal/os/ProcessStats;->mProcStats:Ljava/util/ArrayList;
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    .line 638
+    .line 630
     .local v1, N:I
     const/4 v2, 0x0
 
@@ -2254,7 +2129,7 @@
     :goto_11
     if-ge v2, v1, :cond_5c
 
-    .line 639
+    .line 631
     iget-object v6, p0, Lcom/android/internal/os/ProcessStats;->mProcStats:Ljava/util/ArrayList;
 
     invoke-virtual {v6, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -2263,18 +2138,18 @@
 
     check-cast v4, Lcom/android/internal/os/ProcessStats$Stats;
 
-    .line 640
+    .line 632
     .local v4, stats:Lcom/android/internal/os/ProcessStats$Stats;
     iget-boolean v6, v4, Lcom/android/internal/os/ProcessStats$Stats;->working:Z
 
     if-eqz v6, :cond_59
 
-    .line 641
+    .line 633
     iget-object v6, p0, Lcom/android/internal/os/ProcessStats;->mWorkingProcs:Ljava/util/ArrayList;
 
     invoke-virtual {v6, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 642
+    .line 634
     iget-object v6, v4, Lcom/android/internal/os/ProcessStats$Stats;->threadStats:Ljava/util/ArrayList;
 
     if-eqz v6, :cond_59
@@ -2287,19 +2162,19 @@
 
     if-le v6, v8, :cond_59
 
-    .line 643
+    .line 635
     iget-object v6, v4, Lcom/android/internal/os/ProcessStats$Stats;->workingThreads:Ljava/util/ArrayList;
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->clear()V
 
-    .line 644
+    .line 636
     iget-object v6, v4, Lcom/android/internal/os/ProcessStats$Stats;->threadStats:Ljava/util/ArrayList;
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    .line 645
+    .line 637
     .local v0, M:I
     const/4 v3, 0x0
 
@@ -2307,7 +2182,7 @@
     :goto_3c
     if-ge v3, v0, :cond_52
 
-    .line 646
+    .line 638
     iget-object v6, v4, Lcom/android/internal/os/ProcessStats$Stats;->threadStats:Ljava/util/ArrayList;
 
     invoke-virtual {v6, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -2316,24 +2191,24 @@
 
     check-cast v5, Lcom/android/internal/os/ProcessStats$Stats;
 
-    .line 647
+    .line 639
     .local v5, tstats:Lcom/android/internal/os/ProcessStats$Stats;
     iget-boolean v6, v5, Lcom/android/internal/os/ProcessStats$Stats;->working:Z
 
     if-eqz v6, :cond_4f
 
-    .line 648
+    .line 640
     iget-object v6, v4, Lcom/android/internal/os/ProcessStats$Stats;->workingThreads:Ljava/util/ArrayList;
 
     invoke-virtual {v6, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 645
+    .line 637
     :cond_4f
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_3c
 
-    .line 651
+    .line 643
     .end local v5           #tstats:Lcom/android/internal/os/ProcessStats$Stats;
     :cond_52
     iget-object v6, v4, Lcom/android/internal/os/ProcessStats$Stats;->workingThreads:Ljava/util/ArrayList;
@@ -2342,7 +2217,7 @@
 
     invoke-static {v6, v7}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 638
+    .line 630
     .end local v0           #M:I
     .end local v3           #j:I
     :cond_59
@@ -2350,7 +2225,7 @@
 
     goto :goto_11
 
-    .line 655
+    .line 647
     .end local v4           #stats:Lcom/android/internal/os/ProcessStats$Stats;
     :cond_5c
     iget-object v6, p0, Lcom/android/internal/os/ProcessStats;->mWorkingProcs:Ljava/util/ArrayList;
@@ -2359,10 +2234,10 @@
 
     invoke-static {v6, v7}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 656
+    .line 648
     iput-boolean v8, p0, Lcom/android/internal/os/ProcessStats;->mWorkingProcsSorted:Z
 
-    .line 658
+    .line 650
     .end local v1           #N:I
     .end local v2           #i:I
     :cond_65
@@ -2373,7 +2248,7 @@
     .registers 2
 
     .prologue
-    .line 661
+    .line 653
     iget-object v0, p0, Lcom/android/internal/os/ProcessStats;->mProcStats:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -2387,10 +2262,10 @@
     .registers 2
 
     .prologue
-    .line 669
+    .line 661
     invoke-virtual {p0}, Lcom/android/internal/os/ProcessStats;->buildWorkingProcs()V
 
-    .line 670
+    .line 662
     iget-object v0, p0, Lcom/android/internal/os/ProcessStats;->mWorkingProcs:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -2576,7 +2451,7 @@
     .registers 2
 
     .prologue
-    .line 626
+    .line 618
     iget v0, p0, Lcom/android/internal/os/ProcessStats;->mRelIdleTime:I
 
     return v0
@@ -2586,7 +2461,7 @@
     .registers 2
 
     .prologue
-    .line 614
+    .line 606
     iget v0, p0, Lcom/android/internal/os/ProcessStats;->mRelIoWaitTime:I
 
     return v0
@@ -2596,7 +2471,7 @@
     .registers 2
 
     .prologue
-    .line 618
+    .line 610
     iget v0, p0, Lcom/android/internal/os/ProcessStats;->mRelIrqTime:I
 
     return v0
@@ -2606,7 +2481,7 @@
     .registers 2
 
     .prologue
-    .line 622
+    .line 614
     iget v0, p0, Lcom/android/internal/os/ProcessStats;->mRelSoftIrqTime:I
 
     return v0
@@ -2616,7 +2491,7 @@
     .registers 2
 
     .prologue
-    .line 610
+    .line 602
     iget v0, p0, Lcom/android/internal/os/ProcessStats;->mRelSystemTime:I
 
     return v0
@@ -2626,7 +2501,7 @@
     .registers 2
 
     .prologue
-    .line 606
+    .line 598
     iget v0, p0, Lcom/android/internal/os/ProcessStats;->mRelUserTime:I
 
     return v0
@@ -2637,7 +2512,7 @@
     .parameter "index"
 
     .prologue
-    .line 665
+    .line 657
     iget-object v0, p0, Lcom/android/internal/os/ProcessStats;->mProcStats:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -2653,7 +2528,7 @@
     .registers 4
 
     .prologue
-    .line 630
+    .line 622
     iget v0, p0, Lcom/android/internal/os/ProcessStats;->mRelUserTime:I
 
     iget v1, p0, Lcom/android/internal/os/ProcessStats;->mRelSystemTime:I
@@ -2696,7 +2571,7 @@
     .parameter "index"
 
     .prologue
-    .line 674
+    .line 666
     iget-object v0, p0, Lcom/android/internal/os/ProcessStats;->mWorkingProcs:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -2750,49 +2625,49 @@
     .registers 4
 
     .prologue
-    .line 678
+    .line 670
     new-instance v1, Ljava/io/StringWriter;
 
     invoke-direct {v1}, Ljava/io/StringWriter;-><init>()V
 
-    .line 679
+    .line 671
     .local v1, sw:Ljava/io/StringWriter;
     new-instance v0, Ljava/io/PrintWriter;
 
     invoke-direct {v0, v1}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;)V
 
-    .line 680
+    .line 672
     .local v0, pw:Ljava/io/PrintWriter;
     const-string v2, "Load: "
 
     invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 681
+    .line 673
     iget v2, p0, Lcom/android/internal/os/ProcessStats;->mLoad1:F
 
     invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(F)V
 
-    .line 682
+    .line 674
     const-string v2, " / "
 
     invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 683
+    .line 675
     iget v2, p0, Lcom/android/internal/os/ProcessStats;->mLoad5:F
 
     invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(F)V
 
-    .line 684
+    .line 676
     const-string v2, " / "
 
     invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 685
+    .line 677
     iget v2, p0, Lcom/android/internal/os/ProcessStats;->mLoad15:F
 
     invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(F)V
 
-    .line 686
+    .line 678
     invoke-virtual {v1}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -2805,15 +2680,15 @@
     .parameter "now"
 
     .prologue
-    .line 690
+    .line 682
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/os/ProcessStats;->buildWorkingProcs()V
 
-    .line 692
+    .line 684
     new-instance v26, Ljava/io/StringWriter;
 
     invoke-direct/range {v26 .. v26}, Ljava/io/StringWriter;-><init>()V
 
-    .line 693
+    .line 685
     .local v26, sw:Ljava/io/StringWriter;
     new-instance v3, Ljava/io/PrintWriter;
 
@@ -2821,22 +2696,22 @@
 
     invoke-direct {v3, v0}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;)V
 
-    .line 695
+    .line 687
     .local v3, pw:Ljava/io/PrintWriter;
     const-string v2, "CPU usage from "
 
     invoke-virtual {v3, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 696
+    .line 688
     move-object/from16 v0, p0
 
     iget-wide v4, v0, Lcom/android/internal/os/ProcessStats;->mLastSampleTime:J
 
     cmp-long v2, p1, v4
 
-    if-lez v2, :cond_12f
+    if-lez v2, :cond_135
 
-    .line 697
+    .line 689
     move-object/from16 v0, p0
 
     iget-wide v4, v0, Lcom/android/internal/os/ProcessStats;->mLastSampleTime:J
@@ -2845,12 +2720,12 @@
 
     invoke-virtual {v3, v4, v5}, Ljava/io/PrintWriter;->print(J)V
 
-    .line 698
+    .line 690
     const-string/jumbo v2, "ms to "
 
     invoke-virtual {v3, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 699
+    .line 691
     move-object/from16 v0, p0
 
     iget-wide v4, v0, Lcom/android/internal/os/ProcessStats;->mCurrentSampleTime:J
@@ -2859,12 +2734,12 @@
 
     invoke-virtual {v3, v4, v5}, Ljava/io/PrintWriter;->print(J)V
 
-    .line 700
+    .line 692
     const-string/jumbo v2, "ms ago"
 
     invoke-virtual {v3, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 708
+    .line 700
     :goto_3a
     move-object/from16 v0, p0
 
@@ -2876,7 +2751,7 @@
 
     sub-long v23, v4, v6
 
-    .line 709
+    .line 701
     .local v23, sampleTime:J
     move-object/from16 v0, p0
 
@@ -2888,44 +2763,51 @@
 
     sub-long v21, v4, v6
 
-    .line 710
+    .line 702
     .local v21, sampleRealTime:J
+    const-wide/16 v4, 0x0
+
+    cmp-long v2, v21, v4
+
+    if-lez v2, :cond_155
+
     const-wide/16 v4, 0x64
 
     mul-long v4, v4, v23
 
     div-long v19, v4, v21
 
-    .line 711
+    .line 705
     .local v19, percAwake:J
+    :goto_5a
     const-wide/16 v4, 0x64
 
     cmp-long v2, v19, v4
 
-    if-eqz v2, :cond_69
+    if-eqz v2, :cond_6f
 
-    .line 712
+    .line 706
     const-string v2, " with "
 
     invoke-virtual {v3, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 713
+    .line 707
     move-wide/from16 v0, v19
 
     invoke-virtual {v3, v0, v1}, Ljava/io/PrintWriter;->print(J)V
 
-    .line 714
+    .line 708
     const-string v2, "% awake"
 
     invoke-virtual {v3, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 716
-    :cond_69
+    .line 710
+    :cond_6f
     const-string v2, ":"
 
     invoke-virtual {v3, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 718
+    .line 712
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/internal/os/ProcessStats;->mRelUserTime:I
@@ -2960,7 +2842,7 @@
 
     add-int v27, v2, v4
 
-    .line 724
+    .line 718
     .local v27, totalTime:I
     move-object/from16 v0, p0
 
@@ -2970,19 +2852,19 @@
 
     move-result v16
 
-    .line 725
+    .line 719
     .local v16, N:I
     const/16 v17, 0x0
 
     .local v17, i:I
-    :goto_96
+    :goto_9c
     move/from16 v0, v17
 
     move/from16 v1, v16
 
-    if-ge v0, v1, :cond_16d
+    if-ge v0, v1, :cond_177
 
-    .line 726
+    .line 720
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/os/ProcessStats;->mWorkingProcs:Ljava/util/ArrayList;
@@ -2995,17 +2877,17 @@
 
     check-cast v25, Lcom/android/internal/os/ProcessStats$Stats;
 
-    .line 727
+    .line 721
     .local v25, st:Lcom/android/internal/os/ProcessStats$Stats;
     move-object/from16 v0, v25
 
     iget-boolean v2, v0, Lcom/android/internal/os/ProcessStats$Stats;->added:Z
 
-    if-eqz v2, :cond_14f
+    if-eqz v2, :cond_159
 
     const-string v4, " +"
 
-    :goto_b0
+    :goto_b6
     move-object/from16 v0, v25
 
     iget v5, v0, Lcom/android/internal/os/ProcessStats$Stats;->pid:I
@@ -3052,20 +2934,20 @@
 
     invoke-direct/range {v2 .. v14}, Lcom/android/internal/os/ProcessStats;->printProcessCPU(Ljava/io/PrintWriter;Ljava/lang/String;ILjava/lang/String;IIIIIIII)V
 
-    .line 730
+    .line 724
     move-object/from16 v0, v25
 
     iget-boolean v2, v0, Lcom/android/internal/os/ProcessStats$Stats;->removed:Z
 
-    if-nez v2, :cond_169
+    if-nez v2, :cond_173
 
     move-object/from16 v0, v25
 
     iget-object v2, v0, Lcom/android/internal/os/ProcessStats$Stats;->workingThreads:Ljava/util/ArrayList;
 
-    if-eqz v2, :cond_169
+    if-eqz v2, :cond_173
 
-    .line 731
+    .line 725
     move-object/from16 v0, v25
 
     iget-object v2, v0, Lcom/android/internal/os/ProcessStats$Stats;->workingThreads:Ljava/util/ArrayList;
@@ -3074,17 +2956,17 @@
 
     move-result v15
 
-    .line 732
+    .line 726
     .local v15, M:I
     const/16 v18, 0x0
 
     .local v18, j:I
-    :goto_f0
+    :goto_f6
     move/from16 v0, v18
 
-    if-ge v0, v15, :cond_169
+    if-ge v0, v15, :cond_173
 
-    .line 733
+    .line 727
     move-object/from16 v0, v25
 
     iget-object v2, v0, Lcom/android/internal/os/ProcessStats$Stats;->workingThreads:Ljava/util/ArrayList;
@@ -3097,17 +2979,17 @@
 
     check-cast v28, Lcom/android/internal/os/ProcessStats$Stats;
 
-    .line 734
+    .line 728
     .local v28, tst:Lcom/android/internal/os/ProcessStats$Stats;
     move-object/from16 v0, v28
 
     iget-boolean v2, v0, Lcom/android/internal/os/ProcessStats$Stats;->added:Z
 
-    if-eqz v2, :cond_15d
+    if-eqz v2, :cond_167
 
     const-string v4, "   +"
 
-    :goto_108
+    :goto_10e
     move-object/from16 v0, v28
 
     iget v5, v0, Lcom/android/internal/os/ProcessStats$Stats;->pid:I
@@ -3150,12 +3032,12 @@
 
     invoke-direct/range {v2 .. v14}, Lcom/android/internal/os/ProcessStats;->printProcessCPU(Ljava/io/PrintWriter;Ljava/lang/String;ILjava/lang/String;IIIIIIII)V
 
-    .line 732
+    .line 726
     add-int/lit8 v18, v18, 0x1
 
-    goto :goto_f0
+    goto :goto_f6
 
-    .line 702
+    .line 694
     .end local v15           #M:I
     .end local v16           #N:I
     .end local v17           #i:I
@@ -3166,7 +3048,7 @@
     .end local v25           #st:Lcom/android/internal/os/ProcessStats$Stats;
     .end local v27           #totalTime:I
     .end local v28           #tst:Lcom/android/internal/os/ProcessStats$Stats;
-    :cond_12f
+    :cond_135
     move-object/from16 v0, p0
 
     iget-wide v4, v0, Lcom/android/internal/os/ProcessStats;->mLastSampleTime:J
@@ -3175,12 +3057,12 @@
 
     invoke-virtual {v3, v4, v5}, Ljava/io/PrintWriter;->print(J)V
 
-    .line 703
+    .line 695
     const-string/jumbo v2, "ms to "
 
     invoke-virtual {v3, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 704
+    .line 696
     move-object/from16 v0, p0
 
     iget-wide v4, v0, Lcom/android/internal/os/ProcessStats;->mCurrentSampleTime:J
@@ -3189,69 +3071,75 @@
 
     invoke-virtual {v3, v4, v5}, Ljava/io/PrintWriter;->print(J)V
 
-    .line 705
+    .line 697
     const-string/jumbo v2, "ms later"
 
     invoke-virtual {v3, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     goto/16 :goto_3a
 
-    .line 727
+    .line 702
+    .restart local v21       #sampleRealTime:J
+    .restart local v23       #sampleTime:J
+    :cond_155
+    const-wide/16 v19, 0x64
+
+    goto/16 :goto_5a
+
+    .line 721
     .restart local v16       #N:I
     .restart local v17       #i:I
     .restart local v19       #percAwake:J
-    .restart local v21       #sampleRealTime:J
-    .restart local v23       #sampleTime:J
     .restart local v25       #st:Lcom/android/internal/os/ProcessStats$Stats;
     .restart local v27       #totalTime:I
-    :cond_14f
+    :cond_159
     move-object/from16 v0, v25
 
     iget-boolean v2, v0, Lcom/android/internal/os/ProcessStats$Stats;->removed:Z
 
-    if-eqz v2, :cond_159
+    if-eqz v2, :cond_163
 
     const-string v4, " -"
 
-    goto/16 :goto_b0
+    goto/16 :goto_b6
 
-    :cond_159
+    :cond_163
     const-string v4, "  "
 
-    goto/16 :goto_b0
+    goto/16 :goto_b6
 
-    .line 734
+    .line 728
     .restart local v15       #M:I
     .restart local v18       #j:I
     .restart local v28       #tst:Lcom/android/internal/os/ProcessStats$Stats;
-    :cond_15d
+    :cond_167
     move-object/from16 v0, v28
 
     iget-boolean v2, v0, Lcom/android/internal/os/ProcessStats$Stats;->removed:Z
 
-    if-eqz v2, :cond_166
+    if-eqz v2, :cond_170
 
     const-string v4, "   -"
 
-    goto :goto_108
+    goto :goto_10e
 
-    :cond_166
+    :cond_170
     const-string v4, "    "
 
-    goto :goto_108
+    goto :goto_10e
 
-    .line 725
+    .line 719
     .end local v15           #M:I
     .end local v18           #j:I
     .end local v28           #tst:Lcom/android/internal/os/ProcessStats$Stats;
-    :cond_169
+    :cond_173
     add-int/lit8 v17, v17, 0x1
 
-    goto/16 :goto_96
+    goto/16 :goto_9c
 
-    .line 742
+    .line 736
     .end local v25           #st:Lcom/android/internal/os/ProcessStats$Stats;
-    :cond_16d
+    :cond_177
     const-string v4, ""
 
     const/4 v5, -0x1
@@ -3288,7 +3176,7 @@
 
     invoke-direct/range {v2 .. v14}, Lcom/android/internal/os/ProcessStats;->printProcessCPU(Ljava/io/PrintWriter;Ljava/lang/String;ILjava/lang/String;IIIIIIII)V
 
-    .line 745
+    .line 739
     invoke-virtual/range {v26 .. v26}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
 
     move-result-object v2

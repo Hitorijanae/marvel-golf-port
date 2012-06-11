@@ -93,7 +93,7 @@
 
     .prologue
     .line 1385
-    const-string/jumbo v1, "intent"
+    const-string v1, "intent"
 
     invoke-virtual {p1, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -103,13 +103,13 @@
 
     .line 1386
     .local v0, intent:Landroid/content/Intent;
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_18
 
     iget-object v1, p0, Landroid/accounts/AccountManager$AmsTask$Response;->this$1:Landroid/accounts/AccountManager$AmsTask;
 
     iget-object v1, v1, Landroid/accounts/AccountManager$AmsTask;->mActivity:Landroid/app/Activity;
 
-    if-eqz v1, :cond_19
+    if-eqz v1, :cond_18
 
     .line 1389
     iget-object v1, p0, Landroid/accounts/AccountManager$AmsTask$Response;->this$1:Landroid/accounts/AccountManager$AmsTask;
@@ -119,40 +119,40 @@
     invoke-virtual {v1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
     .line 1401
-    :goto_18
+    :goto_17
     return-void
 
     .line 1391
-    :cond_19
+    :cond_18
     const-string/jumbo v1, "retry"
 
     invoke-virtual {p1, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2a
+    if-eqz v1, :cond_29
 
     .line 1393
-    :try_start_22
+    :try_start_21
     iget-object v1, p0, Landroid/accounts/AccountManager$AmsTask$Response;->this$1:Landroid/accounts/AccountManager$AmsTask;
 
     invoke-virtual {v1}, Landroid/accounts/AccountManager$AmsTask;->doWork()V
-    :try_end_27
-    .catch Landroid/os/RemoteException; {:try_start_22 .. :try_end_27} :catch_28
+    :try_end_26
+    .catch Landroid/os/RemoteException; {:try_start_21 .. :try_end_26} :catch_27
 
-    goto :goto_18
+    goto :goto_17
 
     .line 1394
-    :catch_28
+    :catch_27
     move-exception v1
 
-    goto :goto_18
+    goto :goto_17
 
     .line 1399
-    :cond_2a
+    :cond_29
     iget-object v1, p0, Landroid/accounts/AccountManager$AmsTask$Response;->this$1:Landroid/accounts/AccountManager$AmsTask;
 
     invoke-virtual {v1, p1}, Landroid/accounts/AccountManager$AmsTask;->set(Landroid/os/Bundle;)V
 
-    goto :goto_18
+    goto :goto_17
 .end method

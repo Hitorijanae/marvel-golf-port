@@ -15,10 +15,6 @@
 
 
 # instance fields
-.field public account:Landroid/accounts/Account;
-
-.field public authority:Ljava/lang/String;
-
 .field public isActive:Z
 
 .field public startTime:Ljava/lang/Long;
@@ -32,17 +28,17 @@
     .parameter
 
     .prologue
-    .line 1651
+    .line 1603
     iput-object p1, p0, Landroid/content/SyncManager$SyncHandler$SyncNotificationInfo;->this$1:Landroid/content/SyncManager$SyncHandler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1661
+    .line 1605
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/content/SyncManager$SyncHandler$SyncNotificationInfo;->isActive:Z
 
-    .line 1665
+    .line 1609
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/content/SyncManager$SyncHandler$SyncNotificationInfo;->startTime:Ljava/lang/Long;
@@ -56,16 +52,16 @@
     .registers 3
 
     .prologue
-    .line 1673
+    .line 1617
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 1674
+    .line 1618
     .local v0, sb:Ljava/lang/StringBuilder;
     invoke-virtual {p0, v0}, Landroid/content/SyncManager$SyncHandler$SyncNotificationInfo;->toString(Ljava/lang/StringBuilder;)V
 
-    .line 1675
+    .line 1619
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -78,8 +74,8 @@
     .parameter "sb"
 
     .prologue
-    .line 1668
-    const-string/jumbo v0, "isActive "
+    .line 1612
+    const-string v0, "isActive "
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -101,6 +97,6 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 1669
+    .line 1613
     return-void
 .end method

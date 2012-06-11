@@ -12,8 +12,6 @@
 
 .field public static final ALARM_SERVICE:Ljava/lang/String; = "alarm"
 
-.field public static final ANT_SERVICE:Ljava/lang/String; = "AntService"
-
 .field public static final APPWIDGET_SERVICE:Ljava/lang/String; = "appwidget"
 
 .field public static final AUDIO_SERVICE:Ljava/lang/String; = "audio"
@@ -36,27 +34,7 @@
 
 .field public static final BIND_NOT_VISIBLE:I = 0x40000000
 
-.field public static final BIND_SYNC:I = 0x100
-
 .field public static final BIND_WAIVE_PRIORITY:I = 0x20
-
-.field public static final BLUETOOTH_BPP_SERVICE:Ljava/lang/String; = "bluetooth_bpp_service"
-
-.field public static final BLUETOOTH_DUN_SERVICE:Ljava/lang/String; = "bluetooth_dun"
-
-.field public static final BLUETOOTH_FM_RECEIVER_SERVICE:Ljava/lang/String; = "bluetooth_fm_receiver_service"
-
-.field public static final BLUETOOTH_FM_TRANSMITTER_SERVICE:Ljava/lang/String; = "bluetooth_fm_transmitter_service"
-
-.field public static final BLUETOOTH_FTP_SERVICE:Ljava/lang/String; = "bluetooth_ftp"
-
-.field public static final BLUETOOTH_OPP_SERVICE:Ljava/lang/String; = "bluetooth_opp_service"
-
-.field public static final BLUETOOTH_PBAP_SERVICE:Ljava/lang/String; = "bluetooth_pbs"
-
-.field public static final BLUETOOTH_SAP_SERVICE:Ljava/lang/String; = "bluetooth_sap"
-
-.field public static final BLUETOOTH_TEST_SERVICE:Ljava/lang/String; = "bluetooth_test"
 
 .field public static final CLIPBOARD_SERVICE:Ljava/lang/String; = "clipboard"
 
@@ -70,17 +48,11 @@
 
 .field public static final COUNTRY_DETECTOR:Ljava/lang/String; = "country_detector"
 
-.field public static final DEVICE_MANAGER_3LM_SERVICE:Ljava/lang/String; = "DeviceManager3LM"
-
 .field public static final DEVICE_POLICY_SERVICE:Ljava/lang/String; = "device_policy"
 
 .field public static final DOWNLOAD_SERVICE:Ljava/lang/String; = "download"
 
 .field public static final DROPBOX_SERVICE:Ljava/lang/String; = "dropbox"
-
-.field public static final FOURG_WIMAX_SERVICE:Ljava/lang/String; = "fourG_wimax"
-
-.field public static final HOTSPOT_SERVICE:Ljava/lang/String; = "hotspot"
 
 .field public static final INPUT_METHOD_SERVICE:Ljava/lang/String; = "input_method"
 
@@ -112,6 +84,8 @@
 
 .field public static final POWER_SERVICE:Ljava/lang/String; = "power"
 
+.field public static final PROFILE_SERVICE:Ljava/lang/String; = "profile"
+
 .field public static final SEARCH_SERVICE:Ljava/lang/String; = "search"
 
 .field public static final SENSOR_SERVICE:Ljava/lang/String; = "sensor"
@@ -130,8 +104,6 @@
 
 .field public static final UI_MODE_SERVICE:Ljava/lang/String; = "uimode"
 
-.field public static final USBNET_SERVICE:Ljava/lang/String; = "usbnet"
-
 .field public static final USB_SERVICE:Ljava/lang/String; = "usb"
 
 .field public static final VIBRATOR_SERVICE:Ljava/lang/String; = "vibrator"
@@ -142,8 +114,6 @@
 
 .field public static final WIFI_SERVICE:Ljava/lang/String; = "wifi"
 
-.field public static final WIMAX_SERVICE:Ljava/lang/String; = "wimax"
-
 .field public static final WINDOW_SERVICE:Ljava/lang/String; = "window"
 
 
@@ -152,8 +122,8 @@
     .registers 1
 
     .prologue
-    .line 52
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 51
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -304,7 +274,7 @@
     .parameter "resId"
 
     .prologue
-    .line 292
+    .line 282
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -322,7 +292,7 @@
     .parameter "formatArgs"
 
     .prologue
-    .line 305
+    .line 295
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -342,7 +312,7 @@
     .parameter "resId"
 
     .prologue
-    .line 282
+    .line 272
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -361,7 +331,7 @@
     .registers 2
 
     .prologue
-    .line 321
+    .line 311
     const/4 v0, 0x0
 
     return v0
@@ -389,7 +359,7 @@
     .registers 2
 
     .prologue
-    .line 2297
+    .line 2213
     const/4 v0, 0x0
 
     return v0
@@ -406,7 +376,7 @@
     .end annotation
 
     .prologue
-    .line 350
+    .line 340
     invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v0
@@ -426,7 +396,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 362
+    .line 352
     invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v0
@@ -446,7 +416,7 @@
     .parameter "defStyleRes"
 
     .prologue
-    .line 374
+    .line 364
     invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v0
@@ -463,7 +433,7 @@
     .parameter "attrs"
 
     .prologue
-    .line 338
+    .line 328
     invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v0
@@ -507,14 +477,14 @@
     .parameter "callback"
 
     .prologue
-    .line 264
+    .line 254
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/content/Context;->registerComponentCallbacks(Landroid/content/ComponentCallbacks;)V
 
-    .line 265
+    .line 255
     return-void
 .end method
 
@@ -604,14 +574,14 @@
     .parameter "callback"
 
     .prologue
-    .line 272
+    .line 262
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/content/Context;->unregisterComponentCallbacks(Landroid/content/ComponentCallbacks;)V
 
-    .line 273
+    .line 263
     return-void
 .end method
 

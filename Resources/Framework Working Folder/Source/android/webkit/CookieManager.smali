@@ -107,7 +107,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_83
+    if-nez v0, :cond_80
 
     move v0, v1
 
@@ -124,7 +124,7 @@
     sput v0, Landroid/webkit/CookieManager;->SECURE_LENGTH:I
 
     .line 77
-    const-string/jumbo v0, "httponly"
+    const-string v0, "httponly"
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
@@ -183,13 +183,13 @@
 
     const/16 v1, 0x8
 
-    const-string/jumbo v2, "info"
+    const-string v2, "info"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x9
 
-    const-string/jumbo v2, "lg"
+    const-string v2, "lg"
 
     aput-object v2, v0, v1
 
@@ -235,7 +235,7 @@
 
     return-void
 
-    :cond_83
+    :cond_80
     move v0, v2
 
     .line 39
@@ -249,7 +249,7 @@
     const/4 v3, 0x1
 
     .line 241
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 97
     new-instance v0, Ljava/util/LinkedHashMap;
@@ -322,19 +322,19 @@
     .registers 1
 
     .prologue
-    .line 743
+    .line 739
     invoke-static {}, Landroid/webkit/JniUtil;->useChromiumHttpStack()Z
 
     move-result v0
 
     if-eqz v0, :cond_b
 
-    .line 744
+    .line 740
     invoke-static {}, Landroid/webkit/CookieManager;->nativeAcceptFileSchemeCookies()Z
 
     move-result v0
 
-    .line 746
+    .line 742
     :goto_a
     return v0
 
@@ -351,46 +351,46 @@
     .prologue
     const/16 v3, 0x2e
 
-    .line 943
+    .line 939
     const/4 v2, 0x0
 
-    .line 944
+    .line 940
     .local v2, startIndex:I
     invoke-virtual {p1, v3}, Ljava/lang/String;->indexOf(I)I
 
     move-result v1
 
-    .line 945
+    .line 941
     .local v1, nextIndex:I
     invoke-virtual {p1, v3}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v0
 
-    .line 946
+    .line 942
     .local v0, lastIndex:I
     :goto_b
     if-ge v1, v0, :cond_14
 
-    .line 947
+    .line 943
     add-int/lit8 v2, v1, 0x1
 
-    .line 948
+    .line 944
     invoke-virtual {p1, v3, v2}, Ljava/lang/String;->indexOf(II)I
 
     move-result v1
 
     goto :goto_b
 
-    .line 950
+    .line 946
     :cond_14
     if-lez v2, :cond_1a
 
-    .line 951
+    .line 947
     invoke-virtual {p1, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object p1
 
-    .line 953
+    .line 949
     .end local p1
     :cond_1a
     return-object p1
@@ -411,25 +411,25 @@
 
     const/4 v5, 0x0
 
-    .line 885
+    .line 881
     invoke-virtual {p1}, Landroid/net/WebAddress;->getHost()Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_7b
+    if-eqz v3, :cond_7a
 
     invoke-virtual {p1}, Landroid/net/WebAddress;->getPath()Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_7b
+    if-eqz v3, :cond_7a
 
-    .line 895
+    .line 891
     const/4 v3, 0x2
 
     new-array v1, v3, [Ljava/lang/String;
 
-    .line 896
+    .line 892
     .local v1, ret:[Ljava/lang/String;
     invoke-virtual {p1}, Landroid/net/WebAddress;->getHost()Ljava/lang/String;
 
@@ -441,25 +441,25 @@
 
     aput-object v3, v1, v5
 
-    .line 897
+    .line 893
     invoke-virtual {p1}, Landroid/net/WebAddress;->getPath()Ljava/lang/String;
 
     move-result-object v3
 
     aput-object v3, v1, v6
 
-    .line 899
+    .line 895
     aget-object v3, v1, v5
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->indexOf(I)I
 
     move-result v0
 
-    .line 900
+    .line 896
     .local v0, index:I
-    if-ne v0, v7, :cond_4a
+    if-ne v0, v7, :cond_49
 
-    .line 901
+    .line 897
     invoke-virtual {p1}, Landroid/net/WebAddress;->getScheme()Ljava/lang/String;
 
     move-result-object v3
@@ -470,16 +470,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3e
+    if-eqz v3, :cond_3d
 
-    .line 905
-    const-string/jumbo v3, "localhost"
+    .line 901
+    const-string v3, "localhost"
 
     aput-object v3, v1, v5
 
-    .line 912
-    :cond_3e
-    :goto_3e
+    .line 908
+    :cond_3d
+    :goto_3d
     aget-object v3, v1, v6
 
     invoke-virtual {v3, v5}, Ljava/lang/String;->charAt(I)C
@@ -488,30 +488,30 @@
 
     const/16 v4, 0x2f
 
-    if-eq v3, v4, :cond_68
+    if-eq v3, v4, :cond_67
 
     move-object v1, v2
 
-    .line 933
+    .line 929
     .end local v0           #index:I
     .end local v1           #ret:[Ljava/lang/String;
-    :cond_49
-    :goto_49
+    :cond_48
+    :goto_48
     return-object v1
 
-    .line 907
+    .line 903
     .restart local v0       #index:I
     .restart local v1       #ret:[Ljava/lang/String;
-    :cond_4a
+    :cond_49
     aget-object v3, v1, v5
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v3
 
-    if-ne v0, v3, :cond_3e
+    if-ne v0, v3, :cond_3d
 
-    .line 909
+    .line 905
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -532,10 +532,10 @@
 
     aput-object v3, v1, v5
 
-    goto :goto_3e
+    goto :goto_3d
 
-    .line 926
-    :cond_68
+    .line 922
+    :cond_67
     aget-object v2, v1, v6
 
     const/16 v3, 0x3f
@@ -544,10 +544,10 @@
 
     move-result v0
 
-    .line 927
-    if-eq v0, v7, :cond_49
+    .line 923
+    if-eq v0, v7, :cond_48
 
-    .line 928
+    .line 924
     aget-object v2, v1, v6
 
     invoke-virtual {v2, v5, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -556,15 +556,15 @@
 
     aput-object v2, v1, v6
 
-    goto :goto_49
+    goto :goto_48
 
     .end local v0           #index:I
     .end local v1           #ret:[Ljava/lang/String;
-    :cond_7b
+    :cond_7a
     move-object v1, v2
 
-    .line 933
-    goto :goto_49
+    .line 929
+    goto :goto_48
 .end method
 
 .method public static declared-synchronized getInstance()Landroid/webkit/CookieManager;
@@ -660,38 +660,38 @@
     .end annotation
 
     .prologue
-    .line 973
+    .line 969
     new-instance v15, Ljava/util/ArrayList;
 
     invoke-direct {v15}, Ljava/util/ArrayList;-><init>()V
 
-    .line 975
+    .line 971
     .local v15, ret:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;"
     const/4 v10, 0x0
 
-    .line 976
+    .line 972
     .local v10, index:I
     invoke-virtual/range {p3 .. p3}, Ljava/lang/String;->length()I
 
     move-result v13
 
-    .line 978
+    .line 974
     .local v13, length:I
     :cond_a
     :goto_a
     const/4 v5, 0x0
 
-    .line 981
+    .line 977
     .local v5, cookie:Landroid/webkit/CookieManager$Cookie;
     if-ltz v10, :cond_f
 
     if-lt v10, v13, :cond_10
 
-    .line 1210
+    .line 1206
     :cond_f
     return-object v15
 
-    .line 986
+    .line 982
     :cond_10
     move-object/from16 v0, p3
 
@@ -707,13 +707,13 @@
 
     if-ne v0, v1, :cond_21
 
-    .line 987
+    .line 983
     add-int/lit8 v10, v10, 0x1
 
-    .line 988
+    .line 984
     goto :goto_a
 
-    .line 1000
+    .line 996
     :cond_21
     const/16 v20, 0x3b
 
@@ -725,7 +725,7 @@
 
     move-result v17
 
-    .line 1001
+    .line 997
     .local v17, semicolonIndex:I
     const/16 v20, 0x3d
 
@@ -737,7 +737,7 @@
 
     move-result v7
 
-    .line 1002
+    .line 998
     .local v7, equalIndex:I
     new-instance v5, Landroid/webkit/CookieManager$Cookie;
 
@@ -748,7 +748,7 @@
 
     invoke-direct {v5, v0, v1}, Landroid/webkit/CookieManager$Cookie;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1010
+    .line 1006
     .restart local v5       #cookie:Landroid/webkit/CookieManager$Cookie;
     const/16 v20, -0x1
 
@@ -769,7 +769,7 @@
 
     if-ne v7, v0, :cond_7e
 
-    .line 1013
+    .line 1009
     :cond_50
     const/16 v20, -0x1
 
@@ -779,10 +779,10 @@
 
     if-ne v0, v1, :cond_5a
 
-    .line 1014
+    .line 1010
     move/from16 v17, v13
 
-    .line 1016
+    .line 1012
     :cond_5a
     move-object/from16 v0, p3
 
@@ -796,25 +796,25 @@
 
     iput-object v0, v5, Landroid/webkit/CookieManager$Cookie;->name:Ljava/lang/String;
 
-    .line 1017
+    .line 1013
     const/16 v20, 0x0
 
     move-object/from16 v0, v20
 
     iput-object v0, v5, Landroid/webkit/CookieManager$Cookie;->value:Ljava/lang/String;
 
-    .line 1050
+    .line 1046
     :goto_6c
     move/from16 v10, v17
 
-    .line 1053
+    .line 1049
     :cond_6e
     :goto_6e
     if-ltz v10, :cond_72
 
     if-lt v10, v13, :cond_111
 
-    .line 1206
+    .line 1202
     :cond_72
     :goto_72
     if-eqz v5, :cond_a
@@ -825,12 +825,12 @@
 
     if-eqz v20, :cond_a
 
-    .line 1207
+    .line 1203
     invoke-virtual {v15, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_a
 
-    .line 1019
+    .line 1015
     :cond_7e
     move-object/from16 v0, p3
 
@@ -842,7 +842,7 @@
 
     iput-object v0, v5, Landroid/webkit/CookieManager$Cookie;->name:Ljava/lang/String;
 
-    .line 1022
+    .line 1018
     add-int/lit8 v20, v13, -0x1
 
     move/from16 v0, v20
@@ -867,7 +867,7 @@
 
     if-ne v0, v1, :cond_b4
 
-    .line 1024
+    .line 1020
     const/16 v20, 0x22
 
     add-int/lit8 v21, v7, 0x2
@@ -882,14 +882,14 @@
 
     move-result v10
 
-    .line 1025
+    .line 1021
     const/16 v20, -0x1
 
     move/from16 v0, v20
 
     if-eq v10, v0, :cond_f
 
-    .line 1032
+    .line 1028
     :cond_b4
     const/16 v20, 0x3b
 
@@ -901,7 +901,7 @@
 
     move-result v17
 
-    .line 1033
+    .line 1029
     const/16 v20, -0x1
 
     move/from16 v0, v17
@@ -910,10 +910,10 @@
 
     if-ne v0, v1, :cond_c8
 
-    .line 1034
+    .line 1030
     move/from16 v17, v13
 
-    .line 1036
+    .line 1032
     :cond_c8
     sub-int v20, v17, v7
 
@@ -925,7 +925,7 @@
 
     if-le v0, v1, :cond_eb
 
-    .line 1038
+    .line 1034
     add-int/lit8 v20, v7, 0x1
 
     add-int/lit8 v21, v7, 0x1
@@ -952,7 +952,7 @@
 
     goto :goto_6c
 
-    .line 1040
+    .line 1036
     :cond_eb
     add-int/lit8 v20, v7, 0x1
 
@@ -966,7 +966,7 @@
 
     if-ge v0, v7, :cond_ff
 
-    .line 1043
+    .line 1039
     :cond_f7
     const-string v20, ""
 
@@ -976,7 +976,7 @@
 
     goto/16 :goto_6c
 
-    .line 1045
+    .line 1041
     :cond_ff
     add-int/lit8 v20, v7, 0x1
 
@@ -996,7 +996,7 @@
 
     goto/16 :goto_6c
 
-    .line 1058
+    .line 1054
     :cond_111
     move-object/from16 v0, p3
 
@@ -1026,14 +1026,14 @@
 
     if-ne v0, v1, :cond_131
 
-    .line 1060
+    .line 1056
     :cond_12d
     add-int/lit8 v10, v10, 0x1
 
-    .line 1061
+    .line 1057
     goto/16 :goto_6e
 
-    .line 1065
+    .line 1061
     :cond_131
     move-object/from16 v0, p3
 
@@ -1049,13 +1049,13 @@
 
     if-ne v0, v1, :cond_143
 
-    .line 1066
+    .line 1062
     add-int/lit8 v10, v10, 0x1
 
-    .line 1067
+    .line 1063
     goto/16 :goto_72
 
-    .line 1072
+    .line 1068
     :cond_143
     sub-int v20, v13, v10
 
@@ -1087,22 +1087,22 @@
 
     if-eqz v20, :cond_180
 
-    .line 1075
+    .line 1071
     sget v20, Landroid/webkit/CookieManager;->SECURE_LENGTH:I
 
     add-int v10, v10, v20
 
-    .line 1076
+    .line 1072
     const/16 v20, 0x1
 
     move/from16 v0, v20
 
     iput-boolean v0, v5, Landroid/webkit/CookieManager$Cookie;->secure:Z
 
-    .line 1077
+    .line 1073
     if-eq v10, v13, :cond_72
 
-    .line 1078
+    .line 1074
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->charAt(I)C
@@ -1121,7 +1121,7 @@
 
     goto/16 :goto_6e
 
-    .line 1084
+    .line 1080
     :cond_180
     sub-int v20, v13, v10
 
@@ -1131,7 +1131,7 @@
 
     move/from16 v1, v21
 
-    if-lt v0, v1, :cond_1b7
+    if-lt v0, v1, :cond_1b6
 
     sget v20, Landroid/webkit/CookieManager;->HTTP_ONLY_LENGTH:I
 
@@ -1145,23 +1145,23 @@
 
     move-result-object v20
 
-    const-string/jumbo v21, "httponly"
+    const-string v21, "httponly"
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v20
 
-    if-eqz v20, :cond_1b7
+    if-eqz v20, :cond_1b6
 
-    .line 1088
+    .line 1084
     sget v20, Landroid/webkit/CookieManager;->HTTP_ONLY_LENGTH:I
 
     add-int v10, v10, v20
 
-    .line 1089
+    .line 1085
     if-eq v10, v13, :cond_72
 
-    .line 1090
+    .line 1086
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->charAt(I)C
@@ -1180,8 +1180,8 @@
 
     goto/16 :goto_6e
 
-    .line 1094
-    :cond_1b7
+    .line 1090
+    :cond_1b6
     const/16 v20, 0x3d
 
     move-object/from16 v0, p3
@@ -1192,10 +1192,10 @@
 
     move-result v7
 
-    .line 1095
-    if-lez v7, :cond_3fe
+    .line 1091
+    if-lez v7, :cond_3fb
 
-    .line 1096
+    .line 1092
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v10, v7}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -1206,16 +1206,16 @@
 
     move-result-object v14
 
-    .line 1097
+    .line 1093
     .local v14, name:Ljava/lang/String;
     add-int/lit8 v19, v7, 0x1
 
-    .line 1098
+    .line 1094
     .local v19, valueIndex:I
-    :goto_1cf
+    :goto_1ce
     move/from16 v0, v19
 
-    if-ge v0, v13, :cond_1e6
+    if-ge v0, v13, :cond_1e5
 
     move-object/from16 v0, p3
 
@@ -1231,15 +1231,15 @@
 
     move/from16 v1, v21
 
-    if-ne v0, v1, :cond_1e6
+    if-ne v0, v1, :cond_1e5
 
-    .line 1099
+    .line 1095
     add-int/lit8 v19, v19, 0x1
 
-    goto :goto_1cf
+    goto :goto_1ce
 
-    .line 1102
-    :cond_1e6
+    .line 1098
+    :cond_1e5
     const-string v20, "expires"
 
     move-object/from16 v0, v20
@@ -1248,9 +1248,9 @@
 
     move-result v20
 
-    if-eqz v20, :cond_20c
+    if-eqz v20, :cond_20b
 
-    .line 1103
+    .line 1099
     const/16 v20, 0x2c
 
     move-object/from16 v0, p3
@@ -1261,13 +1261,13 @@
 
     move-result v3
 
-    .line 1108
+    .line 1104
     .local v3, comaIndex:I
     const/16 v20, -0x1
 
     move/from16 v0, v20
 
-    if-eq v3, v0, :cond_20c
+    if-eq v3, v0, :cond_20b
 
     sub-int v20, v3, v19
 
@@ -1277,14 +1277,14 @@
 
     move/from16 v1, v21
 
-    if-gt v0, v1, :cond_20c
+    if-gt v0, v1, :cond_20b
 
-    .line 1110
+    .line 1106
     add-int/lit8 v10, v3, 0x1
 
-    .line 1113
+    .line 1109
     .end local v3           #comaIndex:I
-    :cond_20c
+    :cond_20b
     const/16 v20, 0x3b
 
     move-object/from16 v0, p3
@@ -1295,7 +1295,7 @@
 
     move-result v17
 
-    .line 1114
+    .line 1110
     const/16 v20, 0x2c
 
     move-object/from16 v0, p3
@@ -1306,7 +1306,7 @@
 
     move-result v4
 
-    .line 1115
+    .line 1111
     .local v4, commaIndex:I
     const/16 v20, -0x1
 
@@ -1314,19 +1314,19 @@
 
     move/from16 v1, v20
 
-    if-ne v0, v1, :cond_2a4
+    if-ne v0, v1, :cond_2a2
 
     const/16 v20, -0x1
 
     move/from16 v0, v20
 
-    if-ne v4, v0, :cond_2a4
+    if-ne v4, v0, :cond_2a2
 
-    .line 1116
+    .line 1112
     move v10, v13
 
-    .line 1124
-    :goto_22f
+    .line 1120
+    :goto_22e
     move-object/from16 v0, p3
 
     move/from16 v1, v19
@@ -1335,7 +1335,7 @@
 
     move-result-object v18
 
-    .line 1127
+    .line 1123
     .local v18, value:Ljava/lang/String;
     invoke-virtual/range {v18 .. v18}, Ljava/lang/String;->length()I
 
@@ -1347,7 +1347,7 @@
 
     move/from16 v1, v21
 
-    if-le v0, v1, :cond_26f
+    if-le v0, v1, :cond_26e
 
     const/16 v20, 0x0
 
@@ -1365,9 +1365,9 @@
 
     move/from16 v1, v21
 
-    if-ne v0, v1, :cond_26f
+    if-ne v0, v1, :cond_26e
 
-    .line 1128
+    .line 1124
     const/16 v20, 0x22
 
     const/16 v21, 0x1
@@ -1382,11 +1382,11 @@
 
     move-result v6
 
-    .line 1129
+    .line 1125
     .local v6, endQuote:I
-    if-lez v6, :cond_26f
+    if-lez v6, :cond_26e
 
-    .line 1130
+    .line 1126
     const/16 v20, 0x1
 
     move-object/from16 v0, v18
@@ -1397,9 +1397,9 @@
 
     move-result-object v18
 
-    .line 1133
+    .line 1129
     .end local v6           #endQuote:I
-    :cond_26f
+    :cond_26e
     const-string v20, "expires"
 
     move-object/from16 v0, v20
@@ -1408,10 +1408,10 @@
 
     move-result v20
 
-    if-eqz v20, :cond_2c0
+    if-eqz v20, :cond_2be
 
-    .line 1135
-    :try_start_279
+    .line 1131
+    :try_start_278
     invoke-static/range {v18 .. v18}, Landroid/net/http/AndroidHttpClient;->parseDate(Ljava/lang/String;)J
 
     move-result-wide v20
@@ -1419,16 +1419,16 @@
     move-wide/from16 v0, v20
 
     iput-wide v0, v5, Landroid/webkit/CookieManager$Cookie;->expires:J
-    :try_end_281
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_279 .. :try_end_281} :catch_283
+    :try_end_280
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_278 .. :try_end_280} :catch_282
 
     goto/16 :goto_6e
 
-    .line 1136
-    :catch_283
+    .line 1132
+    :catch_282
     move-exception v8
 
-    .line 1137
+    .line 1133
     .local v8, ex:Ljava/lang/IllegalArgumentException;
     const-string/jumbo v20, "webkit"
 
@@ -1436,7 +1436,7 @@
 
     invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "illegal format for expires: "
+    const-string v22, "illegal format for expires: "
 
     invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1458,49 +1458,49 @@
 
     goto/16 :goto_6e
 
-    .line 1117
+    .line 1113
     .end local v8           #ex:Ljava/lang/IllegalArgumentException;
     .end local v18           #value:Ljava/lang/String;
-    :cond_2a4
+    :cond_2a2
     const/16 v20, -0x1
 
     move/from16 v0, v17
 
     move/from16 v1, v20
 
-    if-ne v0, v1, :cond_2ae
+    if-ne v0, v1, :cond_2ac
 
-    .line 1118
+    .line 1114
     move v10, v4
 
-    goto :goto_22f
+    goto :goto_22e
 
-    .line 1119
-    :cond_2ae
+    .line 1115
+    :cond_2ac
     const/16 v20, -0x1
 
     move/from16 v0, v20
 
-    if-ne v4, v0, :cond_2b8
+    if-ne v4, v0, :cond_2b6
 
-    .line 1120
+    .line 1116
     move/from16 v10, v17
 
-    goto/16 :goto_22f
+    goto/16 :goto_22e
 
-    .line 1122
-    :cond_2b8
+    .line 1118
+    :cond_2b6
     move/from16 v0, v17
 
     invoke-static {v0, v4}, Ljava/lang/Math;->min(II)I
 
     move-result v10
 
-    goto/16 :goto_22f
+    goto/16 :goto_22e
 
-    .line 1140
+    .line 1136
     .restart local v18       #value:Ljava/lang/String;
-    :cond_2c0
+    :cond_2be
     const-string/jumbo v20, "max-age"
 
     move-object/from16 v0, v20
@@ -1509,10 +1509,10 @@
 
     move-result v20
 
-    if-eqz v20, :cond_300
+    if-eqz v20, :cond_2fd
 
-    .line 1142
-    :try_start_2cb
+    .line 1138
+    :try_start_2c9
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v20
@@ -1530,16 +1530,16 @@
     move-wide/from16 v0, v20
 
     iput-wide v0, v5, Landroid/webkit/CookieManager$Cookie;->expires:J
-    :try_end_2dd
-    .catch Ljava/lang/NumberFormatException; {:try_start_2cb .. :try_end_2dd} :catch_2df
+    :try_end_2db
+    .catch Ljava/lang/NumberFormatException; {:try_start_2c9 .. :try_end_2db} :catch_2dd
 
     goto/16 :goto_6e
 
-    .line 1144
-    :catch_2df
+    .line 1140
+    :catch_2dd
     move-exception v8
 
-    .line 1145
+    .line 1141
     .local v8, ex:Ljava/lang/NumberFormatException;
     const-string/jumbo v20, "webkit"
 
@@ -1547,7 +1547,7 @@
 
     invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v22, "illegal format for max-age: "
+    const-string v22, "illegal format for max-age: "
 
     invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1569,9 +1569,9 @@
 
     goto/16 :goto_6e
 
-    .line 1148
+    .line 1144
     .end local v8           #ex:Ljava/lang/NumberFormatException;
-    :cond_300
+    :cond_2fd
     const-string/jumbo v20, "path"
 
     move-object/from16 v0, v20
@@ -1580,24 +1580,24 @@
 
     move-result v20
 
-    if-eqz v20, :cond_317
+    if-eqz v20, :cond_314
 
-    .line 1150
+    .line 1146
     invoke-virtual/range {v18 .. v18}, Ljava/lang/String;->length()I
 
     move-result v20
 
     if-lez v20, :cond_6e
 
-    .line 1151
+    .line 1147
     move-object/from16 v0, v18
 
     iput-object v0, v5, Landroid/webkit/CookieManager$Cookie;->path:Ljava/lang/String;
 
     goto/16 :goto_6e
 
-    .line 1153
-    :cond_317
+    .line 1149
+    :cond_314
     const-string v20, "domain"
 
     move-object/from16 v0, v20
@@ -1608,7 +1608,7 @@
 
     if-eqz v20, :cond_6e
 
-    .line 1154
+    .line 1150
     const/16 v20, 0x2e
 
     move-object/from16 v0, v18
@@ -1619,11 +1619,11 @@
 
     move-result v11
 
-    .line 1155
+    .line 1151
     .local v11, lastPeriod:I
-    if-nez v11, :cond_335
+    if-nez v11, :cond_332
 
-    .line 1157
+    .line 1153
     const/16 v20, 0x0
 
     move-object/from16 v0, v20
@@ -1632,11 +1632,11 @@
 
     goto/16 :goto_6e
 
-    .line 1161
-    :cond_335
+    .line 1157
+    :cond_332
     add-int/lit8 v20, v11, 0x1
 
-    :try_start_337
+    :try_start_334
     move-object/from16 v0, v18
 
     move/from16 v1, v20
@@ -1647,7 +1647,7 @@
 
     invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    .line 1163
+    .line 1159
     move-object/from16 v0, v18
 
     move-object/from16 v1, p1
@@ -1658,27 +1658,27 @@
 
     if-nez v20, :cond_6e
 
-    .line 1165
+    .line 1161
     const/16 v20, 0x0
 
     move-object/from16 v0, v20
 
     iput-object v0, v5, Landroid/webkit/CookieManager$Cookie;->domain:Ljava/lang/String;
-    :try_end_352
-    .catch Ljava/lang/NumberFormatException; {:try_start_337 .. :try_end_352} :catch_354
+    :try_end_34f
+    .catch Ljava/lang/NumberFormatException; {:try_start_334 .. :try_end_34f} :catch_351
 
     goto/16 :goto_6e
 
-    .line 1168
-    :catch_354
+    .line 1164
+    :catch_351
     move-exception v20
 
-    .line 1171
+    .line 1167
     invoke-virtual/range {v18 .. v18}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v18
 
-    .line 1172
+    .line 1168
     const/16 v20, 0x0
 
     move-object/from16 v0, v18
@@ -1695,9 +1695,9 @@
 
     move/from16 v1, v21
 
-    if-eq v0, v1, :cond_384
+    if-eq v0, v1, :cond_381
 
-    .line 1174
+    .line 1170
     new-instance v20, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
@@ -1720,11 +1720,11 @@
 
     move-result-object v18
 
-    .line 1175
+    .line 1171
     add-int/lit8 v11, v11, 0x1
 
-    .line 1177
-    :cond_384
+    .line 1173
+    :cond_381
     const/16 v20, 0x1
 
     move-object/from16 v0, v18
@@ -1743,26 +1743,26 @@
 
     move-result v20
 
-    if-eqz v20, :cond_3f6
+    if-eqz v20, :cond_3f3
 
-    .line 1178
+    .line 1174
     invoke-virtual/range {v18 .. v18}, Ljava/lang/String;->length()I
 
     move-result v12
 
-    .line 1179
+    .line 1175
     .local v12, len:I
     invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->length()I
 
     move-result v9
 
-    .line 1180
+    .line 1176
     .local v9, hostLen:I
     add-int/lit8 v20, v12, -0x1
 
     move/from16 v0, v20
 
-    if-le v9, v0, :cond_3c0
+    if-le v9, v0, :cond_3bd
 
     sub-int v20, v9, v12
 
@@ -1780,9 +1780,9 @@
 
     move/from16 v1, v21
 
-    if-eq v0, v1, :cond_3c0
+    if-eq v0, v1, :cond_3bd
 
-    .line 1183
+    .line 1179
     const/16 v20, 0x0
 
     move-object/from16 v0, v20
@@ -1791,27 +1791,27 @@
 
     goto/16 :goto_6e
 
-    .line 1187
-    :cond_3c0
+    .line 1183
+    :cond_3bd
     add-int/lit8 v20, v11, 0x3
 
     move/from16 v0, v20
 
-    if-ne v12, v0, :cond_3f0
+    if-ne v12, v0, :cond_3ed
 
     const/16 v20, 0x6
 
     move/from16 v0, v20
 
-    if-lt v12, v0, :cond_3f0
+    if-lt v12, v0, :cond_3ed
 
     const/16 v20, 0x8
 
     move/from16 v0, v20
 
-    if-gt v12, v0, :cond_3f0
+    if-gt v12, v0, :cond_3ed
 
-    .line 1189
+    .line 1185
     const/16 v20, 0x1
 
     move-object/from16 v0, v18
@@ -1822,7 +1822,7 @@
 
     move-result-object v16
 
-    .line 1190
+    .line 1186
     .local v16, s:Ljava/lang/String;
     sget-object v20, Landroid/webkit/CookieManager;->BAD_COUNTRY_2LDS:[Ljava/lang/String;
 
@@ -1834,9 +1834,9 @@
 
     move-result v20
 
-    if-ltz v20, :cond_3f0
+    if-ltz v20, :cond_3ed
 
-    .line 1191
+    .line 1187
     const/16 v20, 0x0
 
     move-object/from16 v0, v20
@@ -1845,19 +1845,19 @@
 
     goto/16 :goto_6e
 
-    .line 1195
+    .line 1191
     .end local v16           #s:Ljava/lang/String;
-    :cond_3f0
+    :cond_3ed
     move-object/from16 v0, v18
 
     iput-object v0, v5, Landroid/webkit/CookieManager$Cookie;->domain:Ljava/lang/String;
 
     goto/16 :goto_6e
 
-    .line 1198
+    .line 1194
     .end local v9           #hostLen:I
     .end local v12           #len:I
-    :cond_3f6
+    :cond_3f3
     const/16 v20, 0x0
 
     move-object/from16 v0, v20
@@ -1866,13 +1866,13 @@
 
     goto/16 :goto_6e
 
-    .line 1203
+    .line 1199
     .end local v4           #commaIndex:I
     .end local v11           #lastPeriod:I
     .end local v14           #name:Ljava/lang/String;
     .end local v18           #value:Ljava/lang/String;
     .end local v19           #valueIndex:I
-    :cond_3fe
+    :cond_3fb
     move v10, v13
 
     goto/16 :goto_6e
@@ -1883,17 +1883,17 @@
     .parameter "accept"
 
     .prologue
-    .line 760
+    .line 756
     invoke-static {}, Landroid/webkit/JniUtil;->useChromiumHttpStack()Z
 
     move-result v0
 
     if-eqz v0, :cond_9
 
-    .line 761
+    .line 757
     invoke-static {p0}, Landroid/webkit/CookieManager;->nativeSetAcceptFileSchemeCookies(Z)V
 
-    .line 763
+    .line 759
     :cond_9
     return-void
 .end method
@@ -2052,7 +2052,7 @@
     .parameter "cookie"
 
     .prologue
-    .line 796
+    .line 792
     monitor-enter p0
 
     :try_start_1
@@ -2062,14 +2062,14 @@
 
     if-ne v2, v3, :cond_24
 
-    .line 797
+    .line 793
     iget-object v2, p1, Landroid/webkit/CookieManager$Cookie;->domain:Ljava/lang/String;
 
     invoke-direct {p0, v2}, Landroid/webkit/CookieManager;->getBaseDomain(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 798
+    .line 794
     .local v0, baseDomain:Ljava/lang/String;
     iget-object v2, p0, Landroid/webkit/CookieManager;->mCookieMap:Ljava/util/Map;
 
@@ -2079,28 +2079,28 @@
 
     check-cast v1, Ljava/util/ArrayList;
 
-    .line 799
+    .line 795
     .local v1, cookieList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;"
     if-eqz v1, :cond_24
 
-    .line 800
+    .line 796
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 801
+    .line 797
     invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v2
 
     if-eqz v2, :cond_24
 
-    .line 802
+    .line 798
     iget-object v2, p0, Landroid/webkit/CookieManager;->mCookieMap:Ljava/util/Map;
 
     invoke-interface {v2, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_24
     .catchall {:try_start_1 .. :try_end_24} :catchall_26
 
-    .line 806
+    .line 802
     .end local v0           #baseDomain:Ljava/lang/String;
     .end local v1           #cookieList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;"
     :cond_24
@@ -2108,7 +2108,7 @@
 
     return-void
 
-    .line 796
+    .line 792
     :catchall_26
     move-exception v2
 
@@ -2134,16 +2134,16 @@
 
     const/16 v12, 0xf
 
-    .line 826
+    .line 822
     monitor-enter p0
 
     const/4 v2, 0x0
 
-    .line 827
+    .line 823
     .local v2, count:I
     const/4 v0, 0x0
 
-    .line 828
+    .line 824
     .local v0, byteCount:I
     :try_start_7
     iget-object v11, p0, Landroid/webkit/CookieManager;->mCookieMap:Ljava/util/Map;
@@ -2152,24 +2152,24 @@
 
     move-result v7
 
-    .line 830
+    .line 826
     .local v7, mapSize:I
     if-ge v7, v12, :cond_2d
 
-    .line 831
+    .line 827
     iget-object v11, p0, Landroid/webkit/CookieManager;->mCookieMap:Ljava/util/Map;
 
     invoke-interface {v11}, Ljava/util/Map;->values()Ljava/util/Collection;
 
     move-result-object v1
 
-    .line 832
+    .line 828
     .local v1, cookieLists:Ljava/util/Collection;,"Ljava/util/Collection<Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;>;"
     invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
 
-    .line 833
+    .line 829
     .local v6, listIter:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;>;"
     :goto_19
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
@@ -2180,14 +2180,14 @@
 
     if-ge v2, v13, :cond_2d
 
-    .line 834
+    .line 830
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v5
 
     check-cast v5, Ljava/util/ArrayList;
 
-    .line 851
+    .line 847
     .local v5, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;"
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
@@ -2195,10 +2195,10 @@
 
     add-int/2addr v2, v11
 
-    .line 853
+    .line 849
     goto :goto_19
 
-    .line 856
+    .line 852
     .end local v1           #cookieLists:Ljava/util/Collection;,"Ljava/util/Collection<Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;>;"
     .end local v5           #list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;"
     .end local v6           #listIter:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;>;"
@@ -2207,13 +2207,13 @@
 
     invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
 
-    .line 857
+    .line 853
     .local v8, retlist:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;"
     if-ge v7, v12, :cond_36
 
     if-lt v2, v13, :cond_61
 
-    .line 862
+    .line 858
     :cond_36
     iget-object v11, p0, Landroid/webkit/CookieManager;->mCookieMap:Ljava/util/Map;
 
@@ -2225,7 +2225,7 @@
 
     move-result-object v4
 
-    .line 863
+    .line 859
     .local v4, domains:[Ljava/lang/Object;
     div-int/lit8 v11, v7, 0xa
 
@@ -2234,7 +2234,7 @@
     .local v9, toGo:I
     move v10, v9
 
-    .line 864
+    .line 860
     .end local v9           #toGo:I
     .local v10, toGo:I
     :goto_45
@@ -2244,14 +2244,14 @@
     .restart local v9       #toGo:I
     if-lez v10, :cond_61
 
-    .line 865
+    .line 861
     aget-object v11, v4, v9
 
     invoke-virtual {v11}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 870
+    .line 866
     .local v3, domain:Ljava/lang/String;
     iget-object v11, p0, Landroid/webkit/CookieManager;->mCookieMap:Ljava/util/Map;
 
@@ -2263,7 +2263,7 @@
 
     invoke-virtual {v8, v11}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 871
+    .line 867
     iget-object v11, p0, Landroid/webkit/CookieManager;->mCookieMap:Ljava/util/Map;
 
     invoke-interface {v11, v3}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2272,12 +2272,12 @@
 
     move v10, v9
 
-    .line 872
+    .line 868
     .end local v9           #toGo:I
     .restart local v10       #toGo:I
     goto :goto_45
 
-    .line 874
+    .line 870
     .end local v3           #domain:Ljava/lang/String;
     .end local v4           #domains:[Ljava/lang/Object;
     .end local v10           #toGo:I
@@ -2286,7 +2286,7 @@
 
     return-object v8
 
-    .line 826
+    .line 822
     .end local v7           #mapSize:I
     .end local v8           #retlist:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;"
     :catchall_63
@@ -2301,17 +2301,17 @@
     .registers 2
 
     .prologue
-    .line 734
+    .line 730
     invoke-static {}, Landroid/webkit/JniUtil;->useChromiumHttpStack()Z
 
     move-result v0
 
     if-eqz v0, :cond_9
 
-    .line 735
+    .line 731
     invoke-static {}, Landroid/webkit/CookieManager;->nativeFlushCookieStore()V
 
-    .line 737
+    .line 733
     :cond_9
     return-void
 .end method
@@ -2340,7 +2340,7 @@
 
     invoke-static {v11, v12}, Landroid/webkit/CookieManager;->nativeGetCookie(Ljava/lang/String;Z)Ljava/lang/String;
     :try_end_f
-    .catchall {:try_start_1 .. :try_end_f} :catchall_97
+    .catchall {:try_start_1 .. :try_end_f} :catchall_96
 
     move-result-object v11
 
@@ -2426,7 +2426,7 @@
 
     .line 530
     .local v6, now:J
-    const-string/jumbo v11, "https"
+    const-string v11, "https"
 
     invoke-virtual/range {p1 .. p1}, Landroid/net/WebAddress;->getScheme()Ljava/lang/String;
 
@@ -2452,13 +2452,13 @@
 
     .line 534
     .local v3, cookieSet:Ljava/util/SortedSet;,"Ljava/util/SortedSet<Landroid/webkit/CookieManager$Cookie;>;"
-    :cond_5a
-    :goto_5a
+    :cond_59
+    :goto_59
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_9a
+    if-eqz v11, :cond_99
 
     .line 535
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -2477,7 +2477,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_5a
+    if-eqz v11, :cond_59
 
     const/4 v11, 0x1
 
@@ -2487,7 +2487,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_5a
+    if-eqz v11, :cond_59
 
     iget-wide v11, v1, Landroid/webkit/CookieManager$Cookie;->expires:J
 
@@ -2495,37 +2495,37 @@
 
     cmp-long v11, v11, v13
 
-    if-ltz v11, :cond_86
+    if-ltz v11, :cond_85
 
     iget-wide v11, v1, Landroid/webkit/CookieManager$Cookie;->expires:J
 
     cmp-long v11, v11, v6
 
-    if-lez v11, :cond_5a
+    if-lez v11, :cond_59
 
-    :cond_86
+    :cond_85
     iget-boolean v11, v1, Landroid/webkit/CookieManager$Cookie;->secure:Z
 
-    if-eqz v11, :cond_8c
+    if-eqz v11, :cond_8b
 
-    if-eqz v9, :cond_5a
+    if-eqz v9, :cond_59
 
-    :cond_8c
+    :cond_8b
     iget-byte v11, v1, Landroid/webkit/CookieManager$Cookie;->mode:B
 
     const/4 v12, 0x2
 
-    if-eq v11, v12, :cond_5a
+    if-eq v11, v12, :cond_59
 
     .line 543
     iput-wide v6, v1, Landroid/webkit/CookieManager$Cookie;->lastAcessTime:J
 
     .line 544
     invoke-interface {v3, v1}, Ljava/util/SortedSet;->add(Ljava/lang/Object;)Z
-    :try_end_96
-    .catchall {:try_start_12 .. :try_end_96} :catchall_97
+    :try_end_95
+    .catchall {:try_start_12 .. :try_end_95} :catchall_96
 
-    goto :goto_5a
+    goto :goto_59
 
     .line 508
     .end local v0           #baseDomain:Ljava/lang/String;
@@ -2536,7 +2536,7 @@
     .end local v5           #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/webkit/CookieManager$Cookie;>;"
     .end local v6           #now:J
     .end local v9           #secure:Z
-    :catchall_97
+    :catchall_96
     move-exception v11
 
     monitor-exit p0
@@ -2551,8 +2551,8 @@
     .restart local v5       #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/webkit/CookieManager$Cookie;>;"
     .restart local v6       #now:J
     .restart local v9       #secure:Z
-    :cond_9a
-    :try_start_9a
+    :cond_99
+    :try_start_99
     new-instance v8, Ljava/lang/StringBuilder;
 
     const/16 v11, 0x100
@@ -2567,13 +2567,13 @@
 
     .line 550
     .local v10, setIter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/webkit/CookieManager$Cookie;>;"
-    :cond_a5
-    :goto_a5
+    :cond_a4
+    :goto_a4
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_d5
+    if-eqz v11, :cond_d4
 
     .line 551
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -2588,7 +2588,7 @@
 
     move-result v11
 
-    if-lez v11, :cond_c1
+    if-lez v11, :cond_c0
 
     .line 553
     const/16 v11, 0x3b
@@ -2601,7 +2601,7 @@
     invoke-virtual {v8, v11}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 559
-    :cond_c1
+    :cond_c0
     iget-object v11, v1, Landroid/webkit/CookieManager$Cookie;->name:Ljava/lang/String;
 
     invoke-virtual {v8, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2609,7 +2609,7 @@
     .line 560
     iget-object v11, v1, Landroid/webkit/CookieManager$Cookie;->value:Ljava/lang/String;
 
-    if-eqz v11, :cond_a5
+    if-eqz v11, :cond_a4
 
     .line 561
     const/16 v11, 0x3d
@@ -2621,28 +2621,28 @@
 
     invoke-virtual {v8, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_a5
+    goto :goto_a4
 
     .line 566
     .end local v1           #cookie:Landroid/webkit/CookieManager$Cookie;
-    :cond_d5
+    :cond_d4
     invoke-virtual {v8}, Ljava/lang/StringBuilder;->length()I
 
     move-result v11
 
-    if-lez v11, :cond_e1
+    if-lez v11, :cond_e0
 
     .line 570
     invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    :try_end_de
-    .catchall {:try_start_9a .. :try_end_de} :catchall_97
+    :try_end_dd
+    .catchall {:try_start_99 .. :try_end_dd} :catchall_96
 
     move-result-object v11
 
     goto/16 :goto_10
 
     .line 576
-    :cond_e1
+    :cond_e0
     const/4 v11, 0x0
 
     goto/16 :goto_10
@@ -2815,7 +2815,7 @@
     .end annotation
 
     .prologue
-    .line 773
+    .line 769
     monitor-enter p0
 
     :try_start_1
@@ -2823,7 +2823,7 @@
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 774
+    .line 770
     .local v2, cookies:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;"
     iget-object v6, p0, Landroid/webkit/CookieManager;->mCookieMap:Ljava/util/Map;
 
@@ -2831,13 +2831,13 @@
 
     move-result-object v1
 
-    .line 775
+    .line 771
     .local v1, cookieList:Ljava/util/Collection;,"Ljava/util/Collection<Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;>;"
     invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
 
-    .line 776
+    .line 772
     .local v5, listIter:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;>;"
     :cond_10
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
@@ -2846,20 +2846,20 @@
 
     if-eqz v6, :cond_39
 
-    .line 777
+    .line 773
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Ljava/util/ArrayList;
 
-    .line 778
+    .line 774
     .local v4, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;"
     invoke-virtual {v4}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    .line 779
+    .line 775
     .local v3, iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/webkit/CookieManager$Cookie;>;"
     :cond_20
     :goto_20
@@ -2869,14 +2869,14 @@
 
     if-eqz v6, :cond_10
 
-    .line 780
+    .line 776
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/webkit/CookieManager$Cookie;
 
-    .line 781
+    .line 777
     .local v0, cookie:Landroid/webkit/CookieManager$Cookie;
     iget-wide v6, v0, Landroid/webkit/CookieManager$Cookie;->lastUpdateTime:J
 
@@ -2884,14 +2884,14 @@
 
     if-lez v6, :cond_20
 
-    .line 782
+    .line 778
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_35
     .catchall {:try_start_1 .. :try_end_35} :catchall_36
 
     goto :goto_20
 
-    .line 773
+    .line 769
     .end local v0           #cookie:Landroid/webkit/CookieManager$Cookie;
     .end local v1           #cookieList:Ljava/util/Collection;,"Ljava/util/Collection<Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;>;"
     .end local v2           #cookies:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;"
@@ -2905,7 +2905,7 @@
 
     throw v6
 
-    .line 786
+    .line 782
     .restart local v1       #cookieList:Ljava/util/Collection;,"Ljava/util/Collection<Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;>;"
     .restart local v2       #cookies:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;"
     .restart local v5       #listIter:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;>;"
@@ -2919,7 +2919,7 @@
     .registers 2
 
     .prologue
-    .line 674
+    .line 670
     monitor-enter p0
 
     :try_start_1
@@ -2929,7 +2929,7 @@
 
     if-eqz v0, :cond_e
 
-    .line 675
+    .line 671
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroid/webkit/CookieManager;->hasCookies(Z)Z
@@ -2938,7 +2938,7 @@
 
     move-result v0
 
-    .line 678
+    .line 674
     :goto_c
     monitor-exit p0
 
@@ -2958,7 +2958,7 @@
 
     goto :goto_c
 
-    .line 674
+    .line 670
     :catchall_17
     move-exception v0
 
@@ -2972,7 +2972,7 @@
     .parameter "privateBrowsing"
 
     .prologue
-    .line 687
+    .line 683
     monitor-enter p0
 
     :try_start_1
@@ -2982,14 +2982,14 @@
 
     if-nez v0, :cond_d
 
-    .line 688
+    .line 684
     invoke-virtual {p0}, Landroid/webkit/CookieManager;->hasCookies()Z
     :try_end_a
     .catchall {:try_start_1 .. :try_end_a} :catchall_12
 
     move-result v0
 
-    .line 691
+    .line 687
     :goto_b
     monitor-exit p0
 
@@ -3005,7 +3005,7 @@
 
     goto :goto_b
 
-    .line 687
+    .line 683
     :catchall_12
     move-exception v0
 
@@ -3015,54 +3015,36 @@
 .end method
 
 .method public removeAllCookie()V
-    .registers 5
+    .registers 3
 
     .prologue
     .line 649
     invoke-static {}, Landroid/webkit/JniUtil;->useChromiumHttpStack()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_14
+    if-eqz v1, :cond_a
 
-    .line 651
-    :try_start_6
+    .line 650
     invoke-static {}, Landroid/webkit/CookieManager;->nativeRemoveAllCookie()V
-    :try_end_9
-    .catch Ljava/lang/IllegalStateException; {:try_start_6 .. :try_end_9} :catch_a
 
-    .line 668
+    .line 664
     :goto_9
     return-void
 
-    .line 652
-    :catch_a
-    move-exception v1
-
-    .line 653
-    .local v1, ex:Ljava/lang/IllegalStateException;
-    const-string/jumbo v2, "webkit"
-
-    const-string v3, "ERROR: "
-
-    invoke-static {v2, v3, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_9
-
-    .line 658
-    .end local v1           #ex:Ljava/lang/IllegalStateException;
-    :cond_14
+    .line 654
+    :cond_a
     new-instance v0, Landroid/webkit/CookieManager$3;
 
     invoke-direct {v0, p0}, Landroid/webkit/CookieManager$3;-><init>(Landroid/webkit/CookieManager;)V
 
-    .line 667
+    .line 663
     .local v0, clearCache:Ljava/lang/Runnable;
-    new-instance v2, Ljava/lang/Thread;
+    new-instance v1, Ljava/lang/Thread;
 
-    invoke-direct {v2, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+    invoke-direct {v1, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    invoke-virtual {v2}, Ljava/lang/Thread;->start()V
+    invoke-virtual {v1}, Ljava/lang/Thread;->start()V
 
     goto :goto_9
 .end method
@@ -3071,27 +3053,27 @@
     .registers 3
 
     .prologue
-    .line 698
+    .line 694
     invoke-static {}, Landroid/webkit/JniUtil;->useChromiumHttpStack()Z
 
     move-result v1
 
     if-eqz v1, :cond_a
 
-    .line 699
+    .line 695
     invoke-static {}, Landroid/webkit/CookieManager;->nativeRemoveExpiredCookie()V
 
-    .line 726
+    .line 722
     :goto_9
     return-void
 
-    .line 703
+    .line 699
     :cond_a
     new-instance v0, Landroid/webkit/CookieManager$4;
 
     invoke-direct {v0, p0}, Landroid/webkit/CookieManager$4;-><init>(Landroid/webkit/CookieManager;)V
 
-    .line 725
+    .line 721
     .local v0, clearCache:Ljava/lang/Runnable;
     new-instance v1, Ljava/lang/Thread;
 
@@ -3223,7 +3205,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/webkit/CookieManager;->nativeSetCookie(Ljava/lang/String;Ljava/lang/String;Z)V
     :try_end_16
-    .catchall {:try_start_1 .. :try_end_16} :catchall_1b3
+    .catchall {:try_start_1 .. :try_end_16} :catchall_1b2
 
     .line 450
     :cond_16
@@ -3307,7 +3289,7 @@
 
     const/16 v23, 0x0
 
-    if-lez v14, :cond_18e
+    if-lez v14, :cond_18d
 
     .end local v14           #index:I
     :goto_5a
@@ -3321,7 +3303,7 @@
 
     aput-object v22, v12, v21
     :try_end_64
-    .catchall {:try_start_1a .. :try_end_64} :catchall_1b3
+    .catchall {:try_start_1a .. :try_end_64} :catchall_1b2
 
     .line 378
     :cond_64
@@ -3348,8 +3330,8 @@
 
     invoke-direct {v0, v1, v2, v3}, Landroid/webkit/CookieManager;->parseCookie(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList;
     :try_end_78
-    .catchall {:try_start_67 .. :try_end_78} :catchall_1b3
-    .catch Ljava/lang/RuntimeException; {:try_start_67 .. :try_end_78} :catch_192
+    .catchall {:try_start_67 .. :try_end_78} :catchall_1b2
+    .catch Ljava/lang/RuntimeException; {:try_start_67 .. :try_end_78} :catch_191
 
     move-result-object v9
 
@@ -3465,7 +3447,7 @@
 
     move-result v21
 
-    if-eqz v21, :cond_128
+    if-eqz v21, :cond_127
 
     .line 405
     invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -3499,7 +3481,7 @@
 
     cmp-long v21, v21, v17
 
-    if-lez v21, :cond_1b6
+    if-lez v21, :cond_1b5
 
     .line 411
     :cond_ee
@@ -3507,9 +3489,9 @@
 
     move/from16 v21, v0
 
-    if-eqz v21, :cond_101
+    if-eqz v21, :cond_100
 
-    const-string/jumbo v21, "https"
+    const-string v21, "https"
 
     invoke-virtual/range {p1 .. p1}, Landroid/net/WebAddress;->getScheme()Ljava/lang/String;
 
@@ -3519,10 +3501,10 @@
 
     move-result v21
 
-    if-eqz v21, :cond_127
+    if-eqz v21, :cond_126
 
     .line 412
-    :cond_101
+    :cond_100
     iget-object v0, v5, Landroid/webkit/CookieManager$Cookie;->value:Ljava/lang/String;
 
     move-object/from16 v21, v0
@@ -3567,14 +3549,14 @@
     iput-byte v0, v6, Landroid/webkit/CookieManager$Cookie;->mode:B
 
     .line 423
-    :cond_127
-    :goto_127
+    :cond_126
+    :goto_126
     const/4 v10, 0x1
 
     .line 430
     .end local v6           #cookieEntry:Landroid/webkit/CookieManager$Cookie;
-    :cond_128
-    if-nez v10, :cond_1cd
+    :cond_127
+    if-nez v10, :cond_1cc
 
     iget-wide v0, v5, Landroid/webkit/CookieManager$Cookie;->expires:J
 
@@ -3584,7 +3566,7 @@
 
     cmp-long v21, v21, v23
 
-    if-ltz v21, :cond_13c
+    if-ltz v21, :cond_13b
 
     iget-wide v0, v5, Landroid/webkit/CookieManager$Cookie;->expires:J
 
@@ -3592,10 +3574,10 @@
 
     cmp-long v21, v21, v17
 
-    if-lez v21, :cond_1cd
+    if-lez v21, :cond_1cc
 
     .line 431
-    :cond_13c
+    :cond_13b
     move-wide/from16 v0, v17
 
     iput-wide v0, v5, Landroid/webkit/CookieManager$Cookie;->lastAcessTime:J
@@ -3623,7 +3605,7 @@
 
     move/from16 v1, v22
 
-    if-le v0, v1, :cond_1ca
+    if-le v0, v1, :cond_1c9
 
     .line 435
     new-instance v20, Landroid/webkit/CookieManager$Cookie;
@@ -3645,13 +3627,13 @@
 
     .line 438
     .local v16, iter2:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/webkit/CookieManager$Cookie;>;"
-    :cond_165
-    :goto_165
+    :cond_164
+    :goto_164
     invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v21
 
-    if-eqz v21, :cond_1c2
+    if-eqz v21, :cond_1c1
 
     .line 439
     invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -3674,7 +3656,7 @@
 
     cmp-long v21, v21, v23
 
-    if-gez v21, :cond_165
+    if-gez v21, :cond_164
 
     iget-byte v0, v7, Landroid/webkit/CookieManager$Cookie;->mode:B
 
@@ -3686,12 +3668,12 @@
 
     move/from16 v1, v22
 
-    if-eq v0, v1, :cond_165
+    if-eq v0, v1, :cond_164
 
     .line 442
     move-object/from16 v20, v7
 
-    goto :goto_165
+    goto :goto_164
 
     .line 374
     .end local v4           #baseDomain:Ljava/lang/String;
@@ -3707,7 +3689,7 @@
     .end local v19           #size:I
     .end local v20           #toDelete:Landroid/webkit/CookieManager$Cookie;
     .restart local v14       #index:I
-    :cond_18e
+    :cond_18d
     add-int/lit8 v14, v14, 0x1
 
     goto/16 :goto_5a
@@ -3715,7 +3697,7 @@
     .line 381
     .end local v14           #index:I
     .restart local v9       #cookies:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;"
-    :catch_192
+    :catch_191
     move-exception v11
 
     .line 382
@@ -3745,8 +3727,8 @@
     move-result-object v22
 
     invoke-static/range {v21 .. v22}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1b1
-    .catchall {:try_start_7b .. :try_end_1b1} :catchall_1b3
+    :try_end_1b0
+    .catchall {:try_start_7b .. :try_end_1b0} :catchall_1b2
 
     goto/16 :goto_79
 
@@ -3754,7 +3736,7 @@
     .end local v9           #cookies:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/webkit/CookieManager$Cookie;>;"
     .end local v11           #ex:Ljava/lang/RuntimeException;
     .end local v12           #hostAndPath:[Ljava/lang/String;
-    :catchall_1b3
+    :catchall_1b2
     move-exception v21
 
     monitor-exit p0
@@ -3773,8 +3755,8 @@
     .restart local v15       #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/webkit/CookieManager$Cookie;>;"
     .restart local v17       #now:J
     .restart local v19       #size:I
-    :cond_1b6
-    :try_start_1b6
+    :cond_1b5
+    :try_start_1b5
     move-wide/from16 v0, v17
 
     iput-wide v0, v6, Landroid/webkit/CookieManager$Cookie;->lastUpdateTime:J
@@ -3786,13 +3768,13 @@
 
     iput-byte v0, v6, Landroid/webkit/CookieManager$Cookie;->mode:B
 
-    goto/16 :goto_127
+    goto/16 :goto_126
 
     .line 445
     .end local v6           #cookieEntry:Landroid/webkit/CookieManager$Cookie;
     .restart local v16       #iter2:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/webkit/CookieManager$Cookie;>;"
     .restart local v20       #toDelete:Landroid/webkit/CookieManager$Cookie;
-    :cond_1c2
+    :cond_1c1
     const/16 v21, 0x2
 
     move/from16 v0, v21
@@ -3804,13 +3786,13 @@
     .line 447
     .end local v16           #iter2:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/webkit/CookieManager$Cookie;>;"
     .end local v20           #toDelete:Landroid/webkit/CookieManager$Cookie;
-    :cond_1ca
+    :cond_1c9
     invoke-virtual {v8, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_1cd
-    .catchall {:try_start_1b6 .. :try_end_1cd} :catchall_1b3
+    :try_end_1cc
+    .catchall {:try_start_1b5 .. :try_end_1cc} :catchall_1b2
 
     .line 399
-    :cond_1cd
+    :cond_1cc
     add-int/lit8 v13, v13, 0x1
 
     goto/16 :goto_bb
@@ -3962,7 +3944,7 @@
     .parameter "cookie"
 
     .prologue
-    .line 815
+    .line 811
     monitor-enter p0
 
     const/4 v0, 0x1
@@ -3972,12 +3954,12 @@
     :try_end_4
     .catchall {:try_start_2 .. :try_end_4} :catchall_6
 
-    .line 816
+    .line 812
     monitor-exit p0
 
     return-void
 
-    .line 815
+    .line 811
     :catchall_6
     move-exception v0
 

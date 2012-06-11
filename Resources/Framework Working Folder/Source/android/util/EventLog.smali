@@ -6,8 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/util/EventLog$Event;,
-        Landroid/util/EventLog$List;
+        Landroid/util/EventLog$Event;
     }
 .end annotation
 
@@ -67,7 +66,7 @@
 
     .prologue
     .line 45
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -77,10 +76,10 @@
     .parameter "name"
 
     .prologue
-    .line 275
+    .line 211
     invoke-static {}, Landroid/util/EventLog;->readTagsFile()V
 
-    .line 276
+    .line 212
     sget-object v1, Landroid/util/EventLog;->sTagCodes:Ljava/util/HashMap;
 
     invoke-virtual {v1, p0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -89,7 +88,7 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 277
+    .line 213
     .local v0, code:Ljava/lang/Integer;
     if-eqz v0, :cond_12
 
@@ -111,10 +110,10 @@
     .parameter "tag"
 
     .prologue
-    .line 265
+    .line 201
     invoke-static {}, Landroid/util/EventLog;->readTagsFile()V
 
-    .line 266
+    .line 202
     sget-object v0, Landroid/util/EventLog;->sTagNames:Ljava/util/HashMap;
 
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -152,7 +151,7 @@
     .registers 13
 
     .prologue
-    .line 284
+    .line 220
     const-class v10, Landroid/util/EventLog;
 
     monitor-enter v10
@@ -168,7 +167,7 @@
 
     if-eqz v9, :cond_d
 
-    .line 320
+    .line 256
     .local v0, comment:Ljava/util/regex/Pattern;
     .local v6, reader:Ljava/io/BufferedReader;
     .local v8, tag:Ljava/util/regex/Pattern;
@@ -178,7 +177,7 @@
 
     return-void
 
-    .line 286
+    .line 222
     .end local v0           #comment:Ljava/util/regex/Pattern;
     .end local v6           #reader:Ljava/io/BufferedReader;
     .end local v8           #tag:Ljava/util/regex/Pattern;
@@ -190,21 +189,21 @@
 
     sput-object v9, Landroid/util/EventLog;->sTagCodes:Ljava/util/HashMap;
 
-    .line 287
+    .line 223
     new-instance v9, Ljava/util/HashMap;
 
     invoke-direct {v9}, Ljava/util/HashMap;-><init>()V
 
     sput-object v9, Landroid/util/EventLog;->sTagNames:Ljava/util/HashMap;
 
-    .line 289
+    .line 225
     const-string v9, "^\\s*(#.*)?$"
 
     invoke-static {v9}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v0
 
-    .line 290
+    .line 226
     .restart local v0       #comment:Ljava/util/regex/Pattern;
     const-string v9, "^\\s*(\\d+)\\s+(\\w+)\\s*(\\(.*\\))?\\s*$"
 
@@ -214,11 +213,11 @@
 
     move-result-object v8
 
-    .line 291
+    .line 227
     .restart local v8       #tag:Ljava/util/regex/Pattern;
     const/4 v6, 0x0
 
-    .line 295
+    .line 231
     .restart local v6       #reader:Ljava/io/BufferedReader;
     :try_start_28
     new-instance v7, Ljava/io/BufferedReader;
@@ -233,10 +232,10 @@
 
     invoke-direct {v7, v9, v11}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V
     :try_end_36
-    .catchall {:try_start_28 .. :try_end_36} :catchall_cc
-    .catch Ljava/io/IOException; {:try_start_28 .. :try_end_36} :catch_ce
+    .catchall {:try_start_28 .. :try_end_36} :catchall_ce
+    .catch Ljava/io/IOException; {:try_start_28 .. :try_end_36} :catch_d0
 
-    .line 296
+    .line 232
     .end local v6           #reader:Ljava/io/BufferedReader;
     .local v7, reader:Ljava/io/BufferedReader;
     :cond_36
@@ -249,7 +248,7 @@
     .local v2, line:Ljava/lang/String;
     if-eqz v2, :cond_c0
 
-    .line 297
+    .line 233
     invoke-virtual {v0, v2}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
     move-result-object v9
@@ -260,12 +259,12 @@
 
     if-nez v9, :cond_36
 
-    .line 299
+    .line 235
     invoke-virtual {v8, v2}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
     move-result-object v3
 
-    .line 300
+    .line 236
     .local v3, m:Ljava/util/regex/Matcher;
     invoke-virtual {v3}, Ljava/util/regex/Matcher;->matches()Z
 
@@ -273,7 +272,7 @@
 
     if-nez v9, :cond_7a
 
-    .line 301
+    .line 237
     const-string v9, "EventLog"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -301,7 +300,7 @@
 
     goto :goto_36
 
-    .line 314
+    .line 250
     .end local v2           #line:Ljava/lang/String;
     .end local v3           #m:Ljava/util/regex/Matcher;
     :catch_69
@@ -309,7 +308,7 @@
 
     move-object v6, v7
 
-    .line 315
+    .line 251
     .end local v7           #reader:Ljava/io/BufferedReader;
     .local v1, e:Ljava/io/IOException;
     .restart local v6       #reader:Ljava/io/BufferedReader;
@@ -321,9 +320,9 @@
 
     invoke-static {v9, v11, v1}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_72
-    .catchall {:try_start_6b .. :try_end_72} :catchall_cc
+    .catchall {:try_start_6b .. :try_end_72} :catchall_ce
 
-    .line 318
+    .line 254
     if-eqz v6, :cond_b
 
     :try_start_74
@@ -339,7 +338,7 @@
 
     goto :goto_b
 
-    .line 306
+    .line 242
     .end local v1           #e:Ljava/io/IOException;
     .end local v6           #reader:Ljava/io/BufferedReader;
     .restart local v2       #line:Ljava/lang/String;
@@ -357,7 +356,7 @@
 
     move-result v5
 
-    .line 307
+    .line 243
     .local v5, num:I
     const/4 v9, 0x2
 
@@ -365,7 +364,7 @@
 
     move-result-object v4
 
-    .line 308
+    .line 244
     .local v4, name:Ljava/lang/String;
     sget-object v9, Landroid/util/EventLog;->sTagCodes:Ljava/util/HashMap;
 
@@ -375,7 +374,7 @@
 
     invoke-virtual {v9, v4, v11}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 309
+    .line 245
     sget-object v9, Landroid/util/EventLog;->sTagNames:Ljava/util/HashMap;
 
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -390,13 +389,13 @@
 
     goto :goto_36
 
-    .line 310
+    .line 246
     .end local v4           #name:Ljava/lang/String;
     .end local v5           #num:I
     :catch_9b
     move-exception v1
 
-    .line 311
+    .line 247
     .local v1, e:Ljava/lang/NumberFormatException;
     :try_start_9c
     const-string v9, "EventLog"
@@ -426,7 +425,7 @@
 
     goto :goto_36
 
-    .line 318
+    .line 254
     .end local v1           #e:Ljava/lang/NumberFormatException;
     .end local v2           #line:Ljava/lang/String;
     .end local v3           #m:Ljava/util/regex/Matcher;
@@ -444,7 +443,7 @@
     invoke-virtual {v6}, Ljava/io/BufferedReader;->close()V
     :try_end_bc
     .catchall {:try_start_b9 .. :try_end_bc} :catchall_bd
-    .catch Ljava/io/IOException; {:try_start_b9 .. :try_end_bc} :catch_c8
+    .catch Ljava/io/IOException; {:try_start_b9 .. :try_end_bc} :catch_cc
 
     :cond_bc
     :goto_bc
@@ -453,7 +452,7 @@
     :try_end_bd
     .catchall {:try_start_bc .. :try_end_bd} :catchall_bd
 
-    .line 284
+    .line 220
     .end local v6           #reader:Ljava/io/BufferedReader;
     .end local v8           #tag:Ljava/util/regex/Pattern;
     :catchall_bd
@@ -463,7 +462,7 @@
 
     throw v9
 
-    .line 318
+    .line 254
     .restart local v2       #line:Ljava/lang/String;
     .restart local v7       #reader:Ljava/io/BufferedReader;
     .restart local v8       #tag:Ljava/util/regex/Pattern;
@@ -474,42 +473,41 @@
     invoke-virtual {v7}, Ljava/io/BufferedReader;->close()V
     :try_end_c5
     .catchall {:try_start_c2 .. :try_end_c5} :catchall_bd
-    .catch Ljava/io/IOException; {:try_start_c2 .. :try_end_c5} :catch_ca
+    .catch Ljava/io/IOException; {:try_start_c2 .. :try_end_c5} :catch_c8
 
     :cond_c5
-    :goto_c5
     move-object v6, v7
 
-    .line 319
     .end local v7           #reader:Ljava/io/BufferedReader;
     .restart local v6       #reader:Ljava/io/BufferedReader;
     goto/16 :goto_b
 
-    .line 318
-    .end local v2           #line:Ljava/lang/String;
+    .end local v6           #reader:Ljava/io/BufferedReader;
+    .restart local v7       #reader:Ljava/io/BufferedReader;
     :catch_c8
+    move-exception v9
+
+    move-object v6, v7
+
+    .line 255
+    .end local v7           #reader:Ljava/io/BufferedReader;
+    .restart local v6       #reader:Ljava/io/BufferedReader;
+    goto/16 :goto_b
+
+    .line 254
+    .end local v2           #line:Ljava/lang/String;
+    :catch_cc
     move-exception v11
 
     goto :goto_bc
 
-    .end local v6           #reader:Ljava/io/BufferedReader;
-    .restart local v2       #line:Ljava/lang/String;
-    .restart local v7       #reader:Ljava/io/BufferedReader;
-    :catch_ca
-    move-exception v9
-
-    goto :goto_c5
-
-    .end local v2           #line:Ljava/lang/String;
-    .end local v7           #reader:Ljava/io/BufferedReader;
-    .restart local v6       #reader:Ljava/io/BufferedReader;
-    :catchall_cc
+    :catchall_ce
     move-exception v9
 
     goto :goto_b7
 
-    .line 314
-    :catch_ce
+    .line 250
+    :catch_d0
     move-exception v1
 
     goto :goto_6b

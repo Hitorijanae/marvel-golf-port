@@ -19,7 +19,7 @@
     .registers 1
 
     .prologue
-    .line 351
+    .line 313
     invoke-direct {p0}, Landroid/app/ContextImpl$ServiceFetcher;-><init>()V
 
     return-void
@@ -32,7 +32,7 @@
     .parameter "ctx"
 
     .prologue
-    .line 353
+    .line 315
     new-instance v0, Landroid/app/DownloadManager;
 
     invoke-virtual {p1}, Landroid/app/ContextImpl;->getContentResolver()Landroid/content/ContentResolver;

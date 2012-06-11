@@ -20,7 +20,7 @@
 
     .prologue
     .line 399
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 400
     new-instance v0, Ljava/lang/ref/WeakReference;
@@ -128,7 +128,6 @@
     .line 381
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 380
     throw v2
 .end method
 
@@ -192,7 +191,6 @@
     .line 395
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 394
     throw v2
 .end method
 

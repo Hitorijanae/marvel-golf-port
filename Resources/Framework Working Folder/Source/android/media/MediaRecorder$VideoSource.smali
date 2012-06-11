@@ -19,8 +19,6 @@
 
 .field public static final DEFAULT:I = 0x0
 
-.field public static final DISPLAY:I = 0x3
-
 .field public static final GRALLOC_BUFFER:I = 0x2
 
 
@@ -37,7 +35,7 @@
     .line 188
     iput-object p1, p0, Landroid/media/MediaRecorder$VideoSource;->this$0:Landroid/media/MediaRecorder;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

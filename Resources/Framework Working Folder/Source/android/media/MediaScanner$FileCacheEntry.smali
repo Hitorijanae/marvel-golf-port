@@ -39,28 +39,28 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 392
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 365
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 393
+    .line 366
     iput-wide p1, p0, Landroid/media/MediaScanner$FileCacheEntry;->mRowId:J
 
-    .line 394
+    .line 367
     iput-object p3, p0, Landroid/media/MediaScanner$FileCacheEntry;->mPath:Ljava/lang/String;
 
-    .line 395
+    .line 368
     iput-wide p4, p0, Landroid/media/MediaScanner$FileCacheEntry;->mLastModified:J
 
-    .line 396
+    .line 369
     iput p6, p0, Landroid/media/MediaScanner$FileCacheEntry;->mFormat:I
 
-    .line 397
+    .line 370
     iput-boolean v0, p0, Landroid/media/MediaScanner$FileCacheEntry;->mSeenInFileSystem:Z
 
-    .line 398
+    .line 371
     iput-boolean v0, p0, Landroid/media/MediaScanner$FileCacheEntry;->mLastModifiedChanged:Z
 
-    .line 399
+    .line 372
     return-void
 .end method
 
@@ -70,7 +70,7 @@
     .registers 4
 
     .prologue
-    .line 403
+    .line 376
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

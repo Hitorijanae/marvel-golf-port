@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 189
+    .line 184
     iput-object p1, p0, Landroid/app/LauncherActivity$ActivityAdapter$ArrayFilter;->this$1:Landroid/app/LauncherActivity$ActivityAdapter;
 
     invoke-direct {p0}, Landroid/widget/Filter;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 189
+    .line 184
     invoke-direct {p0, p1}, Landroid/app/LauncherActivity$ActivityAdapter$ArrayFilter;-><init>(Landroid/app/LauncherActivity$ActivityAdapter;)V
 
     return-void
@@ -51,12 +51,12 @@
     .parameter "prefix"
 
     .prologue
-    .line 192
+    .line 187
     new-instance v8, Landroid/widget/Filter$FilterResults;
 
     invoke-direct {v8}, Landroid/widget/Filter$FilterResults;-><init>()V
 
-    .line 194
+    .line 189
     .local v8, results:Landroid/widget/Filter$FilterResults;
     move-object/from16 v0, p0
 
@@ -69,7 +69,7 @@
 
     if-nez v13, :cond_31
 
-    .line 195
+    .line 190
     move-object/from16 v0, p0
 
     iget-object v13, v0, Landroid/app/LauncherActivity$ActivityAdapter$ArrayFilter;->this$1:Landroid/app/LauncherActivity$ActivityAdapter;
@@ -81,7 +81,7 @@
 
     monitor-enter v14
 
-    .line 196
+    .line 191
     :try_start_18
     move-object/from16 v0, p0
 
@@ -106,12 +106,12 @@
     #setter for: Landroid/app/LauncherActivity$ActivityAdapter;->mOriginalValues:Ljava/util/ArrayList;
     invoke-static {v13, v15}, Landroid/app/LauncherActivity$ActivityAdapter;->access$102(Landroid/app/LauncherActivity$ActivityAdapter;Ljava/util/ArrayList;)Ljava/util/ArrayList;
 
-    .line 197
+    .line 192
     monitor-exit v14
     :try_end_31
     .catchall {:try_start_18 .. :try_end_31} :catchall_59
 
-    .line 200
+    .line 195
     :cond_31
     if-eqz p1, :cond_39
 
@@ -121,7 +121,7 @@
 
     if-nez v13, :cond_5f
 
-    .line 201
+    .line 196
     :cond_39
     move-object/from16 v0, p0
 
@@ -134,7 +134,7 @@
 
     monitor-enter v14
 
-    .line 202
+    .line 197
     :try_start_42
     new-instance v5, Ljava/util/ArrayList;
 
@@ -149,28 +149,28 @@
 
     invoke-direct {v5, v13}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 203
+    .line 198
     .local v5, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/app/LauncherActivity$ListItem;>;"
     iput-object v5, v8, Landroid/widget/Filter$FilterResults;->values:Ljava/lang/Object;
 
-    .line 204
+    .line 199
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
     move-result v13
 
     iput v13, v8, Landroid/widget/Filter$FilterResults;->count:I
 
-    .line 205
+    .line 200
     monitor-exit v14
     :try_end_58
     .catchall {:try_start_42 .. :try_end_58} :catchall_5c
 
-    .line 234
+    .line 229
     .end local v5           #list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/app/LauncherActivity$ListItem;>;"
     :goto_58
     return-object v8
 
-    .line 197
+    .line 192
     :catchall_59
     move-exception v13
 
@@ -181,7 +181,7 @@
 
     throw v13
 
-    .line 205
+    .line 200
     :catchall_5c
     move-exception v13
 
@@ -192,7 +192,7 @@
 
     throw v13
 
-    .line 207
+    .line 202
     :cond_5f
     invoke-virtual/range {p1 .. p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
@@ -202,7 +202,7 @@
 
     move-result-object v7
 
-    .line 209
+    .line 204
     .local v7, prefixString:Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -213,19 +213,19 @@
 
     move-result-object v9
 
-    .line 210
+    .line 205
     .local v9, values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/app/LauncherActivity$ListItem;>;"
     invoke-virtual {v9}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    .line 212
+    .line 207
     .local v1, count:I
     new-instance v6, Ljava/util/ArrayList;
 
     invoke-direct {v6, v1}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 214
+    .line 209
     .local v6, newValues:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/app/LauncherActivity$ListItem;>;"
     const/4 v2, 0x0
 
@@ -233,14 +233,14 @@
     :goto_79
     if-ge v2, v1, :cond_a6
 
-    .line 215
+    .line 210
     invoke-virtual {v9, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/app/LauncherActivity$ListItem;
 
-    .line 217
+    .line 212
     .local v3, item:Landroid/app/LauncherActivity$ListItem;
     iget-object v13, v3, Landroid/app/LauncherActivity$ListItem;->label:Ljava/lang/CharSequence;
 
@@ -258,11 +258,11 @@
 
     move-result-object v12
 
-    .line 218
+    .line 213
     .local v12, words:[Ljava/lang/String;
     array-length v11, v12
 
-    .line 220
+    .line 215
     .local v11, wordCount:I
     const/4 v4, 0x0
 
@@ -270,10 +270,10 @@
     :goto_93
     if-ge v4, v11, :cond_a0
 
-    .line 221
+    .line 216
     aget-object v10, v12, v4
 
-    .line 223
+    .line 218
     .local v10, word:Ljava/lang/String;
     invoke-virtual {v10, v7}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
@@ -281,24 +281,24 @@
 
     if-eqz v13, :cond_a3
 
-    .line 224
+    .line 219
     invoke-virtual {v6, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 214
+    .line 209
     .end local v10           #word:Ljava/lang/String;
     :cond_a0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_79
 
-    .line 220
+    .line 215
     .restart local v10       #word:Ljava/lang/String;
     :cond_a3
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_93
 
-    .line 230
+    .line 225
     .end local v3           #item:Landroid/app/LauncherActivity$ListItem;
     .end local v4           #k:I
     .end local v10           #word:Ljava/lang/String;
@@ -307,7 +307,7 @@
     :cond_a6
     iput-object v6, v8, Landroid/widget/Filter$FilterResults;->values:Ljava/lang/Object;
 
-    .line 231
+    .line 226
     invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
 
     move-result v13
@@ -323,7 +323,7 @@
     .parameter "results"
 
     .prologue
-    .line 240
+    .line 235
     iget-object v1, p0, Landroid/app/LauncherActivity$ActivityAdapter$ArrayFilter;->this$1:Landroid/app/LauncherActivity$ActivityAdapter;
 
     iget-object v0, p2, Landroid/widget/Filter$FilterResults;->values:Ljava/lang/Object;
@@ -332,21 +332,21 @@
 
     iput-object v0, v1, Landroid/app/LauncherActivity$ActivityAdapter;->mActivitiesList:Ljava/util/List;
 
-    .line 241
+    .line 236
     iget v0, p2, Landroid/widget/Filter$FilterResults;->count:I
 
     if-lez v0, :cond_12
 
-    .line 242
+    .line 237
     iget-object v0, p0, Landroid/app/LauncherActivity$ActivityAdapter$ArrayFilter;->this$1:Landroid/app/LauncherActivity$ActivityAdapter;
 
     invoke-virtual {v0}, Landroid/app/LauncherActivity$ActivityAdapter;->notifyDataSetChanged()V
 
-    .line 246
+    .line 241
     :goto_11
     return-void
 
-    .line 244
+    .line 239
     :cond_12
     iget-object v0, p0, Landroid/app/LauncherActivity$ActivityAdapter$ArrayFilter;->this$1:Landroid/app/LauncherActivity$ActivityAdapter;
 

@@ -27,17 +27,13 @@
 
 .field public static final QUERY_PARAMETER_SIP_ADDRESS:Ljava/lang/String; = "sip"
 
-.field public static final RAW_CONTACT_ID:Ljava/lang/String; = "raw_contact_id"
-
-.field public static final STATUS_UPDATE_ID:Ljava/lang/String; = "status_update_id"
-
 
 # direct methods
 .method static constructor <clinit>()V
     .registers 2
 
     .prologue
-    .line 4725
+    .line 4664
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "phone_lookup"
@@ -55,8 +51,8 @@
     .registers 1
 
     .prologue
-    .line 4716
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 4655
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

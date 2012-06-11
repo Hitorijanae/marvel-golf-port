@@ -134,7 +134,7 @@
     if-nez p2, :cond_6
 
     .line 80
-    iput-boolean v3, p0, Landroid/widget/FrameLayout;->mMeasureAllChildren:Z
+    iput-boolean v3, p0, Landroid/widget/ViewAnimator;->mMeasureAllChildren:Z
 
     .line 92
     :goto_5

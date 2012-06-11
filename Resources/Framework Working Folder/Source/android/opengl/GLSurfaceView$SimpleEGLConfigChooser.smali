@@ -29,10 +29,10 @@
 
     const/4 v5, 0x0
 
-    .line 970
+    .line 966
     iput-object p1, p0, Landroid/opengl/GLSurfaceView$SimpleEGLConfigChooser;->this$0:Landroid/opengl/GLSurfaceView;
 
-    .line 971
+    .line 967
     const/4 v3, 0x6
 
     if-eqz p2, :cond_11
@@ -50,12 +50,12 @@
 
     invoke-direct/range {v0 .. v7}, Landroid/opengl/GLSurfaceView$ComponentSizeChooser;-><init>(Landroid/opengl/GLSurfaceView;IIIIII)V
 
-    .line 972
+    .line 968
     return-void
 
     :cond_11
     move v6, v5
 
-    .line 971
+    .line 967
     goto :goto_9
 .end method

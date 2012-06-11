@@ -19,7 +19,7 @@
     .registers 1
 
     .prologue
-    .line 502
+    .line 463
     invoke-direct {p0}, Landroid/app/ContextImpl$ServiceFetcher;-><init>()V
 
     return-void
@@ -27,17 +27,19 @@
 
 
 # virtual methods
-.method public getService(Landroid/app/ContextImpl;)Ljava/lang/Object;
+.method public createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .registers 3
     .parameter "ctx"
 
     .prologue
-    .line 504
-    iget-object v0, p1, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
+    .line 465
+    iget-object v0, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
 
-    iget-object v0, v0, Landroid/app/LoadedApk;->mCompatibilityInfo:Landroid/view/CompatibilityInfoHolder;
+    invoke-virtual {v0}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
 
-    invoke-static {v0}, Landroid/view/WindowManagerImpl;->getDefault(Landroid/view/CompatibilityInfoHolder;)Landroid/view/WindowManager;
+    move-result-object v0
+
+    invoke-static {p1, v0}, Landroid/net/wimax/WimaxHelper;->createWimaxService(Landroid/content/Context;Landroid/os/Handler;)Ljava/lang/Object;
 
     move-result-object v0
 

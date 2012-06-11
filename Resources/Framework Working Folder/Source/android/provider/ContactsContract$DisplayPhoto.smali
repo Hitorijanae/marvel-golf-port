@@ -29,7 +29,7 @@
     .registers 2
 
     .prologue
-    .line 7831
+    .line 7679
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string v1, "display_photo"
@@ -40,7 +40,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$DisplayPhoto;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 7838
+    .line 7686
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "photo_dimensions"
@@ -58,8 +58,8 @@
     .registers 1
 
     .prologue
-    .line 7825
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 7673
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

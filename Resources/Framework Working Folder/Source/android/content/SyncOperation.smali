@@ -46,7 +46,7 @@
 
     .prologue
     .line 42
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 43
     iput-object p1, p0, Landroid/content/SyncOperation;->account:Landroid/accounts/Account;
@@ -60,123 +60,110 @@
     .line 46
     iput-boolean p11, p0, Landroid/content/SyncOperation;->allowParallelSyncs:Z
 
-    .line 48
-    if-nez p4, :cond_60
-
+    .line 47
     new-instance v2, Landroid/os/Bundle;
 
-    invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
+    invoke-direct {v2, p4}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
 
-    :goto_12
     iput-object v2, p0, Landroid/content/SyncOperation;->extras:Landroid/os/Bundle;
 
-    .line 50
+    .line 48
     const-string/jumbo v2, "upload"
 
     invoke-direct {p0, v2}, Landroid/content/SyncOperation;->removeFalseExtra(Ljava/lang/String;)V
 
-    .line 51
+    .line 49
     const-string v2, "force"
 
     invoke-direct {p0, v2}, Landroid/content/SyncOperation;->removeFalseExtra(Ljava/lang/String;)V
 
+    .line 50
+    const-string v2, "ignore_settings"
+
+    invoke-direct {p0, v2}, Landroid/content/SyncOperation;->removeFalseExtra(Ljava/lang/String;)V
+
+    .line 51
+    const-string v2, "ignore_backoff"
+
+    invoke-direct {p0, v2}, Landroid/content/SyncOperation;->removeFalseExtra(Ljava/lang/String;)V
+
     .line 52
-    const-string/jumbo v2, "ignore_settings"
-
-    invoke-direct {p0, v2}, Landroid/content/SyncOperation;->removeFalseExtra(Ljava/lang/String;)V
-
-    .line 53
-    const-string/jumbo v2, "ignore_backoff"
-
-    invoke-direct {p0, v2}, Landroid/content/SyncOperation;->removeFalseExtra(Ljava/lang/String;)V
-
-    .line 54
     const-string v2, "do_not_retry"
 
     invoke-direct {p0, v2}, Landroid/content/SyncOperation;->removeFalseExtra(Ljava/lang/String;)V
 
-    .line 55
+    .line 53
     const-string v2, "discard_deletions"
 
     invoke-direct {p0, v2}, Landroid/content/SyncOperation;->removeFalseExtra(Ljava/lang/String;)V
 
-    .line 56
+    .line 54
     const-string v2, "expedited"
 
     invoke-direct {p0, v2}, Landroid/content/SyncOperation;->removeFalseExtra(Ljava/lang/String;)V
 
-    .line 57
+    .line 55
     const-string v2, "deletions_override"
 
     invoke-direct {p0, v2}, Landroid/content/SyncOperation;->removeFalseExtra(Ljava/lang/String;)V
 
-    .line 58
+    .line 56
     iput-wide p9, p0, Landroid/content/SyncOperation;->delayUntil:J
 
-    .line 59
+    .line 57
     invoke-static {p7, p8}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v2
 
     iput-object v2, p0, Landroid/content/SyncOperation;->backoff:Ljava/lang/Long;
 
-    .line 60
+    .line 58
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
 
-    .line 61
+    .line 59
     .local v0, now:J
     const-wide/16 v2, 0x0
 
     cmp-long v2, p5, v2
 
-    if-gez v2, :cond_66
+    if-gez v2, :cond_5c
 
-    .line 62
+    .line 60
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Landroid/content/SyncOperation;->expedited:Z
 
-    .line 63
+    .line 61
     iput-wide v0, p0, Landroid/content/SyncOperation;->earliestRunTime:J
 
-    .line 68
-    :goto_56
+    .line 66
+    :goto_52
     invoke-virtual {p0}, Landroid/content/SyncOperation;->updateEffectiveRunTime()V
 
-    .line 69
+    .line 67
     invoke-direct {p0}, Landroid/content/SyncOperation;->toKey()Ljava/lang/String;
 
     move-result-object v2
 
     iput-object v2, p0, Landroid/content/SyncOperation;->key:Ljava/lang/String;
 
-    .line 70
+    .line 68
     return-void
 
-    .line 48
-    .end local v0           #now:J
-    :cond_60
-    new-instance v2, Landroid/os/Bundle;
-
-    invoke-direct {v2, p4}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
-
-    goto :goto_12
-
-    .line 65
-    .restart local v0       #now:J
-    :cond_66
+    .line 63
+    :cond_5c
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Landroid/content/SyncOperation;->expedited:Z
 
-    .line 66
+    .line 64
     add-long v2, v0, p5
 
     iput-wide v2, p0, Landroid/content/SyncOperation;->earliestRunTime:J
 
-    goto :goto_56
+    goto :goto_52
 .end method
 
 .method constructor <init>(Landroid/content/SyncOperation;)V
@@ -184,25 +171,25 @@
     .parameter "other"
 
     .prologue
-    .line 78
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 76
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 79
+    .line 77
     iget-object v0, p1, Landroid/content/SyncOperation;->account:Landroid/accounts/Account;
 
     iput-object v0, p0, Landroid/content/SyncOperation;->account:Landroid/accounts/Account;
 
-    .line 80
+    .line 78
     iget v0, p1, Landroid/content/SyncOperation;->syncSource:I
 
     iput v0, p0, Landroid/content/SyncOperation;->syncSource:I
 
-    .line 81
+    .line 79
     iget-object v0, p1, Landroid/content/SyncOperation;->authority:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/content/SyncOperation;->authority:Ljava/lang/String;
 
-    .line 82
+    .line 80
     new-instance v0, Landroid/os/Bundle;
 
     iget-object v1, p1, Landroid/content/SyncOperation;->extras:Landroid/os/Bundle;
@@ -211,44 +198,44 @@
 
     iput-object v0, p0, Landroid/content/SyncOperation;->extras:Landroid/os/Bundle;
 
-    .line 83
+    .line 81
     iget-boolean v0, p1, Landroid/content/SyncOperation;->expedited:Z
 
     iput-boolean v0, p0, Landroid/content/SyncOperation;->expedited:Z
 
-    .line 84
+    .line 82
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/content/SyncOperation;->earliestRunTime:J
 
-    .line 85
+    .line 83
     iget-object v0, p1, Landroid/content/SyncOperation;->backoff:Ljava/lang/Long;
 
     iput-object v0, p0, Landroid/content/SyncOperation;->backoff:Ljava/lang/Long;
 
-    .line 86
+    .line 84
     iget-wide v0, p1, Landroid/content/SyncOperation;->delayUntil:J
 
     iput-wide v0, p0, Landroid/content/SyncOperation;->delayUntil:J
 
-    .line 87
+    .line 85
     iget-boolean v0, p1, Landroid/content/SyncOperation;->allowParallelSyncs:Z
 
     iput-boolean v0, p0, Landroid/content/SyncOperation;->allowParallelSyncs:Z
 
-    .line 88
+    .line 86
     invoke-virtual {p0}, Landroid/content/SyncOperation;->updateEffectiveRunTime()V
 
-    .line 89
+    .line 87
     invoke-direct {p0}, Landroid/content/SyncOperation;->toKey()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/SyncOperation;->key:Ljava/lang/String;
 
-    .line 90
+    .line 88
     return-void
 .end method
 
@@ -258,12 +245,12 @@
     .parameter "sb"
 
     .prologue
-    .line 134
+    .line 130
     const-string v2, "["
 
     invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 135
+    .line 131
     invoke-virtual {p0}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
 
     move-result-object v2
@@ -286,7 +273,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 136
+    .line 132
     .local v1, key:Ljava/lang/String;
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -312,14 +299,14 @@
 
     goto :goto_d
 
-    .line 138
+    .line 134
     .end local v1           #key:Ljava/lang/String;
     :cond_31
     const-string v2, "]"
 
     invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 139
+    .line 135
     return-void
 .end method
 
@@ -328,7 +315,7 @@
     .parameter "extraName"
 
     .prologue
-    .line 73
+    .line 71
     iget-object v0, p0, Landroid/content/SyncOperation;->extras:Landroid/os/Bundle;
 
     const/4 v1, 0x0
@@ -339,12 +326,12 @@
 
     if-nez v0, :cond_e
 
-    .line 74
+    .line 72
     iget-object v0, p0, Landroid/content/SyncOperation;->extras:Landroid/os/Bundle;
 
     invoke-virtual {v0, p1}, Landroid/os/Bundle;->remove(Ljava/lang/String;)V
 
-    .line 76
+    .line 74
     :cond_e
     return-void
 .end method
@@ -353,12 +340,12 @@
     .registers 4
 
     .prologue
-    .line 125
+    .line 121
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 126
+    .line 122
     .local v0, sb:Ljava/lang/StringBuilder;
     const-string v1, "authority: "
 
@@ -370,7 +357,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 127
+    .line 123
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -415,17 +402,17 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 128
+    .line 124
     const-string v1, " extras: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 129
+    .line 125
     iget-object v1, p0, Landroid/content/SyncOperation;->extras:Landroid/os/Bundle;
 
     invoke-static {v1, v0}, Landroid/content/SyncOperation;->extrasToStringBuilder(Landroid/os/Bundle;Ljava/lang/StringBuilder;)V
 
-    .line 130
+    .line 126
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -444,12 +431,12 @@
 
     const/4 v1, -0x1
 
-    .line 150
+    .line 146
     move-object v0, p1
 
     check-cast v0, Landroid/content/SyncOperation;
 
-    .line 152
+    .line 148
     .local v0, other:Landroid/content/SyncOperation;
     iget-boolean v3, p0, Landroid/content/SyncOperation;->expedited:Z
 
@@ -457,12 +444,12 @@
 
     if-eq v3, v4, :cond_12
 
-    .line 153
+    .line 149
     iget-boolean v3, p0, Landroid/content/SyncOperation;->expedited:Z
 
     if-eqz v3, :cond_10
 
-    .line 160
+    .line 156
     :cond_f
     :goto_f
     return v1
@@ -470,10 +457,10 @@
     :cond_10
     move v1, v2
 
-    .line 153
+    .line 149
     goto :goto_f
 
-    .line 156
+    .line 152
     :cond_12
     iget-wide v3, p0, Landroid/content/SyncOperation;->effectiveRunTime:J
 
@@ -483,12 +470,12 @@
 
     if-nez v3, :cond_1c
 
-    .line 157
+    .line 153
     const/4 v1, 0x0
 
     goto :goto_f
 
-    .line 160
+    .line 156
     :cond_1c
     iget-wide v3, p0, Landroid/content/SyncOperation;->effectiveRunTime:J
 
@@ -508,13 +495,20 @@
     .parameter "useOneLine"
 
     .prologue
-    .line 97
+    .line 95
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 101
+    .line 96
     .local v0, sb:Ljava/lang/StringBuilder;
+    iget-object v1, p0, Landroid/content/SyncOperation;->account:Landroid/accounts/Account;
+
+    iget-object v1, v1, Landroid/accounts/Account;->name:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 97
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -545,7 +539,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 102
+    .line 98
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -568,12 +562,12 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 103
+    .line 99
     const-string v1, ", "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 104
+    .line 100
     sget-object v1, Landroid/content/SyncStorageEngine;->SOURCES:[Ljava/lang/String;
 
     iget v2, p0, Landroid/content/SyncOperation;->syncSource:I
@@ -582,7 +576,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 105
+    .line 101
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -605,19 +599,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 106
+    .line 102
     iget-boolean v1, p0, Landroid/content/SyncOperation;->expedited:Z
 
-    if-eqz v1, :cond_6c
+    if-eqz v1, :cond_73
 
-    .line 107
+    .line 103
     const-string v1, ", EXPEDITED"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 109
-    :cond_6c
-    if-nez p1, :cond_84
+    .line 105
+    :cond_73
+    if-nez p1, :cond_8b
 
     iget-object v1, p0, Landroid/content/SyncOperation;->extras:Landroid/os/Bundle;
 
@@ -629,20 +623,20 @@
 
     move-result v1
 
-    if-nez v1, :cond_84
+    if-nez v1, :cond_8b
 
-    .line 110
+    .line 106
     const-string v1, "\n    "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 111
+    .line 107
     iget-object v1, p0, Landroid/content/SyncOperation;->extras:Landroid/os/Bundle;
 
     invoke-static {v1, v0}, Landroid/content/SyncOperation;->extrasToStringBuilder(Landroid/os/Bundle;Ljava/lang/StringBuilder;)V
 
-    .line 113
-    :cond_84
+    .line 109
+    :cond_8b
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -654,10 +648,10 @@
     .registers 4
 
     .prologue
-    .line 121
+    .line 117
     iget-object v0, p0, Landroid/content/SyncOperation;->extras:Landroid/os/Bundle;
 
-    const-string/jumbo v1, "ignore_backoff"
+    const-string v1, "ignore_backoff"
 
     const/4 v2, 0x0
 
@@ -672,10 +666,10 @@
     .registers 4
 
     .prologue
-    .line 117
+    .line 113
     iget-object v0, p0, Landroid/content/SyncOperation;->extras:Landroid/os/Bundle;
 
-    const-string/jumbo v1, "initialize"
+    const-string v1, "initialize"
 
     const/4 v2, 0x0
 
@@ -690,7 +684,7 @@
     .registers 2
 
     .prologue
-    .line 93
+    .line 91
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Landroid/content/SyncOperation;->dump(Z)Ljava/lang/String;
@@ -704,7 +698,7 @@
     .registers 5
 
     .prologue
-    .line 142
+    .line 138
     invoke-virtual {p0}, Landroid/content/SyncOperation;->ignoreBackoff()Z
 
     move-result v0
@@ -716,10 +710,10 @@
     :goto_8
     iput-wide v0, p0, Landroid/content/SyncOperation;->effectiveRunTime:J
 
-    .line 147
+    .line 143
     return-void
 
-    .line 142
+    .line 138
     :cond_b
     iget-wide v0, p0, Landroid/content/SyncOperation;->earliestRunTime:J
 

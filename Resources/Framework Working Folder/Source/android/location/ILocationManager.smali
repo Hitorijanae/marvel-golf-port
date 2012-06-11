@@ -15,14 +15,6 @@
 
 
 # virtual methods
-.method public abstract addCarGpsProvider(Ljava/lang/String;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract addGpsStatusListener(Landroid/location/IGpsStatusListener;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -199,23 +191,7 @@
     .end annotation
 .end method
 
-.method public abstract notifyNema(JLjava/lang/String;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract providerMeetsCriteria(Ljava/lang/String;Landroid/location/Criteria;)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract removeCarGpsProvider(Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -296,6 +272,14 @@
 .end method
 
 .method public abstract sendNiResponse(II)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setGPSSource(Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -54,38 +54,38 @@
 
     const/4 v1, 0x0
 
-    .line 761
+    .line 725
     invoke-direct {p0, v1, p1, p3}, Lcom/android/internal/os/BatteryStatsImpl$Timer;-><init>(ILjava/util/ArrayList;Landroid/os/Parcel;)V
 
-    .line 762
+    .line 726
     invoke-virtual {p3}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     iput v2, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mCurrentReportedCount:I
 
-    .line 763
+    .line 727
     invoke-virtual {p3}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     iput v2, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mUnpluggedReportedCount:I
 
-    .line 764
+    .line 728
     invoke-virtual {p3}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
 
     iput-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mCurrentReportedTotalTime:J
 
-    .line 765
+    .line 729
     invoke-virtual {p3}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
 
     iput-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mUnpluggedReportedTotalTime:J
 
-    .line 766
+    .line 730
     invoke-virtual {p3}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -95,16 +95,16 @@
     :goto_23
     iput-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mTrackingReportedValues:Z
 
-    .line 767
+    .line 731
     iput-boolean p2, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mInDischarge:Z
 
-    .line 768
+    .line 732
     return-void
 
     :cond_28
     move v0, v1
 
-    .line 766
+    .line 730
     goto :goto_23
 .end method
 
@@ -124,19 +124,19 @@
     .end annotation
 
     .prologue
-    .line 772
+    .line 736
     .local p1, unpluggables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
     const/4 v0, 0x0
 
     invoke-direct {p0, v0, p1}, Lcom/android/internal/os/BatteryStatsImpl$Timer;-><init>(ILjava/util/ArrayList;)V
 
-    .line 773
+    .line 737
     iput-boolean p3, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mTrackingReportedValues:Z
 
-    .line 774
+    .line 738
     iput-boolean p2, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mInDischarge:Z
 
-    .line 775
+    .line 739
     return-void
 .end method
 
@@ -146,8 +146,8 @@
     .registers 4
 
     .prologue
-    .line 839
-    iget v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Timer;->mCount:I
+    .line 803
+    iget v1, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mCount:I
 
     iget-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mInDischarge:Z
 
@@ -179,8 +179,8 @@
     .parameter "curBatteryRealtime"
 
     .prologue
-    .line 834
-    iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Timer;->mTotalTime:J
+    .line 798
+    iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mTotalTime:J
 
     iget-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mInDischarge:Z
 
@@ -211,7 +211,7 @@
     .registers 2
 
     .prologue
-    .line 788
+    .line 752
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mUpdateVersion:I
 
     return v0
@@ -223,10 +223,10 @@
     .parameter "prefix"
 
     .prologue
-    .line 826
+    .line 790
     invoke-super {p0, p1, p2}, Lcom/android/internal/os/BatteryStatsImpl$Timer;->logState(Landroid/util/Printer;Ljava/lang/String;)V
 
-    .line 827
+    .line 791
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -235,7 +235,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "mCurrentReportedCount="
+    const-string v1, "mCurrentReportedCount="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -289,7 +289,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 831
+    .line 795
     return-void
 .end method
 
@@ -299,15 +299,15 @@
     .parameter "batteryRealtime"
 
     .prologue
-    .line 821
+    .line 785
     invoke-super {p0, p1, p2, p3, p4}, Lcom/android/internal/os/BatteryStatsImpl$Timer;->plug(JJ)V
 
-    .line 822
+    .line 786
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mInDischarge:Z
 
-    .line 823
+    .line 787
     return-void
 .end method
 
@@ -318,10 +318,10 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 866
+    .line 830
     invoke-super {p0, p1}, Lcom/android/internal/os/BatteryStatsImpl$Timer;->readSummaryFromParcelLocked(Landroid/os/Parcel;)V
 
-    .line 867
+    .line 831
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v1
@@ -330,7 +330,7 @@
 
     iput-wide v1, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mUnpluggedReportedTotalTime:J
 
-    .line 868
+    .line 832
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -339,7 +339,7 @@
 
     iput v1, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mUnpluggedReportedCount:I
 
-    .line 869
+    .line 833
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -349,10 +349,10 @@
     :goto_1a
     iput-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mTrackingReportedValues:Z
 
-    .line 870
+    .line 834
     return-void
 
-    .line 869
+    .line 833
     :cond_1d
     const/4 v0, 0x0
 
@@ -365,13 +365,13 @@
     .parameter "detachIfReset"
 
     .prologue
-    .line 853
+    .line 817
     invoke-super {p0, p1, p2}, Lcom/android/internal/os/BatteryStatsImpl$Timer;->reset(Lcom/android/internal/os/BatteryStatsImpl;Z)Z
 
-    .line 854
+    .line 818
     invoke-virtual {p0}, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->setStale()V
 
-    .line 855
+    .line 819
     const/4 v0, 0x1
 
     return v0
@@ -383,18 +383,18 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 778
+    .line 742
     iput-boolean v2, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mTrackingReportedValues:Z
 
-    .line 779
+    .line 743
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mUnpluggedReportedTotalTime:J
 
-    .line 780
+    .line 744
     iput v2, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mUnpluggedReportedCount:I
 
-    .line 781
+    .line 745
     return-void
 .end method
 
@@ -403,10 +403,10 @@
     .parameter "version"
 
     .prologue
-    .line 784
+    .line 748
     iput p1, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mUpdateVersion:I
 
-    .line 785
+    .line 749
     return-void
 .end method
 
@@ -416,31 +416,31 @@
     .parameter "batteryRealtime"
 
     .prologue
-    .line 812
+    .line 776
     invoke-super {p0, p1, p2, p3, p4}, Lcom/android/internal/os/BatteryStatsImpl$Timer;->unplug(JJ)V
 
-    .line 813
+    .line 777
     iget-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mTrackingReportedValues:Z
 
     if-eqz v0, :cond_f
 
-    .line 814
+    .line 778
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mCurrentReportedTotalTime:J
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mUnpluggedReportedTotalTime:J
 
-    .line 815
+    .line 779
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mCurrentReportedCount:I
 
     iput v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mUnpluggedReportedCount:I
 
-    .line 817
+    .line 781
     :cond_f
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mInDischarge:Z
 
-    .line 818
+    .line 782
     return-void
 .end method
 
@@ -449,7 +449,7 @@
     .parameter "count"
 
     .prologue
-    .line 792
+    .line 756
     iget-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mInDischarge:Z
 
     if-eqz v0, :cond_d
@@ -458,19 +458,19 @@
 
     if-nez v0, :cond_d
 
-    .line 794
+    .line 758
     iput p1, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mUnpluggedReportedCount:I
 
-    .line 796
+    .line 760
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mTrackingReportedValues:Z
 
-    .line 798
+    .line 762
     :cond_d
     iput p1, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mCurrentReportedCount:I
 
-    .line 799
+    .line 763
     return-void
 .end method
 
@@ -479,7 +479,7 @@
     .parameter "totalTime"
 
     .prologue
-    .line 802
+    .line 766
     iget-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mInDischarge:Z
 
     if-eqz v0, :cond_11
@@ -492,19 +492,19 @@
 
     if-nez v0, :cond_11
 
-    .line 804
+    .line 768
     iput-wide p1, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mUnpluggedReportedTotalTime:J
 
-    .line 806
+    .line 770
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mTrackingReportedValues:Z
 
-    .line 808
+    .line 772
     :cond_11
     iput-wide p1, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mCurrentReportedTotalTime:J
 
-    .line 809
+    .line 773
     return-void
 .end method
 
@@ -514,20 +514,20 @@
     .parameter "batteryRealtime"
 
     .prologue
-    .line 859
+    .line 823
     invoke-super {p0, p1, p2, p3}, Lcom/android/internal/os/BatteryStatsImpl$Timer;->writeSummaryFromParcelLocked(Landroid/os/Parcel;J)V
 
-    .line 860
+    .line 824
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mCurrentReportedTotalTime:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 861
+    .line 825
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mCurrentReportedCount:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 862
+    .line 826
     iget-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mTrackingReportedValues:Z
 
     if-eqz v0, :cond_16
@@ -537,10 +537,10 @@
     :goto_12
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 863
+    .line 827
     return-void
 
-    .line 862
+    .line 826
     :cond_16
     const/4 v0, 0x0
 
@@ -553,30 +553,30 @@
     .parameter "batteryRealtime"
 
     .prologue
-    .line 844
+    .line 808
     invoke-super {p0, p1, p2, p3}, Lcom/android/internal/os/BatteryStatsImpl$Timer;->writeToParcel(Landroid/os/Parcel;J)V
 
-    .line 845
+    .line 809
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mCurrentReportedCount:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 846
+    .line 810
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mUnpluggedReportedCount:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 847
+    .line 811
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mCurrentReportedTotalTime:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 848
+    .line 812
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mUnpluggedReportedTotalTime:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 849
+    .line 813
     iget-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mTrackingReportedValues:Z
 
     if-eqz v0, :cond_20
@@ -586,10 +586,10 @@
     :goto_1c
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 850
+    .line 814
     return-void
 
-    .line 849
+    .line 813
     :cond_20
     const/4 v0, 0x0
 

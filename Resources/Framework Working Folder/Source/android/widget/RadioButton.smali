@@ -69,9 +69,9 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/RadioButton;->mContext:Landroid/content/Context;
 
-    const v2, 0x1040499
+    const v2, 0x10404a1
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -89,9 +89,9 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/RadioButton;->mContext:Landroid/content/Context;
 
-    const v2, 0x104049a
+    const v2, 0x10404a2
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -235,7 +235,7 @@
 
     .line 76
     .local v0, res:Landroid/content/res/Resources;
-    const v1, 0x108056f
+    const v1, 0x1080599
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -244,7 +244,7 @@
     iput-object v1, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftIcon:Landroid/graphics/drawable/Drawable;
 
     .line 77
-    const v1, 0x1080570
+    const v1, 0x108059a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -295,7 +295,7 @@
 
     .line 91
     .local v0, key:Lcom/android/internal/widget/PasswordEntryKeyboard$LatinKey;
-    iget-object v1, v0, Landroid/inputmethodservice/Keyboard$Key;->codes:[I
+    iget-object v1, v0, Lcom/android/internal/widget/PasswordEntryKeyboard$LatinKey;->codes:[I
 
     aget v6, v1, v7
 
@@ -319,14 +319,14 @@
     :cond_1d
     const-string v1, " "
 
-    iput-object v1, v0, Landroid/inputmethodservice/Keyboard$Key;->label:Ljava/lang/CharSequence;
+    iput-object v1, v0, Lcom/android/internal/widget/PasswordEntryKeyboard$LatinKey;->label:Ljava/lang/CharSequence;
 
     .line 95
     invoke-virtual {v0, v7}, Lcom/android/internal/widget/PasswordEntryKeyboard$LatinKey;->setEnabled(Z)V
 
     .line 97
     :cond_24
-    iget-object v1, v0, Landroid/inputmethodservice/Keyboard$Key;->codes:[I
+    iget-object v1, v0, Lcom/android/internal/widget/PasswordEntryKeyboard$LatinKey;->codes:[I
 
     aget v1, v1, v7
 

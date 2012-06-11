@@ -35,7 +35,7 @@
     .registers 3
 
     .prologue
-    .line 285
+    .line 282
     const/4 v0, 0x7
 
     new-array v0, v0, [Ljava/lang/String;
@@ -60,7 +60,7 @@
 
     const/4 v1, 0x3
 
-    const-string/jumbo v2, "long_touch"
+    const-string v2, "long_touch"
 
     aput-object v2, v0, v1
 
@@ -91,10 +91,10 @@
     .registers 1
 
     .prologue
-    .line 205
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 202
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 368
+    .line 365
     return-void
 .end method
 

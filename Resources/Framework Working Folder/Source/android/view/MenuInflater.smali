@@ -84,7 +84,7 @@
 
     .prologue
     .line 74
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 75
     iput-object p1, p0, Landroid/view/MenuInflater;->mContext:Landroid/content/Context;
@@ -229,10 +229,10 @@
     .line 134
     .local v3, reachedEndOfMenu:Z
     :goto_20
-    if-nez v3, :cond_d6
+    if-nez v3, :cond_d4
 
     .line 135
-    packed-switch v0, :pswitch_data_d8
+    packed-switch v0, :pswitch_data_d6
 
     .line 185
     :cond_25
@@ -312,13 +312,13 @@
 
     .line 144
     :cond_5d
-    const-string/jumbo v7, "item"
+    const-string v7, "item"
 
     invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_6a
+    if-eqz v7, :cond_69
 
     .line 145
     invoke-virtual {v2, p2}, Landroid/view/MenuInflater$MenuState;->readItem(Landroid/util/AttributeSet;)V
@@ -326,14 +326,14 @@
     goto :goto_25
 
     .line 146
-    :cond_6a
+    :cond_69
     const-string/jumbo v7, "menu"
 
     invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_7b
+    if-eqz v7, :cond_7a
 
     .line 148
     invoke-virtual {v2}, Landroid/view/MenuInflater$MenuState;->addSubMenuItem()Landroid/view/SubMenu;
@@ -348,7 +348,7 @@
 
     .line 153
     .end local v4           #subMenu:Landroid/view/SubMenu;
-    :cond_7b
+    :cond_7a
     const/4 v1, 0x1
 
     .line 154
@@ -359,20 +359,20 @@
 
     .line 159
     .end local v5           #tagName:Ljava/lang/String;
-    :pswitch_7e
+    :pswitch_7d
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v5
 
     .line 160
     .restart local v5       #tagName:Ljava/lang/String;
-    if-eqz v1, :cond_8d
+    if-eqz v1, :cond_8c
 
     invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_8d
+    if-eqz v7, :cond_8c
 
     .line 161
     const/4 v1, 0x0
@@ -383,14 +383,14 @@
     goto :goto_25
 
     .line 163
-    :cond_8d
+    :cond_8c
     const-string v7, "group"
 
     invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_99
+    if-eqz v7, :cond_98
 
     .line 164
     invoke-virtual {v2}, Landroid/view/MenuInflater$MenuState;->resetGroup()V
@@ -398,14 +398,14 @@
     goto :goto_25
 
     .line 165
-    :cond_99
-    const-string/jumbo v7, "item"
+    :cond_98
+    const-string v7, "item"
 
     invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_c2
+    if-eqz v7, :cond_c0
 
     .line 168
     invoke-virtual {v2}, Landroid/view/MenuInflater$MenuState;->hasAddedItem()Z
@@ -420,7 +420,7 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_bd
+    if-eqz v7, :cond_bb
 
     #getter for: Landroid/view/MenuInflater$MenuState;->itemActionProvider:Landroid/view/ActionProvider;
     invoke-static {v2}, Landroid/view/MenuInflater$MenuState;->access$000(Landroid/view/MenuInflater$MenuState;)Landroid/view/ActionProvider;
@@ -431,7 +431,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_bd
+    if-eqz v7, :cond_bb
 
     .line 171
     invoke-virtual {v2}, Landroid/view/MenuInflater$MenuState;->addSubMenuItem()Landroid/view/SubMenu;
@@ -439,13 +439,13 @@
     goto/16 :goto_25
 
     .line 173
-    :cond_bd
+    :cond_bb
     invoke-virtual {v2}, Landroid/view/MenuInflater$MenuState;->addItem()V
 
     goto/16 :goto_25
 
     .line 176
-    :cond_c2
+    :cond_c0
     const-string/jumbo v7, "menu"
 
     invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -461,7 +461,7 @@
 
     .line 182
     .end local v5           #tagName:Ljava/lang/String;
-    :pswitch_ce
+    :pswitch_cc
     new-instance v7, Ljava/lang/RuntimeException;
 
     const-string v8, "Unexpected end of document"
@@ -471,17 +471,17 @@
     throw v7
 
     .line 187
-    :cond_d6
+    :cond_d4
     return-void
 
     .line 135
     nop
 
-    :pswitch_data_d8
+    :pswitch_data_d6
     .packed-switch 0x1
-        :pswitch_ce
+        :pswitch_cc
         :pswitch_4b
-        :pswitch_7e
+        :pswitch_7d
     .end packed-switch
 .end method
 

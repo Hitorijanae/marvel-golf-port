@@ -88,7 +88,7 @@
     .line 61
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/view/accessibility/AccessibilityRecord;->sPoolLock:Ljava/lang/Object;
 
@@ -102,7 +102,7 @@
     const/4 v1, -0x1
 
     .line 95
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 69
     iput v1, p0, Landroid/view/accessibility/AccessibilityRecord;->mCurrentItemIndex:I

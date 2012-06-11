@@ -102,7 +102,7 @@
 
     .prologue
     .line 59
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 60
     iput-wide p1, p0, Landroid/content/pm/VerifierDeviceIdentity;->mIdentity:J
@@ -124,7 +124,7 @@
 
     .prologue
     .line 64
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 65
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
@@ -187,7 +187,7 @@
 
     .local v2, i:I
     :goto_7
-    if-ge v2, v0, :cond_7c
+    if-ge v2, v0, :cond_7b
 
     .line 143
     aget-byte v1, p0, v2
@@ -196,11 +196,11 @@
     .local v1, group:I
     const/16 v7, 0x41
 
-    if-gt v7, v1, :cond_2d
+    if-gt v7, v1, :cond_2c
 
     const/16 v7, 0x5a
 
-    if-gt v1, v7, :cond_2d
+    if-gt v1, v7, :cond_2c
 
     .line 151
     add-int/lit8 v6, v1, -0x41
@@ -222,17 +222,17 @@
     .line 172
     const/4 v7, 0x1
 
-    if-ne v3, v7, :cond_71
+    if-ne v3, v7, :cond_70
 
     .line 173
     and-int/lit8 v7, v6, 0xf
 
-    if-eq v7, v6, :cond_3c
+    if-eq v7, v6, :cond_3b
 
     .line 174
     new-instance v7, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v8, "illegal start character; will overflow"
+    const-string v8, "illegal start character; will overflow"
 
     invoke-direct {v7, v8}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -240,14 +240,14 @@
 
     .line 152
     .end local v6           #value:I
-    :cond_2d
+    :cond_2c
     const/16 v7, 0x32
 
-    if-gt v7, v1, :cond_38
+    if-gt v7, v1, :cond_37
 
     const/16 v7, 0x37
 
-    if-gt v1, v7, :cond_38
+    if-gt v1, v7, :cond_37
 
     .line 153
     add-int/lit8 v6, v1, -0x18
@@ -257,26 +257,26 @@
 
     .line 154
     .end local v6           #value:I
-    :cond_38
+    :cond_37
     const/16 v7, 0x2d
 
-    if-ne v1, v7, :cond_3f
+    if-ne v1, v7, :cond_3e
 
     .line 142
-    :cond_3c
+    :cond_3b
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_7
 
     .line 156
-    :cond_3f
+    :cond_3e
     const/16 v7, 0x61
 
-    if-gt v7, v1, :cond_4a
+    if-gt v7, v1, :cond_49
 
     const/16 v7, 0x7a
 
-    if-gt v1, v7, :cond_4a
+    if-gt v1, v7, :cond_49
 
     .line 158
     add-int/lit8 v6, v1, -0x61
@@ -286,10 +286,10 @@
 
     .line 159
     .end local v6           #value:I
-    :cond_4a
+    :cond_49
     const/16 v7, 0x30
 
-    if-ne v1, v7, :cond_51
+    if-ne v1, v7, :cond_50
 
     .line 161
     const/16 v6, 0xe
@@ -299,10 +299,10 @@
 
     .line 162
     .end local v6           #value:I
-    :cond_51
+    :cond_50
     const/16 v7, 0x31
 
-    if-ne v1, v7, :cond_58
+    if-ne v1, v7, :cond_57
 
     .line 164
     const/16 v6, 0x8
@@ -312,7 +312,7 @@
 
     .line 166
     .end local v6           #value:I
-    :cond_58
+    :cond_57
     new-instance v7, Ljava/lang/IllegalArgumentException;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -339,8 +339,8 @@
 
     .line 176
     .restart local v6       #value:I
-    :cond_71
-    if-le v3, v11, :cond_3c
+    :cond_70
+    if-le v3, v11, :cond_3b
 
     .line 177
     new-instance v7, Ljava/lang/IllegalArgumentException;
@@ -354,8 +354,8 @@
     .line 181
     .end local v1           #group:I
     .end local v6           #value:I
-    :cond_7c
-    if-eq v3, v11, :cond_87
+    :cond_7b
+    if-eq v3, v11, :cond_86
 
     .line 182
     new-instance v7, Ljava/lang/IllegalArgumentException;
@@ -367,7 +367,7 @@
     throw v7
 
     .line 185
-    :cond_87
+    :cond_86
     return-wide v4
 .end method
 

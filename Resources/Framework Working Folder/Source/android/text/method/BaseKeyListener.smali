@@ -427,26 +427,25 @@
 
     .prologue
     .line 149
-    sparse-switch p3, :sswitch_data_1c
+    sparse-switch p3, :sswitch_data_18
 
-    .line 161
+    .line 157
     const/4 v0, 0x0
 
-    .line 165
+    .line 161
     .local v0, handled:Z
     :goto_4
     if-eqz v0, :cond_9
 
-    .line 166
+    .line 162
     invoke-static {p2}, Landroid/text/method/BaseKeyListener;->adjustMetaAfterKeypress(Landroid/text/Spannable;)V
 
-    .line 169
+    .line 165
     :cond_9
     invoke-super {p0, p1, p2, p3, p4}, Landroid/text/method/MetaKeyKeyListener;->onKeyDown(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
 
     move-result v1
 
-    :goto_d
     return v1
 
     .line 151
@@ -456,31 +455,26 @@
 
     move-result v0
 
-    .line 153
+    .line 152
     .restart local v0       #handled:Z
-    invoke-static {p2}, Landroid/text/method/BaseKeyListener;->adjustMetaAfterKeypress(Landroid/text/Spannable;)V
+    goto :goto_4
 
     .line 154
-    const/4 v1, 0x1
-
-    goto :goto_d
-
-    .line 158
     .end local v0           #handled:Z
-    :sswitch_17
+    :sswitch_13
     invoke-virtual {p0, p1, p2, p3, p4}, Landroid/text/method/BaseKeyListener;->forwardDelete(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
-    .line 159
+    .line 155
     .restart local v0       #handled:Z
     goto :goto_4
 
     .line 149
-    :sswitch_data_1c
+    :sswitch_data_18
     .sparse-switch
         0x43 -> :sswitch_e
-        0x70 -> :sswitch_17
+        0x70 -> :sswitch_13
     .end sparse-switch
 .end method
 
@@ -493,7 +487,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 177
+    .line 173
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v5
@@ -508,52 +502,52 @@
 
     if-eqz v5, :cond_f
 
-    .line 197
+    .line 193
     :cond_e
     :goto_e
     return v4
 
-    .line 183
+    .line 179
     :cond_f
     invoke-static {p2}, Landroid/text/Selection;->getSelectionStart(Ljava/lang/CharSequence;)I
 
     move-result v1
 
-    .line 184
+    .line 180
     .local v1, selectionStart:I
     invoke-static {p2}, Landroid/text/Selection;->getSelectionEnd(Ljava/lang/CharSequence;)I
 
     move-result v0
 
-    .line 185
+    .line 181
     .local v0, selectionEnd:I
     if-ge v0, v1, :cond_1c
 
-    .line 186
+    .line 182
     move v2, v0
 
-    .line 187
+    .line 183
     .local v2, temp:I
     move v0, v1
 
-    .line 188
+    .line 184
     move v1, v2
 
-    .line 191
+    .line 187
     .end local v2           #temp:I
     :cond_1c
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getCharacters()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 192
+    .line 188
     .local v3, text:Ljava/lang/CharSequence;
     if-eqz v3, :cond_e
 
-    .line 196
+    .line 192
     invoke-interface {p2, v1, v0, v3}, Landroid/text/Editable;->replace(IILjava/lang/CharSequence;)Landroid/text/Editable;
 
-    .line 197
+    .line 193
     const/4 v4, 0x1
 
     goto :goto_e

@@ -16,27 +16,17 @@
 
 .field public static final METADATA_KEY_BITRATE:I = 0x14
 
-.field public static final METADATA_KEY_BIT_RATE:I = 0x6a
-
 .field public static final METADATA_KEY_CD_TRACK_NUMBER:I = 0x0
-
-.field public static final METADATA_KEY_CODEC:I = 0x66
-
-.field public static final METADATA_KEY_COMMENT:I = 0x68
 
 .field public static final METADATA_KEY_COMPILATION:I = 0xf
 
 .field public static final METADATA_KEY_COMPOSER:I = 0x4
-
-.field public static final METADATA_KEY_COPYRIGHT:I = 0x69
 
 .field public static final METADATA_KEY_DATE:I = 0x5
 
 .field public static final METADATA_KEY_DISC_NUMBER:I = 0xe
 
 .field public static final METADATA_KEY_DURATION:I = 0x9
-
-.field public static final METADATA_KEY_FRAME_RATE:I = 0x6b
 
 .field public static final METADATA_KEY_GENRE:I = 0x6
 
@@ -46,21 +36,15 @@
 
 .field public static final METADATA_KEY_IS_DRM:I = 0x16
 
-.field public static final METADATA_KEY_IS_DRM_CRIPPLED:I = 0x65
-
 .field public static final METADATA_KEY_LOCATION:I = 0x17
 
 .field public static final METADATA_KEY_MIMETYPE:I = 0xc
 
 .field public static final METADATA_KEY_NUM_TRACKS:I = 0xa
 
-.field public static final METADATA_KEY_RATING:I = 0x67
-
 .field public static final METADATA_KEY_TIMED_TEXT_LANGUAGES:I = 0x15
 
 .field public static final METADATA_KEY_TITLE:I = 0x7
-
-.field public static final METADATA_KEY_VIDEO_FORMAT:I = 0x6c
 
 .field public static final METADATA_KEY_VIDEO_HEIGHT:I = 0x13
 
@@ -105,7 +89,7 @@
 
     .prologue
     .line 48
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 49
     invoke-direct {p0}, Landroid/media/MediaMetadataRetriever;->native_setup()V
@@ -419,7 +403,7 @@
     :try_end_4d
     .catch Ljava/io/IOException; {:try_start_4a .. :try_end_4d} :catch_82
 
-    .line 167
+    .line 172
     :cond_4d
     :goto_4d
     throw v0

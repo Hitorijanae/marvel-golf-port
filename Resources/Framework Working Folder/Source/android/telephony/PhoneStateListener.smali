@@ -4,8 +4,6 @@
 
 
 # static fields
-.field public static final LISTEN_CALL_DISCONNECTED:I = 0x400
-
 .field public static final LISTEN_CALL_FORWARDING_INDICATOR:I = 0x8
 
 .field public static final LISTEN_CALL_STATE:I = 0x20
@@ -21,10 +19,6 @@
 .field public static final LISTEN_NONE:I = 0x0
 
 .field public static final LISTEN_OTASP_CHANGED:I = 0x200
-
-.field public static final LISTEN_PRECISE_CALL_STATE:I = 0x800
-
-.field public static final LISTEN_SEPARATE_SERVICE_STATE:I = 0x1000
 
 .field public static final LISTEN_SERVICE_STATE:I = 0x1
 
@@ -47,54 +41,35 @@
     .registers 2
 
     .prologue
-    .line 175
+    .line 159
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 435
+    .line 282
     new-instance v0, Landroid/telephony/PhoneStateListener$1;
 
     invoke-direct {v0, p0}, Landroid/telephony/PhoneStateListener$1;-><init>(Landroid/telephony/PhoneStateListener;)V
 
     iput-object v0, p0, Landroid/telephony/PhoneStateListener;->callback:Lcom/android/internal/telephony/IPhoneStateListener;
 
-    .line 540
+    .line 328
     new-instance v0, Landroid/telephony/PhoneStateListener$2;
 
     invoke-direct {v0, p0}, Landroid/telephony/PhoneStateListener$2;-><init>(Landroid/telephony/PhoneStateListener;)V
 
     iput-object v0, p0, Landroid/telephony/PhoneStateListener;->mHandler:Landroid/os/Handler;
 
-    .line 176
+    .line 160
     return-void
 .end method
 
 
 # virtual methods
-.method public onCallDisconnected(Ljava/lang/String;)V
-    .registers 2
-    .parameter "incomingNumber"
-
-    .prologue
-    .line 605
-    return-void
-.end method
-
 .method public onCallForwardingIndicatorChanged(Z)V
     .registers 2
     .parameter "cfi"
 
     .prologue
-    .line 225
-    return-void
-.end method
-
-.method public onCallForwardingIndicatorChangedExt(ZI)V
-    .registers 3
-    .parameter "cfi"
-    .parameter "phoneType"
-
-    .prologue
-    .line 351
+    .line 200
     return-void
 .end method
 
@@ -104,18 +79,7 @@
     .parameter "incomingNumber"
 
     .prologue
-    .line 243
-    return-void
-.end method
-
-.method public onCallStateChangedExt(ILjava/lang/String;I)V
-    .registers 4
-    .parameter "state"
-    .parameter "incomingNumber"
-    .parameter "phoneType"
-
-    .prologue
-    .line 375
+    .line 218
     return-void
 .end method
 
@@ -124,17 +88,7 @@
     .parameter "location"
 
     .prologue
-    .line 232
-    return-void
-.end method
-
-.method public onCellLocationChangedExt(Landroid/telephony/CellLocation;I)V
-    .registers 3
-    .parameter "location"
-    .parameter "phoneType"
-
-    .prologue
-    .line 361
+    .line 207
     return-void
 .end method
 
@@ -143,17 +97,7 @@
     .parameter "direction"
 
     .prologue
-    .line 274
-    return-void
-.end method
-
-.method public onDataActivityExt(II)V
-    .registers 3
-    .parameter "direction"
-    .parameter "phoneType"
-
-    .prologue
-    .line 412
+    .line 249
     return-void
 .end method
 
@@ -162,7 +106,7 @@
     .parameter "state"
 
     .prologue
-    .line 255
+    .line 230
     return-void
 .end method
 
@@ -172,28 +116,7 @@
     .parameter "networkType"
 
     .prologue
-    .line 261
-    return-void
-.end method
-
-.method public onDataConnectionStateChangedExt(II)V
-    .registers 3
-    .parameter "state"
-    .parameter "phoneType"
-
-    .prologue
-    .line 390
-    return-void
-.end method
-
-.method public onDataConnectionStateChangedExt(III)V
-    .registers 4
-    .parameter "state"
-    .parameter "networkType"
-    .parameter "phoneType"
-
-    .prologue
-    .line 396
+    .line 236
     return-void
 .end method
 
@@ -202,26 +125,7 @@
     .parameter "mwi"
 
     .prologue
-    .line 209
-    return-void
-.end method
-
-.method public onMessageWaitingIndicatorChangedEnhanced(I)V
-    .registers 2
-    .parameter "count"
-
-    .prologue
-    .line 217
-    return-void
-.end method
-
-.method public onMessageWaitingIndicatorChangedExt(ZI)V
-    .registers 3
-    .parameter "mwi"
-    .parameter "phoneType"
-
-    .prologue
-    .line 341
+    .line 193
     return-void
 .end method
 
@@ -230,26 +134,7 @@
     .parameter "otaspMode"
 
     .prologue
-    .line 301
-    return-void
-.end method
-
-.method public onPreciseCallStateChanged(I)V
-    .registers 2
-    .parameter "state"
-
-    .prologue
-    .line 609
-    return-void
-.end method
-
-.method public onSeparateServiceStateChanged([Landroid/telephony/ServiceState;[Landroid/telephony/ServiceState;)V
-    .registers 3
-    .parameter "voiceServiceState"
-    .parameter "dataServiceState"
-
-    .prologue
-    .line 314
+    .line 276
     return-void
 .end method
 
@@ -258,17 +143,7 @@
     .parameter "serviceState"
 
     .prologue
-    .line 188
-    return-void
-.end method
-
-.method public onServiceStateChangedExt(Landroid/telephony/ServiceState;I)V
-    .registers 3
-    .parameter "serviceState"
-    .parameter "phoneType"
-
-    .prologue
-    .line 331
+    .line 172
     return-void
 .end method
 
@@ -279,7 +154,7 @@
     .end annotation
 
     .prologue
-    .line 202
+    .line 186
     return-void
 .end method
 
@@ -288,16 +163,6 @@
     .parameter "signalStrength"
 
     .prologue
-    .line 286
-    return-void
-.end method
-
-.method public onSignalStrengthsChangedExt(Landroid/telephony/SignalStrength;I)V
-    .registers 3
-    .parameter "signalStrength"
-    .parameter "phoneType"
-
-    .prologue
-    .line 427
+    .line 261
     return-void
 .end method

@@ -156,7 +156,7 @@
 
     move-result v12
 
-    if-nez v12, :cond_10e
+    if-nez v12, :cond_10d
 
     .line 79
     new-instance v12, Landroid/util/NoSuchPropertyException;
@@ -218,7 +218,7 @@
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, "is"
+    const-string v13, "is"
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -235,7 +235,7 @@
     .line 58
     const/4 v12, 0x0
 
-    :try_start_9d
+    :try_start_9c
     check-cast v12, [Ljava/lang/Class;
 
     move-object/from16 v0, p1
@@ -245,18 +245,18 @@
     move-result-object v12
 
     iput-object v12, p0, Landroid/util/ReflectiveProperty;->mGetter:Ljava/lang/reflect/Method;
-    :try_end_a7
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_9d .. :try_end_a7} :catch_a8
+    :try_end_a6
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_9c .. :try_end_a6} :catch_a7
 
     goto :goto_48
 
     .line 59
-    :catch_a8
+    :catch_a7
     move-exception v4
 
     .line 62
     .local v4, e1:Ljava/lang/NoSuchMethodException;
-    :try_start_a9
+    :try_start_a8
     move-object/from16 v0, p1
 
     move-object/from16 v1, p3
@@ -282,7 +282,7 @@
 
     move-result v12
 
-    if-nez v12, :cond_130
+    if-nez v12, :cond_12f
 
     .line 65
     new-instance v12, Landroid/util/NoSuchPropertyException;
@@ -332,12 +332,12 @@
     invoke-direct {v12, v13}, Landroid/util/NoSuchPropertyException;-><init>(Ljava/lang/String;)V
 
     throw v12
-    :try_end_f2
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_a9 .. :try_end_f2} :catch_f2
+    :try_end_f1
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_a8 .. :try_end_f1} :catch_f1
 
     .line 69
     .end local v6           #fieldType:Ljava/lang/Class;
-    :catch_f2
+    :catch_f1
     move-exception v5
 
     .line 71
@@ -373,7 +373,7 @@
     .end local v4           #e1:Ljava/lang/NoSuchMethodException;
     .end local v5           #e2:Ljava/lang/NoSuchFieldException;
     .restart local v9       #getterType:Ljava/lang/Class;
-    :cond_10e
+    :cond_10d
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -396,7 +396,7 @@
     .local v10, setterName:Ljava/lang/String;
     const/4 v12, 0x1
 
-    :try_start_123
+    :try_start_122
     new-array v12, v12, [Ljava/lang/Class;
 
     const/4 v13, 0x0
@@ -410,23 +410,23 @@
     move-result-object v12
 
     iput-object v12, p0, Landroid/util/ReflectiveProperty;->mSetter:Ljava/lang/reflect/Method;
-    :try_end_130
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_123 .. :try_end_130} :catch_131
+    :try_end_12f
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_122 .. :try_end_12f} :catch_130
 
     .line 88
     .end local v9           #getterType:Ljava/lang/Class;
     .end local v10           #setterName:Ljava/lang/String;
-    :cond_130
-    :goto_130
+    :cond_12f
+    :goto_12f
     return-void
 
     .line 85
     .restart local v9       #getterType:Ljava/lang/Class;
     .restart local v10       #setterName:Ljava/lang/String;
-    :catch_131
+    :catch_130
     move-exception v12
 
-    goto :goto_130
+    goto :goto_12f
 .end method
 
 .method private typesMatch(Ljava/lang/Class;Ljava/lang/Class;)Z

@@ -7,8 +7,6 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/server/BluetoothService$Reaper;,
-        Landroid/server/BluetoothService$ConnectionManager;,
-        Landroid/server/BluetoothService$HostPatchForIOP;,
         Landroid/server/BluetoothService$RemoteService;,
         Landroid/server/BluetoothService$ServiceRecordClient;
     }
@@ -16,8 +14,6 @@
 
 
 # static fields
-.field private static final ACTION_ALARM_DISCOVERABLE_TIMEOUT:Ljava/lang/String; = "android.intent.action.DISCOVERABLE_TIMEOUT"
-
 .field private static final BLUETOOTH_ADMIN_PERM:Ljava/lang/String; = "android.permission.BLUETOOTH_ADMIN"
 
 .field static final BLUETOOTH_PERM:Ljava/lang/String; = "android.permission.BLUETOOTH"
@@ -28,8 +24,6 @@
 
 .field private static final DOCK_PIN_PATH:Ljava/lang/String; = "/sys/class/switch/dock/bt_pin"
 
-.field private static final GATT_INTENT_DELAY:I = 0x7530
-
 .field private static final INCOMING_CONNECTION_FILE:Ljava/lang/String; = "/data/misc/bluetooth/incoming_connection.conf"
 
 .field private static final INIT_AUTO_PAIRING_FAILURE_ATTEMPT_DELAY:J = 0xbb8L
@@ -37,10 +31,6 @@
 .field private static final MAX_AUTO_PAIRING_FAILURE_ATTEMPT_DELAY:J = 0x2ee0L
 
 .field private static final MESSAGE_AUTO_PAIRING_FAILURE_ATTEMPT_DELAY:I = 0x2
-
-.field private static final MESSAGE_BT_BOOTUP:I = 0x64
-
-.field private static final MESSAGE_GATT_INTENT:I = 0x7
 
 .field private static final MESSAGE_REMOVE_SERVICE_RECORD:I = 0x3
 
@@ -50,16 +40,6 @@
 
 .field private static final RFCOMM_UUIDS:[Landroid/os/ParcelUuid; = null
 
-.field public static final SAP_STATECHANGE_INTENT:Ljava/lang/String; = "com.android.bluetooth.sap.statechanged"
-
-.field private static final SDP_ATTR_ADD_PROTO_DESC_LIST:I = 0xd
-
-.field private static final SDP_ATTR_BPP_SUPPORTED_DOC_FORMAT:I = 0x350
-
-.field private static final SDP_ATTR_GOEP_L2CAP_PSM:I = 0x200
-
-.field private static final SDP_ATTR_PROTO_DESC_LIST:I = 0x4
-
 .field private static final SHARED_PREFERENCES_NAME:Ljava/lang/String; = "bluetooth_service_settings"
 
 .field private static final SHARED_PREFERENCE_DOCK_ADDRESS:Ljava/lang/String; = "dock_bluetooth_address"
@@ -68,18 +48,12 @@
 
 .field private static final TAG:Ljava/lang/String; = "BluetoothService"
 
-.field private static final UUID_INTENT_DELAY:I = 0x7530
+.field private static final UUID_INTENT_DELAY:I = 0x1770
 
 .field private static mDockAddress:Ljava/lang/String;
 
 
 # instance fields
-.field private DEVICE_ADDED:Z
-
-.field private DEVICE_REMOVED:Z
-
-.field private isStoppingDiscovery:Z
-
 .field private final mA2dpProfileState:Landroid/bluetooth/BluetoothProfileState;
 
 .field private mA2dpService:Landroid/server/BluetoothA2dpService;
@@ -93,8 +67,6 @@
 .field private mAdapterSdpHandles:[I
 
 .field private mAdapterUuids:[Landroid/os/ParcelUuid;
-
-.field private mAlarmManager:Landroid/app/AlarmManager;
 
 .field private final mBatteryStats:Lcom/android/internal/app/IBatteryStats;
 
@@ -110,54 +82,7 @@
 
 .field private final mBondState:Landroid/server/BluetoothBondState;
 
-.field private mConnectedDevices:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List",
-            "<",
-            "Landroid/bluetooth/BluetoothDevice;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private mConnectionManager:Landroid/server/BluetoothService$ConnectionManager;
-
 .field private final mContext:Landroid/content/Context;
-
-.field private mDUNEnabled:Z
-
-.field private mDUNRecordHandle:[I
-
-.field private final mDeviceFeatureCache:Ljava/util/HashMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/HashMap",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;>;"
-        }
-    .end annotation
-.end field
-
-.field private final mDeviceL2capPsmCache:Ljava/util/HashMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/HashMap",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/Map",
-            "<",
-            "Landroid/os/ParcelUuid;",
-            "Ljava/lang/Integer;",
-            ">;>;"
-        }
-    .end annotation
-.end field
 
 .field private final mDeviceOobData:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -204,58 +129,11 @@
 
 .field private mEventLoop:Landroid/server/BluetoothEventLoop;
 
-.field private mFTPEnabled:Z
-
-.field private mFTPRecordHandle:[I
-
-.field private final mGattIntentTracker:Ljava/util/HashMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/HashMap",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/ArrayList",
-            "<",
-            "Landroid/os/ParcelUuid;",
-            ">;>;"
-        }
-    .end annotation
-.end field
-
-.field private final mGattProperties:Ljava/util/HashMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/HashMap",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;>;"
-        }
-    .end annotation
-.end field
-
-.field private final mGattServices:Ljava/util/SortedMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/SortedMap",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private final mHandler:Landroid/os/Handler;
 
 .field private mHeadsetProxy:Landroid/bluetooth/BluetoothHeadset;
 
 .field private final mHfpProfileState:Landroid/bluetooth/BluetoothProfileState;
-
-.field private mHostPatchForIOP:Landroid/server/BluetoothService$HostPatchForIOP;
 
 .field private mIncomingConnections:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -276,9 +154,7 @@
 
 .field private mIsAirplaneSensitive:Z
 
-.field private mMAPEnabled:Z
-
-.field private mMAPRecordHandle:[I
+.field private mIsAirplaneToggleable:Z
 
 .field private mNativeData:I
 
@@ -307,10 +183,6 @@
 
 .field private final mReceiver:Landroid/content/BroadcastReceiver;
 
-.field private mSAPEnabled:Z
-
-.field private mSAPRecordHandle:[I
-
 .field private final mServiceRecordToPid:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -335,8 +207,6 @@
     .end annotation
 .end field
 
-.field private mUpdateOnAllDevicesDisconnected:Z
-
 .field private final mUuidCallbackTracker:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -360,16 +230,14 @@
     .end annotation
 .end field
 
-.field private mpinString:Ljava/lang/String;
-
 
 # direct methods
 .method static constructor <clinit>()V
     .registers 3
 
     .prologue
-    .line 193
-    const/4 v0, 0x7
+    .line 136
+    const/4 v0, 0x4
 
     new-array v0, v0, [Landroid/os/ParcelUuid;
 
@@ -397,51 +265,28 @@
 
     aput-object v2, v0, v1
 
-    const/4 v1, 0x4
-
-    sget-object v2, Landroid/bluetooth/BluetoothUuid;->DirectPrinting:Landroid/os/ParcelUuid;
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x5
-
-    sget-object v2, Landroid/bluetooth/BluetoothUuid;->ReferencePrinting:Landroid/os/ParcelUuid;
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x6
-
-    sget-object v2, Landroid/bluetooth/BluetoothUuid;->PrintingStatus:Landroid/os/ParcelUuid;
-
-    aput-object v2, v0, v1
-
     sput-object v0, Landroid/server/BluetoothService;->RFCOMM_UUIDS:[Landroid/os/ParcelUuid;
 
-    .line 386
+    .line 203
     invoke-static {}, Landroid/server/BluetoothService;->classInitNative()V
 
-    .line 387
+    .line 204
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 8
+    .registers 7
     .parameter "context"
 
     .prologue
-    const/4 v5, 0x0
-
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
-    .line 389
+    .line 206
     invoke-direct {p0}, Landroid/bluetooth/IBluetooth$Stub;-><init>()V
 
-    .line 127
-    iput-object v5, p0, Landroid/server/BluetoothService;->mpinString:Ljava/lang/String;
-
-    .line 134
+    .line 105
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
@@ -452,65 +297,41 @@
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mStateChangeTracker:Ljava/util/Map;
 
-    .line 159
-    iput-boolean v3, p0, Landroid/server/BluetoothService;->isStoppingDiscovery:Z
-
-    .line 234
+    .line 163
     iput v3, p0, Landroid/server/BluetoothService;->mProfilesConnected:I
 
     iput v3, p0, Landroid/server/BluetoothService;->mProfilesConnecting:I
 
     iput v3, p0, Landroid/server/BluetoothService;->mProfilesDisconnecting:I
 
-    .line 243
+    .line 168
     iput v3, p0, Landroid/server/BluetoothService;->mAdapterConnectionState:I
 
-    .line 253
-    iput-boolean v3, p0, Landroid/server/BluetoothService;->mDUNEnabled:Z
-
-    .line 256
-    iput-boolean v3, p0, Landroid/server/BluetoothService;->mFTPEnabled:Z
-
-    .line 258
-    iput-boolean v3, p0, Landroid/server/BluetoothService;->mSAPEnabled:Z
-
-    .line 260
-    iput-boolean v3, p0, Landroid/server/BluetoothService;->mMAPEnabled:Z
-
-    .line 264
-    iput-boolean v3, p0, Landroid/server/BluetoothService;->mUpdateOnAllDevicesDisconnected:Z
-
-    .line 265
-    iput-boolean v4, p0, Landroid/server/BluetoothService;->DEVICE_ADDED:Z
-
-    .line 266
-    iput-boolean v3, p0, Landroid/server/BluetoothService;->DEVICE_REMOVED:Z
-
-    .line 875
+    .line 511
     new-instance v1, Landroid/server/BluetoothService$1;
 
     invoke-direct {v1, p0}, Landroid/server/BluetoothService$1;-><init>(Landroid/server/BluetoothService;)V
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mHandler:Landroid/os/Handler;
 
-    .line 2910
+    .line 1660
     new-instance v1, Landroid/server/BluetoothService$2;
 
     invoke-direct {v1, p0}, Landroid/server/BluetoothService$2;-><init>(Landroid/server/BluetoothService;)V
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 3333
+    .line 1951
     new-instance v1, Landroid/server/BluetoothService$3;
 
     invoke-direct {v1, p0}, Landroid/server/BluetoothService$3;-><init>(Landroid/server/BluetoothService;)V
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mBluetoothProfileServiceListener:Landroid/bluetooth/BluetoothProfile$ServiceListener;
 
-    .line 390
+    .line 207
     iput-object p1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
-    .line 396
+    .line 213
     const-string v1, "batteryinfo"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -523,126 +344,91 @@
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mBatteryStats:Lcom/android/internal/app/IBatteryStats;
 
-    .line 398
+    .line 215
     invoke-direct {p0}, Landroid/server/BluetoothService;->initializeNativeDataNative()V
 
-    .line 400
+    .line 217
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledNative()I
 
     move-result v1
 
-    if-ne v1, v4, :cond_61
+    if-ne v1, v4, :cond_4e
 
-    .line 401
+    .line 218
     const-string v1, "BluetoothService"
 
     const-string v2, "Bluetooth daemons already running - runtime restart? "
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 402
+    .line 219
     invoke-virtual {p0}, Landroid/server/BluetoothService;->disableNative()I
 
-    .line 405
-    :cond_61
+    .line 222
+    :cond_4e
     new-instance v1, Landroid/server/BluetoothBondState;
 
     invoke-direct {v1, p1, p0}, Landroid/server/BluetoothBondState;-><init>(Landroid/content/Context;Landroid/server/BluetoothService;)V
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
-    .line 406
+    .line 223
     new-instance v1, Landroid/server/BluetoothAdapterProperties;
 
     invoke-direct {v1, p1, p0}, Landroid/server/BluetoothAdapterProperties;-><init>(Landroid/content/Context;Landroid/server/BluetoothService;)V
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mAdapterProperties:Landroid/server/BluetoothAdapterProperties;
 
-    .line 407
+    .line 224
     new-instance v1, Landroid/server/BluetoothDeviceProperties;
 
     invoke-direct {v1, p0}, Landroid/server/BluetoothDeviceProperties;-><init>(Landroid/server/BluetoothService;)V
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
 
-    .line 409
-    new-instance v1, Ljava/util/HashMap;
-
-    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v1, p0, Landroid/server/BluetoothService;->mGattProperties:Ljava/util/HashMap;
-
-    .line 411
+    .line 226
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mDeviceServiceChannelCache:Ljava/util/HashMap;
 
-    .line 412
-    new-instance v1, Ljava/util/HashMap;
-
-    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v1, p0, Landroid/server/BluetoothService;->mDeviceFeatureCache:Ljava/util/HashMap;
-
-    .line 413
+    .line 227
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mDeviceOobData:Ljava/util/HashMap;
 
-    .line 414
-    new-instance v1, Ljava/util/HashMap;
-
-    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v1, p0, Landroid/server/BluetoothService;->mDeviceL2capPsmCache:Ljava/util/HashMap;
-
-    .line 415
+    .line 228
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mUuidIntentTracker:Ljava/util/ArrayList;
 
-    .line 416
+    .line 229
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mUuidCallbackTracker:Ljava/util/HashMap;
 
-    .line 417
-    new-instance v1, Ljava/util/HashMap;
-
-    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v1, p0, Landroid/server/BluetoothService;->mGattIntentTracker:Ljava/util/HashMap;
-
-    .line 420
-    new-instance v1, Ljava/util/TreeMap;
-
-    invoke-direct {v1}, Ljava/util/TreeMap;-><init>()V
-
-    iput-object v1, p0, Landroid/server/BluetoothService;->mGattServices:Ljava/util/SortedMap;
-
-    .line 421
+    .line 230
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mServiceRecordToPid:Ljava/util/HashMap;
 
-    .line 422
+    .line 231
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mDeviceProfileState:Ljava/util/HashMap;
 
-    .line 423
+    .line 232
     new-instance v1, Landroid/bluetooth/BluetoothProfileState;
 
     iget-object v2, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
@@ -651,7 +437,7 @@
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mA2dpProfileState:Landroid/bluetooth/BluetoothProfileState;
 
-    .line 424
+    .line 233
     new-instance v1, Landroid/bluetooth/BluetoothProfileState;
 
     iget-object v2, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
@@ -660,114 +446,38 @@
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mHfpProfileState:Landroid/bluetooth/BluetoothProfileState;
 
-    .line 425
-    new-instance v1, Ljava/util/ArrayList;
-
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v1, p0, Landroid/server/BluetoothService;->mConnectedDevices:Ljava/util/List;
-
-    .line 427
+    .line 235
     iget-object v1, p0, Landroid/server/BluetoothService;->mHfpProfileState:Landroid/bluetooth/BluetoothProfileState;
 
     invoke-virtual {v1}, Landroid/bluetooth/BluetoothProfileState;->start()V
 
-    .line 428
+    .line 236
     iget-object v1, p0, Landroid/server/BluetoothService;->mA2dpProfileState:Landroid/bluetooth/BluetoothProfileState;
 
     invoke-virtual {v1}, Landroid/bluetooth/BluetoothProfileState;->start()V
 
-    .line 430
-    new-instance v1, Landroid/server/BluetoothService$ConnectionManager;
-
-    invoke-direct {v1, p0, v5}, Landroid/server/BluetoothService$ConnectionManager;-><init>(Landroid/server/BluetoothService;Landroid/server/BluetoothService$1;)V
-
-    iput-object v1, p0, Landroid/server/BluetoothService;->mConnectionManager:Landroid/server/BluetoothService$ConnectionManager;
-
-    .line 432
-    new-instance v1, Landroid/server/BluetoothService$HostPatchForIOP;
-
-    invoke-direct {v1}, Landroid/server/BluetoothService$HostPatchForIOP;-><init>()V
-
-    iput-object v1, p0, Landroid/server/BluetoothService;->mHostPatchForIOP:Landroid/server/BluetoothService$HostPatchForIOP;
-
-    .line 434
+    .line 238
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 435
+    .line 239
     .local v0, filter:Landroid/content/IntentFilter;
     invoke-direct {p0, v0}, Landroid/server/BluetoothService;->registerForAirplaneMode(Landroid/content/IntentFilter;)V
 
-    .line 438
-    const-string v1, "android.bluetooth.headset.profile.action.AUDIO_STATE_CHANGED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 439
-    const-string v1, "android.bluetooth.a2dp.profile.action.CONNECTION_STATE_CHANGED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 440
-    const-string v1, "android.bluetooth.input.profile.action.CONNECTION_STATE_CHANGED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 441
-    const-string v1, "android.bluetooth.pan.profile.action.CONNECTION_STATE_CHANGED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 444
-    const-string v1, "android.intent.action.BOOT_COMPLETED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 445
-    const-string v1, "android.intent.action.QUICKBOOT_POWERON"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 450
-    const-string v1, "android.intent.action.DISCOVERABLE_TIMEOUT"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 453
+    .line 241
     const-string v1, "android.intent.action.DOCK_EVENT"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 454
-    const-string v1, "android.bluetooth.device.action.CONNECTION_ACCESS_REPLY"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 455
-    const-string v1, "android.bluetooth.device.action.ACL_CONNECTED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 456
-    const-string v1, "android.bluetooth.device.action.ACL_DISCONNECTED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 458
-    const-string v1, "android.app.admin.intent.ALLOW_BT_CHANGE"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 460
+    .line 242
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Landroid/server/BluetoothService;->mReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 461
+    .line 243
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     invoke-static {v1, p0}, Landroid/server/BluetoothInputProfileHandler;->getInstance(Landroid/content/Context;Landroid/server/BluetoothService;)Landroid/server/BluetoothInputProfileHandler;
@@ -776,7 +486,7 @@
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
-    .line 462
+    .line 244
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     invoke-static {v1, p0}, Landroid/server/BluetoothPanProfileHandler;->getInstance(Landroid/content/Context;Landroid/server/BluetoothService;)Landroid/server/BluetoothPanProfileHandler;
@@ -785,7 +495,7 @@
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
-    .line 463
+    .line 245
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     invoke-static {v1, p0}, Landroid/server/BluetoothHealthProfileHandler;->getInstance(Landroid/content/Context;Landroid/server/BluetoothService;)Landroid/server/BluetoothHealthProfileHandler;
@@ -794,251 +504,148 @@
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
-    .line 467
-    iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v2, "alarm"
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/app/AlarmManager;
-
-    iput-object v1, p0, Landroid/server/BluetoothService;->mAlarmManager:Landroid/app/AlarmManager;
-
-    .line 470
+    .line 246
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mIncomingConnections:Ljava/util/HashMap;
 
-    .line 471
+    .line 247
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
     iput-object v1, p0, Landroid/server/BluetoothService;->mProfileConnectionState:Ljava/util/HashMap;
 
-    .line 472
+    .line 248
     return-void
 .end method
 
-.method static synthetic access$100(Landroid/server/BluetoothService;)Landroid/server/BluetoothBondState;
+.method static synthetic access$000(Landroid/server/BluetoothService;)Landroid/server/BluetoothBondState;
     .registers 2
     .parameter "x0"
 
     .prologue
-    .line 110
+    .line 86
     iget-object v0, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     return-object v0
 .end method
 
-.method static synthetic access$1000(Landroid/server/BluetoothService;)Landroid/server/BluetoothAdapterStateMachine;
-    .registers 2
-    .parameter "x0"
-
-    .prologue
-    .line 110
-    iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothState:Landroid/server/BluetoothAdapterStateMachine;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1100()Ljava/lang/String;
-    .registers 1
-
-    .prologue
-    .line 110
-    sget-object v0, Landroid/server/BluetoothService;->mDockAddress:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1102(Ljava/lang/String;)Ljava/lang/String;
-    .registers 1
-    .parameter "x0"
-
-    .prologue
-    .line 110
-    sput-object p0, Landroid/server/BluetoothService;->mDockAddress:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1202(Landroid/server/BluetoothService;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 110
-    iput-object p1, p0, Landroid/server/BluetoothService;->mDockPin:Ljava/lang/String;
-
-    return-object p1
-.end method
-
-.method static synthetic access$1300(Landroid/server/BluetoothService;)Landroid/server/BluetoothService$ConnectionManager;
-    .registers 2
-    .parameter "x0"
-
-    .prologue
-    .line 110
-    iget-object v0, p0, Landroid/server/BluetoothService;->mConnectionManager:Landroid/server/BluetoothService$ConnectionManager;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1400(Landroid/server/BluetoothService;)Landroid/server/BluetoothA2dpService;
-    .registers 2
-    .parameter "x0"
-
-    .prologue
-    .line 110
-    iget-object v0, p0, Landroid/server/BluetoothService;->mA2dpService:Landroid/server/BluetoothA2dpService;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1500(Landroid/server/BluetoothService;)Landroid/server/BluetoothEventLoop;
-    .registers 2
-    .parameter "x0"
-
-    .prologue
-    .line 110
-    iget-object v0, p0, Landroid/server/BluetoothService;->mEventLoop:Landroid/server/BluetoothEventLoop;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1600(Landroid/server/BluetoothService;)Z
-    .registers 2
-    .parameter "x0"
-
-    .prologue
-    .line 110
-    iget-boolean v0, p0, Landroid/server/BluetoothService;->DEVICE_ADDED:Z
-
-    return v0
-.end method
-
-.method static synthetic access$1700(Landroid/server/BluetoothService;Landroid/bluetooth/BluetoothDevice;Z)V
+.method static synthetic access$100(Landroid/server/BluetoothService;II)V
     .registers 3
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
 
     .prologue
-    .line 110
-    invoke-direct {p0, p1, p2}, Landroid/server/BluetoothService;->updateConnectedDevicesList(Landroid/bluetooth/BluetoothDevice;Z)V
-
-    return-void
-.end method
-
-.method static synthetic access$1800(Landroid/server/BluetoothService;)Z
-    .registers 2
-    .parameter "x0"
-
-    .prologue
-    .line 110
-    iget-boolean v0, p0, Landroid/server/BluetoothService;->DEVICE_REMOVED:Z
-
-    return v0
-.end method
-
-.method static synthetic access$1900(Landroid/server/BluetoothService;)Landroid/os/Handler;
-    .registers 2
-    .parameter "x0"
-
-    .prologue
-    .line 110
-    iget-object v0, p0, Landroid/server/BluetoothService;->mHandler:Landroid/os/Handler;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200(Landroid/server/BluetoothService;II)V
-    .registers 3
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-
-    .prologue
-    .line 110
+    .line 86
     invoke-direct {p0, p1, p2}, Landroid/server/BluetoothService;->checkAndRemoveRecord(II)V
 
     return-void
 .end method
 
-.method static synthetic access$2002(Landroid/server/BluetoothService;Landroid/bluetooth/BluetoothHeadset;)Landroid/bluetooth/BluetoothHeadset;
+.method static synthetic access$1002(Landroid/server/BluetoothService;Landroid/bluetooth/BluetoothPan;)Landroid/bluetooth/BluetoothPan;
     .registers 2
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 110
-    iput-object p1, p0, Landroid/server/BluetoothService;->mHeadsetProxy:Landroid/bluetooth/BluetoothHeadset;
-
-    return-object p1
-.end method
-
-.method static synthetic access$2102(Landroid/server/BluetoothService;Landroid/bluetooth/BluetoothInputDevice;)Landroid/bluetooth/BluetoothInputDevice;
-    .registers 2
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 110
-    iput-object p1, p0, Landroid/server/BluetoothService;->mInputDevice:Landroid/bluetooth/BluetoothInputDevice;
-
-    return-object p1
-.end method
-
-.method static synthetic access$2202(Landroid/server/BluetoothService;Landroid/bluetooth/BluetoothPan;)Landroid/bluetooth/BluetoothPan;
-    .registers 2
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 110
+    .line 86
     iput-object p1, p0, Landroid/server/BluetoothService;->mPan:Landroid/bluetooth/BluetoothPan;
 
     return-object p1
 .end method
 
-.method static synthetic access$300(Landroid/server/BluetoothService;)Ljava/util/HashMap;
+.method static synthetic access$300(Landroid/server/BluetoothService;)Ljava/util/Map;
     .registers 2
     .parameter "x0"
 
     .prologue
-    .line 110
-    iget-object v0, p0, Landroid/server/BluetoothService;->mGattIntentTracker:Ljava/util/HashMap;
+    .line 86
+    iget-object v0, p0, Landroid/server/BluetoothService;->mStateChangeTracker:Ljava/util/Map;
 
     return-object v0
 .end method
 
-.method static synthetic access$400(Landroid/server/BluetoothService;)Landroid/content/Context;
+.method static synthetic access$400(Landroid/server/BluetoothService;)Landroid/server/BluetoothAdapterStateMachine;
     .registers 2
     .parameter "x0"
 
     .prologue
-    .line 110
+    .line 86
+    iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothState:Landroid/server/BluetoothAdapterStateMachine;
+
+    return-object v0
+.end method
+
+.method static synthetic access$500()Ljava/lang/String;
+    .registers 1
+
+    .prologue
+    .line 86
+    sget-object v0, Landroid/server/BluetoothService;->mDockAddress:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic access$502(Ljava/lang/String;)Ljava/lang/String;
+    .registers 1
+    .parameter "x0"
+
+    .prologue
+    .line 86
+    sput-object p0, Landroid/server/BluetoothService;->mDockAddress:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static synthetic access$602(Landroid/server/BluetoothService;Ljava/lang/String;)Ljava/lang/String;
+    .registers 2
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 86
+    iput-object p1, p0, Landroid/server/BluetoothService;->mDockPin:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method static synthetic access$700(Landroid/server/BluetoothService;)Landroid/content/Context;
+    .registers 2
+    .parameter "x0"
+
+    .prologue
+    .line 86
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
 
-.method static synthetic access$900(Landroid/server/BluetoothService;)Ljava/util/Map;
+.method static synthetic access$802(Landroid/server/BluetoothService;Landroid/bluetooth/BluetoothHeadset;)Landroid/bluetooth/BluetoothHeadset;
     .registers 2
     .parameter "x0"
+    .parameter "x1"
 
     .prologue
-    .line 110
-    iget-object v0, p0, Landroid/server/BluetoothService;->mStateChangeTracker:Ljava/util/Map;
+    .line 86
+    iput-object p1, p0, Landroid/server/BluetoothService;->mHeadsetProxy:Landroid/bluetooth/BluetoothHeadset;
 
-    return-object v0
+    return-object p1
+.end method
+
+.method static synthetic access$902(Landroid/server/BluetoothService;Landroid/bluetooth/BluetoothInputDevice;)Landroid/bluetooth/BluetoothInputDevice;
+    .registers 2
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 86
+    iput-object p1, p0, Landroid/server/BluetoothService;->mInputDevice:Landroid/bluetooth/BluetoothInputDevice;
+
+    return-object p1
 .end method
 
 .method private declared-synchronized addReservedSdpRecords(Ljava/util/ArrayList;)V
@@ -1055,7 +662,7 @@
     .end annotation
 
     .prologue
-    .line 932
+    .line 548
     .local p1, uuids:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/ParcelUuid;>;"
     monitor-enter p0
 
@@ -1066,7 +673,7 @@
 
     new-array v1, v2, [I
 
-    .line 933
+    .line 549
     .local v1, svcIdentifiers:[I
     const/4 v0, 0x0
 
@@ -1078,7 +685,7 @@
 
     if-ge v0, v2, :cond_1d
 
-    .line 934
+    .line 550
     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v2
@@ -1091,12 +698,12 @@
 
     aput v2, v1, v0
 
-    .line 933
+    .line 549
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_8
 
-    .line 936
+    .line 552
     :cond_1d
     invoke-direct {p0, v1}, Landroid/server/BluetoothService;->addReservedServiceRecordsNative([I)[I
 
@@ -1106,12 +713,12 @@
     :try_end_23
     .catchall {:try_start_1 .. :try_end_23} :catchall_25
 
-    .line 937
+    .line 553
     monitor-exit p0
 
     return-void
 
-    .line 932
+    .line 548
     .end local v0           #i:I
     .end local v1           #svcIdentifiers:[I
     :catchall_25
@@ -1129,23 +736,23 @@
 .end method
 
 .method private autoConnect()V
-    .registers 12
+    .registers 10
 
     .prologue
-    .line 3826
+    .line 2435
     invoke-virtual {p0}, Landroid/server/BluetoothService;->getKnownDevices()[Ljava/lang/String;
 
     move-result-object v2
 
-    .line 3827
+    .line 2436
     .local v2, bonds:[Ljava/lang/String;
     if-nez v2, :cond_7
 
-    .line 3847
+    .line 2448
     :cond_6
     return-void
 
-    .line 3830
+    .line 2439
     :cond_7
     move-object v1, v2
 
@@ -1161,60 +768,14 @@
 
     aget-object v6, v1, v3
 
-    .line 3831
+    .line 2440
     .local v6, path:Ljava/lang/String;
     invoke-virtual {p0, v6}, Landroid/server/BluetoothService;->getAddressFromObjectPath(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 3833
+    .line 2441
     .local v0, address:Ljava/lang/String;
-    iget-object v8, p0, Landroid/server/BluetoothService;->mHostPatchForIOP:Landroid/server/BluetoothService$HostPatchForIOP;
-
-    if-eqz v8, :cond_3a
-
-    iget-object v8, p0, Landroid/server/BluetoothService;->mHostPatchForIOP:Landroid/server/BluetoothService$HostPatchForIOP;
-
-    const/4 v9, 0x3
-
-    invoke-virtual {v8, v0, v9}, Landroid/server/BluetoothService$HostPatchForIOP;->isHostPatchRequired(Ljava/lang/String;I)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_3a
-
-    .line 3836
-    const-string v8, "BluetoothService"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, "No autoconnect with specific carkit : "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 3830
-    :cond_37
-    :goto_37
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_a
-
-    .line 3840
-    :cond_3a
     iget-object v8, p0, Landroid/server/BluetoothService;->mDeviceProfileState:Ljava/util/HashMap;
 
     invoke-virtual {v8, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1223,25 +784,30 @@
 
     check-cast v7, Landroid/bluetooth/BluetoothDeviceProfileState;
 
-    .line 3841
+    .line 2442
     .local v7, state:Landroid/bluetooth/BluetoothDeviceProfileState;
-    if-eqz v7, :cond_37
+    if-eqz v7, :cond_28
 
-    .line 3842
+    .line 2443
     new-instance v5, Landroid/os/Message;
 
     invoke-direct {v5}, Landroid/os/Message;-><init>()V
 
-    .line 3843
+    .line 2444
     .local v5, msg:Landroid/os/Message;
     const/16 v8, 0x65
 
     iput v8, v5, Landroid/os/Message;->what:I
 
-    .line 3844
+    .line 2445
     invoke-virtual {v7, v5}, Landroid/bluetooth/BluetoothDeviceProfileState;->sendMessage(Landroid/os/Message;)V
 
-    goto :goto_37
+    .line 2439
+    .end local v5           #msg:Landroid/os/Message;
+    :cond_28
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_a
 .end method
 
 .method static bluezStringToScanMode(ZZ)I
@@ -1250,30 +816,30 @@
     .parameter "discoverable"
 
     .prologue
-    .line 3356
+    .line 1974
     if-eqz p0, :cond_7
 
     if-eqz p1, :cond_7
 
-    .line 3357
+    .line 1975
     const/16 v0, 0x17
 
-    .line 3361
+    .line 1979
     :goto_6
     return v0
 
-    .line 3358
+    .line 1976
     :cond_7
     if-eqz p0, :cond_e
 
     if-nez p1, :cond_e
 
-    .line 3359
+    .line 1977
     const/16 v0, 0x15
 
     goto :goto_6
 
-    .line 3361
+    .line 1979
     :cond_e
     const/16 v0, 0x14
 
@@ -1292,7 +858,7 @@
     .parameter "pid"
 
     .prologue
-    .line 2813
+    .line 1563
     monitor-enter p0
 
     :try_start_1
@@ -1308,7 +874,7 @@
 
     check-cast v0, Landroid/server/BluetoothService$ServiceRecordClient;
 
-    .line 2814
+    .line 1564
     .local v0, client:Landroid/server/BluetoothService$ServiceRecordClient;
     if-eqz v0, :cond_51
 
@@ -1316,7 +882,7 @@
 
     if-ne p2, v1, :cond_51
 
-    .line 2815
+    .line 1565
     const-string v1, "BluetoothService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1353,12 +919,12 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2818
+    .line 1568
     iget-object v1, v0, Landroid/server/BluetoothService$ServiceRecordClient;->death:Landroid/os/IBinder$DeathRecipient;
 
     if-eqz v1, :cond_45
 
-    .line 2819
+    .line 1569
     iget-object v1, v0, Landroid/server/BluetoothService$ServiceRecordClient;->binder:Landroid/os/IBinder;
 
     iget-object v2, v0, Landroid/server/BluetoothService$ServiceRecordClient;->death:Landroid/os/IBinder$DeathRecipient;
@@ -1367,7 +933,7 @@
 
     invoke-interface {v1, v2, v3}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    .line 2822
+    .line 1572
     :cond_45
     iget-object v1, p0, Landroid/server/BluetoothService;->mServiceRecordToPid:Ljava/util/HashMap;
 
@@ -1377,18 +943,18 @@
 
     invoke-virtual {v1, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 2823
+    .line 1573
     invoke-direct {p0, p1}, Landroid/server/BluetoothService;->removeServiceRecordNative(I)Z
     :try_end_51
     .catchall {:try_start_1 .. :try_end_51} :catchall_53
 
-    .line 2825
+    .line 1575
     :cond_51
     monitor-exit p0
 
     return-void
 
-    .line 2813
+    .line 1563
     .end local v0           #client:Landroid/server/BluetoothService$ServiceRecordClient;
     :catchall_53
     move-exception v1
@@ -1398,282 +964,10 @@
     throw v1
 .end method
 
-.method private checkEASState(I)Z
-    .registers 16
-    .parameter "checklevel"
-
-    .prologue
-    .line 796
-    const/4 v6, 0x1
-
-    .line 799
-    .local v6, ret:Z
-    :try_start_1
-    const-string v9, "android.os.ServiceManager"
-
-    invoke-static {v9}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
-
-    move-result-object v7
-
-    .line 800
-    .local v7, sm:Ljava/lang/Class;
-    const-string v9, "getService"
-
-    const/4 v10, 0x1
-
-    new-array v10, v10, [Ljava/lang/Class;
-
-    const/4 v11, 0x0
-
-    const-class v12, Ljava/lang/String;
-
-    aput-object v12, v10, v11
-
-    invoke-virtual {v7, v9, v10}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v9
-
-    const/4 v10, 0x0
-
-    const/4 v11, 0x1
-
-    new-array v11, v11, [Ljava/lang/Object;
-
-    const/4 v12, 0x0
-
-    const-string v13, "DeviceManager"
-
-    aput-object v13, v11, v12
-
-    invoke-virtual {v9, v10, v11}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    .line 803
-    .local v2, dmBinder:Ljava/lang/Object;
-    const-string v9, "android.os.IDeviceManager$Stub"
-
-    invoke-static {v9}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
-
-    move-result-object v5
-
-    .line 804
-    .local v5, lmstub:Ljava/lang/Class;
-    const-string v9, "asInterface"
-
-    const/4 v10, 0x1
-
-    new-array v10, v10, [Ljava/lang/Class;
-
-    const/4 v11, 0x0
-
-    const-class v12, Landroid/os/IBinder;
-
-    aput-object v12, v10, v11
-
-    invoke-virtual {v5, v9, v10}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v0
-
-    .line 805
-    .local v0, asInterface:Ljava/lang/reflect/Method;
-    const/4 v9, 0x0
-
-    const/4 v10, 0x1
-
-    new-array v10, v10, [Ljava/lang/Object;
-
-    const/4 v11, 0x0
-
-    check-cast v2, Landroid/os/IBinder;
-
-    .end local v2           #dmBinder:Ljava/lang/Object;
-    aput-object v2, v10, v11
-
-    invoke-virtual {v0, v9, v10}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v8
-
-    .line 808
-    .local v8, svc:Ljava/lang/Object;
-    invoke-virtual {v8}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v1
-
-    .line 810
-    .local v1, dm:Ljava/lang/Class;
-    const-string v9, "getAllowBTStatus"
-
-    const/4 v10, 0x0
-
-    new-array v10, v10, [Ljava/lang/Class;
-
-    invoke-virtual {v1, v9, v10}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v4
-
-    .line 813
-    .local v4, getAllowBTState:Ljava/lang/reflect/Method;
-    if-eqz v1, :cond_62
-
-    .line 814
-    const/4 v9, 0x0
-
-    new-array v9, v9, [Ljava/lang/Object;
-
-    invoke-virtual {v4, v8, v9}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v9
-
-    check-cast v9, Ljava/lang/Integer;
-
-    invoke-virtual {v9}, Ljava/lang/Integer;->intValue()I
-    :try_end_5e
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_5e} :catch_79
-
-    move-result v9
-
-    if-nez v9, :cond_62
-
-    .line 815
-    const/4 v6, 0x0
-
-    .line 822
-    .end local v0           #asInterface:Ljava/lang/reflect/Method;
-    .end local v1           #dm:Ljava/lang/Class;
-    .end local v4           #getAllowBTState:Ljava/lang/reflect/Method;
-    .end local v5           #lmstub:Ljava/lang/Class;
-    .end local v7           #sm:Ljava/lang/Class;
-    .end local v8           #svc:Ljava/lang/Object;
-    :cond_62
-    :goto_62
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, "checkEASState, ret="
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v9}, Landroid/server/BluetoothService;->log(Ljava/lang/String;)V
-
-    .line 824
-    return v6
-
-    .line 818
-    :catch_79
-    move-exception v3
-
-    .line 819
-    .local v3, e:Ljava/lang/Exception;
-    const-string v9, "BluetoothService"
-
-    const-string v10, "checkEASState: no EAS policy found for checking."
-
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_62
-.end method
-
 .method private static native classInitNative()V
 .end method
 
 .method private native cleanupNativeDataNative()V
-.end method
-
-.method private convertPairingResult(I)Ljava/lang/String;
-    .registers 3
-    .parameter "result"
-
-    .prologue
-    .line 1456
-    packed-switch p1, :pswitch_data_22
-
-    .line 1476
-    const-string v0, "Unexpected error"
-
-    :goto_5
-    return-object v0
-
-    .line 1458
-    :pswitch_6
-    const-string v0, "Authentication success"
-
-    goto :goto_5
-
-    .line 1460
-    :pswitch_9
-    const-string v0, "Authentication failed"
-
-    goto :goto_5
-
-    .line 1462
-    :pswitch_c
-    const-string v0, "Authentication rejected by remote"
-
-    goto :goto_5
-
-    .line 1464
-    :pswitch_f
-    const-string v0, "Authentication canceled by local"
-
-    goto :goto_5
-
-    .line 1466
-    :pswitch_12
-    const-string v0, "Remote device paging failed"
-
-    goto :goto_5
-
-    .line 1468
-    :pswitch_15
-    const-string v0, "Authentication rejected by remote"
-
-    goto :goto_5
-
-    .line 1470
-    :pswitch_18
-    const-string v0, "Authentication timeout (60sec)"
-
-    goto :goto_5
-
-    .line 1472
-    :pswitch_1b
-    const-string v0, "Authentication failed (Repeated attempts)"
-
-    goto :goto_5
-
-    .line 1474
-    :pswitch_1e
-    const-string v0, "Authentication canceled by remote"
-
-    goto :goto_5
-
-    .line 1456
-    nop
-
-    :pswitch_data_22
-    .packed-switch 0x0
-        :pswitch_6
-        :pswitch_9
-        :pswitch_c
-        :pswitch_f
-        :pswitch_12
-        :pswitch_15
-        :pswitch_18
-        :pswitch_1b
-        :pswitch_1e
-    .end packed-switch
 .end method
 
 .method private convertStringToParcelUuid(Ljava/lang/String;)[Landroid/os/ParcelUuid;
@@ -1681,10 +975,10 @@
     .parameter "value"
 
     .prologue
-    .line 1794
+    .line 872
     const/4 v1, 0x0
 
-    .line 1796
+    .line 874
     .local v1, uuidStrings:[Ljava/lang/String;
     const-string v3, ","
 
@@ -1692,12 +986,12 @@
 
     move-result-object v1
 
-    .line 1797
+    .line 875
     array-length v3, v1
 
     new-array v2, v3, [Landroid/os/ParcelUuid;
 
-    .line 1799
+    .line 877
     .local v2, uuids:[Landroid/os/ParcelUuid;
     const/4 v0, 0x0
 
@@ -1707,7 +1001,7 @@
 
     if-ge v0, v3, :cond_19
 
-    .line 1800
+    .line 878
     aget-object v3, v1, v0
 
     invoke-static {v3}, Landroid/os/ParcelUuid;->fromString(Ljava/lang/String;)Landroid/os/ParcelUuid;
@@ -1716,12 +1010,12 @@
 
     aput-object v3, v2, v0
 
-    .line 1799
+    .line 877
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_b
 
-    .line 1802
+    .line 880
     :cond_19
     return-object v2
 .end method
@@ -1731,47 +1025,47 @@
     .parameter "state"
 
     .prologue
-    .line 4038
+    .line 2621
     packed-switch p1, :pswitch_data_14
 
-    .line 4048
+    .line 2631
     const-string v0, "BluetoothService"
 
     const-string v1, "Error in convertToAdapterState"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4049
+    .line 2632
     const/4 v0, -0x1
 
     :goto_b
     return v0
 
-    .line 4040
+    .line 2623
     :pswitch_c
     const/4 v0, 0x0
 
     goto :goto_b
 
-    .line 4042
+    .line 2625
     :pswitch_e
     const/4 v0, 0x3
 
     goto :goto_b
 
-    .line 4044
+    .line 2627
     :pswitch_10
     const/4 v0, 0x2
 
     goto :goto_b
 
-    .line 4046
+    .line 2629
     :pswitch_12
     const/4 v0, 0x1
 
     goto :goto_b
 
-    .line 4038
+    .line 2621
     :pswitch_data_14
     .packed-switch 0x0
         :pswitch_c
@@ -1788,14 +1082,14 @@
     .registers 5
 
     .prologue
-    .line 4102
+    .line 2672
     new-instance v1, Ljava/io/File;
 
     const-string v2, "/data/misc/bluetooth/incoming_connection.conf"
 
     invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 4103
+    .line 2673
     .local v1, f:Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
@@ -1803,22 +1097,22 @@
 
     if-nez v2, :cond_10
 
-    .line 4105
+    .line 2675
     :try_start_d
     invoke-virtual {v1}, Ljava/io/File;->createNewFile()Z
     :try_end_10
     .catch Ljava/io/IOException; {:try_start_d .. :try_end_10} :catch_11
 
-    .line 4110
+    .line 2680
     :cond_10
     :goto_10
     return-void
 
-    .line 4106
+    .line 2676
     :catch_11
     move-exception v0
 
-    .line 4107
+    .line 2677
     .local v0, e:Ljava/io/IOException;
     const-string v2, "BluetoothService"
 
@@ -1835,136 +1129,26 @@
 .method private native createPairedDeviceOutOfBandNative(Ljava/lang/String;I)Z
 .end method
 
-.method private native disConnectSapNative()I
-.end method
-
-.method private declared-synchronized disableSAP()Z
-    .registers 6
-
-    .prologue
-    const/4 v1, 0x1
-
-    const/4 v0, 0x0
-
-    .line 1094
-    monitor-enter p0
-
-    :try_start_3
-    iget-object v2, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v3, "android.permission.BLUETOOTH_ADMIN"
-
-    const-string v4, "Need BLUETOOTH_ADMIN permission"
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1096
-    const-string/jumbo v2, "ro.qualcomm.bluetooth.sap"
-
-    const/4 v3, 0x0
-
-    invoke-static {v2, v3}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v2
-
-    if-nez v2, :cond_1f
-
-    .line 1097
-    const-string v1, "BluetoothService"
-
-    const-string v2, "SAP is not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1d
-    .catchall {:try_start_3 .. :try_end_1d} :catchall_41
-
-    .line 1109
-    :goto_1d
-    monitor-exit p0
-
-    return v0
-
-    .line 1101
-    :cond_1f
-    :try_start_1f
-    iget-boolean v2, p0, Landroid/server/BluetoothService;->mSAPEnabled:Z
-
-    if-ne v2, v1, :cond_39
-
-    .line 1102
-    iget-object v0, p0, Landroid/server/BluetoothService;->mSAPRecordHandle:[I
-
-    invoke-direct {p0, v0}, Landroid/server/BluetoothService;->removeReservedServiceRecordsNative([I)Z
-
-    .line 1103
-    const-string v0, "BluetoothService"
-
-    const-string v2, "Stop SAP server"
-
-    invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1104
-    const-string v0, "bt-sap"
-
-    invoke-static {v0}, Landroid/os/SystemService;->stop(Ljava/lang/String;)V
-
-    .line 1105
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroid/server/BluetoothService;->mSAPEnabled:Z
-
-    move v0, v1
-
-    .line 1106
-    goto :goto_1d
-
-    .line 1108
-    :cond_39
-    const-string v1, "BluetoothService"
-
-    const-string v2, "SAP already disabled"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_40
-    .catchall {:try_start_1f .. :try_end_40} :catchall_41
-
-    goto :goto_1d
-
-    .line 1094
-    :catchall_41
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
-.method private native disconnectGattNative(Ljava/lang/String;)Z
-.end method
-
-.method private native discoverCharacteristicsNative(Ljava/lang/String;)Z
-.end method
-
 .method private dumpAclConnectedDevices(Ljava/io/PrintWriter;)V
     .registers 8
     .parameter "pw"
 
     .prologue
-    .line 3274
+    .line 1907
     invoke-virtual {p0}, Landroid/server/BluetoothService;->getKnownDevices()[Ljava/lang/String;
 
     move-result-object v2
 
-    .line 3275
+    .line 1908
     .local v2, devicesObjectPath:[Ljava/lang/String;
     const-string v5, "\n--ACL connected devices--"
 
     invoke-virtual {p1, v5}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3276
+    .line 1909
     if-eqz v2, :cond_1c
 
-    .line 3277
+    .line 1910
     move-object v0, v2
 
     .local v0, arr$:[Ljava/lang/String;
@@ -1979,7 +1163,7 @@
 
     aget-object v1, v0, v3
 
-    .line 3278
+    .line 1911
     .local v1, device:Ljava/lang/String;
     invoke-virtual {p0, v1}, Landroid/server/BluetoothService;->getAddressFromObjectPath(Ljava/lang/String;)Ljava/lang/String;
 
@@ -1987,12 +1171,12 @@
 
     invoke-virtual {p1, v5}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3277
+    .line 1910
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_e
 
-    .line 3281
+    .line 1914
     .end local v0           #arr$:[Ljava/lang/String;
     .end local v1           #device:Ljava/lang/String;
     .end local v3           #i$:I
@@ -2006,12 +1190,12 @@
     .parameter "pw"
 
     .prologue
-    .line 3266
+    .line 1899
     const-string v3, "\n--Application Service Records--"
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3267
+    .line 1900
     iget-object v3, p0, Landroid/server/BluetoothService;->mServiceRecordToPid:Ljava/util/HashMap;
 
     invoke-virtual {v3}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -2036,7 +1220,7 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 3268
+    .line 1901
     .local v0, handle:Ljava/lang/Integer;
     iget-object v3, p0, Landroid/server/BluetoothService;->mServiceRecordToPid:Ljava/util/HashMap;
 
@@ -2052,7 +1236,7 @@
 
     move-result-object v2
 
-    .line 3269
+    .line 1902
     .local v2, pid:Ljava/lang/Integer;
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -2094,7 +1278,7 @@
 
     goto :goto_f
 
-    .line 3271
+    .line 1904
     .end local v0           #handle:Ljava/lang/Integer;
     .end local v2           #pid:Ljava/lang/Integer;
     :cond_52
@@ -2107,7 +1291,7 @@
     .parameter "device"
 
     .prologue
-    .line 3249
+    .line 1882
     iget-object v0, p0, Landroid/server/BluetoothService;->mHeadsetProxy:Landroid/bluetooth/BluetoothHeadset;
 
     invoke-virtual {v0, p2}, Landroid/bluetooth/BluetoothHeadset;->getConnectionState(Landroid/bluetooth/BluetoothDevice;)I
@@ -2116,11 +1300,11 @@
 
     sparse-switch v0, :sswitch_data_22
 
-    .line 3263
+    .line 1896
     :goto_9
     return-void
 
-    .line 3251
+    .line 1884
     :sswitch_a
     const-string v0, "getConnectionState() = STATE_CONNECTING"
 
@@ -2128,7 +1312,7 @@
 
     goto :goto_9
 
-    .line 3254
+    .line 1887
     :sswitch_10
     const-string v0, "getConnectionState() = STATE_CONNECTED"
 
@@ -2136,7 +1320,7 @@
 
     goto :goto_9
 
-    .line 3257
+    .line 1890
     :sswitch_16
     const-string v0, "getConnectionState() = STATE_DISCONNECTING"
 
@@ -2144,7 +1328,7 @@
 
     goto :goto_9
 
-    .line 3260
+    .line 1893
     :sswitch_1c
     const-string v0, "getConnectionState() = STATE_AUDIO_CONNECTED"
 
@@ -2152,7 +1336,7 @@
 
     goto :goto_9
 
-    .line 3249
+    .line 1882
     :sswitch_data_22
     .sparse-switch
         0x1 -> :sswitch_a
@@ -2167,24 +1351,24 @@
     .parameter "pw"
 
     .prologue
-    .line 3154
+    .line 1787
     const-string v3, "\n--Headset Service--"
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3155
+    .line 1788
     iget-object v3, p0, Landroid/server/BluetoothService;->mHeadsetProxy:Landroid/bluetooth/BluetoothHeadset;
 
     if-eqz v3, :cond_9e
 
-    .line 3156
+    .line 1789
     iget-object v3, p0, Landroid/server/BluetoothService;->mHeadsetProxy:Landroid/bluetooth/BluetoothHeadset;
 
     invoke-virtual {v3}, Landroid/bluetooth/BluetoothHeadset;->getConnectedDevices()Ljava/util/List;
 
     move-result-object v1
 
-    .line 3157
+    .line 1790
     .local v1, deviceList:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
     invoke-interface {v1}, Ljava/util/List;->size()I
 
@@ -2192,16 +1376,16 @@
 
     if-nez v3, :cond_60
 
-    .line 3158
+    .line 1791
     const-string v3, "No headsets connected"
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3167
+    .line 1800
     :goto_1a
     invoke-interface {v1}, Ljava/util/List;->clear()V
 
-    .line 3168
+    .line 1801
     iget-object v3, p0, Landroid/server/BluetoothService;->mHeadsetProxy:Landroid/bluetooth/BluetoothHeadset;
 
     const/4 v4, 0x2
@@ -2214,12 +1398,12 @@
 
     move-result-object v1
 
-    .line 3170
+    .line 1803
     const-string v3, "--Connected and Disconnected Headsets"
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3171
+    .line 1804
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -2239,11 +1423,11 @@
 
     check-cast v0, Landroid/bluetooth/BluetoothDevice;
 
-    .line 3172
+    .line 1805
     .local v0, device:Landroid/bluetooth/BluetoothDevice;
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    .line 3173
+    .line 1806
     iget-object v3, p0, Landroid/server/BluetoothService;->mHeadsetProxy:Landroid/bluetooth/BluetoothHeadset;
 
     invoke-virtual {v3, v0}, Landroid/bluetooth/BluetoothHeadset;->isAudioConnected(Landroid/bluetooth/BluetoothDevice;)Z
@@ -2252,7 +1436,7 @@
 
     if-eqz v3, :cond_32
 
-    .line 3174
+    .line 1807
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2275,7 +1459,7 @@
 
     goto :goto_32
 
-    .line 3160
+    .line 1793
     .end local v0           #device:Landroid/bluetooth/BluetoothDevice;
     .end local v2           #i$:Ljava/util/Iterator;
     :cond_60
@@ -2287,7 +1471,7 @@
 
     check-cast v0, Landroid/bluetooth/BluetoothDevice;
 
-    .line 3161
+    .line 1794
     .restart local v0       #device:Landroid/bluetooth/BluetoothDevice;
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -2309,10 +1493,10 @@
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3162
+    .line 1795
     invoke-direct {p0, p1, v0}, Landroid/server/BluetoothService;->dumpHeadsetConnectionState(Ljava/io/PrintWriter;Landroid/bluetooth/BluetoothDevice;)V
 
-    .line 3163
+    .line 1796
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2341,13 +1525,13 @@
 
     goto/16 :goto_1a
 
-    .line 3178
+    .line 1811
     .end local v0           #device:Landroid/bluetooth/BluetoothDevice;
     .end local v1           #deviceList:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
     :cond_9e
     return-void
 
-    .line 3168
+    .line 1801
     nop
 
     :array_a0
@@ -2362,24 +1546,24 @@
     .parameter "pw"
 
     .prologue
-    .line 3181
+    .line 1814
     const-string v3, "\n--Bluetooth Service- Input Device Profile"
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3182
+    .line 1815
     iget-object v3, p0, Landroid/server/BluetoothService;->mInputDevice:Landroid/bluetooth/BluetoothInputDevice;
 
     if-eqz v3, :cond_b5
 
-    .line 3183
+    .line 1816
     iget-object v3, p0, Landroid/server/BluetoothService;->mInputDevice:Landroid/bluetooth/BluetoothInputDevice;
 
     invoke-virtual {v3}, Landroid/bluetooth/BluetoothInputDevice;->getConnectedDevices()Ljava/util/List;
 
     move-result-object v1
 
-    .line 3184
+    .line 1817
     .local v1, deviceList:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
     invoke-interface {v1}, Ljava/util/List;->size()I
 
@@ -2387,16 +1571,16 @@
 
     if-nez v3, :cond_42
 
-    .line 3185
+    .line 1818
     const-string v3, "No input devices connected"
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3204
+    .line 1837
     :goto_1a
     invoke-interface {v1}, Ljava/util/List;->clear()V
 
-    .line 3205
+    .line 1838
     iget-object v3, p0, Landroid/server/BluetoothService;->mInputDevice:Landroid/bluetooth/BluetoothInputDevice;
 
     const/4 v4, 0x2
@@ -2409,12 +1593,12 @@
 
     move-result-object v1
 
-    .line 3207
+    .line 1840
     const-string v3, "--Connected and Disconnected input devices"
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3208
+    .line 1841
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -2433,13 +1617,13 @@
 
     check-cast v0, Landroid/bluetooth/BluetoothDevice;
 
-    .line 3209
+    .line 1842
     .local v0, device:Landroid/bluetooth/BluetoothDevice;
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
     goto :goto_32
 
-    .line 3187
+    .line 1820
     .end local v0           #device:Landroid/bluetooth/BluetoothDevice;
     .end local v2           #i$:Ljava/util/Iterator;
     :cond_42
@@ -2467,7 +1651,7 @@
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3188
+    .line 1821
     const/4 v3, 0x0
 
     invoke-interface {v1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -2476,7 +1660,7 @@
 
     check-cast v0, Landroid/bluetooth/BluetoothDevice;
 
-    .line 3189
+    .line 1822
     .restart local v0       #device:Landroid/bluetooth/BluetoothDevice;
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -2498,7 +1682,7 @@
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3190
+    .line 1823
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2525,7 +1709,7 @@
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3192
+    .line 1825
     iget-object v3, p0, Landroid/server/BluetoothService;->mInputDevice:Landroid/bluetooth/BluetoothInputDevice;
 
     invoke-virtual {v3, v0}, Landroid/bluetooth/BluetoothInputDevice;->getConnectionState(Landroid/bluetooth/BluetoothDevice;)I
@@ -2536,7 +1720,7 @@
 
     goto/16 :goto_1a
 
-    .line 3194
+    .line 1827
     :pswitch_a0
     const-string v3, "getConnectionState() = STATE_CONNECTING"
 
@@ -2544,7 +1728,7 @@
 
     goto/16 :goto_1a
 
-    .line 3197
+    .line 1830
     :pswitch_a7
     const-string v3, "getConnectionState() = STATE_CONNECTED"
 
@@ -2552,7 +1736,7 @@
 
     goto/16 :goto_1a
 
-    .line 3200
+    .line 1833
     :pswitch_ae
     const-string v3, "getConnectionState() = STATE_DISCONNECTING"
 
@@ -2560,20 +1744,20 @@
 
     goto/16 :goto_1a
 
-    .line 3212
+    .line 1845
     .end local v0           #device:Landroid/bluetooth/BluetoothDevice;
     .end local v1           #deviceList:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
     :cond_b5
     return-void
 
-    .line 3205
+    .line 1838
     :array_b6
     .array-data 0x4
         0x2t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
     .end array-data
 
-    .line 3192
+    .line 1825
     :pswitch_data_be
     .packed-switch 0x1
         :pswitch_a0
@@ -2583,32 +1767,32 @@
 .end method
 
 .method private dumpKnownDevices(Ljava/io/PrintWriter;)V
-    .registers 16
+    .registers 14
     .parameter "pw"
 
     .prologue
-    .line 3284
-    const-string v10, "\n--Known devices--"
+    .line 1917
+    const-string v8, "\n--Known devices--"
 
-    invoke-virtual {p1, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, v8}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3285
-    iget-object v10, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
+    .line 1918
+    iget-object v8, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
 
-    invoke-virtual {v10}, Landroid/server/BluetoothDeviceProperties;->keySet()Ljava/util/Set;
+    invoke-virtual {v8}, Landroid/server/BluetoothDeviceProperties;->keySet()Ljava/util/Set;
 
-    move-result-object v10
+    move-result-object v8
 
-    invoke-interface {v10}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v8}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
     :cond_f
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v10
+    move-result v8
 
-    if-eqz v10, :cond_144
+    if-eqz v8, :cond_e1
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2616,359 +1800,241 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .line 3286
+    .line 1919
     .local v0, address:Ljava/lang/String;
-    iget-object v10, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
+    iget-object v8, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
-    invoke-virtual {v10, v0}, Landroid/server/BluetoothBondState;->getBondState(Ljava/lang/String;)I
+    invoke-virtual {v8, v0}, Landroid/server/BluetoothBondState;->getBondState(Ljava/lang/String;)I
 
     move-result v1
 
-    .line 3287
+    .line 1920
     .local v1, bondState:I
-    const-string v10, "%s %10s (%d) %s\n"
+    const-string v8, "%s %10s (%d) %s\n"
 
-    const/4 v11, 0x4
+    const/4 v9, 0x4
 
-    new-array v11, v11, [Ljava/lang/Object;
+    new-array v9, v9, [Ljava/lang/Object;
 
-    const/4 v12, 0x0
+    const/4 v10, 0x0
 
-    aput-object v0, v11, v12
+    aput-object v0, v9, v10
 
-    const/4 v12, 0x1
+    const/4 v10, 0x1
 
     invoke-static {v1}, Landroid/server/BluetoothService;->toBondStateString(I)Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v11
 
-    aput-object v13, v11, v12
+    aput-object v11, v9, v10
 
-    const/4 v12, 0x2
+    const/4 v10, 0x2
 
-    iget-object v13, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
+    iget-object v11, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
-    invoke-virtual {v13, v0}, Landroid/server/BluetoothBondState;->getAttempt(Ljava/lang/String;)I
+    invoke-virtual {v11, v0}, Landroid/server/BluetoothBondState;->getAttempt(Ljava/lang/String;)I
 
-    move-result v13
+    move-result v11
 
-    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v13
+    move-result-object v11
 
-    aput-object v13, v11, v12
+    aput-object v11, v9, v10
 
-    const/4 v12, 0x3
+    const/4 v10, 0x3
 
     invoke-virtual {p0, v0}, Landroid/server/BluetoothService;->getRemoteName(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v11
 
-    aput-object v13, v11, v12
+    aput-object v11, v9, v10
 
-    invoke-virtual {p1, v10, v11}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+    invoke-virtual {p1, v8, v9}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
 
-    .line 3292
-    iget-object v10, p0, Landroid/server/BluetoothService;->mDeviceServiceChannelCache:Ljava/util/HashMap;
+    .line 1925
+    iget-object v8, p0, Landroid/server/BluetoothService;->mDeviceServiceChannelCache:Ljava/util/HashMap;
 
-    invoke-virtual {v10, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v8, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Ljava/util/Map;
+
+    .line 1926
+    .local v7, uuidChannels:Ljava/util/Map;,"Ljava/util/Map<Landroid/os/ParcelUuid;Ljava/lang/Integer;>;"
+    if-nez v7, :cond_8d
+
+    .line 1927
+    const-string v8, "\tuuids = null"
+
+    invoke-virtual {p1, v8}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    .line 1938
+    :cond_56
+    iget-object v8, p0, Landroid/server/BluetoothService;->mUuidCallbackTracker:Ljava/util/HashMap;
+
+    invoke-virtual {v8}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
 
     move-result-object v8
 
-    check-cast v8, Ljava/util/Map;
-
-    .line 3293
-    .local v8, uuidChannels:Ljava/util/Map;,"Ljava/util/Map<Landroid/os/ParcelUuid;Ljava/lang/Integer;>;"
-    if-nez v8, :cond_9c
-
-    .line 3294
-    const-string v10, "\tuuids = null"
-
-    invoke-virtual {p1, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 3306
-    :cond_56
-    iget-object v10, p0, Landroid/server/BluetoothService;->mDeviceL2capPsmCache:Ljava/util/HashMap;
-
-    invoke-virtual {v10, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v9
-
-    check-cast v9, Ljava/util/Map;
-
-    .line 3307
-    .local v9, uuidPsms:Ljava/util/Map;,"Ljava/util/Map<Landroid/os/ParcelUuid;Ljava/lang/Integer;>;"
-    if-nez v9, :cond_f0
-
-    .line 3308
-    const-string v10, "\tuuids = null"
-
-    invoke-virtual {p1, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 3320
-    :cond_65
-    iget-object v10, p0, Landroid/server/BluetoothService;->mUuidCallbackTracker:Ljava/util/HashMap;
-
-    invoke-virtual {v10}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
-
-    move-result-object v10
-
-    invoke-interface {v10}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v8}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
     .local v4, i$:Ljava/util/Iterator;
-    :cond_6f
-    :goto_6f
+    :cond_60
+    :goto_60
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v10
+    move-result v8
 
-    if-eqz v10, :cond_f
+    if-eqz v8, :cond_f
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/server/BluetoothService$RemoteService;
+
+    .line 1939
+    .local v5, service:Landroid/server/BluetoothService$RemoteService;
+    iget-object v8, v5, Landroid/server/BluetoothService$RemoteService;->address:Ljava/lang/String;
+
+    invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_60
+
+    .line 1940
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "\tPENDING CALLBACK: "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    iget-object v9, v5, Landroid/server/BluetoothService$RemoteService;->uuid:Landroid/os/ParcelUuid;
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {p1, v8}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    goto :goto_60
+
+    .line 1929
+    .end local v4           #i$:Ljava/util/Iterator;
+    .end local v5           #service:Landroid/server/BluetoothService$RemoteService;
+    :cond_8d
+    invoke-interface {v7}, Ljava/util/Map;->keySet()Ljava/util/Set;
+
+    move-result-object v8
+
+    invoke-interface {v8}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    .restart local v4       #i$:Ljava/util/Iterator;
+    :goto_95
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_56
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v6
 
-    check-cast v6, Landroid/server/BluetoothService$RemoteService;
+    check-cast v6, Landroid/os/ParcelUuid;
 
-    .line 3321
-    .local v6, service:Landroid/server/BluetoothService$RemoteService;
-    iget-object v10, v6, Landroid/server/BluetoothService$RemoteService;->address:Ljava/lang/String;
-
-    invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v10
-
-    if-eqz v10, :cond_6f
-
-    .line 3322
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v11, "\tPENDING CALLBACK: "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    iget-object v11, v6, Landroid/server/BluetoothService$RemoteService;->uuid:Landroid/os/ParcelUuid;
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {p1, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    goto :goto_6f
-
-    .line 3296
-    .end local v4           #i$:Ljava/util/Iterator;
-    .end local v6           #service:Landroid/server/BluetoothService$RemoteService;
-    .end local v9           #uuidPsms:Ljava/util/Map;,"Ljava/util/Map<Landroid/os/ParcelUuid;Ljava/lang/Integer;>;"
-    :cond_9c
-    invoke-interface {v8}, Ljava/util/Map;->keySet()Ljava/util/Set;
-
-    move-result-object v10
-
-    invoke-interface {v10}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
-
-    .restart local v4       #i$:Ljava/util/Iterator;
-    :goto_a4
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v10
-
-    if-eqz v10, :cond_56
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/os/ParcelUuid;
-
-    .line 3297
-    .local v7, uuid:Landroid/os/ParcelUuid;
-    invoke-interface {v8, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    .line 1930
+    .local v6, uuid:Landroid/os/ParcelUuid;
+    invoke-interface {v7, v6}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Ljava/lang/Integer;
 
-    .line 3298
+    .line 1931
     .local v2, channel:Ljava/lang/Integer;
-    if-nez v2, :cond_cf
+    if-nez v2, :cond_c0
 
-    .line 3299
-    new-instance v10, Ljava/lang/StringBuilder;
+    .line 1932
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "\t"
+    const-string v9, "\t"
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v8
 
-    invoke-virtual {v10, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v8
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v8
 
-    invoke-virtual {p1, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, v8}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    goto :goto_a4
+    goto :goto_95
 
-    .line 3301
-    :cond_cf
-    new-instance v10, Ljava/lang/StringBuilder;
+    .line 1934
+    :cond_c0
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "\t"
+    const-string v9, "\t"
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v8
 
-    invoke-virtual {v10, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v8
 
-    const-string v11, " RFCOMM channel = "
+    const-string v9, " RFCOMM channel = "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v8
 
-    invoke-virtual {v10, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v8
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v8
 
-    invoke-virtual {p1, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, v8}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    goto :goto_a4
+    goto :goto_95
 
-    .line 3310
-    .end local v2           #channel:Ljava/lang/Integer;
-    .end local v4           #i$:Ljava/util/Iterator;
-    .end local v7           #uuid:Landroid/os/ParcelUuid;
-    .restart local v9       #uuidPsms:Ljava/util/Map;,"Ljava/util/Map<Landroid/os/ParcelUuid;Ljava/lang/Integer;>;"
-    :cond_f0
-    invoke-interface {v9}, Ljava/util/Map;->keySet()Ljava/util/Set;
-
-    move-result-object v10
-
-    invoke-interface {v10}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
-
-    .restart local v4       #i$:Ljava/util/Iterator;
-    :goto_f8
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v10
-
-    if-eqz v10, :cond_65
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/os/ParcelUuid;
-
-    .line 3311
-    .restart local v7       #uuid:Landroid/os/ParcelUuid;
-    invoke-interface {v9, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/lang/Integer;
-
-    .line 3312
-    .local v5, psm:Ljava/lang/Integer;
-    if-nez v5, :cond_123
-
-    .line 3313
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v11, "\t"
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {p1, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    goto :goto_f8
-
-    .line 3315
-    :cond_123
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v11, "\t"
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    const-string v11, " L2CAP PSM = "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {p1, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    goto :goto_f8
-
-    .line 3326
+    .line 1944
     .end local v0           #address:Ljava/lang/String;
     .end local v1           #bondState:I
+    .end local v2           #channel:Ljava/lang/Integer;
     .end local v4           #i$:Ljava/util/Iterator;
-    .end local v5           #psm:Ljava/lang/Integer;
-    .end local v7           #uuid:Landroid/os/ParcelUuid;
-    .end local v8           #uuidChannels:Ljava/util/Map;,"Ljava/util/Map<Landroid/os/ParcelUuid;Ljava/lang/Integer;>;"
-    .end local v9           #uuidPsms:Ljava/util/Map;,"Ljava/util/Map<Landroid/os/ParcelUuid;Ljava/lang/Integer;>;"
-    :cond_144
+    .end local v6           #uuid:Landroid/os/ParcelUuid;
+    .end local v7           #uuidChannels:Ljava/util/Map;,"Ljava/util/Map<Landroid/os/ParcelUuid;Ljava/lang/Integer;>;"
+    :cond_e1
     return-void
 .end method
 
@@ -2977,24 +2043,24 @@
     .parameter "pw"
 
     .prologue
-    .line 3215
+    .line 1848
     const-string v3, "\n--Bluetooth Service- Pan Profile"
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3216
+    .line 1849
     iget-object v3, p0, Landroid/server/BluetoothService;->mPan:Landroid/bluetooth/BluetoothPan;
 
     if-eqz v3, :cond_95
 
-    .line 3217
+    .line 1850
     iget-object v3, p0, Landroid/server/BluetoothService;->mPan:Landroid/bluetooth/BluetoothPan;
 
     invoke-virtual {v3}, Landroid/bluetooth/BluetoothPan;->getConnectedDevices()Ljava/util/List;
 
     move-result-object v1
 
-    .line 3218
+    .line 1851
     .local v1, deviceList:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
     invoke-interface {v1}, Ljava/util/List;->size()I
 
@@ -3002,16 +2068,16 @@
 
     if-nez v3, :cond_42
 
-    .line 3219
+    .line 1852
     const-string v3, "No Pan devices connected"
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3237
+    .line 1870
     :goto_1a
     invoke-interface {v1}, Ljava/util/List;->clear()V
 
-    .line 3238
+    .line 1871
     iget-object v3, p0, Landroid/server/BluetoothService;->mPan:Landroid/bluetooth/BluetoothPan;
 
     const/4 v4, 0x2
@@ -3024,12 +2090,12 @@
 
     move-result-object v1
 
-    .line 3240
+    .line 1873
     const-string v3, "--Connected and Disconnected Pan devices"
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3241
+    .line 1874
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -3048,13 +2114,13 @@
 
     check-cast v0, Landroid/bluetooth/BluetoothDevice;
 
-    .line 3242
+    .line 1875
     .local v0, device:Landroid/bluetooth/BluetoothDevice;
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
     goto :goto_32
 
-    .line 3221
+    .line 1854
     .end local v0           #device:Landroid/bluetooth/BluetoothDevice;
     .end local v2           #i$:Ljava/util/Iterator;
     :cond_42
@@ -3082,7 +2148,7 @@
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3222
+    .line 1855
     const/4 v3, 0x0
 
     invoke-interface {v1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -3091,7 +2157,7 @@
 
     check-cast v0, Landroid/bluetooth/BluetoothDevice;
 
-    .line 3223
+    .line 1856
     .restart local v0       #device:Landroid/bluetooth/BluetoothDevice;
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -3113,7 +2179,7 @@
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3225
+    .line 1858
     iget-object v3, p0, Landroid/server/BluetoothService;->mPan:Landroid/bluetooth/BluetoothPan;
 
     invoke-virtual {v3, v0}, Landroid/bluetooth/BluetoothPan;->getConnectionState(Landroid/bluetooth/BluetoothDevice;)I
@@ -3124,7 +2190,7 @@
 
     goto :goto_1a
 
-    .line 3227
+    .line 1860
     :pswitch_83
     const-string v3, "getConnectionState() = STATE_CONNECTING"
 
@@ -3132,7 +2198,7 @@
 
     goto :goto_1a
 
-    .line 3230
+    .line 1863
     :pswitch_89
     const-string v3, "getConnectionState() = STATE_CONNECTED"
 
@@ -3140,7 +2206,7 @@
 
     goto :goto_1a
 
-    .line 3233
+    .line 1866
     :pswitch_8f
     const-string v3, "getConnectionState() = STATE_DISCONNECTING"
 
@@ -3148,20 +2214,20 @@
 
     goto :goto_1a
 
-    .line 3245
+    .line 1878
     .end local v0           #device:Landroid/bluetooth/BluetoothDevice;
     .end local v1           #deviceList:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
     :cond_95
     return-void
 
-    .line 3238
+    .line 1871
     :array_96
     .array-data 0x4
         0x2t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
     .end array-data
 
-    .line 3225
+    .line 1858
     :pswitch_data_9e
     .packed-switch 0x1
         :pswitch_83
@@ -3175,12 +2241,12 @@
     .parameter "pw"
 
     .prologue
-    .line 3142
+    .line 1775
     const-string v0, "\n--Profile State dump--"
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3143
+    .line 1776
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3209,7 +2275,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3145
+    .line 1778
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3238,7 +2304,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3147
+    .line 1780
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3267,7 +2333,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3149
+    .line 1782
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3296,762 +2362,8 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3151
+    .line 1784
     return-void
-.end method
-
-.method private declared-synchronized enableSAP()Z
-    .registers 7
-
-    .prologue
-    const/4 v2, 0x1
-
-    const/4 v1, 0x0
-
-    .line 1071
-    monitor-enter p0
-
-    :try_start_3
-    iget-object v3, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v4, "android.permission.BLUETOOTH_ADMIN"
-
-    const-string v5, "Need BLUETOOTH_ADMIN permission"
-
-    invoke-virtual {v3, v4, v5}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1073
-    const-string/jumbo v3, "ro.qualcomm.bluetooth.sap"
-
-    const/4 v4, 0x0
-
-    invoke-static {v3, v4}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v3
-
-    if-nez v3, :cond_1f
-
-    .line 1074
-    const-string v2, "BluetoothService"
-
-    const-string v3, "SAP is not supported"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1d
-    .catchall {:try_start_3 .. :try_end_1d} :catchall_4e
-
-    .line 1089
-    :goto_1d
-    monitor-exit p0
-
-    return v1
-
-    .line 1078
-    :cond_1f
-    :try_start_1f
-    iget-boolean v3, p0, Landroid/server/BluetoothService;->mSAPEnabled:Z
-
-    if-eq v3, v2, :cond_46
-
-    .line 1079
-    const/4 v1, 0x1
-
-    new-array v0, v1, [I
-
-    .line 1080
-    .local v0, svcIdentifiers:[I
-    const/4 v1, 0x0
-
-    sget-object v3, Landroid/bluetooth/BluetoothUuid;->SAP:Landroid/os/ParcelUuid;
-
-    invoke-static {v3}, Landroid/bluetooth/BluetoothUuid;->getServiceIdentifierFromParcelUuid(Landroid/os/ParcelUuid;)I
-
-    move-result v3
-
-    aput v3, v0, v1
-
-    .line 1082
-    invoke-direct {p0, v0}, Landroid/server/BluetoothService;->addReservedServiceRecordsNative([I)[I
-
-    move-result-object v1
-
-    iput-object v1, p0, Landroid/server/BluetoothService;->mSAPRecordHandle:[I
-
-    .line 1083
-    const-string v1, "BluetoothService"
-
-    const-string v3, "Starting SAP server"
-
-    invoke-static {v1, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1084
-    const-string v1, "bt-sap"
-
-    invoke-static {v1}, Landroid/os/SystemService;->start(Ljava/lang/String;)V
-
-    .line 1085
-    const/4 v1, 0x1
-
-    iput-boolean v1, p0, Landroid/server/BluetoothService;->mSAPEnabled:Z
-
-    move v1, v2
-
-    .line 1086
-    goto :goto_1d
-
-    .line 1088
-    .end local v0           #svcIdentifiers:[I
-    :cond_46
-    const-string v2, "BluetoothService"
-
-    const-string v3, "SAP already enabled"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_4d
-    .catchall {:try_start_1f .. :try_end_4d} :catchall_4e
-
-    goto :goto_1d
-
-    .line 1071
-    :catchall_4e
-    move-exception v1
-
-    monitor-exit p0
-
-    throw v1
-.end method
-
-.method private native findDeviceNative(Ljava/lang/String;)Ljava/lang/String;
-.end method
-
-.method private native forceDisconnectDeviceNative(Ljava/lang/String;)Z
-.end method
-
-.method private forceDisconnectOnConnectedDevices()V
-    .registers 5
-
-    .prologue
-    .line 4901
-    iget-object v3, p0, Landroid/server/BluetoothService;->mConnectedDevices:Ljava/util/List;
-
-    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    .local v1, i$:Ljava/util/Iterator;
-    :goto_6
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1e
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/bluetooth/BluetoothDevice;
-
-    .line 4902
-    .local v0, device:Landroid/bluetooth/BluetoothDevice;
-    invoke-virtual {v0}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p0, v3}, Landroid/server/BluetoothService;->getObjectPathFromAddress(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 4903
-    .local v2, objectPath:Ljava/lang/String;
-    invoke-direct {p0, v2}, Landroid/server/BluetoothService;->forceDisconnectDeviceNative(Ljava/lang/String;)Z
-
-    goto :goto_6
-
-    .line 4905
-    .end local v0           #device:Landroid/bluetooth/BluetoothDevice;
-    .end local v2           #objectPath:Ljava/lang/String;
-    :cond_1e
-    return-void
-.end method
-
-.method private getAddressInternal()Ljava/lang/String;
-    .registers 11
-
-    .prologue
-    .line 1724
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "/sys/module/board_"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, "ro.hardware"
-
-    const-string v9, "<Unknown>"
-
-    invoke-static {v8, v9}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, "/parameters/bdaddress"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 1727
-    .local v1, attributePath:Ljava/lang/String;
-    const/4 v4, 0x0
-
-    .line 1728
-    .local v4, fstream:Ljava/io/FileInputStream;
-    const/4 v0, 0x0
-
-    .line 1730
-    .local v0, addressData:Ljava/lang/String;
-    :try_start_24
-    new-instance v5, Ljava/io/FileInputStream;
-
-    invoke-direct {v5, v1}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
-    :try_end_29
-    .catchall {:try_start_24 .. :try_end_29} :catchall_91
-    .catch Ljava/io/FileNotFoundException; {:try_start_24 .. :try_end_29} :catch_ea
-    .catch Ljava/io/IOException; {:try_start_24 .. :try_end_29} :catch_6c
-
-    .line 1731
-    .end local v4           #fstream:Ljava/io/FileInputStream;
-    .local v5, fstream:Ljava/io/FileInputStream;
-    :try_start_29
-    new-instance v6, Ljava/io/DataInputStream;
-
-    invoke-direct {v6, v5}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
-
-    .line 1732
-    .local v6, in:Ljava/io/DataInputStream;
-    new-instance v3, Ljava/io/BufferedReader;
-
-    new-instance v7, Ljava/io/InputStreamReader;
-
-    invoke-direct {v7, v6}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
-
-    invoke-direct {v3, v7}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
-
-    .line 1733
-    .local v3, file:Ljava/io/BufferedReader;
-    invoke-virtual {v3}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
-    :try_end_3b
-    .catchall {:try_start_29 .. :try_end_3b} :catchall_105
-    .catch Ljava/io/FileNotFoundException; {:try_start_29 .. :try_end_3b} :catch_10c
-    .catch Ljava/io/IOException; {:try_start_29 .. :try_end_3b} :catch_108
-
-    move-result-object v0
-
-    .line 1739
-    if-eqz v5, :cond_41
-
-    .line 1741
-    :try_start_3e
-    invoke-virtual {v5}, Ljava/io/FileInputStream;->close()V
-    :try_end_41
-    .catch Ljava/io/IOException; {:try_start_3e .. :try_end_41} :catch_f9
-
-    :cond_41
-    :goto_41
-    move-object v4, v5
-
-    .line 1750
-    .end local v3           #file:Ljava/io/BufferedReader;
-    .end local v5           #fstream:Ljava/io/FileInputStream;
-    .end local v6           #in:Ljava/io/DataInputStream;
-    .restart local v4       #fstream:Ljava/io/FileInputStream;
-    :cond_42
-    :goto_42
-    if-nez v0, :cond_65
-
-    .line 1751
-    const-string v1, "/sys/module/htc_bdaddress/parameters/bdaddress"
-
-    .line 1752
-    const/4 v4, 0x0
-
-    .line 1754
-    :try_start_47
-    new-instance v5, Ljava/io/FileInputStream;
-
-    invoke-direct {v5, v1}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
-    :try_end_4c
-    .catchall {:try_start_47 .. :try_end_4c} :catchall_e0
-    .catch Ljava/io/FileNotFoundException; {:try_start_47 .. :try_end_4c} :catch_98
-    .catch Ljava/io/IOException; {:try_start_47 .. :try_end_4c} :catch_bd
-
-    .line 1755
-    .end local v4           #fstream:Ljava/io/FileInputStream;
-    .restart local v5       #fstream:Ljava/io/FileInputStream;
-    :try_start_4c
-    new-instance v6, Ljava/io/DataInputStream;
-
-    invoke-direct {v6, v5}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
-
-    .line 1756
-    .restart local v6       #in:Ljava/io/DataInputStream;
-    new-instance v3, Ljava/io/BufferedReader;
-
-    new-instance v7, Ljava/io/InputStreamReader;
-
-    invoke-direct {v7, v6}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
-
-    invoke-direct {v3, v7}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
-
-    .line 1757
-    .restart local v3       #file:Ljava/io/BufferedReader;
-    invoke-virtual {v3}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
-    :try_end_5e
-    .catchall {:try_start_4c .. :try_end_5e} :catchall_fc
-    .catch Ljava/io/FileNotFoundException; {:try_start_4c .. :try_end_5e} :catch_102
-    .catch Ljava/io/IOException; {:try_start_4c .. :try_end_5e} :catch_ff
-
-    move-result-object v0
-
-    .line 1763
-    if-eqz v5, :cond_64
-
-    .line 1765
-    :try_start_61
-    invoke-virtual {v5}, Ljava/io/FileInputStream;->close()V
-    :try_end_64
-    .catch Ljava/io/IOException; {:try_start_61 .. :try_end_64} :catch_f4
-
-    :cond_64
-    :goto_64
-    move-object v4, v5
-
-    .line 1773
-    .end local v3           #file:Ljava/io/BufferedReader;
-    .end local v5           #fstream:Ljava/io/FileInputStream;
-    .end local v6           #in:Ljava/io/DataInputStream;
-    .restart local v4       #fstream:Ljava/io/FileInputStream;
-    :cond_65
-    :goto_65
-    if-eqz v0, :cond_e7
-
-    .line 1774
-    invoke-virtual {v0}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
-
-    move-result-object v7
-
-    .line 1776
-    :goto_6b
-    return-object v7
-
-    .line 1736
-    :catch_6c
-    move-exception v2
-
-    .line 1737
-    .local v2, e:Ljava/io/IOException;
-    :goto_6d
-    :try_start_6d
-    const-string v7, "BluetoothService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "IOException: getAddressInternal"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v2}, Ljava/io/IOException;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_89
-    .catchall {:try_start_6d .. :try_end_89} :catchall_91
-
-    .line 1739
-    if-eqz v4, :cond_42
-
-    .line 1741
-    :try_start_8b
-    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
-    :try_end_8e
-    .catch Ljava/io/IOException; {:try_start_8b .. :try_end_8e} :catch_8f
-
-    goto :goto_42
-
-    .line 1742
-    .end local v2           #e:Ljava/io/IOException;
-    :catch_8f
-    move-exception v7
-
-    goto :goto_42
-
-    .line 1739
-    :catchall_91
-    move-exception v7
-
-    :goto_92
-    if-eqz v4, :cond_97
-
-    .line 1741
-    :try_start_94
-    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
-    :try_end_97
-    .catch Ljava/io/IOException; {:try_start_94 .. :try_end_97} :catch_f7
-
-    .line 1739
-    :cond_97
-    :goto_97
-    throw v7
-
-    .line 1758
-    :catch_98
-    move-exception v2
-
-    .line 1759
-    .local v2, e:Ljava/io/FileNotFoundException;
-    :goto_99
-    :try_start_99
-    const-string v7, "BluetoothService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "FileNotFoundException: getAddressInternal"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v2}, Ljava/io/FileNotFoundException;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_b5
-    .catchall {:try_start_99 .. :try_end_b5} :catchall_e0
-
-    .line 1763
-    if-eqz v4, :cond_65
-
-    .line 1765
-    :try_start_b7
-    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
-    :try_end_ba
-    .catch Ljava/io/IOException; {:try_start_b7 .. :try_end_ba} :catch_bb
-
-    goto :goto_65
-
-    .line 1766
-    .end local v2           #e:Ljava/io/FileNotFoundException;
-    :catch_bb
-    move-exception v7
-
-    goto :goto_65
-
-    .line 1760
-    :catch_bd
-    move-exception v2
-
-    .line 1761
-    .local v2, e:Ljava/io/IOException;
-    :goto_be
-    :try_start_be
-    const-string v7, "BluetoothService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "IOException: getAddressInternal"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v2}, Ljava/io/IOException;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_da
-    .catchall {:try_start_be .. :try_end_da} :catchall_e0
-
-    .line 1763
-    if-eqz v4, :cond_65
-
-    .line 1765
-    :try_start_dc
-    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
-    :try_end_df
-    .catch Ljava/io/IOException; {:try_start_dc .. :try_end_df} :catch_bb
-
-    goto :goto_65
-
-    .line 1763
-    .end local v2           #e:Ljava/io/IOException;
-    :catchall_e0
-    move-exception v7
-
-    :goto_e1
-    if-eqz v4, :cond_e6
-
-    .line 1765
-    :try_start_e3
-    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
-    :try_end_e6
-    .catch Ljava/io/IOException; {:try_start_e3 .. :try_end_e6} :catch_f2
-
-    .line 1763
-    :cond_e6
-    :goto_e6
-    throw v7
-
-    .line 1776
-    :cond_e7
-    const-string v7, "<Unknown>"
-
-    goto :goto_6b
-
-    .line 1734
-    :catch_ea
-    move-exception v7
-
-    .line 1739
-    :goto_eb
-    if-eqz v4, :cond_42
-
-    .line 1741
-    :try_start_ed
-    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
-    :try_end_f0
-    .catch Ljava/io/IOException; {:try_start_ed .. :try_end_f0} :catch_8f
-
-    goto/16 :goto_42
-
-    .line 1766
-    :catch_f2
-    move-exception v8
-
-    goto :goto_e6
-
-    .end local v4           #fstream:Ljava/io/FileInputStream;
-    .restart local v3       #file:Ljava/io/BufferedReader;
-    .restart local v5       #fstream:Ljava/io/FileInputStream;
-    .restart local v6       #in:Ljava/io/DataInputStream;
-    :catch_f4
-    move-exception v7
-
-    goto/16 :goto_64
-
-    .line 1742
-    .end local v3           #file:Ljava/io/BufferedReader;
-    .end local v5           #fstream:Ljava/io/FileInputStream;
-    .end local v6           #in:Ljava/io/DataInputStream;
-    .restart local v4       #fstream:Ljava/io/FileInputStream;
-    :catch_f7
-    move-exception v8
-
-    goto :goto_97
-
-    .end local v4           #fstream:Ljava/io/FileInputStream;
-    .restart local v3       #file:Ljava/io/BufferedReader;
-    .restart local v5       #fstream:Ljava/io/FileInputStream;
-    .restart local v6       #in:Ljava/io/DataInputStream;
-    :catch_f9
-    move-exception v7
-
-    goto/16 :goto_41
-
-    .line 1763
-    .end local v3           #file:Ljava/io/BufferedReader;
-    .end local v6           #in:Ljava/io/DataInputStream;
-    :catchall_fc
-    move-exception v7
-
-    move-object v4, v5
-
-    .end local v5           #fstream:Ljava/io/FileInputStream;
-    .restart local v4       #fstream:Ljava/io/FileInputStream;
-    goto :goto_e1
-
-    .line 1760
-    .end local v4           #fstream:Ljava/io/FileInputStream;
-    .restart local v5       #fstream:Ljava/io/FileInputStream;
-    :catch_ff
-    move-exception v2
-
-    move-object v4, v5
-
-    .end local v5           #fstream:Ljava/io/FileInputStream;
-    .restart local v4       #fstream:Ljava/io/FileInputStream;
-    goto :goto_be
-
-    .line 1758
-    .end local v4           #fstream:Ljava/io/FileInputStream;
-    .restart local v5       #fstream:Ljava/io/FileInputStream;
-    :catch_102
-    move-exception v2
-
-    move-object v4, v5
-
-    .end local v5           #fstream:Ljava/io/FileInputStream;
-    .restart local v4       #fstream:Ljava/io/FileInputStream;
-    goto :goto_99
-
-    .line 1739
-    .end local v4           #fstream:Ljava/io/FileInputStream;
-    .restart local v5       #fstream:Ljava/io/FileInputStream;
-    :catchall_105
-    move-exception v7
-
-    move-object v4, v5
-
-    .end local v5           #fstream:Ljava/io/FileInputStream;
-    .restart local v4       #fstream:Ljava/io/FileInputStream;
-    goto :goto_92
-
-    .line 1736
-    .end local v4           #fstream:Ljava/io/FileInputStream;
-    .restart local v5       #fstream:Ljava/io/FileInputStream;
-    :catch_108
-    move-exception v2
-
-    move-object v4, v5
-
-    .end local v5           #fstream:Ljava/io/FileInputStream;
-    .restart local v4       #fstream:Ljava/io/FileInputStream;
-    goto/16 :goto_6d
-
-    .line 1734
-    .end local v4           #fstream:Ljava/io/FileInputStream;
-    .restart local v5       #fstream:Ljava/io/FileInputStream;
-    :catch_10c
-    move-exception v7
-
-    move-object v4, v5
-
-    .end local v5           #fstream:Ljava/io/FileInputStream;
-    .restart local v4       #fstream:Ljava/io/FileInputStream;
-    goto :goto_eb
-.end method
-
-.method private native getCharacteristicPropertiesNative(Ljava/lang/String;)[Ljava/lang/Object;
-.end method
-
-.method private getCharacteristicsFromCache(Ljava/lang/String;)[Ljava/lang/String;
-    .registers 5
-    .parameter "servicePath"
-
-    .prologue
-    .line 4422
-    const-string v2, "Characteristics"
-
-    invoke-virtual {p0, p1, v2}, Landroid/server/BluetoothService;->getGattServiceProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 4423
-    .local v1, value:Ljava/lang/String;
-    if-nez v1, :cond_a
-
-    .line 4424
-    const/4 v0, 0x0
-
-    .line 4430
-    :goto_9
-    return-object v0
-
-    .line 4427
-    :cond_a
-    const/4 v0, 0x0
-
-    .line 4429
-    .local v0, paths:[Ljava/lang/String;
-    const-string v2, ","
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 4430
-    goto :goto_9
-.end method
-
-.method private getConnectedDeviceList()Ljava/util/List;
-    .registers 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Landroid/bluetooth/BluetoothDevice;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 4892
-    iget-object v0, p0, Landroid/server/BluetoothService;->mConnectedDevices:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    if-nez v0, :cond_a
-
-    .line 4893
-    const/4 v0, 0x0
-
-    .line 4895
-    :goto_9
-    return-object v0
-
-    :cond_a
-    iget-object v0, p0, Landroid/server/BluetoothService;->mConnectedDevices:Ljava/util/List;
-
-    goto :goto_9
 .end method
 
 .method private native getDevicePropertiesNative(Ljava/lang/String;)[Ljava/lang/Object;
@@ -4063,7 +2375,7 @@
     .parameter "uuid"
 
     .prologue
-    .line 2728
+    .line 1508
     invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->getObjectPathFromAddress(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -4084,72 +2396,11 @@
 .method private native getDeviceServiceChannelNative(Ljava/lang/String;Ljava/lang/String;I)I
 .end method
 
-.method private native getDeviceStringAttrValue(Ljava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
-.end method
-
-.method private native getGattServicePropertiesNative(Ljava/lang/String;)[Ljava/lang/Object;
-.end method
-
-.method private getGattServicesFromCache(Ljava/lang/String;)[Ljava/lang/String;
-    .registers 6
-    .parameter "address"
-
-    .prologue
-    .line 4286
-    const-string v2, "BluetoothService"
-
-    const-string v3, "getGattServicesFromCache"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4288
-    iget-object v2, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
-
-    const-string v3, "Services"
-
-    invoke-virtual {v2, p1, v3}, Landroid/server/BluetoothDeviceProperties;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 4289
-    .local v1, value:Ljava/lang/String;
-    if-nez v1, :cond_1a
-
-    .line 4290
-    const-string v2, "BluetoothService"
-
-    const-string v3, "getGattServicesFromCache: no services found"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4291
-    const/4 v0, 0x0
-
-    .line 4298
-    :goto_19
-    return-object v0
-
-    .line 4294
-    :cond_1a
-    const/4 v0, 0x0
-
-    .line 4296
-    .local v0, path:[Ljava/lang/String;
-    const-string v2, ","
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 4298
-    goto :goto_19
-.end method
-
 .method private getProfileProxy()V
     .registers 5
 
     .prologue
-    .line 3329
+    .line 1947
     iget-object v0, p0, Landroid/server/BluetoothService;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
 
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
@@ -4160,62 +2411,8 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/bluetooth/BluetoothAdapter;->getProfileProxy(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;I)Z
 
-    .line 3331
+    .line 1949
     return-void
-.end method
-
-.method private declared-synchronized getRemoteGattServices(Ljava/lang/String;)[Ljava/lang/String;
-    .registers 5
-    .parameter "address"
-
-    .prologue
-    .line 4278
-    monitor-enter p0
-
-    :try_start_1
-    iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v1, "android.permission.BLUETOOTH"
-
-    const-string v2, "Need BLUETOOTH permission"
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 4279
-    invoke-static {p1}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
-    :try_end_d
-    .catchall {:try_start_1 .. :try_end_d} :catchall_18
-
-    move-result v0
-
-    if-nez v0, :cond_13
-
-    .line 4280
-    const/4 v0, 0x0
-
-    .line 4282
-    :goto_11
-    monitor-exit p0
-
-    return-object v0
-
-    :cond_13
-    :try_start_13
-    invoke-direct {p0, p1}, Landroid/server/BluetoothService;->getGattServicesFromCache(Ljava/lang/String;)[Ljava/lang/String;
-    :try_end_16
-    .catchall {:try_start_13 .. :try_end_16} :catchall_18
-
-    move-result-object v0
-
-    goto :goto_11
-
-    .line 4278
-    :catchall_18
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method private initProfileState()V
@@ -4224,10 +2421,10 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 3811
+    .line 2420
     const/4 v2, 0x0
 
-    .line 3812
+    .line 2421
     .local v2, bonds:[Ljava/lang/String;
     const-string v7, "Devices"
 
@@ -4235,26 +2432,26 @@
 
     move-result-object v6
 
-    .line 3813
+    .line 2422
     .local v6, val:Ljava/lang/String;
     if-eqz v6, :cond_10
 
-    .line 3814
+    .line 2423
     const-string v7, ","
 
     invoke-virtual {v6, v7}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v2
 
-    .line 3816
+    .line 2425
     :cond_10
     if-nez v2, :cond_13
 
-    .line 3823
+    .line 2432
     :cond_12
     return-void
 
-    .line 3819
+    .line 2428
     :cond_13
     move-object v1, v2
 
@@ -4270,63 +2467,23 @@
 
     aget-object v5, v1, v3
 
-    .line 3820
+    .line 2429
     .local v5, path:Ljava/lang/String;
     invoke-virtual {p0, v5}, Landroid/server/BluetoothService;->getAddressFromObjectPath(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 3821
+    .line 2430
     .local v0, address:Ljava/lang/String;
     invoke-virtual {p0, v0, v8}, Landroid/server/BluetoothService;->addProfileState(Ljava/lang/String;Z)Landroid/bluetooth/BluetoothDeviceProfileState;
 
-    .line 3819
+    .line 2428
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_16
 .end method
 
 .method private native initializeNativeDataNative()V
-.end method
-
-.method private final isAirplaneToggleable()Z
-    .registers 4
-
-    .prologue
-    .line 3073
-    iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string v2, "airplane_mode_toggleable_radios"
-
-    invoke-static {v1, v2}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 3075
-    .local v0, toggleable:Ljava/lang/String;
-    if-eqz v0, :cond_18
-
-    const-string v1, "bluetooth"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_18
-
-    const/4 v1, 0x1
-
-    :goto_17
-    return v1
-
-    :cond_18
-    const/4 v1, 0x0
-
-    goto :goto_17
 .end method
 
 .method private isBondingFeasible(Ljava/lang/String;)Z
@@ -4336,7 +2493,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 1968
+    .line 991
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v2, "android.permission.BLUETOOTH_ADMIN"
@@ -4345,19 +2502,19 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1970
+    .line 993
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
 
     move-result v1
 
     if-nez v1, :cond_11
 
-    .line 1997
+    .line 1020
     :cond_10
     :goto_10
     return v0
 
-    .line 1972
+    .line 995
     :cond_11
     invoke-static {p1}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
 
@@ -4365,12 +2522,12 @@
 
     if-eqz v1, :cond_10
 
-    .line 1975
+    .line 998
     invoke-virtual {p1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
     move-result-object p1
 
-    .line 1977
+    .line 1000
     iget-object v1, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     invoke-virtual {v1}, Landroid/server/BluetoothBondState;->getPendingOutgoingBonding()Ljava/lang/String;
@@ -4379,7 +2536,7 @@
 
     if-eqz v1, :cond_2b
 
-    .line 1978
+    .line 1001
     const-string v1, "BluetoothService"
 
     const-string v2, "Ignoring createBond(): another device is bonding"
@@ -4388,7 +2545,7 @@
 
     goto :goto_10
 
-    .line 1985
+    .line 1008
     :cond_2b
     iget-object v1, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
@@ -4408,7 +2565,7 @@
 
     if-eq v1, v2, :cond_45
 
-    .line 1987
+    .line 1010
     const-string v1, "BluetoothService"
 
     const-string v2, "Ignoring createBond(): this device is already bonding or bonded"
@@ -4417,7 +2574,7 @@
 
     goto :goto_10
 
-    .line 1991
+    .line 1014
     :cond_45
     sget-object v1, Landroid/server/BluetoothService;->mDockAddress:Ljava/lang/String;
 
@@ -4427,14 +2584,14 @@
 
     if-eqz v1, :cond_5b
 
-    .line 1992
+    .line 1015
     invoke-direct {p0}, Landroid/server/BluetoothService;->writeDockPin()Z
 
     move-result v1
 
     if-nez v1, :cond_5b
 
-    .line 1993
+    .line 1016
     const-string v1, "BluetoothService"
 
     const-string v2, "Error while writing Pin for the dock"
@@ -4443,7 +2600,7 @@
 
     goto :goto_10
 
-    .line 1997
+    .line 1020
     :cond_5b
     const/4 v0, 0x1
 
@@ -4454,7 +2611,7 @@
     .registers 3
 
     .prologue
-    .line 625
+    .line 349
     invoke-virtual {p0}, Landroid/server/BluetoothService;->getBluetoothStateInternal()I
 
     move-result v0
@@ -4477,298 +2634,18 @@
 .method private native isEnabledNative()I
 .end method
 
-.method private isEnablingInternal()Z
-    .registers 3
-
-    .prologue
-    .line 630
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->getBluetoothStateInternal()I
-
-    move-result v0
-
-    const/16 v1, 0xb
-
-    if-ne v0, v1, :cond_a
-
-    const/4 v0, 0x1
-
-    :goto_9
-    return v0
-
-    :cond_a
-    const/4 v0, 0x0
-
-    goto :goto_9
-.end method
-
 .method private static log(Ljava/lang/String;)V
     .registers 2
     .parameter "msg"
 
     .prologue
-    .line 4212
+    .line 2782
     const-string v0, "BluetoothService"
 
     invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4213
+    .line 2783
     return-void
-.end method
-
-.method private matchGattService(Ljava/lang/String;Landroid/os/ParcelUuid;)[Ljava/lang/String;
-    .registers 15
-    .parameter "address"
-    .parameter "uuid"
-
-    .prologue
-    const/4 v5, 0x0
-
-    .line 4304
-    iget-object v9, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
-
-    const-string v10, "Services"
-
-    invoke-virtual {v9, p1, v10}, Landroid/server/BluetoothDeviceProperties;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-
-    .line 4305
-    .local v8, value:Ljava/lang/String;
-    if-nez v8, :cond_25
-
-    .line 4306
-    const-string v9, "BluetoothService"
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v11, "matchGattService: No GATT based services were found on "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4352
-    :cond_24
-    :goto_24
-    return-object v5
-
-    .line 4309
-    :cond_25
-    const-string v9, "BluetoothService"
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v11, "matchGattService: Value "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4312
-    const/4 v1, 0x0
-
-    .line 4314
-    .local v1, gattServicePaths:[Ljava/lang/String;
-    const-string v9, ","
-
-    invoke-virtual {v8, v9}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 4316
-    new-instance v4, Ljava/util/ArrayList;
-
-    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
-
-    .line 4317
-    .local v4, matchList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    const/4 v0, 0x0
-
-    .line 4320
-    .local v0, count:I
-    invoke-virtual {p2}, Landroid/os/ParcelUuid;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    .line 4322
-    .local v7, stringUuid:Ljava/lang/String;
-    const-string v9, "BluetoothService"
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v11, "Requested GATT UUID to match: "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4324
-    const/4 v2, 0x0
-
-    .local v2, i:I
-    :goto_68
-    array-length v9, v1
-
-    if-ge v2, v9, :cond_a8
-
-    .line 4325
-    const/4 v3, 0x1
-
-    .line 4326
-    .local v3, match:Z
-    aget-object v9, v1, v2
-
-    const-string v10, "UUID"
-
-    invoke-virtual {p0, v9, v10}, Landroid/server/BluetoothService;->getGattServiceProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 4328
-    .local v6, serviceUuid:Ljava/lang/String;
-    if-eqz v6, :cond_a5
-
-    .line 4329
-    const-string v9, "BluetoothService"
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v11, "Found GATT UUID: "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4331
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v9
-
-    if-nez v9, :cond_9c
-
-    .line 4332
-    const-string v9, "BluetoothService"
-
-    const-string v10, "UUID does not match"
-
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4333
-    const/4 v3, 0x0
-
-    .line 4336
-    :cond_9c
-    if-eqz v3, :cond_a5
-
-    .line 4337
-    aget-object v9, v1, v2
-
-    invoke-virtual {v4, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 4338
-    add-int/lit8 v0, v0, 0x1
-
-    .line 4324
-    :cond_a5
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_68
-
-    .line 4343
-    .end local v3           #match:Z
-    .end local v6           #serviceUuid:Ljava/lang/String;
-    :cond_a8
-    if-eqz v0, :cond_24
-
-    .line 4346
-    const-string v9, "BluetoothService"
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v11, "Found "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    const-string v11, " instances of service "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4348
-    new-array v5, v0, [Ljava/lang/String;
-
-    .line 4350
-    .local v5, ret:[Ljava/lang/String;
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-
-    goto/16 :goto_24
 .end method
 
 .method private pairingAttempt(Ljava/lang/String;I)V
@@ -4781,14 +2658,14 @@
 
     const/16 v7, 0xa
 
-    .line 1516
+    .line 685
     iget-object v3, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     invoke-virtual {v3, p1}, Landroid/server/BluetoothBondState;->getAttempt(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 1517
+    .line 686
     .local v0, attempt:I
     int-to-long v3, v0
 
@@ -4800,20 +2677,20 @@
 
     if-lez v3, :cond_1b
 
-    .line 1519
+    .line 688
     iget-object v3, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     invoke-virtual {v3, p1}, Landroid/server/BluetoothBondState;->clearPinAttempts(Ljava/lang/String;)V
 
-    .line 1520
+    .line 689
     invoke-virtual {p0, p1, v7, p2}, Landroid/server/BluetoothService;->setBondState(Ljava/lang/String;II)Z
 
-    .line 1534
+    .line 703
     :cond_1a
     :goto_1a
     return-void
 
-    .line 1524
+    .line 693
     :cond_1b
     iget-object v3, p0, Landroid/server/BluetoothService;->mHandler:Landroid/os/Handler;
 
@@ -4823,11 +2700,11 @@
 
     move-result-object v1
 
-    .line 1525
+    .line 694
     .local v1, message:Landroid/os/Message;
     iput-object p1, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 1526
+    .line 695
     iget-object v3, p0, Landroid/server/BluetoothService;->mHandler:Landroid/os/Handler;
 
     int-to-long v4, v0
@@ -4838,16 +2715,16 @@
 
     move-result v2
 
-    .line 1528
+    .line 697
     .local v2, postResult:Z
     if-nez v2, :cond_1a
 
-    .line 1529
+    .line 698
     iget-object v3, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     invoke-virtual {v3, p1}, Landroid/server/BluetoothBondState;->clearPinAttempts(Ljava/lang/String;)V
 
-    .line 1530
+    .line 699
     invoke-virtual {p0, p1, v7, p2}, Landroid/server/BluetoothService;->setBondState(Ljava/lang/String;II)Z
 
     goto :goto_1a
@@ -4862,7 +2739,7 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 475
+    .line 251
     const-class v6, Landroid/server/BluetoothService;
 
     monitor-enter v6
@@ -4876,18 +2753,18 @@
     :try_end_a
     .catchall {:try_start_4 .. :try_end_a} :catchall_5d
 
-    .line 506
+    .line 282
     :cond_a
     :goto_a
     monitor-exit v6
 
     return-object v5
 
-    .line 477
+    .line 253
     :cond_c
     const/4 v3, 0x0
 
-    .line 480
+    .line 256
     .local v3, file:Ljava/io/BufferedInputStream;
     :try_start_d
     new-instance v4, Ljava/io/BufferedInputStream;
@@ -4900,11 +2777,11 @@
 
     invoke-direct {v4, v7}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
     :try_end_19
-    .catchall {:try_start_d .. :try_end_19} :catchall_7e
-    .catch Ljava/io/FileNotFoundException; {:try_start_d .. :try_end_19} :catch_60
-    .catch Ljava/io/IOException; {:try_start_d .. :try_end_19} :catch_70
+    .catchall {:try_start_d .. :try_end_19} :catchall_83
+    .catch Ljava/io/FileNotFoundException; {:try_start_d .. :try_end_19} :catch_63
+    .catch Ljava/io/IOException; {:try_start_d .. :try_end_19} :catch_73
 
-    .line 481
+    .line 257
     .end local v3           #file:Ljava/io/BufferedInputStream;
     .local v4, file:Ljava/io/BufferedInputStream;
     const/16 v7, 0x11
@@ -4912,42 +2789,42 @@
     :try_start_1b
     new-array v0, v7, [B
 
-    .line 482
+    .line 258
     .local v0, address:[B
     invoke-virtual {v4, v0}, Ljava/io/BufferedInputStream;->read([B)I
 
-    .line 483
+    .line 259
     new-instance v1, Ljava/lang/String;
 
     invoke-direct {v1, v0}, Ljava/lang/String;-><init>([B)V
 
-    .line 484
+    .line 260
     .local v1, dockAddress:Ljava/lang/String;
     invoke-virtual {v1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 485
+    .line 261
     invoke-static {v1}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
 
     move-result v7
 
     if-eqz v7, :cond_3b
 
-    .line 486
+    .line 262
     sput-object v1, Landroid/server/BluetoothService;->mDockAddress:Ljava/lang/String;
 
-    .line 487
+    .line 263
     sget-object v5, Landroid/server/BluetoothService;->mDockAddress:Ljava/lang/String;
     :try_end_33
-    .catchall {:try_start_1b .. :try_end_33} :catchall_89
-    .catch Ljava/io/FileNotFoundException; {:try_start_1b .. :try_end_33} :catch_8f
-    .catch Ljava/io/IOException; {:try_start_1b .. :try_end_33} :catch_8c
+    .catchall {:try_start_1b .. :try_end_33} :catchall_8c
+    .catch Ljava/io/FileNotFoundException; {:try_start_1b .. :try_end_33} :catch_92
+    .catch Ljava/io/IOException; {:try_start_1b .. :try_end_33} :catch_8f
 
-    .line 497
+    .line 273
     if-eqz v4, :cond_a
 
-    .line 499
+    .line 275
     :try_start_35
     invoke-virtual {v4}, Ljava/io/BufferedInputStream;->close()V
     :try_end_38
@@ -4956,13 +2833,13 @@
 
     goto :goto_a
 
-    .line 500
+    .line 276
     :catch_39
     move-exception v7
 
     goto :goto_a
 
-    .line 489
+    .line 265
     :cond_3b
     :try_start_3b
     const-string v7, "BluetoothService"
@@ -4987,25 +2864,23 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_53
-    .catchall {:try_start_3b .. :try_end_53} :catchall_89
-    .catch Ljava/io/FileNotFoundException; {:try_start_3b .. :try_end_53} :catch_8f
-    .catch Ljava/io/IOException; {:try_start_3b .. :try_end_53} :catch_8c
+    .catchall {:try_start_3b .. :try_end_53} :catchall_8c
+    .catch Ljava/io/FileNotFoundException; {:try_start_3b .. :try_end_53} :catch_92
+    .catch Ljava/io/IOException; {:try_start_3b .. :try_end_53} :catch_8f
 
-    .line 497
-    if-eqz v4, :cond_58
+    .line 273
+    if-eqz v4, :cond_95
 
-    .line 499
+    .line 275
     :try_start_55
     invoke-virtual {v4}, Ljava/io/BufferedInputStream;->close()V
     :try_end_58
     .catchall {:try_start_55 .. :try_end_58} :catchall_5d
-    .catch Ljava/io/IOException; {:try_start_55 .. :try_end_58} :catch_87
+    .catch Ljava/io/IOException; {:try_start_55 .. :try_end_58} :catch_60
 
-    :cond_58
-    :goto_58
     move-object v3, v4
 
-    .line 505
+    .line 281
     .end local v0           #address:[B
     .end local v1           #dockAddress:Ljava/lang/String;
     .end local v4           #file:Ljava/io/BufferedInputStream;
@@ -5021,7 +2896,7 @@
 
     goto :goto_a
 
-    .line 475
+    .line 251
     :catchall_5d
     move-exception v5
 
@@ -5029,132 +2904,134 @@
 
     throw v5
 
-    .line 492
+    .line 276
+    .end local v3           #file:Ljava/io/BufferedInputStream;
+    .restart local v0       #address:[B
+    .restart local v1       #dockAddress:Ljava/lang/String;
+    .restart local v4       #file:Ljava/io/BufferedInputStream;
     :catch_60
+    move-exception v7
+
+    move-object v3, v4
+
+    .line 278
+    .end local v4           #file:Ljava/io/BufferedInputStream;
+    .restart local v3       #file:Ljava/io/BufferedInputStream;
+    goto :goto_59
+
+    .line 268
+    .end local v0           #address:[B
+    .end local v1           #dockAddress:Ljava/lang/String;
+    :catch_63
     move-exception v2
 
-    .line 493
+    .line 269
     .local v2, e:Ljava/io/FileNotFoundException;
-    :goto_61
-    :try_start_61
+    :goto_64
+    :try_start_64
     const-string v7, "BluetoothService"
 
     const-string v8, "FileNotFoundException while trying to read dock address"
 
     invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_68
-    .catchall {:try_start_61 .. :try_end_68} :catchall_7e
+    :try_end_6b
+    .catchall {:try_start_64 .. :try_end_6b} :catchall_83
 
-    .line 497
+    .line 273
     if-eqz v3, :cond_59
 
-    .line 499
-    :try_start_6a
+    .line 275
+    :try_start_6d
     invoke-virtual {v3}, Ljava/io/BufferedInputStream;->close()V
-    :try_end_6d
-    .catchall {:try_start_6a .. :try_end_6d} :catchall_5d
-    .catch Ljava/io/IOException; {:try_start_6a .. :try_end_6d} :catch_6e
+    :try_end_70
+    .catchall {:try_start_6d .. :try_end_70} :catchall_5d
+    .catch Ljava/io/IOException; {:try_start_6d .. :try_end_70} :catch_71
 
     goto :goto_59
 
-    .line 500
-    .end local v2           #e:Ljava/io/FileNotFoundException;
-    :catch_6e
+    .line 276
+    :catch_71
     move-exception v7
 
     goto :goto_59
 
-    .line 494
-    :catch_70
+    .line 270
+    .end local v2           #e:Ljava/io/FileNotFoundException;
+    :catch_73
     move-exception v2
 
-    .line 495
+    .line 271
     .local v2, e:Ljava/io/IOException;
-    :goto_71
-    :try_start_71
+    :goto_74
+    :try_start_74
     const-string v7, "BluetoothService"
 
     const-string v8, "IOException while trying to read dock address"
 
     invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_78
-    .catchall {:try_start_71 .. :try_end_78} :catchall_7e
+    :try_end_7b
+    .catchall {:try_start_74 .. :try_end_7b} :catchall_83
 
-    .line 497
+    .line 273
     if-eqz v3, :cond_59
 
-    .line 499
-    :try_start_7a
+    .line 275
+    :try_start_7d
     invoke-virtual {v3}, Ljava/io/BufferedInputStream;->close()V
-    :try_end_7d
-    .catchall {:try_start_7a .. :try_end_7d} :catchall_5d
-    .catch Ljava/io/IOException; {:try_start_7a .. :try_end_7d} :catch_6e
+    :try_end_80
+    .catchall {:try_start_7d .. :try_end_80} :catchall_5d
+    .catch Ljava/io/IOException; {:try_start_7d .. :try_end_80} :catch_81
 
     goto :goto_59
 
-    .line 497
-    .end local v2           #e:Ljava/io/IOException;
-    :catchall_7e
-    move-exception v5
-
-    :goto_7f
-    if-eqz v3, :cond_84
-
-    .line 499
-    :try_start_81
-    invoke-virtual {v3}, Ljava/io/BufferedInputStream;->close()V
-    :try_end_84
-    .catchall {:try_start_81 .. :try_end_84} :catchall_5d
-    .catch Ljava/io/IOException; {:try_start_81 .. :try_end_84} :catch_85
-
-    .line 497
-    :cond_84
-    :goto_84
-    :try_start_84
-    throw v5
-    :try_end_85
-    .catchall {:try_start_84 .. :try_end_85} :catchall_5d
-
-    .line 500
-    :catch_85
+    .line 276
+    :catch_81
     move-exception v7
 
+    goto :goto_59
+
+    .line 273
+    .end local v2           #e:Ljava/io/IOException;
+    :catchall_83
+    move-exception v5
+
+    :goto_84
+    if-eqz v3, :cond_89
+
+    .line 275
+    :try_start_86
+    invoke-virtual {v3}, Ljava/io/BufferedInputStream;->close()V
+    :try_end_89
+    .catchall {:try_start_86 .. :try_end_89} :catchall_5d
+    .catch Ljava/io/IOException; {:try_start_86 .. :try_end_89} :catch_8a
+
+    .line 278
+    :cond_89
+    :goto_89
+    :try_start_89
+    throw v5
+    :try_end_8a
+    .catchall {:try_start_89 .. :try_end_8a} :catchall_5d
+
+    .line 276
+    :catch_8a
+    move-exception v7
+
+    goto :goto_89
+
+    .line 273
+    .end local v3           #file:Ljava/io/BufferedInputStream;
+    .restart local v4       #file:Ljava/io/BufferedInputStream;
+    :catchall_8c
+    move-exception v5
+
+    move-object v3, v4
+
+    .end local v4           #file:Ljava/io/BufferedInputStream;
+    .restart local v3       #file:Ljava/io/BufferedInputStream;
     goto :goto_84
 
-    .end local v3           #file:Ljava/io/BufferedInputStream;
-    .restart local v0       #address:[B
-    .restart local v1       #dockAddress:Ljava/lang/String;
-    .restart local v4       #file:Ljava/io/BufferedInputStream;
-    :catch_87
-    move-exception v7
-
-    goto :goto_58
-
-    .line 497
-    .end local v0           #address:[B
-    .end local v1           #dockAddress:Ljava/lang/String;
-    :catchall_89
-    move-exception v5
-
-    move-object v3, v4
-
-    .end local v4           #file:Ljava/io/BufferedInputStream;
-    .restart local v3       #file:Ljava/io/BufferedInputStream;
-    goto :goto_7f
-
-    .line 494
-    .end local v3           #file:Ljava/io/BufferedInputStream;
-    .restart local v4       #file:Ljava/io/BufferedInputStream;
-    :catch_8c
-    move-exception v2
-
-    move-object v3, v4
-
-    .end local v4           #file:Ljava/io/BufferedInputStream;
-    .restart local v3       #file:Ljava/io/BufferedInputStream;
-    goto :goto_71
-
-    .line 492
+    .line 270
     .end local v3           #file:Ljava/io/BufferedInputStream;
     .restart local v4       #file:Ljava/io/BufferedInputStream;
     :catch_8f
@@ -5164,22 +3041,45 @@
 
     .end local v4           #file:Ljava/io/BufferedInputStream;
     .restart local v3       #file:Ljava/io/BufferedInputStream;
-    goto :goto_61
+    goto :goto_74
+
+    .line 268
+    .end local v3           #file:Ljava/io/BufferedInputStream;
+    .restart local v4       #file:Ljava/io/BufferedInputStream;
+    :catch_92
+    move-exception v2
+
+    move-object v3, v4
+
+    .end local v4           #file:Ljava/io/BufferedInputStream;
+    .restart local v3       #file:Ljava/io/BufferedInputStream;
+    goto :goto_64
+
+    .end local v3           #file:Ljava/io/BufferedInputStream;
+    .restart local v0       #address:[B
+    .restart local v1       #dockAddress:Ljava/lang/String;
+    .restart local v4       #file:Ljava/io/BufferedInputStream;
+    :cond_95
+    move-object v3, v4
+
+    .end local v4           #file:Ljava/io/BufferedInputStream;
+    .restart local v3       #file:Ljava/io/BufferedInputStream;
+    goto :goto_59
 .end method
 
 .method private readIncomingConnectionState()V
     .registers 13
 
     .prologue
-    .line 4122
+    .line 2692
     iget-object v10, p0, Landroid/server/BluetoothService;->mIncomingConnections:Ljava/util/HashMap;
 
     monitor-enter v10
 
-    .line 4123
+    .line 2693
     const/4 v2, 0x0
 
-    .line 4125
+    .line 2695
     .local v2, fstream:Ljava/io/FileInputStream;
     :try_start_4
     new-instance v3, Ljava/io/FileInputStream;
@@ -5188,11 +3088,11 @@
 
     invoke-direct {v3, v9}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
     :try_end_b
-    .catchall {:try_start_4 .. :try_end_b} :catchall_9f
-    .catch Ljava/io/FileNotFoundException; {:try_start_4 .. :try_end_b} :catch_b6
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_b} :catch_7c
+    .catchall {:try_start_4 .. :try_end_b} :catchall_a2
+    .catch Ljava/io/FileNotFoundException; {:try_start_4 .. :try_end_b} :catch_b9
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_b} :catch_7f
 
-    .line 4126
+    .line 2696
     .end local v2           #fstream:Ljava/io/FileInputStream;
     .local v3, fstream:Ljava/io/FileInputStream;
     :try_start_b
@@ -5200,7 +3100,7 @@
 
     invoke-direct {v4, v3}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
 
-    .line 4127
+    .line 2697
     .local v4, in:Ljava/io/DataInputStream;
     new-instance v1, Ljava/io/BufferedReader;
 
@@ -5210,7 +3110,7 @@
 
     invoke-direct {v1, v9}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
 
-    .line 4129
+    .line 2699
     .local v1, file:Ljava/io/BufferedReader;
     :cond_1a
     :goto_1a
@@ -5221,26 +3121,26 @@
     .local v5, line:Ljava/lang/String;
     if-eqz v5, :cond_75
 
-    .line 4130
+    .line 2700
     invoke-virtual {v5}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 4131
+    .line 2701
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
     move-result v9
 
     if-eqz v9, :cond_1a
 
-    .line 4132
+    .line 2702
     const-string v9, ","
 
     invoke-virtual {v5, v9}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v8
 
-    .line 4133
+    .line 2703
     .local v8, value:[Ljava/lang/String;
     if-eqz v8, :cond_1a
 
@@ -5250,7 +3150,7 @@
 
     if-ne v9, v11, :cond_1a
 
-    .line 4134
+    .line 2704
     const/4 v9, 0x1
 
     aget-object v9, v8, v9
@@ -5263,7 +3163,7 @@
 
     move-result-object v7
 
-    .line 4135
+    .line 2705
     .local v7, val1:Ljava/lang/Integer;
     new-instance v6, Landroid/util/Pair;
 
@@ -5273,7 +3173,7 @@
 
     invoke-direct {v6, v7, v9}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    .line 4136
+    .line 2706
     .local v6, val:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/String;>;"
     iget-object v9, p0, Landroid/server/BluetoothService;->mIncomingConnections:Ljava/util/HashMap;
 
@@ -5283,13 +3183,13 @@
 
     invoke-virtual {v9, v11, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_51
-    .catchall {:try_start_b .. :try_end_51} :catchall_b0
+    .catchall {:try_start_b .. :try_end_51} :catchall_b3
     .catch Ljava/io/FileNotFoundException; {:try_start_b .. :try_end_51} :catch_52
-    .catch Ljava/io/IOException; {:try_start_b .. :try_end_51} :catch_b3
+    .catch Ljava/io/IOException; {:try_start_b .. :try_end_51} :catch_b6
 
     goto :goto_1a
 
-    .line 4139
+    .line 2709
     .end local v1           #file:Ljava/io/BufferedReader;
     .end local v4           #in:Ljava/io/DataInputStream;
     .end local v5           #line:Ljava/lang/String;
@@ -5301,7 +3201,7 @@
 
     move-object v2, v3
 
-    .line 4140
+    .line 2710
     .end local v3           #fstream:Ljava/io/FileInputStream;
     .local v0, e:Ljava/io/FileNotFoundException;
     .restart local v2       #fstream:Ljava/io/FileInputStream;
@@ -5331,66 +3231,77 @@
 
     invoke-static {v9}, Landroid/server/BluetoothService;->log(Ljava/lang/String;)V
     :try_end_6e
-    .catchall {:try_start_54 .. :try_end_6e} :catchall_9f
+    .catchall {:try_start_54 .. :try_end_6e} :catchall_a2
 
-    .line 4144
+    .line 2714
     if-eqz v2, :cond_73
 
-    .line 4146
+    .line 2716
     :try_start_70
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
     :try_end_73
-    .catchall {:try_start_70 .. :try_end_73} :catchall_a6
-    .catch Ljava/io/IOException; {:try_start_70 .. :try_end_73} :catch_9d
+    .catchall {:try_start_70 .. :try_end_73} :catchall_a9
+    .catch Ljava/io/IOException; {:try_start_70 .. :try_end_73} :catch_ac
 
-    .line 4152
+    .line 2722
     .end local v0           #e:Ljava/io/FileNotFoundException;
     :cond_73
     :goto_73
     :try_start_73
     monitor-exit v10
     :try_end_74
-    .catchall {:try_start_73 .. :try_end_74} :catchall_a6
+    .catchall {:try_start_73 .. :try_end_74} :catchall_a9
 
-    .line 4153
+    .line 2723
     return-void
 
-    .line 4144
+    .line 2714
     .end local v2           #fstream:Ljava/io/FileInputStream;
     .restart local v1       #file:Ljava/io/BufferedReader;
     .restart local v3       #fstream:Ljava/io/FileInputStream;
     .restart local v4       #in:Ljava/io/DataInputStream;
     .restart local v5       #line:Ljava/lang/String;
     :cond_75
-    if-eqz v3, :cond_7a
+    if-eqz v3, :cond_bb
 
-    .line 4146
+    .line 2716
     :try_start_77
     invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
     :try_end_7a
-    .catchall {:try_start_77 .. :try_end_7a} :catchall_ad
-    .catch Ljava/io/IOException; {:try_start_77 .. :try_end_7a} :catch_ab
+    .catchall {:try_start_77 .. :try_end_7a} :catchall_b0
+    .catch Ljava/io/IOException; {:try_start_77 .. :try_end_7a} :catch_7c
 
-    :cond_7a
-    :goto_7a
     move-object v2, v3
 
-    .line 4151
+    .line 2719
     .end local v3           #fstream:Ljava/io/FileInputStream;
     .restart local v2       #fstream:Ljava/io/FileInputStream;
     goto :goto_73
 
-    .line 4141
+    .line 2717
+    .end local v2           #fstream:Ljava/io/FileInputStream;
+    .restart local v3       #fstream:Ljava/io/FileInputStream;
+    :catch_7c
+    move-exception v9
+
+    move-object v2, v3
+
+    .line 2719
+    .end local v3           #fstream:Ljava/io/FileInputStream;
+    .restart local v2       #fstream:Ljava/io/FileInputStream;
+    goto :goto_73
+
+    .line 2711
     .end local v1           #file:Ljava/io/BufferedReader;
     .end local v4           #in:Ljava/io/DataInputStream;
     .end local v5           #line:Ljava/lang/String;
-    :catch_7c
+    :catch_7f
     move-exception v0
 
-    .line 4142
+    .line 2712
     .local v0, e:Ljava/io/IOException;
-    :goto_7d
-    :try_start_7d
+    :goto_80
+    :try_start_80
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -5414,91 +3325,78 @@
     move-result-object v9
 
     invoke-static {v9}, Landroid/server/BluetoothService;->log(Ljava/lang/String;)V
-    :try_end_97
-    .catchall {:try_start_7d .. :try_end_97} :catchall_9f
+    :try_end_9a
+    .catchall {:try_start_80 .. :try_end_9a} :catchall_a2
 
-    .line 4144
+    .line 2714
     if-eqz v2, :cond_73
 
-    .line 4146
-    :try_start_99
+    .line 2716
+    :try_start_9c
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
-    :try_end_9c
-    .catchall {:try_start_99 .. :try_end_9c} :catchall_a6
-    .catch Ljava/io/IOException; {:try_start_99 .. :try_end_9c} :catch_9d
+    :try_end_9f
+    .catchall {:try_start_9c .. :try_end_9f} :catchall_a9
+    .catch Ljava/io/IOException; {:try_start_9c .. :try_end_9f} :catch_a0
 
     goto :goto_73
 
-    .line 4147
+    .line 2717
+    :catch_a0
+    move-exception v9
+
+    goto :goto_73
+
+    .line 2714
     .end local v0           #e:Ljava/io/IOException;
-    :catch_9d
+    :catchall_a2
+    move-exception v9
+
+    :goto_a3
+    if-eqz v2, :cond_a8
+
+    .line 2716
+    :try_start_a5
+    invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
+    :try_end_a8
+    .catchall {:try_start_a5 .. :try_end_a8} :catchall_a9
+    .catch Ljava/io/IOException; {:try_start_a5 .. :try_end_a8} :catch_ae
+
+    .line 2719
+    :cond_a8
+    :goto_a8
+    :try_start_a8
+    throw v9
+
+    .line 2722
+    :catchall_a9
+    move-exception v9
+
+    :goto_aa
+    monitor-exit v10
+    :try_end_ab
+    .catchall {:try_start_a8 .. :try_end_ab} :catchall_a9
+
+    throw v9
+
+    .line 2717
+    .local v0, e:Ljava/io/FileNotFoundException;
+    :catch_ac
     move-exception v9
 
     goto :goto_73
 
-    .line 4144
-    :catchall_9f
-    move-exception v9
-
-    :goto_a0
-    if-eqz v2, :cond_a5
-
-    .line 4146
-    :try_start_a2
-    invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
-    :try_end_a5
-    .catchall {:try_start_a2 .. :try_end_a5} :catchall_a6
-    .catch Ljava/io/IOException; {:try_start_a2 .. :try_end_a5} :catch_a9
-
-    .line 4144
-    :cond_a5
-    :goto_a5
-    :try_start_a5
-    throw v9
-
-    .line 4152
-    :catchall_a6
-    move-exception v9
-
-    :goto_a7
-    monitor-exit v10
-    :try_end_a8
-    .catchall {:try_start_a5 .. :try_end_a8} :catchall_a6
-
-    throw v9
-
-    .line 4147
-    :catch_a9
+    .end local v0           #e:Ljava/io/FileNotFoundException;
+    :catch_ae
     move-exception v11
 
-    goto :goto_a5
+    goto :goto_a8
 
+    .line 2722
     .end local v2           #fstream:Ljava/io/FileInputStream;
     .restart local v1       #file:Ljava/io/BufferedReader;
     .restart local v3       #fstream:Ljava/io/FileInputStream;
     .restart local v4       #in:Ljava/io/DataInputStream;
     .restart local v5       #line:Ljava/lang/String;
-    :catch_ab
-    move-exception v9
-
-    goto :goto_7a
-
-    .line 4152
-    :catchall_ad
-    move-exception v9
-
-    move-object v2, v3
-
-    .end local v3           #fstream:Ljava/io/FileInputStream;
-    .restart local v2       #fstream:Ljava/io/FileInputStream;
-    goto :goto_a7
-
-    .line 4144
-    .end local v1           #file:Ljava/io/BufferedReader;
-    .end local v2           #fstream:Ljava/io/FileInputStream;
-    .end local v4           #in:Ljava/io/DataInputStream;
-    .end local v5           #line:Ljava/lang/String;
-    .restart local v3       #fstream:Ljava/io/FileInputStream;
     :catchall_b0
     move-exception v9
 
@@ -5506,79 +3404,132 @@
 
     .end local v3           #fstream:Ljava/io/FileInputStream;
     .restart local v2       #fstream:Ljava/io/FileInputStream;
-    goto :goto_a0
+    goto :goto_aa
 
-    .line 4141
+    .line 2714
+    .end local v1           #file:Ljava/io/BufferedReader;
+    .end local v2           #fstream:Ljava/io/FileInputStream;
+    .end local v4           #in:Ljava/io/DataInputStream;
+    .end local v5           #line:Ljava/lang/String;
+    .restart local v3       #fstream:Ljava/io/FileInputStream;
+    :catchall_b3
+    move-exception v9
+
+    move-object v2, v3
+
+    .end local v3           #fstream:Ljava/io/FileInputStream;
+    .restart local v2       #fstream:Ljava/io/FileInputStream;
+    goto :goto_a3
+
+    .line 2711
     .end local v2           #fstream:Ljava/io/FileInputStream;
     .restart local v3       #fstream:Ljava/io/FileInputStream;
-    :catch_b3
+    :catch_b6
     move-exception v0
 
     move-object v2, v3
 
     .end local v3           #fstream:Ljava/io/FileInputStream;
     .restart local v2       #fstream:Ljava/io/FileInputStream;
-    goto :goto_7d
+    goto :goto_80
 
-    .line 4139
-    :catch_b6
+    .line 2709
+    :catch_b9
     move-exception v0
 
     goto :goto_54
+
+    .end local v2           #fstream:Ljava/io/FileInputStream;
+    .restart local v1       #file:Ljava/io/BufferedReader;
+    .restart local v3       #fstream:Ljava/io/FileInputStream;
+    .restart local v4       #in:Ljava/io/DataInputStream;
+    .restart local v5       #line:Ljava/lang/String;
+    :cond_bb
+    move-object v2, v3
+
+    .end local v3           #fstream:Ljava/io/FileInputStream;
+    .restart local v2       #fstream:Ljava/io/FileInputStream;
+    goto :goto_73
 .end method
 
 .method private registerForAirplaneMode(Landroid/content/IntentFilter;)V
-    .registers 5
+    .registers 6
     .parameter "filter"
 
     .prologue
-    .line 3050
-    iget-object v2, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
+    .line 1694
+    iget-object v3, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
-    .line 3051
+    .line 1695
     .local v1, resolver:Landroid/content/ContentResolver;
-    const-string v2, "airplane_mode_radios"
+    const-string v3, "airplane_mode_radios"
 
-    invoke-static {v1, v2}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, v3}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 3056
+    .line 1697
     .local v0, airplaneModeRadios:Ljava/lang/String;
-    if-nez v0, :cond_1b
+    const-string v3, "airplane_mode_toggleable_radios"
 
-    const/4 v2, 0x1
+    invoke-static {v1, v3}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
-    :goto_f
-    iput-boolean v2, p0, Landroid/server/BluetoothService;->mIsAirplaneSensitive:Z
+    move-result-object v2
 
-    .line 3061
-    iget-boolean v2, p0, Landroid/server/BluetoothService;->mIsAirplaneSensitive:Z
+    .line 1700
+    .local v2, toggleableRadios:Ljava/lang/String;
+    if-nez v0, :cond_26
 
-    if-eqz v2, :cond_1a
+    const/4 v3, 0x1
 
-    .line 3062
-    const-string v2, "android.intent.action.AIRPLANE_MODE"
+    :goto_15
+    iput-boolean v3, p0, Landroid/server/BluetoothService;->mIsAirplaneSensitive:Z
 
-    invoke-virtual {p1, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    .line 1702
+    if-nez v2, :cond_2d
 
-    .line 3064
-    :cond_1a
+    const/4 v3, 0x0
+
+    :goto_1a
+    iput-boolean v3, p0, Landroid/server/BluetoothService;->mIsAirplaneToggleable:Z
+
+    .line 1705
+    iget-boolean v3, p0, Landroid/server/BluetoothService;->mIsAirplaneSensitive:Z
+
+    if-eqz v3, :cond_25
+
+    .line 1706
+    const-string v3, "android.intent.action.AIRPLANE_MODE"
+
+    invoke-virtual {p1, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 1708
+    :cond_25
     return-void
 
-    .line 3056
-    :cond_1b
-    const-string v2, "bluetooth"
+    .line 1700
+    :cond_26
+    const-string v3, "bluetooth"
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v0, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v2
+    move-result v3
 
-    goto :goto_f
+    goto :goto_15
+
+    .line 1702
+    :cond_2d
+    const-string v3, "bluetooth"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    goto :goto_1a
 .end method
 
 .method private native removeDeviceNative(Ljava/lang/String;)Z
@@ -5590,43 +3541,40 @@
 .method private native removeServiceRecordNative(I)Z
 .end method
 
-.method private native sapAuthorizeNative(Ljava/lang/String;ZI)Z
-.end method
-
 .method static scanModeToBluezString(I)Ljava/lang/String;
     .registers 2
     .parameter "mode"
 
     .prologue
-    .line 3365
+    .line 1983
     packed-switch p0, :pswitch_data_10
 
-    .line 3373
+    .line 1991
     :pswitch_3
     const/4 v0, 0x0
 
     :goto_4
     return-object v0
 
-    .line 3367
+    .line 1985
     :pswitch_5
     const-string/jumbo v0, "off"
 
     goto :goto_4
 
-    .line 3369
+    .line 1987
     :pswitch_9
     const-string v0, "connectable"
 
     goto :goto_4
 
-    .line 3371
+    .line 1989
     :pswitch_c
     const-string v0, "discoverable"
 
     goto :goto_4
 
-    .line 3365
+    .line 1983
     nop
 
     :pswitch_data_10
@@ -5647,16 +3595,7 @@
 .method private native setAdapterPropertyStringNative(Ljava/lang/String;Ljava/lang/String;)Z
 .end method
 
-.method private native setCharacteristicPropertyNative(Ljava/lang/String;Ljava/lang/String;[BIZ)Z
-.end method
-
-.method private native setConnectionParametersNative(Ljava/lang/String;IIII)Z
-.end method
-
 .method private native setDevicePropertyBooleanNative(Ljava/lang/String;Ljava/lang/String;I)Z
-.end method
-
-.method private native setDevicePropertyIntegerNative(Ljava/lang/String;Ljava/lang/String;I)Z
 .end method
 
 .method private native setDevicePropertyStringNative(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
@@ -5682,7 +3621,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 1579
+    .line 748
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v2, "android.permission.BLUETOOTH"
@@ -5691,14 +3630,14 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1580
+    .line 749
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
 
     move-result v1
 
     if-nez v1, :cond_11
 
-    .line 1581
+    .line 750
     :goto_10
     return v0
 
@@ -5721,7 +3660,7 @@
     .parameter "value"
 
     .prologue
-    .line 1573
+    .line 742
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -5730,7 +3669,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1574
+    .line 743
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
 
     move-result v0
@@ -5739,7 +3678,7 @@
 
     const/4 v0, 0x0
 
-    .line 1575
+    .line 744
     :goto_10
     return v0
 
@@ -5757,7 +3696,7 @@
     .parameter "value"
 
     .prologue
-    .line 1567
+    .line 736
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -5766,7 +3705,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1568
+    .line 737
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
 
     move-result v0
@@ -5775,7 +3714,7 @@
 
     const/4 v0, 0x0
 
-    .line 1569
+    .line 738
     :goto_10
     return v0
 
@@ -5807,34 +3746,34 @@
     .parameter "bondState"
 
     .prologue
-    .line 1541
+    .line 710
     packed-switch p0, :pswitch_data_10
 
-    .line 1549
+    .line 718
     const-string v0, "??????"
 
     :goto_5
     return-object v0
 
-    .line 1543
+    .line 712
     :pswitch_6
     const-string/jumbo v0, "not bonded"
 
     goto :goto_5
 
-    .line 1545
+    .line 714
     :pswitch_a
     const-string v0, "bonding"
 
     goto :goto_5
 
-    .line 1547
+    .line 716
     :pswitch_d
     const-string v0, "bonded"
 
     goto :goto_5
 
-    .line 1541
+    .line 710
     :pswitch_data_10
     .packed-switch 0xa
         :pswitch_6
@@ -5847,10 +3786,10 @@
     .registers 6
 
     .prologue
-    .line 4156
+    .line 2726
     const/4 v1, 0x0
 
-    .line 4158
+    .line 2728
     .local v1, r:Ljava/io/RandomAccessFile;
     :try_start_1
     new-instance v2, Ljava/io/RandomAccessFile;
@@ -5861,11 +3800,11 @@
 
     invoke-direct {v2, v3, v4}, Ljava/io/RandomAccessFile;-><init>(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_b
-    .catchall {:try_start_1 .. :try_end_b} :catchall_5b
-    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_b} :catch_17
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_b} :catch_3a
+    .catchall {:try_start_1 .. :try_end_b} :catchall_60
+    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_b} :catch_1a
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_b} :catch_3d
 
-    .line 4159
+    .line 2729
     .end local v1           #r:Ljava/io/RandomAccessFile;
     .local v2, r:Ljava/io/RandomAccessFile;
     const-wide/16 v3, 0x0
@@ -5873,38 +3812,49 @@
     :try_start_d
     invoke-virtual {v2, v3, v4}, Ljava/io/RandomAccessFile;->setLength(J)V
     :try_end_10
-    .catchall {:try_start_d .. :try_end_10} :catchall_66
-    .catch Ljava/io/FileNotFoundException; {:try_start_d .. :try_end_10} :catch_6c
-    .catch Ljava/io/IOException; {:try_start_d .. :try_end_10} :catch_69
+    .catchall {:try_start_d .. :try_end_10} :catchall_69
+    .catch Ljava/io/FileNotFoundException; {:try_start_d .. :try_end_10} :catch_6f
+    .catch Ljava/io/IOException; {:try_start_d .. :try_end_10} :catch_6c
 
-    .line 4165
-    if-eqz v2, :cond_15
+    .line 2735
+    if-eqz v2, :cond_72
 
-    .line 4167
+    .line 2737
     :try_start_12
     invoke-virtual {v2}, Ljava/io/RandomAccessFile;->close()V
     :try_end_15
-    .catch Ljava/io/IOException; {:try_start_12 .. :try_end_15} :catch_64
+    .catch Ljava/io/IOException; {:try_start_12 .. :try_end_15} :catch_17
 
-    :cond_15
-    :goto_15
     move-object v1, v2
 
-    .line 4173
+    .line 2743
     .end local v2           #r:Ljava/io/RandomAccessFile;
     .restart local v1       #r:Ljava/io/RandomAccessFile;
     :cond_16
     :goto_16
     return-void
 
-    .line 4160
+    .line 2738
+    .end local v1           #r:Ljava/io/RandomAccessFile;
+    .restart local v2       #r:Ljava/io/RandomAccessFile;
     :catch_17
+    move-exception v3
+
+    move-object v1, v2
+
+    .line 2740
+    .end local v2           #r:Ljava/io/RandomAccessFile;
+    .restart local v1       #r:Ljava/io/RandomAccessFile;
+    goto :goto_16
+
+    .line 2730
+    :catch_1a
     move-exception v0
 
-    .line 4161
+    .line 2731
     .local v0, e:Ljava/io/FileNotFoundException;
-    :goto_18
-    :try_start_18
+    :goto_1b
+    :try_start_1b
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -5928,35 +3878,35 @@
     move-result-object v3
 
     invoke-static {v3}, Landroid/server/BluetoothService;->log(Ljava/lang/String;)V
-    :try_end_32
-    .catchall {:try_start_18 .. :try_end_32} :catchall_5b
+    :try_end_35
+    .catchall {:try_start_1b .. :try_end_35} :catchall_60
 
-    .line 4165
+    .line 2735
     if-eqz v1, :cond_16
 
-    .line 4167
-    :try_start_34
+    .line 2737
+    :try_start_37
     invoke-virtual {v1}, Ljava/io/RandomAccessFile;->close()V
-    :try_end_37
-    .catch Ljava/io/IOException; {:try_start_34 .. :try_end_37} :catch_38
+    :try_end_3a
+    .catch Ljava/io/IOException; {:try_start_37 .. :try_end_3a} :catch_3b
 
     goto :goto_16
 
-    .line 4168
-    .end local v0           #e:Ljava/io/FileNotFoundException;
-    :catch_38
+    .line 2738
+    :catch_3b
     move-exception v3
 
     goto :goto_16
 
-    .line 4162
-    :catch_3a
+    .line 2732
+    .end local v0           #e:Ljava/io/FileNotFoundException;
+    :catch_3d
     move-exception v0
 
-    .line 4163
+    .line 2733
     .local v0, e:Ljava/io/IOException;
-    :goto_3b
-    :try_start_3b
+    :goto_3e
+    :try_start_3e
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -5980,75 +3930,64 @@
     move-result-object v3
 
     invoke-static {v3}, Landroid/server/BluetoothService;->log(Ljava/lang/String;)V
-    :try_end_55
-    .catchall {:try_start_3b .. :try_end_55} :catchall_5b
+    :try_end_58
+    .catchall {:try_start_3e .. :try_end_58} :catchall_60
 
-    .line 4165
+    .line 2735
     if-eqz v1, :cond_16
 
-    .line 4167
-    :try_start_57
+    .line 2737
+    :try_start_5a
     invoke-virtual {v1}, Ljava/io/RandomAccessFile;->close()V
-    :try_end_5a
-    .catch Ljava/io/IOException; {:try_start_57 .. :try_end_5a} :catch_38
+    :try_end_5d
+    .catch Ljava/io/IOException; {:try_start_5a .. :try_end_5d} :catch_5e
 
     goto :goto_16
 
-    .line 4165
-    .end local v0           #e:Ljava/io/IOException;
-    :catchall_5b
+    .line 2738
+    :catch_5e
     move-exception v3
 
-    :goto_5c
-    if-eqz v1, :cond_61
+    goto :goto_16
 
-    .line 4167
-    :try_start_5e
-    invoke-virtual {v1}, Ljava/io/RandomAccessFile;->close()V
-    :try_end_61
-    .catch Ljava/io/IOException; {:try_start_5e .. :try_end_61} :catch_62
+    .line 2735
+    .end local v0           #e:Ljava/io/IOException;
+    :catchall_60
+    move-exception v3
 
-    .line 4165
-    :cond_61
     :goto_61
+    if-eqz v1, :cond_66
+
+    .line 2737
+    :try_start_63
+    invoke-virtual {v1}, Ljava/io/RandomAccessFile;->close()V
+    :try_end_66
+    .catch Ljava/io/IOException; {:try_start_63 .. :try_end_66} :catch_67
+
+    .line 2740
+    :cond_66
+    :goto_66
     throw v3
 
-    .line 4168
-    :catch_62
+    .line 2738
+    :catch_67
     move-exception v4
 
+    goto :goto_66
+
+    .line 2735
+    .end local v1           #r:Ljava/io/RandomAccessFile;
+    .restart local v2       #r:Ljava/io/RandomAccessFile;
+    :catchall_69
+    move-exception v3
+
+    move-object v1, v2
+
+    .end local v2           #r:Ljava/io/RandomAccessFile;
+    .restart local v1       #r:Ljava/io/RandomAccessFile;
     goto :goto_61
 
-    .end local v1           #r:Ljava/io/RandomAccessFile;
-    .restart local v2       #r:Ljava/io/RandomAccessFile;
-    :catch_64
-    move-exception v3
-
-    goto :goto_15
-
-    .line 4165
-    :catchall_66
-    move-exception v3
-
-    move-object v1, v2
-
-    .end local v2           #r:Ljava/io/RandomAccessFile;
-    .restart local v1       #r:Ljava/io/RandomAccessFile;
-    goto :goto_5c
-
-    .line 4162
-    .end local v1           #r:Ljava/io/RandomAccessFile;
-    .restart local v2       #r:Ljava/io/RandomAccessFile;
-    :catch_69
-    move-exception v0
-
-    move-object v1, v2
-
-    .end local v2           #r:Ljava/io/RandomAccessFile;
-    .restart local v1       #r:Ljava/io/RandomAccessFile;
-    goto :goto_3b
-
-    .line 4160
+    .line 2732
     .end local v1           #r:Ljava/io/RandomAccessFile;
     .restart local v2       #r:Ljava/io/RandomAccessFile;
     :catch_6c
@@ -6058,90 +3997,28 @@
 
     .end local v2           #r:Ljava/io/RandomAccessFile;
     .restart local v1       #r:Ljava/io/RandomAccessFile;
-    goto :goto_18
-.end method
+    goto :goto_3e
 
-.method private native updateCharacteristicValueNative(Ljava/lang/String;)Z
-.end method
-
-.method private declared-synchronized updateConnectedDevicesList(Landroid/bluetooth/BluetoothDevice;Z)V
-    .registers 5
-    .parameter "device"
-    .parameter "add"
-
-    .prologue
-    .line 4876
-    monitor-enter p0
-
-    if-eqz p2, :cond_12
-
-    .line 4877
-    :try_start_3
-    iget-object v0, p0, Landroid/server/BluetoothService;->mConnectedDevices:Ljava/util/List;
-
-    invoke-interface {v0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_10
-
-    .line 4878
-    iget-object v0, p0, Landroid/server/BluetoothService;->mConnectedDevices:Ljava/util/List;
-
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_10
-    .catchall {:try_start_3 .. :try_end_10} :catchall_2e
-
-    .line 4889
-    :cond_10
-    :goto_10
-    monitor-exit p0
-
-    return-void
-
-    .line 4881
-    :cond_12
-    :try_start_12
-    iget-object v0, p0, Landroid/server/BluetoothService;->mConnectedDevices:Ljava/util/List;
-
-    invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
-
-    .line 4882
-    iget-boolean v0, p0, Landroid/server/BluetoothService;->mUpdateOnAllDevicesDisconnected:Z
-
-    if-eqz v0, :cond_10
-
-    iget-object v0, p0, Landroid/server/BluetoothService;->mConnectedDevices:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    if-nez v0, :cond_10
-
-    .line 4885
-    iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothState:Landroid/server/BluetoothAdapterStateMachine;
-
-    const/16 v1, 0x34
-
-    invoke-virtual {v0, v1}, Landroid/server/BluetoothAdapterStateMachine;->sendMessage(I)V
-
-    .line 4886
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroid/server/BluetoothService;->mUpdateOnAllDevicesDisconnected:Z
-    :try_end_2d
-    .catchall {:try_start_12 .. :try_end_2d} :catchall_2e
-
-    goto :goto_10
-
-    .line 4876
-    :catchall_2e
+    .line 2730
+    .end local v1           #r:Ljava/io/RandomAccessFile;
+    .restart local v2       #r:Ljava/io/RandomAccessFile;
+    :catch_6f
     move-exception v0
 
-    monitor-exit p0
+    move-object v1, v2
 
-    throw v0
+    .end local v2           #r:Ljava/io/RandomAccessFile;
+    .restart local v1       #r:Ljava/io/RandomAccessFile;
+    goto :goto_1b
+
+    .end local v1           #r:Ljava/io/RandomAccessFile;
+    .restart local v2       #r:Ljava/io/RandomAccessFile;
+    :cond_72
+    move-object v1, v2
+
+    .end local v2           #r:Ljava/io/RandomAccessFile;
+    .restart local v1       #r:Ljava/io/RandomAccessFile;
+    goto :goto_16
 .end method
 
 .method private updateCountersAndCheckForConnectionStateChange(II)Z
@@ -6154,19 +4031,19 @@
 
     const/4 v0, 0x1
 
-    .line 4053
+    .line 2636
     packed-switch p2, :pswitch_data_54
 
-    .line 4067
+    .line 2650
     :goto_5
     packed-switch p1, :pswitch_data_5e
 
-    .line 4084
+    .line 2667
     :cond_8
     :goto_8
     return v0
 
-    .line 4055
+    .line 2638
     :pswitch_9
     iget v2, p0, Landroid/server/BluetoothService;->mProfilesConnecting:I
 
@@ -6176,7 +4053,7 @@
 
     goto :goto_5
 
-    .line 4059
+    .line 2642
     :pswitch_10
     iget v2, p0, Landroid/server/BluetoothService;->mProfilesConnected:I
 
@@ -6186,7 +4063,7 @@
 
     goto :goto_5
 
-    .line 4063
+    .line 2646
     :pswitch_17
     iget v2, p0, Landroid/server/BluetoothService;->mProfilesDisconnecting:I
 
@@ -6196,7 +4073,7 @@
 
     goto :goto_5
 
-    .line 4069
+    .line 2652
     :pswitch_1e
     iget v2, p0, Landroid/server/BluetoothService;->mProfilesConnecting:I
 
@@ -6204,7 +4081,7 @@
 
     iput v2, p0, Landroid/server/BluetoothService;->mProfilesConnecting:I
 
-    .line 4070
+    .line 2653
     iget v2, p0, Landroid/server/BluetoothService;->mProfilesConnected:I
 
     if-nez v2, :cond_2c
@@ -6218,7 +4095,7 @@
 
     goto :goto_8
 
-    .line 4073
+    .line 2656
     :pswitch_2e
     iget v2, p0, Landroid/server/BluetoothService;->mProfilesConnected:I
 
@@ -6226,7 +4103,7 @@
 
     iput v2, p0, Landroid/server/BluetoothService;->mProfilesConnected:I
 
-    .line 4074
+    .line 2657
     iget v2, p0, Landroid/server/BluetoothService;->mProfilesConnected:I
 
     if-eq v2, v0, :cond_8
@@ -6235,7 +4112,7 @@
 
     goto :goto_8
 
-    .line 4077
+    .line 2660
     :pswitch_3a
     iget v2, p0, Landroid/server/BluetoothService;->mProfilesDisconnecting:I
 
@@ -6243,7 +4120,7 @@
 
     iput v2, p0, Landroid/server/BluetoothService;->mProfilesDisconnecting:I
 
-    .line 4078
+    .line 2661
     iget v2, p0, Landroid/server/BluetoothService;->mProfilesConnected:I
 
     if-nez v2, :cond_48
@@ -6257,7 +4134,7 @@
 
     goto :goto_8
 
-    .line 4081
+    .line 2664
     :pswitch_4a
     iget v2, p0, Landroid/server/BluetoothService;->mProfilesConnected:I
 
@@ -6272,7 +4149,7 @@
 
     goto :goto_8
 
-    .line 4053
+    .line 2636
     :pswitch_data_54
     .packed-switch 0x1
         :pswitch_9
@@ -6280,7 +4157,7 @@
         :pswitch_17
     .end packed-switch
 
-    .line 4067
+    .line 2650
     :pswitch_data_5e
     .packed-switch 0x0
         :pswitch_4a
@@ -6288,19 +4165,6 @@
         :pswitch_2e
         :pswitch_3a
     .end packed-switch
-.end method
-
-.method private updateDeviceDisconnectStatetoAdapter()V
-    .registers 2
-
-    .prologue
-    .line 4898
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Landroid/server/BluetoothService;->mUpdateOnAllDevicesDisconnected:Z
-
-    .line 4899
-    return-void
 .end method
 
 .method private updateProfileConnectionState(III)V
@@ -6314,18 +4178,18 @@
 
     const/4 v7, 0x1
 
-    .line 3942
+    .line 2530
     const/4 v2, 0x1
 
-    .line 3943
+    .line 2531
     .local v2, numDev:I
     move v1, p2
 
-    .line 3944
+    .line 2532
     .local v1, newHashState:I
     const/4 v4, 0x1
 
-    .line 3956
+    .line 2544
     .local v4, update:Z
     iget-object v5, p0, Landroid/server/BluetoothService;->mProfileConnectionState:Ljava/util/HashMap;
 
@@ -6339,11 +4203,11 @@
 
     check-cast v3, Landroid/util/Pair;
 
-    .line 3957
+    .line 2545
     .local v3, stateNumDev:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/Integer;>;"
     if-eqz v3, :cond_27
 
-    .line 3958
+    .line 2546
     iget-object v5, v3, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v5, Ljava/lang/Integer;
@@ -6352,7 +4216,7 @@
 
     move-result v0
 
-    .line 3959
+    .line 2547
     .local v0, currHashState:I
     iget-object v5, v3, Landroid/util/Pair;->second:Ljava/lang/Object;
 
@@ -6362,19 +4226,19 @@
 
     move-result v2
 
-    .line 3961
+    .line 2549
     if-ne p2, v0, :cond_40
 
-    .line 3962
+    .line 2550
     add-int/lit8 v2, v2, 0x1
 
-    .line 3981
+    .line 2569
     .end local v0           #currHashState:I
     :cond_27
     :goto_27
     if-eqz v4, :cond_3f
 
-    .line 3982
+    .line 2570
     iget-object v5, p0, Landroid/server/BluetoothService;->mProfileConnectionState:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -6395,11 +4259,11 @@
 
     invoke-virtual {v5, v6, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 3985
+    .line 2573
     :cond_3f
     return-void
 
-    .line 3963
+    .line 2551
     .restart local v0       #currHashState:I
     :cond_40
     if-eq p2, v8, :cond_46
@@ -6408,44 +4272,44 @@
 
     if-eq v0, v8, :cond_48
 
-    .line 3966
+    .line 2554
     :cond_46
     const/4 v2, 0x1
 
     goto :goto_27
 
-    .line 3967
+    .line 2555
     :cond_48
     if-ne v2, v7, :cond_4e
 
     if-ne p3, v0, :cond_4e
 
-    .line 3968
+    .line 2556
     const/4 v4, 0x1
 
     goto :goto_27
 
-    .line 3969
+    .line 2557
     :cond_4e
     if-le v2, v7, :cond_5a
 
     if-ne p3, v0, :cond_5a
 
-    .line 3970
+    .line 2558
     add-int/lit8 v2, v2, -0x1
 
-    .line 3972
+    .line 2560
     if-eq v0, v8, :cond_58
 
     if-ne v0, v7, :cond_27
 
-    .line 3974
+    .line 2562
     :cond_58
     move v1, v0
 
     goto :goto_27
 
-    .line 3977
+    .line 2565
     :cond_5a
     const/4 v4, 0x0
 
@@ -6453,193 +4317,139 @@
 .end method
 
 .method private declared-synchronized updateSdpRecords()V
-    .registers 9
+    .registers 6
 
     .prologue
-    const/4 v7, 0x1
-
-    .line 1165
+    .line 556
     monitor-enter p0
 
-    :try_start_2
-    new-instance v3, Ljava/util/ArrayList;
+    :try_start_1
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 1168
-    .local v3, uuids:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/ParcelUuid;>;"
-    sget-object v4, Landroid/bluetooth/BluetoothUuid;->HSP_AG:Landroid/os/ParcelUuid;
+    .line 559
+    .local v1, uuids:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/ParcelUuid;>;"
+    sget-object v2, Landroid/bluetooth/BluetoothUuid;->HSP_AG:Landroid/os/ParcelUuid;
 
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1169
-    sget-object v4, Landroid/bluetooth/BluetoothUuid;->ObexObjectPush:Landroid/os/ParcelUuid;
+    .line 560
+    sget-object v2, Landroid/bluetooth/BluetoothUuid;->ObexObjectPush:Landroid/os/ParcelUuid;
 
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1171
-    iget-object v4, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
+    .line 561
+    sget-object v2, Landroid/bluetooth/BluetoothUuid;->MessageAccessServer:Landroid/os/ParcelUuid;
 
-    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    move-result-object v4
+    .line 563
+    iget-object v2, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
-    const v5, 0x1110023
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getBoolean(I)Z
+    move-result-object v2
 
-    move-result v4
+    const v3, 0x1110027
 
-    if-eqz v4, :cond_2a
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
-    .line 1173
-    sget-object v4, Landroid/bluetooth/BluetoothUuid;->Handsfree_AG:Landroid/os/ParcelUuid;
+    move-result v2
 
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    if-eqz v2, :cond_2e
 
-    .line 1174
-    sget-object v4, Landroid/bluetooth/BluetoothUuid;->PBAP_PSE:Landroid/os/ParcelUuid;
+    .line 565
+    sget-object v2, Landroid/bluetooth/BluetoothUuid;->Handsfree_AG:Landroid/os/ParcelUuid;
 
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1178
-    :cond_2a
-    invoke-direct {p0, v3}, Landroid/server/BluetoothService;->addReservedSdpRecords(Ljava/util/ArrayList;)V
+    .line 566
+    sget-object v2, Landroid/bluetooth/BluetoothUuid;->PBAP_PSE:Landroid/os/ParcelUuid;
 
-    .line 1186
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->isTetheringOn()Z
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    move-result v4
+    .line 570
+    :cond_2e
+    invoke-direct {p0, v1}, Landroid/server/BluetoothService;->addReservedSdpRecords(Ljava/util/ArrayList;)V
 
-    if-eqz v4, :cond_42
+    .line 573
+    const/4 v2, 0x1
 
-    .line 1187
-    const/4 v4, 0x1
+    const-string/jumbo v3, "nap"
 
-    const-string/jumbo v5, "nap"
+    const-string/jumbo v4, "pan1"
 
-    const-string/jumbo v6, "pan1"
+    invoke-virtual {p0, v2, v3, v4}, Landroid/server/BluetoothService;->setBluetoothTetheringNative(ZLjava/lang/String;Ljava/lang/String;)Z
 
-    invoke-virtual {p0, v4, v5, v6}, Landroid/server/BluetoothService;->setBluetoothTetheringNative(ZLjava/lang/String;Ljava/lang/String;)Z
+    .line 577
+    sget-object v2, Landroid/bluetooth/BluetoothUuid;->AudioSource:Landroid/os/ParcelUuid;
 
-    .line 1189
-    sget-object v4, Landroid/bluetooth/BluetoothUuid;->NAP:Landroid/os/ParcelUuid;
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    .line 578
+    sget-object v2, Landroid/bluetooth/BluetoothUuid;->AvrcpTarget:Landroid/os/ParcelUuid;
 
-    .line 1194
-    :cond_42
-    sget-object v4, Landroid/bluetooth/BluetoothUuid;->AudioSource:Landroid/os/ParcelUuid;
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    .line 579
+    sget-object v2, Landroid/bluetooth/BluetoothUuid;->NAP:Landroid/os/ParcelUuid;
 
-    .line 1195
-    sget-object v4, Landroid/bluetooth/BluetoothUuid;->AvrcpTarget:Landroid/os/ParcelUuid;
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    .line 582
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
-    .line 1199
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+    move-result v2
 
-    move-result v4
+    new-array v2, v2, [Landroid/os/ParcelUuid;
 
-    new-array v4, v4, [Landroid/os/ParcelUuid;
+    iput-object v2, p0, Landroid/server/BluetoothService;->mAdapterUuids:[Landroid/os/ParcelUuid;
 
-    iput-object v4, p0, Landroid/server/BluetoothService;->mAdapterUuids:[Landroid/os/ParcelUuid;
+    .line 583
+    const/4 v0, 0x0
 
-    .line 1200
-    const/4 v2, 0x0
+    .local v0, i:I
+    :goto_53
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
-    .local v2, i:I
-    :goto_55
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+    move-result v2
 
-    move-result v4
+    if-ge v0, v2, :cond_66
 
-    if-ge v2, v4, :cond_68
+    .line 584
+    iget-object v3, p0, Landroid/server/BluetoothService;->mAdapterUuids:[Landroid/os/ParcelUuid;
 
-    .line 1201
-    iget-object v5, p0, Landroid/server/BluetoothService;->mAdapterUuids:[Landroid/os/ParcelUuid;
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v4
+    check-cast v2, Landroid/os/ParcelUuid;
 
-    check-cast v4, Landroid/os/ParcelUuid;
+    aput-object v2, v3, v0
+    :try_end_63
+    .catchall {:try_start_1 .. :try_end_63} :catchall_68
 
-    aput-object v4, v5, v2
+    .line 583
+    add-int/lit8 v0, v0, 0x1
 
-    .line 1200
-    add-int/lit8 v2, v2, 0x1
+    goto :goto_53
 
-    goto :goto_55
-
-    .line 1207
-    :cond_68
-    iget-object v4, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    const-string v5, "bt_ftp_enable"
-
-    const/4 v6, 0x0
-
-    invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v0
-
-    .line 1208
-    .local v0, Ftp_prev:I
-    if-ne v0, v7, :cond_7a
-
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->enableFTP()Z
-
-    .line 1211
-    :cond_7a
-    invoke-direct {p0}, Landroid/server/BluetoothService;->enableSAP()Z
-
-    .line 1213
-    iget-object v4, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    const-string v5, "bt_map_enable"
-
-    const/4 v6, 0x0
-
-    invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v1
-
-    .line 1214
-    .local v1, Map_prev:I
-    if-ne v1, v7, :cond_8f
-
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->enableMAP()Z
-    :try_end_8f
-    .catchall {:try_start_2 .. :try_end_8f} :catchall_91
-
-    .line 1216
-    :cond_8f
+    .line 586
+    :cond_66
     monitor-exit p0
 
     return-void
 
-    .line 1165
-    .end local v0           #Ftp_prev:I
-    .end local v1           #Map_prev:I
-    .end local v2           #i:I
-    .end local v3           #uuids:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/ParcelUuid;>;"
-    :catchall_91
-    move-exception v4
+    .line 556
+    .end local v0           #i:I
+    .end local v1           #uuids:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/ParcelUuid;>;"
+    :catchall_68
+    move-exception v2
 
     monitor-exit p0
 
-    throw v4
+    throw v2
 .end method
 
 .method private validateProfileConnectionState(I)Z
@@ -6649,7 +4459,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 4031
+    .line 2614
     if-eqz p1, :cond_b
 
     if-eq p1, v0, :cond_b
@@ -6680,12 +4490,12 @@
 
     const/4 v5, 0x0
 
-    .line 518
+    .line 286
     monitor-enter p0
 
     const/4 v1, 0x0
 
-    .line 520
+    .line 288
     .local v1, out:Ljava/io/BufferedWriter;
     :try_start_4
     new-instance v2, Ljava/io/BufferedWriter;
@@ -6702,7 +4512,7 @@
     .catch Ljava/io/FileNotFoundException; {:try_start_4 .. :try_end_10} :catch_3e
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_10} :catch_50
 
-    .line 524
+    .line 292
     .end local v1           #out:Ljava/io/BufferedWriter;
     .local v2, out:Ljava/io/BufferedWriter;
     :try_start_10
@@ -6720,7 +4530,7 @@
 
     double-to-int v3, v6
 
-    .line 526
+    .line 294
     .local v3, pin:I
     const-string v6, "%04d"
 
@@ -6742,30 +4552,30 @@
 
     iput-object v6, p0, Landroid/server/BluetoothService;->mDockPin:Ljava/lang/String;
 
-    .line 527
+    .line 295
     iget-object v6, p0, Landroid/server/BluetoothService;->mDockPin:Ljava/lang/String;
 
     invoke-virtual {v2, v6}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
     :try_end_36
-    .catchall {:try_start_10 .. :try_end_36} :catchall_6e
-    .catch Ljava/io/FileNotFoundException; {:try_start_10 .. :try_end_36} :catch_74
-    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_36} :catch_71
+    .catchall {:try_start_10 .. :try_end_36} :catchall_70
+    .catch Ljava/io/FileNotFoundException; {:try_start_10 .. :try_end_36} :catch_76
+    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_36} :catch_73
 
-    .line 534
+    .line 302
     if-eqz v2, :cond_3b
 
-    .line 536
+    .line 304
     :try_start_38
     invoke-virtual {v2}, Ljava/io/BufferedWriter;->close()V
     :try_end_3b
-    .catchall {:try_start_38 .. :try_end_3b} :catchall_77
-    .catch Ljava/io/IOException; {:try_start_38 .. :try_end_3b} :catch_6c
+    .catchall {:try_start_38 .. :try_end_3b} :catchall_79
+    .catch Ljava/io/IOException; {:try_start_38 .. :try_end_3b} :catch_6a
 
     :cond_3b
     :goto_3b
     move-object v1, v2
 
-    .line 543
+    .line 311
     .end local v2           #out:Ljava/io/BufferedWriter;
     .end local v3           #pin:I
     .restart local v1       #out:Ljava/io/BufferedWriter;
@@ -6774,11 +4584,11 @@
 
     return v4
 
-    .line 529
+    .line 297
     :catch_3e
     move-exception v0
 
-    .line 530
+    .line 298
     .local v0, e:Ljava/io/FileNotFoundException;
     :goto_3f
     :try_start_3f
@@ -6790,17 +4600,17 @@
     :try_end_46
     .catchall {:try_start_3f .. :try_end_46} :catchall_60
 
-    .line 534
+    .line 302
     if-eqz v1, :cond_4b
 
-    .line 536
+    .line 304
     :try_start_48
     invoke-virtual {v1}, Ljava/io/BufferedWriter;->close()V
     :try_end_4b
     .catchall {:try_start_48 .. :try_end_4b} :catchall_67
-    .catch Ljava/io/IOException; {:try_start_48 .. :try_end_4b} :catch_5e
+    .catch Ljava/io/IOException; {:try_start_48 .. :try_end_4b} :catch_6c
 
-    .line 542
+    .line 310
     .end local v0           #e:Ljava/io/FileNotFoundException;
     :cond_4b
     :goto_4b
@@ -6813,14 +4623,14 @@
 
     move v4, v5
 
-    .line 543
+    .line 311
     goto :goto_3c
 
-    .line 531
+    .line 299
     :catch_50
     move-exception v0
 
-    .line 532
+    .line 300
     .local v0, e:Ljava/io/IOException;
     :goto_51
     :try_start_51
@@ -6832,10 +4642,10 @@
     :try_end_58
     .catchall {:try_start_51 .. :try_end_58} :catchall_60
 
-    .line 534
+    .line 302
     if-eqz v1, :cond_4b
 
-    .line 536
+    .line 304
     :try_start_5a
     invoke-virtual {v1}, Ljava/io/BufferedWriter;->close()V
     :try_end_5d
@@ -6844,28 +4654,28 @@
 
     goto :goto_4b
 
-    .line 537
-    .end local v0           #e:Ljava/io/IOException;
+    .line 305
     :catch_5e
     move-exception v4
 
     goto :goto_4b
 
-    .line 534
+    .line 302
+    .end local v0           #e:Ljava/io/IOException;
     :catchall_60
     move-exception v4
 
     :goto_61
     if-eqz v1, :cond_66
 
-    .line 536
+    .line 304
     :try_start_63
     invoke-virtual {v1}, Ljava/io/BufferedWriter;->close()V
     :try_end_66
     .catchall {:try_start_63 .. :try_end_66} :catchall_67
-    .catch Ljava/io/IOException; {:try_start_63 .. :try_end_66} :catch_6a
+    .catch Ljava/io/IOException; {:try_start_63 .. :try_end_66} :catch_6e
 
-    .line 534
+    .line 307
     :cond_66
     :goto_66
     :try_start_66
@@ -6873,7 +4683,7 @@
     :try_end_67
     .catchall {:try_start_66 .. :try_end_67} :catchall_67
 
-    .line 518
+    .line 286
     :catchall_67
     move-exception v4
 
@@ -6882,23 +4692,34 @@
 
     throw v4
 
-    .line 537
-    :catch_6a
-    move-exception v5
-
-    goto :goto_66
-
+    .line 305
     .end local v1           #out:Ljava/io/BufferedWriter;
     .restart local v2       #out:Ljava/io/BufferedWriter;
     .restart local v3       #pin:I
-    :catch_6c
+    :catch_6a
     move-exception v5
 
     goto :goto_3b
 
-    .line 534
+    .end local v2           #out:Ljava/io/BufferedWriter;
     .end local v3           #pin:I
-    :catchall_6e
+    .local v0, e:Ljava/io/FileNotFoundException;
+    .restart local v1       #out:Ljava/io/BufferedWriter;
+    :catch_6c
+    move-exception v4
+
+    goto :goto_4b
+
+    .end local v0           #e:Ljava/io/FileNotFoundException;
+    :catch_6e
+    move-exception v5
+
+    goto :goto_66
+
+    .line 302
+    .end local v1           #out:Ljava/io/BufferedWriter;
+    .restart local v2       #out:Ljava/io/BufferedWriter;
+    :catchall_70
     move-exception v4
 
     move-object v1, v2
@@ -6907,10 +4728,10 @@
     .restart local v1       #out:Ljava/io/BufferedWriter;
     goto :goto_61
 
-    .line 531
+    .line 299
     .end local v1           #out:Ljava/io/BufferedWriter;
     .restart local v2       #out:Ljava/io/BufferedWriter;
-    :catch_71
+    :catch_73
     move-exception v0
 
     move-object v1, v2
@@ -6919,10 +4740,10 @@
     .restart local v1       #out:Ljava/io/BufferedWriter;
     goto :goto_51
 
-    .line 529
+    .line 297
     .end local v1           #out:Ljava/io/BufferedWriter;
     .restart local v2       #out:Ljava/io/BufferedWriter;
-    :catch_74
+    :catch_76
     move-exception v0
 
     move-object v1, v2
@@ -6931,11 +4752,11 @@
     .restart local v1       #out:Ljava/io/BufferedWriter;
     goto :goto_3f
 
-    .line 518
+    .line 286
     .end local v1           #out:Ljava/io/BufferedWriter;
     .restart local v2       #out:Ljava/io/BufferedWriter;
     .restart local v3       #pin:I
-    :catchall_77
+    :catchall_79
     move-exception v4
 
     move-object v1, v2
@@ -6947,214 +4768,13 @@
 
 
 # virtual methods
-.method declared-synchronized addGattServiceProperties(Ljava/lang/String;[Ljava/lang/String;)V
-    .registers 13
-    .parameter "path"
-    .parameter "properties"
-
-    .prologue
-    .line 4240
-    monitor-enter p0
-
-    :try_start_1
-    iget-object v7, p0, Landroid/server/BluetoothService;->mGattProperties:Ljava/util/HashMap;
-
-    invoke-virtual {v7, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/util/Map;
-
-    .line 4241
-    .local v5, propertyValues:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    if-nez v5, :cond_10
-
-    .line 4242
-    new-instance v5, Ljava/util/HashMap;
-
-    .end local v5           #propertyValues:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    invoke-direct {v5}, Ljava/util/HashMap;-><init>()V
-
-    .line 4245
-    .restart local v5       #propertyValues:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    :cond_10
-    const/4 v0, 0x0
-
-    .local v0, i:I
-    :goto_11
-    array-length v7, p2
-
-    if-ge v0, v7, :cond_78
-
-    .line 4246
-    aget-object v3, p2, v0
-
-    .line 4247
-    .local v3, name:Ljava/lang/String;
-    const/4 v4, 0x0
-
-    .line 4249
-    .local v4, newValue:Ljava/lang/String;
-    if-nez v3, :cond_3b
-
-    .line 4250
-    const-string v7, "BluetoothService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "Error: Gatt Service Property at index"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "is null"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4245
-    :goto_38
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_11
-
-    .line 4253
-    :cond_3b
-    const-string v7, "Characteristics"
-
-    invoke-virtual {v3, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_73
-
-    .line 4254
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    .line 4255
-    .local v6, str:Ljava/lang/StringBuilder;
-    add-int/lit8 v0, v0, 0x1
-
-    aget-object v7, p2, v0
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    .line 4256
-    .local v2, len:I
-    const/4 v1, 0x0
-
-    .local v1, j:I
-    :goto_55
-    if-ge v1, v2, :cond_66
-
-    .line 4257
-    add-int/lit8 v0, v0, 0x1
-
-    aget-object v7, p2, v0
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 4258
-    const-string v7, ","
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 4256
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_55
-
-    .line 4260
-    :cond_66
-    if-lez v2, :cond_6c
-
-    .line 4261
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    .line 4266
-    .end local v1           #j:I
-    .end local v2           #len:I
-    .end local v6           #str:Ljava/lang/StringBuilder;
-    :cond_6c
-    :goto_6c
-    invoke-interface {v5, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_6f
-    .catchall {:try_start_1 .. :try_end_6f} :catchall_70
-
-    goto :goto_38
-
-    .line 4240
-    .end local v0           #i:I
-    .end local v3           #name:Ljava/lang/String;
-    .end local v4           #newValue:Ljava/lang/String;
-    .end local v5           #propertyValues:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    :catchall_70
-    move-exception v7
-
-    monitor-exit p0
-
-    throw v7
-
-    .line 4264
-    .restart local v0       #i:I
-    .restart local v3       #name:Ljava/lang/String;
-    .restart local v4       #newValue:Ljava/lang/String;
-    .restart local v5       #propertyValues:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    :cond_73
-    add-int/lit8 v0, v0, 0x1
-
-    :try_start_75
-    aget-object v4, p2, v0
-
-    goto :goto_6c
-
-    .line 4269
-    .end local v3           #name:Ljava/lang/String;
-    .end local v4           #newValue:Ljava/lang/String;
-    :cond_78
-    iget-object v7, p0, Landroid/server/BluetoothService;->mGattProperties:Ljava/util/HashMap;
-
-    invoke-virtual {v7, p1, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_7d
-    .catchall {:try_start_75 .. :try_end_7d} :catchall_70
-
-    .line 4271
-    monitor-exit p0
-
-    return-void
-.end method
-
 .method addProfileState(Ljava/lang/String;Z)Landroid/bluetooth/BluetoothDeviceProfileState;
     .registers 9
     .parameter "address"
     .parameter "setTrust"
 
     .prologue
-    .line 3777
+    .line 2395
     new-instance v0, Landroid/bluetooth/BluetoothDeviceProfileState;
 
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
@@ -7169,16 +4789,16 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/bluetooth/BluetoothDeviceProfileState;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/server/BluetoothService;Landroid/server/BluetoothA2dpService;Z)V
 
-    .line 3779
+    .line 2397
     .local v0, state:Landroid/bluetooth/BluetoothDeviceProfileState;
     iget-object v1, p0, Landroid/server/BluetoothService;->mDeviceProfileState:Ljava/util/HashMap;
 
     invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 3780
+    .line 2398
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothDeviceProfileState;->start()V
 
-    .line 3781
+    .line 2399
     return-object v0
 .end method
 
@@ -7192,7 +4812,7 @@
     .prologue
     const/4 v10, -0x1
 
-    .line 2739
+    .line 1519
     monitor-enter p0
 
     :try_start_2
@@ -7204,7 +4824,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2740
+    .line 1520
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
     :try_end_e
     .catchall {:try_start_2 .. :try_end_e} :catchall_b3
@@ -7215,13 +4835,13 @@
 
     move v9, v10
 
-    .line 2769
+    .line 1549
     :goto_12
     monitor-exit p0
 
     return v9
 
-    .line 2742
+    .line 1522
     :cond_14
     if-eqz p1, :cond_1f
 
@@ -7238,10 +4858,10 @@
     :cond_1f
     move v9, v10
 
-    .line 2744
+    .line 1524
     goto :goto_12
 
-    .line 2746
+    .line 1526
     :cond_21
     :try_start_21
     sget-object v0, Landroid/bluetooth/BluetoothUuid;->RESERVED_UUIDS:[Landroid/os/ParcelUuid;
@@ -7252,7 +4872,7 @@
 
     if-eqz v0, :cond_43
 
-    .line 2747
+    .line 1527
     const-string v0, "BluetoothService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -7277,10 +4897,10 @@
 
     move v9, v10
 
-    .line 2748
+    .line 1528
     goto :goto_12
 
-    .line 2750
+    .line 1530
     :cond_43
     invoke-virtual {p2}, Landroid/os/ParcelUuid;->getUuid()Ljava/util/UUID;
 
@@ -7308,7 +4928,7 @@
 
     move-result v9
 
-    .line 2753
+    .line 1533
     .local v9, handle:I
     const-string v0, "BluetoothService"
 
@@ -7336,15 +4956,15 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2754
+    .line 1534
     if-ne v9, v10, :cond_7b
 
     move v9, v10
 
-    .line 2755
+    .line 1535
     goto :goto_12
 
-    .line 2758
+    .line 1538
     :cond_7b
     new-instance v7, Landroid/server/BluetoothService$ServiceRecordClient;
 
@@ -7352,7 +4972,7 @@
 
     invoke-direct {v7, v0}, Landroid/server/BluetoothService$ServiceRecordClient;-><init>(Landroid/server/BluetoothService$1;)V
 
-    .line 2759
+    .line 1539
     .local v7, client:Landroid/server/BluetoothService$ServiceRecordClient;
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
@@ -7360,10 +4980,10 @@
 
     iput v0, v7, Landroid/server/BluetoothService$ServiceRecordClient;->pid:I
 
-    .line 2760
+    .line 1540
     iput-object p4, v7, Landroid/server/BluetoothService$ServiceRecordClient;->binder:Landroid/os/IBinder;
 
-    .line 2761
+    .line 1541
     new-instance v0, Landroid/server/BluetoothService$Reaper;
 
     iget v1, v7, Landroid/server/BluetoothService$ServiceRecordClient;->pid:I
@@ -7374,7 +4994,7 @@
 
     iput-object v0, v7, Landroid/server/BluetoothService$ServiceRecordClient;->death:Landroid/os/IBinder$DeathRecipient;
 
-    .line 2762
+    .line 1542
     iget-object v0, p0, Landroid/server/BluetoothService;->mServiceRecordToPid:Ljava/util/HashMap;
 
     new-instance v1, Ljava/lang/Integer;
@@ -7385,7 +5005,7 @@
     :try_end_9e
     .catchall {:try_start_21 .. :try_end_9e} :catchall_b3
 
-    .line 2764
+    .line 1544
     :try_start_9e
     iget-object v0, v7, Landroid/server/BluetoothService$ServiceRecordClient;->death:Landroid/os/IBinder$DeathRecipient;
 
@@ -7398,11 +5018,11 @@
 
     goto/16 :goto_12
 
-    .line 2765
+    .line 1545
     :catch_a6
     move-exception v8
 
-    .line 2766
+    .line 1546
     .local v8, e:Landroid/os/RemoteException;
     :try_start_a7
     const-string v0, "BluetoothService"
@@ -7411,7 +5031,7 @@
 
     invoke-static {v0, v1, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 2767
+    .line 1547
     const/4 v0, 0x0
 
     iput-object v0, v7, Landroid/server/BluetoothService$ServiceRecordClient;->death:Landroid/os/IBinder$DeathRecipient;
@@ -7420,7 +5040,7 @@
 
     goto/16 :goto_12
 
-    .line 2739
+    .line 1519
     .end local v7           #client:Landroid/server/BluetoothService$ServiceRecordClient;
     .end local v8           #e:Landroid/os/RemoteException;
     .end local v9           #handle:I
@@ -7440,7 +5060,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 3571
+    .line 2189
     iget-object v3, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v4, "android.permission.BLUETOOTH_ADMIN"
@@ -7449,12 +5069,12 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3573
+    .line 2191
     invoke-virtual {p1}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 3574
+    .line 2192
     .local v0, address:Ljava/lang/String;
     invoke-static {v0}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
 
@@ -7462,21 +5082,21 @@
 
     if-nez v3, :cond_15
 
-    .line 3585
+    .line 2203
     :goto_14
     return v2
 
-    .line 3578
+    .line 2196
     :cond_15
     invoke-virtual {p0, v0}, Landroid/server/BluetoothService;->getAuthorizationAgentRequestData(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v1
 
-    .line 3579
+    .line 2197
     .local v1, data:Ljava/lang/Integer;
     if-nez v1, :cond_3a
 
-    .line 3580
+    .line 2198
     const-string v3, "BluetoothService"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -7507,7 +5127,7 @@
 
     goto :goto_14
 
-    .line 3584
+    .line 2202
     :cond_3a
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -7549,7 +5169,7 @@
 
     invoke-static {v2}, Landroid/server/BluetoothService;->log(Ljava/lang/String;)V
 
-    .line 3585
+    .line 2203
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
@@ -7565,12 +5185,12 @@
     .registers 3
 
     .prologue
-    .line 3424
+    .line 2042
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
     monitor-enter v1
 
-    .line 3425
+    .line 2043
     :try_start_3
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
@@ -7582,7 +5202,7 @@
 
     return v0
 
-    .line 3426
+    .line 2044
     :catchall_b
     move-exception v0
 
@@ -7594,134 +5214,67 @@
 .end method
 
 .method declared-synchronized attemptAutoPair(Ljava/lang/String;)Z
-    .registers 6
+    .registers 3
     .parameter "address"
 
     .prologue
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    .line 1429
+    .line 638
     monitor-enter p0
 
-    :try_start_3
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->isPinPreset()Z
+    :try_start_1
+    iget-object v0, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
-    move-result v3
+    invoke-virtual {v0, p1}, Landroid/server/BluetoothBondState;->hasAutoPairingFailed(Ljava/lang/String;)Z
 
-    if-eqz v3, :cond_1d
+    move-result v0
 
-    .line 1430
-    const-string v2, "BluetoothService"
+    if-nez v0, :cond_22
 
-    const-string v3, "Send out pre-set PIN"
+    iget-object v0, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, p1}, Landroid/server/BluetoothBondState;->isAutoPairingBlacklisted(Ljava/lang/String;)Z
 
-    .line 1431
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->fetchPresetPin()Ljava/lang/String;
+    move-result v0
 
-    move-result-object v2
+    if-nez v0, :cond_22
 
-    invoke-static {v2}, Landroid/bluetooth/BluetoothDevice;->convertPinToBytes(Ljava/lang/String;)[B
+    .line 640
+    iget-object v0, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
-    move-result-object v2
+    invoke-virtual {v0, p1}, Landroid/server/BluetoothBondState;->attempt(Ljava/lang/String;)V
 
-    invoke-virtual {p0, p1, v2}, Landroid/server/BluetoothService;->setPin(Ljava/lang/String;[B)Z
-    :try_end_1b
-    .catchall {:try_start_3 .. :try_end_1b} :catchall_56
+    .line 641
+    const-string v0, "0000"
 
-    .line 1447
-    :goto_1b
+    invoke-static {v0}, Landroid/bluetooth/BluetoothDevice;->convertPinToBytes(Ljava/lang/String;)[B
+
+    move-result-object v0
+
+    invoke-virtual {p0, p1, v0}, Landroid/server/BluetoothService;->setPin(Ljava/lang/String;[B)Z
+    :try_end_1f
+    .catchall {:try_start_1 .. :try_end_1f} :catchall_24
+
+    .line 642
+    const/4 v0, 0x1
+
+    .line 644
+    :goto_20
     monitor-exit p0
 
-    return v1
+    return v0
 
-    .line 1435
-    :cond_1d
-    :try_start_1d
-    new-instance v0, Landroid/bluetooth/BluetoothClass;
+    :cond_22
+    const/4 v0, 0x0
 
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->getRemoteClass(Ljava/lang/String;)I
+    goto :goto_20
 
-    move-result v3
-
-    invoke-direct {v0, v3}, Landroid/bluetooth/BluetoothClass;-><init>(I)V
-
-    .line 1436
-    .local v0, btClass:Landroid/bluetooth/BluetoothClass;
-    const/16 v3, 0xb
-
-    invoke-virtual {v0, v3}, Landroid/bluetooth/BluetoothClass;->doesClassMatch(I)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_37
-
-    .line 1437
-    const-string v1, "BluetoothService"
-
-    const-string v3, "Remote model is car-kit, not doing auto pairing"
-
-    invoke-static {v1, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    move v1, v2
-
-    .line 1438
-    goto :goto_1b
-
-    .line 1441
-    :cond_37
-    iget-object v3, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
-
-    invoke-virtual {v3, p1}, Landroid/server/BluetoothBondState;->hasAutoPairingFailed(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_59
-
-    iget-object v3, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
-
-    invoke-virtual {v3, p1}, Landroid/server/BluetoothBondState;->isAutoPairingBlacklisted(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_59
-
-    .line 1443
-    iget-object v2, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
-
-    invoke-virtual {v2, p1}, Landroid/server/BluetoothBondState;->attempt(Ljava/lang/String;)V
-
-    .line 1444
-    const-string v2, "0000"
-
-    invoke-static {v2}, Landroid/bluetooth/BluetoothDevice;->convertPinToBytes(Ljava/lang/String;)[B
-
-    move-result-object v2
-
-    invoke-virtual {p0, p1, v2}, Landroid/server/BluetoothService;->setPin(Ljava/lang/String;[B)Z
-    :try_end_55
-    .catchall {:try_start_1d .. :try_end_55} :catchall_56
-
-    goto :goto_1b
-
-    .line 1429
-    .end local v0           #btClass:Landroid/bluetooth/BluetoothClass;
-    :catchall_56
-    move-exception v1
+    .line 638
+    :catchall_24
+    move-exception v0
 
     monitor-exit p0
 
-    throw v1
-
-    .restart local v0       #btClass:Landroid/bluetooth/BluetoothClass;
-    :cond_59
-    move v1, v2
-
-    .line 1447
-    goto :goto_1b
+    throw v0
 .end method
 
 .method public declared-synchronized cancelBondProcess(Ljava/lang/String;)Z
@@ -7731,7 +5284,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 2071
+    .line 1082
     monitor-enter p0
 
     :try_start_2
@@ -7743,7 +5296,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2073
+    .line 1084
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
     :try_end_e
     .catchall {:try_start_2 .. :try_end_e} :catchall_34
@@ -7752,14 +5305,14 @@
 
     if-nez v1, :cond_13
 
-    .line 2086
+    .line 1097
     :cond_11
     :goto_11
     monitor-exit p0
 
     return v0
 
-    .line 2075
+    .line 1086
     :cond_13
     :try_start_13
     invoke-static {p1}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
@@ -7768,12 +5321,12 @@
 
     if-eqz v1, :cond_11
 
-    .line 2078
+    .line 1089
     invoke-virtual {p1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
     move-result-object p1
 
-    .line 2079
+    .line 1090
     iget-object v1, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     invoke-virtual {v1, p1}, Landroid/server/BluetoothBondState;->getBondState(Ljava/lang/String;)I
@@ -7784,7 +5337,7 @@
 
     if-ne v1, v2, :cond_11
 
-    .line 2083
+    .line 1094
     iget-object v0, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     const/16 v1, 0xa
@@ -7793,17 +5346,17 @@
 
     invoke-virtual {v0, p1, v1, v2}, Landroid/server/BluetoothBondState;->setBondState(Ljava/lang/String;II)V
 
-    .line 2085
+    .line 1096
     invoke-direct {p0, p1}, Landroid/server/BluetoothService;->cancelDeviceCreationNative(Ljava/lang/String;)Z
     :try_end_32
     .catchall {:try_start_13 .. :try_end_32} :catchall_34
 
-    .line 2086
+    .line 1097
     const/4 v0, 0x1
 
     goto :goto_11
 
-    .line 2071
+    .line 1082
     :catchall_34
     move-exception v0
 
@@ -7813,68 +5366,55 @@
 .end method
 
 .method public declared-synchronized cancelDiscovery()Z
-    .registers 5
+    .registers 4
 
     .prologue
-    const/4 v0, 0x0
-
-    .line 1941
+    .line 972
     monitor-enter p0
 
-    :try_start_2
-    iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
+    :try_start_1
+    iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
-    const-string v2, "android.permission.BLUETOOTH_ADMIN"
+    const-string v1, "android.permission.BLUETOOTH_ADMIN"
 
-    const-string v3, "Need BLUETOOTH_ADMIN permission"
+    const-string v2, "Need BLUETOOTH_ADMIN permission"
 
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1943
+    .line 974
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
-    :try_end_e
-    .catchall {:try_start_2 .. :try_end_e} :catchall_1e
+    :try_end_d
+    .catchall {:try_start_1 .. :try_end_d} :catchall_18
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_13
+    if-nez v0, :cond_13
 
-    .line 1951
+    const/4 v0, 0x0
+
+    .line 976
     :goto_11
     monitor-exit p0
 
     return v0
 
-    .line 1947
     :cond_13
-    const/4 v1, 0x1
-
-    :try_start_14
-    iput-boolean v1, p0, Landroid/server/BluetoothService;->isStoppingDiscovery:Z
-
-    .line 1948
+    :try_start_13
     invoke-direct {p0}, Landroid/server/BluetoothService;->stopDiscoveryNative()Z
+    :try_end_16
+    .catchall {:try_start_13 .. :try_end_16} :catchall_18
 
     move-result v0
 
-    .line 1949
-    .local v0, rValue:Z
-    const/4 v1, 0x0
-
-    iput-boolean v1, p0, Landroid/server/BluetoothService;->isStoppingDiscovery:Z
-    :try_end_1d
-    .catchall {:try_start_14 .. :try_end_1d} :catchall_1e
-
     goto :goto_11
 
-    .line 1941
-    .end local v0           #rValue:Z
-    :catchall_1e
-    move-exception v1
+    .line 972
+    :catchall_18
+    move-exception v0
 
     monitor-exit p0
 
-    throw v1
+    throw v0
 .end method
 
 .method public declared-synchronized cancelPairingUserInput(Ljava/lang/String;)Z
@@ -7884,7 +5424,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 2595
+    .line 1422
     monitor-enter p0
 
     :try_start_2
@@ -7896,7 +5436,7 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2597
+    .line 1424
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
     :try_end_e
     .catchall {:try_start_2 .. :try_end_e} :catchall_5e
@@ -7905,14 +5445,14 @@
 
     if-nez v2, :cond_13
 
-    .line 2612
+    .line 1439
     :cond_11
     :goto_11
     monitor-exit p0
 
     return v1
 
-    .line 2599
+    .line 1426
     :cond_13
     :try_start_13
     invoke-static {p1}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
@@ -7921,7 +5461,7 @@
 
     if-eqz v2, :cond_11
 
-    .line 2602
+    .line 1429
     iget-object v2, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     const/16 v3, 0xa
@@ -7930,12 +5470,12 @@
 
     invoke-virtual {v2, p1, v3, v4}, Landroid/server/BluetoothBondState;->setBondState(Ljava/lang/String;II)V
 
-    .line 2604
+    .line 1431
     invoke-virtual {p1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
     move-result-object p1
 
-    .line 2605
+    .line 1432
     iget-object v2, p0, Landroid/server/BluetoothService;->mEventLoop:Landroid/server/BluetoothEventLoop;
 
     invoke-virtual {v2}, Landroid/server/BluetoothEventLoop;->getPasskeyAgentRequestData()Ljava/util/HashMap;
@@ -7948,11 +5488,11 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 2606
+    .line 1433
     .local v0, data:Ljava/lang/Integer;
     if-nez v0, :cond_61
 
-    .line 2607
+    .line 1434
     const-string v2, "BluetoothService"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -7997,7 +5537,7 @@
 
     goto :goto_11
 
-    .line 2595
+    .line 1422
     .end local v0           #data:Ljava/lang/Integer;
     :catchall_5e
     move-exception v1
@@ -8006,7 +5546,7 @@
 
     throw v1
 
-    .line 2612
+    .line 1439
     .restart local v0       #data:Ljava/lang/Integer;
     :cond_61
     :try_start_61
@@ -8032,7 +5572,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 2860
+    .line 1610
     iget-object v4, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v5, "android.permission.BLUETOOTH"
@@ -8041,12 +5581,12 @@
 
     invoke-virtual {v4, v5, v6}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2862
+    .line 1612
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
     move-result v1
 
-    .line 2864
+    .line 1614
     .local v1, pid:I
     iget-object v4, p0, Landroid/server/BluetoothService;->mStateChangeTracker:Ljava/util/Map;
 
@@ -8060,10 +5600,10 @@
 
     if-nez v4, :cond_3c
 
-    .line 2865
+    .line 1615
     if-eqz p1, :cond_3b
 
-    .line 2866
+    .line 1616
     iget-object v4, p0, Landroid/server/BluetoothService;->mStateChangeTracker:Ljava/util/Map;
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -8072,12 +5612,12 @@
 
     invoke-interface {v4, v5, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 2874
+    .line 1624
     :cond_25
     :goto_25
     if-eqz p3, :cond_32
 
-    .line 2876
+    .line 1626
     :try_start_27
     new-instance v4, Landroid/server/BluetoothService$Reaper;
 
@@ -8091,21 +5631,21 @@
     :try_end_32
     .catch Landroid/os/RemoteException; {:try_start_27 .. :try_end_32} :catch_48
 
-    .line 2884
+    .line 1634
     :cond_32
     if-eqz p1, :cond_51
 
-    .line 2885
+    .line 1635
     const/4 v2, 0x3
 
-    .line 2890
+    .line 1640
     .local v2, type:I
     :goto_35
     iget-object v3, p0, Landroid/server/BluetoothService;->mBluetoothState:Landroid/server/BluetoothAdapterStateMachine;
 
     invoke-virtual {v3, v2, p2}, Landroid/server/BluetoothAdapterStateMachine;->sendMessage(ILjava/lang/Object;)V
 
-    .line 2891
+    .line 1641
     const/4 v3, 0x1
 
     .end local v2           #type:I
@@ -8113,11 +5653,11 @@
     :goto_3b
     return v3
 
-    .line 2870
+    .line 1620
     :cond_3c
     if-nez p1, :cond_25
 
-    .line 2871
+    .line 1621
     iget-object v4, p0, Landroid/server/BluetoothService;->mStateChangeTracker:Ljava/util/Map;
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -8128,11 +5668,11 @@
 
     goto :goto_25
 
-    .line 2877
+    .line 1627
     :catch_48
     move-exception v0
 
-    .line 2878
+    .line 1628
     .local v0, e:Landroid/os/RemoteException;
     const-string v4, "BluetoothService"
 
@@ -8142,7 +5682,7 @@
 
     goto :goto_3b
 
-    .line 2887
+    .line 1637
     .end local v0           #e:Landroid/os/RemoteException;
     :cond_51
     const/4 v2, 0x4
@@ -8152,10 +5692,10 @@
 .end method
 
 .method declared-synchronized cleanNativeAfterShutoffBluetooth()V
-    .registers 3
+    .registers 2
 
     .prologue
-    .line 789
+    .line 469
     monitor-enter p0
 
     :try_start_1
@@ -8163,25 +5703,18 @@
 
     invoke-virtual {v0}, Landroid/server/BluetoothAdapterProperties;->clear()V
 
-    .line 790
+    .line 470
     invoke-virtual {p0}, Landroid/server/BluetoothService;->disableNative()I
+    :try_end_9
+    .catchall {:try_start_1 .. :try_end_9} :catchall_b
 
-    .line 791
-    const-string v0, "BluetoothService"
-
-    const-string v1, "cleanNativeAfterShutoffBluetooth-"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_10
-    .catchall {:try_start_1 .. :try_end_10} :catchall_12
-
-    .line 792
+    .line 471
     monitor-exit p0
 
     return-void
 
-    .line 789
-    :catchall_12
+    .line 469
+    :catchall_b
     move-exception v0
 
     monitor-exit p0
@@ -8190,25 +5723,18 @@
 .end method
 
 .method declared-synchronized cleanupAfterFinishDisable()V
-    .registers 8
+    .registers 6
 
     .prologue
-    .line 721
+    .line 427
     monitor-enter p0
 
     :try_start_1
-    const-string v4, "BluetoothService"
-
-    const-string v5, "cleanupAfterFinishDisable+"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 722
     iget-object v4, p0, Landroid/server/BluetoothService;->mAdapterProperties:Landroid/server/BluetoothAdapterProperties;
 
     invoke-virtual {v4}, Landroid/server/BluetoothAdapterProperties;->clear()V
 
-    .line 724
+    .line 429
     iget-object v4, p0, Landroid/server/BluetoothService;->mServiceRecordToPid:Ljava/util/HashMap;
 
     invoke-virtual {v4}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -8220,12 +5746,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_17
+    :goto_10
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2e
+    if-eqz v4, :cond_27
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -8233,596 +5759,126 @@
 
     check-cast v3, Ljava/lang/Integer;
 
-    .line 725
+    .line 430
     .local v3, srHandle:Ljava/lang/Integer;
     invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
 
     move-result v4
 
     invoke-direct {p0, v4}, Landroid/server/BluetoothService;->removeServiceRecordNative(I)Z
-    :try_end_2a
-    .catchall {:try_start_1 .. :try_end_2a} :catchall_2b
+    :try_end_23
+    .catchall {:try_start_1 .. :try_end_23} :catchall_24
 
-    goto :goto_17
+    goto :goto_10
 
-    .line 721
+    .line 427
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v3           #srHandle:Ljava/lang/Integer;
-    :catchall_2b
+    :catchall_24
     move-exception v4
 
     monitor-exit p0
 
     throw v4
 
-    .line 727
+    .line 432
     .restart local v0       #i$:Ljava/util/Iterator;
-    :cond_2e
-    :try_start_2e
+    :cond_27
+    :try_start_27
     iget-object v4, p0, Landroid/server/BluetoothService;->mServiceRecordToPid:Ljava/util/HashMap;
 
     invoke-virtual {v4}, Ljava/util/HashMap;->clear()V
 
-    .line 728
-    iget-object v4, p0, Landroid/server/BluetoothService;->mUuidIntentTracker:Ljava/util/ArrayList;
-
-    invoke-virtual {v4}, Ljava/util/ArrayList;->clear()V
-
-    .line 730
+    .line 434
     const/4 v4, 0x0
 
     iput v4, p0, Landroid/server/BluetoothService;->mProfilesConnected:I
 
-    .line 731
+    .line 435
     const/4 v4, 0x0
 
     iput v4, p0, Landroid/server/BluetoothService;->mProfilesConnecting:I
 
-    .line 732
+    .line 436
     const/4 v4, 0x0
 
     iput v4, p0, Landroid/server/BluetoothService;->mProfilesDisconnecting:I
 
-    .line 733
+    .line 437
     const/4 v4, 0x0
 
     iput v4, p0, Landroid/server/BluetoothService;->mAdapterConnectionState:I
 
-    .line 734
+    .line 438
     const/4 v4, 0x0
 
     iput-object v4, p0, Landroid/server/BluetoothService;->mAdapterUuids:[Landroid/os/ParcelUuid;
 
-    .line 735
+    .line 439
     const/4 v4, 0x0
 
     iput-object v4, p0, Landroid/server/BluetoothService;->mAdapterSdpHandles:[I
 
-    .line 738
+    .line 442
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-    :try_end_4d
-    .catchall {:try_start_2e .. :try_end_4d} :catchall_2b
+    :try_end_41
+    .catchall {:try_start_27 .. :try_end_41} :catchall_24
 
     move-result-wide v1
 
-    .line 740
+    .line 444
     .local v1, ident:J
-    :try_start_4e
+    :try_start_42
     iget-object v4, p0, Landroid/server/BluetoothService;->mBatteryStats:Lcom/android/internal/app/IBatteryStats;
 
     invoke-interface {v4}, Lcom/android/internal/app/IBatteryStats;->noteBluetoothOff()V
+    :try_end_47
+    .catchall {:try_start_42 .. :try_end_47} :catchall_51
+    .catch Landroid/os/RemoteException; {:try_start_42 .. :try_end_47} :catch_4c
 
-    .line 747
-    iget-object v4, p0, Landroid/server/BluetoothService;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
-
-    const/4 v5, 0x1
-
-    iget-object v6, p0, Landroid/server/BluetoothService;->mHeadsetProxy:Landroid/bluetooth/BluetoothHeadset;
-
-    invoke-virtual {v4, v5, v6}, Landroid/bluetooth/BluetoothAdapter;->closeProfileProxy(ILandroid/bluetooth/BluetoothProfile;)V
-    :try_end_5b
-    .catchall {:try_start_4e .. :try_end_5b} :catchall_67
-    .catch Landroid/os/RemoteException; {:try_start_4e .. :try_end_5b} :catch_6c
-
-    .line 750
-    :try_start_5b
+    .line 447
+    :try_start_47
     invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    :try_end_4a
+    .catchall {:try_start_47 .. :try_end_4a} :catchall_24
 
-    .line 752
-    :goto_5e
-    const-string v4, "BluetoothService"
-
-    const-string v5, "cleanupAfterFinishDisable-"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_65
-    .catchall {:try_start_5b .. :try_end_65} :catchall_2b
-
-    .line 753
+    .line 449
+    :goto_4a
     monitor-exit p0
 
     return-void
 
-    .line 750
-    :catchall_67
+    .line 445
+    :catch_4c
     move-exception v4
 
-    :try_start_68
+    .line 447
+    :try_start_4d
+    invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    goto :goto_4a
+
+    :catchall_51
+    move-exception v4
+
     invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v4
-
-    .line 748
-    :catch_6c
-    move-exception v4
-
-    .line 750
-    invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-    :try_end_70
-    .catchall {:try_start_68 .. :try_end_70} :catchall_2b
-
-    goto :goto_5e
+    :try_end_56
+    .catchall {:try_start_4d .. :try_end_56} :catchall_24
 .end method
 
 .method clearApplicationStateChangeTracker()V
     .registers 2
 
     .prologue
-    .line 2899
+    .line 1649
     iget-object v0, p0, Landroid/server/BluetoothService;->mStateChangeTracker:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->clear()V
 
-    .line 2900
+    .line 1650
     return-void
-.end method
-
-.method declared-synchronized clearRemoteDeviceGattServices(Ljava/lang/String;)V
-    .registers 7
-    .parameter "address"
-
-    .prologue
-    .line 4838
-    monitor-enter p0
-
-    :try_start_1
-    const-string v3, "BluetoothService"
-
-    const-string v4, "clearRemoteDeviceGattServices"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4840
-    iget-object v3, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
-
-    const-string v4, "Services"
-
-    invoke-virtual {v3, p1, v4}, Landroid/server/BluetoothDeviceProperties;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    :try_end_f
-    .catchall {:try_start_1 .. :try_end_f} :catchall_2e
-
-    move-result-object v2
-
-    .line 4841
-    .local v2, value:Ljava/lang/String;
-    if-nez v2, :cond_14
-
-    .line 4852
-    :goto_12
-    monitor-exit p0
-
-    return-void
-
-    .line 4845
-    :cond_14
-    const/4 v1, 0x0
-
-    .line 4846
-    .local v1, services:[Ljava/lang/String;
-    :try_start_15
-    const-string v3, ","
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 4848
-    const/4 v0, 0x0
-
-    .local v0, i:I
-    :goto_1c
-    array-length v3, v1
-
-    if-ge v0, v3, :cond_27
-
-    .line 4849
-    aget-object v3, v1, v0
-
-    invoke-virtual {p0, v3}, Landroid/server/BluetoothService;->closeRemoteGattService(Ljava/lang/String;)V
-
-    .line 4848
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_1c
-
-    .line 4851
-    :cond_27
-    const-string v3, "Services"
-
-    const/4 v4, 0x0
-
-    invoke-virtual {p0, p1, v3, v4}, Landroid/server/BluetoothService;->setRemoteDeviceProperty(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_2d
-    .catchall {:try_start_15 .. :try_end_2d} :catchall_2e
-
-    goto :goto_12
-
-    .line 4838
-    .end local v0           #i:I
-    .end local v1           #services:[Ljava/lang/String;
-    .end local v2           #value:Ljava/lang/String;
-    :catchall_2e
-    move-exception v3
-
-    monitor-exit p0
-
-    throw v3
-.end method
-
-.method public declared-synchronized closeRemoteGattService(Ljava/lang/String;)V
-    .registers 13
-    .parameter "path"
-
-    .prologue
-    .line 4762
-    monitor-enter p0
-
-    :try_start_1
-    iget-object v8, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v9, "android.permission.BLUETOOTH"
-
-    const-string v10, "Need BLUETOOTH permission"
-
-    invoke-virtual {v8, v9, v10}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 4763
-    invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
-    :try_end_d
-    .catchall {:try_start_1 .. :try_end_d} :catchall_34
-
-    move-result v8
-
-    if-nez v8, :cond_12
-
-    .line 4827
-    :cond_10
-    :goto_10
-    monitor-exit p0
-
-    return-void
-
-    .line 4765
-    :cond_12
-    :try_start_12
-    iget-object v8, p0, Landroid/server/BluetoothService;->mGattServices:Ljava/util/SortedMap;
-
-    invoke-interface {v8, p1}, Ljava/util/SortedMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_37
-
-    .line 4766
-    const-string v8, "BluetoothService"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "removeRemoteGattService: service not found "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_33
-    .catchall {:try_start_12 .. :try_end_33} :catchall_34
-
-    goto :goto_10
-
-    .line 4762
-    :catchall_34
-    move-exception v8
-
-    monitor-exit p0
-
-    throw v8
-
-    .line 4770
-    :cond_37
-    :try_start_37
-    iget-object v8, p0, Landroid/server/BluetoothService;->mGattServices:Ljava/util/SortedMap;
-
-    invoke-interface {v8, p1}, Ljava/util/SortedMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/lang/Integer;
-
-    .line 4771
-    .local v5, refCount:Ljava/lang/Integer;
-    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
-
-    move-result v8
-
-    add-int/lit8 v8, v8, -0x1
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    .line 4773
-    const-string v8, "BluetoothService"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "removeRemoteGattService: refCount for "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string v10, " is "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4775
-    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
-
-    move-result v8
-
-    if-lez v8, :cond_7d
-
-    .line 4776
-    iget-object v8, p0, Landroid/server/BluetoothService;->mGattServices:Ljava/util/SortedMap;
-
-    invoke-interface {v8, p1}, Ljava/util/SortedMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 4777
-    iget-object v8, p0, Landroid/server/BluetoothService;->mGattServices:Ljava/util/SortedMap;
-
-    invoke-interface {v8, p1, v5}, Ljava/util/SortedMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_10
-
-    .line 4781
-    :cond_7d
-    iget-object v8, p0, Landroid/server/BluetoothService;->mGattProperties:Ljava/util/HashMap;
-
-    invoke-virtual {v8, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/util/Map;
-
-    .line 4783
-    .local v4, properties:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    if-eqz v4, :cond_96
-
-    .line 4784
-    const-string v8, "Characteristics"
-
-    invoke-interface {v4, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-
-    .line 4786
-    .local v1, chars:Ljava/lang/String;
-    if-eqz v1, :cond_96
-
-    .line 4787
-    const-string v8, ","
-
-    invoke-virtual {v1, v8}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    .line 4794
-    .end local v1           #chars:Ljava/lang/String;
-    :cond_96
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->removeGattServiceProperties(Ljava/lang/String;)V
-
-    .line 4796
-    iget-object v8, p0, Landroid/server/BluetoothService;->mGattServices:Ljava/util/SortedMap;
-
-    invoke-interface {v8, p1}, Ljava/util/SortedMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 4799
-    const/4 v8, 0x0
-
-    const-string v9, "/service"
-
-    invoke-virtual {p1, v9}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v9
-
-    invoke-virtual {p1, v8, v9}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 4801
-    .local v2, devicePath:Ljava/lang/String;
-    if-eqz v2, :cond_10
-
-    .line 4804
-    invoke-virtual {p0, v2}, Landroid/server/BluetoothService;->getAddressFromObjectPath(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 4806
-    .local v0, address:Ljava/lang/String;
-    if-nez v0, :cond_ba
-
-    .line 4807
-    const-string v8, "BluetoothService"
-
-    const-string v9, "adress is null????"
-
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_10
-
-    .line 4811
-    :cond_ba
-    iget-object v8, p0, Landroid/server/BluetoothService;->mGattServices:Ljava/util/SortedMap;
-
-    invoke-interface {v8, v2}, Ljava/util/SortedMap;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-
-    move-result-object v7
-
-    .line 4813
-    .local v7, subMap:Ljava/util/SortedMap;
-    invoke-interface {v7}, Ljava/util/SortedMap;->isEmpty()Z
-
-    move-result v8
-
-    if-nez v8, :cond_f6
-
-    .line 4814
-    invoke-interface {v7}, Ljava/util/SortedMap;->firstKey()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/String;
-
-    .line 4815
-    .local v3, nextServicePath:Ljava/lang/String;
-    const/4 v8, 0x0
-
-    const-string v9, "/service"
-
-    invoke-virtual {p1, v9}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v9
-
-    invoke-virtual {v3, v8, v9}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_f6
-
-    .line 4816
-    const-string v8, "BluetoothService"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "removeRemoteGattService: more GATT services are running on device "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4821
-    .end local v3           #nextServicePath:Ljava/lang/String;
-    :cond_f6
-    const-string v8, "BluetoothService"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "removeRemoteGattService: disconnect"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4824
-    invoke-direct {p0, p1}, Landroid/server/BluetoothService;->disconnectGattNative(Ljava/lang/String;)Z
-
-    move-result v6
-
-    .line 4825
-    .local v6, res:Z
-    const-string v8, "BluetoothService"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, "disconnectGatt "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_12b
-    .catchall {:try_start_37 .. :try_end_12b} :catchall_34
-
-    goto/16 :goto_10
 .end method
 
 .method public connectChannelToSink(Landroid/bluetooth/BluetoothDevice;Landroid/bluetooth/BluetoothHealthAppConfiguration;I)Z
@@ -8832,7 +5888,7 @@
     .parameter "channelType"
 
     .prologue
-    .line 3633
+    .line 2251
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -8841,12 +5897,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3635
+    .line 2253
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
     monitor-enter v1
 
-    .line 3636
+    .line 2254
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
@@ -8858,7 +5914,7 @@
 
     return v0
 
-    .line 3638
+    .line 2256
     :catchall_14
     move-exception v0
 
@@ -8875,7 +5931,7 @@
     .parameter "config"
 
     .prologue
-    .line 3623
+    .line 2241
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -8884,12 +5940,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3625
+    .line 2243
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
     monitor-enter v1
 
-    .line 3626
+    .line 2244
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
@@ -8901,7 +5957,7 @@
 
     return v0
 
-    .line 3628
+    .line 2246
     :catchall_14
     move-exception v0
 
@@ -8921,7 +5977,7 @@
 
     const/4 v2, 0x0
 
-    .line 3721
+    .line 2339
     invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->getBondState(Ljava/lang/String;)I
 
     move-result v4
@@ -8930,12 +5986,12 @@
 
     if-eq v4, v5, :cond_b
 
-    .line 3731
+    .line 2349
     :cond_a
     :goto_a
     return v2
 
-    .line 3723
+    .line 2341
     :cond_b
     iget-object v4, p0, Landroid/server/BluetoothService;->mDeviceProfileState:Ljava/util/HashMap;
 
@@ -8945,30 +6001,30 @@
 
     check-cast v1, Landroid/bluetooth/BluetoothDeviceProfileState;
 
-    .line 3724
+    .line 2342
     .local v1, state:Landroid/bluetooth/BluetoothDeviceProfileState;
     if-eqz v1, :cond_a
 
-    .line 3725
+    .line 2343
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 3726
+    .line 2344
     .local v0, msg:Landroid/os/Message;
     iput v3, v0, Landroid/os/Message;->arg1:I
 
-    .line 3727
+    .line 2345
     iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 3728
+    .line 2346
     iget-object v2, p0, Landroid/server/BluetoothService;->mHfpProfileState:Landroid/bluetooth/BluetoothProfileState;
 
     invoke-virtual {v2, v0}, Landroid/bluetooth/BluetoothProfileState;->sendMessage(Landroid/os/Message;)V
 
     move v2, v3
 
-    .line 3729
+    .line 2347
     goto :goto_a
 .end method
 
@@ -8977,7 +6033,7 @@
     .parameter "device"
 
     .prologue
-    .line 3494
+    .line 2112
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v2, "android.permission.BLUETOOTH_ADMIN"
@@ -8986,7 +6042,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3496
+    .line 2114
     iget-object v1, p0, Landroid/server/BluetoothService;->mDeviceProfileState:Ljava/util/HashMap;
 
     invoke-virtual {p1}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
@@ -8999,13 +6055,13 @@
 
     check-cast v0, Landroid/bluetooth/BluetoothDeviceProfileState;
 
-    .line 3497
+    .line 2115
     .local v0, state:Landroid/bluetooth/BluetoothDeviceProfileState;
     iget-object v2, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
     monitor-enter v2
 
-    .line 3498
+    .line 2116
     :try_start_18
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
@@ -9017,7 +6073,7 @@
 
     return v1
 
-    .line 3499
+    .line 2117
     :catchall_20
     move-exception v1
 
@@ -9033,12 +6089,12 @@
     .parameter "device"
 
     .prologue
-    .line 3503
+    .line 2121
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
     monitor-enter v1
 
-    .line 3504
+    .line 2122
     :try_start_3
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
@@ -9050,7 +6106,7 @@
 
     return v0
 
-    .line 3505
+    .line 2123
     :catchall_b
     move-exception v0
 
@@ -9069,7 +6125,7 @@
     .parameter "device"
 
     .prologue
-    .line 3444
+    .line 2062
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH_ADMIN"
@@ -9078,12 +6134,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3446
+    .line 2064
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
     monitor-enter v1
 
-    .line 3447
+    .line 2065
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
@@ -9095,7 +6151,7 @@
 
     return v0
 
-    .line 3448
+    .line 2066
     :catchall_14
     move-exception v0
 
@@ -9116,7 +6172,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 3749
+    .line 2367
     invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->getBondState(Ljava/lang/String;)I
 
     move-result v3
@@ -9125,12 +6181,12 @@
 
     if-eq v3, v4, :cond_a
 
-    .line 3759
+    .line 2377
     :cond_9
     :goto_9
     return v2
 
-    .line 3751
+    .line 2369
     :cond_a
     iget-object v3, p0, Landroid/server/BluetoothService;->mDeviceProfileState:Ljava/util/HashMap;
 
@@ -9140,181 +6196,98 @@
 
     check-cast v1, Landroid/bluetooth/BluetoothDeviceProfileState;
 
-    .line 3752
+    .line 2370
     .local v1, state:Landroid/bluetooth/BluetoothDeviceProfileState;
     if-eqz v1, :cond_9
 
-    .line 3753
+    .line 2371
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 3754
+    .line 2372
     .local v0, msg:Landroid/os/Message;
     const/4 v2, 0x3
 
     iput v2, v0, Landroid/os/Message;->arg1:I
 
-    .line 3755
+    .line 2373
     iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 3756
+    .line 2374
     iget-object v2, p0, Landroid/server/BluetoothService;->mA2dpProfileState:Landroid/bluetooth/BluetoothProfileState;
 
     invoke-virtual {v2, v0}, Landroid/bluetooth/BluetoothProfileState;->sendMessage(Landroid/os/Message;)V
 
-    .line 3757
+    .line 2375
     const/4 v2, 0x1
 
     goto :goto_9
 .end method
 
 .method public declared-synchronized createBond(Ljava/lang/String;)Z
-    .registers 8
+    .registers 4
     .parameter "address"
 
     .prologue
-    const/4 v3, 0x1
+    const/4 v0, 0x0
 
-    const/4 v2, 0x0
-
-    .line 2001
+    .line 1024
     monitor-enter p0
 
-    :try_start_3
+    :try_start_2
     invoke-direct {p0, p1}, Landroid/server/BluetoothService;->isBondingFeasible(Ljava/lang/String;)Z
-    :try_end_6
-    .catchall {:try_start_3 .. :try_end_6} :catchall_42
-
-    move-result v4
-
-    if-nez v4, :cond_b
-
-    .line 2022
-    :cond_9
-    :goto_9
-    monitor-exit p0
-
-    return v2
-
-    .line 2002
-    :cond_b
-    :try_start_b
-    new-instance v0, Landroid/bluetooth/BluetoothClass;
-
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->getRemoteClass(Ljava/lang/String;)I
-
-    move-result v4
-
-    invoke-direct {v0, v4}, Landroid/bluetooth/BluetoothClass;-><init>(I)V
-
-    .line 2003
-    .local v0, btClass:Landroid/bluetooth/BluetoothClass;
-    invoke-virtual {v0}, Landroid/bluetooth/BluetoothClass;->getDeviceClass()I
+    :try_end_5
+    .catchall {:try_start_2 .. :try_end_5} :catchall_21
 
     move-result v1
 
-    .line 2005
-    .local v1, btDeviceClass:I
-    const/16 v4, 0x580
+    if-nez v1, :cond_a
 
-    if-ne v1, v4, :cond_4e
+    .line 1033
+    :cond_8
+    :goto_8
+    monitor-exit p0
 
-    .line 2006
-    const-string v4, "BluetoothService"
+    return v0
 
-    const-string v5, "The device is HID pointing device, skipping pairing"
+    .line 1026
+    :cond_a
+    const v1, 0xea60
 
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_start_d
+    invoke-direct {p0, p1, v1}, Landroid/server/BluetoothService;->createPairedDeviceNative(Ljava/lang/String;I)Z
 
-    .line 2007
-    invoke-direct {p0, p1}, Landroid/server/BluetoothService;->createDeviceNative(Ljava/lang/String;)Z
+    move-result v1
 
-    move-result v4
+    if-eqz v1, :cond_8
 
-    if-nez v4, :cond_45
+    .line 1030
+    iget-object v0, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
-    .line 2008
-    const-string v3, "BluetoothService"
+    invoke-virtual {v0, p1}, Landroid/server/BluetoothBondState;->setPendingOutgoingBonding(Ljava/lang/String;)V
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    .line 1031
+    iget-object v0, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const/16 v1, 0xb
 
-    const-string v5, "CreateDeviceNative failed for "
+    invoke-virtual {v0, p1, v1}, Landroid/server/BluetoothBondState;->setBondState(Ljava/lang/String;I)V
+    :try_end_1f
+    .catchall {:try_start_d .. :try_end_1f} :catchall_21
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 1033
+    const/4 v0, 0x1
 
-    move-result-object v4
+    goto :goto_8
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_41
-    .catchall {:try_start_b .. :try_end_41} :catchall_42
-
-    goto :goto_9
-
-    .line 2001
-    .end local v0           #btClass:Landroid/bluetooth/BluetoothClass;
-    .end local v1           #btDeviceClass:I
-    :catchall_42
-    move-exception v2
+    .line 1024
+    :catchall_21
+    move-exception v0
 
     monitor-exit p0
 
-    throw v2
-
-    .line 2011
-    .restart local v0       #btClass:Landroid/bluetooth/BluetoothClass;
-    .restart local v1       #btDeviceClass:I
-    :cond_45
-    :try_start_45
-    iget-object v2, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
-
-    const/16 v4, 0xb
-
-    invoke-virtual {v2, p1, v4}, Landroid/server/BluetoothBondState;->setBondState(Ljava/lang/String;I)V
-
-    move v2, v3
-
-    .line 2012
-    goto :goto_9
-
-    .line 2015
-    :cond_4e
-    const v4, 0xea60
-
-    invoke-direct {p0, p1, v4}, Landroid/server/BluetoothService;->createPairedDeviceNative(Ljava/lang/String;I)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_9
-
-    .line 2019
-    iget-object v2, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
-
-    invoke-virtual {v2, p1}, Landroid/server/BluetoothBondState;->setPendingOutgoingBonding(Ljava/lang/String;)V
-
-    .line 2020
-    iget-object v2, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
-
-    const/16 v4, 0xb
-
-    invoke-virtual {v2, p1, v4}, Landroid/server/BluetoothBondState;->setBondState(Ljava/lang/String;I)V
-    :try_end_63
-    .catchall {:try_start_45 .. :try_end_63} :catchall_42
-
-    move v2, v3
-
-    .line 2022
-    goto :goto_9
+    throw v0
 .end method
 
 .method public declared-synchronized createBondOutOfBand(Ljava/lang/String;[B[B)Z
@@ -9326,7 +6299,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 2027
+    .line 1038
     monitor-enter p0
 
     :try_start_2
@@ -9338,14 +6311,14 @@
 
     if-nez v1, :cond_a
 
-    .line 2037
+    .line 1048
     :cond_8
     :goto_8
     monitor-exit p0
 
     return v0
 
-    .line 2029
+    .line 1040
     :cond_a
     const v1, 0xea60
 
@@ -9356,15 +6329,15 @@
 
     if-eqz v1, :cond_8
 
-    .line 2033
+    .line 1044
     invoke-virtual {p0, p1, p2, p3}, Landroid/server/BluetoothService;->setDeviceOutOfBandData(Ljava/lang/String;[B[B)Z
 
-    .line 2034
+    .line 1045
     iget-object v0, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     invoke-virtual {v0, p1}, Landroid/server/BluetoothBondState;->setPendingOutgoingBonding(Ljava/lang/String;)V
 
-    .line 2035
+    .line 1046
     iget-object v0, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     const/16 v1, 0xb
@@ -9373,12 +6346,12 @@
     :try_end_22
     .catchall {:try_start_d .. :try_end_22} :catchall_24
 
-    .line 2037
+    .line 1048
     const/4 v0, 0x1
 
     goto :goto_8
 
-    .line 2027
+    .line 1038
     :catchall_24
     move-exception v0
 
@@ -9390,29 +6363,6 @@
 .method native createChannelNative(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Z
 .end method
 
-.method public deregisterEl2capConnection(I)V
-    .registers 5
-    .parameter "handle"
-
-    .prologue
-    .line 2789
-    iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v1, "android.permission.BLUETOOTH"
-
-    const-string v2, "Need BLUETOOTH permission"
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 2791
-    iget-object v0, p0, Landroid/server/BluetoothService;->mConnectionManager:Landroid/server/BluetoothService$ConnectionManager;
-
-    invoke-virtual {v0, p1}, Landroid/server/BluetoothService$ConnectionManager;->deregisterEl2capConnection(I)V
-
-    .line 2792
-    return-void
-.end method
-
 .method native destroyChannelNative(Ljava/lang/String;Ljava/lang/String;I)Z
 .end method
 
@@ -9420,7 +6370,7 @@
     .registers 2
 
     .prologue
-    .line 647
+    .line 365
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Landroid/server/BluetoothService;->disable(Z)Z
@@ -9437,7 +6387,7 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 656
+    .line 374
     monitor-enter p0
 
     :try_start_2
@@ -9449,29 +6399,29 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 658
+    .line 376
     invoke-virtual {p0}, Landroid/server/BluetoothService;->getBluetoothStateInternal()I
     :try_end_e
     .catchall {:try_start_2 .. :try_end_e} :catchall_20
 
     move-result v0
 
-    .line 660
+    .line 378
     .local v0, adapterState:I
     packed-switch v0, :pswitch_data_24
 
-    .line 666
+    .line 384
     :pswitch_12
     const/4 v1, 0x0
 
-    .line 670
+    .line 388
     :goto_13
     :pswitch_13
     monitor-exit p0
 
     return v1
 
-    .line 669
+    .line 387
     :pswitch_15
     :try_start_15
     iget-object v2, p0, Landroid/server/BluetoothService;->mBluetoothState:Landroid/server/BluetoothAdapterStateMachine;
@@ -9488,7 +6438,7 @@
 
     goto :goto_13
 
-    .line 656
+    .line 374
     .end local v0           #adapterState:I
     :catchall_20
     move-exception v1
@@ -9497,7 +6447,7 @@
 
     throw v1
 
-    .line 660
+    .line 378
     nop
 
     :pswitch_data_24
@@ -9506,447 +6456,6 @@
         :pswitch_12
         :pswitch_15
     .end packed-switch
-.end method
-
-.method public declared-synchronized disableDUN()Z
-    .registers 8
-
-    .prologue
-    const/4 v3, 0x1
-
-    const/4 v2, 0x0
-
-    .line 1019
-    monitor-enter p0
-
-    :try_start_3
-    iget-object v4, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v5, "android.permission.BLUETOOTH_ADMIN"
-
-    const-string v6, "Need BLUETOOTH_ADMIN permission"
-
-    invoke-virtual {v4, v5, v6}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1021
-    const-string/jumbo v4, "ro.qualcomm.bluetooth.dun"
-
-    const/4 v5, 0x0
-
-    invoke-static {v4, v5}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v4
-
-    if-nez v4, :cond_1f
-
-    .line 1022
-    const-string v3, "BluetoothService"
-
-    const-string v4, "DUN is not supported"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1d
-    .catchall {:try_start_3 .. :try_end_1d} :catchall_5d
-
-    .line 1050
-    :goto_1d
-    monitor-exit p0
-
-    return v2
-
-    .line 1026
-    :cond_1f
-    :try_start_1f
-    iget-boolean v4, p0, Landroid/server/BluetoothService;->mDUNEnabled:Z
-
-    if-ne v4, v3, :cond_60
-
-    .line 1027
-    iget-object v2, p0, Landroid/server/BluetoothService;->mDUNRecordHandle:[I
-
-    invoke-direct {p0, v2}, Landroid/server/BluetoothService;->removeReservedServiceRecordsNative([I)Z
-
-    .line 1028
-    const-string v2, "BluetoothService"
-
-    const-string v4, "Stop BT-DUN server"
-
-    invoke-static {v2, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1029
-    const-string v2, "bt-dun"
-
-    invoke-static {v2}, Landroid/os/SystemService;->stop(Ljava/lang/String;)V
-
-    .line 1030
-    const/4 v2, 0x0
-
-    iput-boolean v2, p0, Landroid/server/BluetoothService;->mDUNEnabled:Z
-
-    .line 1034
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v4, 0x51
-
-    if-ne v2, v4, :cond_56
-
-    .line 1036
-    const-string/jumbo v2, "phone"
-
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/android/internal/telephony/ITelephony$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/ITelephony;
-    :try_end_47
-    .catchall {:try_start_1f .. :try_end_47} :catchall_5d
-
-    move-result-object v1
-
-    .local v1, telephony_service:Lcom/android/internal/telephony/ITelephony;
-    if-eqz v1, :cond_56
-
-    .line 1038
-    :try_start_4a
-    const-string v2, "BluetoothService"
-
-    const-string v4, "do enableApnType"
-
-    invoke-static {v2, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1039
-    const-string v2, "default"
-
-    invoke-interface {v1, v2}, Lcom/android/internal/telephony/ITelephony;->enableApnType(Ljava/lang/String;)I
-    :try_end_56
-    .catchall {:try_start_4a .. :try_end_56} :catchall_5d
-    .catch Ljava/lang/Exception; {:try_start_4a .. :try_end_56} :catch_58
-
-    .end local v1           #telephony_service:Lcom/android/internal/telephony/ITelephony;
-    :cond_56
-    :goto_56
-    move v2, v3
-
-    .line 1047
-    goto :goto_1d
-
-    .line 1040
-    .restart local v1       #telephony_service:Lcom/android/internal/telephony/ITelephony;
-    :catch_58
-    move-exception v0
-
-    .line 1041
-    .local v0, e:Ljava/lang/Exception;
-    :try_start_59
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-    :try_end_5c
-    .catchall {:try_start_59 .. :try_end_5c} :catchall_5d
-
-    goto :goto_56
-
-    .line 1019
-    .end local v0           #e:Ljava/lang/Exception;
-    .end local v1           #telephony_service:Lcom/android/internal/telephony/ITelephony;
-    :catchall_5d
-    move-exception v2
-
-    monitor-exit p0
-
-    throw v2
-
-    .line 1049
-    :cond_60
-    :try_start_60
-    const-string v3, "BluetoothService"
-
-    const-string v4, "DUN already disabled"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_67
-    .catchall {:try_start_60 .. :try_end_67} :catchall_5d
-
-    goto :goto_1d
-.end method
-
-.method public declared-synchronized disableFTP()Z
-    .registers 6
-
-    .prologue
-    const/4 v1, 0x1
-
-    const/4 v0, 0x0
-
-    .line 960
-    monitor-enter p0
-
-    :try_start_3
-    iget-object v2, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v3, "android.permission.BLUETOOTH_ADMIN"
-
-    const-string v4, "Need BLUETOOTH_ADMIN permission"
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 962
-    const-string/jumbo v2, "ro.qualcomm.bluetooth.ftp"
-
-    const/4 v3, 0x0
-
-    invoke-static {v2, v3}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v2
-
-    if-nez v2, :cond_1f
-
-    .line 963
-    const-string v1, "BluetoothService"
-
-    const-string v2, "FTP is not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1d
-    .catchall {:try_start_3 .. :try_end_1d} :catchall_35
-
-    .line 973
-    :goto_1d
-    monitor-exit p0
-
-    return v0
-
-    .line 967
-    :cond_1f
-    :try_start_1f
-    iget-boolean v2, p0, Landroid/server/BluetoothService;->mFTPEnabled:Z
-
-    if-ne v2, v1, :cond_2d
-
-    .line 968
-    iget-object v0, p0, Landroid/server/BluetoothService;->mFTPRecordHandle:[I
-
-    invoke-direct {p0, v0}, Landroid/server/BluetoothService;->removeReservedServiceRecordsNative([I)Z
-
-    .line 969
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroid/server/BluetoothService;->mFTPEnabled:Z
-
-    move v0, v1
-
-    .line 970
-    goto :goto_1d
-
-    .line 972
-    :cond_2d
-    const-string v1, "BluetoothService"
-
-    const-string v2, "FTP already disabled"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_34
-    .catchall {:try_start_1f .. :try_end_34} :catchall_35
-
-    goto :goto_1d
-
-    .line 960
-    :catchall_35
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
-.method public disableFromPowerSaver()Z
-    .registers 13
-
-    .prologue
-    const/4 v7, 0x1
-
-    const/4 v6, 0x0
-
-    .line 4855
-    invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
-
-    move-result v8
-
-    if-nez v8, :cond_9
-
-    .line 4870
-    :cond_8
-    :goto_8
-    return v6
-
-    .line 4857
-    :cond_9
-    const-string v8, "Devices"
-
-    invoke-virtual {p0, v8, v7}, Landroid/server/BluetoothService;->getProperty(Ljava/lang/String;Z)Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 4858
-    .local v5, value:Ljava/lang/String;
-    const/4 v2, 0x0
-
-    .line 4859
-    .local v2, deviceObjectPath:[Ljava/lang/String;
-    if-eqz v5, :cond_18
-
-    .line 4860
-    const-string v8, ","
-
-    invoke-virtual {v5, v8}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 4862
-    :cond_18
-    if-eqz v2, :cond_39
-
-    .line 4863
-    move-object v0, v2
-
-    .local v0, arr$:[Ljava/lang/String;
-    array-length v4, v0
-
-    .local v4, len$:I
-    const/4 v3, 0x0
-
-    .local v3, i$:I
-    :goto_1d
-    if-ge v3, v4, :cond_39
-
-    aget-object v1, v0, v3
-
-    .line 4864
-    .local v1, device:Ljava/lang/String;
-    const-string/jumbo v8, "true"
-
-    iget-object v9, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
-
-    invoke-virtual {p0, v1}, Landroid/server/BluetoothService;->getAddressFromObjectPath(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v10
-
-    const-string v11, "Connected"
-
-    invoke-virtual {v9, v10, v11}, Landroid/server/BluetoothDeviceProperties;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_8
-
-    .line 4863
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_1d
-
-    .line 4869
-    .end local v0           #arr$:[Ljava/lang/String;
-    .end local v1           #device:Ljava/lang/String;
-    .end local v3           #i$:I
-    .end local v4           #len$:I
-    :cond_39
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->disable()Z
-
-    move v6, v7
-
-    .line 4870
-    goto :goto_8
-.end method
-
-.method public declared-synchronized disableMAP()Z
-    .registers 6
-
-    .prologue
-    const/4 v1, 0x1
-
-    const/4 v0, 0x0
-
-    .line 1141
-    monitor-enter p0
-
-    :try_start_3
-    iget-object v2, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v3, "android.permission.BLUETOOTH_ADMIN"
-
-    const-string v4, "Need BLUETOOTH_ADMIN permission"
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1149
-    const-string/jumbo v2, "ro.qualcomm.bluetooth.map"
-
-    const/4 v3, 0x1
-
-    invoke-static {v2, v3}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v2
-
-    if-nez v2, :cond_1f
-
-    .line 1150
-    const-string v1, "BluetoothService"
-
-    const-string v2, "MAP is not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1d
-    .catchall {:try_start_3 .. :try_end_1d} :catchall_35
-
-    .line 1160
-    :goto_1d
-    monitor-exit p0
-
-    return v0
-
-    .line 1154
-    :cond_1f
-    :try_start_1f
-    iget-boolean v2, p0, Landroid/server/BluetoothService;->mMAPEnabled:Z
-
-    if-ne v2, v1, :cond_2d
-
-    .line 1155
-    iget-object v0, p0, Landroid/server/BluetoothService;->mMAPRecordHandle:[I
-
-    invoke-direct {p0, v0}, Landroid/server/BluetoothService;->removeReservedServiceRecordsNative([I)Z
-
-    .line 1156
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroid/server/BluetoothService;->mMAPEnabled:Z
-
-    move v0, v1
-
-    .line 1157
-    goto :goto_1d
-
-    .line 1159
-    :cond_2d
-    const-string v1, "BluetoothService"
-
-    const-string v2, "MAP already disabled"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_34
-    .catchall {:try_start_1f .. :try_end_34} :catchall_35
-
-    goto :goto_1d
-
-    .line 1141
-    :catchall_35
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method native disableNative()I
@@ -9959,7 +6468,7 @@
     .parameter "id"
 
     .prologue
-    .line 3643
+    .line 2261
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -9968,12 +6477,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3645
+    .line 2263
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
     monitor-enter v1
 
-    .line 3646
+    .line 2264
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
@@ -9985,7 +6494,7 @@
 
     return v0
 
-    .line 3647
+    .line 2265
     :catchall_14
     move-exception v0
 
@@ -10000,7 +6509,7 @@
     .registers 4
 
     .prologue
-    .line 675
+    .line 393
     monitor-enter p0
 
     :try_start_1
@@ -10026,7 +6535,7 @@
 
     check-cast v0, Landroid/bluetooth/BluetoothDevice;
 
-    .line 676
+    .line 394
     .local v0, device:Landroid/bluetooth/BluetoothDevice;
     invoke-virtual {p0, v0}, Landroid/server/BluetoothService;->disconnectInputDevice(Landroid/bluetooth/BluetoothDevice;)Z
     :try_end_18
@@ -10034,7 +6543,7 @@
 
     goto :goto_9
 
-    .line 675
+    .line 393
     .end local v0           #device:Landroid/bluetooth/BluetoothDevice;
     .end local v1           #i$:Ljava/util/Iterator;
     :catchall_19
@@ -10044,7 +6553,7 @@
 
     throw v2
 
-    .line 679
+    .line 397
     .restart local v1       #i$:Ljava/util/Iterator;
     :cond_1c
     :try_start_1c
@@ -10069,7 +6578,7 @@
 
     check-cast v0, Landroid/bluetooth/BluetoothDevice;
 
-    .line 680
+    .line 398
     .restart local v0       #device:Landroid/bluetooth/BluetoothDevice;
     invoke-virtual {p0, v0}, Landroid/server/BluetoothService;->disconnectPanDevice(Landroid/bluetooth/BluetoothDevice;)Z
     :try_end_33
@@ -10077,7 +6586,7 @@
 
     goto :goto_24
 
-    .line 682
+    .line 400
     .end local v0           #device:Landroid/bluetooth/BluetoothDevice;
     :cond_34
     monitor-exit p0
@@ -10092,7 +6601,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 3735
+    .line 2353
     invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->getBondState(Ljava/lang/String;)I
 
     move-result v3
@@ -10101,12 +6610,12 @@
 
     if-eq v3, v4, :cond_a
 
-    .line 3745
+    .line 2363
     :cond_9
     :goto_9
     return v2
 
-    .line 3737
+    .line 2355
     :cond_a
     iget-object v3, p0, Landroid/server/BluetoothService;->mDeviceProfileState:Ljava/util/HashMap;
 
@@ -10116,30 +6625,30 @@
 
     check-cast v1, Landroid/bluetooth/BluetoothDeviceProfileState;
 
-    .line 3738
+    .line 2356
     .local v1, state:Landroid/bluetooth/BluetoothDeviceProfileState;
     if-eqz v1, :cond_9
 
-    .line 3739
+    .line 2357
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 3740
+    .line 2358
     .local v0, msg:Landroid/os/Message;
     const/16 v2, 0x32
 
     iput v2, v0, Landroid/os/Message;->arg1:I
 
-    .line 3741
+    .line 2359
     iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 3742
+    .line 2360
     iget-object v2, p0, Landroid/server/BluetoothService;->mHfpProfileState:Landroid/bluetooth/BluetoothProfileState;
 
     invoke-virtual {v2, v0}, Landroid/bluetooth/BluetoothProfileState;->sendMessage(Landroid/os/Message;)V
 
-    .line 3743
+    .line 2361
     const/4 v2, 0x1
 
     goto :goto_9
@@ -10150,7 +6659,7 @@
     .parameter "device"
 
     .prologue
-    .line 3509
+    .line 2127
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v2, "android.permission.BLUETOOTH_ADMIN"
@@ -10159,7 +6668,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3511
+    .line 2129
     iget-object v1, p0, Landroid/server/BluetoothService;->mDeviceProfileState:Ljava/util/HashMap;
 
     invoke-virtual {p1}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
@@ -10172,13 +6681,13 @@
 
     check-cast v0, Landroid/bluetooth/BluetoothDeviceProfileState;
 
-    .line 3512
+    .line 2130
     .local v0, state:Landroid/bluetooth/BluetoothDeviceProfileState;
     iget-object v2, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
     monitor-enter v2
 
-    .line 3513
+    .line 2131
     :try_start_18
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
@@ -10190,7 +6699,7 @@
 
     return v1
 
-    .line 3514
+    .line 2132
     :catchall_20
     move-exception v1
 
@@ -10206,12 +6715,12 @@
     .parameter "device"
 
     .prologue
-    .line 3518
+    .line 2136
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
     monitor-enter v1
 
-    .line 3519
+    .line 2137
     :try_start_3
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
@@ -10223,7 +6732,7 @@
 
     return v0
 
-    .line 3520
+    .line 2138
     :catchall_b
     move-exception v0
 
@@ -10242,7 +6751,7 @@
     .parameter "device"
 
     .prologue
-    .line 3467
+    .line 2085
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH_ADMIN"
@@ -10251,12 +6760,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3469
+    .line 2087
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
     monitor-enter v1
 
-    .line 3470
+    .line 2088
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
@@ -10268,7 +6777,7 @@
 
     return v0
 
-    .line 3471
+    .line 2089
     :catchall_14
     move-exception v0
 
@@ -10285,75 +6794,6 @@
 .method native disconnectPanServerDeviceNative(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 .end method
 
-.method public declared-synchronized disconnectSap()V
-    .registers 5
-
-    .prologue
-    .line 4829
-    monitor-enter p0
-
-    :try_start_1
-    iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v2, "android.permission.BLUETOOTH_ADMIN"
-
-    const-string v3, "Need BLUETOOTH_ADMIN permission"
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 4831
-    const-string v1, "BluetoothService"
-
-    const-string v2, "disconnectSap"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4832
-    invoke-direct {p0}, Landroid/server/BluetoothService;->disConnectSapNative()I
-
-    move-result v0
-
-    .line 4833
-    .local v0, res:I
-    const-string v1, "BluetoothService"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "disconnectSap returns -"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_2d
-    .catchall {:try_start_1 .. :try_end_2d} :catchall_2f
-
-    .line 4834
-    monitor-exit p0
-
-    return-void
-
-    .line 4829
-    .end local v0           #res:I
-    :catchall_2f
-    move-exception v1
-
-    monitor-exit p0
-
-    throw v1
-.end method
-
 .method public disconnectSink(Ljava/lang/String;)Z
     .registers 7
     .parameter "address"
@@ -10361,7 +6801,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 3763
+    .line 2381
     invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->getBondState(Ljava/lang/String;)I
 
     move-result v3
@@ -10370,12 +6810,12 @@
 
     if-eq v3, v4, :cond_a
 
-    .line 3773
+    .line 2391
     :cond_9
     :goto_9
     return v2
 
-    .line 3765
+    .line 2383
     :cond_a
     iget-object v3, p0, Landroid/server/BluetoothService;->mDeviceProfileState:Ljava/util/HashMap;
 
@@ -10385,172 +6825,65 @@
 
     check-cast v1, Landroid/bluetooth/BluetoothDeviceProfileState;
 
-    .line 3766
+    .line 2384
     .local v1, state:Landroid/bluetooth/BluetoothDeviceProfileState;
     if-eqz v1, :cond_9
 
-    .line 3767
+    .line 2385
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 3768
+    .line 2386
     .local v0, msg:Landroid/os/Message;
     const/16 v2, 0x34
 
     iput v2, v0, Landroid/os/Message;->arg1:I
 
-    .line 3769
+    .line 2387
     iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 3770
+    .line 2388
     iget-object v2, p0, Landroid/server/BluetoothService;->mA2dpProfileState:Landroid/bluetooth/BluetoothProfileState;
 
     invoke-virtual {v2, v0}, Landroid/bluetooth/BluetoothProfileState;->sendMessage(Landroid/os/Message;)V
 
-    .line 3771
+    .line 2389
     const/4 v2, 0x1
 
     goto :goto_9
-.end method
-
-.method public declared-synchronized discoverCharacteristics(Ljava/lang/String;)Z
-    .registers 6
-    .parameter "path"
-
-    .prologue
-    const/4 v0, 0x0
-
-    .line 4602
-    monitor-enter p0
-
-    :try_start_2
-    iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v2, "android.permission.BLUETOOTH"
-
-    const-string v3, "Need BLUETOOTH permission"
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 4603
-    invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
-    :try_end_e
-    .catchall {:try_start_2 .. :try_end_e} :catchall_3b
-
-    move-result v1
-
-    if-nez v1, :cond_13
-
-    .line 4614
-    :goto_11
-    monitor-exit p0
-
-    return v0
-
-    .line 4605
-    :cond_13
-    :try_start_13
-    const-string v1, "BluetoothService"
-
-    const-string v2, "discoverCharacteristics"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4607
-    iget-object v1, p0, Landroid/server/BluetoothService;->mGattServices:Ljava/util/SortedMap;
-
-    invoke-interface {v1, p1}, Ljava/util/SortedMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_3e
-
-    .line 4608
-    const-string v1, "BluetoothService"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Service not present "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_3a
-    .catchall {:try_start_13 .. :try_end_3a} :catchall_3b
-
-    goto :goto_11
-
-    .line 4602
-    :catchall_3b
-    move-exception v1
-
-    monitor-exit p0
-
-    throw v1
-
-    .line 4612
-    :cond_3e
-    :try_start_3e
-    invoke-direct {p0, p1}, Landroid/server/BluetoothService;->discoverCharacteristicsNative(Ljava/lang/String;)Z
-    :try_end_41
-    .catchall {:try_start_3e .. :try_end_41} :catchall_3b
-
-    move-result v0
-
-    .line 4614
-    .local v0, ret:Z
-    goto :goto_11
 .end method
 
 .method native discoverServicesNative(Ljava/lang/String;Ljava/lang/String;)Z
 .end method
 
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 10
+    .registers 8
     .parameter "fd"
     .parameter "pw"
     .parameter "args"
 
     .prologue
-    const/4 v5, 0x5
-
-    const/4 v4, 0x4
-
-    const/4 v3, 0x1
-
-    .line 3109
+    .line 1747
     invoke-virtual {p0}, Landroid/server/BluetoothService;->getBluetoothStateInternal()I
 
     move-result v0
 
     const/16 v1, 0xc
 
-    if-eq v0, v1, :cond_c
+    if-eq v0, v1, :cond_9
 
-    .line 3139
-    :goto_b
+    .line 1772
+    :goto_8
     return-void
 
-    .line 3113
-    :cond_c
+    .line 1751
+    :cond_9
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "mIsAirplaneSensitive = "
+    const-string v1, "mIsAirplaneSensitive = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -10568,20 +6901,18 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3114
+    .line 1752
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "mIsAirplaneToggleable = "
+    const-string v1, "mIsAirplaneToggleable = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-direct {p0}, Landroid/server/BluetoothService;->isAirplaneToggleable()Z
-
-    move-result v1
+    iget-boolean v1, p0, Landroid/server/BluetoothService;->mIsAirplaneToggleable:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -10593,7 +6924,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3116
+    .line 1754
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -10618,7 +6949,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3117
+    .line 1755
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -10643,12 +6974,12 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3118
+    .line 1756
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "isDiscovering() = "
+    const-string v1, "isDiscovering() = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -10668,110 +6999,75 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3120
+    .line 1758
     iget-object v0, p0, Landroid/server/BluetoothService;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
 
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Landroid/server/BluetoothService;->mBluetoothProfileServiceListener:Landroid/bluetooth/BluetoothProfile$ServiceListener;
+
+    const/4 v3, 0x1
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/bluetooth/BluetoothAdapter;->getProfileProxy(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;I)Z
 
-    .line 3122
+    .line 1760
     iget-object v0, p0, Landroid/server/BluetoothService;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
 
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Landroid/server/BluetoothService;->mBluetoothProfileServiceListener:Landroid/bluetooth/BluetoothProfile$ServiceListener;
 
-    invoke-virtual {v0, v1, v2, v4}, Landroid/bluetooth/BluetoothAdapter;->getProfileProxy(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;I)Z
+    const/4 v3, 0x4
 
-    .line 3124
+    invoke-virtual {v0, v1, v2, v3}, Landroid/bluetooth/BluetoothAdapter;->getProfileProxy(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;I)Z
+
+    .line 1762
     iget-object v0, p0, Landroid/server/BluetoothService;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
 
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Landroid/server/BluetoothService;->mBluetoothProfileServiceListener:Landroid/bluetooth/BluetoothProfile$ServiceListener;
 
-    invoke-virtual {v0, v1, v2, v5}, Landroid/bluetooth/BluetoothAdapter;->getProfileProxy(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;I)Z
+    const/4 v3, 0x5
 
-    .line 3127
+    invoke-virtual {v0, v1, v2, v3}, Landroid/bluetooth/BluetoothAdapter;->getProfileProxy(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;I)Z
+
+    .line 1765
     invoke-direct {p0, p2}, Landroid/server/BluetoothService;->dumpKnownDevices(Ljava/io/PrintWriter;)V
 
-    .line 3128
+    .line 1766
     invoke-direct {p0, p2}, Landroid/server/BluetoothService;->dumpAclConnectedDevices(Ljava/io/PrintWriter;)V
 
-    .line 3129
+    .line 1767
     invoke-direct {p0, p2}, Landroid/server/BluetoothService;->dumpHeadsetService(Ljava/io/PrintWriter;)V
 
-    .line 3130
+    .line 1768
     invoke-direct {p0, p2}, Landroid/server/BluetoothService;->dumpInputDeviceProfile(Ljava/io/PrintWriter;)V
 
-    .line 3131
+    .line 1769
     invoke-direct {p0, p2}, Landroid/server/BluetoothService;->dumpPanProfile(Ljava/io/PrintWriter;)V
 
-    .line 3132
+    .line 1770
     invoke-direct {p0, p2}, Landroid/server/BluetoothService;->dumpApplicationServiceRecords(Ljava/io/PrintWriter;)V
 
-    .line 3133
+    .line 1771
     invoke-direct {p0, p2}, Landroid/server/BluetoothService;->dumpProfileState(Ljava/io/PrintWriter;)V
 
-    .line 3136
-    iget-object v0, p0, Landroid/server/BluetoothService;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
-
-    iget-object v1, p0, Landroid/server/BluetoothService;->mHeadsetProxy:Landroid/bluetooth/BluetoothHeadset;
-
-    invoke-virtual {v0, v3, v1}, Landroid/bluetooth/BluetoothAdapter;->closeProfileProxy(ILandroid/bluetooth/BluetoothProfile;)V
-
-    .line 3137
-    iget-object v0, p0, Landroid/server/BluetoothService;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
-
-    iget-object v1, p0, Landroid/server/BluetoothService;->mInputDevice:Landroid/bluetooth/BluetoothInputDevice;
-
-    invoke-virtual {v0, v4, v1}, Landroid/bluetooth/BluetoothAdapter;->closeProfileProxy(ILandroid/bluetooth/BluetoothProfile;)V
-
-    .line 3138
-    iget-object v0, p0, Landroid/server/BluetoothService;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
-
-    iget-object v1, p0, Landroid/server/BluetoothService;->mPan:Landroid/bluetooth/BluetoothPan;
-
-    invoke-virtual {v0, v5, v1}, Landroid/bluetooth/BluetoothAdapter;->closeProfileProxy(ILandroid/bluetooth/BluetoothProfile;)V
-
-    goto/16 :goto_b
+    goto/16 :goto_8
 .end method
 
 .method public enable()Z
-    .registers 4
+    .registers 2
 
     .prologue
-    const/4 v0, 0x0
-
-    .line 832
-    invoke-direct {p0, v0}, Landroid/server/BluetoothService;->checkEASState(I)Z
-
-    move-result v1
-
-    if-nez v1, :cond_f
-
-    .line 833
-    const-string v1, "BluetoothService"
-
-    const-string v2, "Bluetooth enable is disallowed due to EAS policy"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 837
-    :goto_e
-    return v0
-
-    :cond_f
+    .line 475
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Landroid/server/BluetoothService;->enable(Z)Z
 
     move-result v0
 
-    goto :goto_e
+    return v0
 .end method
 
 .method public declared-synchronized enable(Z)Z
@@ -10781,7 +7077,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 848
+    .line 486
     monitor-enter p0
 
     :try_start_2
@@ -10793,90 +7089,35 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 852
+    .line 490
     iget-boolean v1, p0, Landroid/server/BluetoothService;->mIsAirplaneSensitive:Z
 
-    if-eqz v1, :cond_54
+    if-eqz v1, :cond_1c
 
     invoke-virtual {p0}, Landroid/server/BluetoothService;->isAirplaneModeOn()Z
 
     move-result v1
 
-    if-eqz v1, :cond_54
+    if-eqz v1, :cond_1c
 
-    invoke-direct {p0}, Landroid/server/BluetoothService;->isAirplaneToggleable()Z
+    iget-boolean v1, p0, Landroid/server/BluetoothService;->mIsAirplaneToggleable:Z
+    :try_end_17
+    .catchall {:try_start_2 .. :try_end_17} :catchall_27
 
-    move-result v1
+    if-nez v1, :cond_1c
 
-    if-nez v1, :cond_54
-
-    .line 853
-    const-string v0, "BluetoothService"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "enable(): mIsAirplaneSensitive: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-boolean v2, p0, Landroid/server/BluetoothService;->mIsAirplaneSensitive:Z
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, " isAirplaneModeOn(): "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->isAirplaneModeOn()Z
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, " isAirplaneToggleable(): "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-direct {p0}, Landroid/server/BluetoothService;->isAirplaneToggleable()Z
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_51
-    .catchall {:try_start_2 .. :try_end_51} :catchall_5f
-
-    .line 855
+    .line 491
     const/4 v0, 0x0
 
-    .line 858
-    :goto_52
+    .line 494
+    :goto_1a
     monitor-exit p0
 
     return v0
 
-    .line 857
-    :cond_54
-    :try_start_54
+    .line 493
+    :cond_1c
+    :try_start_1c
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothState:Landroid/server/BluetoothAdapterStateMachine;
 
     const/4 v2, 0x1
@@ -10886,13 +7127,13 @@
     move-result-object v3
 
     invoke-virtual {v1, v2, v3}, Landroid/server/BluetoothAdapterStateMachine;->sendMessage(ILjava/lang/Object;)V
-    :try_end_5e
-    .catchall {:try_start_54 .. :try_end_5e} :catchall_5f
+    :try_end_26
+    .catchall {:try_start_1c .. :try_end_26} :catchall_27
 
-    goto :goto_52
+    goto :goto_1a
 
-    .line 848
-    :catchall_5f
+    .line 486
+    :catchall_27
     move-exception v0
 
     monitor-exit p0
@@ -10900,621 +7141,161 @@
     throw v0
 .end method
 
-.method public declared-synchronized enableDUN()Z
-    .registers 9
-
-    .prologue
-    const/4 v4, 0x1
-
-    const/4 v3, 0x0
-
-    .line 979
-    monitor-enter p0
-
-    :try_start_3
-    iget-object v5, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v6, "android.permission.BLUETOOTH_ADMIN"
-
-    const-string v7, "Need BLUETOOTH_ADMIN permission"
-
-    invoke-virtual {v5, v6, v7}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 981
-    const-string/jumbo v5, "ro.qualcomm.bluetooth.dun"
-
-    const/4 v6, 0x0
-
-    invoke-static {v5, v6}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v5
-
-    if-nez v5, :cond_1f
-
-    .line 982
-    const-string v4, "BluetoothService"
-
-    const-string v5, "DUN is not supported"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1d
-    .catchall {:try_start_3 .. :try_end_1d} :catchall_6a
-
-    .line 1013
-    :goto_1d
-    monitor-exit p0
-
-    return v3
-
-    .line 986
-    :cond_1f
-    :try_start_1f
-    iget-boolean v5, p0, Landroid/server/BluetoothService;->mDUNEnabled:Z
-
-    if-eq v5, v4, :cond_6d
-
-    .line 990
-    sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v5, 0x51
-
-    if-ne v3, v5, :cond_42
-
-    .line 992
-    const-string/jumbo v3, "phone"
-
-    invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v3
-
-    invoke-static {v3}, Lcom/android/internal/telephony/ITelephony$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/ITelephony;
-    :try_end_33
-    .catchall {:try_start_1f .. :try_end_33} :catchall_6a
-
-    move-result-object v2
-
-    .local v2, telephony_service:Lcom/android/internal/telephony/ITelephony;
-    if-eqz v2, :cond_42
-
-    .line 994
-    :try_start_36
-    const-string v3, "BluetoothService"
-
-    const-string v5, "do disableApnType"
-
-    invoke-static {v3, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 995
-    const-string v3, "default"
-
-    invoke-interface {v2, v3}, Lcom/android/internal/telephony/ITelephony;->disableApnType(Ljava/lang/String;)I
-    :try_end_42
-    .catchall {:try_start_36 .. :try_end_42} :catchall_6a
-    .catch Ljava/lang/Exception; {:try_start_36 .. :try_end_42} :catch_65
-
-    .line 1003
-    .end local v2           #telephony_service:Lcom/android/internal/telephony/ITelephony;
-    :cond_42
-    :goto_42
-    const/4 v3, 0x1
-
-    :try_start_43
-    new-array v1, v3, [I
-
-    .line 1004
-    .local v1, svcIdentifiers:[I
-    const/4 v3, 0x0
-
-    sget-object v5, Landroid/bluetooth/BluetoothUuid;->DUN:Landroid/os/ParcelUuid;
-
-    invoke-static {v5}, Landroid/bluetooth/BluetoothUuid;->getServiceIdentifierFromParcelUuid(Landroid/os/ParcelUuid;)I
-
-    move-result v5
-
-    aput v5, v1, v3
-
-    .line 1006
-    invoke-direct {p0, v1}, Landroid/server/BluetoothService;->addReservedServiceRecordsNative([I)[I
-
-    move-result-object v3
-
-    iput-object v3, p0, Landroid/server/BluetoothService;->mDUNRecordHandle:[I
-
-    .line 1007
-    const-string v3, "BluetoothService"
-
-    const-string v5, "Starting BT-DUN server"
-
-    invoke-static {v3, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1008
-    const-string v3, "bt-dun"
-
-    invoke-static {v3}, Landroid/os/SystemService;->start(Ljava/lang/String;)V
-
-    .line 1009
-    const/4 v3, 0x1
-
-    iput-boolean v3, p0, Landroid/server/BluetoothService;->mDUNEnabled:Z
-
-    move v3, v4
-
-    .line 1010
-    goto :goto_1d
-
-    .line 996
-    .end local v1           #svcIdentifiers:[I
-    .restart local v2       #telephony_service:Lcom/android/internal/telephony/ITelephony;
-    :catch_65
-    move-exception v0
-
-    .line 997
-    .local v0, e:Ljava/lang/Exception;
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-    :try_end_69
-    .catchall {:try_start_43 .. :try_end_69} :catchall_6a
-
-    goto :goto_42
-
-    .line 979
-    .end local v0           #e:Ljava/lang/Exception;
-    .end local v2           #telephony_service:Lcom/android/internal/telephony/ITelephony;
-    :catchall_6a
-    move-exception v3
-
-    monitor-exit p0
-
-    throw v3
-
-    .line 1012
-    :cond_6d
-    :try_start_6d
-    const-string v4, "BluetoothService"
-
-    const-string v5, "DUN already enabled"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_74
-    .catchall {:try_start_6d .. :try_end_74} :catchall_6a
-
-    goto :goto_1d
-.end method
-
-.method public declared-synchronized enableFTP()Z
-    .registers 7
-
-    .prologue
-    const/4 v2, 0x1
-
-    const/4 v1, 0x0
-
-    .line 940
-    monitor-enter p0
-
-    :try_start_3
-    iget-object v3, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v4, "android.permission.BLUETOOTH_ADMIN"
-
-    const-string v5, "Need BLUETOOTH_ADMIN permission"
-
-    invoke-virtual {v3, v4, v5}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 942
-    const-string/jumbo v3, "ro.qualcomm.bluetooth.ftp"
-
-    const/4 v4, 0x0
-
-    invoke-static {v3, v4}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v3
-
-    if-nez v3, :cond_1f
-
-    .line 943
-    const-string v2, "BluetoothService"
-
-    const-string v3, "FTP is not supported"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1d
-    .catchall {:try_start_3 .. :try_end_1d} :catchall_42
-
-    .line 955
-    :goto_1d
-    monitor-exit p0
-
-    return v1
-
-    .line 947
-    :cond_1f
-    :try_start_1f
-    iget-boolean v3, p0, Landroid/server/BluetoothService;->mFTPEnabled:Z
-
-    if-eq v3, v2, :cond_3a
-
-    .line 948
-    const/4 v1, 0x1
-
-    new-array v0, v1, [I
-
-    .line 949
-    .local v0, svcIdentifiers:[I
-    const/4 v1, 0x0
-
-    sget-object v3, Landroid/bluetooth/BluetoothUuid;->FileTransfer:Landroid/os/ParcelUuid;
-
-    invoke-static {v3}, Landroid/bluetooth/BluetoothUuid;->getServiceIdentifierFromParcelUuid(Landroid/os/ParcelUuid;)I
-
-    move-result v3
-
-    aput v3, v0, v1
-
-    .line 950
-    invoke-direct {p0, v0}, Landroid/server/BluetoothService;->addReservedServiceRecordsNative([I)[I
-
-    move-result-object v1
-
-    iput-object v1, p0, Landroid/server/BluetoothService;->mFTPRecordHandle:[I
-
-    .line 951
-    const/4 v1, 0x1
-
-    iput-boolean v1, p0, Landroid/server/BluetoothService;->mFTPEnabled:Z
-
-    move v1, v2
-
-    .line 952
-    goto :goto_1d
-
-    .line 954
-    .end local v0           #svcIdentifiers:[I
-    :cond_3a
-    const-string v2, "BluetoothService"
-
-    const-string v3, "FTP already enabled"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_41
-    .catchall {:try_start_1f .. :try_end_41} :catchall_42
-
-    goto :goto_1d
-
-    .line 940
-    :catchall_42
-    move-exception v1
-
-    monitor-exit p0
-
-    throw v1
-.end method
-
-.method public declared-synchronized enableMAP()Z
-    .registers 7
-
-    .prologue
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
-
-    .line 1114
-    monitor-enter p0
-
-    :try_start_3
-    iget-object v3, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v4, "android.permission.BLUETOOTH_ADMIN"
-
-    const-string v5, "Need BLUETOOTH_ADMIN permission"
-
-    invoke-virtual {v3, v4, v5}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1122
-    const-string/jumbo v3, "ro.qualcomm.bluetooth.map"
-
-    const/4 v4, 0x1
-
-    invoke-static {v3, v4}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v3
-
-    if-nez v3, :cond_1f
-
-    .line 1123
-    const-string v2, "BluetoothService"
-
-    const-string v3, "MAP is not supported"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1d
-    .catchall {:try_start_3 .. :try_end_1d} :catchall_49
-
-    .line 1136
-    :goto_1d
-    monitor-exit p0
-
-    return v1
-
-    .line 1127
-    :cond_1f
-    :try_start_1f
-    iget-boolean v3, p0, Landroid/server/BluetoothService;->mMAPEnabled:Z
-
-    if-eq v3, v2, :cond_41
-
-    .line 1128
-    const/4 v1, 0x1
-
-    new-array v0, v1, [I
-
-    .line 1129
-    .local v0, svcIdentifiers:[I
-    const/4 v1, 0x0
-
-    sget-object v3, Landroid/bluetooth/BluetoothUuid;->MessageAccessServer:Landroid/os/ParcelUuid;
-
-    invoke-static {v3}, Landroid/bluetooth/BluetoothUuid;->getServiceIdentifierFromParcelUuid(Landroid/os/ParcelUuid;)I
-
-    move-result v3
-
-    aput v3, v0, v1
-
-    .line 1130
-    const-string v1, "BluetoothService"
-
-    const-string v3, "calling addReservedServiceRecordsNative"
-
-    invoke-static {v1, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1131
-    invoke-direct {p0, v0}, Landroid/server/BluetoothService;->addReservedServiceRecordsNative([I)[I
-
-    move-result-object v1
-
-    iput-object v1, p0, Landroid/server/BluetoothService;->mMAPRecordHandle:[I
-
-    .line 1132
-    const/4 v1, 0x1
-
-    iput-boolean v1, p0, Landroid/server/BluetoothService;->mMAPEnabled:Z
-
-    move v1, v2
-
-    .line 1133
-    goto :goto_1d
-
-    .line 1135
-    .end local v0           #svcIdentifiers:[I
-    :cond_41
-    const-string v2, "BluetoothService"
-
-    const-string v3, "MAP already enabled"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_48
-    .catchall {:try_start_1f .. :try_end_48} :catchall_49
-
-    goto :goto_1d
-
-    .line 1114
-    :catchall_49
-    move-exception v1
-
-    monitor-exit p0
-
-    throw v1
-.end method
-
 .method native enableNative()I
 .end method
 
-.method fetchPresetPin()Ljava/lang/String;
-    .registers 3
-
-    .prologue
-    .line 4095
-    iget-object v0, p0, Landroid/server/BluetoothService;->mpinString:Ljava/lang/String;
-
-    .line 4096
-    .local v0, pin:Ljava/lang/String;
-    const/4 v1, 0x0
-
-    iput-object v1, p0, Landroid/server/BluetoothService;->mpinString:Ljava/lang/String;
-
-    .line 4097
-    return-object v0
-.end method
-
 .method public declared-synchronized fetchRemoteUuids(Ljava/lang/String;Landroid/os/ParcelUuid;Landroid/bluetooth/IBluetoothCallback;)Z
-    .registers 12
+    .registers 11
     .parameter "address"
     .parameter "uuid"
     .parameter "callback"
 
     .prologue
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    .line 2314
+    .line 1265
     monitor-enter p0
 
     :try_start_3
-    iget-object v5, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
-    const-string v6, "android.permission.BLUETOOTH"
+    const-string v5, "android.permission.BLUETOOTH"
 
-    const-string v7, "Need BLUETOOTH permission"
+    const-string v6, "Need BLUETOOTH permission"
 
-    invoke-virtual {v5, v6, v7}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v4, v5, v6}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2315
+    .line 1266
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
     :try_end_f
-    .catchall {:try_start_3 .. :try_end_f} :catchall_5d
+    .catchall {:try_start_3 .. :try_end_f} :catchall_65
 
-    move-result v5
+    move-result v4
 
-    if-nez v5, :cond_14
+    if-nez v4, :cond_14
 
-    .line 2359
+    .line 1300
     :cond_12
     :goto_12
     monitor-exit p0
 
-    return v2
+    return v1
 
-    .line 2317
+    .line 1268
     :cond_14
     :try_start_14
     invoke-static {p1}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_12
+    if-eqz v4, :cond_12
 
-    .line 2321
-    new-instance v3, Landroid/server/BluetoothService$RemoteService;
+    .line 1272
+    new-instance v2, Landroid/server/BluetoothService$RemoteService;
 
-    invoke-direct {v3, p1, p2}, Landroid/server/BluetoothService$RemoteService;-><init>(Ljava/lang/String;Landroid/os/ParcelUuid;)V
+    invoke-direct {v2, p1, p2}, Landroid/server/BluetoothService$RemoteService;-><init>(Ljava/lang/String;Landroid/os/ParcelUuid;)V
 
-    .line 2322
-    .local v3, service:Landroid/server/BluetoothService$RemoteService;
+    .line 1273
+    .local v2, service:Landroid/server/BluetoothService$RemoteService;
     if-eqz p2, :cond_29
 
-    iget-object v5, p0, Landroid/server/BluetoothService;->mUuidCallbackTracker:Ljava/util/HashMap;
+    iget-object v4, p0, Landroid/server/BluetoothService;->mUuidCallbackTracker:Ljava/util/HashMap;
 
-    invoke-virtual {v5, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v4
 
-    if-nez v5, :cond_12
+    if-nez v4, :cond_12
 
-    .line 2328
+    .line 1279
     :cond_29
-    if-eqz p2, :cond_30
-
-    .line 2329
-    iget-object v5, p0, Landroid/server/BluetoothService;->mUuidCallbackTracker:Ljava/util/HashMap;
-
-    invoke-virtual {v5, v3, p3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 2332
-    :cond_30
-    iget-object v5, p0, Landroid/server/BluetoothService;->mUuidIntentTracker:Ljava/util/ArrayList;
-
-    invoke-virtual {v5, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3a
-
-    move v2, v4
-
-    .line 2335
-    goto :goto_12
-
-    .line 2337
-    :cond_3a
     iget-object v4, p0, Landroid/server/BluetoothService;->mUuidIntentTracker:Ljava/util/ArrayList;
 
-    invoke-virtual {v4, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 2342
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->isRemoteDeviceInCache(Ljava/lang/String;)Z
+    invoke-virtual {v4, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_77
+    if-eqz v4, :cond_3f
 
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->getRemoteUuids(Ljava/lang/String;)[Landroid/os/ParcelUuid;
+    .line 1282
+    if-eqz p2, :cond_3d
 
-    move-result-object v4
+    .line 1283
+    iget-object v4, p0, Landroid/server/BluetoothService;->mUuidCallbackTracker:Ljava/util/HashMap;
 
-    if-eqz v4, :cond_77
+    new-instance v5, Landroid/server/BluetoothService$RemoteService;
 
-    invoke-direct {p0, p1}, Landroid/server/BluetoothService;->findDeviceNative(Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {v5, p1, p2}, Landroid/server/BluetoothService$RemoteService;-><init>(Ljava/lang/String;Landroid/os/ParcelUuid;)V
 
-    move-result-object v4
+    invoke-virtual {v4, v5, p3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    if-eqz v4, :cond_77
+    :cond_3d
+    move v1, v3
 
-    .line 2344
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->getObjectPathFromAddress(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 2345
-    .local v1, path:Ljava/lang/String;
-    if-nez v1, :cond_60
-
-    .line 2346
-    iget-object v4, p0, Landroid/server/BluetoothService;->mUuidIntentTracker:Ljava/util/ArrayList;
-
-    invoke-virtual {v4, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-    :try_end_5c
-    .catchall {:try_start_14 .. :try_end_5c} :catchall_5d
-
+    .line 1285
     goto :goto_12
 
-    .line 2314
-    .end local v1           #path:Ljava/lang/String;
-    .end local v3           #service:Landroid/server/BluetoothService$RemoteService;
-    :catchall_5d
-    move-exception v4
+    .line 1290
+    :cond_3f
+    invoke-direct {p0, p1}, Landroid/server/BluetoothService;->createDeviceNative(Ljava/lang/String;)Z
 
-    monitor-exit p0
+    move-result v1
 
-    throw v4
+    .line 1292
+    .local v1, ret:Z
+    iget-object v3, p0, Landroid/server/BluetoothService;->mUuidIntentTracker:Ljava/util/ArrayList;
 
-    .line 2351
-    .restart local v1       #path:Ljava/lang/String;
-    .restart local v3       #service:Landroid/server/BluetoothService$RemoteService;
-    :cond_60
-    :try_start_60
-    const-string v4, ""
+    invoke-virtual {v3, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {p0, v1, v4}, Landroid/server/BluetoothService;->discoverServicesNative(Ljava/lang/String;Ljava/lang/String;)Z
+    .line 1293
+    if-eqz p2, :cond_54
 
-    move-result v2
+    .line 1294
+    iget-object v3, p0, Landroid/server/BluetoothService;->mUuidCallbackTracker:Ljava/util/HashMap;
 
-    .line 2356
-    .end local v1           #path:Ljava/lang/String;
-    .local v2, ret:Z
-    :goto_66
-    iget-object v4, p0, Landroid/server/BluetoothService;->mHandler:Landroid/os/Handler;
+    new-instance v4, Landroid/server/BluetoothService$RemoteService;
 
-    const/4 v5, 0x1
+    invoke-direct {v4, p1, p2}, Landroid/server/BluetoothService$RemoteService;-><init>(Ljava/lang/String;Landroid/os/ParcelUuid;)V
 
-    invoke-virtual {v4, v5}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v3, v4, p3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 1297
+    :cond_54
+    iget-object v3, p0, Landroid/server/BluetoothService;->mHandler:Landroid/os/Handler;
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v3, v4}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v0
 
-    .line 2357
+    .line 1298
     .local v0, message:Landroid/os/Message;
     iput-object p1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 2358
-    iget-object v4, p0, Landroid/server/BluetoothService;->mHandler:Landroid/os/Handler;
+    .line 1299
+    iget-object v3, p0, Landroid/server/BluetoothService;->mHandler:Landroid/os/Handler;
 
-    const-wide/16 v5, 0x7530
+    const-wide/16 v4, 0x1770
 
-    invoke-virtual {v4, v0, v5, v6}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {v3, v0, v4, v5}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    :try_end_64
+    .catchall {:try_start_14 .. :try_end_64} :catchall_65
 
     goto :goto_12
 
-    .line 2353
+    .line 1265
     .end local v0           #message:Landroid/os/Message;
-    .end local v2           #ret:Z
-    :cond_77
-    invoke-direct {p0, p1}, Landroid/server/BluetoothService;->createDeviceNative(Ljava/lang/String;)Z
-    :try_end_7a
-    .catchall {:try_start_60 .. :try_end_7a} :catchall_5d
+    .end local v1           #ret:Z
+    .end local v2           #service:Landroid/server/BluetoothService$RemoteService;
+    :catchall_65
+    move-exception v3
 
-    move-result v2
+    monitor-exit p0
 
-    .restart local v2       #ret:Z
-    goto :goto_66
+    throw v3
 .end method
 
 .method protected finalize()V
@@ -11526,26 +7307,26 @@
     .end annotation
 
     .prologue
-    .line 567
+    .line 335
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Landroid/server/BluetoothService;->mReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 569
+    .line 337
     :try_start_7
     invoke-direct {p0}, Landroid/server/BluetoothService;->cleanupNativeDataNative()V
     :try_end_a
     .catchall {:try_start_7 .. :try_end_a} :catchall_e
 
-    .line 571
+    .line 339
     invoke-super {p0}, Landroid/bluetooth/IBluetooth$Stub;->finalize()V
 
-    .line 573
+    .line 341
     return-void
 
-    .line 571
+    .line 339
     :catchall_e
     move-exception v0
 
@@ -11558,33 +7339,10 @@
     .registers 9
 
     .prologue
-    .line 690
+    .line 407
     monitor-enter p0
 
     :try_start_1
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->disableDUN()Z
-
-    .line 693
-    sget-short v5, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v6, 0x51
-
-    if-ne v5, v6, :cond_14
-
-    .line 694
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->isTetheringOn()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_14
-
-    .line 695
-    const/4 v5, 0x0
-
-    invoke-virtual {p0, v5}, Landroid/server/BluetoothService;->setBluetoothTethering(Z)V
-
-    .line 701
-    :cond_14
     iget-object v5, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     const/16 v6, 0xb
@@ -11600,12 +7358,12 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_1e
-    if-ge v2, v4, :cond_2d
+    :goto_b
+    if-ge v2, v4, :cond_1a
 
     aget-object v0, v1, v2
 
-    .line 702
+    .line 408
     .local v0, address:Ljava/lang/String;
     iget-object v5, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
@@ -11615,24 +7373,50 @@
 
     invoke-virtual {v5, v0, v6, v7}, Landroid/server/BluetoothBondState;->setBondState(Ljava/lang/String;II)V
 
-    .line 701
+    .line 407
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1e
+    goto :goto_b
 
-    .line 709
+    .line 413
     .end local v0           #address:Ljava/lang/String;
-    :cond_2d
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->removeAllProfileState()V
+    :cond_1a
+    iget-object v5, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
-    .line 712
+    const/16 v6, 0xc
+
+    invoke-virtual {v5, v6}, Landroid/server/BluetoothBondState;->listInState(I)[Ljava/lang/String;
+
+    move-result-object v1
+
+    array-length v4, v1
+
+    const/4 v2, 0x0
+
+    :goto_24
+    if-ge v2, v4, :cond_2e
+
+    aget-object v0, v1, v2
+
+    .line 414
+    .restart local v0       #address:Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/server/BluetoothService;->removeProfileState(Ljava/lang/String;)V
+
+    .line 413
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_24
+
+    .line 418
+    .end local v0           #address:Ljava/lang/String;
+    :cond_2e
     new-instance v3, Landroid/content/Intent;
 
     const-string v5, "android.bluetooth.adapter.action.SCAN_MODE_CHANGED"
 
     invoke-direct {v3, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 713
+    .line 419
     .local v3, intent:Landroid/content/Intent;
     const-string v5, "android.bluetooth.adapter.extra.SCAN_MODE"
 
@@ -11640,26 +7424,26 @@
 
     invoke-virtual {v3, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 714
+    .line 420
     iget-object v5, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v6, "android.permission.BLUETOOTH"
 
     invoke-virtual {v5, v3, v6}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
-    :try_end_45
-    .catchall {:try_start_1 .. :try_end_45} :catchall_47
+    :try_end_43
+    .catchall {:try_start_1 .. :try_end_43} :catchall_45
 
-    .line 715
+    .line 421
     monitor-exit p0
 
     return-void
 
-    .line 690
+    .line 407
     .end local v1           #arr$:[Ljava/lang/String;
     .end local v2           #i$:I
     .end local v3           #intent:Landroid/content/Intent;
     .end local v4           #len$:I
-    :catchall_47
+    :catchall_45
     move-exception v5
 
     monitor-exit p0
@@ -11671,7 +7455,7 @@
     .registers 2
 
     .prologue
-    .line 3924
+    .line 2512
     iget v0, p0, Landroid/server/BluetoothService;->mAdapterConnectionState:I
 
     return v0
@@ -11684,7 +7468,7 @@
     .registers 2
 
     .prologue
-    .line 1695
+    .line 833
     iget-object v0, p0, Landroid/server/BluetoothService;->mAdapterProperties:Landroid/server/BluetoothAdapterProperties;
 
     return-object v0
@@ -11697,7 +7481,7 @@
     .registers 4
 
     .prologue
-    .line 1715
+    .line 853
     monitor-enter p0
 
     :try_start_1
@@ -11709,7 +7493,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1717
+    .line 855
     const-string v0, "Address"
 
     const/4 v1, 0x0
@@ -11724,7 +7508,7 @@
 
     return-object v0
 
-    .line 1715
+    .line 853
     :catchall_13
     move-exception v0
 
@@ -11740,20 +7524,20 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 3377
+    .line 1995
     iget-object v3, p0, Landroid/server/BluetoothService;->mAdapterProperties:Landroid/server/BluetoothAdapterProperties;
 
     invoke-virtual {v3}, Landroid/server/BluetoothAdapterProperties;->getObjectPath()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 3378
+    .line 1996
     .local v0, adapterObjectPath:Ljava/lang/String;
     if-eqz v0, :cond_b
 
     if-nez p1, :cond_34
 
-    .line 3379
+    .line 1997
     :cond_b
     const-string v3, "BluetoothService"
 
@@ -11793,11 +7577,11 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3393
+    .line 2011
     :goto_33
     return-object v2
 
-    .line 3383
+    .line 2001
     :cond_34
     invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
@@ -11805,7 +7589,7 @@
 
     if-nez v3, :cond_63
 
-    .line 3384
+    .line 2002
     const-string v3, "BluetoothService"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -11846,7 +7630,7 @@
 
     goto :goto_33
 
-    .line 3389
+    .line 2007
     :cond_63
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
@@ -11856,7 +7640,7 @@
 
     move-result-object v1
 
-    .line 3390
+    .line 2008
     .local v1, address:Ljava/lang/String;
     if-eqz v1, :cond_76
 
@@ -11870,7 +7654,7 @@
 
     goto :goto_33
 
-    .line 3392
+    .line 2010
     :cond_76
     const-string v3, "BluetoothService"
 
@@ -11894,7 +7678,7 @@
     .end annotation
 
     .prologue
-    .line 2903
+    .line 1653
     iget-object v0, p0, Landroid/server/BluetoothService;->mStateChangeTracker:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->values()Ljava/util/Collection;
@@ -11909,7 +7693,7 @@
     .parameter "address"
 
     .prologue
-    .line 3909
+    .line 2497
     iget-object v1, p0, Landroid/server/BluetoothService;->mEventLoop:Landroid/server/BluetoothEventLoop;
 
     invoke-virtual {v1}, Landroid/server/BluetoothEventLoop;->getAuthorizationAgentRequestData()Ljava/util/HashMap;
@@ -11922,7 +7706,7 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 3910
+    .line 2498
     .local v0, data:Ljava/lang/Integer;
     return-object v0
 .end method
@@ -11931,7 +7715,7 @@
     .registers 4
 
     .prologue
-    .line 635
+    .line 353
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -11940,7 +7724,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 636
+    .line 354
     invoke-virtual {p0}, Landroid/server/BluetoothService;->getBluetoothStateInternal()I
 
     move-result v0
@@ -11952,7 +7736,7 @@
     .registers 2
 
     .prologue
-    .line 640
+    .line 358
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothState:Landroid/server/BluetoothAdapterStateMachine;
 
     invoke-virtual {v0}, Landroid/server/BluetoothAdapterStateMachine;->getBluetoothAdapterState()I
@@ -11967,7 +7751,7 @@
     .parameter "address"
 
     .prologue
-    .line 2167
+    .line 1133
     monitor-enter p0
 
     :try_start_1
@@ -11979,7 +7763,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2168
+    .line 1134
     invoke-static {p1}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
     :try_end_d
     .catchall {:try_start_1 .. :try_end_d} :catchall_1f
@@ -11988,10 +7772,10 @@
 
     if-nez v0, :cond_14
 
-    .line 2169
+    .line 1135
     const/high16 v0, -0x8000
 
-    .line 2171
+    .line 1137
     :goto_12
     monitor-exit p0
 
@@ -12013,48 +7797,8 @@
 
     goto :goto_12
 
-    .line 2167
+    .line 1133
     :catchall_1f
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
-.method public declared-synchronized getCOD()Ljava/lang/String;
-    .registers 4
-
-    .prologue
-    .line 1806
-    monitor-enter p0
-
-    :try_start_1
-    iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v1, "android.permission.BLUETOOTH"
-
-    const-string v2, "Need BLUETOOTH permission"
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1807
-    const-string v0, "Class"
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v0, v1}, Landroid/server/BluetoothService;->getProperty(Ljava/lang/String;Z)Ljava/lang/String;
-    :try_end_10
-    .catchall {:try_start_1 .. :try_end_10} :catchall_13
-
-    move-result-object v0
-
-    monitor-exit p0
-
-    return-object v0
-
-    .line 1806
-    :catchall_13
     move-exception v0
 
     monitor-exit p0
@@ -12066,138 +7810,6 @@
 .end method
 
 .method native getChannelFdNative(Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
-.end method
-
-.method public declared-synchronized getCharacteristicProperties(Ljava/lang/String;)[Ljava/lang/String;
-    .registers 8
-    .parameter "path"
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 4618
-    monitor-enter p0
-
-    :try_start_2
-    iget-object v3, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v4, "android.permission.BLUETOOTH"
-
-    const-string v5, "Need BLUETOOTH permission"
-
-    invoke-virtual {v3, v4, v5}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 4619
-    invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
-    :try_end_e
-    .catchall {:try_start_2 .. :try_end_e} :catchall_4a
-
-    move-result v3
-
-    if-nez v3, :cond_13
-
-    .line 4639
-    :cond_11
-    :goto_11
-    monitor-exit p0
-
-    return-object v1
-
-    .line 4621
-    :cond_13
-    :try_start_13
-    const-string v3, "BluetoothService"
-
-    const-string v4, "getCharacteristicProperties"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4623
-    if-eqz p1, :cond_11
-
-    .line 4627
-    const/4 v3, 0x0
-
-    const-string v4, "/characteristic"
-
-    invoke-virtual {p1, v4}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v4
-
-    invoke-virtual {p1, v3, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 4629
-    .local v2, servicePath:Ljava/lang/String;
-    if-eqz v2, :cond_11
-
-    .line 4633
-    iget-object v3, p0, Landroid/server/BluetoothService;->mGattServices:Ljava/util/SortedMap;
-
-    invoke-interface {v3, v2}, Ljava/util/SortedMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_4d
-
-    .line 4634
-    const-string v3, "BluetoothService"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "Service not present "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_49
-    .catchall {:try_start_13 .. :try_end_49} :catchall_4a
-
-    goto :goto_11
-
-    .line 4618
-    .end local v2           #servicePath:Ljava/lang/String;
-    :catchall_4a
-    move-exception v3
-
-    monitor-exit p0
-
-    throw v3
-
-    .line 4638
-    .restart local v2       #servicePath:Ljava/lang/String;
-    :cond_4d
-    :try_start_4d
-    invoke-direct {p0, p1}, Landroid/server/BluetoothService;->getCharacteristicPropertiesNative(Ljava/lang/String;)[Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, [Ljava/lang/String;
-
-    move-object v0, v3
-
-    check-cast v0, [Ljava/lang/String;
-
-    move-object v1, v0
-    :try_end_57
-    .catchall {:try_start_4d .. :try_end_57} :catchall_4a
-
-    .line 4639
-    .local v1, propValues:[Ljava/lang/String;
-    goto :goto_11
 .end method
 
 .method public getConnectedHealthDevices()Ljava/util/List;
@@ -12213,7 +7825,7 @@
     .end annotation
 
     .prologue
-    .line 3692
+    .line 2310
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -12222,12 +7834,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3694
+    .line 2312
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
     monitor-enter v1
 
-    .line 3695
+    .line 2313
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
@@ -12239,7 +7851,7 @@
 
     return-object v0
 
-    .line 3696
+    .line 2314
     :catchall_14
     move-exception v0
 
@@ -12263,7 +7875,7 @@
     .end annotation
 
     .prologue
-    .line 3531
+    .line 2149
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -12272,12 +7884,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3532
+    .line 2150
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
     monitor-enter v1
 
-    .line 3533
+    .line 2151
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
@@ -12289,7 +7901,7 @@
 
     return-object v0
 
-    .line 3534
+    .line 2152
     :catchall_14
     move-exception v0
 
@@ -12313,7 +7925,7 @@
     .end annotation
 
     .prologue
-    .line 3452
+    .line 2070
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -12322,12 +7934,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3453
+    .line 2071
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
     monitor-enter v1
 
-    .line 3454
+    .line 2072
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
@@ -12339,7 +7951,7 @@
 
     return-object v0
 
-    .line 3455
+    .line 2073
     :catchall_14
     move-exception v0
 
@@ -12364,7 +7976,7 @@
     .end annotation
 
     .prologue
-    .line 2058
+    .line 1069
     iget-object v0, p0, Landroid/server/BluetoothService;->mDeviceOobData:Ljava/util/HashMap;
 
     invoke-virtual {p1}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
@@ -12384,7 +7996,7 @@
     .registers 2
 
     .prologue
-    .line 1699
+    .line 837
     iget-object v0, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
 
     return-object v0
@@ -12394,7 +8006,7 @@
     .registers 5
 
     .prologue
-    .line 1905
+    .line 945
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v2, "android.permission.BLUETOOTH"
@@ -12403,7 +8015,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1906
+    .line 946
     const-string v1, "DiscoverableTimeout"
 
     const/4 v2, 0x1
@@ -12412,11 +8024,11 @@
 
     move-result-object v0
 
-    .line 1907
+    .line 947
     .local v0, timeout:Ljava/lang/String;
     if-eqz v0, :cond_1b
 
-    .line 1908
+    .line 948
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v1
@@ -12425,7 +8037,7 @@
 
     move-result v1
 
-    .line 1910
+    .line 950
     :goto_1a
     return v1
 
@@ -12439,7 +8051,7 @@
     .registers 2
 
     .prologue
-    .line 547
+    .line 315
     monitor-enter p0
 
     :try_start_1
@@ -12459,585 +8071,12 @@
     throw v0
 .end method
 
-.method public getEffectiveAmpPolicy(I)I
-    .registers 5
-    .parameter "desiredPolicy"
-
-    .prologue
-    .line 2795
-    iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v1, "android.permission.BLUETOOTH"
-
-    const-string v2, "Need BLUETOOTH permission"
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 2797
-    iget-object v0, p0, Landroid/server/BluetoothService;->mConnectionManager:Landroid/server/BluetoothService$ConnectionManager;
-
-    invoke-virtual {v0, p1}, Landroid/server/BluetoothService$ConnectionManager;->getEffectiveAmpPolicy(I)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getGattServiceName(Ljava/lang/String;)Ljava/lang/String;
-    .registers 5
-    .parameter "path"
-
-    .prologue
-    .line 4527
-    iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v1, "android.permission.BLUETOOTH"
-
-    const-string v2, "Need BLUETOOTH permission"
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 4528
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->getAddressFromObjectPath(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_15
-
-    .line 4529
-    const/4 v0, 0x0
-
-    .line 4532
-    :goto_14
-    return-object v0
-
-    :cond_15
-    const-string v0, "Name"
-
-    invoke-virtual {p0, p1, v0}, Landroid/server/BluetoothService;->getGattServiceProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_14
-.end method
-
-.method public declared-synchronized getGattServiceProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 7
-    .parameter "path"
-    .parameter "property"
-
-    .prologue
-    .line 4217
-    monitor-enter p0
-
-    :try_start_1
-    iget-object v1, p0, Landroid/server/BluetoothService;->mGattProperties:Ljava/util/HashMap;
-
-    invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Map;
-
-    .line 4218
-    .local v0, properties:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    const-string v1, "BluetoothService"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "getGattServiceProperty: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, ", path "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4219
-    if-eqz v0, :cond_35
-
-    .line 4220
-    invoke-interface {v0, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-    :try_end_33
-    .catchall {:try_start_1 .. :try_end_33} :catchall_64
-
-    .line 4227
-    :goto_33
-    monitor-exit p0
-
-    return-object v1
-
-    .line 4223
-    :cond_35
-    :try_start_35
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->updateGattServicePropertiesCache(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_40
-
-    .line 4224
-    invoke-virtual {p0, p1, p2}, Landroid/server/BluetoothService;->getGattServiceProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_33
-
-    .line 4226
-    :cond_40
-    const-string v1, "BluetoothService"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "getGattServiceProperty: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, " not present: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_62
-    .catchall {:try_start_35 .. :try_end_62} :catchall_64
-
-    .line 4227
-    const/4 v1, 0x0
-
-    goto :goto_33
-
-    .line 4217
-    .end local v0           #properties:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    :catchall_64
-    move-exception v1
-
-    monitor-exit p0
-
-    throw v1
-.end method
-
-.method public declared-synchronized getGattServices(Ljava/lang/String;Landroid/os/ParcelUuid;)Z
-    .registers 13
-    .parameter "address"
-    .parameter "uuid"
-
-    .prologue
-    const/4 v6, 0x0
-
-    .line 4541
-    monitor-enter p0
-
-    :try_start_2
-    iget-object v7, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v8, "android.permission.BLUETOOTH"
-
-    const-string v9, "Need BLUETOOTH permission"
-
-    invoke-virtual {v7, v8, v9}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 4542
-    invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
-    :try_end_e
-    .catchall {:try_start_2 .. :try_end_e} :catchall_9d
-
-    move-result v7
-
-    if-nez v7, :cond_13
-
-    .line 4598
-    :cond_11
-    :goto_11
-    monitor-exit p0
-
-    return v6
-
-    .line 4544
-    :cond_13
-    :try_start_13
-    const-string v7, "BluetoothService"
-
-    const-string v8, "getGattServices"
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4546
-    invoke-static {p1}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_11
-
-    .line 4550
-    const/4 v3, 0x1
-
-    .line 4551
-    .local v3, ret:Z
-    const/4 v0, 0x0
-
-    .line 4552
-    .local v0, delay:Z
-    const/4 v1, 0x0
-
-    .line 4554
-    .local v1, discovering:Z
-    monitor-enter p0
-    :try_end_24
-    .catchall {:try_start_13 .. :try_end_24} :catchall_9d
-
-    .line 4555
-    :try_start_24
-    iget-object v7, p0, Landroid/server/BluetoothService;->mGattIntentTracker:Ljava/util/HashMap;
-
-    invoke-virtual {v7, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    .line 4556
-    monitor-exit p0
-    :try_end_2b
-    .catchall {:try_start_24 .. :try_end_2b} :catchall_9a
-
-    .line 4558
-    if-nez v1, :cond_c4
-
-    .line 4559
-    :try_start_2d
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->isRemoteDeviceInCache(Ljava/lang/String;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_a0
-
-    invoke-direct {p0, p1}, Landroid/server/BluetoothService;->getRemoteGattServices(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v7
-
-    if-eqz v7, :cond_a0
-
-    invoke-direct {p0, p1}, Landroid/server/BluetoothService;->findDeviceNative(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    if-eqz v7, :cond_a0
-
-    .line 4560
-    iget-object v7, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
-
-    const-string v8, "Services"
-
-    invoke-virtual {v7, p1, v8}, Landroid/server/BluetoothDeviceProperties;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 4561
-    .local v5, value:Ljava/lang/String;
-    if-nez v5, :cond_62
-
-    .line 4562
-    const-string v7, "BluetoothService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "No GATT based services were found on "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4563
-    const/4 v3, 0x0
-
-    .line 4573
-    .end local v5           #value:Ljava/lang/String;
-    :cond_62
-    :goto_62
-    if-eqz v3, :cond_11
-
-    .line 4577
-    monitor-enter p0
-    :try_end_65
-    .catchall {:try_start_2d .. :try_end_65} :catchall_9d
-
-    .line 4578
-    :try_start_65
-    iget-object v6, p0, Landroid/server/BluetoothService;->mGattIntentTracker:Ljava/util/HashMap;
-
-    invoke-virtual {v6, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_e5
-
-    .line 4579
-    iget-object v6, p0, Landroid/server/BluetoothService;->mGattIntentTracker:Ljava/util/HashMap;
-
-    invoke-virtual {v6, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/util/ArrayList;
-
-    .line 4580
-    .local v4, serviceUuids:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/ParcelUuid;>;"
-    iget-object v6, p0, Landroid/server/BluetoothService;->mGattIntentTracker:Ljava/util/HashMap;
-
-    invoke-virtual {v6, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 4585
-    :goto_7a
-    invoke-virtual {v4, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 4586
-    iget-object v6, p0, Landroid/server/BluetoothService;->mGattIntentTracker:Ljava/util/HashMap;
-
-    invoke-virtual {v6, p1, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 4587
-    monitor-exit p0
-    :try_end_83
-    .catchall {:try_start_65 .. :try_end_83} :catchall_eb
-
-    .line 4589
-    if-nez v1, :cond_97
-
-    .line 4590
-    :try_start_85
-    iget-object v6, p0, Landroid/server/BluetoothService;->mHandler:Landroid/os/Handler;
-
-    const/4 v7, 0x7
-
-    invoke-virtual {v6, v7}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v2
-
-    .line 4591
-    .local v2, message:Landroid/os/Message;
-    iput-object p1, v2, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    .line 4592
-    if-eqz v0, :cond_ee
-
-    .line 4593
-    iget-object v6, p0, Landroid/server/BluetoothService;->mHandler:Landroid/os/Handler;
-
-    const-wide/16 v7, 0x7530
-
-    invoke-virtual {v6, v2, v7, v8}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
-    :try_end_97
-    .catchall {:try_start_85 .. :try_end_97} :catchall_9d
-
-    .line 4598
-    .end local v2           #message:Landroid/os/Message;
-    :cond_97
-    :goto_97
-    const/4 v6, 0x1
-
-    goto/16 :goto_11
-
-    .line 4556
-    .end local v4           #serviceUuids:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/ParcelUuid;>;"
-    :catchall_9a
-    move-exception v6
-
-    :try_start_9b
-    monitor-exit p0
-    :try_end_9c
-    .catchall {:try_start_9b .. :try_end_9c} :catchall_9a
-
-    :try_start_9c
-    throw v6
-    :try_end_9d
-    .catchall {:try_start_9c .. :try_end_9d} :catchall_9d
-
-    .line 4541
-    .end local v0           #delay:Z
-    .end local v1           #discovering:Z
-    .end local v3           #ret:Z
-    :catchall_9d
-    move-exception v6
-
-    monitor-exit p0
-
-    throw v6
-
-    .line 4566
-    .restart local v0       #delay:Z
-    .restart local v1       #discovering:Z
-    .restart local v3       #ret:Z
-    :cond_a0
-    :try_start_a0
-    const-string v7, "BluetoothService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "Need to Create Remote Device"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string v9, " before accessing properties"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4567
-    invoke-direct {p0, p1}, Landroid/server/BluetoothService;->createDeviceNative(Ljava/lang/String;)Z
-
-    move-result v3
-
-    .line 4568
-    const/4 v0, 0x1
-
-    goto :goto_62
-
-    .line 4571
-    :cond_c4
-    const-string v7, "BluetoothService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "GATT service discovery for remote device "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "is in progress"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_e3
-    .catchall {:try_start_a0 .. :try_end_e3} :catchall_9d
-
-    goto/16 :goto_62
-
-    .line 4582
-    :cond_e5
-    :try_start_e5
-    new-instance v4, Ljava/util/ArrayList;
-
-    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
-
-    .restart local v4       #serviceUuids:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/ParcelUuid;>;"
-    goto :goto_7a
-
-    .line 4587
-    .end local v4           #serviceUuids:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/ParcelUuid;>;"
-    :catchall_eb
-    move-exception v6
-
-    monitor-exit p0
-    :try_end_ed
-    .catchall {:try_start_e5 .. :try_end_ed} :catchall_eb
-
-    :try_start_ed
-    throw v6
-
-    .line 4595
-    .restart local v2       #message:Landroid/os/Message;
-    .restart local v4       #serviceUuids:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/ParcelUuid;>;"
-    :cond_ee
-    iget-object v6, p0, Landroid/server/BluetoothService;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v6, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-    :try_end_f3
-    .catchall {:try_start_ed .. :try_end_f3} :catchall_9d
-
-    goto :goto_97
-.end method
-
 .method public getHealthDeviceConnectionState(Landroid/bluetooth/BluetoothDevice;)I
     .registers 5
     .parameter "device"
 
     .prologue
-    .line 3684
+    .line 2302
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -13046,12 +8085,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3686
+    .line 2304
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
     monitor-enter v1
 
-    .line 3687
+    .line 2305
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
@@ -13063,7 +8102,7 @@
 
     return v0
 
-    .line 3688
+    .line 2306
     :catchall_14
     move-exception v0
 
@@ -13088,7 +8127,7 @@
     .end annotation
 
     .prologue
-    .line 3701
+    .line 2319
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -13097,12 +8136,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3703
+    .line 2321
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
     monitor-enter v1
 
-    .line 3704
+    .line 2322
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
@@ -13114,7 +8153,7 @@
 
     return-object v0
 
-    .line 3706
+    .line 2324
     :catchall_14
     move-exception v0
 
@@ -13142,7 +8181,7 @@
     .end annotation
 
     .prologue
-    .line 4114
+    .line 2684
     iget-object v0, p0, Landroid/server/BluetoothService;->mIncomingConnections:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Ljava/util/HashMap;->isEmpty()Z
@@ -13151,13 +8190,13 @@
 
     if-eqz v0, :cond_e
 
-    .line 4115
+    .line 2685
     invoke-direct {p0}, Landroid/server/BluetoothService;->createIncomingConnectionStateFile()V
 
-    .line 4116
+    .line 2686
     invoke-direct {p0}, Landroid/server/BluetoothService;->readIncomingConnectionState()V
 
-    .line 4118
+    .line 2688
     :cond_e
     iget-object v0, p0, Landroid/server/BluetoothService;->mIncomingConnections:Ljava/util/HashMap;
 
@@ -13175,7 +8214,7 @@
     .parameter "device"
 
     .prologue
-    .line 3524
+    .line 2142
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -13184,12 +8223,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3525
+    .line 2143
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
     monitor-enter v1
 
-    .line 3526
+    .line 2144
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
@@ -13201,7 +8240,7 @@
 
     return v0
 
-    .line 3527
+    .line 2145
     :catchall_14
     move-exception v0
 
@@ -13217,7 +8256,7 @@
     .parameter "device"
 
     .prologue
-    .line 3547
+    .line 2165
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -13226,12 +8265,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3548
+    .line 2166
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
     monitor-enter v1
 
-    .line 3549
+    .line 2167
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
@@ -13243,7 +8282,7 @@
 
     return v0
 
-    .line 3550
+    .line 2168
     :catchall_14
     move-exception v0
 
@@ -13268,7 +8307,7 @@
     .end annotation
 
     .prologue
-    .line 3539
+    .line 2157
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -13277,12 +8316,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3540
+    .line 2158
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
     monitor-enter v1
 
-    .line 3541
+    .line 2159
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
@@ -13294,7 +8333,7 @@
 
     return-object v0
 
-    .line 3542
+    .line 2160
     :catchall_14
     move-exception v0
 
@@ -13309,10 +8348,10 @@
     .registers 5
 
     .prologue
-    .line 3802
+    .line 2411
     const/4 v0, 0x0
 
-    .line 3803
+    .line 2412
     .local v0, bonds:[Ljava/lang/String;
     const-string v2, "Devices"
 
@@ -13322,18 +8361,18 @@
 
     move-result-object v1
 
-    .line 3804
+    .line 2413
     .local v1, val:Ljava/lang/String;
     if-eqz v1, :cond_10
 
-    .line 3805
+    .line 2414
     const-string v2, ","
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v0
 
-    .line 3807
+    .line 2416
     :cond_10
     return-object v0
 .end method
@@ -13344,7 +8383,7 @@
     .parameter "config"
 
     .prologue
-    .line 3652
+    .line 2270
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -13353,12 +8392,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3654
+    .line 2272
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
     monitor-enter v1
 
-    .line 3655
+    .line 2273
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
@@ -13370,7 +8409,7 @@
 
     return-object v0
 
-    .line 3656
+    .line 2274
     :catchall_14
     move-exception v0
 
@@ -13388,7 +8427,7 @@
     .registers 4
 
     .prologue
-    .line 1781
+    .line 859
     monitor-enter p0
 
     :try_start_1
@@ -13400,7 +8439,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1783
+    .line 861
     const-string v0, "Name"
 
     const/4 v1, 0x0
@@ -13415,7 +8454,7 @@
 
     return-object v0
 
-    .line 1781
+    .line 859
     :catchall_13
     move-exception v0
 
@@ -13428,7 +8467,7 @@
     .registers 2
 
     .prologue
-    .line 2907
+    .line 1657
     iget-object v0, p0, Landroid/server/BluetoothService;->mStateChangeTracker:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->size()I
@@ -13443,49 +8482,33 @@
     .parameter "address"
 
     .prologue
-    .line 3397
+    .line 2015
     iget-object v1, p0, Landroid/server/BluetoothService;->mAdapterProperties:Landroid/server/BluetoothAdapterProperties;
 
     invoke-virtual {v1}, Landroid/server/BluetoothAdapterProperties;->getObjectPath()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 3398
+    .line 2016
     .local v0, path:Ljava/lang/String;
-    if-nez v0, :cond_22
+    if-nez v0, :cond_11
 
-    .line 3399
+    .line 2017
     const-string v1, "BluetoothService"
 
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Error: Object Path is null. address:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
+    const-string v2, "Error: Object Path is null"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3400
+    .line 2018
     const/4 v1, 0x0
 
-    .line 3403
-    :goto_21
+    .line 2021
+    :goto_10
     return-object v1
 
-    .line 3402
-    :cond_22
+    .line 2020
+    :cond_11
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -13512,8 +8535,8 @@
 
     move-object v1, v0
 
-    .line 3403
-    goto :goto_21
+    .line 2021
+    goto :goto_10
 .end method
 
 .method public getPanDeviceConnectionState(Landroid/bluetooth/BluetoothDevice;)I
@@ -13521,7 +8544,7 @@
     .parameter "device"
 
     .prologue
-    .line 3437
+    .line 2055
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -13530,12 +8553,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3438
+    .line 2056
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
     monitor-enter v1
 
-    .line 3439
+    .line 2057
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
@@ -13547,7 +8570,7 @@
 
     return v0
 
-    .line 3440
+    .line 2058
     :catchall_14
     move-exception v0
 
@@ -13572,7 +8595,7 @@
     .end annotation
 
     .prologue
-    .line 3460
+    .line 2078
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -13581,12 +8604,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3461
+    .line 2079
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
     monitor-enter v1
 
-    .line 3462
+    .line 2080
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
@@ -13598,7 +8621,7 @@
 
     return-object v0
 
-    .line 3463
+    .line 2081
     :catchall_14
     move-exception v0
 
@@ -13613,7 +8636,7 @@
     .registers 2
 
     .prologue
-    .line 1505
+    .line 674
     monitor-enter p0
 
     :try_start_1
@@ -13642,7 +8665,7 @@
     .parameter "profile"
 
     .prologue
-    .line 3928
+    .line 2516
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v2, "android.permission.BLUETOOTH"
@@ -13651,7 +8674,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3930
+    .line 2518
     iget-object v1, p0, Landroid/server/BluetoothService;->mProfileConnectionState:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -13664,13 +8687,13 @@
 
     check-cast v0, Landroid/util/Pair;
 
-    .line 3931
+    .line 2519
     .local v0, state:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/Integer;>;"
     if-nez v0, :cond_19
 
     const/4 v1, 0x0
 
-    .line 3933
+    .line 2521
     :goto_18
     return v1
 
@@ -13694,22 +8717,22 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 1685
+    .line 823
     if-eqz p2, :cond_a
 
-    .line 1686
+    .line 824
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
 
     move-result v1
 
     if-nez v1, :cond_12
 
-    .line 1691
+    .line 829
     :cond_9
     :goto_9
     return-object v0
 
-    .line 1687
+    .line 825
     :cond_a
     iget-object v1, p0, Landroid/server/BluetoothService;->mEventLoop:Landroid/server/BluetoothEventLoop;
 
@@ -13719,7 +8742,7 @@
 
     if-eqz v1, :cond_9
 
-    .line 1691
+    .line 829
     :cond_12
     iget-object v0, p0, Landroid/server/BluetoothService;->mAdapterProperties:Landroid/server/BluetoothAdapterProperties;
 
@@ -13735,7 +8758,7 @@
     .parameter "address"
 
     .prologue
-    .line 1872
+    .line 912
     monitor-enter p0
 
     :try_start_1
@@ -13747,7 +8770,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1873
+    .line 913
     invoke-static {p1}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
     :try_end_d
     .catchall {:try_start_1 .. :try_end_d} :catchall_1c
@@ -13756,10 +8779,10 @@
 
     if-nez v0, :cond_13
 
-    .line 1874
+    .line 914
     const/4 v0, 0x0
 
-    .line 1876
+    .line 916
     :goto_11
     monitor-exit p0
 
@@ -13779,7 +8802,7 @@
 
     goto :goto_11
 
-    .line 1872
+    .line 912
     :catchall_1c
     move-exception v0
 
@@ -13795,7 +8818,7 @@
     .prologue
     const/high16 v1, -0x100
 
-    .line 2263
+    .line 1213
     monitor-enter p0
 
     :try_start_3
@@ -13805,7 +8828,7 @@
 
     if-nez v2, :cond_14
 
-    .line 2264
+    .line 1214
     iget-object v2, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v3, "android.permission.BLUETOOTH"
@@ -13816,14 +8839,14 @@
     :try_end_12
     .catchall {:try_start_3 .. :try_end_12} :catchall_27
 
-    .line 2271
+    .line 1221
     :cond_12
     :goto_12
     monitor-exit p0
 
     return v1
 
-    .line 2267
+    .line 1217
     :cond_14
     :try_start_14
     iget-object v2, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
@@ -13834,11 +8857,11 @@
 
     move-result-object v0
 
-    .line 2268
+    .line 1218
     .local v0, val:Ljava/lang/String;
     if-eqz v0, :cond_12
 
-    .line 2271
+    .line 1221
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v1
@@ -13851,7 +8874,7 @@
 
     goto :goto_12
 
-    .line 2263
+    .line 1213
     .end local v0           #val:Ljava/lang/String;
     :catchall_27
     move-exception v1
@@ -13866,7 +8889,7 @@
     .parameter "address"
 
     .prologue
-    .line 1537
+    .line 706
     iget-object v0, p0, Landroid/server/BluetoothService;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
 
     invoke-virtual {v0, p1}, Landroid/bluetooth/BluetoothAdapter;->getRemoteDevice(Ljava/lang/String;)Landroid/bluetooth/BluetoothDevice;
@@ -13877,83 +8900,31 @@
 .end method
 
 .method getRemoteDeviceProperties(Ljava/lang/String;)[Ljava/lang/String;
-    .registers 7
+    .registers 4
     .parameter "address"
 
     .prologue
-    const/4 v1, 0x0
-
-    .line 2191
-    const-string v2, "BluetoothService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "getRemoteDeviceProperties: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2192
+    .line 1157
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_20
+    if-nez v1, :cond_8
 
-    .line 2199
-    :goto_1f
+    const/4 v1, 0x0
+
+    .line 1160
+    :goto_7
     return-object v1
 
-    .line 2194
-    :cond_20
+    .line 1159
+    :cond_8
     invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->getObjectPathFromAddress(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 2195
+    .line 1160
     .local v0, objectPath:Ljava/lang/String;
-    if-nez v0, :cond_3f
-
-    .line 2196
-    const-string v2, "BluetoothService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "getRemoteDeviceProperties: objectPath is null!, address:"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1f
-
-    .line 2199
-    :cond_3f
     invoke-direct {p0, v0}, Landroid/server/BluetoothService;->getDevicePropertiesNative(Ljava/lang/String;)[Ljava/lang/Object;
 
     move-result-object v1
@@ -13962,162 +8933,7 @@
 
     check-cast v1, [Ljava/lang/String;
 
-    goto :goto_1f
-.end method
-
-.method public getRemoteFeature(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 8
-    .parameter "address"
-    .parameter "feature"
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 2406
-    iget-object v2, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v3, "android.permission.BLUETOOTH"
-
-    const-string v4, "Need BLUETOOTH permission"
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 2407
-    invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
-
-    move-result v2
-
-    if-nez v2, :cond_11
-
-    .line 2416
-    :cond_10
-    :goto_10
-    return-object v1
-
-    .line 2409
-    :cond_11
-    invoke-static {p1}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_10
-
-    .line 2413
-    iget-object v2, p0, Landroid/server/BluetoothService;->mDeviceFeatureCache:Ljava/util/HashMap;
-
-    invoke-virtual {v2, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Map;
-
-    .line 2414
-    .local v0, value:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    if-eqz v0, :cond_10
-
-    invoke-interface {v0, p2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_10
-
-    .line 2415
-    invoke-interface {v0, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-
-    goto :goto_10
-.end method
-
-.method public getRemoteL2capPsm(Ljava/lang/String;Landroid/os/ParcelUuid;)I
-    .registers 8
-    .parameter "address"
-    .parameter "uuid"
-
-    .prologue
-    const/4 v1, -0x1
-
-    .line 2430
-    iget-object v2, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v3, "android.permission.BLUETOOTH"
-
-    const-string v4, "Need BLUETOOTH permission"
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 2431
-    invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
-
-    move-result v2
-
-    if-nez v2, :cond_11
-
-    .line 2446
-    :cond_10
-    :goto_10
-    return v1
-
-    .line 2433
-    :cond_11
-    invoke-static {p1}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_1a
-
-    .line 2434
-    const/high16 v1, -0x8000
-
-    goto :goto_10
-
-    .line 2437
-    :cond_1a
-    iget-object v2, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
-
-    invoke-virtual {v2}, Landroid/server/BluetoothDeviceProperties;->isEmpty()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_25
-
-    .line 2438
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->updateRemoteDevicePropertiesCache(Ljava/lang/String;)V
-
-    .line 2441
-    :cond_25
-    iget-object v2, p0, Landroid/server/BluetoothService;->mDeviceL2capPsmCache:Ljava/util/HashMap;
-
-    invoke-virtual {v2, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Map;
-
-    .line 2442
-    .local v0, value:Ljava/util/Map;,"Ljava/util/Map<Landroid/os/ParcelUuid;Ljava/lang/Integer;>;"
-    if-eqz v0, :cond_10
-
-    invoke-interface {v0, p2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_10
-
-    .line 2443
-    invoke-interface {v0, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Integer;
-
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    goto :goto_10
+    goto :goto_7
 .end method
 
 .method public declared-synchronized getRemoteName(Ljava/lang/String;)Ljava/lang/String;
@@ -14125,7 +8941,7 @@
     .parameter "address"
 
     .prologue
-    .line 1855
+    .line 895
     monitor-enter p0
 
     :try_start_1
@@ -14137,7 +8953,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1856
+    .line 896
     invoke-static {p1}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
     :try_end_d
     .catchall {:try_start_1 .. :try_end_d} :catchall_1c
@@ -14146,10 +8962,10 @@
 
     if-nez v0, :cond_13
 
-    .line 1857
+    .line 897
     const/4 v0, 0x0
 
-    .line 1859
+    .line 899
     :goto_11
     monitor-exit p0
 
@@ -14169,7 +8985,7 @@
 
     goto :goto_11
 
-    .line 1855
+    .line 895
     :catchall_1c
     move-exception v0
 
@@ -14186,7 +9002,7 @@
     .prologue
     const/4 v1, -0x1
 
-    .line 2373
+    .line 1314
     iget-object v2, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v3, "android.permission.BLUETOOTH"
@@ -14195,19 +9011,19 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2374
+    .line 1315
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
 
     move-result v2
 
     if-nez v2, :cond_11
 
-    .line 2391
+    .line 1329
     :cond_10
     :goto_10
     return v1
 
-    .line 2376
+    .line 1317
     :cond_11
     invoke-static {p1}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
 
@@ -14215,12 +9031,12 @@
 
     if-nez v2, :cond_1a
 
-    .line 2377
+    .line 1318
     const/high16 v1, -0x8000
 
     goto :goto_10
 
-    .line 2380
+    .line 1321
     :cond_1a
     iget-object v2, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
 
@@ -14230,7 +9046,7 @@
 
     if-eqz v2, :cond_2a
 
-    .line 2381
+    .line 1322
     iget-object v2, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
 
     invoke-virtual {v2, p1}, Landroid/server/BluetoothDeviceProperties;->updateCache(Ljava/lang/String;)Ljava/util/Map;
@@ -14239,7 +9055,7 @@
 
     if-eqz v2, :cond_10
 
-    .line 2385
+    .line 1326
     :cond_2a
     iget-object v2, p0, Landroid/server/BluetoothService;->mDeviceServiceChannelCache:Ljava/util/HashMap;
 
@@ -14249,17 +9065,17 @@
 
     check-cast v0, Ljava/util/Map;
 
-    .line 2386
+    .line 1327
     .local v0, value:Ljava/util/Map;,"Ljava/util/Map<Landroid/os/ParcelUuid;Ljava/lang/Integer;>;"
-    if-eqz v0, :cond_45
+    if-eqz v0, :cond_10
 
     invoke-interface {v0, p2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_45
+    if-eqz v2, :cond_10
 
-    .line 2387
+    .line 1328
     invoke-interface {v0, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
@@ -14271,19 +9087,6 @@
     move-result v1
 
     goto :goto_10
-
-    .line 2389
-    :cond_45
-    const-string v2, "BluetoothService"
-
-    const-string v3, "Server Channel is -1, updating the cache"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2390
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->updateDeviceServiceChannelCache(Ljava/lang/String;)V
-
-    goto :goto_10
 .end method
 
 .method public declared-synchronized getRemoteUuids(Ljava/lang/String;)[Landroid/os/ParcelUuid;
@@ -14291,7 +9094,7 @@
     .parameter "address"
 
     .prologue
-    .line 2281
+    .line 1232
     monitor-enter p0
 
     :try_start_1
@@ -14303,7 +9106,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2282
+    .line 1233
     invoke-static {p1}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
     :try_end_d
     .catchall {:try_start_1 .. :try_end_d} :catchall_18
@@ -14312,10 +9115,10 @@
 
     if-nez v0, :cond_13
 
-    .line 2283
+    .line 1234
     const/4 v0, 0x0
 
-    .line 2285
+    .line 1236
     :goto_11
     monitor-exit p0
 
@@ -14331,7 +9134,7 @@
 
     goto :goto_11
 
-    .line 2281
+    .line 1232
     :catchall_18
     move-exception v0
 
@@ -14346,7 +9149,7 @@
     .prologue
     const/4 v5, 0x1
 
-    .line 1914
+    .line 954
     iget-object v2, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v3, "android.permission.BLUETOOTH"
@@ -14355,21 +9158,21 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1915
+    .line 955
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
 
     move-result v2
 
     if-nez v2, :cond_13
 
-    .line 1916
+    .line 956
     const/16 v2, 0x14
 
-    .line 1920
+    .line 960
     :goto_12
     return v2
 
-    .line 1918
+    .line 958
     :cond_13
     const-string v2, "Pairable"
 
@@ -14383,7 +9186,7 @@
 
     move-result v1
 
-    .line 1919
+    .line 959
     .local v1, pairable:Z
     const-string v2, "Discoverable"
 
@@ -14397,7 +9200,7 @@
 
     move-result v0
 
-    .line 1920
+    .line 960
     .local v0, discoverable:Z
     invoke-static {v1, v0}, Landroid/server/BluetoothService;->bluezStringToScanMode(ZZ)I
 
@@ -14413,7 +9216,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 2239
+    .line 1189
     monitor-enter p0
 
     :try_start_2
@@ -14423,7 +9226,7 @@
 
     if-nez v2, :cond_13
 
-    .line 2240
+    .line 1190
     iget-object v2, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v3, "android.permission.BLUETOOTH"
@@ -14434,14 +9237,14 @@
     :try_end_11
     .catchall {:try_start_2 .. :try_end_11} :catchall_25
 
-    .line 2248
+    .line 1198
     :cond_11
     :goto_11
     monitor-exit p0
 
     return v1
 
-    .line 2244
+    .line 1194
     :cond_13
     :try_start_13
     iget-object v2, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
@@ -14452,11 +9255,11 @@
 
     move-result-object v0
 
-    .line 2245
+    .line 1195
     .local v0, val:Ljava/lang/String;
     if-eqz v0, :cond_11
 
-    .line 2248
+    .line 1198
     const-string/jumbo v1, "true"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -14467,7 +9270,7 @@
 
     goto :goto_11
 
-    .line 2239
+    .line 1189
     .end local v0           #val:Ljava/lang/String;
     :catchall_25
     move-exception v1
@@ -14477,97 +9280,12 @@
     throw v1
 .end method
 
-.method getUpdatedRemoteDeviceProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 8
-    .parameter "address"
-    .parameter "property"
-
-    .prologue
-    .line 2203
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->getObjectPathFromAddress(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 2204
-    .local v0, objectPath:Ljava/lang/String;
-    invoke-direct {p0, v0}, Landroid/server/BluetoothService;->getDevicePropertiesNative(Ljava/lang/String;)[Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, [Ljava/lang/String;
-
-    move-object v1, v2
-
-    check-cast v1, [Ljava/lang/String;
-
-    .line 2205
-    .local v1, propValues:[Ljava/lang/String;
-    if-eqz v1, :cond_1c
-
-    .line 2206
-    iget-object v2, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v2, p1, v1, v3}, Landroid/server/BluetoothDeviceProperties;->addProperties(Ljava/lang/String;[Ljava/lang/String;Z)Ljava/util/Map;
-
-    .line 2207
-    iget-object v2, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
-
-    invoke-virtual {v2, p1, p2}, Landroid/server/BluetoothDeviceProperties;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 2210
-    :goto_1b
-    return-object v2
-
-    .line 2209
-    :cond_1c
-    const-string v2, "BluetoothService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "getProperty: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "not present:"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2210
-    const/4 v2, 0x0
-
-    goto :goto_1b
-.end method
-
 .method getUuidFromCache(Ljava/lang/String;)[Landroid/os/ParcelUuid;
     .registers 8
     .parameter "address"
 
     .prologue
-    .line 2289
+    .line 1240
     iget-object v4, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
 
     const-string v5, "UUIDs"
@@ -14576,21 +9294,21 @@
 
     move-result-object v3
 
-    .line 2290
+    .line 1241
     .local v3, value:Ljava/lang/String;
     if-nez v3, :cond_c
 
     const/4 v2, 0x0
 
-    .line 2300
+    .line 1251
     :cond_b
     return-object v2
 
-    .line 2292
+    .line 1243
     :cond_c
     const/4 v1, 0x0
 
-    .line 2294
+    .line 1245
     .local v1, uuidStrings:[Ljava/lang/String;
     const-string v4, ","
 
@@ -14598,12 +9316,12 @@
 
     move-result-object v1
 
-    .line 2295
+    .line 1246
     array-length v4, v1
 
     new-array v2, v4, [Landroid/os/ParcelUuid;
 
-    .line 2297
+    .line 1248
     .local v2, uuids:[Landroid/os/ParcelUuid;
     const/4 v0, 0x0
 
@@ -14613,7 +9331,7 @@
 
     if-ge v0, v4, :cond_b
 
-    .line 2298
+    .line 1249
     aget-object v4, v1, v0
 
     invoke-static {v4}, Landroid/os/ParcelUuid;->fromString(Ljava/lang/String;)Landroid/os/ParcelUuid;
@@ -14622,7 +9340,7 @@
 
     aput-object v4, v2, v0
 
-    .line 2297
+    .line 1248
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_17
@@ -14632,7 +9350,7 @@
     .registers 5
 
     .prologue
-    .line 1787
+    .line 865
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v2, "android.permission.BLUETOOTH"
@@ -14641,7 +9359,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1788
+    .line 866
     const-string v1, "UUIDs"
 
     const/4 v2, 0x1
@@ -14650,13 +9368,13 @@
 
     move-result-object v0
 
-    .line 1789
+    .line 867
     .local v0, value:Ljava/lang/String;
     if-nez v0, :cond_14
 
     const/4 v1, 0x0
 
-    .line 1790
+    .line 868
     :goto_13
     return-object v1
 
@@ -14674,24 +9392,24 @@
     .parameter "connected"
 
     .prologue
-    .line 3595
+    .line 2213
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
     monitor-enter v1
 
-    .line 3596
+    .line 2214
     :try_start_3
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
     invoke-virtual {v0, p1, p2}, Landroid/server/BluetoothInputProfileHandler;->handleInputDevicePropertyChange(Ljava/lang/String;Z)V
 
-    .line 3597
+    .line 2215
     monitor-exit v1
 
-    .line 3598
+    .line 2216
     return-void
 
-    .line 3597
+    .line 2215
     :catchall_a
     move-exception v0
 
@@ -14709,12 +9427,12 @@
     .parameter "role"
 
     .prologue
-    .line 3485
+    .line 2103
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
     monitor-enter v1
 
-    .line 3486
+    .line 2104
     :try_start_3
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
@@ -14722,13 +9440,13 @@
 
     invoke-virtual {v0, p1, v2, p2, p3}, Landroid/server/BluetoothPanProfileHandler;->handlePanDeviceStateChange(Landroid/bluetooth/BluetoothDevice;Ljava/lang/String;II)V
 
-    .line 3487
+    .line 2105
     monitor-exit v1
 
-    .line 3488
+    .line 2106
     return-void
 
-    .line 3487
+    .line 2105
     :catchall_b
     move-exception v0
 
@@ -14747,24 +9465,24 @@
     .parameter "role"
 
     .prologue
-    .line 3478
+    .line 2096
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
     monitor-enter v1
 
-    .line 3479
+    .line 2097
     :try_start_3
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Landroid/server/BluetoothPanProfileHandler;->handlePanDeviceStateChange(Landroid/bluetooth/BluetoothDevice;Ljava/lang/String;II)V
 
-    .line 3480
+    .line 2098
     monitor-exit v1
 
-    .line 3481
+    .line 2099
     return-void
 
-    .line 3480
+    .line 2098
     :catchall_a
     move-exception v0
 
@@ -14779,7 +9497,7 @@
     .registers 2
 
     .prologue
-    .line 562
+    .line 330
     monitor-enter p0
 
     :try_start_1
@@ -14789,12 +9507,12 @@
     :try_end_6
     .catchall {:try_start_1 .. :try_end_6} :catchall_8
 
-    .line 563
+    .line 331
     monitor-exit p0
 
     return-void
 
-    .line 562
+    .line 330
     :catchall_8
     move-exception v0
 
@@ -14807,7 +9525,7 @@
     .registers 4
 
     .prologue
-    .line 551
+    .line 319
     monitor-enter p0
 
     :try_start_1
@@ -14817,7 +9535,7 @@
 
     iput-object v0, p0, Landroid/server/BluetoothService;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
 
-    .line 552
+    .line 320
     new-instance v0, Landroid/server/BluetoothAdapterStateMachine;
 
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
@@ -14828,19 +9546,19 @@
 
     iput-object v0, p0, Landroid/server/BluetoothService;->mBluetoothState:Landroid/server/BluetoothAdapterStateMachine;
 
-    .line 553
+    .line 321
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothState:Landroid/server/BluetoothAdapterStateMachine;
 
     invoke-virtual {v0}, Landroid/server/BluetoothAdapterStateMachine;->start()V
 
-    .line 554
+    .line 322
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x1110022
+    const v1, 0x1110026
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -14848,14 +9566,14 @@
 
     if-eqz v0, :cond_2c
 
-    .line 556
+    .line 324
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothState:Landroid/server/BluetoothAdapterStateMachine;
 
     const/4 v1, 0x5
 
     invoke-virtual {v0, v1}, Landroid/server/BluetoothAdapterStateMachine;->sendMessage(I)V
 
-    .line 558
+    .line 326
     :cond_2c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothState:Landroid/server/BluetoothAdapterStateMachine;
 
@@ -14867,12 +9585,12 @@
     :try_end_34
     .catchall {:try_start_1 .. :try_end_34} :catchall_36
 
-    .line 559
+    .line 327
     monitor-exit p0
 
     return-void
 
-    .line 551
+    .line 319
     :catchall_36
     move-exception v0
 
@@ -14887,14 +9605,14 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 1238
+    .line 608
     const-string v2, "Discoverable"
 
     invoke-virtual {p0, v2, v3}, Landroid/server/BluetoothService;->getProperty(Ljava/lang/String;Z)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1239
+    .line 609
     .local v0, discoverable:Ljava/lang/String;
     const-string v2, "DiscoverableTimeout"
 
@@ -14902,7 +9620,7 @@
 
     move-result-object v1
 
-    .line 1240
+    .line 610
     .local v1, timeout:Ljava/lang/String;
     const-string/jumbo v2, "true"
 
@@ -14922,35 +9640,24 @@
 
     if-eqz v2, :cond_25
 
-    .line 1241
+    .line 611
     const-string v2, "Discoverable"
 
     invoke-direct {p0, v2, v3}, Landroid/server/BluetoothService;->setAdapterPropertyBooleanNative(Ljava/lang/String;I)Z
 
-    .line 1243
+    .line 613
     :cond_25
     iget-object v2, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     invoke-virtual {v2}, Landroid/server/BluetoothBondState;->initBondState()V
 
-    .line 1244
+    .line 614
     invoke-direct {p0}, Landroid/server/BluetoothService;->initProfileState()V
 
-    .line 1245
+    .line 615
     invoke-direct {p0}, Landroid/server/BluetoothService;->getProfileProxy()V
 
-    .line 1248
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v3, 0x51
-
-    if-eq v2, v3, :cond_39
-
-    .line 1249
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->enableDUN()Z
-
-    .line 1251
-    :cond_39
+    .line 616
     return-void
 .end method
 
@@ -14962,7 +9669,7 @@
 
     const/4 v1, 0x0
 
-    .line 3068
+    .line 1712
     iget-object v2, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -14990,7 +9697,7 @@
     .registers 2
 
     .prologue
-    .line 2895
+    .line 1645
     iget-object v0, p0, Landroid/server/BluetoothService;->mStateChangeTracker:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z
@@ -15005,7 +9712,7 @@
     .parameter "address"
 
     .prologue
-    .line 2184
+    .line 1150
     monitor-enter p0
 
     :try_start_1
@@ -15019,7 +9726,7 @@
 
     move-result-object v0
 
-    .line 2187
+    .line 1153
     .local v0, sp:Landroid/content/SharedPreferences;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -15049,7 +9756,7 @@
 
     return v1
 
-    .line 2184
+    .line 1150
     .end local v0           #sp:Landroid/content/SharedPreferences;
     :catchall_23
     move-exception v1
@@ -15059,23 +9766,13 @@
     throw v1
 .end method
 
-.method public isCancelDiscovery()Z
-    .registers 2
-
-    .prologue
-    .line 1936
-    iget-boolean v0, p0, Landroid/server/BluetoothService;->isStoppingDiscovery:Z
-
-    return v0
-.end method
-
 .method public isDiscovering()Z
     .registers 6
 
     .prologue
     const/4 v1, 0x0
 
-    .line 1957
+    .line 980
     iget-object v2, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v3, "android.permission.BLUETOOTH"
@@ -15084,18 +9781,18 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1959
+    .line 982
     const-string v2, "Discovering"
 
     invoke-virtual {p0, v2, v1}, Landroid/server/BluetoothService;->getProperty(Ljava/lang/String;Z)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1960
+    .line 983
     .local v0, discoveringProperty:Ljava/lang/String;
     if-nez v0, :cond_13
 
-    .line 1964
+    .line 987
     :goto_12
     return v1
 
@@ -15109,85 +9806,11 @@
     goto :goto_12
 .end method
 
-.method public declared-synchronized isDunEnabled()Z
-    .registers 4
-
-    .prologue
-    .line 1064
-    monitor-enter p0
-
-    :try_start_1
-    iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v1, "android.permission.BLUETOOTH_ADMIN"
-
-    const-string v2, "Need BLUETOOTH_ADMIN permission"
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1066
-    iget-boolean v0, p0, Landroid/server/BluetoothService;->mDUNEnabled:Z
-    :try_end_c
-    .catchall {:try_start_1 .. :try_end_c} :catchall_e
-
-    monitor-exit p0
-
-    return v0
-
-    .line 1064
-    :catchall_e
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
-.method public declared-synchronized isDunSupported()Z
-    .registers 4
-
-    .prologue
-    .line 1057
-    monitor-enter p0
-
-    :try_start_1
-    iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v1, "android.permission.BLUETOOTH_ADMIN"
-
-    const-string v2, "Need BLUETOOTH_ADMIN permission"
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1059
-    const-string/jumbo v0, "ro.qualcomm.bluetooth.dun"
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-    :try_end_11
-    .catchall {:try_start_1 .. :try_end_11} :catchall_14
-
-    move-result v0
-
-    monitor-exit p0
-
-    return v0
-
-    .line 1057
-    :catchall_14
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
 .method public isEnabled()Z
     .registers 4
 
     .prologue
-    .line 576
+    .line 344
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -15196,7 +9819,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 577
+    .line 345
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
 
     move-result v0
@@ -15209,7 +9832,7 @@
     .parameter "address"
 
     .prologue
-    .line 1452
+    .line 649
     monitor-enter p0
 
     :try_start_1
@@ -15233,67 +9856,12 @@
     throw v0
 .end method
 
-.method public isHostPatchRequired(Landroid/bluetooth/BluetoothDevice;I)Z
-    .registers 5
-    .parameter "btDevice"
-    .parameter "patch_id"
-
-    .prologue
-    .line 510
-    iget-object v1, p0, Landroid/server/BluetoothService;->mHostPatchForIOP:Landroid/server/BluetoothService$HostPatchForIOP;
-
-    if-eqz v1, :cond_f
-
-    .line 511
-    invoke-virtual {p1}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 512
-    .local v0, address:Ljava/lang/String;
-    iget-object v1, p0, Landroid/server/BluetoothService;->mHostPatchForIOP:Landroid/server/BluetoothService$HostPatchForIOP;
-
-    invoke-virtual {v1, v0, p2}, Landroid/server/BluetoothService$HostPatchForIOP;->isHostPatchRequired(Ljava/lang/String;I)Z
-
-    move-result v1
-
-    .line 514
-    .end local v0           #address:Ljava/lang/String;
-    :goto_e
-    return v1
-
-    :cond_f
-    const/4 v1, 0x0
-
-    goto :goto_e
-.end method
-
-.method isPinPreset()Z
-    .registers 2
-
-    .prologue
-    .line 4091
-    iget-object v0, p0, Landroid/server/BluetoothService;->mpinString:Ljava/lang/String;
-
-    if-eqz v0, :cond_6
-
-    const/4 v0, 0x1
-
-    :goto_5
-    return v0
-
-    :cond_6
-    const/4 v0, 0x0
-
-    goto :goto_5
-.end method
-
 .method isRemoteDeviceInCache(Ljava/lang/String;)Z
     .registers 3
     .parameter "address"
 
     .prologue
-    .line 1703
+    .line 841
     iget-object v0, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
 
     invoke-virtual {v0, p1}, Landroid/server/BluetoothDeviceProperties;->isInCache(Ljava/lang/String;)Z
@@ -15303,136 +9871,11 @@
     return v0
 .end method
 
-.method public isServiceRegistered(Landroid/os/ParcelUuid;)Z
-    .registers 6
-    .parameter "uuid"
-
-    .prologue
-    const/4 v0, 0x0
-
-    .line 581
-    iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v2, "android.permission.BLUETOOTH_ADMIN"
-
-    const-string v3, "Need BLUETOOTH_ADMIN permission"
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 583
-    const-string v1, "BluetoothService"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "isServiceRegistered UUID: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 584
-    if-nez p1, :cond_26
-
-    .line 596
-    :goto_25
-    return v0
-
-    .line 586
-    :cond_26
-    invoke-static {p1}, Landroid/bluetooth/BluetoothUuid;->isFileTransfer(Landroid/os/ParcelUuid;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2f
-
-    .line 587
-    iget-boolean v0, p0, Landroid/server/BluetoothService;->mFTPEnabled:Z
-
-    goto :goto_25
-
-    .line 588
-    :cond_2f
-    invoke-static {p1}, Landroid/bluetooth/BluetoothUuid;->isMessageAccessServer(Landroid/os/ParcelUuid;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_38
-
-    .line 589
-    iget-boolean v0, p0, Landroid/server/BluetoothService;->mMAPEnabled:Z
-
-    goto :goto_25
-
-    .line 590
-    :cond_38
-    invoke-static {p1}, Landroid/bluetooth/BluetoothUuid;->isDun(Landroid/os/ParcelUuid;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_41
-
-    .line 591
-    iget-boolean v0, p0, Landroid/server/BluetoothService;->mDUNEnabled:Z
-
-    goto :goto_25
-
-    .line 592
-    :cond_41
-    invoke-static {p1}, Landroid/bluetooth/BluetoothUuid;->isSap(Landroid/os/ParcelUuid;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_4a
-
-    .line 593
-    iget-boolean v0, p0, Landroid/server/BluetoothService;->mSAPEnabled:Z
-
-    goto :goto_25
-
-    .line 595
-    :cond_4a
-    const-string v1, "BluetoothService"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Unsupported service UUID: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_25
-.end method
-
 .method public isTetheringOn()Z
     .registers 4
 
     .prologue
-    .line 3417
+    .line 2035
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -15441,12 +9884,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3418
+    .line 2036
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
     monitor-enter v1
 
-    .line 3419
+    .line 2037
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
@@ -15458,7 +9901,7 @@
 
     return v0
 
-    .line 3420
+    .line 2038
     :catchall_14
     move-exception v0
 
@@ -15473,7 +9916,7 @@
     .registers 4
 
     .prologue
-    .line 2113
+    .line 1124
     monitor-enter p0
 
     :try_start_1
@@ -15485,7 +9928,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2114
+    .line 1125
     iget-object v0, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     const/16 v1, 0xc
@@ -15500,7 +9943,7 @@
 
     return-object v0
 
-    .line 2113
+    .line 1124
     :catchall_14
     move-exception v0
 
@@ -15509,402 +9952,12 @@
     throw v0
 .end method
 
-.method public declared-synchronized listBondsExt()[Ljava/lang/String;
-    .registers 13
-
-    .prologue
-    .line 2118
-    monitor-enter p0
-
-    :try_start_1
-    iget-object v9, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v10, "android.permission.BLUETOOTH"
-
-    const-string v11, "Need BLUETOOTH permission"
-
-    invoke-virtual {v9, v10, v11}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 2119
-    invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
-
-    move-result v9
-
-    if-nez v9, :cond_bf
-
-    .line 2125
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, "/data/misc/bluetoothd/"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-direct {p0}, Landroid/server/BluetoothService;->getAddressInternal()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string v10, "/profiles"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 2126
-    .local v1, dataPath:Ljava/lang/String;
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-    :try_end_32
-    .catchall {:try_start_1 .. :try_end_32} :catchall_bc
-
-    .line 2127
-    .local v0, addresses:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    const/4 v4, 0x0
-
-    .line 2129
-    .local v4, fstream:Ljava/io/FileInputStream;
-    :try_start_33
-    new-instance v5, Ljava/io/FileInputStream;
-
-    invoke-direct {v5, v1}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
-    :try_end_38
-    .catchall {:try_start_33 .. :try_end_38} :catchall_b5
-    .catch Ljava/io/FileNotFoundException; {:try_start_33 .. :try_end_38} :catch_d2
-    .catch Ljava/io/IOException; {:try_start_33 .. :try_end_38} :catch_90
-
-    .line 2130
-    .end local v4           #fstream:Ljava/io/FileInputStream;
-    .local v5, fstream:Ljava/io/FileInputStream;
-    :try_start_38
-    new-instance v6, Ljava/io/DataInputStream;
-
-    invoke-direct {v6, v5}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
-
-    .line 2131
-    .local v6, in:Ljava/io/DataInputStream;
-    new-instance v3, Ljava/io/BufferedReader;
-
-    new-instance v9, Ljava/io/InputStreamReader;
-
-    invoke-direct {v9, v6}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
-
-    invoke-direct {v3, v9}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
-
-    .line 2132
-    .local v3, file:Ljava/io/BufferedReader;
-    const/4 v7, 0x0
-
-    .line 2133
-    .local v7, line:Ljava/lang/String;
-    :cond_48
-    :goto_48
-    invoke-virtual {v3}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
-
-    move-result-object v7
-
-    if-eqz v7, :cond_89
-
-    .line 2134
-    invoke-virtual {v7}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object v7
-
-    .line 2135
-    invoke-virtual {v7}, Ljava/lang/String;->length()I
-
-    move-result v9
-
-    if-eqz v9, :cond_48
-
-    .line 2136
-    const-string v9, " "
-
-    invoke-virtual {v7, v9}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v8
-
-    .line 2137
-    .local v8, value:[Ljava/lang/String;
-    if-eqz v8, :cond_48
-
-    const/4 v9, 0x0
-
-    aget-object v9, v8, v9
-
-    invoke-virtual {v9}, Ljava/lang/String;->length()I
-
-    move-result v9
-
-    if-eqz v9, :cond_48
-
-    .line 2138
-    const/4 v9, 0x0
-
-    aget-object v9, v8, v9
-
-    invoke-virtual {v9}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v0, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_73
-    .catchall {:try_start_38 .. :try_end_73} :catchall_cc
-    .catch Ljava/io/FileNotFoundException; {:try_start_38 .. :try_end_73} :catch_74
-    .catch Ljava/io/IOException; {:try_start_38 .. :try_end_73} :catch_cf
-
-    goto :goto_48
-
-    .line 2141
-    .end local v3           #file:Ljava/io/BufferedReader;
-    .end local v6           #in:Ljava/io/DataInputStream;
-    .end local v7           #line:Ljava/lang/String;
-    .end local v8           #value:[Ljava/lang/String;
-    :catch_74
-    move-exception v9
-
-    move-object v4, v5
-
-    .line 2148
-    .end local v5           #fstream:Ljava/io/FileInputStream;
-    .restart local v4       #fstream:Ljava/io/FileInputStream;
-    :goto_76
-    if-eqz v4, :cond_7b
-
-    .line 2150
-    :try_start_78
-    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
-    :try_end_7b
-    .catchall {:try_start_78 .. :try_end_7b} :catchall_bc
-    .catch Ljava/io/IOException; {:try_start_78 .. :try_end_7b} :catch_b3
-
-    .line 2156
-    :cond_7b
-    :goto_7b
-    :try_start_7b
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v9
-
-    new-array v9, v9, [Ljava/lang/String;
-
-    invoke-virtual {v0, v9}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-
-    move-result-object v9
-
-    check-cast v9, [Ljava/lang/String;
-    :try_end_87
-    .catchall {:try_start_7b .. :try_end_87} :catchall_bc
-
-    .line 2158
-    .end local v0           #addresses:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    .end local v1           #dataPath:Ljava/lang/String;
-    .end local v4           #fstream:Ljava/io/FileInputStream;
-    :goto_87
-    monitor-exit p0
-
-    return-object v9
-
-    .line 2148
-    .restart local v0       #addresses:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    .restart local v1       #dataPath:Ljava/lang/String;
-    .restart local v3       #file:Ljava/io/BufferedReader;
-    .restart local v5       #fstream:Ljava/io/FileInputStream;
-    .restart local v6       #in:Ljava/io/DataInputStream;
-    .restart local v7       #line:Ljava/lang/String;
-    :cond_89
-    if-eqz v5, :cond_8e
-
-    .line 2150
-    :try_start_8b
-    invoke-virtual {v5}, Ljava/io/FileInputStream;->close()V
-    :try_end_8e
-    .catchall {:try_start_8b .. :try_end_8e} :catchall_bc
-    .catch Ljava/io/IOException; {:try_start_8b .. :try_end_8e} :catch_ca
-
-    :cond_8e
-    :goto_8e
-    move-object v4, v5
-
-    .line 2155
-    .end local v5           #fstream:Ljava/io/FileInputStream;
-    .restart local v4       #fstream:Ljava/io/FileInputStream;
-    goto :goto_7b
-
-    .line 2145
-    .end local v3           #file:Ljava/io/BufferedReader;
-    .end local v6           #in:Ljava/io/DataInputStream;
-    .end local v7           #line:Ljava/lang/String;
-    :catch_90
-    move-exception v2
-
-    .line 2146
-    .local v2, e:Ljava/io/IOException;
-    :goto_91
-    :try_start_91
-    const-string v9, "BluetoothService"
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v11, "IOException: listBondsExt"
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v2}, Ljava/io/IOException;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_ad
-    .catchall {:try_start_91 .. :try_end_ad} :catchall_b5
-
-    .line 2148
-    if-eqz v4, :cond_7b
-
-    .line 2150
-    :try_start_af
-    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
-    :try_end_b2
-    .catchall {:try_start_af .. :try_end_b2} :catchall_bc
-    .catch Ljava/io/IOException; {:try_start_af .. :try_end_b2} :catch_b3
-
-    goto :goto_7b
-
-    .line 2151
-    .end local v2           #e:Ljava/io/IOException;
-    :catch_b3
-    move-exception v9
-
-    goto :goto_7b
-
-    .line 2148
-    :catchall_b5
-    move-exception v9
-
-    :goto_b6
-    if-eqz v4, :cond_bb
-
-    .line 2150
-    :try_start_b8
-    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
-    :try_end_bb
-    .catchall {:try_start_b8 .. :try_end_bb} :catchall_bc
-    .catch Ljava/io/IOException; {:try_start_b8 .. :try_end_bb} :catch_c8
-
-    .line 2148
-    :cond_bb
-    :goto_bb
-    :try_start_bb
-    throw v9
-    :try_end_bc
-    .catchall {:try_start_bb .. :try_end_bc} :catchall_bc
-
-    .line 2118
-    .end local v0           #addresses:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    .end local v1           #dataPath:Ljava/lang/String;
-    .end local v4           #fstream:Ljava/io/FileInputStream;
-    :catchall_bc
-    move-exception v9
-
-    monitor-exit p0
-
-    throw v9
-
-    .line 2158
-    :cond_bf
-    :try_start_bf
-    iget-object v9, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
-
-    const/16 v10, 0xc
-
-    invoke-virtual {v9, v10}, Landroid/server/BluetoothBondState;->listInState(I)[Ljava/lang/String;
-    :try_end_c6
-    .catchall {:try_start_bf .. :try_end_c6} :catchall_bc
-
-    move-result-object v9
-
-    goto :goto_87
-
-    .line 2151
-    .restart local v0       #addresses:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    .restart local v1       #dataPath:Ljava/lang/String;
-    .restart local v4       #fstream:Ljava/io/FileInputStream;
-    :catch_c8
-    move-exception v10
-
-    goto :goto_bb
-
-    .end local v4           #fstream:Ljava/io/FileInputStream;
-    .restart local v3       #file:Ljava/io/BufferedReader;
-    .restart local v5       #fstream:Ljava/io/FileInputStream;
-    .restart local v6       #in:Ljava/io/DataInputStream;
-    .restart local v7       #line:Ljava/lang/String;
-    :catch_ca
-    move-exception v9
-
-    goto :goto_8e
-
-    .line 2148
-    .end local v3           #file:Ljava/io/BufferedReader;
-    .end local v6           #in:Ljava/io/DataInputStream;
-    .end local v7           #line:Ljava/lang/String;
-    :catchall_cc
-    move-exception v9
-
-    move-object v4, v5
-
-    .end local v5           #fstream:Ljava/io/FileInputStream;
-    .restart local v4       #fstream:Ljava/io/FileInputStream;
-    goto :goto_b6
-
-    .line 2145
-    .end local v4           #fstream:Ljava/io/FileInputStream;
-    .restart local v5       #fstream:Ljava/io/FileInputStream;
-    :catch_cf
-    move-exception v2
-
-    move-object v4, v5
-
-    .end local v5           #fstream:Ljava/io/FileInputStream;
-    .restart local v4       #fstream:Ljava/io/FileInputStream;
-    goto :goto_91
-
-    .line 2141
-    :catch_d2
-    move-exception v9
-
-    goto :goto_76
-.end method
-
 .method declared-synchronized listInState(I)[Ljava/lang/String;
     .registers 3
     .parameter "state"
 
     .prologue
-    .line 2163
+    .line 1129
     monitor-enter p0
 
     :try_start_1
@@ -15942,12 +9995,12 @@
     .end annotation
 
     .prologue
-    .line 3589
+    .line 2207
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
     monitor-enter v1
 
-    .line 3590
+    .line 2208
     :try_start_3
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
@@ -15959,7 +10012,7 @@
 
     return-object v0
 
-    .line 3591
+    .line 2209
     :catchall_b
     move-exception v0
 
@@ -15970,60 +10023,12 @@
     throw v0
 .end method
 
-.method declared-synchronized makeDiscoverCharacteristicsCallback(Ljava/lang/String;Z)V
-    .registers 6
-    .parameter "servicePath"
-    .parameter "result"
-
-    .prologue
-    .line 4437
-    monitor-enter p0
-
-    :try_start_1
-    const-string v0, "BluetoothService"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "makeDiscoverCharacteristicsCallback for service: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1a
-    .catchall {:try_start_1 .. :try_end_1a} :catchall_1c
-
-    .line 4449
-    monitor-exit p0
-
-    return-void
-
-    .line 4437
-    :catchall_1c
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
 .method declared-synchronized makeServiceChannelCallbacks(Ljava/lang/String;)V
     .registers 9
     .parameter "address"
 
     .prologue
-    .line 3089
+    .line 1727
     monitor-enter p0
 
     :try_start_1
@@ -16037,7 +10042,7 @@
 
     move-result-object v2
 
-    .line 3090
+    .line 1728
     .local v2, iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/server/BluetoothService$RemoteService;>;"
     :cond_b
     :goto_b
@@ -16047,14 +10052,14 @@
 
     if-eqz v4, :cond_63
 
-    .line 3091
+    .line 1729
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/server/BluetoothService$RemoteService;
 
-    .line 3092
+    .line 1730
     .local v3, service:Landroid/server/BluetoothService$RemoteService;
     iget-object v4, v3, Landroid/server/BluetoothService$RemoteService;->address:Ljava/lang/String;
 
@@ -16064,7 +10069,7 @@
 
     if-eqz v4, :cond_b
 
-    .line 3093
+    .line 1731
     const-string v4, "BluetoothService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -16101,7 +10106,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3095
+    .line 1733
     iget-object v4, p0, Landroid/server/BluetoothService;->mUuidCallbackTracker:Ljava/util/HashMap;
 
     invoke-virtual {v4, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -16112,11 +10117,11 @@
     :try_end_4d
     .catchall {:try_start_1 .. :try_end_4d} :catchall_57
 
-    .line 3096
+    .line 1734
     .local v0, callback:Landroid/bluetooth/IBluetoothCallback;
     if-eqz v0, :cond_53
 
-    .line 3098
+    .line 1736
     const/4 v4, -0x1
 
     :try_start_50
@@ -16125,7 +10130,7 @@
     .catchall {:try_start_50 .. :try_end_53} :catchall_57
     .catch Landroid/os/RemoteException; {:try_start_50 .. :try_end_53} :catch_5a
 
-    .line 3102
+    .line 1740
     :cond_53
     :goto_53
     :try_start_53
@@ -16135,7 +10140,7 @@
 
     goto :goto_b
 
-    .line 3089
+    .line 1727
     .end local v0           #callback:Landroid/bluetooth/IBluetoothCallback;
     .end local v2           #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/server/BluetoothService$RemoteService;>;"
     .end local v3           #service:Landroid/server/BluetoothService$RemoteService;
@@ -16146,7 +10151,7 @@
 
     throw v4
 
-    .line 3099
+    .line 1737
     .restart local v0       #callback:Landroid/bluetooth/IBluetoothCallback;
     .restart local v2       #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/server/BluetoothService$RemoteService;>;"
     .restart local v3       #service:Landroid/server/BluetoothService$RemoteService;
@@ -16165,7 +10170,7 @@
 
     goto :goto_53
 
-    .line 3105
+    .line 1743
     .end local v0           #callback:Landroid/bluetooth/IBluetoothCallback;
     .end local v1           #e:Landroid/os/RemoteException;
     .end local v3           #service:Landroid/server/BluetoothService$RemoteService;
@@ -16173,282 +10178,6 @@
     monitor-exit p0
 
     return-void
-.end method
-
-.method declared-synchronized makeSetCharacteristicPropertyCallback(Ljava/lang/String;Ljava/lang/String;Z)V
-    .registers 8
-    .parameter "charPath"
-    .parameter "property"
-    .parameter "result"
-
-    .prologue
-    .line 4452
-    monitor-enter p0
-
-    :try_start_1
-    const-string v1, "BluetoothService"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "makeSetCharacteristicPropertyCallback for char: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1a
-    .catchall {:try_start_1 .. :try_end_1a} :catchall_2c
-
-    .line 4454
-    if-nez p1, :cond_1e
-
-    .line 4473
-    :cond_1c
-    :goto_1c
-    monitor-exit p0
-
-    return-void
-
-    .line 4458
-    :cond_1e
-    const/4 v1, 0x0
-
-    :try_start_1f
-    const-string v2, "/characteristic"
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v2
-
-    invoke-virtual {p1, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-    :try_end_28
-    .catchall {:try_start_1f .. :try_end_28} :catchall_2c
-
-    move-result-object v0
-
-    .line 4460
-    .local v0, servicePath:Ljava/lang/String;
-    if-nez v0, :cond_1c
-
-    goto :goto_1c
-
-    .line 4452
-    .end local v0           #servicePath:Ljava/lang/String;
-    :catchall_2c
-    move-exception v1
-
-    monitor-exit p0
-
-    throw v1
-.end method
-
-.method declared-synchronized makeUpdateCharacteristicValueCallback(Ljava/lang/String;Z)V
-    .registers 7
-    .parameter "charPath"
-    .parameter "result"
-
-    .prologue
-    .line 4502
-    monitor-enter p0
-
-    const/4 v1, 0x0
-
-    :try_start_2
-    const-string v2, "/characteristic"
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v2
-
-    invoke-virtual {p1, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-    :try_end_b
-    .catchall {:try_start_2 .. :try_end_b} :catchall_2a
-
-    move-result-object v0
-
-    .line 4504
-    .local v0, servicePath:Ljava/lang/String;
-    if-nez v0, :cond_10
-
-    .line 4519
-    :goto_e
-    monitor-exit p0
-
-    return-void
-
-    .line 4510
-    :cond_10
-    :try_start_10
-    const-string v1, "BluetoothService"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "makeCharacteristicValueUpdatedCallback for service: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_29
-    .catchall {:try_start_10 .. :try_end_29} :catchall_2a
-
-    goto :goto_e
-
-    .line 4502
-    .end local v0           #servicePath:Ljava/lang/String;
-    :catchall_2a
-    move-exception v1
-
-    monitor-exit p0
-
-    throw v1
-.end method
-
-.method declared-synchronized makeWatcherValueChangedCallback(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 7
-    .parameter "charPath"
-    .parameter "value"
-
-    .prologue
-    .line 4477
-    monitor-enter p0
-
-    if-nez p1, :cond_5
-
-    .line 4498
-    :cond_3
-    :goto_3
-    monitor-exit p0
-
-    return-void
-
-    .line 4481
-    :cond_5
-    const/4 v1, 0x0
-
-    :try_start_6
-    const-string v2, "/characteristic"
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v2
-
-    invoke-virtual {p1, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 4483
-    .local v0, servicePath:Ljava/lang/String;
-    if-eqz v0, :cond_3
-
-    .line 4487
-    const-string v1, "BluetoothService"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "WatcherValueChanged : service Path = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_2a
-    .catchall {:try_start_6 .. :try_end_2a} :catchall_2b
-
-    goto :goto_3
-
-    .line 4477
-    .end local v0           #servicePath:Ljava/lang/String;
-    :catchall_2b
-    move-exception v1
-
-    monitor-exit p0
-
-    throw v1
-.end method
-
-.method public notifyConnectA2dp(Ljava/lang/String;)Z
-    .registers 5
-    .parameter "address"
-
-    .prologue
-    .line 3850
-    iget-object v2, p0, Landroid/server/BluetoothService;->mDeviceProfileState:Ljava/util/HashMap;
-
-    invoke-virtual {v2, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/bluetooth/BluetoothDeviceProfileState;
-
-    .line 3852
-    .local v1, state:Landroid/bluetooth/BluetoothDeviceProfileState;
-    if-eqz v1, :cond_1b
-
-    .line 3853
-    new-instance v0, Landroid/os/Message;
-
-    invoke-direct {v0}, Landroid/os/Message;-><init>()V
-
-    .line 3854
-    .local v0, msg:Landroid/os/Message;
-    const/16 v2, 0x67
-
-    iput v2, v0, Landroid/os/Message;->what:I
-
-    .line 3855
-    const/4 v2, 0x3
-
-    iput v2, v0, Landroid/os/Message;->arg1:I
-
-    .line 3856
-    invoke-virtual {v1, v0}, Landroid/bluetooth/BluetoothDeviceProfileState;->sendMessage(Landroid/os/Message;)V
-
-    .line 3857
-    const/4 v2, 0x1
-
-    .line 3859
-    .end local v0           #msg:Landroid/os/Message;
-    :goto_1a
-    return v2
-
-    :cond_1b
-    const/4 v2, 0x0
-
-    goto :goto_1a
 .end method
 
 .method notifyIncomingA2dpConnection(Ljava/lang/String;Z)Z
@@ -16459,7 +10188,7 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 3884
+    .line 2472
     iget-object v3, p0, Landroid/server/BluetoothService;->mDeviceProfileState:Ljava/util/HashMap;
 
     invoke-virtual {v3, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -16468,20 +10197,20 @@
 
     check-cast v1, Landroid/bluetooth/BluetoothDeviceProfileState;
 
-    .line 3885
+    .line 2473
     .local v1, state:Landroid/bluetooth/BluetoothDeviceProfileState;
     if-eqz v1, :cond_33
 
-    .line 3886
+    .line 2474
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 3887
+    .line 2475
     .local v0, msg:Landroid/os/Message;
     if-eqz p2, :cond_2c
 
-    .line 3888
+    .line 2476
     iget-object v3, p0, Landroid/server/BluetoothService;->mHeadsetProxy:Landroid/bluetooth/BluetoothHeadset;
 
     invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->getRemoteDevice(Ljava/lang/String;)Landroid/bluetooth/BluetoothDevice;
@@ -16492,42 +10221,42 @@
 
     move-result v3
 
-    const/16 v4, 0x3e8
+    const/16 v4, 0x64
 
     if-lt v3, v4, :cond_2b
 
-    .line 3890
+    .line 2478
     const/16 v3, 0x67
 
     iput v3, v0, Landroid/os/Message;->what:I
 
-    .line 3891
+    .line 2479
     iput v2, v0, Landroid/os/Message;->arg1:I
 
-    .line 3892
+    .line 2480
     const-wide/16 v3, 0xfa0
 
     invoke-virtual {v1, v0, v3, v4}, Landroid/bluetooth/BluetoothDeviceProfileState;->sendMessageDelayed(Landroid/os/Message;J)V
 
-    .line 3901
+    .line 2489
     .end local v0           #msg:Landroid/os/Message;
     :cond_2b
     :goto_2b
     return v2
 
-    .line 3896
+    .line 2484
     .restart local v0       #msg:Landroid/os/Message;
     :cond_2c
     const/4 v3, 0x4
 
     iput v3, v0, Landroid/os/Message;->what:I
 
-    .line 3897
+    .line 2485
     invoke-virtual {v1, v0}, Landroid/bluetooth/BluetoothDeviceProfileState;->sendMessage(Landroid/os/Message;)V
 
     goto :goto_2b
 
-    .line 3901
+    .line 2489
     .end local v0           #msg:Landroid/os/Message;
     :cond_33
     const/4 v2, 0x0
@@ -16541,7 +10270,7 @@
     .parameter "rejected"
 
     .prologue
-    .line 3863
+    .line 2451
     iget-object v2, p0, Landroid/server/BluetoothService;->mDeviceProfileState:Ljava/util/HashMap;
 
     invoke-virtual {v2, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -16550,20 +10279,20 @@
 
     check-cast v1, Landroid/bluetooth/BluetoothDeviceProfileState;
 
-    .line 3864
+    .line 2452
     .local v1, state:Landroid/bluetooth/BluetoothDeviceProfileState;
     if-eqz v1, :cond_34
 
-    .line 3865
+    .line 2453
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 3866
+    .line 2454
     .local v0, msg:Landroid/os/Message;
     if-eqz p2, :cond_2d
 
-    .line 3867
+    .line 2455
     iget-object v2, p0, Landroid/server/BluetoothService;->mA2dpService:Landroid/server/BluetoothA2dpService;
 
     invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->getRemoteDevice(Ljava/lang/String;)Landroid/bluetooth/BluetoothDevice;
@@ -16574,48 +10303,48 @@
 
     move-result v2
 
-    const/16 v3, 0x3e8
+    const/16 v3, 0x64
 
     if-lt v2, v3, :cond_2b
 
-    .line 3869
+    .line 2457
     const/16 v2, 0x67
 
     iput v2, v0, Landroid/os/Message;->what:I
 
-    .line 3870
+    .line 2458
     const/4 v2, 0x3
 
     iput v2, v0, Landroid/os/Message;->arg1:I
 
-    .line 3871
+    .line 2459
     const-wide/16 v2, 0xfa0
 
     invoke-virtual {v1, v0, v2, v3}, Landroid/bluetooth/BluetoothDeviceProfileState;->sendMessageDelayed(Landroid/os/Message;J)V
 
-    .line 3878
+    .line 2466
     :cond_2b
     :goto_2b
     const/4 v2, 0x1
 
-    .line 3880
+    .line 2468
     .end local v0           #msg:Landroid/os/Message;
     :goto_2c
     return v2
 
-    .line 3875
+    .line 2463
     .restart local v0       #msg:Landroid/os/Message;
     :cond_2d
     const/4 v2, 0x2
 
     iput v2, v0, Landroid/os/Message;->what:I
 
-    .line 3876
+    .line 2464
     invoke-virtual {v1, v0}, Landroid/bluetooth/BluetoothDeviceProfileState;->sendMessage(Landroid/os/Message;)V
 
     goto :goto_2b
 
-    .line 3880
+    .line 2468
     .end local v0           #msg:Landroid/os/Message;
     :cond_34
     const/4 v2, 0x0
@@ -16628,7 +10357,7 @@
     .parameter "address"
 
     .prologue
-    .line 3710
+    .line 2328
     iget-object v2, p0, Landroid/server/BluetoothService;->mDeviceProfileState:Ljava/util/HashMap;
 
     invoke-virtual {v2, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -16637,183 +10366,156 @@
 
     check-cast v1, Landroid/bluetooth/BluetoothDeviceProfileState;
 
-    .line 3711
+    .line 2329
     .local v1, state:Landroid/bluetooth/BluetoothDeviceProfileState;
     if-nez v1, :cond_c
 
-    .line 3712
+    .line 2330
     const/4 v2, 0x0
 
-    .line 3717
+    .line 2335
     :goto_b
     return v2
 
-    .line 3714
+    .line 2332
     :cond_c
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 3715
+    .line 2333
     .local v0, msg:Landroid/os/Message;
     const/4 v2, 0x6
 
     iput v2, v0, Landroid/os/Message;->what:I
 
-    .line 3716
+    .line 2334
     invoke-virtual {v1, v0}, Landroid/bluetooth/BluetoothDeviceProfileState;->sendMessage(Landroid/os/Message;)V
 
-    .line 3717
+    .line 2335
     const/4 v2, 0x1
 
     goto :goto_b
 .end method
 
 .method declared-synchronized onCreatePairedDeviceResult(Ljava/lang/String;I)V
-    .registers 7
+    .registers 5
     .parameter "address"
     .parameter "result"
 
     .prologue
-    const/4 v3, 0x1
+    const/4 v1, 0x1
 
-    .line 1481
+    .line 653
     monitor-enter p0
 
-    :try_start_2
-    const-string v0, "BluetoothService"
+    if-nez p2, :cond_18
 
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "[embedded]onCreatePairedDeviceResult: result = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-direct {p0, p2}, Landroid/server/BluetoothService;->convertPairingResult(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1482
-    if-nez p2, :cond_34
-
-    .line 1483
+    .line 654
     const/16 v0, 0xc
 
+    :try_start_6
     invoke-virtual {p0, p1, v0}, Landroid/server/BluetoothService;->setBondState(Ljava/lang/String;I)Z
 
-    .line 1484
+    .line 655
     iget-object v0, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     invoke-virtual {v0, p1}, Landroid/server/BluetoothBondState;->isAutoPairingAttemptsInProgress(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_16
 
-    .line 1485
+    .line 656
     iget-object v0, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     invoke-virtual {v0, p1}, Landroid/server/BluetoothBondState;->clearPinAttempts(Ljava/lang/String;)V
-    :try_end_32
-    .catchall {:try_start_2 .. :try_end_32} :catchall_4c
+    :try_end_16
+    .catchall {:try_start_6 .. :try_end_16} :catchall_2b
 
-    .line 1502
-    :cond_32
-    :goto_32
+    .line 671
+    :cond_16
+    :goto_16
     monitor-exit p0
 
     return-void
 
-    .line 1488
-    :cond_34
-    const/16 v0, 0xa
+    .line 658
+    :cond_18
+    if-ne p2, v1, :cond_2e
 
-    :try_start_36
-    invoke-virtual {p0, p1, v0, p2}, Landroid/server/BluetoothService;->setBondState(Ljava/lang/String;II)Z
-
-    .line 1489
-    if-ne p2, v3, :cond_4f
-
+    :try_start_1a
     iget-object v0, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     invoke-virtual {v0, p1}, Landroid/server/BluetoothBondState;->getAttempt(Ljava/lang/String;)I
 
     move-result v0
 
-    if-ne v0, v3, :cond_4f
+    if-ne v0, v1, :cond_2e
 
-    .line 1491
+    .line 660
     iget-object v0, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     invoke-virtual {v0, p1}, Landroid/server/BluetoothBondState;->addAutoPairingFailure(Ljava/lang/String;)V
 
-    .line 1492
+    .line 661
     invoke-direct {p0, p1, p2}, Landroid/server/BluetoothService;->pairingAttempt(Ljava/lang/String;I)V
-    :try_end_4b
-    .catchall {:try_start_36 .. :try_end_4b} :catchall_4c
+    :try_end_2a
+    .catchall {:try_start_1a .. :try_end_2a} :catchall_2b
 
-    goto :goto_32
+    goto :goto_16
 
-    .line 1481
-    :catchall_4c
+    .line 653
+    :catchall_2b
     move-exception v0
 
     monitor-exit p0
 
     throw v0
 
-    .line 1493
-    :cond_4f
+    .line 662
+    :cond_2e
     const/4 v0, 0x4
 
-    if-ne p2, v0, :cond_5e
+    if-ne p2, v0, :cond_3d
 
-    :try_start_52
+    :try_start_31
     iget-object v0, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     invoke-virtual {v0, p1}, Landroid/server/BluetoothBondState;->isAutoPairingAttemptsInProgress(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_5e
+    if-eqz v0, :cond_3d
 
-    .line 1495
+    .line 664
     invoke-direct {p0, p1, p2}, Landroid/server/BluetoothService;->pairingAttempt(Ljava/lang/String;I)V
 
-    goto :goto_32
+    goto :goto_16
 
-    .line 1497
-    :cond_5e
+    .line 666
+    :cond_3d
+    const/16 v0, 0xa
+
+    invoke-virtual {p0, p1, v0, p2}, Landroid/server/BluetoothService;->setBondState(Ljava/lang/String;II)Z
+
+    .line 667
     iget-object v0, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     invoke-virtual {v0, p1}, Landroid/server/BluetoothBondState;->isAutoPairingAttemptsInProgress(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_16
 
-    .line 1498
+    .line 668
     iget-object v0, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
 
     invoke-virtual {v0, p1}, Landroid/server/BluetoothBondState;->clearPinAttempts(Ljava/lang/String;)V
-    :try_end_6b
-    .catchall {:try_start_52 .. :try_end_6b} :catchall_4c
+    :try_end_4f
+    .catchall {:try_start_31 .. :try_end_4f} :catchall_2b
 
-    goto :goto_32
+    goto :goto_16
 .end method
 
 .method onHealthDeviceChannelChanged(Ljava/lang/String;Ljava/lang/String;Z)V
@@ -16823,24 +10525,24 @@
     .parameter "exists"
 
     .prologue
-    .line 3669
+    .line 2287
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
     monitor-enter v1
 
-    .line 3670
+    .line 2288
     :try_start_3
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/server/BluetoothHealthProfileHandler;->onHealthDeviceChannelChanged(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    .line 3672
+    .line 2290
     monitor-exit v1
 
-    .line 3673
+    .line 2291
     return-void
 
-    .line 3672
+    .line 2290
     :catchall_a
     move-exception v0
 
@@ -16857,24 +10559,24 @@
     .parameter "newState"
 
     .prologue
-    .line 3677
+    .line 2295
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
     monitor-enter v1
 
-    .line 3678
+    .line 2296
     :try_start_3
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
     invoke-virtual {v0, p1, p2}, Landroid/server/BluetoothHealthProfileHandler;->onHealthDeviceChannelConnectionError(II)V
 
-    .line 3680
+    .line 2298
     monitor-exit v1
 
-    .line 3681
+    .line 2299
     return-void
 
-    .line 3680
+    .line 2298
     :catchall_a
     move-exception v0
 
@@ -16891,24 +10593,24 @@
     .parameter "channelPath"
 
     .prologue
-    .line 3661
+    .line 2279
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
     monitor-enter v1
 
-    .line 3662
+    .line 2280
     :try_start_3
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
     invoke-virtual {v0, p1, p2}, Landroid/server/BluetoothHealthProfileHandler;->onHealthDevicePropertyChanged(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3664
+    .line 2282
     monitor-exit v1
 
-    .line 3665
+    .line 2283
     return-void
 
-    .line 3664
+    .line 2282
     :catchall_a
     move-exception v0
 
@@ -16925,7 +10627,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 867
+    .line 503
     monitor-enter p0
 
     :try_start_2
@@ -16937,30 +10639,30 @@
 
     if-nez v1, :cond_a
 
-    .line 872
+    .line 508
     :goto_8
     monitor-exit p0
 
     return v0
 
-    .line 870
+    .line 506
     :cond_a
     const/4 v0, 0x0
 
     :try_start_b
     invoke-virtual {p0, v0}, Landroid/server/BluetoothService;->switchConnectable(Z)V
 
-    .line 871
+    .line 507
     invoke-direct {p0}, Landroid/server/BluetoothService;->updateSdpRecords()V
     :try_end_11
     .catchall {:try_start_b .. :try_end_11} :catchall_13
 
-    .line 872
+    .line 508
     const/4 v0, 0x1
 
     goto :goto_8
 
-    .line 867
+    .line 503
     :catchall_13
     move-exception v0
 
@@ -16973,7 +10675,7 @@
     .registers 4
 
     .prologue
-    .line 2063
+    .line 1074
     monitor-enter p0
 
     :try_start_1
@@ -16985,7 +10687,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2065
+    .line 1076
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
     :try_end_d
     .catchall {:try_start_1 .. :try_end_d} :catchall_18
@@ -16996,7 +10698,7 @@
 
     const/4 v0, 0x0
 
-    .line 2067
+    .line 1078
     :goto_11
     monitor-exit p0
 
@@ -17012,7 +10714,7 @@
 
     goto :goto_11
 
-    .line 2063
+    .line 1074
     :catchall_18
     move-exception v0
 
@@ -17027,7 +10729,7 @@
     .parameter "callback"
 
     .prologue
-    .line 3605
+    .line 2223
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -17036,12 +10738,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3607
+    .line 2225
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
     monitor-enter v1
 
-    .line 3608
+    .line 2226
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
@@ -17053,7 +10755,7 @@
 
     return v0
 
-    .line 3609
+    .line 2227
     :catchall_14
     move-exception v0
 
@@ -17064,314 +10766,13 @@
     throw v0
 .end method
 
-.method public registerEl2capConnection(Landroid/bluetooth/IBluetoothCallback;I)I
-    .registers 6
-    .parameter "callback"
-    .parameter "desiredAmpPolicy"
-
-    .prologue
-    .line 2783
-    iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v1, "android.permission.BLUETOOTH"
-
-    const-string v2, "Need BLUETOOTH permission"
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 2785
-    iget-object v0, p0, Landroid/server/BluetoothService;->mConnectionManager:Landroid/server/BluetoothService$ConnectionManager;
-
-    invoke-virtual {v0, p1, p2}, Landroid/server/BluetoothService$ConnectionManager;->registerEl2capConnection(Landroid/bluetooth/IBluetoothCallback;I)I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method native registerHealthApplicationNative(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 .end method
 
 .method native registerHealthApplicationNative(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 .end method
 
-.method public registerService(Landroid/os/ParcelUuid;Z)Z
-    .registers 7
-    .parameter "uuid"
-    .parameter "enable"
-
-    .prologue
-    const/4 v0, 0x0
-
-    .line 601
-    iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v2, "android.permission.BLUETOOTH_ADMIN"
-
-    const-string v3, "Need BLUETOOTH_ADMIN permission"
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 603
-    const-string v1, "BluetoothService"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "registerService UUID: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, " "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "register = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 604
-    if-nez p1, :cond_37
-
-    .line 620
-    :goto_36
-    return v0
-
-    .line 606
-    :cond_37
-    invoke-static {p1}, Landroid/bluetooth/BluetoothUuid;->isFileTransfer(Landroid/os/ParcelUuid;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_49
-
-    .line 607
-    if-eqz p2, :cond_44
-
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->enableFTP()Z
-
-    move-result v0
-
-    goto :goto_36
-
-    .line 608
-    :cond_44
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->disableFTP()Z
-
-    move-result v0
-
-    goto :goto_36
-
-    .line 609
-    :cond_49
-    invoke-static {p1}, Landroid/bluetooth/BluetoothUuid;->isMessageAccessServer(Landroid/os/ParcelUuid;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5b
-
-    .line 610
-    if-eqz p2, :cond_56
-
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->enableMAP()Z
-
-    move-result v0
-
-    goto :goto_36
-
-    .line 611
-    :cond_56
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->disableMAP()Z
-
-    move-result v0
-
-    goto :goto_36
-
-    .line 612
-    :cond_5b
-    invoke-static {p1}, Landroid/bluetooth/BluetoothUuid;->isDun(Landroid/os/ParcelUuid;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_6d
-
-    .line 613
-    if-eqz p2, :cond_68
-
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->enableDUN()Z
-
-    move-result v0
-
-    goto :goto_36
-
-    .line 614
-    :cond_68
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->disableDUN()Z
-
-    move-result v0
-
-    goto :goto_36
-
-    .line 615
-    :cond_6d
-    invoke-static {p1}, Landroid/bluetooth/BluetoothUuid;->isSap(Landroid/os/ParcelUuid;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_7f
-
-    .line 616
-    if-eqz p2, :cond_7a
-
-    invoke-direct {p0}, Landroid/server/BluetoothService;->enableSAP()Z
-
-    move-result v0
-
-    goto :goto_36
-
-    .line 617
-    :cond_7a
-    invoke-direct {p0}, Landroid/server/BluetoothService;->disableSAP()Z
-
-    move-result v0
-
-    goto :goto_36
-
-    .line 619
-    :cond_7f
-    const-string v1, "BluetoothService"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Unsupported service UUID: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, " "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "register = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_36
-.end method
-
 .method native releaseChannelFdNative(Ljava/lang/String;)Z
-.end method
-
-.method declared-synchronized removeAllProfileState()V
-    .registers 4
-
-    .prologue
-    .line 3785
-    monitor-enter p0
-
-    :try_start_1
-    iget-object v2, p0, Landroid/server/BluetoothService;->mDeviceProfileState:Ljava/util/HashMap;
-
-    invoke-virtual {v2}, Ljava/util/HashMap;->values()Ljava/util/Collection;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    .local v0, i$:Ljava/util/Iterator;
-    :cond_b
-    :goto_b
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_20
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/bluetooth/BluetoothDeviceProfileState;
-
-    .line 3786
-    .local v1, state:Landroid/bluetooth/BluetoothDeviceProfileState;
-    if-eqz v1, :cond_b
-
-    .line 3787
-    invoke-virtual {v1}, Landroid/bluetooth/BluetoothDeviceProfileState;->quit()V
-    :try_end_1c
-    .catchall {:try_start_1 .. :try_end_1c} :catchall_1d
-
-    goto :goto_b
-
-    .line 3785
-    .end local v0           #i$:Ljava/util/Iterator;
-    .end local v1           #state:Landroid/bluetooth/BluetoothDeviceProfileState;
-    :catchall_1d
-    move-exception v2
-
-    monitor-exit p0
-
-    throw v2
-
-    .line 3790
-    .restart local v0       #i$:Ljava/util/Iterator;
-    :cond_20
-    :try_start_20
-    iget-object v2, p0, Landroid/server/BluetoothService;->mDeviceProfileState:Ljava/util/HashMap;
-
-    invoke-virtual {v2}, Ljava/util/HashMap;->clear()V
-    :try_end_25
-    .catchall {:try_start_20 .. :try_end_25} :catchall_1d
-
-    .line 3791
-    monitor-exit p0
-
-    return-void
 .end method
 
 .method public declared-synchronized removeBond(Ljava/lang/String;)Z
@@ -17381,7 +10782,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 2090
+    .line 1101
     monitor-enter p0
 
     :try_start_2
@@ -17393,7 +10794,7 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2092
+    .line 1103
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
     :try_end_e
     .catchall {:try_start_2 .. :try_end_e} :catchall_2a
@@ -17402,14 +10803,14 @@
 
     if-nez v2, :cond_13
 
-    .line 2102
+    .line 1113
     :cond_11
     :goto_11
     monitor-exit p0
 
     return v1
 
-    .line 2094
+    .line 1105
     :cond_13
     :try_start_13
     invoke-static {p1}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
@@ -17418,7 +10819,7 @@
 
     if-eqz v2, :cond_11
 
-    .line 2097
+    .line 1108
     iget-object v2, p0, Landroid/server/BluetoothService;->mDeviceProfileState:Ljava/util/HashMap;
 
     invoke-virtual {v2, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -17427,23 +10828,23 @@
 
     check-cast v0, Landroid/bluetooth/BluetoothDeviceProfileState;
 
-    .line 2098
+    .line 1109
     .local v0, state:Landroid/bluetooth/BluetoothDeviceProfileState;
     if-eqz v0, :cond_11
 
-    .line 2099
+    .line 1110
     const/16 v1, 0x64
 
     invoke-virtual {v0, v1}, Landroid/bluetooth/BluetoothDeviceProfileState;->sendMessage(I)V
     :try_end_28
     .catchall {:try_start_13 .. :try_end_28} :catchall_2a
 
-    .line 2100
+    .line 1111
     const/4 v1, 0x1
 
     goto :goto_11
 
-    .line 2090
+    .line 1101
     .end local v0           #state:Landroid/bluetooth/BluetoothDeviceProfileState;
     :catchall_2a
     move-exception v1
@@ -17458,7 +10859,7 @@
     .parameter "address"
 
     .prologue
-    .line 2108
+    .line 1119
     monitor-enter p0
 
     const/4 v0, 0x0
@@ -17466,7 +10867,7 @@
     :try_start_2
     invoke-virtual {p0, p1, v0}, Landroid/server/BluetoothService;->setTrust(Ljava/lang/String;Z)Z
 
-    .line 2109
+    .line 1120
     invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->getObjectPathFromAddress(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -17481,7 +10882,7 @@
 
     return v0
 
-    .line 2108
+    .line 1119
     :catchall_f
     move-exception v0
 
@@ -17490,26 +10891,12 @@
     throw v0
 .end method
 
-.method removeGattServiceProperties(Ljava/lang/String;)V
-    .registers 3
-    .parameter "path"
-
-    .prologue
-    .line 4274
-    iget-object v0, p0, Landroid/server/BluetoothService;->mGattProperties:Ljava/util/HashMap;
-
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 4275
-    return-void
-.end method
-
 .method removeProfileState(Ljava/lang/String;)V
     .registers 4
     .parameter "address"
 
     .prologue
-    .line 3794
+    .line 2403
     iget-object v1, p0, Landroid/server/BluetoothService;->mDeviceProfileState:Ljava/util/HashMap;
 
     invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -17518,19 +10905,19 @@
 
     check-cast v0, Landroid/bluetooth/BluetoothDeviceProfileState;
 
-    .line 3795
+    .line 2404
     .local v0, state:Landroid/bluetooth/BluetoothDeviceProfileState;
     if-nez v0, :cond_b
 
-    .line 3799
+    .line 2408
     :goto_a
     return-void
 
-    .line 3797
+    .line 2406
     :cond_b
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothDeviceProfileState;->quit()V
 
-    .line 3798
+    .line 2407
     iget-object v1, p0, Landroid/server/BluetoothService;->mDeviceProfileState:Ljava/util/HashMap;
 
     invoke-virtual {v1, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -17543,7 +10930,7 @@
     .parameter "handle"
 
     .prologue
-    .line 2773
+    .line 1553
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v2, "android.permission.BLUETOOTH"
@@ -17552,7 +10939,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2776
+    .line 1556
     invoke-virtual {p0}, Landroid/server/BluetoothService;->getBluetoothStateInternal()I
 
     move-result v1
@@ -17561,11 +10948,11 @@
 
     if-ne v1, v2, :cond_12
 
-    .line 2780
+    .line 1560
     :goto_11
     return-void
 
-    .line 2777
+    .line 1557
     :cond_12
     iget-object v1, p0, Landroid/server/BluetoothService;->mHandler:Landroid/os/Handler;
 
@@ -17575,7 +10962,7 @@
 
     move-result-object v0
 
-    .line 2778
+    .line 1558
     .local v0, message:Landroid/os/Message;
     new-instance v1, Landroid/util/Pair;
 
@@ -17595,7 +10982,7 @@
 
     iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 2779
+    .line 1559
     iget-object v1, p0, Landroid/server/BluetoothService;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
@@ -17607,36 +10994,36 @@
     .registers 6
 
     .prologue
-    .line 1259
+    .line 624
     invoke-direct {p0}, Landroid/server/BluetoothService;->autoConnect()V
 
-    .line 1262
+    .line 627
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v1
 
-    .line 1264
+    .line 629
     .local v1, ident:J
     :try_start_7
     iget-object v3, p0, Landroid/server/BluetoothService;->mBatteryStats:Lcom/android/internal/app/IBatteryStats;
 
     invoke-interface {v3}, Lcom/android/internal/app/IBatteryStats;->noteBluetoothOn()V
     :try_end_c
-    .catchall {:try_start_7 .. :try_end_c} :catchall_19
+    .catchall {:try_start_7 .. :try_end_c} :catchall_1c
     .catch Landroid/os/RemoteException; {:try_start_7 .. :try_end_c} :catch_10
 
-    .line 1268
-    :goto_c
+    .line 633
     invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 1270
+    .line 635
+    :goto_f
     return-void
 
-    .line 1265
+    .line 630
     :catch_10
     move-exception v0
 
-    .line 1266
+    .line 631
     .local v0, e:Landroid/os/RemoteException;
     :try_start_11
     const-string v3, "BluetoothService"
@@ -17645,148 +11032,20 @@
 
     invoke-static {v3, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_18
-    .catchall {:try_start_11 .. :try_end_18} :catchall_19
+    .catchall {:try_start_11 .. :try_end_18} :catchall_1c
 
-    goto :goto_c
+    .line 633
+    invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 1268
+    goto :goto_f
+
     .end local v0           #e:Landroid/os/RemoteException;
-    :catchall_19
+    :catchall_1c
     move-exception v3
 
     invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v3
-.end method
-
-.method public declared-synchronized sapAuthorize(Ljava/lang/String;Z)Z
-    .registers 8
-    .parameter "address"
-    .parameter "access"
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 2516
-    monitor-enter p0
-
-    :try_start_2
-    iget-object v2, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v3, "android.permission.BLUETOOTH_ADMIN"
-
-    const-string v4, "Need BLUETOOTH_ADMIN permission"
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 2518
-    invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
-    :try_end_e
-    .catchall {:try_start_2 .. :try_end_e} :catchall_52
-
-    move-result v2
-
-    if-nez v2, :cond_13
-
-    .line 2530
-    :goto_11
-    monitor-exit p0
-
-    return v1
-
-    .line 2521
-    :cond_13
-    :try_start_13
-    invoke-virtual {p1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 2522
-    iget-object v2, p0, Landroid/server/BluetoothService;->mEventLoop:Landroid/server/BluetoothEventLoop;
-
-    invoke-virtual {v2}, Landroid/server/BluetoothEventLoop;->getAuthorizationRequestData()Ljava/util/HashMap;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/Integer;
-
-    .line 2523
-    .local v0, data:Ljava/lang/Integer;
-    if-nez v0, :cond_55
-
-    .line 2524
-    const-string v2, "BluetoothService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "sapAuthorize("
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, ") called but no native data available, "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "ignoring. Maybe the PasskeyAgent Request was cancelled by the remote device"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, " or by bluez.\n"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_51
-    .catchall {:try_start_13 .. :try_end_51} :catchall_52
-
-    goto :goto_11
-
-    .line 2516
-    .end local v0           #data:Ljava/lang/Integer;
-    :catchall_52
-    move-exception v1
-
-    monitor-exit p0
-
-    throw v1
-
-    .line 2530
-    .restart local v0       #data:Ljava/lang/Integer;
-    :cond_55
-    :try_start_55
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    invoke-direct {p0, p1, p2, v1}, Landroid/server/BluetoothService;->sapAuthorizeNative(Ljava/lang/String;ZI)Z
-    :try_end_5c
-    .catchall {:try_start_55 .. :try_end_5c} :catchall_52
-
-    move-result v1
-
-    goto :goto_11
 .end method
 
 .method public declared-synchronized sendConnectionStateChange(Landroid/bluetooth/BluetoothDevice;III)V
@@ -17797,7 +11056,7 @@
     .parameter "prevState"
 
     .prologue
-    .line 3990
+    .line 2578
     monitor-enter p0
 
     :try_start_1
@@ -17811,14 +11070,14 @@
 
     if-ne v1, v2, :cond_b
 
-    .line 4028
+    .line 2611
     :cond_9
     :goto_9
     monitor-exit p0
 
     return-void
 
-    .line 3992
+    .line 2580
     :cond_b
     :try_start_b
     invoke-direct {p0, p3}, Landroid/server/BluetoothService;->validateProfileConnectionState(I)Z
@@ -17833,7 +11092,7 @@
 
     if-nez v1, :cond_3d
 
-    .line 3998
+    .line 2586
     :cond_17
     const-string v1, "BluetoothService"
 
@@ -17871,7 +11130,7 @@
 
     goto :goto_9
 
-    .line 3990
+    .line 2578
     :catchall_3a
     move-exception v1
 
@@ -17879,54 +11138,46 @@
 
     throw v1
 
-    .line 4003
+    .line 2591
     :cond_3d
     :try_start_3d
     invoke-direct {p0, p2, p3, p4}, Landroid/server/BluetoothService;->updateProfileConnectionState(III)V
 
-    .line 4005
+    .line 2593
     invoke-direct {p0, p3, p4}, Landroid/server/BluetoothService;->updateCountersAndCheckForConnectionStateChange(II)Z
 
     move-result v1
 
     if-eqz v1, :cond_9
 
-    .line 4006
+    .line 2594
     iput p3, p0, Landroid/server/BluetoothService;->mAdapterConnectionState:I
 
-    .line 4008
-    if-nez p3, :cond_57
+    .line 2596
+    if-nez p3, :cond_51
 
-    .line 4009
-    invoke-direct {p0}, Landroid/server/BluetoothService;->getConnectedDeviceList()Ljava/util/List;
-
-    move-result-object v1
-
-    if-nez v1, :cond_af
-
-    .line 4010
+    .line 2597
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothState:Landroid/server/BluetoothAdapterStateMachine;
 
     const/16 v2, 0x34
 
     invoke-virtual {v1, v2}, Landroid/server/BluetoothAdapterStateMachine;->sendMessage(I)V
 
-    .line 4017
-    :cond_57
-    :goto_57
+    .line 2600
+    :cond_51
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.bluetooth.adapter.action.CONNECTION_STATE_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 4018
+    .line 2601
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "android.bluetooth.device.extra.DEVICE"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 4019
+    .line 2602
     const-string v1, "android.bluetooth.adapter.extra.CONNECTION_STATE"
 
     invoke-direct {p0, p3}, Landroid/server/BluetoothService;->convertToAdapterState(I)I
@@ -17935,7 +11186,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 4021
+    .line 2604
     const-string v1, "android.bluetooth.adapter.extra.PREVIOUS_CONNECTION_STATE"
 
     invoke-direct {p0, p4}, Landroid/server/BluetoothService;->convertToAdapterState(I)I
@@ -17944,19 +11195,19 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 4023
+    .line 2606
     const/high16 v1, 0x1000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 4024
+    .line 2607
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v2, "android.permission.BLUETOOTH"
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
-    .line 4025
+    .line 2608
     const-string v1, "BluetoothService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -17998,370 +11249,10 @@
     move-result-object v2
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_a7
+    .catchall {:try_start_3d .. :try_end_a7} :catchall_3a
 
     goto/16 :goto_9
-
-    .line 4012
-    .end local v0           #intent:Landroid/content/Intent;
-    :cond_af
-    invoke-direct {p0}, Landroid/server/BluetoothService;->updateDeviceDisconnectStatetoAdapter()V
-
-    .line 4013
-    invoke-direct {p0}, Landroid/server/BluetoothService;->forceDisconnectOnConnectedDevices()V
-    :try_end_b5
-    .catchall {:try_start_3d .. :try_end_b5} :catchall_3a
-
-    goto :goto_57
-.end method
-
-.method declared-synchronized sendGattIntent(Ljava/lang/String;I)V
-    .registers 17
-    .parameter "address"
-    .parameter "result"
-
-    .prologue
-    .line 4357
-    monitor-enter p0
-
-    :try_start_1
-    new-instance v5, Landroid/content/Intent;
-
-    const-string v11, "android.bluetooth.device.action.GATT"
-
-    invoke-direct {v5, v11}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 4358
-    .local v5, intent:Landroid/content/Intent;
-    const/4 v9, 0x0
-
-    .line 4360
-    .local v9, uuids:[Landroid/os/ParcelUuid;
-    const/4 v1, 0x1
-
-    .line 4362
-    .local v1, count:I
-    const/4 v6, 0x0
-
-    .line 4364
-    .local v6, isScheduled:Z
-    monitor-enter p0
-    :try_end_c
-    .catchall {:try_start_1 .. :try_end_c} :catchall_41
-
-    .line 4365
-    :try_start_c
-    iget-object v11, p0, Landroid/server/BluetoothService;->mGattIntentTracker:Ljava/util/HashMap;
-
-    invoke-virtual {v11, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_39
-
-    .line 4367
-    iget-object v11, p0, Landroid/server/BluetoothService;->mGattIntentTracker:Ljava/util/HashMap;
-
-    invoke-virtual {v11, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v8
-
-    check-cast v8, Ljava/util/ArrayList;
-
-    .line 4368
-    .local v8, serviceUuids:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/ParcelUuid;>;"
-    const/4 v6, 0x1
-
-    .line 4370
-    if-eqz v8, :cond_2d
-
-    .line 4371
-    invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
-
-    move-result v11
-
-    new-array v9, v11, [Landroid/os/ParcelUuid;
-
-    .line 4372
-    invoke-virtual {v8, v9}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-
-    move-result-object v11
-
-    move-object v0, v11
-
-    check-cast v0, [Landroid/os/ParcelUuid;
-
-    move-object v9, v0
-
-    .line 4375
-    :cond_2d
-    const-string v11, "BluetoothService"
-
-    const-string v12, "Clear GATT INTENT tracker"
-
-    invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4376
-    iget-object v11, p0, Landroid/server/BluetoothService;->mGattIntentTracker:Ljava/util/HashMap;
-
-    invoke-virtual {v11, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 4378
-    .end local v8           #serviceUuids:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/ParcelUuid;>;"
-    :cond_39
-    monitor-exit p0
-    :try_end_3a
-    .catchall {:try_start_c .. :try_end_3a} :catchall_3e
-
-    .line 4380
-    if-nez v6, :cond_44
-
-    .line 4419
-    :cond_3c
-    :goto_3c
-    monitor-exit p0
-
-    return-void
-
-    .line 4378
-    :catchall_3e
-    move-exception v11
-
-    :try_start_3f
-    monitor-exit p0
-    :try_end_40
-    .catchall {:try_start_3f .. :try_end_40} :catchall_3e
-
-    :try_start_40
-    throw v11
-    :try_end_41
-    .catchall {:try_start_40 .. :try_end_41} :catchall_41
-
-    .line 4357
-    .end local v1           #count:I
-    .end local v5           #intent:Landroid/content/Intent;
-    .end local v6           #isScheduled:Z
-    .end local v9           #uuids:[Landroid/os/ParcelUuid;
-    :catchall_41
-    move-exception v11
-
-    monitor-exit p0
-
-    throw v11
-
-    .line 4383
-    .restart local v1       #count:I
-    .restart local v5       #intent:Landroid/content/Intent;
-    .restart local v6       #isScheduled:Z
-    .restart local v9       #uuids:[Landroid/os/ParcelUuid;
-    :cond_44
-    if-eqz v9, :cond_78
-
-    .line 4384
-    :try_start_46
-    array-length v1, v9
-
-    .line 4385
-    const/4 v4, 0x0
-
-    .local v4, i:I
-    :goto_48
-    if-ge v4, v1, :cond_3c
-
-    .line 4387
-    aget-object v11, v9, v4
-
-    invoke-direct {p0, p1, v11}, Landroid/server/BluetoothService;->matchGattService(Ljava/lang/String;Landroid/os/ParcelUuid;)[Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 4389
-    .local v2, gattPath:[Ljava/lang/String;
-    const-string v11, "android.bluetooth.device.extra.DEVICE"
-
-    iget-object v12, p0, Landroid/server/BluetoothService;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
-
-    invoke-virtual {v12, p1}, Landroid/bluetooth/BluetoothAdapter;->getRemoteDevice(Ljava/lang/String;)Landroid/bluetooth/BluetoothDevice;
-
-    move-result-object v12
-
-    invoke-virtual {v5, v11, v12}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
-
-    .line 4390
-    const-string v11, "android.bluetooth.device.extra.UUID"
-
-    aget-object v12, v9, v4
-
-    invoke-virtual {v5, v11, v12}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
-
-    .line 4391
-    const-string v11, "android.bluetooth.device.extra.GATT"
-
-    invoke-virtual {v5, v11, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 4392
-    const-string v11, "android.bluetooth.device.extra.GATT_RESULT"
-
-    move/from16 v0, p2
-
-    invoke-virtual {v5, v11, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    .line 4393
-    iget-object v11, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v12, "android.permission.BLUETOOTH_ADMIN"
-
-    invoke-virtual {v11, v5, v12}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
-
-    .line 4385
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_48
-
-    .line 4396
-    .end local v2           #gattPath:[Ljava/lang/String;
-    .end local v4           #i:I
-    :cond_78
-    const-string v11, "BluetoothService"
-
-    const-string v12, "Send intents about all services found on the remote devices"
-
-    invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4398
-    iget-object v11, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
-
-    const-string v12, "Services"
-
-    invoke-virtual {v11, p1, v12}, Landroid/server/BluetoothDeviceProperties;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v10
-
-    .line 4399
-    .local v10, value:Ljava/lang/String;
-    if-nez v10, :cond_a2
-
-    .line 4400
-    const-string v11, "BluetoothService"
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v13, "No GATT based services were found on "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_3c
-
-    .line 4403
-    :cond_a2
-    const-string v11, "BluetoothService"
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v13, "GattServices: "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4405
-    const/4 v3, 0x0
-
-    .line 4407
-    .local v3, gattServicePaths:[Ljava/lang/String;
-    const-string v11, ","
-
-    invoke-virtual {v10, v11}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 4410
-    const/4 v4, 0x0
-
-    .restart local v4       #i:I
-    :goto_c2
-    array-length v11, v3
-
-    if-ge v4, v11, :cond_3c
-
-    .line 4411
-    aget-object v11, v3, v4
-
-    const-string v12, "UUID"
-
-    invoke-virtual {p0, v11, v12}, Landroid/server/BluetoothService;->getGattServiceProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    .line 4412
-    .local v7, serviceUuid:Ljava/lang/String;
-    const-string v11, "android.bluetooth.device.extra.DEVICE"
-
-    iget-object v12, p0, Landroid/server/BluetoothService;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
-
-    invoke-virtual {v12, p1}, Landroid/bluetooth/BluetoothAdapter;->getRemoteDevice(Ljava/lang/String;)Landroid/bluetooth/BluetoothDevice;
-
-    move-result-object v12
-
-    invoke-virtual {v5, v11, v12}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
-
-    .line 4413
-    const-string v11, "android.bluetooth.device.extra.UUID"
-
-    invoke-virtual {v5, v11, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 4414
-    const-string v11, "android.bluetooth.device.extra.GATT"
-
-    aget-object v12, v3, v4
-
-    invoke-virtual {v5, v11, v12}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 4415
-    const-string v11, "android.bluetooth.device.extra.GATT_RESULT"
-
-    move/from16 v0, p2
-
-    invoke-virtual {v5, v11, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    .line 4416
-    iget-object v11, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v12, "android.permission.BLUETOOTH_ADMIN"
-
-    invoke-virtual {v11, v5, v12}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
-    :try_end_f2
-    .catchall {:try_start_46 .. :try_end_f2} :catchall_41
-
-    .line 4410
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_c2
 .end method
 
 .method public sendProfileStateMessage(II)V
@@ -18370,35 +11261,35 @@
     .parameter "cmd"
 
     .prologue
-    .line 3914
+    .line 2502
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 3915
+    .line 2503
     .local v0, msg:Landroid/os/Message;
     iput p2, v0, Landroid/os/Message;->what:I
 
-    .line 3916
+    .line 2504
     if-nez p1, :cond_f
 
-    .line 3917
+    .line 2505
     iget-object v1, p0, Landroid/server/BluetoothService;->mHfpProfileState:Landroid/bluetooth/BluetoothProfileState;
 
     invoke-virtual {v1, v0}, Landroid/bluetooth/BluetoothProfileState;->sendMessage(Landroid/os/Message;)V
 
-    .line 3921
+    .line 2509
     :cond_e
     :goto_e
     return-void
 
-    .line 3918
+    .line 2506
     :cond_f
     const/4 v1, 0x1
 
     if-ne p1, v1, :cond_e
 
-    .line 3919
+    .line 2507
     iget-object v1, p0, Landroid/server/BluetoothService;->mA2dpProfileState:Landroid/bluetooth/BluetoothProfileState;
 
     invoke-virtual {v1, v0}, Landroid/bluetooth/BluetoothProfileState;->sendMessage(Landroid/os/Message;)V
@@ -18411,7 +11302,7 @@
     .parameter "address"
 
     .prologue
-    .line 3080
+    .line 1718
     monitor-enter p0
 
     :try_start_1
@@ -18419,7 +11310,7 @@
 
     move-result-object v1
 
-    .line 3081
+    .line 1719
     .local v1, uuid:[Landroid/os/ParcelUuid;
     new-instance v0, Landroid/content/Intent;
 
@@ -18427,7 +11318,7 @@
 
     invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 3082
+    .line 1720
     .local v0, intent:Landroid/content/Intent;
     const-string v2, "android.bluetooth.device.extra.DEVICE"
 
@@ -18439,31 +11330,31 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 3083
+    .line 1721
     const-string v2, "android.bluetooth.device.extra.UUID"
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 3084
+    .line 1722
     iget-object v2, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v3, "android.permission.BLUETOOTH_ADMIN"
 
     invoke-virtual {v2, v0, v3}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
-    .line 3085
+    .line 1723
     iget-object v2, p0, Landroid/server/BluetoothService;->mUuidIntentTracker:Ljava/util/ArrayList;
 
     invoke-virtual {v2, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
     :try_end_28
     .catchall {:try_start_1 .. :try_end_28} :catchall_2a
 
-    .line 3086
+    .line 1724
     monitor-exit p0
 
     return-void
 
-    .line 3080
+    .line 1718
     .end local v0           #intent:Landroid/content/Intent;
     .end local v1           #uuid:[Landroid/os/ParcelUuid;
     :catchall_2a
@@ -18479,65 +11370,14 @@
     .parameter "a2dpService"
 
     .prologue
-    .line 3905
+    .line 2493
     iput-object p1, p0, Landroid/server/BluetoothService;->mA2dpService:Landroid/server/BluetoothA2dpService;
 
-    .line 3906
+    .line 2494
     return-void
 .end method
 
 .method native setAuthorizationNative(Ljava/lang/String;ZI)Z
-.end method
-
-.method public setBluetoothClass(Ljava/lang/String;I)Z
-    .registers 7
-    .parameter "address"
-    .parameter "classOfDevice"
-
-    .prologue
-    const/4 v0, 0x0
-
-    .line 1811
-    invoke-static {p1}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_11
-
-    .line 1812
-    iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v2, "android.permission.BLUETOOTH_ADMIN"
-
-    const-string v3, "Need BLUETOOTH_ADMIN permission"
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1819
-    :cond_10
-    :goto_10
-    return v0
-
-    .line 1817
-    :cond_11
-    invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_10
-
-    .line 1819
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->getObjectPathFromAddress(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "Class"
-
-    invoke-direct {p0, v0, v1, p2}, Landroid/server/BluetoothService;->setDevicePropertyIntegerNative(Ljava/lang/String;Ljava/lang/String;I)Z
-
-    move-result v0
-
-    goto :goto_10
 .end method
 
 .method public setBluetoothTethering(Z)V
@@ -18545,7 +11385,7 @@
     .parameter "value"
 
     .prologue
-    .line 3430
+    .line 2048
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -18554,24 +11394,24 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3431
+    .line 2049
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
     monitor-enter v1
 
-    .line 3432
+    .line 2050
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothPanProfileHandler:Landroid/server/BluetoothPanProfileHandler;
 
     invoke-virtual {v0, p1}, Landroid/server/BluetoothPanProfileHandler;->setBluetoothTethering(Z)V
 
-    .line 3433
+    .line 2051
     monitor-exit v1
 
-    .line 3434
+    .line 2052
     return-void
 
-    .line 3433
+    .line 2051
     :catchall_13
     move-exception v0
 
@@ -18591,7 +11431,7 @@
     .parameter "state"
 
     .prologue
-    .line 2175
+    .line 1141
     monitor-enter p0
 
     const/4 v0, 0x0
@@ -18622,7 +11462,7 @@
     .parameter "reason"
 
     .prologue
-    .line 2179
+    .line 1145
     monitor-enter p0
 
     :try_start_1
@@ -18636,177 +11476,20 @@
     :try_end_a
     .catchall {:try_start_1 .. :try_end_a} :catchall_d
 
-    .line 2180
+    .line 1146
     const/4 v0, 0x1
 
     monitor-exit p0
 
     return v0
 
-    .line 2179
+    .line 1145
     :catchall_d
     move-exception v0
 
     monitor-exit p0
 
     throw v0
-.end method
-
-.method public declared-synchronized setCharacteristicProperty(Ljava/lang/String;Ljava/lang/String;[BZ)Z
-    .registers 13
-    .parameter "path"
-    .parameter "key"
-    .parameter "value"
-    .parameter "reliable"
-
-    .prologue
-    const/4 v6, 0x0
-
-    .line 4644
-    monitor-enter p0
-
-    :try_start_2
-    iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v1, "android.permission.BLUETOOTH"
-
-    const-string v2, "Need BLUETOOTH permission"
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 4645
-    invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
-    :try_end_e
-    .catchall {:try_start_2 .. :try_end_e} :catchall_43
-
-    move-result v0
-
-    if-nez v0, :cond_13
-
-    .line 4664
-    :cond_11
-    :goto_11
-    monitor-exit p0
-
-    return v6
-
-    .line 4647
-    :cond_13
-    if-eqz p1, :cond_11
-
-    .line 4651
-    const/4 v0, 0x0
-
-    :try_start_16
-    const-string v1, "/characteristic"
-
-    invoke-virtual {p1, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v1
-
-    invoke-virtual {p1, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v7
-
-    .line 4653
-    .local v7, servicePath:Ljava/lang/String;
-    if-eqz v7, :cond_11
-
-    .line 4657
-    iget-object v0, p0, Landroid/server/BluetoothService;->mGattServices:Ljava/util/SortedMap;
-
-    invoke-interface {v0, v7}, Ljava/util/SortedMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_46
-
-    .line 4658
-    const-string v0, "BluetoothService"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Service not present "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_42
-    .catchall {:try_start_16 .. :try_end_42} :catchall_43
-
-    goto :goto_11
-
-    .line 4644
-    .end local v7           #servicePath:Ljava/lang/String;
-    :catchall_43
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-
-    .line 4662
-    .restart local v7       #servicePath:Ljava/lang/String;
-    :cond_46
-    :try_start_46
-    array-length v4, p3
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-object v2, p2
-
-    move-object v3, p3
-
-    move v5, p4
-
-    invoke-direct/range {v0 .. v5}, Landroid/server/BluetoothService;->setCharacteristicPropertyNative(Ljava/lang/String;Ljava/lang/String;[BIZ)Z
-    :try_end_4f
-    .catchall {:try_start_46 .. :try_end_4f} :catchall_43
-
-    move-result v6
-
-    .line 4664
-    .local v6, ret:Z
-    goto :goto_11
-.end method
-
-.method public setDesiredAmpPolicy(II)Z
-    .registers 6
-    .parameter "handle"
-    .parameter "policy"
-
-    .prologue
-    .line 2801
-    iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v1, "android.permission.BLUETOOTH"
-
-    const-string v2, "Need BLUETOOTH permission"
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 2803
-    iget-object v0, p0, Landroid/server/BluetoothService;->mConnectionManager:Landroid/server/BluetoothService$ConnectionManager;
-
-    invoke-virtual {v0, p1, p2}, Landroid/server/BluetoothService$ConnectionManager;->setDesiredAmpPolicy(II)Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method public declared-synchronized setDeviceOutOfBandData(Ljava/lang/String;[B[B)Z
@@ -18816,7 +11499,7 @@
     .parameter "randomizer"
 
     .prologue
-    .line 2042
+    .line 1053
     monitor-enter p0
 
     :try_start_1
@@ -18828,7 +11511,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2044
+    .line 1055
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
     :try_end_d
     .catchall {:try_start_1 .. :try_end_d} :catchall_53
@@ -18839,20 +11522,20 @@
 
     const/4 v1, 0x0
 
-    .line 2054
+    .line 1065
     :goto_11
     monitor-exit p0
 
     return v1
 
-    .line 2046
+    .line 1057
     :cond_13
     :try_start_13
     new-instance v0, Landroid/util/Pair;
 
     invoke-direct {v0, p2, p3}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    .line 2049
+    .line 1060
     .local v0, value:Landroid/util/Pair;,"Landroid/util/Pair<[B[B>;"
     const-string v1, "BluetoothService"
 
@@ -18904,19 +11587,19 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2053
+    .line 1064
     iget-object v1, p0, Landroid/server/BluetoothService;->mDeviceOobData:Ljava/util/HashMap;
 
     invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_51
     .catchall {:try_start_13 .. :try_end_51} :catchall_53
 
-    .line 2054
+    .line 1065
     const/4 v1, 0x1
 
     goto :goto_11
 
-    .line 2042
+    .line 1053
     .end local v0           #value:Landroid/util/Pair;,"Landroid/util/Pair<[B[B>;"
     :catchall_53
     move-exception v1
@@ -18931,7 +11614,7 @@
     .parameter "timeout"
 
     .prologue
-    .line 1594
+    .line 763
     monitor-enter p0
 
     :try_start_1
@@ -18943,7 +11626,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1596
+    .line 765
     const-string v0, "DiscoverableTimeout"
 
     invoke-direct {p0, v0, p1}, Landroid/server/BluetoothService;->setPropertyInteger(Ljava/lang/String;I)Z
@@ -18956,7 +11639,7 @@
 
     return v0
 
-    .line 1594
+    .line 763
     :catchall_12
     move-exception v0
 
@@ -18971,7 +11654,7 @@
     .parameter "priority"
 
     .prologue
-    .line 3554
+    .line 2172
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH_ADMIN"
@@ -18980,12 +11663,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3556
+    .line 2174
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
     monitor-enter v1
 
-    .line 3557
+    .line 2175
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothInputProfileHandler:Landroid/server/BluetoothInputProfileHandler;
 
@@ -18997,7 +11680,7 @@
 
     return v0
 
-    .line 3558
+    .line 2176
     :catchall_14
     move-exception v0
 
@@ -19008,86 +11691,24 @@
     throw v0
 .end method
 
-.method public setLEConnectionParams(Ljava/lang/String;IIII)Z
-    .registers 12
-    .parameter "address"
-    .parameter "intervalMin"
-    .parameter "intervalMax"
-    .parameter "slaveLatency"
-    .parameter "supervisionTimeout"
-
-    .prologue
-    const/4 v0, 0x0
-
-    .line 1828
-    invoke-static {p1}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_11
-
-    .line 1829
-    iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v2, "android.permission.BLUETOOTH_ADMIN"
-
-    const-string v3, "Need BLUETOOTH_ADMIN permission"
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1836
-    :cond_10
-    :goto_10
-    return v0
-
-    .line 1834
-    :cond_11
-    invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_10
-
-    .line 1836
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->getObjectPathFromAddress(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    move-object v0, p0
-
-    move v2, p2
-
-    move v3, p3
-
-    move v4, p4
-
-    move v5, p5
-
-    invoke-direct/range {v0 .. v5}, Landroid/server/BluetoothService;->setConnectionParametersNative(Ljava/lang/String;IIII)Z
-
-    move-result v0
-
-    goto :goto_10
-.end method
-
 .method setLinkTimeout(Ljava/lang/String;I)V
     .registers 8
     .parameter "address"
     .parameter "num_slots"
 
     .prologue
-    .line 3407
+    .line 2025
     invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->getObjectPathFromAddress(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 3408
+    .line 2026
     .local v0, path:Ljava/lang/String;
     invoke-direct {p0, v0, p2}, Landroid/server/BluetoothService;->setLinkTimeoutNative(Ljava/lang/String;I)Z
 
     move-result v1
 
-    .line 3410
+    .line 2028
     .local v1, result:Z
     if-nez v1, :cond_28
 
@@ -19119,7 +11740,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3411
+    .line 2029
     :cond_28
     return-void
 .end method
@@ -19129,7 +11750,7 @@
     .parameter "name"
 
     .prologue
-    .line 1554
+    .line 723
     monitor-enter p0
 
     :try_start_1
@@ -19143,13 +11764,13 @@
     :try_end_a
     .catchall {:try_start_1 .. :try_end_a} :catchall_16
 
-    .line 1556
+    .line 725
     if-nez p1, :cond_f
 
-    .line 1557
+    .line 726
     const/4 v0, 0x0
 
-    .line 1559
+    .line 728
     :goto_d
     monitor-exit p0
 
@@ -19167,7 +11788,7 @@
 
     goto :goto_d
 
-    .line 1554
+    .line 723
     :catchall_16
     move-exception v0
 
@@ -19180,7 +11801,7 @@
     .registers 4
 
     .prologue
-    .line 1672
+    .line 810
     monitor-enter p0
 
     :try_start_1
@@ -19192,11 +11813,11 @@
 
     move-result-object v0
 
-    .line 1673
+    .line 811
     .local v0, pairableString:Ljava/lang/String;
     if-nez v0, :cond_14
 
-    .line 1674
+    .line 812
     const-string v1, "BluetoothService"
 
     const-string/jumbo v2, "null pairableString"
@@ -19205,14 +11826,14 @@
     :try_end_12
     .catchall {:try_start_1 .. :try_end_12} :catchall_23
 
-    .line 1680
+    .line 818
     :cond_12
     :goto_12
     monitor-exit p0
 
     return-void
 
-    .line 1677
+    .line 815
     :cond_14
     :try_start_14
     const-string v1, "false"
@@ -19223,7 +11844,7 @@
 
     if-eqz v1, :cond_12
 
-    .line 1678
+    .line 816
     const-string v1, "Pairable"
 
     const/4 v2, 0x1
@@ -19234,7 +11855,7 @@
 
     goto :goto_12
 
-    .line 1672
+    .line 810
     .end local v0           #pairableString:Ljava/lang/String;
     :catchall_23
     move-exception v1
@@ -19252,7 +11873,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 2553
+    .line 1380
     monitor-enter p0
 
     :try_start_2
@@ -19264,29 +11885,29 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2555
+    .line 1382
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
     :try_end_e
-    .catchall {:try_start_2 .. :try_end_e} :catchall_52
+    .catchall {:try_start_2 .. :try_end_e} :catchall_51
 
     move-result v2
 
     if-nez v2, :cond_13
 
-    .line 2565
+    .line 1392
     :goto_11
     monitor-exit p0
 
     return v1
 
-    .line 2557
+    .line 1384
     :cond_13
     :try_start_13
     invoke-virtual {p1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
     move-result-object p1
 
-    .line 2558
+    .line 1385
     iget-object v2, p0, Landroid/server/BluetoothService;->mEventLoop:Landroid/server/BluetoothEventLoop;
 
     invoke-virtual {v2}, Landroid/server/BluetoothEventLoop;->getPasskeyAgentRequestData()Ljava/util/HashMap;
@@ -19299,11 +11920,11 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 2559
+    .line 1386
     .local v0, data:Ljava/lang/Integer;
-    if-nez v0, :cond_55
+    if-nez v0, :cond_54
 
-    .line 2560
+    .line 1387
     const-string v2, "BluetoothService"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -19326,7 +11947,7 @@
 
     move-result-object v3
 
-    const-string/jumbo v4, "ignoring. Maybe the PasskeyAgent Request was cancelled by the remote device"
+    const-string v4, "ignoring. Maybe the PasskeyAgent Request was cancelled by the remote device"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -19343,31 +11964,31 @@
     move-result-object v3
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_51
-    .catchall {:try_start_13 .. :try_end_51} :catchall_52
+    :try_end_50
+    .catchall {:try_start_13 .. :try_end_50} :catchall_51
 
     goto :goto_11
 
-    .line 2553
+    .line 1380
     .end local v0           #data:Ljava/lang/Integer;
-    :catchall_52
+    :catchall_51
     move-exception v1
 
     monitor-exit p0
 
     throw v1
 
-    .line 2565
+    .line 1392
     .restart local v0       #data:Ljava/lang/Integer;
-    :cond_55
-    :try_start_55
+    :cond_54
+    :try_start_54
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
     invoke-direct {p0, p1, p2, v1}, Landroid/server/BluetoothService;->setPairingConfirmationNative(Ljava/lang/String;ZI)Z
-    :try_end_5c
-    .catchall {:try_start_55 .. :try_end_5c} :catchall_52
+    :try_end_5b
+    .catchall {:try_start_54 .. :try_end_5b} :catchall_51
 
     move-result v1
 
@@ -19382,7 +12003,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 2534
+    .line 1361
     monitor-enter p0
 
     :try_start_2
@@ -19394,23 +12015,23 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2536
+    .line 1363
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
     :try_end_e
-    .catchall {:try_start_2 .. :try_end_e} :catchall_5f
+    .catchall {:try_start_2 .. :try_end_e} :catchall_5e
 
     move-result v2
 
     if-nez v2, :cond_13
 
-    .line 2549
+    .line 1376
     :cond_11
     :goto_11
     monitor-exit p0
 
     return v1
 
-    .line 2538
+    .line 1365
     :cond_13
     if-ltz p2, :cond_11
 
@@ -19425,12 +12046,12 @@
 
     if-eqz v2, :cond_11
 
-    .line 2541
+    .line 1368
     invoke-virtual {p1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
     move-result-object p1
 
-    .line 2542
+    .line 1369
     iget-object v2, p0, Landroid/server/BluetoothService;->mEventLoop:Landroid/server/BluetoothEventLoop;
 
     invoke-virtual {v2}, Landroid/server/BluetoothEventLoop;->getPasskeyAgentRequestData()Ljava/util/HashMap;
@@ -19443,11 +12064,11 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 2543
+    .line 1370
     .local v0, data:Ljava/lang/Integer;
-    if-nez v0, :cond_62
+    if-nez v0, :cond_61
 
-    .line 2544
+    .line 1371
     const-string v2, "BluetoothService"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -19470,7 +12091,7 @@
 
     move-result-object v3
 
-    const-string/jumbo v4, "ignoring. Maybe the PasskeyAgent Request was cancelled by the remote device"
+    const-string v4, "ignoring. Maybe the PasskeyAgent Request was cancelled by the remote device"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -19487,31 +12108,31 @@
     move-result-object v3
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_5e
-    .catchall {:try_start_1a .. :try_end_5e} :catchall_5f
+    :try_end_5d
+    .catchall {:try_start_1a .. :try_end_5d} :catchall_5e
 
     goto :goto_11
 
-    .line 2534
+    .line 1361
     .end local v0           #data:Ljava/lang/Integer;
-    :catchall_5f
+    :catchall_5e
     move-exception v1
 
     monitor-exit p0
 
     throw v1
 
-    .line 2549
+    .line 1376
     .restart local v0       #data:Ljava/lang/Integer;
-    :cond_62
-    :try_start_62
+    :cond_61
+    :try_start_61
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
     invoke-direct {p0, p1, p2, v1}, Landroid/server/BluetoothService;->setPasskeyNative(Ljava/lang/String;II)Z
-    :try_end_69
-    .catchall {:try_start_62 .. :try_end_69} :catchall_5f
+    :try_end_68
+    .catchall {:try_start_61 .. :try_end_68} :catchall_5e
 
     move-result v1
 
@@ -19526,7 +12147,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 2450
+    .line 1333
     monitor-enter p0
 
     :try_start_2
@@ -19538,23 +12159,23 @@
 
     invoke-virtual {v4, v5, v6}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2452
+    .line 1335
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
     :try_end_e
-    .catchall {:try_start_2 .. :try_end_e} :catchall_90
+    .catchall {:try_start_2 .. :try_end_e} :catchall_61
 
     move-result v4
 
     if-nez v4, :cond_13
 
-    .line 2512
+    .line 1357
     :cond_11
     :goto_11
     monitor-exit p0
 
     return v3
 
-    .line 2454
+    .line 1337
     :cond_13
     if-eqz p2, :cond_11
 
@@ -19575,12 +12196,12 @@
 
     if-eqz v4, :cond_11
 
-    .line 2458
+    .line 1341
     invoke-virtual {p1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
     move-result-object p1
 
-    .line 2459
+    .line 1342
     iget-object v4, p0, Landroid/server/BluetoothService;->mEventLoop:Landroid/server/BluetoothEventLoop;
 
     invoke-virtual {v4}, Landroid/server/BluetoothEventLoop;->getPasskeyAgentRequestData()Ljava/util/HashMap;
@@ -19593,11 +12214,11 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 2460
+    .line 1343
     .local v0, data:Ljava/lang/Integer;
-    if-nez v0, :cond_e6
+    if-nez v0, :cond_64
 
-    .line 2461
+    .line 1344
     const-string v4, "BluetoothService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -19620,7 +12241,7 @@
 
     move-result-object v5
 
-    const-string/jumbo v6, "ignoring. Maybe the PasskeyAgent Request was cancelled by the remote device"
+    const-string v6, "ignoring. Maybe the PasskeyAgent Request was cancelled by the remote device"
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -19637,187 +12258,36 @@
     move-result-object v5
 
     invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2466
-    const-string v4, "BluetoothService"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "setPin("
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string v6, "): No any pairing in progress, start to initial pairing with pre-set PIN"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2468
-    iget-object v4, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
-
-    invoke-virtual {v4}, Landroid/server/BluetoothBondState;->getPendingOutgoingBonding()Ljava/lang/String;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_93
-
-    .line 2469
-    const-string v4, "BluetoothService"
-
-    const-string v5, "Ingnoring setPin(): another device is bonding"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_8f
-    .catchall {:try_start_15 .. :try_end_8f} :catchall_90
+    :try_end_60
+    .catchall {:try_start_15 .. :try_end_60} :catchall_61
 
     goto :goto_11
 
-    .line 2450
+    .line 1333
     .end local v0           #data:Ljava/lang/Integer;
-    :catchall_90
+    :catchall_61
     move-exception v3
 
     monitor-exit p0
 
     throw v3
 
-    .line 2475
+    .line 1352
     .restart local v0       #data:Ljava/lang/Integer;
-    :cond_93
-    :try_start_93
-    iget-object v4, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
-
-    invoke-virtual {v4, p1}, Landroid/server/BluetoothBondState;->isAutoPairingAttemptsInProgress(Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_ae
-
-    iget-object v4, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
-
-    invoke-virtual {v4, p1}, Landroid/server/BluetoothBondState;->getBondState(Ljava/lang/String;)I
-
-    move-result v4
-
-    const/16 v5, 0xa
-
-    if-eq v4, v5, :cond_ae
-
-    .line 2477
-    const-string v4, "BluetoothService"
-
-    const-string v5, "Ignore setPin(): this device is already bonding or bonded"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_11
-
-    .line 2482
-    :cond_ae
-    iget-object v4, p0, Landroid/server/BluetoothService;->mpinString:Ljava/lang/String;
-    :try_end_b0
-    .catchall {:try_start_93 .. :try_end_b0} :catchall_90
-
-    if-nez v4, :cond_dd
-
-    .line 2484
-    :try_start_b2
-    new-instance v4, Ljava/lang/String;
-
-    const-string v5, "UTF8"
-
-    invoke-direct {v4, p2, v5}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
-
-    iput-object v4, p0, Landroid/server/BluetoothService;->mpinString:Ljava/lang/String;
-    :try_end_bb
-    .catchall {:try_start_b2 .. :try_end_bb} :catchall_90
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_b2 .. :try_end_bb} :catch_d3
-
-    .line 2493
-    :goto_bb
-    const v4, 0xea60
-
-    :try_start_be
-    invoke-direct {p0, p1, v4}, Landroid/server/BluetoothService;->createPairedDeviceNative(Ljava/lang/String;I)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_11
-
-    .line 2497
-    iget-object v3, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
-
-    invoke-virtual {v3, p1}, Landroid/server/BluetoothBondState;->setPendingOutgoingBonding(Ljava/lang/String;)V
-
-    .line 2498
-    iget-object v3, p0, Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
-
-    const/16 v4, 0xb
-
-    invoke-virtual {v3, p1, v4}, Landroid/server/BluetoothBondState;->setBondState(Ljava/lang/String;I)V
-
-    .line 2500
-    const/4 v3, 0x1
-
-    goto/16 :goto_11
-
-    .line 2485
-    :catch_d3
-    move-exception v2
-
-    .line 2486
-    .local v2, uee:Ljava/io/UnsupportedEncodingException;
-    const-string v4, "BluetoothService"
-
-    const-string v5, "UTF8 not supported?!?"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_11
-
-    .line 2490
-    .end local v2           #uee:Ljava/io/UnsupportedEncodingException;
-    :cond_dd
-    const-string v4, "BluetoothService"
-
-    const-string/jumbo v5, "mpinString is not null!! What\'s going on??"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_e5
-    .catchall {:try_start_be .. :try_end_e5} :catchall_90
-
-    goto :goto_bb
-
-    .line 2507
-    :cond_e6
-    :try_start_e6
+    :cond_64
+    :try_start_64
     new-instance v1, Ljava/lang/String;
 
     const-string v4, "UTF8"
 
     invoke-direct {v1, p2, v4}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
-    :try_end_ed
-    .catchall {:try_start_e6 .. :try_end_ed} :catchall_90
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_e6 .. :try_end_ed} :catch_f7
+    :try_end_6b
+    .catchall {:try_start_64 .. :try_end_6b} :catchall_61
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_64 .. :try_end_6b} :catch_74
 
-    .line 2512
+    .line 1357
     .local v1, pinString:Ljava/lang/String;
-    :try_start_ed
+    :try_start_6b
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v3
@@ -19826,24 +12296,24 @@
 
     move-result v3
 
-    goto/16 :goto_11
+    goto :goto_11
 
-    .line 2508
+    .line 1353
     .end local v1           #pinString:Ljava/lang/String;
-    :catch_f7
+    :catch_74
     move-exception v2
 
-    .line 2509
-    .restart local v2       #uee:Ljava/io/UnsupportedEncodingException;
+    .line 1354
+    .local v2, uee:Ljava/io/UnsupportedEncodingException;
     const-string v4, "BluetoothService"
 
     const-string v5, "UTF8 not supported?!?"
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_ff
-    .catchall {:try_start_ed .. :try_end_ff} :catchall_90
+    :try_end_7c
+    .catchall {:try_start_6b .. :try_end_7c} :catchall_61
 
-    goto/16 :goto_11
+    goto :goto_11
 .end method
 
 .method public declared-synchronized setRemoteAlias(Ljava/lang/String;Ljava/lang/String;)Z
@@ -19852,7 +12322,7 @@
     .parameter "alias"
 
     .prologue
-    .line 1887
+    .line 927
     monitor-enter p0
 
     :try_start_1
@@ -19864,7 +12334,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1888
+    .line 928
     invoke-static {p1}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
     :try_end_d
     .catchall {:try_start_1 .. :try_end_d} :catchall_1e
@@ -19873,10 +12343,10 @@
 
     if-nez v0, :cond_13
 
-    .line 1889
+    .line 929
     const/4 v0, 0x0
 
-    .line 1892
+    .line 932
     :goto_11
     monitor-exit p0
 
@@ -19898,7 +12368,7 @@
 
     goto :goto_11
 
-    .line 1887
+    .line 927
     :catchall_1e
     move-exception v0
 
@@ -19914,12 +12384,12 @@
     .parameter "value"
 
     .prologue
-    .line 1707
+    .line 845
     iget-object v0, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/server/BluetoothDeviceProperties;->setProperty(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1708
+    .line 846
     return-void
 .end method
 
@@ -19930,7 +12400,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 2569
+    .line 1396
     monitor-enter p0
 
     :try_start_2
@@ -19942,29 +12412,29 @@
 
     invoke-virtual {v5, v6, v7}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2571
+    .line 1398
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
     :try_end_e
-    .catchall {:try_start_2 .. :try_end_e} :catchall_52
+    .catchall {:try_start_2 .. :try_end_e} :catchall_51
 
     move-result v5
 
     if-nez v5, :cond_13
 
-    .line 2591
+    .line 1418
     :goto_11
     monitor-exit p0
 
     return v4
 
-    .line 2572
+    .line 1399
     :cond_13
     :try_start_13
     invoke-virtual {p1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
     move-result-object p1
 
-    .line 2573
+    .line 1400
     iget-object v5, p0, Landroid/server/BluetoothService;->mEventLoop:Landroid/server/BluetoothEventLoop;
 
     invoke-virtual {v5}, Landroid/server/BluetoothEventLoop;->getPasskeyAgentRequestData()Ljava/util/HashMap;
@@ -19977,11 +12447,11 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 2574
+    .line 1401
     .local v0, data:Ljava/lang/Integer;
-    if-nez v0, :cond_55
+    if-nez v0, :cond_54
 
-    .line 2575
+    .line 1402
     const-string v5, "BluetoothService"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -20004,7 +12474,7 @@
 
     move-result-object v6
 
-    const-string/jumbo v7, "ignoring. Maybe the PasskeyAgent Request was cancelled by the remote device"
+    const-string v7, "ignoring. Maybe the PasskeyAgent Request was cancelled by the remote device"
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -20021,24 +12491,24 @@
     move-result-object v6
 
     invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_51
-    .catchall {:try_start_13 .. :try_end_51} :catchall_52
+    :try_end_50
+    .catchall {:try_start_13 .. :try_end_50} :catchall_51
 
     goto :goto_11
 
-    .line 2569
+    .line 1396
     .end local v0           #data:Ljava/lang/Integer;
-    :catchall_52
+    :catchall_51
     move-exception v4
 
     monitor-exit p0
 
     throw v4
 
-    .line 2581
+    .line 1408
     .restart local v0       #data:Ljava/lang/Integer;
-    :cond_55
-    :try_start_55
+    :cond_54
+    :try_start_54
     iget-object v4, p0, Landroid/server/BluetoothService;->mDeviceOobData:Ljava/util/HashMap;
 
     invoke-virtual {v4, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -20047,24 +12517,24 @@
 
     check-cast v3, Landroid/util/Pair;
 
-    .line 2583
+    .line 1410
     .local v3, val:Landroid/util/Pair;,"Landroid/util/Pair<[B[B>;"
-    if-nez v3, :cond_70
+    if-nez v3, :cond_6f
 
-    .line 2585
+    .line 1412
     const/16 v4, 0x10
 
     new-array v1, v4, [B
 
-    .line 2586
+    .line 1413
     .local v1, hash:[B
     const/16 v4, 0x10
 
     new-array v2, v4, [B
 
-    .line 2591
+    .line 1418
     .local v2, randomizer:[B
-    :goto_67
+    :goto_66
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v4
@@ -20075,342 +12545,185 @@
 
     goto :goto_11
 
-    .line 2588
+    .line 1415
     .end local v1           #hash:[B
     .end local v2           #randomizer:[B
-    :cond_70
+    :cond_6f
     iget-object v1, v3, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v1, [B
 
-    .line 2589
+    .line 1416
     .restart local v1       #hash:[B
     iget-object v2, v3, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     check-cast v2, [B
-    :try_end_78
-    .catchall {:try_start_55 .. :try_end_78} :catchall_52
+    :try_end_77
+    .catchall {:try_start_54 .. :try_end_77} :catchall_51
 
     .restart local v2       #randomizer:[B
-    goto :goto_67
+    goto :goto_66
 .end method
 
 .method public declared-synchronized setScanMode(II)Z
-    .registers 19
+    .registers 8
     .parameter "mode"
     .parameter "duration"
 
     .prologue
-    .line 1600
+    .line 769
     monitor-enter p0
 
     :try_start_1
-    move-object/from16 v0, p0
+    iget-object v2, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
-    iget-object v10, v0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
+    const-string v3, "android.permission.WRITE_SECURE_SETTINGS"
 
-    const-string v11, "android.permission.WRITE_SECURE_SETTINGS"
+    const-string v4, "Need WRITE_SECURE_SETTINGS permission"
 
-    const-string v12, "Need WRITE_SECURE_SETTINGS permission"
+    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v10, v11, v12}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+    .line 774
+    packed-switch p1, :pswitch_data_5e
 
-    .line 1604
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+    .line 789
+    :pswitch_d
+    const-string v2, "BluetoothService"
 
-    move-result-wide v5
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    .line 1607
-    .local v5, ident:J
-    move-object/from16 v0, p0
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v10, v0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
+    const-string v4, "Requested invalid scan mode "
 
-    const/4 v11, 0x0
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v12, Landroid/content/Intent;
+    move-result-object v3
 
-    const-string v13, "android.intent.action.DISCOVERABLE_TIMEOUT"
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-direct {v12, v13}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    move-result-object v3
 
-    const/high16 v13, 0x2000
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v10, v11, v12, v13}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+    move-result-object v3
 
-    move-result-object v4
+    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_25
+    .catchall {:try_start_1 .. :try_end_25} :catchall_5a
 
-    .line 1610
-    .local v4, elapsedIntent:Landroid/app/PendingIntent;
-    packed-switch p1, :pswitch_data_e8
+    .line 790
+    const/4 v2, 0x0
 
-    .line 1649
-    :pswitch_25
-    const-string v10, "BluetoothService"
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v12, "Requested invalid scan mode "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    move/from16 v0, p1
-
-    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1650
-    invoke-static {v5, v6}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-    :try_end_42
-    .catchall {:try_start_1 .. :try_end_42} :catchall_66
-
-    .line 1651
-    const/4 v10, 0x0
-
-    .line 1657
-    :goto_43
+    .line 795
+    :goto_26
     monitor-exit p0
 
-    return v10
+    return v2
 
-    .line 1612
-    :pswitch_45
-    const/4 v7, 0x0
+    .line 776
+    :pswitch_28
+    const/4 v1, 0x0
 
-    .line 1613
-    .local v7, pairable:Z
-    const/4 v3, 0x0
+    .line 777
+    .local v1, pairable:Z
+    const/4 v0, 0x0
 
-    .line 1654
-    .local v3, discoverable:Z
-    :cond_47
-    :goto_47
-    :try_start_47
-    const-string v10, "Discoverable"
+    .line 793
+    .local v0, discoverable:Z
+    :goto_2a
+    :try_start_2a
+    const-string v2, "Discoverable"
 
-    move-object/from16 v0, p0
+    invoke-direct {p0, v2, v0}, Landroid/server/BluetoothService;->setPropertyBoolean(Ljava/lang/String;Z)Z
 
-    invoke-direct {v0, v10, v3}, Landroid/server/BluetoothService;->setPropertyBoolean(Ljava/lang/String;Z)Z
+    .line 794
+    const-string v2, "Pairable"
 
-    .line 1655
-    const-string v10, "Pairable"
+    invoke-direct {p0, v2, v1}, Landroid/server/BluetoothService;->setPropertyBoolean(Ljava/lang/String;Z)Z
 
-    move-object/from16 v0, p0
+    .line 795
+    const/4 v2, 0x1
 
-    invoke-direct {v0, v10, v7}, Landroid/server/BluetoothService;->setPropertyBoolean(Ljava/lang/String;Z)Z
+    goto :goto_26
 
-    .line 1656
-    invoke-static {v5, v6}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    .line 780
+    .end local v0           #discoverable:Z
+    .end local v1           #pairable:Z
+    :pswitch_36
+    const/4 v1, 0x1
 
-    .line 1657
-    const/4 v10, 0x1
+    .line 781
+    .restart local v1       #pairable:Z
+    const/4 v0, 0x0
 
-    goto :goto_43
+    .line 782
+    .restart local v0       #discoverable:Z
+    goto :goto_2a
 
-    .line 1616
-    .end local v3           #discoverable:Z
-    .end local v7           #pairable:Z
-    :pswitch_5a
-    const/4 v7, 0x1
+    .line 784
+    .end local v0           #discoverable:Z
+    .end local v1           #pairable:Z
+    :pswitch_39
+    const/4 v1, 0x1
 
-    .line 1617
-    .restart local v7       #pairable:Z
-    const/4 v3, 0x0
+    .line 785
+    .restart local v1       #pairable:Z
+    const/4 v0, 0x1
 
-    .line 1620
-    .restart local v3       #discoverable:Z
-    if-eqz v4, :cond_47
+    .line 786
+    .restart local v0       #discoverable:Z
+    const-string v2, "BluetoothService"
 
-    .line 1622
-    move-object/from16 v0, p0
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    iget-object v10, v0, Landroid/server/BluetoothService;->mAlarmManager:Landroid/app/AlarmManager;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v10, v4}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
-    :try_end_65
-    .catchall {:try_start_47 .. :try_end_65} :catchall_66
+    const-string v4, "BT Discoverable for "
 
-    goto :goto_47
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1600
-    .end local v3           #discoverable:Z
-    .end local v4           #elapsedIntent:Landroid/app/PendingIntent;
-    .end local v5           #ident:J
-    .end local v7           #pairable:Z
-    :catchall_66
-    move-exception v10
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, " seconds"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_59
+    .catchall {:try_start_2a .. :try_end_59} :catchall_5a
+
+    goto :goto_2a
+
+    .line 769
+    .end local v0           #discoverable:Z
+    .end local v1           #pairable:Z
+    :catchall_5a
+    move-exception v2
 
     monitor-exit p0
 
-    throw v10
+    throw v2
 
-    .line 1627
-    .restart local v4       #elapsedIntent:Landroid/app/PendingIntent;
-    .restart local v5       #ident:J
-    :pswitch_69
-    const/4 v7, 0x1
+    .line 774
+    nop
 
-    .line 1628
-    .restart local v7       #pairable:Z
-    const/4 v3, 0x1
-
-    .line 1629
-    .restart local v3       #discoverable:Z
-    :try_start_6b
-    const-string v10, "BluetoothService"
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v12, "BT Discoverable for "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    move/from16 v0, p2
-
-    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    const-string v12, " seconds"
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1632
-    if-lez p2, :cond_47
-
-    .line 1633
-    if-eqz v4, :cond_96
-
-    .line 1635
-    move-object/from16 v0, p0
-
-    iget-object v10, v0, Landroid/server/BluetoothService;->mAlarmManager:Landroid/app/AlarmManager;
-
-    invoke-virtual {v10, v4}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
-
-    .line 1637
-    :cond_96
-    move-object/from16 v0, p0
-
-    iget-object v10, v0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const/4 v11, 0x0
-
-    new-instance v12, Landroid/content/Intent;
-
-    const-string v13, "android.intent.action.DISCOVERABLE_TIMEOUT"
-
-    invoke-direct {v12, v13}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const/high16 v13, 0x1000
-
-    invoke-static {v10, v11, v12, v13}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
-
-    move-result-object v4
-
-    .line 1639
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v10
-
-    move/from16 v0, p2
-
-    int-to-long v12, v0
-
-    const-wide/16 v14, 0x3e8
-
-    mul-long/2addr v12, v14
-
-    add-long v1, v10, v12
-
-    .line 1640
-    .local v1, alarmTime:J
-    new-instance v8, Landroid/text/format/Time;
-
-    invoke-direct {v8}, Landroid/text/format/Time;-><init>()V
-
-    .line 1641
-    .local v8, time:Landroid/text/format/Time;
-    invoke-virtual {v8, v1, v2}, Landroid/text/format/Time;->set(J)V
-
-    .line 1642
-    const-string v10, " %a, %b %d, %Y %I:%M%P"
-
-    invoke-virtual {v8, v10}, Landroid/text/format/Time;->format(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v9
-
-    .line 1643
-    .local v9, timeStr:Ljava/lang/String;
-    const-string v10, "BluetoothService"
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v12, "[setDiscoverableAlarm] at: "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1644
-    move-object/from16 v0, p0
-
-    iget-object v10, v0, Landroid/server/BluetoothService;->mAlarmManager:Landroid/app/AlarmManager;
-
-    const/4 v11, 0x0
-
-    invoke-virtual {v10, v11, v1, v2, v4}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
-    :try_end_e6
-    .catchall {:try_start_6b .. :try_end_e6} :catchall_66
-
-    goto/16 :goto_47
-
-    .line 1610
-    :pswitch_data_e8
+    :pswitch_data_5e
     .packed-switch 0x14
-        :pswitch_45
-        :pswitch_5a
-        :pswitch_25
-        :pswitch_69
+        :pswitch_28
+        :pswitch_36
+        :pswitch_d
+        :pswitch_39
     .end packed-switch
 .end method
 
@@ -20422,7 +12735,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 2219
+    .line 1169
     monitor-enter p0
 
     :try_start_2
@@ -20432,7 +12745,7 @@
 
     if-nez v1, :cond_13
 
-    .line 2220
+    .line 1170
     iget-object v1, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v2, "android.permission.BLUETOOTH_ADMIN"
@@ -20443,14 +12756,14 @@
     :try_end_11
     .catchall {:try_start_2 .. :try_end_11} :catchall_27
 
-    .line 2227
+    .line 1177
     :cond_11
     :goto_11
     monitor-exit p0
 
     return v0
 
-    .line 2225
+    .line 1175
     :cond_13
     :try_start_13
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
@@ -20459,7 +12772,7 @@
 
     if-eqz v1, :cond_11
 
-    .line 2227
+    .line 1177
     invoke-virtual {p0, p1}, Landroid/server/BluetoothService;->getObjectPathFromAddress(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -20479,7 +12792,7 @@
 
     goto :goto_11
 
-    .line 2219
+    .line 1169
     :catchall_27
     move-exception v0
 
@@ -20488,34 +12801,11 @@
     throw v0
 .end method
 
-.method public setUseWifiForBtTransfers(Z)V
-    .registers 5
-    .parameter "useWifi"
-
-    .prologue
-    .line 2807
-    iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v1, "android.permission.BLUETOOTH"
-
-    const-string v2, "Need BLUETOOTH permission"
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 2809
-    iget-object v0, p0, Landroid/server/BluetoothService;->mConnectionManager:Landroid/server/BluetoothService$ConnectionManager;
-
-    invoke-virtual {v0, p1}, Landroid/server/BluetoothService$ConnectionManager;->setUseWifiForBtTransfers(Z)V
-
-    .line 2810
-    return-void
-.end method
-
 .method declared-synchronized shutoffBluetooth()V
     .registers 4
 
     .prologue
-    .line 759
+    .line 455
     monitor-enter p0
 
     :try_start_1
@@ -20527,15 +12817,8 @@
 
     invoke-direct {p0, v0}, Landroid/server/BluetoothService;->removeReservedServiceRecordsNative([I)Z
 
-    .line 765
+    .line 456
     :cond_a
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->isTetheringOn()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1a
-
-    .line 766
     const/4 v0, 0x0
 
     const-string/jumbo v1, "nap"
@@ -20544,31 +12827,18 @@
 
     invoke-virtual {p0, v0, v1, v2}, Landroid/server/BluetoothService;->setBluetoothTetheringNative(ZLjava/lang/String;Ljava/lang/String;)Z
 
-    .line 774
-    :cond_1a
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->disableFTP()Z
-
-    .line 775
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->disableDUN()Z
-
-    .line 776
-    invoke-direct {p0}, Landroid/server/BluetoothService;->disableSAP()Z
-
-    .line 777
-    invoke-virtual {p0}, Landroid/server/BluetoothService;->disableMAP()Z
-
-    .line 778
+    .line 458
     invoke-direct {p0}, Landroid/server/BluetoothService;->tearDownNativeDataNative()Z
-    :try_end_29
-    .catchall {:try_start_1 .. :try_end_29} :catchall_2b
+    :try_end_17
+    .catchall {:try_start_1 .. :try_end_17} :catchall_19
 
-    .line 779
+    .line 459
     monitor-exit p0
 
     return-void
 
-    .line 759
-    :catchall_2b
+    .line 455
+    :catchall_19
     move-exception v0
 
     monitor-exit p0
@@ -20580,7 +12850,7 @@
     .registers 4
 
     .prologue
-    .line 1924
+    .line 964
     monitor-enter p0
 
     :try_start_1
@@ -20592,10 +12862,10 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1926
+    .line 966
     invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
     :try_end_d
-    .catchall {:try_start_1 .. :try_end_d} :catchall_1d
+    .catchall {:try_start_1 .. :try_end_d} :catchall_18
 
     move-result v0
 
@@ -20603,30 +12873,24 @@
 
     const/4 v0, 0x0
 
-    .line 1931
+    .line 968
     :goto_11
     monitor-exit p0
 
     return v0
 
-    .line 1929
     :cond_13
     :try_start_13
-    const-string v0, "**** startDiscovery"
-
-    invoke-static {v0}, Landroid/server/BluetoothService;->log(Ljava/lang/String;)V
-
-    .line 1931
     invoke-direct {p0}, Landroid/server/BluetoothService;->startDiscoveryNative()Z
-    :try_end_1b
-    .catchall {:try_start_13 .. :try_end_1b} :catchall_1d
+    :try_end_16
+    .catchall {:try_start_13 .. :try_end_16} :catchall_18
 
     move-result v0
 
     goto :goto_11
 
-    .line 1924
-    :catchall_1d
+    .line 964
+    :catchall_18
     move-exception v0
 
     monitor-exit p0
@@ -20639,7 +12903,7 @@
     .parameter "on"
 
     .prologue
-    .line 1668
+    .line 806
     monitor-enter p0
 
     :try_start_1
@@ -20654,12 +12918,12 @@
     :try_end_9
     .catchall {:try_start_1 .. :try_end_9} :catchall_d
 
-    .line 1669
+    .line 807
     monitor-exit p0
 
     return-void
 
-    .line 1668
+    .line 806
     :cond_b
     const/4 v0, 0x0
 
@@ -20678,7 +12942,7 @@
     .parameter "config"
 
     .prologue
-    .line 3613
+    .line 2231
     iget-object v0, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.BLUETOOTH"
@@ -20687,12 +12951,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3615
+    .line 2233
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
     monitor-enter v1
 
-    .line 3616
+    .line 2234
     :try_start_c
     iget-object v0, p0, Landroid/server/BluetoothService;->mBluetoothHealthProfileHandler:Landroid/server/BluetoothHealthProfileHandler;
 
@@ -20704,7 +12968,7 @@
 
     return v0
 
-    .line 3617
+    .line 2235
     :catchall_14
     move-exception v0
 
@@ -20723,7 +12987,7 @@
     .parameter "uuids"
 
     .prologue
-    .line 1224
+    .line 594
     monitor-enter p0
 
     :try_start_1
@@ -20731,7 +12995,7 @@
 
     move-result-object v0
 
-    .line 1226
+    .line 596
     .local v0, adapterUuids:[Landroid/os/ParcelUuid;
     iget-object v1, p0, Landroid/server/BluetoothService;->mAdapterUuids:[Landroid/os/ParcelUuid;
 
@@ -20745,7 +13009,7 @@
 
     if-eqz v1, :cond_18
 
-    .line 1228
+    .line 598
     iget-object v1, p0, Landroid/server/BluetoothService;->mBluetoothState:Landroid/server/BluetoothAdapterStateMachine;
 
     const/16 v2, 0x33
@@ -20754,13 +13018,13 @@
     :try_end_18
     .catchall {:try_start_1 .. :try_end_18} :catchall_1a
 
-    .line 1230
+    .line 600
     :cond_18
     monitor-exit p0
 
     return-void
 
-    .line 1224
+    .line 594
     .end local v0           #adapterUuids:[Landroid/os/ParcelUuid;
     :catchall_1a
     move-exception v1
@@ -20770,1042 +13034,486 @@
     throw v1
 .end method
 
-.method public declared-synchronized updateCharacteristicValue(Ljava/lang/String;)Z
-    .registers 7
-    .parameter "path"
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 4668
-    monitor-enter p0
-
-    :try_start_2
-    iget-object v2, p0, Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
-
-    const-string v3, "android.permission.BLUETOOTH"
-
-    const-string v4, "Need BLUETOOTH permission"
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 4669
-    invoke-direct {p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
-    :try_end_e
-    .catchall {:try_start_2 .. :try_end_e} :catchall_4b
-
-    move-result v2
-
-    if-nez v2, :cond_13
-
-    .line 4688
-    :cond_11
-    :goto_11
-    monitor-exit p0
-
-    return v1
-
-    .line 4671
-    :cond_13
-    :try_start_13
-    const-string v2, "BluetoothService"
-
-    const-string/jumbo v3, "updateCharacteristicValue"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 4673
-    if-eqz p1, :cond_11
-
-    .line 4677
-    const/4 v2, 0x0
-
-    const-string v3, "/characteristic"
-
-    invoke-virtual {p1, v3}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v3
-
-    invoke-virtual {p1, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 4679
-    .local v0, servicePath:Ljava/lang/String;
-    if-eqz v0, :cond_11
-
-    .line 4683
-    iget-object v2, p0, Landroid/server/BluetoothService;->mGattServices:Ljava/util/SortedMap;
-
-    invoke-interface {v2, v0}, Ljava/util/SortedMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_4e
-
-    .line 4684
-    const-string v2, "BluetoothService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Service not present "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_4a
-    .catchall {:try_start_13 .. :try_end_4a} :catchall_4b
-
-    goto :goto_11
-
-    .line 4668
-    .end local v0           #servicePath:Ljava/lang/String;
-    :catchall_4b
-    move-exception v1
-
-    monitor-exit p0
-
-    throw v1
-
-    .line 4688
-    .restart local v0       #servicePath:Ljava/lang/String;
-    :cond_4e
-    :try_start_4e
-    invoke-direct {p0, p1}, Landroid/server/BluetoothService;->updateCharacteristicValueNative(Ljava/lang/String;)Z
-    :try_end_51
-    .catchall {:try_start_4e .. :try_end_51} :catchall_4b
-
-    move-result v1
-
-    goto :goto_11
-.end method
-
 .method updateDeviceServiceChannelCache(Ljava/lang/String;)V
-    .registers 26
+    .registers 19
     .parameter "address"
 
     .prologue
-    .line 2624
-    invoke-direct/range {p0 .. p0}, Landroid/server/BluetoothService;->isEnabledInternal()Z
+    .line 1443
+    const-string v14, "BluetoothService"
 
-    move-result v21
+    new-instance v15, Ljava/lang/StringBuilder;
 
-    if-nez v21, :cond_12
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct/range {p0 .. p0}, Landroid/server/BluetoothService;->isEnablingInternal()Z
+    const-string/jumbo v16, "updateDeviceServiceChannelCache("
 
-    move-result v21
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-nez v21, :cond_12
+    move-result-object v15
 
-    .line 2625
-    const-string v21, "Bluetooth is not on or turning on"
+    move-object/from16 v0, p1
 
-    invoke-static/range {v21 .. v21}, Landroid/server/BluetoothService;->log(Ljava/lang/String;)V
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 2724
-    :goto_11
-    return-void
+    move-result-object v15
 
-    .line 2630
-    :cond_12
+    const-string v16, ")"
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1447
     invoke-virtual/range {p0 .. p1}, Landroid/server/BluetoothService;->getRemoteUuids(Ljava/lang/String;)[Landroid/os/ParcelUuid;
+
+    move-result-object v6
+
+    .line 1449
+    .local v6, deviceUuids:[Landroid/os/ParcelUuid;
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+
+    .line 1451
+    .local v2, applicationUuids:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/ParcelUuid;>;"
+    monitor-enter p0
+
+    .line 1452
+    :try_start_2b
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/server/BluetoothService;->mUuidCallbackTracker:Ljava/util/HashMap;
+
+    invoke-virtual {v14}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
+
+    move-result-object v14
+
+    invoke-interface {v14}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v8
+
+    .local v8, i$:Ljava/util/Iterator;
+    :cond_37
+    :goto_37
+    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_56
+
+    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v11
+
+    check-cast v11, Landroid/server/BluetoothService$RemoteService;
+
+    .line 1453
+    .local v11, service:Landroid/server/BluetoothService$RemoteService;
+    iget-object v14, v11, Landroid/server/BluetoothService$RemoteService;->address:Ljava/lang/String;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v14, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_37
+
+    .line 1454
+    iget-object v14, v11, Landroid/server/BluetoothService$RemoteService;->uuid:Landroid/os/ParcelUuid;
+
+    invoke-virtual {v2, v14}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_37
+
+    .line 1457
+    .end local v8           #i$:Ljava/util/Iterator;
+    .end local v11           #service:Landroid/server/BluetoothService$RemoteService;
+    :catchall_53
+    move-exception v14
+
+    monitor-exit p0
+    :try_end_55
+    .catchall {:try_start_2b .. :try_end_55} :catchall_53
+
+    throw v14
+
+    .restart local v8       #i$:Ljava/util/Iterator;
+    :cond_56
+    :try_start_56
+    monitor-exit p0
+    :try_end_57
+    .catchall {:try_start_56 .. :try_end_57} :catchall_53
+
+    .line 1459
+    new-instance v13, Ljava/util/HashMap;
+
+    invoke-direct {v13}, Ljava/util/HashMap;-><init>()V
+
+    .line 1462
+    .local v13, uuidToChannelMap:Ljava/util/Map;,"Ljava/util/Map<Landroid/os/ParcelUuid;Ljava/lang/Integer;>;"
+    sget-object v3, Landroid/server/BluetoothService;->RFCOMM_UUIDS:[Landroid/os/ParcelUuid;
+
+    .local v3, arr$:[Landroid/os/ParcelUuid;
+    array-length v10, v3
+
+    .local v10, len$:I
+    const/4 v8, 0x0
+
+    .local v8, i$:I
+    :goto_60
+    if-ge v8, v10, :cond_9e
+
+    aget-object v12, v3, v8
+
+    .line 1463
+    .local v12, uuid:Landroid/os/ParcelUuid;
+    invoke-static {v6, v12}, Landroid/bluetooth/BluetoothUuid;->isUuidPresent([Landroid/os/ParcelUuid;Landroid/os/ParcelUuid;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_9b
+
+    .line 1464
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    invoke-direct {v0, v1, v12}, Landroid/server/BluetoothService;->getDeviceServiceChannelForUuid(Ljava/lang/String;Landroid/os/ParcelUuid;)I
+
+    move-result v5
+
+    .line 1465
+    .local v5, channel:I
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v14
+
+    invoke-interface {v13, v12, v14}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 1466
+    const-string v14, "BluetoothService"
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v16, "\tuuid(system): "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    const-string v16, " "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1462
+    .end local v5           #channel:I
+    :cond_9b
+    add-int/lit8 v8, v8, 0x1
+
+    goto :goto_60
+
+    .line 1470
+    .end local v12           #uuid:Landroid/os/ParcelUuid;
+    :cond_9e
+    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v8
+
+    .local v8, i$:Ljava/util/Iterator;
+    :cond_a2
+    :goto_a2
+    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_e6
+
+    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v12
+
+    check-cast v12, Landroid/os/ParcelUuid;
+
+    .line 1471
+    .restart local v12       #uuid:Landroid/os/ParcelUuid;
+    invoke-static {v6, v12}, Landroid/bluetooth/BluetoothUuid;->isUuidPresent([Landroid/os/ParcelUuid;Landroid/os/ParcelUuid;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_a2
+
+    .line 1472
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    invoke-direct {v0, v1, v12}, Landroid/server/BluetoothService;->getDeviceServiceChannelForUuid(Ljava/lang/String;Landroid/os/ParcelUuid;)I
+
+    move-result v5
+
+    .line 1473
+    .restart local v5       #channel:I
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v14
+
+    invoke-interface {v13, v12, v14}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 1474
+    const-string v14, "BluetoothService"
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v16, "\tuuid(application): "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    const-string v16, " "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_a2
+
+    .line 1478
+    .end local v5           #channel:I
+    .end local v12           #uuid:Landroid/os/ParcelUuid;
+    :cond_e6
+    monitor-enter p0
+
+    .line 1480
+    :try_start_e7
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/server/BluetoothService;->mUuidCallbackTracker:Ljava/util/HashMap;
+
+    invoke-virtual {v14}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
+
+    move-result-object v14
+
+    invoke-interface {v14}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v9
 
-    .line 2637
-    .local v9, deviceUuids:[Landroid/os/ParcelUuid;
+    .line 1481
+    .local v9, iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/server/BluetoothService$RemoteService;>;"
+    :cond_f3
+    :goto_f3
+    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_162
+
+    .line 1482
+    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v11
+
+    check-cast v11, Landroid/server/BluetoothService$RemoteService;
+
+    .line 1483
+    .restart local v11       #service:Landroid/server/BluetoothService$RemoteService;
+    iget-object v14, v11, Landroid/server/BluetoothService$RemoteService;->address:Ljava/lang/String;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v14, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_f3
+
+    .line 1484
+    iget-object v14, v11, Landroid/server/BluetoothService$RemoteService;->uuid:Landroid/os/ParcelUuid;
+
+    invoke-interface {v13, v14}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_f3
+
+    .line 1485
+    iget-object v14, v11, Landroid/server/BluetoothService$RemoteService;->uuid:Landroid/os/ParcelUuid;
+
+    invoke-interface {v13, v14}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v14
+
+    check-cast v14, Ljava/lang/Integer;
+
+    invoke-virtual {v14}, Ljava/lang/Integer;->intValue()I
+
+    move-result v5
+
+    .line 1487
+    .restart local v5       #channel:I
+    const-string v14, "BluetoothService"
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v16, "Making callback for "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    iget-object v0, v11, Landroid/server/BluetoothService$RemoteService;->uuid:Landroid/os/ParcelUuid;
+
+    move-object/from16 v16, v0
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    const-string v16, " with result "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1489
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/server/BluetoothService;->mHandler:Landroid/os/Handler;
+    iget-object v14, v0, Landroid/server/BluetoothService;->mUuidCallbackTracker:Ljava/util/HashMap;
 
-    move-object/from16 v21, v0
+    invoke-virtual {v14, v11}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    const/16 v22, 0x1
+    move-result-object v4
 
-    invoke-virtual/range {v21 .. v22}, Landroid/os/Handler;->removeMessages(I)V
+    check-cast v4, Landroid/bluetooth/IBluetoothCallback;
+    :try_end_14d
+    .catchall {:try_start_e7 .. :try_end_14d} :catchall_156
 
-    .line 2639
-    new-instance v4, Ljava/util/ArrayList;
+    .line 1490
+    .local v4, callback:Landroid/bluetooth/IBluetoothCallback;
+    if-eqz v4, :cond_152
 
-    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
+    .line 1492
+    :try_start_14f
+    invoke-interface {v4, v5}, Landroid/bluetooth/IBluetoothCallback;->onRfcommChannelFound(I)V
+    :try_end_152
+    .catchall {:try_start_14f .. :try_end_152} :catchall_156
+    .catch Landroid/os/RemoteException; {:try_start_14f .. :try_end_152} :catch_159
 
-    .line 2641
-    .local v4, applicationUuids:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/ParcelUuid;>;"
-    monitor-enter p0
+    .line 1496
+    :cond_152
+    :goto_152
+    :try_start_152
+    invoke-interface {v9}, Ljava/util/Iterator;->remove()V
 
-    .line 2642
-    :try_start_27
-    move-object/from16 v0, p0
+    goto :goto_f3
 
-    iget-object v0, v0, Landroid/server/BluetoothService;->mUuidCallbackTracker:Ljava/util/HashMap;
-
-    move-object/from16 v21, v0
-
-    invoke-virtual/range {v21 .. v21}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
-
-    move-result-object v21
-
-    invoke-interface/range {v21 .. v21}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v12
-
-    .local v12, i$:Ljava/util/Iterator;
-    :cond_35
-    :goto_35
-    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v21
-
-    if-eqz v21, :cond_60
-
-    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v18
-
-    check-cast v18, Landroid/server/BluetoothService$RemoteService;
-
-    .line 2643
-    .local v18, service:Landroid/server/BluetoothService$RemoteService;
-    move-object/from16 v0, v18
-
-    iget-object v0, v0, Landroid/server/BluetoothService$RemoteService;->address:Ljava/lang/String;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_35
-
-    .line 2644
-    move-object/from16 v0, v18
-
-    iget-object v0, v0, Landroid/server/BluetoothService$RemoteService;->uuid:Landroid/os/ParcelUuid;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_35
-
-    .line 2647
-    .end local v12           #i$:Ljava/util/Iterator;
-    .end local v18           #service:Landroid/server/BluetoothService$RemoteService;
-    :catchall_5d
-    move-exception v21
+    .line 1503
+    .end local v4           #callback:Landroid/bluetooth/IBluetoothCallback;
+    .end local v5           #channel:I
+    .end local v9           #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/server/BluetoothService$RemoteService;>;"
+    .end local v11           #service:Landroid/server/BluetoothService$RemoteService;
+    :catchall_156
+    move-exception v14
 
     monitor-exit p0
-    :try_end_5f
-    .catchall {:try_start_27 .. :try_end_5f} :catchall_5d
+    :try_end_158
+    .catchall {:try_start_152 .. :try_end_158} :catchall_156
 
-    throw v21
+    throw v14
 
-    .restart local v12       #i$:Ljava/util/Iterator;
-    :cond_60
-    :try_start_60
+    .line 1493
+    .restart local v4       #callback:Landroid/bluetooth/IBluetoothCallback;
+    .restart local v5       #channel:I
+    .restart local v9       #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/server/BluetoothService$RemoteService;>;"
+    .restart local v11       #service:Landroid/server/BluetoothService$RemoteService;
+    :catch_159
+    move-exception v7
+
+    .local v7, e:Landroid/os/RemoteException;
+    :try_start_15a
+    const-string v14, "BluetoothService"
+
+    const-string v15, ""
+
+    invoke-static {v14, v15, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_152
+
+    .line 1502
+    .end local v4           #callback:Landroid/bluetooth/IBluetoothCallback;
+    .end local v5           #channel:I
+    .end local v7           #e:Landroid/os/RemoteException;
+    .end local v11           #service:Landroid/server/BluetoothService$RemoteService;
+    :cond_162
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/server/BluetoothService;->mDeviceServiceChannelCache:Ljava/util/HashMap;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v14, v0, v13}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 1503
     monitor-exit p0
-    :try_end_61
-    .catchall {:try_start_60 .. :try_end_61} :catchall_5d
-
-    .line 2649
-    new-instance v17, Ljava/util/HashMap;
-
-    invoke-direct/range {v17 .. v17}, Ljava/util/HashMap;-><init>()V
-
-    .line 2650
-    .local v17, rfcommValue:Ljava/util/Map;,"Ljava/util/Map<Landroid/os/ParcelUuid;Ljava/lang/Integer;>;"
-    new-instance v14, Ljava/util/HashMap;
-
-    invoke-direct {v14}, Ljava/util/HashMap;-><init>()V
-
-    .line 2651
-    .local v14, l2capPsmValue:Ljava/util/Map;,"Ljava/util/Map<Landroid/os/ParcelUuid;Ljava/lang/Integer;>;"
-    new-instance v11, Ljava/util/HashMap;
-
-    invoke-direct {v11}, Ljava/util/HashMap;-><init>()V
-
-    .line 2654
-    .local v11, feature:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    sget-object v5, Landroid/server/BluetoothService;->RFCOMM_UUIDS:[Landroid/os/ParcelUuid;
-
-    .local v5, arr$:[Landroid/os/ParcelUuid;
-    array-length v15, v5
-
-    .local v15, len$:I
-    const/4 v12, 0x0
-
-    .local v12, i$:I
-    :goto_74
-    if-ge v12, v15, :cond_175
-
-    aget-object v20, v5, v12
-
-    .line 2655
-    .local v20, uuid:Landroid/os/ParcelUuid;
-    move-object/from16 v0, v20
-
-    invoke-static {v9, v0}, Landroid/bluetooth/BluetoothUuid;->isUuidPresent([Landroid/os/ParcelUuid;Landroid/os/ParcelUuid;)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_171
-
-    .line 2656
-    invoke-virtual/range {p0 .. p1}, Landroid/server/BluetoothService;->getObjectPathFromAddress(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-virtual/range {v20 .. v20}, Landroid/os/ParcelUuid;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    const/16 v23, 0x200
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v21
-
-    move-object/from16 v2, v22
-
-    move/from16 v3, v23
-
-    invoke-direct {v0, v1, v2, v3}, Landroid/server/BluetoothService;->getDeviceServiceChannelNative(Ljava/lang/String;Ljava/lang/String;I)I
-
-    move-result v16
-
-    .line 2658
-    .local v16, psm:I
-    invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v21
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v21
-
-    invoke-interface {v14, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 2659
-    new-instance v21, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v22, "\tuuid(system): "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string v22, " PSM: "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    move/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-static/range {v21 .. v21}, Landroid/server/BluetoothService;->log(Ljava/lang/String;)V
-
-    .line 2660
-    const/4 v6, 0x4
-
-    .line 2662
-    .local v6, attributeId:I
-    invoke-static/range {v20 .. v20}, Landroid/bluetooth/BluetoothUuid;->isPrintingStatus(Landroid/os/ParcelUuid;)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_d2
-
-    .line 2663
-    const/16 v6, 0xd
-
-    .line 2665
-    :cond_d2
-    invoke-virtual/range {p0 .. p1}, Landroid/server/BluetoothService;->getObjectPathFromAddress(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-virtual/range {v20 .. v20}, Landroid/os/ParcelUuid;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v21
-
-    move-object/from16 v2, v22
-
-    invoke-direct {v0, v1, v2, v6}, Landroid/server/BluetoothService;->getDeviceServiceChannelNative(Ljava/lang/String;Ljava/lang/String;I)I
-
-    move-result v8
-
-    .line 2667
-    .local v8, channel:I
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v21
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v20
-
-    move-object/from16 v2, v21
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 2668
-    new-instance v21, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v22, "\tuuid(system): "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string v22, " SCN: "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-static/range {v21 .. v21}, Landroid/server/BluetoothService;->log(Ljava/lang/String;)V
-
-    .line 2670
-    invoke-static/range {v20 .. v20}, Landroid/bluetooth/BluetoothUuid;->isDirectPrinting(Landroid/os/ParcelUuid;)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_171
-
-    .line 2672
-    invoke-virtual/range {p0 .. p1}, Landroid/server/BluetoothService;->getObjectPathFromAddress(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-virtual/range {v20 .. v20}, Landroid/os/ParcelUuid;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    const/16 v23, 0x350
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v21
-
-    move-object/from16 v2, v22
-
-    move/from16 v3, v23
-
-    invoke-direct {v0, v1, v2, v3}, Landroid/server/BluetoothService;->getDeviceStringAttrValue(Ljava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
-
-    move-result-object v19
-
-    .line 2674
-    .local v19, supportedFormats:Ljava/lang/String;
-    new-instance v21, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v22, "\tSupportedFormats: "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string v22, " "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-static/range {v21 .. v21}, Landroid/server/BluetoothService;->log(Ljava/lang/String;)V
-
-    .line 2675
-    const-string v21, "SupportedFormats"
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    invoke-interface {v11, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 2676
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/server/BluetoothService;->mDeviceFeatureCache:Ljava/util/HashMap;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1, v11}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 2654
-    .end local v6           #attributeId:I
-    .end local v8           #channel:I
-    .end local v16           #psm:I
-    .end local v19           #supportedFormats:Ljava/lang/String;
-    :cond_171
-    add-int/lit8 v12, v12, 0x1
-
-    goto/16 :goto_74
-
-    .line 2682
-    .end local v20           #uuid:Landroid/os/ParcelUuid;
-    :cond_175
-    invoke-virtual {v4}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v12
-
-    .local v12, i$:Ljava/util/Iterator;
-    :cond_179
-    :goto_179
-    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v21
-
-    if-eqz v21, :cond_209
-
-    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v20
-
-    check-cast v20, Landroid/os/ParcelUuid;
-
-    .line 2683
-    .restart local v20       #uuid:Landroid/os/ParcelUuid;
-    move-object/from16 v0, v20
-
-    invoke-static {v9, v0}, Landroid/bluetooth/BluetoothUuid;->isUuidPresent([Landroid/os/ParcelUuid;Landroid/os/ParcelUuid;)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_179
-
-    .line 2684
-    invoke-virtual/range {p0 .. p1}, Landroid/server/BluetoothService;->getObjectPathFromAddress(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-virtual/range {v20 .. v20}, Landroid/os/ParcelUuid;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    const/16 v23, 0x200
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v21
-
-    move-object/from16 v2, v22
-
-    move/from16 v3, v23
-
-    invoke-direct {v0, v1, v2, v3}, Landroid/server/BluetoothService;->getDeviceServiceChannelNative(Ljava/lang/String;Ljava/lang/String;I)I
-
-    move-result v16
-
-    .line 2686
-    .restart local v16       #psm:I
-    invoke-virtual/range {p0 .. p1}, Landroid/server/BluetoothService;->getObjectPathFromAddress(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-virtual/range {v20 .. v20}, Landroid/os/ParcelUuid;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    const/16 v23, 0x4
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v21
-
-    move-object/from16 v2, v22
-
-    move/from16 v3, v23
-
-    invoke-direct {v0, v1, v2, v3}, Landroid/server/BluetoothService;->getDeviceServiceChannelNative(Ljava/lang/String;Ljava/lang/String;I)I
-
-    move-result v8
-
-    .line 2688
-    .restart local v8       #channel:I
-    const-string v21, "BluetoothService"
-
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v23, "\tuuid(application): "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string v23, " SCN: "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string v23, " PSM: "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    move/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2690
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v21
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v20
-
-    move-object/from16 v2, v21
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 2691
-    invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v21
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v21
-
-    invoke-interface {v14, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto/16 :goto_179
-
-    .line 2695
-    .end local v8           #channel:I
-    .end local v16           #psm:I
-    .end local v20           #uuid:Landroid/os/ParcelUuid;
-    :cond_209
-    monitor-enter p0
-
-    .line 2697
-    :try_start_20a
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/server/BluetoothService;->mUuidCallbackTracker:Ljava/util/HashMap;
-
-    move-object/from16 v21, v0
-
-    invoke-virtual/range {v21 .. v21}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
-
-    move-result-object v21
-
-    invoke-interface/range {v21 .. v21}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v13
-
-    .line 2698
-    .local v13, iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/server/BluetoothService$RemoteService;>;"
-    :cond_218
-    :goto_218
-    invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v21
-
-    if-eqz v21, :cond_2b3
-
-    .line 2699
-    invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v18
-
-    check-cast v18, Landroid/server/BluetoothService$RemoteService;
-
-    .line 2700
-    .restart local v18       #service:Landroid/server/BluetoothService$RemoteService;
-    move-object/from16 v0, v18
-
-    iget-object v0, v0, Landroid/server/BluetoothService$RemoteService;->address:Ljava/lang/String;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_218
-
-    .line 2701
-    const/4 v8, -0x1
-
-    .line 2702
-    .restart local v8       #channel:I
-    move-object/from16 v0, v18
-
-    iget-object v0, v0, Landroid/server/BluetoothService$RemoteService;->uuid:Landroid/os/ParcelUuid;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v21
-
-    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v21
-
-    if-eqz v21, :cond_259
-
-    .line 2703
-    move-object/from16 v0, v18
-
-    iget-object v0, v0, Landroid/server/BluetoothService$RemoteService;->uuid:Landroid/os/ParcelUuid;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v21
-
-    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, Ljava/lang/Integer;
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/Integer;->intValue()I
-
-    move-result v8
-
-    .line 2705
-    :cond_259
-    const/16 v21, -0x1
-
-    move/from16 v0, v21
-
-    if-eq v8, v0, :cond_218
-
-    .line 2706
-    const-string v21, "BluetoothService"
-
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v23, "Making callback for "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v18
-
-    iget-object v0, v0, Landroid/server/BluetoothService$RemoteService;->uuid:Landroid/os/ParcelUuid;
-
-    move-object/from16 v23, v0
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string v23, " with result "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2708
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/server/BluetoothService;->mUuidCallbackTracker:Ljava/util/HashMap;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/bluetooth/IBluetoothCallback;
-    :try_end_299
-    .catchall {:try_start_20a .. :try_end_299} :catchall_2a3
-
-    .line 2709
-    .local v7, callback:Landroid/bluetooth/IBluetoothCallback;
-    if-eqz v7, :cond_29e
-
-    .line 2711
-    :try_start_29b
-    invoke-interface {v7, v8}, Landroid/bluetooth/IBluetoothCallback;->onRfcommChannelFound(I)V
-    :try_end_29e
-    .catchall {:try_start_29b .. :try_end_29e} :catchall_2a3
-    .catch Landroid/os/RemoteException; {:try_start_29b .. :try_end_29e} :catch_2a6
-
-    .line 2715
-    :cond_29e
-    :goto_29e
-    :try_start_29e
-    invoke-interface {v13}, Ljava/util/Iterator;->remove()V
-
-    goto/16 :goto_218
-
-    .line 2723
-    .end local v7           #callback:Landroid/bluetooth/IBluetoothCallback;
-    .end local v8           #channel:I
-    .end local v13           #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/server/BluetoothService$RemoteService;>;"
-    .end local v18           #service:Landroid/server/BluetoothService$RemoteService;
-    :catchall_2a3
-    move-exception v21
-
-    monitor-exit p0
-    :try_end_2a5
-    .catchall {:try_start_29e .. :try_end_2a5} :catchall_2a3
-
-    throw v21
-
-    .line 2712
-    .restart local v7       #callback:Landroid/bluetooth/IBluetoothCallback;
-    .restart local v8       #channel:I
-    .restart local v13       #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/server/BluetoothService$RemoteService;>;"
-    .restart local v18       #service:Landroid/server/BluetoothService$RemoteService;
-    :catch_2a6
-    move-exception v10
-
-    .local v10, e:Landroid/os/RemoteException;
-    :try_start_2a7
-    const-string v21, "BluetoothService"
-
-    const-string v22, ""
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v22
-
-    invoke-static {v0, v1, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_29e
-
-    .line 2721
-    .end local v7           #callback:Landroid/bluetooth/IBluetoothCallback;
-    .end local v8           #channel:I
-    .end local v10           #e:Landroid/os/RemoteException;
-    .end local v18           #service:Landroid/server/BluetoothService$RemoteService;
-    :cond_2b3
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/server/BluetoothService;->mDeviceServiceChannelCache:Ljava/util/HashMap;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, p1
-
-    move-object/from16 v2, v17
-
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 2722
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/server/BluetoothService;->mDeviceL2capPsmCache:Ljava/util/HashMap;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1, v14}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 2723
-    monitor-exit p0
-    :try_end_2d0
-    .catchall {:try_start_2a7 .. :try_end_2d0} :catchall_2a3
-
-    goto/16 :goto_11
-.end method
-
-.method declared-synchronized updateGattServicePropertiesCache(Ljava/lang/String;)Z
-    .registers 5
-    .parameter "path"
-
-    .prologue
-    .line 4231
-    monitor-enter p0
-
-    :try_start_1
-    invoke-direct {p0, p1}, Landroid/server/BluetoothService;->getGattServicePropertiesNative(Ljava/lang/String;)[Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, [Ljava/lang/String;
-
-    move-object v0, v2
-
-    check-cast v0, [Ljava/lang/String;
-
-    move-object v1, v0
-
-    .line 4232
-    .local v1, propValues:[Ljava/lang/String;
-    if-eqz v1, :cond_13
-
-    .line 4233
-    invoke-virtual {p0, p1, v1}, Landroid/server/BluetoothService;->addGattServiceProperties(Ljava/lang/String;[Ljava/lang/String;)V
-    :try_end_10
-    .catchall {:try_start_1 .. :try_end_10} :catchall_15
-
-    .line 4234
-    const/4 v2, 0x1
-
-    .line 4236
-    :goto_11
-    monitor-exit p0
-
-    return v2
-
-    :cond_13
-    const/4 v2, 0x0
-
-    goto :goto_11
-
-    .line 4231
-    .end local v1           #propValues:[Ljava/lang/String;
-    :catchall_15
-    move-exception v2
-
-    monitor-exit p0
-
-    throw v2
+    :try_end_16c
+    .catchall {:try_start_15a .. :try_end_16c} :catchall_156
+
+    .line 1504
+    return-void
 .end method
 
 .method updateRemoteDevicePropertiesCache(Ljava/lang/String;)V
@@ -21813,12 +13521,12 @@
     .parameter "address"
 
     .prologue
-    .line 1711
+    .line 849
     iget-object v0, p0, Landroid/server/BluetoothService;->mDeviceProperties:Landroid/server/BluetoothDeviceProperties;
 
     invoke-virtual {v0, p1}, Landroid/server/BluetoothDeviceProperties;->updateCache(Ljava/lang/String;)Ljava/util/Map;
 
-    .line 1712
+    .line 850
     return-void
 .end method
 
@@ -21839,33 +13547,33 @@
     .end annotation
 
     .prologue
-    .line 4177
+    .line 2747
     .local p2, data:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/String;>;"
     iget-object v8, p0, Landroid/server/BluetoothService;->mIncomingConnections:Ljava/util/HashMap;
 
     monitor-enter v8
 
-    .line 4178
+    .line 2748
     :try_start_3
     iget-object v7, p0, Landroid/server/BluetoothService;->mIncomingConnections:Ljava/util/HashMap;
 
     invoke-virtual {v7, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 4180
+    .line 2750
     invoke-direct {p0}, Landroid/server/BluetoothService;->truncateIncomingConnectionFile()V
 
-    .line 4181
+    .line 2751
     const/4 v3, 0x0
 
-    .line 4182
+    .line 2752
     .local v3, out:Ljava/io/BufferedWriter;
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
     :try_end_11
-    .catchall {:try_start_3 .. :try_end_11} :catchall_bc
+    .catchall {:try_start_3 .. :try_end_11} :catchall_bf
 
-    .line 4184
+    .line 2754
     .local v6, value:Ljava/lang/StringBuilder;
     :try_start_11
     new-instance v4, Ljava/io/BufferedWriter;
@@ -21880,11 +13588,11 @@
 
     invoke-direct {v4, v7}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;)V
     :try_end_1e
-    .catchall {:try_start_11 .. :try_end_1e} :catchall_b5
-    .catch Ljava/io/FileNotFoundException; {:try_start_11 .. :try_end_1e} :catch_c9
-    .catch Ljava/io/IOException; {:try_start_11 .. :try_end_1e} :catch_92
+    .catchall {:try_start_11 .. :try_end_1e} :catchall_b8
+    .catch Ljava/io/FileNotFoundException; {:try_start_11 .. :try_end_1e} :catch_cc
+    .catch Ljava/io/IOException; {:try_start_11 .. :try_end_1e} :catch_95
 
-    .line 4185
+    .line 2755
     .end local v3           #out:Ljava/io/BufferedWriter;
     .local v4, out:Ljava/io/BufferedWriter;
     :try_start_1e
@@ -21912,7 +13620,7 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .line 4186
+    .line 2756
     .local v0, devAddress:Ljava/lang/String;
     iget-object v7, p0, Landroid/server/BluetoothService;->mIncomingConnections:Ljava/util/HashMap;
 
@@ -21922,16 +13630,16 @@
 
     check-cast v5, Landroid/util/Pair;
 
-    .line 4187
+    .line 2757
     .local v5, val:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/String;>;"
     invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 4188
+    .line 2758
     const-string v7, ","
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 4189
+    .line 2759
     iget-object v7, v5, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v7, Ljava/lang/Integer;
@@ -21942,30 +13650,30 @@
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 4190
+    .line 2760
     const-string v7, ","
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 4191
+    .line 2761
     iget-object v7, v5, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     check-cast v7, Ljava/lang/String;
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 4192
+    .line 2762
     const-string v7, "\n"
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     :try_end_60
-    .catchall {:try_start_1e .. :try_end_60} :catchall_c3
+    .catchall {:try_start_1e .. :try_end_60} :catchall_c6
     .catch Ljava/io/FileNotFoundException; {:try_start_1e .. :try_end_60} :catch_61
-    .catch Ljava/io/IOException; {:try_start_1e .. :try_end_60} :catch_c6
+    .catch Ljava/io/IOException; {:try_start_1e .. :try_end_60} :catch_c9
 
     goto :goto_28
 
-    .line 4195
+    .line 2765
     .end local v0           #devAddress:Ljava/lang/String;
     .end local v2           #i$:Ljava/util/Iterator;
     .end local v5           #val:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/String;>;"
@@ -21974,7 +13682,7 @@
 
     move-object v3, v4
 
-    .line 4196
+    .line 2766
     .end local v4           #out:Ljava/io/BufferedWriter;
     .local v1, e:Ljava/io/FileNotFoundException;
     .restart local v3       #out:Ljava/io/BufferedWriter;
@@ -22004,31 +13712,31 @@
 
     invoke-static {v7}, Landroid/server/BluetoothService;->log(Ljava/lang/String;)V
     :try_end_7d
-    .catchall {:try_start_63 .. :try_end_7d} :catchall_b5
+    .catchall {:try_start_63 .. :try_end_7d} :catchall_b8
 
-    .line 4200
+    .line 2770
     if-eqz v3, :cond_82
 
-    .line 4202
+    .line 2772
     :try_start_7f
     invoke-virtual {v3}, Ljava/io/BufferedWriter;->close()V
     :try_end_82
-    .catchall {:try_start_7f .. :try_end_82} :catchall_bc
-    .catch Ljava/io/IOException; {:try_start_7f .. :try_end_82} :catch_b3
+    .catchall {:try_start_7f .. :try_end_82} :catchall_bf
+    .catch Ljava/io/IOException; {:try_start_7f .. :try_end_82} :catch_c2
 
-    .line 4208
+    .line 2778
     .end local v1           #e:Ljava/io/FileNotFoundException;
     :cond_82
     :goto_82
     :try_start_82
     monitor-exit v8
     :try_end_83
-    .catchall {:try_start_82 .. :try_end_83} :catchall_bc
+    .catchall {:try_start_82 .. :try_end_83} :catchall_bf
 
-    .line 4209
+    .line 2779
     return-void
 
-    .line 4194
+    .line 2764
     .end local v3           #out:Ljava/io/BufferedWriter;
     .restart local v2       #i$:Ljava/util/Iterator;
     .restart local v4       #out:Ljava/io/BufferedWriter;
@@ -22040,38 +13748,49 @@
 
     invoke-virtual {v4, v7}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
     :try_end_8b
-    .catchall {:try_start_84 .. :try_end_8b} :catchall_c3
+    .catchall {:try_start_84 .. :try_end_8b} :catchall_c6
     .catch Ljava/io/FileNotFoundException; {:try_start_84 .. :try_end_8b} :catch_61
-    .catch Ljava/io/IOException; {:try_start_84 .. :try_end_8b} :catch_c6
+    .catch Ljava/io/IOException; {:try_start_84 .. :try_end_8b} :catch_c9
 
-    .line 4200
-    if-eqz v4, :cond_90
+    .line 2770
+    if-eqz v4, :cond_ce
 
-    .line 4202
+    .line 2772
     :try_start_8d
     invoke-virtual {v4}, Ljava/io/BufferedWriter;->close()V
     :try_end_90
-    .catchall {:try_start_8d .. :try_end_90} :catchall_bc
-    .catch Ljava/io/IOException; {:try_start_8d .. :try_end_90} :catch_c1
+    .catchall {:try_start_8d .. :try_end_90} :catchall_bf
+    .catch Ljava/io/IOException; {:try_start_8d .. :try_end_90} :catch_92
 
-    :cond_90
-    :goto_90
     move-object v3, v4
 
-    .line 4207
+    .line 2775
     .end local v4           #out:Ljava/io/BufferedWriter;
     .restart local v3       #out:Ljava/io/BufferedWriter;
     goto :goto_82
 
-    .line 4197
-    .end local v2           #i$:Ljava/util/Iterator;
+    .line 2773
+    .end local v3           #out:Ljava/io/BufferedWriter;
+    .restart local v4       #out:Ljava/io/BufferedWriter;
     :catch_92
+    move-exception v7
+
+    move-object v3, v4
+
+    .line 2775
+    .end local v4           #out:Ljava/io/BufferedWriter;
+    .restart local v3       #out:Ljava/io/BufferedWriter;
+    goto :goto_82
+
+    .line 2767
+    .end local v2           #i$:Ljava/util/Iterator;
+    :catch_95
     move-exception v1
 
-    .line 4198
+    .line 2768
     .local v1, e:Ljava/io/IOException;
-    :goto_93
-    :try_start_93
+    :goto_96
+    :try_start_96
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -22095,102 +13814,112 @@
     move-result-object v7
 
     invoke-static {v7}, Landroid/server/BluetoothService;->log(Ljava/lang/String;)V
-    :try_end_ad
-    .catchall {:try_start_93 .. :try_end_ad} :catchall_b5
+    :try_end_b0
+    .catchall {:try_start_96 .. :try_end_b0} :catchall_b8
 
-    .line 4200
+    .line 2770
     if-eqz v3, :cond_82
 
-    .line 4202
-    :try_start_af
+    .line 2772
+    :try_start_b2
     invoke-virtual {v3}, Ljava/io/BufferedWriter;->close()V
-    :try_end_b2
-    .catchall {:try_start_af .. :try_end_b2} :catchall_bc
-    .catch Ljava/io/IOException; {:try_start_af .. :try_end_b2} :catch_b3
+    :try_end_b5
+    .catchall {:try_start_b2 .. :try_end_b5} :catchall_bf
+    .catch Ljava/io/IOException; {:try_start_b2 .. :try_end_b5} :catch_b6
 
     goto :goto_82
 
-    .line 4203
+    .line 2773
+    :catch_b6
+    move-exception v7
+
+    goto :goto_82
+
+    .line 2770
     .end local v1           #e:Ljava/io/IOException;
-    :catch_b3
+    :catchall_b8
     move-exception v7
 
-    goto :goto_82
+    :goto_b9
+    if-eqz v3, :cond_be
 
-    .line 4200
-    :catchall_b5
-    move-exception v7
-
-    :goto_b6
-    if-eqz v3, :cond_bb
-
-    .line 4202
-    :try_start_b8
-    invoke-virtual {v3}, Ljava/io/BufferedWriter;->close()V
-    :try_end_bb
-    .catchall {:try_start_b8 .. :try_end_bb} :catchall_bc
-    .catch Ljava/io/IOException; {:try_start_b8 .. :try_end_bb} :catch_bf
-
-    .line 4200
-    :cond_bb
-    :goto_bb
+    .line 2772
     :try_start_bb
+    invoke-virtual {v3}, Ljava/io/BufferedWriter;->close()V
+    :try_end_be
+    .catchall {:try_start_bb .. :try_end_be} :catchall_bf
+    .catch Ljava/io/IOException; {:try_start_bb .. :try_end_be} :catch_c4
+
+    .line 2775
+    :cond_be
+    :goto_be
+    :try_start_be
     throw v7
 
-    .line 4208
+    .line 2778
     .end local v3           #out:Ljava/io/BufferedWriter;
     .end local v6           #value:Ljava/lang/StringBuilder;
-    :catchall_bc
+    :catchall_bf
     move-exception v7
 
     monitor-exit v8
-    :try_end_be
-    .catchall {:try_start_bb .. :try_end_be} :catchall_bc
+    :try_end_c1
+    .catchall {:try_start_be .. :try_end_c1} :catchall_bf
 
     throw v7
 
-    .line 4203
+    .line 2773
+    .local v1, e:Ljava/io/FileNotFoundException;
     .restart local v3       #out:Ljava/io/BufferedWriter;
     .restart local v6       #value:Ljava/lang/StringBuilder;
-    :catch_bf
+    :catch_c2
+    move-exception v7
+
+    goto :goto_82
+
+    .end local v1           #e:Ljava/io/FileNotFoundException;
+    :catch_c4
     move-exception v9
 
-    goto :goto_bb
+    goto :goto_be
+
+    .line 2770
+    .end local v3           #out:Ljava/io/BufferedWriter;
+    .restart local v4       #out:Ljava/io/BufferedWriter;
+    :catchall_c6
+    move-exception v7
+
+    move-object v3, v4
+
+    .end local v4           #out:Ljava/io/BufferedWriter;
+    .restart local v3       #out:Ljava/io/BufferedWriter;
+    goto :goto_b9
+
+    .line 2767
+    .end local v3           #out:Ljava/io/BufferedWriter;
+    .restart local v4       #out:Ljava/io/BufferedWriter;
+    :catch_c9
+    move-exception v1
+
+    move-object v3, v4
+
+    .end local v4           #out:Ljava/io/BufferedWriter;
+    .restart local v3       #out:Ljava/io/BufferedWriter;
+    goto :goto_96
+
+    .line 2765
+    :catch_cc
+    move-exception v1
+
+    goto :goto_63
 
     .end local v3           #out:Ljava/io/BufferedWriter;
     .restart local v2       #i$:Ljava/util/Iterator;
     .restart local v4       #out:Ljava/io/BufferedWriter;
-    :catch_c1
-    move-exception v7
-
-    goto :goto_90
-
-    .line 4200
-    .end local v2           #i$:Ljava/util/Iterator;
-    :catchall_c3
-    move-exception v7
-
+    :cond_ce
     move-object v3, v4
 
     .end local v4           #out:Ljava/io/BufferedWriter;
     .restart local v3       #out:Ljava/io/BufferedWriter;
-    goto :goto_b6
-
-    .line 4197
-    .end local v3           #out:Ljava/io/BufferedWriter;
-    .restart local v4       #out:Ljava/io/BufferedWriter;
-    :catch_c6
-    move-exception v1
-
-    move-object v3, v4
-
-    .end local v4           #out:Ljava/io/BufferedWriter;
-    .restart local v3       #out:Ljava/io/BufferedWriter;
-    goto :goto_93
-
-    .line 4195
-    :catch_c9
-    move-exception v1
-
-    goto :goto_63
+    goto :goto_82
 .end method

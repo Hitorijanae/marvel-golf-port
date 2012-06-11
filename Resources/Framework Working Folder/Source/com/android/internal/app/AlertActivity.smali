@@ -17,7 +17,7 @@
     .registers 1
 
     .prologue
-    .line 37
+    .line 31
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
     return-void
@@ -29,10 +29,10 @@
     .registers 1
 
     .prologue
-    .line 60
+    .line 54
     invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->finish()V
 
-    .line 61
+    .line 55
     return-void
 .end method
 
@@ -40,17 +40,17 @@
     .registers 2
 
     .prologue
-    .line 66
+    .line 60
     invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->isFinishing()Z
 
     move-result v0
 
     if-nez v0, :cond_9
 
-    .line 67
+    .line 61
     invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->finish()V
 
-    .line 69
+    .line 63
     :cond_9
     return-void
 .end method
@@ -60,10 +60,10 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 53
+    .line 47
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 55
+    .line 49
     new-instance v0, Lcom/android/internal/app/AlertController;
 
     invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getWindow()Landroid/view/Window;
@@ -74,14 +74,14 @@
 
     iput-object v0, p0, Lcom/android/internal/app/AlertActivity;->mAlert:Lcom/android/internal/app/AlertController;
 
-    .line 56
+    .line 50
     new-instance v0, Lcom/android/internal/app/AlertController$AlertParams;
 
     invoke-direct {v0, p0}, Lcom/android/internal/app/AlertController$AlertParams;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    .line 57
+    .line 51
     return-void
 .end method
 
@@ -91,7 +91,7 @@
     .parameter "event"
 
     .prologue
-    .line 101
+    .line 79
     iget-object v0, p0, Lcom/android/internal/app/AlertActivity;->mAlert:Lcom/android/internal/app/AlertController;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/internal/app/AlertController;->onKeyDown(ILandroid/view/KeyEvent;)Z
@@ -102,7 +102,7 @@
 
     const/4 v0, 0x1
 
-    .line 102
+    .line 80
     :goto_9
     return v0
 
@@ -120,7 +120,7 @@
     .parameter "event"
 
     .prologue
-    .line 107
+    .line 85
     iget-object v0, p0, Lcom/android/internal/app/AlertActivity;->mAlert:Lcom/android/internal/app/AlertController;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/internal/app/AlertController;->onKeyUp(ILandroid/view/KeyEvent;)Z
@@ -131,7 +131,7 @@
 
     const/4 v0, 0x1
 
-    .line 108
+    .line 86
     :goto_9
     return v0
 
@@ -144,105 +144,21 @@
 .end method
 
 .method protected setupAlert()V
-    .registers 8
+    .registers 3
 
     .prologue
-    .line 79
-    iget-object v5, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
+    .line 73
+    iget-object v0, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    iget-object v6, p0, Lcom/android/internal/app/AlertActivity;->mAlert:Lcom/android/internal/app/AlertController;
+    iget-object v1, p0, Lcom/android/internal/app/AlertActivity;->mAlert:Lcom/android/internal/app/AlertController;
 
-    invoke-virtual {v5, v6}, Lcom/android/internal/app/AlertController$AlertParams;->apply(Lcom/android/internal/app/AlertController;)V
+    invoke-virtual {v0, v1}, Lcom/android/internal/app/AlertController$AlertParams;->apply(Lcom/android/internal/app/AlertController;)V
 
-    .line 80
-    iget-object v5, p0, Lcom/android/internal/app/AlertActivity;->mAlert:Lcom/android/internal/app/AlertController;
+    .line 74
+    iget-object v0, p0, Lcom/android/internal/app/AlertActivity;->mAlert:Lcom/android/internal/app/AlertController;
 
-    invoke-virtual {v5}, Lcom/android/internal/app/AlertController;->installContent()V
+    invoke-virtual {v0}, Lcom/android/internal/app/AlertController;->installContent()V
 
-    .line 83
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
-
-    move-result-object v0
-
-    .line 85
-    .local v0, am:Landroid/app/IActivityManager;
-    :try_start_10
-    invoke-interface {v0}, Landroid/app/IActivityManager;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v1
-
-    .line 86
-    .local v1, config:Landroid/content/res/Configuration;
-    iget-object v3, v1, Landroid/content/res/Configuration;->skin:Ljava/lang/String;
-
-    .line 87
-    .local v3, skinPackage:Ljava/lang/String;
-    const-string v5, ""
-
-    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-nez v5, :cond_46
-
-    const-string v5, "default"
-
-    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-nez v5, :cond_46
-
-    .line 88
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v3}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    .line 89
-    .local v4, themeres:Landroid/content/res/Resources;
-    const-string/jumbo v5, "list_selector_holo_dark"
-
-    const-string v6, "drawable"
-
-    invoke-virtual {v4, v5, v6, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v5
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v2
-
-    .line 90
-    .local v2, selector:Landroid/graphics/drawable/Drawable;
-    if-eqz v2, :cond_46
-
-    .line 91
-    iget-object v5, p0, Lcom/android/internal/app/AlertActivity;->mAlert:Lcom/android/internal/app/AlertController;
-
-    invoke-virtual {v5}, Lcom/android/internal/app/AlertController;->getListView()Landroid/widget/ListView;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v2}, Landroid/widget/ListView;->setSelector(Landroid/graphics/drawable/Drawable;)V
-    :try_end_46
-    .catch Ljava/lang/Exception; {:try_start_10 .. :try_end_46} :catch_47
-
-    .line 97
-    .end local v1           #config:Landroid/content/res/Configuration;
-    .end local v2           #selector:Landroid/graphics/drawable/Drawable;
-    .end local v3           #skinPackage:Ljava/lang/String;
-    .end local v4           #themeres:Landroid/content/res/Resources;
-    :cond_46
-    :goto_46
+    .line 75
     return-void
-
-    .line 93
-    :catch_47
-    move-exception v5
-
-    goto :goto_46
 .end method

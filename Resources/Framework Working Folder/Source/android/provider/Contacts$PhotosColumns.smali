@@ -33,17 +33,7 @@
     .end annotation
 .end field
 
-.field public static final GROUP_ID:Ljava/lang/String; = "group_id"
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
-
 .field public static final LOCAL_VERSION:Ljava/lang/String; = "local_version"
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
-
-.field public static final OVERLAY_ICON:Ljava/lang/String; = "overlay_icon"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field

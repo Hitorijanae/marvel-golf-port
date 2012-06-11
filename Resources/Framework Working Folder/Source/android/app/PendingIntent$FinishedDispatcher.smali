@@ -41,19 +41,19 @@
     .parameter "handler"
 
     .prologue
-    .line 155
+    .line 144
     invoke-direct {p0}, Landroid/content/IIntentReceiver$Stub;-><init>()V
 
-    .line 156
+    .line 145
     iput-object p1, p0, Landroid/app/PendingIntent$FinishedDispatcher;->mPendingIntent:Landroid/app/PendingIntent;
 
-    .line 157
+    .line 146
     iput-object p2, p0, Landroid/app/PendingIntent$FinishedDispatcher;->mWho:Landroid/app/PendingIntent$OnFinished;
 
-    .line 158
+    .line 147
     iput-object p3, p0, Landroid/app/PendingIntent$FinishedDispatcher;->mHandler:Landroid/os/Handler;
 
-    .line 159
+    .line 148
     return-void
 .end method
 
@@ -69,31 +69,31 @@
     .parameter "sticky"
 
     .prologue
-    .line 162
+    .line 151
     iput-object p1, p0, Landroid/app/PendingIntent$FinishedDispatcher;->mIntent:Landroid/content/Intent;
 
-    .line 163
+    .line 152
     iput p2, p0, Landroid/app/PendingIntent$FinishedDispatcher;->mResultCode:I
 
-    .line 164
+    .line 153
     iput-object p3, p0, Landroid/app/PendingIntent$FinishedDispatcher;->mResultData:Ljava/lang/String;
 
-    .line 165
+    .line 154
     iput-object p4, p0, Landroid/app/PendingIntent$FinishedDispatcher;->mResultExtras:Landroid/os/Bundle;
 
-    .line 166
+    .line 155
     iget-object v0, p0, Landroid/app/PendingIntent$FinishedDispatcher;->mHandler:Landroid/os/Handler;
 
     if-nez v0, :cond_10
 
-    .line 167
+    .line 156
     invoke-virtual {p0}, Landroid/app/PendingIntent$FinishedDispatcher;->run()V
 
-    .line 171
+    .line 160
     :goto_f
     return-void
 
-    .line 169
+    .line 158
     :cond_10
     iget-object v0, p0, Landroid/app/PendingIntent$FinishedDispatcher;->mHandler:Landroid/os/Handler;
 
@@ -106,7 +106,7 @@
     .registers 7
 
     .prologue
-    .line 173
+    .line 162
     iget-object v0, p0, Landroid/app/PendingIntent$FinishedDispatcher;->mWho:Landroid/app/PendingIntent$OnFinished;
 
     iget-object v1, p0, Landroid/app/PendingIntent$FinishedDispatcher;->mPendingIntent:Landroid/app/PendingIntent;
@@ -121,6 +121,6 @@
 
     invoke-interface/range {v0 .. v5}, Landroid/app/PendingIntent$OnFinished;->onSendFinished(Landroid/app/PendingIntent;Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;)V
 
-    .line 175
+    .line 164
     return-void
 .end method

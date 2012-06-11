@@ -15,12 +15,6 @@
 
 
 # static fields
-.field public static final DISPLAY_CONTACTS_IN_CDMA:I = 0x2
-
-.field public static final DISPLAY_CONTACTS_IN_GSM:I = 0x4
-
-.field public static final DISPLAY_CONTACTS_IN_PHONE:I = 0x1
-
 .field public static final DISPLAY_ORDER:Ljava/lang/String; = "android.contacts.DISPLAY_ORDER"
 
 .field public static final DISPLAY_ORDER_ALTERNATIVE:I = 0x2
@@ -39,8 +33,8 @@
     .registers 1
 
     .prologue
-    .line 262
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 255
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

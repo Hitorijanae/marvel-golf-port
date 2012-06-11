@@ -223,20 +223,16 @@
     .line 357
     iput-boolean v2, p0, Landroid/app/NativeActivity;->mDispatchingUnhandledKey:Z
 
-    .line 354
     :goto_14
     return v1
 
-    .line 357
     :cond_15
     iput-boolean v2, p0, Landroid/app/NativeActivity;->mDispatchingUnhandledKey:Z
 
     move v1, v2
 
-    .line 354
     goto :goto_14
 
-    .line 357
     .end local v0           #decor:Landroid/view/View;
     :catchall_19
     move-exception v1
@@ -303,7 +299,7 @@
 
     .line 149
     .local v3, funcname:Ljava/lang/String;
-    const-string/jumbo v1, "input_method"
+    const-string v1, "input_method"
 
     move-object/from16 v0, p0
 
@@ -414,7 +410,7 @@
     invoke-virtual {v1, v0}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
     .line 166
-    :try_start_72
+    :try_start_71
     invoke-virtual/range {p0 .. p0}, Landroid/app/NativeActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
@@ -435,12 +431,12 @@
 
     .line 168
     .local v11, ai:Landroid/content/pm/ActivityInfo;
-    iget-object v1, v11, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
+    iget-object v1, v11, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
 
-    if-eqz v1, :cond_9e
+    if-eqz v1, :cond_9d
 
     .line 169
-    iget-object v1, v11, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
+    iget-object v1, v11, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
 
     const-string v4, "android.app.lib_name"
 
@@ -450,37 +446,37 @@
 
     .line 170
     .local v15, ln:Ljava/lang/String;
-    if-eqz v15, :cond_93
+    if-eqz v15, :cond_92
 
     move-object v13, v15
 
     .line 171
-    :cond_93
-    iget-object v1, v11, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
+    :cond_92
+    iget-object v1, v11, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
 
     const-string v4, "android.app.func_name"
 
     invoke-virtual {v1, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-    :try_end_9a
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_72 .. :try_end_9a} :catch_d1
+    :try_end_99
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_71 .. :try_end_99} :catch_d0
 
     move-result-object v15
 
     .line 172
-    if-eqz v15, :cond_9e
+    if-eqz v15, :cond_9d
 
     move-object v3, v15
 
     .line 178
     .end local v15           #ln:Ljava/lang/String;
-    :cond_9e
+    :cond_9d
     const/4 v2, 0x0
 
     .line 180
     .local v2, path:Ljava/lang/String;
     new-instance v14, Ljava/io/File;
 
-    iget-object v1, v11, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v1, v11, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     iget-object v1, v1, Landroid/content/pm/ApplicationInfo;->nativeLibraryDir:Ljava/lang/String;
 
@@ -496,7 +492,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_b6
+    if-eqz v1, :cond_b5
 
     .line 183
     invoke-virtual {v14}, Ljava/io/File;->getPath()Ljava/lang/String;
@@ -504,8 +500,8 @@
     move-result-object v2
 
     .line 186
-    :cond_b6
-    if-nez v2, :cond_da
+    :cond_b5
+    if-nez v2, :cond_d9
 
     .line 187
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -536,7 +532,7 @@
     .end local v2           #path:Ljava/lang/String;
     .end local v11           #ai:Landroid/content/pm/ActivityInfo;
     .end local v14           #libraryFile:Ljava/io/File;
-    :catch_d1
+    :catch_d0
     move-exception v12
 
     .line 175
@@ -554,8 +550,8 @@
     .restart local v2       #path:Ljava/lang/String;
     .restart local v11       #ai:Landroid/content/pm/ActivityInfo;
     .restart local v14       #libraryFile:Ljava/io/File;
-    :cond_da
-    if-eqz p1, :cond_131
+    :cond_d9
+    if-eqz p1, :cond_130
 
     const-string v1, "android:native_state"
 
@@ -567,7 +563,7 @@
 
     .line 193
     .local v10, nativeSavedState:[B
-    :goto_e4
+    :goto_e3
     invoke-static {}, Landroid/os/Looper;->myQueue()Landroid/os/MessageQueue;
 
     move-result-object v4
@@ -588,7 +584,7 @@
 
     move-result-object v6
 
-    iget-object v1, v11, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v1, v11, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/os/Environment;->getExternalStorageAppFilesDirectory(Ljava/lang/String;)Ljava/io/File;
 
@@ -619,7 +615,7 @@
 
     iget v1, v0, Landroid/app/NativeActivity;->mNativeHandle:I
 
-    if-nez v1, :cond_133
+    if-nez v1, :cond_132
 
     .line 199
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -648,14 +644,14 @@
 
     .line 190
     .end local v10           #nativeSavedState:[B
-    :cond_131
+    :cond_130
     const/4 v10, 0x0
 
-    goto :goto_e4
+    goto :goto_e3
 
     .line 201
     .restart local v10       #nativeSavedState:[B
-    :cond_133
+    :cond_132
     invoke-super/range {p0 .. p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 202

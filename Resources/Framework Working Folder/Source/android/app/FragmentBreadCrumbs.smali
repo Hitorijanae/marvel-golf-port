@@ -261,7 +261,7 @@
 
     .line 168
     .local v0, child:Landroid/view/View;
-    iget v5, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v5, p0, Landroid/app/FragmentBreadCrumbs;->mPaddingLeft:I
 
     invoke-virtual {v0}, Landroid/view/View;->getMeasuredWidth()I
 
@@ -269,13 +269,13 @@
 
     add-int/2addr v5, v6
 
-    iget v6, p0, Landroid/view/View;->mPaddingRight:I
+    iget v6, p0, Landroid/app/FragmentBreadCrumbs;->mPaddingRight:I
 
     sub-int v3, v5, v6
 
     .line 169
     .local v3, childRight:I
-    iget v5, p0, Landroid/view/View;->mPaddingTop:I
+    iget v5, p0, Landroid/app/FragmentBreadCrumbs;->mPaddingTop:I
 
     invoke-virtual {v0}, Landroid/view/View;->getMeasuredHeight()I
 
@@ -283,15 +283,15 @@
 
     add-int/2addr v5, v6
 
-    iget v6, p0, Landroid/view/View;->mPaddingBottom:I
+    iget v6, p0, Landroid/app/FragmentBreadCrumbs;->mPaddingBottom:I
 
     sub-int v1, v5, v6
 
     .line 170
     .local v1, childBottom:I
-    iget v5, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v5, p0, Landroid/app/FragmentBreadCrumbs;->mPaddingLeft:I
 
-    iget v6, p0, Landroid/view/View;->mPaddingTop:I
+    iget v6, p0, Landroid/app/FragmentBreadCrumbs;->mPaddingTop:I
 
     invoke-virtual {v0, v5, v6, v3, v1}, Landroid/view/View;->layout(IIII)V
 
@@ -393,18 +393,18 @@
     .line 195
     .end local v0           #child:Landroid/view/View;
     :cond_34
-    iget v6, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v6, p0, Landroid/app/FragmentBreadCrumbs;->mPaddingLeft:I
 
-    iget v7, p0, Landroid/view/View;->mPaddingRight:I
+    iget v7, p0, Landroid/app/FragmentBreadCrumbs;->mPaddingRight:I
 
     add-int/2addr v6, v7
 
     add-int/2addr v4, v6
 
     .line 196
-    iget v6, p0, Landroid/view/View;->mPaddingTop:I
+    iget v6, p0, Landroid/app/FragmentBreadCrumbs;->mPaddingTop:I
 
-    iget v7, p0, Landroid/view/View;->mPaddingBottom:I
+    iget v7, p0, Landroid/app/FragmentBreadCrumbs;->mPaddingBottom:I
 
     add-int/2addr v6, v7
 
@@ -454,7 +454,7 @@
     iput-object p1, p0, Landroid/app/FragmentBreadCrumbs;->mActivity:Landroid/app/Activity;
 
     .line 91
-    const-string/jumbo v0, "layout_inflater"
+    const-string v0, "layout_inflater"
 
     invoke-virtual {p1, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -782,7 +782,7 @@
     if-nez v7, :cond_9a
 
     .line 262
-    const v18, 0x102021d
+    const v18, 0x1020224
 
     move/from16 v0, v18
 
@@ -939,7 +939,7 @@
     invoke-virtual {v5, v0}, Landroid/view/View;->setVisibility(I)V
 
     .line 282
-    const v18, 0x102021d
+    const v18, 0x1020224
 
     move/from16 v0, v18
 

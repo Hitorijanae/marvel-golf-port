@@ -112,12 +112,12 @@
 
     sput-object v0, Landroid/os/Debug;->DEFAULT_TRACE_FILE_PATH:Ljava/lang/String;
 
-    .line 1122
+    .line 1114
     const/4 v0, 0x0
 
     sput-object v0, Landroid/os/Debug;->debugProperties:Lcom/android/internal/util/TypedProperties;
 
-    .line 1124
+    .line 1116
     return-void
 .end method
 
@@ -126,7 +126,7 @@
 
     .prologue
     .line 81
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -136,7 +136,7 @@
     .parameter "classAndMethodDesc"
 
     .prologue
-    .line 983
+    .line 975
     invoke-static {p0}, Ldalvik/system/VMDebug;->cacheRegisterMap(Ljava/lang/String;)Z
 
     move-result v0
@@ -223,10 +223,10 @@
     .registers 0
 
     .prologue
-    .line 993
+    .line 985
     invoke-static {}, Ldalvik/system/VMDebug;->dumpReferenceTables()V
 
-    .line 994
+    .line 986
     return-void
 .end method
 
@@ -239,16 +239,16 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1321
+    .line 1313
     invoke-static {p0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v1
 
-    .line 1322
+    .line 1314
     .local v1, service:Landroid/os/IBinder;
     if-nez v1, :cond_20
 
-    .line 1323
+    .line 1315
     const-string v3, "Debug"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -271,27 +271,27 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1332
+    .line 1324
     :goto_1f
     return v2
 
-    .line 1328
+    .line 1320
     :cond_20
     :try_start_20
     invoke-interface {v1, p1, p2}, Landroid/os/IBinder;->dump(Ljava/io/FileDescriptor;[Ljava/lang/String;)V
     :try_end_23
     .catch Landroid/os/RemoteException; {:try_start_20 .. :try_end_23} :catch_25
 
-    .line 1329
+    .line 1321
     const/4 v2, 0x1
 
     goto :goto_1f
 
-    .line 1330
+    .line 1322
     :catch_25
     move-exception v0
 
-    .line 1331
+    .line 1323
     .local v0, e:Landroid/os/RemoteException;
     const-string v3, "Debug"
 
@@ -348,22 +348,22 @@
 
     const/4 v5, 0x0
 
-    .line 1134
+    .line 1126
     invoke-virtual {p0}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
     move-result-object v1
 
-    .line 1135
+    .line 1127
     .local v1, fieldClass:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
     if-ne v1, p1, :cond_a
 
     move v5, v4
 
-    .line 1151
+    .line 1143
     :goto_9
     return v5
 
-    .line 1144
+    .line 1136
     :cond_a
     :try_start_a
     const-string v3, "TYPE"
@@ -374,7 +374,7 @@
 
     move-result-object v2
 
-    .line 1149
+    .line 1141
     .local v2, primitiveTypeField:Ljava/lang/reflect/Field;
     const/4 v3, 0x0
 
@@ -396,12 +396,12 @@
 
     goto :goto_9
 
-    .line 1145
+    .line 1137
     .end local v2           #primitiveTypeField:Ljava/lang/reflect/Field;
     :catch_1c
     move-exception v0
 
-    .line 1146
+    .line 1138
     .local v0, ex:Ljava/lang/NoSuchFieldException;
     goto :goto_9
 
@@ -410,14 +410,14 @@
     :cond_1e
     move v3, v5
 
-    .line 1149
+    .line 1141
     goto :goto_1a
 
-    .line 1150
+    .line 1142
     :catch_20
     move-exception v0
 
-    .line 1151
+    .line 1143
     .local v0, ex:Ljava/lang/IllegalAccessException;
     goto :goto_9
 .end method
@@ -725,7 +725,7 @@
     .parameter "propertyName"
 
     .prologue
-    .line 1162
+    .line 1154
     invoke-virtual {p0}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
     move-result-object v3
@@ -734,16 +734,16 @@
 
     if-ne v3, v4, :cond_85
 
-    .line 1163
+    .line 1155
     invoke-virtual {p1, p2}, Lcom/android/internal/util/TypedProperties;->getStringInfo(Ljava/lang/String;)I
 
     move-result v1
 
-    .line 1164
+    .line 1156
     .local v1, stringInfo:I
     packed-switch v1, :pswitch_data_f6
 
-    .line 1183
+    .line 1175
     new-instance v3, Ljava/lang/IllegalStateException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -778,7 +778,7 @@
 
     throw v3
 
-    .line 1170
+    .line 1162
     :pswitch_32
     const/4 v3, 0x0
 
@@ -789,19 +789,19 @@
     :try_end_37
     .catch Ljava/lang/IllegalAccessException; {:try_start_34 .. :try_end_37} :catch_38
 
-    .line 1202
+    .line 1194
     .end local v1           #stringInfo:I
     :cond_37
     :goto_37
     :pswitch_37
     return-void
 
-    .line 1171
+    .line 1163
     .restart local v1       #stringInfo:I
     :catch_38
     move-exception v0
 
-    .line 1172
+    .line 1164
     .local v0, ex:Ljava/lang/IllegalAccessException;
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
@@ -827,7 +827,7 @@
 
     throw v3
 
-    .line 1179
+    .line 1171
     .end local v0           #ex:Ljava/lang/IllegalAccessException;
     :pswitch_52
     new-instance v3, Ljava/lang/IllegalArgumentException;
@@ -880,7 +880,7 @@
 
     throw v3
 
-    .line 1188
+    .line 1180
     .end local v1           #stringInfo:I
     :cond_85
     :pswitch_85
@@ -888,11 +888,11 @@
 
     move-result-object v2
 
-    .line 1189
+    .line 1181
     .local v2, value:Ljava/lang/Object;
     if-eqz v2, :cond_37
 
-    .line 1190
+    .line 1182
     invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v3
@@ -903,7 +903,7 @@
 
     if-nez v3, :cond_d6
 
-    .line 1191
+    .line 1183
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -968,7 +968,7 @@
 
     throw v3
 
-    .line 1196
+    .line 1188
     :cond_d6
     const/4 v3, 0x0
 
@@ -979,11 +979,11 @@
 
     goto/16 :goto_37
 
-    .line 1197
+    .line 1189
     :catch_dc
     move-exception v0
 
-    .line 1198
+    .line 1190
     .restart local v0       #ex:Ljava/lang/IllegalAccessException;
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
@@ -1009,7 +1009,7 @@
 
     throw v3
 
-    .line 1164
+    .line 1156
     :pswitch_data_f6
     .packed-switch -0x2
         :pswitch_52
@@ -1017,9 +1017,6 @@
         :pswitch_32
         :pswitch_85
     .end packed-switch
-.end method
-
-.method public static native native_IsM10Process(I)Z
 .end method
 
 .method public static printLoadedClasses(I)V
@@ -1262,13 +1259,13 @@
     .end annotation
 
     .prologue
-    .line 1213
+    .line 1205
     .local p0, cl:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Landroid/os/Debug;->setFieldsOn(Ljava/lang/Class;Z)V
 
-    .line 1214
+    .line 1206
     return-void
 .end method
 
@@ -1285,7 +1282,7 @@
     .end annotation
 
     .prologue
-    .line 1292
+    .line 1284
     .local p0, cl:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
     const-string v1, "Debug"
 
@@ -1320,10 +1317,10 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1296
+    .line 1288
     return-void
 
-    .line 1292
+    .line 1284
     :cond_25
     invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1532,8 +1529,8 @@
 
     invoke-direct {v2, v3}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;)V
     :try_end_12
-    .catchall {:try_start_1 .. :try_end_12} :catchall_21
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_12} :catch_28
+    .catchall {:try_start_1 .. :try_end_12} :catchall_28
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_12} :catch_21
 
     .line 367
     .end local v1           #outStream:Ljava/io/PrintWriter;
@@ -1547,12 +1544,11 @@
     .catch Ljava/lang/Exception; {:try_start_12 .. :try_end_17} :catch_32
 
     .line 370
-    if-eqz v2, :cond_1c
+    if-eqz v2, :cond_35
 
     .line 371
     invoke-virtual {v2}, Ljava/io/PrintWriter;->close()V
 
-    :cond_1c
     move-object v1, v2
 
     .line 374
@@ -1566,32 +1562,31 @@
     .line 375
     return-void
 
-    .line 370
-    :catchall_21
-    move-exception v3
-
-    :goto_22
-    if-eqz v1, :cond_27
-
-    .line 371
-    invoke-virtual {v1}, Ljava/io/PrintWriter;->close()V
-
-    .line 370
-    :cond_27
-    throw v3
-
     .line 368
-    :catch_28
+    :catch_21
     move-exception v3
 
     .line 370
-    :goto_29
+    :goto_22
     if-eqz v1, :cond_1d
 
     .line 371
     invoke-virtual {v1}, Ljava/io/PrintWriter;->close()V
 
     goto :goto_1d
+
+    .line 370
+    :catchall_28
+    move-exception v3
+
+    :goto_29
+    if-eqz v1, :cond_2e
+
+    .line 371
+    invoke-virtual {v1}, Ljava/io/PrintWriter;->close()V
+
+    :cond_2e
+    throw v3
 
     .line 370
     .end local v1           #outStream:Ljava/io/PrintWriter;
@@ -1604,7 +1599,7 @@
 
     .end local v2           #outStream:Ljava/io/PrintWriter;
     .restart local v1       #outStream:Ljava/io/PrintWriter;
-    goto :goto_22
+    goto :goto_29
 
     .line 368
     .end local v1           #outStream:Ljava/io/PrintWriter;
@@ -1616,7 +1611,16 @@
 
     .end local v2           #outStream:Ljava/io/PrintWriter;
     .restart local v1       #outStream:Ljava/io/PrintWriter;
-    goto :goto_29
+    goto :goto_22
+
+    .end local v1           #outStream:Ljava/io/PrintWriter;
+    .restart local v2       #outStream:Ljava/io/PrintWriter;
+    :cond_35
+    move-object v1, v2
+
+    .end local v2           #outStream:Ljava/io/PrintWriter;
+    .restart local v1       #outStream:Ljava/io/PrintWriter;
+    goto :goto_1d
 .end method
 
 .method public static stopAllocCounting()V
@@ -1670,8 +1674,8 @@
 
     invoke-direct {v2, v3}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;)V
     :try_end_15
-    .catchall {:try_start_4 .. :try_end_15} :catchall_21
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_15} :catch_28
+    .catchall {:try_start_4 .. :try_end_15} :catchall_28
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_15} :catch_21
 
     .line 395
     .end local v1           #outStream:Ljava/io/PrintWriter;
@@ -1685,12 +1689,11 @@
     .catch Ljava/lang/Exception; {:try_start_15 .. :try_end_1a} :catch_32
 
     .line 400
-    if-eqz v2, :cond_1f
+    if-eqz v2, :cond_35
 
     .line 401
     invoke-virtual {v2}, Ljava/io/PrintWriter;->close()V
 
-    :cond_1f
     move-object v1, v2
 
     .line 403
@@ -1701,32 +1704,31 @@
     :goto_20
     return-void
 
-    .line 400
-    :catchall_21
-    move-exception v3
-
-    :goto_22
-    if-eqz v1, :cond_27
-
-    .line 401
-    invoke-virtual {v1}, Ljava/io/PrintWriter;->close()V
-
-    .line 400
-    :cond_27
-    throw v3
-
     .line 396
-    :catch_28
+    :catch_21
     move-exception v3
 
     .line 400
-    :goto_29
+    :goto_22
     if-eqz v1, :cond_20
 
     .line 401
     invoke-virtual {v1}, Ljava/io/PrintWriter;->close()V
 
     goto :goto_20
+
+    .line 400
+    :catchall_28
+    move-exception v3
+
+    :goto_29
+    if-eqz v1, :cond_2e
+
+    .line 401
+    invoke-virtual {v1}, Ljava/io/PrintWriter;->close()V
+
+    :cond_2e
+    throw v3
 
     .line 400
     .end local v1           #outStream:Ljava/io/PrintWriter;
@@ -1739,7 +1741,7 @@
 
     .end local v2           #outStream:Ljava/io/PrintWriter;
     .restart local v1       #outStream:Ljava/io/PrintWriter;
-    goto :goto_22
+    goto :goto_29
 
     .line 396
     .end local v1           #outStream:Ljava/io/PrintWriter;
@@ -1751,7 +1753,16 @@
 
     .end local v2           #outStream:Ljava/io/PrintWriter;
     .restart local v1       #outStream:Ljava/io/PrintWriter;
-    goto :goto_29
+    goto :goto_22
+
+    .end local v1           #outStream:Ljava/io/PrintWriter;
+    .restart local v2       #outStream:Ljava/io/PrintWriter;
+    :cond_35
+    move-object v1, v2
+
+    .end local v2           #outStream:Ljava/io/PrintWriter;
+    .restart local v1       #outStream:Ljava/io/PrintWriter;
+    goto :goto_20
 .end method
 
 .method public static threadCpuTimeNanos()J

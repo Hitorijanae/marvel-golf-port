@@ -7,12 +7,6 @@
 
 
 # static fields
-.field public static final APPENDIX_NONE:I = 0x0
-
-.field public static final APPENDIX_POSTFIX:I = 0x2
-
-.field public static final APPENDIX_PREFIX:I = 0x1
-
 .field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -74,16 +68,12 @@
 
 .field public static final STATE_IN_SERVICE:I = 0x0
 
-.field public static final STATE_NETWORK_SEARCHING:I = 0x4
-
 .field public static final STATE_OUT_OF_SERVICE:I = 0x1
 
 .field public static final STATE_POWER_OFF:I = 0x3
 
 
 # instance fields
-.field private mAppendixType:I
-
 .field private mCdmaDefaultRoamingIndicator:I
 
 .field private mCdmaEriIconIndex:I
@@ -94,25 +84,17 @@
 
 .field private mCssIndicator:Z
 
-.field private mGPRSState:I
-
-.field private mHtcCdmaRadioPowerSaveMode:Z
-
 .field private mIsEmergencyOnly:Z
 
 .field private mIsManualNetworkSelection:Z
 
 .field private mNetworkId:I
 
-.field private mNetworkType:I
-
 .field private mOperatorAlphaLong:Ljava/lang/String;
 
 .field private mOperatorAlphaShort:Ljava/lang/String;
 
 .field private mOperatorNumeric:Ljava/lang/String;
-
-.field private mPhoneType:I
 
 .field private mRadioTechnology:I
 
@@ -128,7 +110,7 @@
     .registers 1
 
     .prologue
-    .line 294
+    .line 229
     new-instance v0, Landroid/telephony/ServiceState$1;
 
     invoke-direct {v0}, Landroid/telephony/ServiceState$1;-><init>()V
@@ -139,29 +121,18 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .registers 2
 
     .prologue
-    const/4 v1, 0x1
+    .line 156
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v0, 0x0
+    .line 117
+    const/4 v0, 0x1
 
-    .line 193
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    iput v0, p0, Landroid/telephony/ServiceState;->mState:I
 
-    .line 131
-    iput v0, p0, Landroid/telephony/ServiceState;->mPhoneType:I
-
-    .line 134
-    iput v1, p0, Landroid/telephony/ServiceState;->mState:I
-
-    .line 136
-    iput v1, p0, Landroid/telephony/ServiceState;->mGPRSState:I
-
-    .line 153
-    iput v0, p0, Landroid/telephony/ServiceState;->mAppendixType:I
-
-    .line 194
+    .line 157
     return-void
 .end method
 
@@ -170,234 +141,184 @@
     .parameter "in"
 
     .prologue
-    const/4 v1, 0x1
-
     const/4 v2, 0x0
 
-    .line 237
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    const/4 v1, 0x1
 
-    .line 131
-    iput v2, p0, Landroid/telephony/ServiceState;->mPhoneType:I
+    .line 189
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 134
+    .line 117
     iput v1, p0, Landroid/telephony/ServiceState;->mState:I
 
-    .line 136
-    iput v1, p0, Landroid/telephony/ServiceState;->mGPRSState:I
-
-    .line 153
-    iput v2, p0, Landroid/telephony/ServiceState;->mAppendixType:I
-
-    .line 238
+    .line 190
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/telephony/ServiceState;->mState:I
 
-    .line 239
+    .line 191
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-eqz v0, :cond_86
+    if-eqz v0, :cond_6d
 
     move v0, v1
 
-    :goto_1a
+    :goto_14
     iput-boolean v0, p0, Landroid/telephony/ServiceState;->mRoaming:Z
 
-    .line 240
+    .line 192
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/telephony/ServiceState;->mOperatorAlphaLong:Ljava/lang/String;
 
-    .line 241
+    .line 193
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/telephony/ServiceState;->mOperatorAlphaShort:Ljava/lang/String;
 
-    .line 242
+    .line 194
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/telephony/ServiceState;->mOperatorNumeric:Ljava/lang/String;
 
-    .line 243
+    .line 195
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-eqz v0, :cond_88
+    if-eqz v0, :cond_6f
 
     move v0, v1
 
-    :goto_35
+    :goto_2f
     iput-boolean v0, p0, Landroid/telephony/ServiceState;->mIsManualNetworkSelection:Z
 
-    .line 244
+    .line 196
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/telephony/ServiceState;->mRadioTechnology:I
 
-    .line 245
+    .line 197
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-eqz v0, :cond_8a
+    if-eqz v0, :cond_71
 
     move v0, v1
 
-    :goto_44
+    :goto_3e
     iput-boolean v0, p0, Landroid/telephony/ServiceState;->mCssIndicator:Z
 
-    .line 246
+    .line 198
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/telephony/ServiceState;->mNetworkId:I
 
-    .line 247
+    .line 199
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/telephony/ServiceState;->mSystemId:I
 
-    .line 248
+    .line 200
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/telephony/ServiceState;->mCdmaRoamingIndicator:I
 
-    .line 249
+    .line 201
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/telephony/ServiceState;->mCdmaDefaultRoamingIndicator:I
 
-    .line 250
+    .line 202
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/telephony/ServiceState;->mCdmaEriIconIndex:I
 
-    .line 251
+    .line 203
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/telephony/ServiceState;->mCdmaEriIconMode:I
 
-    .line 252
+    .line 204
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-eqz v0, :cond_8c
+    if-eqz v0, :cond_73
 
-    move v0, v1
+    :goto_6a
+    iput-boolean v1, p0, Landroid/telephony/ServiceState;->mIsEmergencyOnly:Z
 
-    :goto_71
-    iput-boolean v0, p0, Landroid/telephony/ServiceState;->mIsEmergencyOnly:Z
-
-    .line 256
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    if-eqz v0, :cond_8e
-
-    :goto_79
-    iput-boolean v1, p0, Landroid/telephony/ServiceState;->mHtcCdmaRadioPowerSaveMode:Z
-
-    .line 259
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/telephony/ServiceState;->mGPRSState:I
-
-    .line 261
-    iget v0, p0, Landroid/telephony/ServiceState;->mRadioTechnology:I
-
-    iput v0, p0, Landroid/telephony/ServiceState;->mNetworkType:I
-
-    .line 262
+    .line 205
     return-void
 
-    :cond_86
+    :cond_6d
     move v0, v2
 
-    .line 239
-    goto :goto_1a
+    .line 191
+    goto :goto_14
 
-    :cond_88
+    :cond_6f
     move v0, v2
 
-    .line 243
-    goto :goto_35
+    .line 195
+    goto :goto_2f
 
-    :cond_8a
+    :cond_71
     move v0, v2
 
-    .line 245
-    goto :goto_44
+    .line 197
+    goto :goto_3e
 
-    :cond_8c
-    move v0, v2
-
-    .line 252
-    goto :goto_71
-
-    :cond_8e
+    :cond_73
     move v1, v2
 
-    .line 256
-    goto :goto_79
+    .line 204
+    goto :goto_6a
 .end method
 
 .method public constructor <init>(Landroid/telephony/ServiceState;)V
-    .registers 4
+    .registers 3
     .parameter "s"
 
     .prologue
-    const/4 v1, 0x1
+    .line 164
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v0, 0x0
+    .line 117
+    const/4 v0, 0x1
 
-    .line 201
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    iput v0, p0, Landroid/telephony/ServiceState;->mState:I
 
-    .line 131
-    iput v0, p0, Landroid/telephony/ServiceState;->mPhoneType:I
-
-    .line 134
-    iput v1, p0, Landroid/telephony/ServiceState;->mState:I
-
-    .line 136
-    iput v1, p0, Landroid/telephony/ServiceState;->mGPRSState:I
-
-    .line 153
-    iput v0, p0, Landroid/telephony/ServiceState;->mAppendixType:I
-
-    .line 202
+    .line 165
     invoke-virtual {p0, p1}, Landroid/telephony/ServiceState;->copyFrom(Landroid/telephony/ServiceState;)V
 
-    .line 203
+    .line 166
     return-void
 .end method
 
@@ -407,7 +328,7 @@
     .parameter "b"
 
     .prologue
-    .line 670
+    .line 574
     if-nez p0, :cond_8
 
     if-nez p1, :cond_6
@@ -430,58 +351,21 @@
     goto :goto_5
 .end method
 
-.method private static getOperatorAlphaFromDatabase(Ljava/lang/String;Landroid/content/Context;Z)Ljava/lang/String;
-    .registers 4
-    .parameter "numeric"
-    .parameter "context"
-    .parameter "getLong"
-
-    .prologue
-    .line 906
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public static getOperatorAlphaLong(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
-    .registers 3
-    .parameter "numeric"
-    .parameter "context"
-
-    .prologue
-    .line 845
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public static getOperatorAlphaShort(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
-    .registers 3
-    .parameter "numeric"
-    .parameter "context"
-
-    .prologue
-    .line 841
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
 .method public static newFromBundle(Landroid/os/Bundle;)Landroid/telephony/ServiceState;
     .registers 2
     .parameter "m"
 
     .prologue
-    .line 185
+    .line 148
     new-instance v0, Landroid/telephony/ServiceState;
 
     invoke-direct {v0}, Landroid/telephony/ServiceState;-><init>()V
 
-    .line 186
+    .line 149
     .local v0, ret:Landroid/telephony/ServiceState;
     invoke-direct {v0, p0}, Landroid/telephony/ServiceState;->setFromNotifierBundle(Landroid/os/Bundle;)V
 
-    .line 187
+    .line 150
     return-object v0
 .end method
 
@@ -490,13 +374,13 @@
     .parameter "rt"
 
     .prologue
-    .line 479
-    packed-switch p0, :pswitch_data_4e
+    .line 401
+    packed-switch p0, :pswitch_data_66
 
-    .line 529
+    .line 451
     const-string v0, "Unexpected"
 
-    .line 530
+    .line 452
     .local v0, rtString:Ljava/lang/String;
     const-string v1, "PHONE"
 
@@ -520,173 +404,197 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 535
+    .line 455
     :goto_1d
-    return-object v0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    .line 481
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ":"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+
+    .line 403
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_1e
+    :pswitch_35
     const-string v0, "Unknown"
 
-    .line 482
+    .line 404
     .restart local v0       #rtString:Ljava/lang/String;
     goto :goto_1d
 
-    .line 484
+    .line 406
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_21
+    :pswitch_38
     const-string v0, "GPRS"
 
-    .line 485
+    .line 407
     .restart local v0       #rtString:Ljava/lang/String;
     goto :goto_1d
 
-    .line 487
+    .line 409
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_24
+    :pswitch_3b
     const-string v0, "EDGE"
 
-    .line 488
+    .line 410
     .restart local v0       #rtString:Ljava/lang/String;
     goto :goto_1d
 
-    .line 490
+    .line 412
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_27
+    :pswitch_3e
     const-string v0, "UMTS"
 
-    .line 491
+    .line 413
     .restart local v0       #rtString:Ljava/lang/String;
     goto :goto_1d
 
-    .line 493
+    .line 415
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_2a
+    :pswitch_41
     const-string v0, "CDMA-IS95A"
 
-    .line 494
+    .line 416
     .restart local v0       #rtString:Ljava/lang/String;
     goto :goto_1d
 
-    .line 496
+    .line 418
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_2d
+    :pswitch_44
     const-string v0, "CDMA-IS95B"
 
-    .line 497
+    .line 419
     .restart local v0       #rtString:Ljava/lang/String;
     goto :goto_1d
 
-    .line 499
+    .line 421
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_30
+    :pswitch_47
     const-string v0, "1xRTT"
 
-    .line 500
+    .line 422
     .restart local v0       #rtString:Ljava/lang/String;
     goto :goto_1d
 
-    .line 502
+    .line 424
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_33
+    :pswitch_4a
     const-string v0, "EvDo-rev.0"
 
-    .line 503
+    .line 425
     .restart local v0       #rtString:Ljava/lang/String;
     goto :goto_1d
 
-    .line 505
+    .line 427
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_36
+    :pswitch_4d
     const-string v0, "EvDo-rev.A"
 
-    .line 506
+    .line 428
     .restart local v0       #rtString:Ljava/lang/String;
     goto :goto_1d
 
-    .line 508
+    .line 430
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_39
+    :pswitch_50
     const-string v0, "HSDPA"
 
-    .line 509
+    .line 431
     .restart local v0       #rtString:Ljava/lang/String;
     goto :goto_1d
 
-    .line 511
+    .line 433
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_3c
+    :pswitch_53
     const-string v0, "HSUPA"
 
-    .line 512
+    .line 434
     .restart local v0       #rtString:Ljava/lang/String;
     goto :goto_1d
 
-    .line 514
+    .line 436
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_3f
+    :pswitch_56
     const-string v0, "HSPA"
 
-    .line 515
+    .line 437
     .restart local v0       #rtString:Ljava/lang/String;
     goto :goto_1d
 
-    .line 517
+    .line 439
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_42
+    :pswitch_59
     const-string v0, "EvDo-rev.B"
 
-    .line 518
+    .line 440
     .restart local v0       #rtString:Ljava/lang/String;
     goto :goto_1d
 
-    .line 520
+    .line 442
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_45
+    :pswitch_5c
     const-string v0, "eHRPD"
 
-    .line 521
+    .line 443
     .restart local v0       #rtString:Ljava/lang/String;
     goto :goto_1d
 
-    .line 523
+    .line 445
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_48
+    :pswitch_5f
     const-string v0, "LTE"
 
-    .line 524
+    .line 446
     .restart local v0       #rtString:Ljava/lang/String;
     goto :goto_1d
 
-    .line 526
+    .line 448
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_4b
+    :pswitch_62
     const-string v0, "HSPAP"
 
-    .line 527
+    .line 449
     .restart local v0       #rtString:Ljava/lang/String;
     goto :goto_1d
 
-    .line 479
-    :pswitch_data_4e
+    .line 401
+    nop
+
+    :pswitch_data_66
     .packed-switch 0x0
-        :pswitch_1e
-        :pswitch_21
-        :pswitch_24
-        :pswitch_27
-        :pswitch_2a
-        :pswitch_2d
-        :pswitch_30
-        :pswitch_33
-        :pswitch_36
-        :pswitch_39
-        :pswitch_3c
-        :pswitch_3f
-        :pswitch_42
-        :pswitch_45
-        :pswitch_48
-        :pswitch_4b
+        :pswitch_35
+        :pswitch_38
+        :pswitch_3b
+        :pswitch_3e
+        :pswitch_41
+        :pswitch_44
+        :pswitch_47
+        :pswitch_4a
+        :pswitch_4d
+        :pswitch_50
+        :pswitch_53
+        :pswitch_56
+        :pswitch_59
+        :pswitch_5c
+        :pswitch_5f
+        :pswitch_62
     .end packed-switch
 .end method
 
@@ -695,7 +603,7 @@
     .parameter "m"
 
     .prologue
-    .line 680
+    .line 584
     const-string/jumbo v0, "state"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -704,7 +612,7 @@
 
     iput v0, p0, Landroid/telephony/ServiceState;->mState:I
 
-    .line 681
+    .line 585
     const-string/jumbo v0, "roaming"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
@@ -713,7 +621,7 @@
 
     iput-boolean v0, p0, Landroid/telephony/ServiceState;->mRoaming:Z
 
-    .line 682
+    .line 586
     const-string/jumbo v0, "operator-alpha-long"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -722,7 +630,7 @@
 
     iput-object v0, p0, Landroid/telephony/ServiceState;->mOperatorAlphaLong:Ljava/lang/String;
 
-    .line 683
+    .line 587
     const-string/jumbo v0, "operator-alpha-short"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -731,7 +639,7 @@
 
     iput-object v0, p0, Landroid/telephony/ServiceState;->mOperatorAlphaShort:Ljava/lang/String;
 
-    .line 684
+    .line 588
     const-string/jumbo v0, "operator-numeric"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -740,7 +648,7 @@
 
     iput-object v0, p0, Landroid/telephony/ServiceState;->mOperatorNumeric:Ljava/lang/String;
 
-    .line 685
+    .line 589
     const-string/jumbo v0, "manual"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
@@ -749,7 +657,7 @@
 
     iput-boolean v0, p0, Landroid/telephony/ServiceState;->mIsManualNetworkSelection:Z
 
-    .line 686
+    .line 590
     const-string/jumbo v0, "radioTechnology"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -758,7 +666,7 @@
 
     iput v0, p0, Landroid/telephony/ServiceState;->mRadioTechnology:I
 
-    .line 687
+    .line 591
     const-string v0, "cssIndicator"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
@@ -767,7 +675,7 @@
 
     iput-boolean v0, p0, Landroid/telephony/ServiceState;->mCssIndicator:Z
 
-    .line 688
+    .line 592
     const-string/jumbo v0, "networkId"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -776,7 +684,7 @@
 
     iput v0, p0, Landroid/telephony/ServiceState;->mNetworkId:I
 
-    .line 689
+    .line 593
     const-string/jumbo v0, "systemId"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -785,7 +693,7 @@
 
     iput v0, p0, Landroid/telephony/ServiceState;->mSystemId:I
 
-    .line 690
+    .line 594
     const-string v0, "cdmaRoamingIndicator"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -794,7 +702,7 @@
 
     iput v0, p0, Landroid/telephony/ServiceState;->mCdmaRoamingIndicator:I
 
-    .line 691
+    .line 595
     const-string v0, "cdmaDefaultRoamingIndicator"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -803,7 +711,7 @@
 
     iput v0, p0, Landroid/telephony/ServiceState;->mCdmaDefaultRoamingIndicator:I
 
-    .line 692
+    .line 596
     const-string v0, "emergencyOnly"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
@@ -812,48 +720,7 @@
 
     iput-boolean v0, p0, Landroid/telephony/ServiceState;->mIsEmergencyOnly:Z
 
-    .line 697
-    const-string v0, "cdmaEriIconIndex"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result v0
-
-    iput v0, p0, Landroid/telephony/ServiceState;->mCdmaEriIconIndex:I
-
-    .line 698
-    const-string v0, "cdmaEriIconMode"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result v0
-
-    iput v0, p0, Landroid/telephony/ServiceState;->mCdmaEriIconMode:I
-
-    .line 699
-    const-string/jumbo v0, "htcCdmaRadioPowerSaveMode"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Landroid/telephony/ServiceState;->mHtcCdmaRadioPowerSaveMode:Z
-
-    .line 702
-    const-string v0, "gprsstate"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result v0
-
-    iput v0, p0, Landroid/telephony/ServiceState;->mGPRSState:I
-
-    .line 704
-    iget v0, p0, Landroid/telephony/ServiceState;->mRadioTechnology:I
-
-    iput v0, p0, Landroid/telephony/ServiceState;->mNetworkType:I
-
-    .line 705
+    .line 597
     return-void
 .end method
 
@@ -864,67 +731,56 @@
     .prologue
     const/4 v2, 0x0
 
-    const/4 v0, -0x1
-
     const/4 v1, 0x0
 
-    .line 564
+    const/4 v0, -0x1
+
+    .line 477
     iput p1, p0, Landroid/telephony/ServiceState;->mState:I
 
-    .line 565
+    .line 478
     iput-boolean v1, p0, Landroid/telephony/ServiceState;->mRoaming:Z
 
-    .line 566
+    .line 479
     iput-object v2, p0, Landroid/telephony/ServiceState;->mOperatorAlphaLong:Ljava/lang/String;
 
-    .line 567
+    .line 480
     iput-object v2, p0, Landroid/telephony/ServiceState;->mOperatorAlphaShort:Ljava/lang/String;
 
-    .line 568
+    .line 481
     iput-object v2, p0, Landroid/telephony/ServiceState;->mOperatorNumeric:Ljava/lang/String;
 
-    .line 569
+    .line 482
     iput-boolean v1, p0, Landroid/telephony/ServiceState;->mIsManualNetworkSelection:Z
 
-    .line 570
+    .line 483
     iput v1, p0, Landroid/telephony/ServiceState;->mRadioTechnology:I
 
-    .line 571
+    .line 484
     iput-boolean v1, p0, Landroid/telephony/ServiceState;->mCssIndicator:Z
 
-    .line 572
+    .line 485
     iput v0, p0, Landroid/telephony/ServiceState;->mNetworkId:I
 
-    .line 573
+    .line 486
     iput v0, p0, Landroid/telephony/ServiceState;->mSystemId:I
 
-    .line 574
+    .line 487
     iput v0, p0, Landroid/telephony/ServiceState;->mCdmaRoamingIndicator:I
 
-    .line 575
+    .line 488
     iput v0, p0, Landroid/telephony/ServiceState;->mCdmaDefaultRoamingIndicator:I
 
-    .line 576
+    .line 489
     iput v0, p0, Landroid/telephony/ServiceState;->mCdmaEriIconIndex:I
 
-    .line 577
+    .line 490
     iput v0, p0, Landroid/telephony/ServiceState;->mCdmaEriIconMode:I
 
-    .line 578
+    .line 491
     iput-boolean v1, p0, Landroid/telephony/ServiceState;->mIsEmergencyOnly:Z
 
-    .line 582
-    iput-boolean v1, p0, Landroid/telephony/ServiceState;->mHtcCdmaRadioPowerSaveMode:Z
-
-    .line 585
-    const/4 v0, 0x1
-
-    iput v0, p0, Landroid/telephony/ServiceState;->mGPRSState:I
-
-    .line 587
-    iput v1, p0, Landroid/telephony/ServiceState;->mNetworkType:I
-
-    .line 588
+    .line 492
     return-void
 .end method
 
@@ -935,97 +791,82 @@
     .parameter "s"
 
     .prologue
-    .line 206
+    .line 169
     iget v0, p1, Landroid/telephony/ServiceState;->mState:I
 
     iput v0, p0, Landroid/telephony/ServiceState;->mState:I
 
-    .line 207
+    .line 170
     iget-boolean v0, p1, Landroid/telephony/ServiceState;->mRoaming:Z
 
     iput-boolean v0, p0, Landroid/telephony/ServiceState;->mRoaming:Z
 
-    .line 208
+    .line 171
     iget-object v0, p1, Landroid/telephony/ServiceState;->mOperatorAlphaLong:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/telephony/ServiceState;->mOperatorAlphaLong:Ljava/lang/String;
 
-    .line 209
+    .line 172
     iget-object v0, p1, Landroid/telephony/ServiceState;->mOperatorAlphaShort:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/telephony/ServiceState;->mOperatorAlphaShort:Ljava/lang/String;
 
-    .line 210
+    .line 173
     iget-object v0, p1, Landroid/telephony/ServiceState;->mOperatorNumeric:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/telephony/ServiceState;->mOperatorNumeric:Ljava/lang/String;
 
-    .line 211
+    .line 174
     iget-boolean v0, p1, Landroid/telephony/ServiceState;->mIsManualNetworkSelection:Z
 
     iput-boolean v0, p0, Landroid/telephony/ServiceState;->mIsManualNetworkSelection:Z
 
-    .line 212
+    .line 175
     iget v0, p1, Landroid/telephony/ServiceState;->mRadioTechnology:I
 
     iput v0, p0, Landroid/telephony/ServiceState;->mRadioTechnology:I
 
-    .line 213
+    .line 176
     iget-boolean v0, p1, Landroid/telephony/ServiceState;->mCssIndicator:Z
 
     iput-boolean v0, p0, Landroid/telephony/ServiceState;->mCssIndicator:Z
 
-    .line 214
+    .line 177
     iget v0, p1, Landroid/telephony/ServiceState;->mNetworkId:I
 
     iput v0, p0, Landroid/telephony/ServiceState;->mNetworkId:I
 
-    .line 215
+    .line 178
     iget v0, p1, Landroid/telephony/ServiceState;->mSystemId:I
 
     iput v0, p0, Landroid/telephony/ServiceState;->mSystemId:I
 
-    .line 216
+    .line 179
     iget v0, p1, Landroid/telephony/ServiceState;->mCdmaRoamingIndicator:I
 
     iput v0, p0, Landroid/telephony/ServiceState;->mCdmaRoamingIndicator:I
 
-    .line 217
+    .line 180
     iget v0, p1, Landroid/telephony/ServiceState;->mCdmaDefaultRoamingIndicator:I
 
     iput v0, p0, Landroid/telephony/ServiceState;->mCdmaDefaultRoamingIndicator:I
 
-    .line 218
+    .line 181
     iget v0, p1, Landroid/telephony/ServiceState;->mCdmaEriIconIndex:I
 
     iput v0, p0, Landroid/telephony/ServiceState;->mCdmaEriIconIndex:I
 
-    .line 219
+    .line 182
     iget v0, p1, Landroid/telephony/ServiceState;->mCdmaEriIconMode:I
 
     iput v0, p0, Landroid/telephony/ServiceState;->mCdmaEriIconMode:I
 
-    .line 220
+    .line 183
     iget-boolean v0, p1, Landroid/telephony/ServiceState;->mIsEmergencyOnly:Z
 
     iput-boolean v0, p0, Landroid/telephony/ServiceState;->mIsEmergencyOnly:Z
 
-    .line 224
-    iget-boolean v0, p1, Landroid/telephony/ServiceState;->mHtcCdmaRadioPowerSaveMode:Z
-
-    iput-boolean v0, p0, Landroid/telephony/ServiceState;->mHtcCdmaRadioPowerSaveMode:Z
-
-    .line 227
-    iget v0, p1, Landroid/telephony/ServiceState;->mGPRSState:I
-
-    iput v0, p0, Landroid/telephony/ServiceState;->mGPRSState:I
-
-    .line 230
-    iget v0, p1, Landroid/telephony/ServiceState;->mNetworkType:I
-
-    iput v0, p0, Landroid/telephony/ServiceState;->mNetworkType:I
-
-    .line 232
+    .line 184
     return-void
 .end method
 
@@ -1033,7 +874,7 @@
     .registers 2
 
     .prologue
-    .line 291
+    .line 226
     const/4 v0, 0x0
 
     return v0
@@ -1046,7 +887,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 430
+    .line 365
     :try_start_1
     move-object v0, p1
 
@@ -1056,25 +897,25 @@
     :try_end_5
     .catch Ljava/lang/ClassCastException; {:try_start_1 .. :try_end_5} :catch_8
 
-    .line 435
+    .line 370
     .local v2, s:Landroid/telephony/ServiceState;
     if-nez p1, :cond_a
 
-    .line 439
+    .line 374
     .end local v2           #s:Landroid/telephony/ServiceState;
     :cond_7
     :goto_7
     return v3
 
-    .line 431
+    .line 366
     :catch_8
     move-exception v1
 
-    .line 432
+    .line 367
     .local v1, ex:Ljava/lang/ClassCastException;
     goto :goto_7
 
-    .line 439
+    .line 374
     .end local v1           #ex:Ljava/lang/ClassCastException;
     .restart local v2       #s:Landroid/telephony/ServiceState;
     :cond_a
@@ -1234,83 +1075,11 @@
 
     if-eqz v4, :cond_7
 
-    iget v4, p0, Landroid/telephony/ServiceState;->mCdmaEriIconIndex:I
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    iget v5, v2, Landroid/telephony/ServiceState;->mCdmaEriIconIndex:I
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/telephony/ServiceState;->equalsHandlesNulls(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_7
-
-    iget v4, p0, Landroid/telephony/ServiceState;->mCdmaEriIconMode:I
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    iget v5, v2, Landroid/telephony/ServiceState;->mCdmaEriIconMode:I
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/telephony/ServiceState;->equalsHandlesNulls(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_7
-
-    iget-boolean v4, p0, Landroid/telephony/ServiceState;->mHtcCdmaRadioPowerSaveMode:Z
-
-    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v4
-
-    iget-boolean v5, v2, Landroid/telephony/ServiceState;->mHtcCdmaRadioPowerSaveMode:Z
-
-    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/telephony/ServiceState;->equalsHandlesNulls(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_7
-
     iget-boolean v4, p0, Landroid/telephony/ServiceState;->mIsEmergencyOnly:Z
 
     iget-boolean v5, v2, Landroid/telephony/ServiceState;->mIsEmergencyOnly:Z
 
     if-ne v4, v5, :cond_7
-
-    iget v4, p0, Landroid/telephony/ServiceState;->mGPRSState:I
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    iget v5, v2, Landroid/telephony/ServiceState;->mGPRSState:I
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/telephony/ServiceState;->equalsHandlesNulls(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_7
 
     const/4 v3, 0x1
 
@@ -1322,14 +1091,14 @@
     .parameter "m"
 
     .prologue
-    .line 714
+    .line 606
     const-string/jumbo v0, "state"
 
     iget v1, p0, Landroid/telephony/ServiceState;->mState:I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 715
+    .line 607
     const-string/jumbo v0, "roaming"
 
     iget-boolean v1, p0, Landroid/telephony/ServiceState;->mRoaming:Z
@@ -1344,28 +1113,28 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 716
+    .line 608
     const-string/jumbo v0, "operator-alpha-long"
 
     iget-object v1, p0, Landroid/telephony/ServiceState;->mOperatorAlphaLong:Ljava/lang/String;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 717
+    .line 609
     const-string/jumbo v0, "operator-alpha-short"
 
     iget-object v1, p0, Landroid/telephony/ServiceState;->mOperatorAlphaShort:Ljava/lang/String;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 718
+    .line 610
     const-string/jumbo v0, "operator-numeric"
 
     iget-object v1, p0, Landroid/telephony/ServiceState;->mOperatorNumeric:Ljava/lang/String;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 719
+    .line 611
     const-string/jumbo v0, "manual"
 
     iget-boolean v1, p0, Landroid/telephony/ServiceState;->mIsManualNetworkSelection:Z
@@ -1380,49 +1149,49 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 720
+    .line 612
     const-string/jumbo v0, "radioTechnology"
 
     iget v1, p0, Landroid/telephony/ServiceState;->mRadioTechnology:I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 721
+    .line 613
     const-string v0, "cssIndicator"
 
     iget-boolean v1, p0, Landroid/telephony/ServiceState;->mCssIndicator:Z
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 722
+    .line 614
     const-string/jumbo v0, "networkId"
 
     iget v1, p0, Landroid/telephony/ServiceState;->mNetworkId:I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 723
+    .line 615
     const-string/jumbo v0, "systemId"
 
     iget v1, p0, Landroid/telephony/ServiceState;->mSystemId:I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 724
+    .line 616
     const-string v0, "cdmaRoamingIndicator"
 
     iget v1, p0, Landroid/telephony/ServiceState;->mCdmaRoamingIndicator:I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 725
+    .line 617
     const-string v0, "cdmaDefaultRoamingIndicator"
 
     iget v1, p0, Landroid/telephony/ServiceState;->mCdmaDefaultRoamingIndicator:I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 726
+    .line 618
     const-string v0, "emergencyOnly"
 
     iget-boolean v1, p0, Landroid/telephony/ServiceState;->mIsEmergencyOnly:Z
@@ -1437,53 +1206,15 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 731
-    const-string v0, "cdmaEriIconIndex"
-
-    iget v1, p0, Landroid/telephony/ServiceState;->mCdmaEriIconIndex:I
-
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    .line 732
-    const-string v0, "cdmaEriIconMode"
-
-    iget v1, p0, Landroid/telephony/ServiceState;->mCdmaEriIconMode:I
-
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    .line 733
-    const-string/jumbo v0, "htcCdmaRadioPowerSaveMode"
-
-    iget-boolean v1, p0, Landroid/telephony/ServiceState;->mHtcCdmaRadioPowerSaveMode:Z
-
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
-
-    .line 736
-    const-string v0, "gprsstate"
-
-    iget v1, p0, Landroid/telephony/ServiceState;->mGPRSState:I
-
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    .line 738
+    .line 619
     return-void
-.end method
-
-.method public getAppendixType()I
-    .registers 2
-
-    .prologue
-    .line 816
-    iget v0, p0, Landroid/telephony/ServiceState;->mAppendixType:I
-
-    return v0
 .end method
 
 .method public getCdmaDefaultRoamingIndicator()I
     .registers 2
 
     .prologue
-    .line 347
+    .line 282
     iget v0, p0, Landroid/telephony/ServiceState;->mCdmaDefaultRoamingIndicator:I
 
     return v0
@@ -1493,7 +1224,7 @@
     .registers 2
 
     .prologue
-    .line 354
+    .line 289
     iget v0, p0, Landroid/telephony/ServiceState;->mCdmaEriIconIndex:I
 
     return v0
@@ -1503,7 +1234,7 @@
     .registers 2
 
     .prologue
-    .line 361
+    .line 296
     iget v0, p0, Landroid/telephony/ServiceState;->mCdmaEriIconMode:I
 
     return v0
@@ -1513,7 +1244,7 @@
     .registers 2
 
     .prologue
-    .line 340
+    .line 275
     iget v0, p0, Landroid/telephony/ServiceState;->mCdmaRoamingIndicator:I
 
     return v0
@@ -1523,7 +1254,7 @@
     .registers 2
 
     .prologue
-    .line 765
+    .line 645
     iget-boolean v0, p0, Landroid/telephony/ServiceState;->mCssIndicator:Z
 
     if-eqz v0, :cond_6
@@ -1539,21 +1270,11 @@
     goto :goto_5
 .end method
 
-.method public getGPRSState()I
-    .registers 2
-
-    .prologue
-    .line 828
-    iget v0, p0, Landroid/telephony/ServiceState;->mGPRSState:I
-
-    return v0
-.end method
-
 .method public getIsManualSelection()Z
     .registers 2
 
     .prologue
-    .line 409
+    .line 344
     iget-boolean v0, p0, Landroid/telephony/ServiceState;->mIsManualNetworkSelection:Z
 
     return v0
@@ -1563,18 +1284,8 @@
     .registers 2
 
     .prologue
-    .line 770
+    .line 650
     iget v0, p0, Landroid/telephony/ServiceState;->mNetworkId:I
-
-    return v0
-.end method
-
-.method public getNetwrorkType()I
-    .registers 2
-
-    .prologue
-    .line 803
-    iget v0, p0, Landroid/telephony/ServiceState;->mNetworkType:I
 
     return v0
 .end method
@@ -1583,7 +1294,7 @@
     .registers 2
 
     .prologue
-    .line 373
+    .line 308
     iget-object v0, p0, Landroid/telephony/ServiceState;->mOperatorAlphaLong:Ljava/lang/String;
 
     return-object v0
@@ -1593,7 +1304,7 @@
     .registers 2
 
     .prologue
-    .line 384
+    .line 319
     iget-object v0, p0, Landroid/telephony/ServiceState;->mOperatorAlphaShort:Ljava/lang/String;
 
     return-object v0
@@ -1603,27 +1314,17 @@
     .registers 2
 
     .prologue
-    .line 400
+    .line 335
     iget-object v0, p0, Landroid/telephony/ServiceState;->mOperatorNumeric:Ljava/lang/String;
 
     return-object v0
-.end method
-
-.method public getPhoneType()I
-    .registers 2
-
-    .prologue
-    .line 837
-    const/4 v0, 0x0
-
-    return v0
 .end method
 
 .method public getRadioTechnology()I
     .registers 2
 
     .prologue
-    .line 760
+    .line 640
     iget v0, p0, Landroid/telephony/ServiceState;->mRadioTechnology:I
 
     return v0
@@ -1633,7 +1334,7 @@
     .registers 2
 
     .prologue
-    .line 326
+    .line 261
     iget-boolean v0, p0, Landroid/telephony/ServiceState;->mRoaming:Z
 
     return v0
@@ -1643,7 +1344,7 @@
     .registers 2
 
     .prologue
-    .line 314
+    .line 249
     iget v0, p0, Landroid/telephony/ServiceState;->mState:I
 
     return v0
@@ -1653,7 +1354,7 @@
     .registers 2
 
     .prologue
-    .line 775
+    .line 655
     iget v0, p0, Landroid/telephony/ServiceState;->mSystemId:I
 
     return v0
@@ -1667,7 +1368,7 @@
 
     const/4 v2, 0x0
 
-    .line 414
+    .line 349
     iget v0, p0, Landroid/telephony/ServiceState;->mState:I
 
     mul-int/lit16 v3, v0, 0x1234
@@ -1777,48 +1478,14 @@
     goto :goto_2e
 .end method
 
-.method public htcGetCdmaRadioPowerSaveMode()Z
-    .registers 2
-
-    .prologue
-    .line 785
-    iget-boolean v0, p0, Landroid/telephony/ServiceState;->mHtcCdmaRadioPowerSaveMode:Z
-
-    return v0
-.end method
-
-.method public htcSetCdmaRadioPowerSaveMode(Z)V
-    .registers 2
-    .parameter "isPoweSaveMode"
-
-    .prologue
-    .line 781
-    iput-boolean p1, p0, Landroid/telephony/ServiceState;->mHtcCdmaRadioPowerSaveMode:Z
-
-    .line 782
-    return-void
-.end method
-
 .method public isEmergencyOnly()Z
     .registers 2
 
     .prologue
-    .line 333
+    .line 268
     iget-boolean v0, p0, Landroid/telephony/ServiceState;->mIsEmergencyOnly:Z
 
     return v0
-.end method
-
-.method public setAppendixType(I)V
-    .registers 2
-    .parameter "type"
-
-    .prologue
-    .line 812
-    iput p1, p0, Landroid/telephony/ServiceState;->mAppendixType:I
-
-    .line 813
-    return-void
 .end method
 
 .method public setCdmaDefaultRoamingIndicator(I)V
@@ -1826,10 +1493,10 @@
     .parameter "roaming"
 
     .prologue
-    .line 625
+    .line 529
     iput p1, p0, Landroid/telephony/ServiceState;->mCdmaDefaultRoamingIndicator:I
 
-    .line 626
+    .line 530
     return-void
 .end method
 
@@ -1838,10 +1505,10 @@
     .parameter "index"
 
     .prologue
-    .line 632
+    .line 536
     iput p1, p0, Landroid/telephony/ServiceState;->mCdmaEriIconIndex:I
 
-    .line 633
+    .line 537
     return-void
 .end method
 
@@ -1850,10 +1517,10 @@
     .parameter "mode"
 
     .prologue
-    .line 639
+    .line 543
     iput p1, p0, Landroid/telephony/ServiceState;->mCdmaEriIconMode:I
 
-    .line 640
+    .line 544
     return-void
 .end method
 
@@ -1862,10 +1529,10 @@
     .parameter "roaming"
 
     .prologue
-    .line 618
+    .line 522
     iput p1, p0, Landroid/telephony/ServiceState;->mCdmaRoamingIndicator:I
 
-    .line 619
+    .line 523
     return-void
 .end method
 
@@ -1874,7 +1541,7 @@
     .parameter "css"
 
     .prologue
-    .line 749
+    .line 629
     if-eqz p1, :cond_6
 
     const/4 v0, 0x1
@@ -1882,10 +1549,10 @@
     :goto_3
     iput-boolean v0, p0, Landroid/telephony/ServiceState;->mCssIndicator:Z
 
-    .line 750
+    .line 630
     return-void
 
-    .line 749
+    .line 629
     :cond_6
     const/4 v0, 0x0
 
@@ -1897,22 +1564,10 @@
     .parameter "emergencyOnly"
 
     .prologue
-    .line 611
+    .line 515
     iput-boolean p1, p0, Landroid/telephony/ServiceState;->mIsEmergencyOnly:Z
 
-    .line 612
-    return-void
-.end method
-
-.method public setGPRSState(I)V
-    .registers 2
-    .parameter "state"
-
-    .prologue
-    .line 822
-    iput p1, p0, Landroid/telephony/ServiceState;->mGPRSState:I
-
-    .line 823
+    .line 516
     return-void
 .end method
 
@@ -1921,25 +1576,10 @@
     .parameter "isManual"
 
     .prologue
-    .line 659
+    .line 563
     iput-boolean p1, p0, Landroid/telephony/ServiceState;->mIsManualNetworkSelection:Z
 
-    .line 660
-    return-void
-.end method
-
-.method public setNetworkType(I)V
-    .registers 2
-    .parameter "networkType"
-
-    .prologue
-    .line 794
-    iput p1, p0, Landroid/telephony/ServiceState;->mNetworkType:I
-
-    .line 795
-    iput p1, p0, Landroid/telephony/ServiceState;->mRadioTechnology:I
-
-    .line 796
+    .line 564
     return-void
 .end method
 
@@ -1948,10 +1588,10 @@
     .parameter "longName"
 
     .prologue
-    .line 655
+    .line 559
     iput-object p1, p0, Landroid/telephony/ServiceState;->mOperatorAlphaLong:Ljava/lang/String;
 
-    .line 656
+    .line 560
     return-void
 .end method
 
@@ -1962,28 +1602,16 @@
     .parameter "numeric"
 
     .prologue
-    .line 643
+    .line 547
     iput-object p1, p0, Landroid/telephony/ServiceState;->mOperatorAlphaLong:Ljava/lang/String;
 
-    .line 644
+    .line 548
     iput-object p2, p0, Landroid/telephony/ServiceState;->mOperatorAlphaShort:Ljava/lang/String;
 
-    .line 645
+    .line 549
     iput-object p3, p0, Landroid/telephony/ServiceState;->mOperatorNumeric:Ljava/lang/String;
 
-    .line 646
-    return-void
-.end method
-
-.method public setPhoneType(I)V
-    .registers 2
-    .parameter "phoneType"
-
-    .prologue
-    .line 834
-    iput p1, p0, Landroid/telephony/ServiceState;->mPhoneType:I
-
-    .line 835
+    .line 550
     return-void
 .end method
 
@@ -1992,13 +1620,10 @@
     .parameter "state"
 
     .prologue
-    .line 743
+    .line 624
     iput p1, p0, Landroid/telephony/ServiceState;->mRadioTechnology:I
 
-    .line 744
-    iput p1, p0, Landroid/telephony/ServiceState;->mNetworkType:I
-
-    .line 745
+    .line 625
     return-void
 .end method
 
@@ -2007,10 +1632,10 @@
     .parameter "roaming"
 
     .prologue
-    .line 603
+    .line 507
     iput-boolean p1, p0, Landroid/telephony/ServiceState;->mRoaming:Z
 
-    .line 604
+    .line 508
     return-void
 .end method
 
@@ -2019,10 +1644,10 @@
     .parameter "state"
 
     .prologue
-    .line 599
+    .line 503
     iput p1, p0, Landroid/telephony/ServiceState;->mState:I
 
-    .line 600
+    .line 504
     return-void
 .end method
 
@@ -2030,12 +1655,12 @@
     .registers 2
 
     .prologue
-    .line 595
+    .line 499
     const/4 v0, 0x3
 
     invoke-direct {p0, v0}, Landroid/telephony/ServiceState;->setNullState(I)V
 
-    .line 596
+    .line 500
     return-void
 .end method
 
@@ -2043,12 +1668,12 @@
     .registers 2
 
     .prologue
-    .line 591
+    .line 495
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Landroid/telephony/ServiceState;->setNullState(I)V
 
-    .line 592
+    .line 496
     return-void
 .end method
 
@@ -2058,13 +1683,13 @@
     .parameter "networkId"
 
     .prologue
-    .line 754
+    .line 634
     iput p1, p0, Landroid/telephony/ServiceState;->mSystemId:I
 
-    .line 755
+    .line 635
     iput p2, p0, Landroid/telephony/ServiceState;->mNetworkId:I
 
-    .line 756
+    .line 636
     return-void
 .end method
 
@@ -2072,14 +1697,14 @@
     .registers 4
 
     .prologue
-    .line 541
+    .line 460
     iget v1, p0, Landroid/telephony/ServiceState;->mRadioTechnology:I
 
     invoke-static {v1}, Landroid/telephony/ServiceState;->radioTechnologyToString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 543
+    .line 462
     .local v0, radioTechnology:Ljava/lang/String;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2099,7 +1724,7 @@
 
     iget-boolean v1, p0, Landroid/telephony/ServiceState;->mRoaming:Z
 
-    if-eqz v1, :cond_d5
+    if-eqz v1, :cond_b1
 
     const-string/jumbo v1, "roaming"
 
@@ -2152,7 +1777,7 @@
 
     iget-boolean v1, p0, Landroid/telephony/ServiceState;->mIsManualNetworkSelection:Z
 
-    if-eqz v1, :cond_da
+    if-eqz v1, :cond_b5
 
     const-string v1, "(manual)"
 
@@ -2179,7 +1804,7 @@
 
     iget-boolean v1, p0, Landroid/telephony/ServiceState;->mCssIndicator:Z
 
-    if-eqz v1, :cond_de
+    if-eqz v1, :cond_b8
 
     const-string v1, "CSS supported"
 
@@ -2236,42 +1861,6 @@
 
     move-result-object v1
 
-    const-string v2, "EriInd= "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget v2, p0, Landroid/telephony/ServiceState;->mCdmaEriIconIndex:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, "EriMode= "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget v2, p0, Landroid/telephony/ServiceState;->mCdmaEriIconMode:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, "RadioPowerSv: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-boolean v2, p0, Landroid/telephony/ServiceState;->mHtcCdmaRadioPowerSaveMode:Z
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
     const-string v2, " EmergOnly="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2290,29 +1879,20 @@
 
     return-object v1
 
-    :cond_d5
-    const-string/jumbo v1, "home"
+    :cond_b1
+    const-string v1, "home"
 
     goto/16 :goto_1e
 
-    :cond_da
+    :cond_b5
     const-string v1, ""
 
-    goto/16 :goto_52
+    goto :goto_52
 
-    :cond_de
+    :cond_b8
     const-string v1, "CSS not supported"
 
     goto :goto_6c
-.end method
-
-.method public updateOperatorAlpha(Landroid/content/Context;)V
-    .registers 2
-    .parameter "context"
-
-    .prologue
-    .line 849
-    return-void
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
@@ -2325,144 +1905,123 @@
 
     const/4 v2, 0x0
 
-    .line 265
+    .line 208
     iget v0, p0, Landroid/telephony/ServiceState;->mState:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 266
+    .line 209
     iget-boolean v0, p0, Landroid/telephony/ServiceState;->mRoaming:Z
 
-    if-eqz v0, :cond_66
+    if-eqz v0, :cond_59
 
     move v0, v1
 
     :goto_c
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 267
+    .line 210
     iget-object v0, p0, Landroid/telephony/ServiceState;->mOperatorAlphaLong:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 268
+    .line 211
     iget-object v0, p0, Landroid/telephony/ServiceState;->mOperatorAlphaShort:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 269
+    .line 212
     iget-object v0, p0, Landroid/telephony/ServiceState;->mOperatorNumeric:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 270
+    .line 213
     iget-boolean v0, p0, Landroid/telephony/ServiceState;->mIsManualNetworkSelection:Z
 
-    if-eqz v0, :cond_68
+    if-eqz v0, :cond_5b
 
     move v0, v1
 
     :goto_23
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 271
+    .line 214
     iget v0, p0, Landroid/telephony/ServiceState;->mRadioTechnology:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 272
+    .line 215
     iget-boolean v0, p0, Landroid/telephony/ServiceState;->mCssIndicator:Z
 
-    if-eqz v0, :cond_6a
+    if-eqz v0, :cond_5d
 
     move v0, v1
 
     :goto_30
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 273
+    .line 216
     iget v0, p0, Landroid/telephony/ServiceState;->mNetworkId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 274
+    .line 217
     iget v0, p0, Landroid/telephony/ServiceState;->mSystemId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 275
+    .line 218
     iget v0, p0, Landroid/telephony/ServiceState;->mCdmaRoamingIndicator:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 276
+    .line 219
     iget v0, p0, Landroid/telephony/ServiceState;->mCdmaDefaultRoamingIndicator:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 277
+    .line 220
     iget v0, p0, Landroid/telephony/ServiceState;->mCdmaEriIconIndex:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 278
+    .line 221
     iget v0, p0, Landroid/telephony/ServiceState;->mCdmaEriIconMode:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 279
+    .line 222
     iget-boolean v0, p0, Landroid/telephony/ServiceState;->mIsEmergencyOnly:Z
 
-    if-eqz v0, :cond_6c
+    if-eqz v0, :cond_5f
 
-    move v0, v1
-
-    :goto_56
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 283
-    iget-boolean v0, p0, Landroid/telephony/ServiceState;->mHtcCdmaRadioPowerSaveMode:Z
-
-    if-eqz v0, :cond_6e
-
-    :goto_5d
+    :goto_55
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 286
-    iget v0, p0, Landroid/telephony/ServiceState;->mGPRSState:I
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 288
+    .line 223
     return-void
 
-    :cond_66
+    :cond_59
     move v0, v2
 
-    .line 266
+    .line 209
     goto :goto_c
 
-    :cond_68
+    :cond_5b
     move v0, v2
 
-    .line 270
+    .line 213
     goto :goto_23
 
-    :cond_6a
+    :cond_5d
     move v0, v2
 
-    .line 272
+    .line 215
     goto :goto_30
 
-    :cond_6c
-    move v0, v2
-
-    .line 279
-    goto :goto_56
-
-    :cond_6e
+    :cond_5f
     move v1, v2
 
-    .line 283
-    goto :goto_5d
+    .line 222
+    goto :goto_55
 .end method

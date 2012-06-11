@@ -33,14 +33,14 @@
     .parameter
 
     .prologue
-    .line 2218
+    .line 1917
     iput-object p1, p0, Landroid/webkit/WebView$7;->this$0:Landroid/webkit/WebView;
 
     iput-object p2, p0, Landroid/webkit/WebView$7;->val$in:Ljava/io/FileInputStream;
 
     iput-object p3, p0, Landroid/webkit/WebView$7;->val$copy:Landroid/os/Bundle;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -51,7 +51,7 @@
     .registers 4
 
     .prologue
-    .line 2221
+    .line 1920
     :try_start_0
     iget-object v1, p0, Landroid/webkit/WebView$7;->val$in:Ljava/io/FileInputStream;
 
@@ -59,11 +59,11 @@
 
     move-result-object v0
 
-    .line 2222
+    .line 1921
     .local v0, p:Landroid/graphics/Picture;
     if-eqz v0, :cond_14
 
-    .line 2225
+    .line 1924
     iget-object v1, p0, Landroid/webkit/WebView$7;->this$0:Landroid/webkit/WebView;
 
     iget-object v1, v1, Landroid/webkit/WebView;->mPrivateHandler:Landroid/os/Handler;
@@ -76,46 +76,45 @@
     :try_end_14
     .catchall {:try_start_0 .. :try_end_14} :catchall_1a
 
-    .line 2233
+    .line 1932
     :cond_14
     :try_start_14
     iget-object v1, p0, Landroid/webkit/WebView$7;->val$in:Ljava/io/FileInputStream;
 
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
     :try_end_19
-    .catch Ljava/lang/Exception; {:try_start_14 .. :try_end_19} :catch_21
+    .catch Ljava/lang/Exception; {:try_start_14 .. :try_end_19} :catch_23
 
-    .line 2238
+    .line 1937
     :goto_19
     return-void
 
-    .line 2232
+    .line 1931
     .end local v0           #p:Landroid/graphics/Picture;
     :catchall_1a
     move-exception v1
 
-    .line 2233
+    .line 1932
     :try_start_1b
     iget-object v2, p0, Landroid/webkit/WebView$7;->val$in:Ljava/io/FileInputStream;
 
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
     :try_end_20
-    .catch Ljava/lang/Exception; {:try_start_1b .. :try_end_20} :catch_23
+    .catch Ljava/lang/Exception; {:try_start_1b .. :try_end_20} :catch_21
 
-    .line 2232
+    .line 1935
     :goto_20
     throw v1
 
-    .line 2234
-    .restart local v0       #p:Landroid/graphics/Picture;
+    .line 1933
     :catch_21
-    move-exception v1
-
-    goto :goto_19
-
-    .end local v0           #p:Landroid/graphics/Picture;
-    :catch_23
     move-exception v2
 
     goto :goto_20
+
+    .restart local v0       #p:Landroid/graphics/Picture;
+    :catch_23
+    move-exception v1
+
+    goto :goto_19
 .end method

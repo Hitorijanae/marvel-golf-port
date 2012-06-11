@@ -47,7 +47,7 @@
 
     .prologue
     .line 41
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 42
     return-void
@@ -59,7 +59,7 @@
 
     .prologue
     .line 58
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 59
     if-eqz p1, :cond_11
@@ -119,7 +119,7 @@
 
     move-result-object v1
 
-    const-string/jumbo v2, "isGroupOwner: "
+    const-string v2, "isGroupOwner: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 

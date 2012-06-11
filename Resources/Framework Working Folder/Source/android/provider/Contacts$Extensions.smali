@@ -53,7 +53,7 @@
     .registers 1
 
     .prologue
-    .line 3717
+    .line 1934
     const-string v0, "content://contacts/extensions"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -69,8 +69,8 @@
     .registers 1
 
     .prologue
-    .line 3710
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 1927
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

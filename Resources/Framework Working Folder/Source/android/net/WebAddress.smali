@@ -63,7 +63,7 @@
     const/4 v5, -0x1
 
     .line 63
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 64
     if-nez p1, :cond_e
@@ -112,7 +112,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_b8
+    if-eqz v3, :cond_b6
 
     .line 79
     const/4 v3, 0x1
@@ -182,7 +182,7 @@
 
     iput v3, p0, Landroid/net/WebAddress;->mPort:I
     :try_end_5e
-    .catch Ljava/lang/NumberFormatException; {:try_start_58 .. :try_end_5e} :catch_99
+    .catch Ljava/lang/NumberFormatException; {:try_start_58 .. :try_end_5e} :catch_97
 
     .line 94
     :cond_5e
@@ -210,7 +210,7 @@
 
     const/16 v4, 0x2f
 
-    if-ne v3, v4, :cond_a2
+    if-ne v3, v4, :cond_a0
 
     .line 99
     iput-object v2, p0, Landroid/net/WebAddress;->mPath:Ljava/lang/String;
@@ -220,7 +220,7 @@
     :goto_76
     iget v3, p0, Landroid/net/WebAddress;->mPort:I
 
-    if-ne v3, v6, :cond_c0
+    if-ne v3, v6, :cond_be
 
     iget-object v3, p0, Landroid/net/WebAddress;->mScheme:Ljava/lang/String;
 
@@ -230,16 +230,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_c0
+    if-eqz v3, :cond_be
 
     .line 113
-    const-string/jumbo v3, "https"
+    const-string v3, "https"
 
     iput-object v3, p0, Landroid/net/WebAddress;->mScheme:Ljava/lang/String;
 
     .line 120
-    :cond_89
-    :goto_89
+    :cond_88
+    :goto_88
     iget-object v3, p0, Landroid/net/WebAddress;->mScheme:Ljava/lang/String;
 
     const-string v4, ""
@@ -248,18 +248,18 @@
 
     move-result v3
 
-    if-eqz v3, :cond_98
+    if-eqz v3, :cond_96
 
-    const-string/jumbo v3, "http"
+    const-string v3, "http"
 
     iput-object v3, p0, Landroid/net/WebAddress;->mScheme:Ljava/lang/String;
 
     .line 121
-    :cond_98
+    :cond_96
     return-void
 
     .line 90
-    :catch_99
+    :catch_97
     move-exception v0
 
     .line 91
@@ -274,7 +274,7 @@
 
     .line 101
     .end local v0           #ex:Ljava/lang/NumberFormatException;
-    :cond_a2
+    :cond_a0
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -299,7 +299,7 @@
 
     .line 107
     .end local v2           #t:Ljava/lang/String;
-    :cond_b8
+    :cond_b6
     new-instance v3, Landroid/net/ParseException;
 
     const-string v4, "Bad address"
@@ -310,34 +310,34 @@
 
     .line 114
     .restart local v2       #t:Ljava/lang/String;
-    :cond_c0
+    :cond_be
     iget v3, p0, Landroid/net/WebAddress;->mPort:I
 
-    if-ne v3, v5, :cond_89
+    if-ne v3, v5, :cond_88
 
     .line 115
     iget-object v3, p0, Landroid/net/WebAddress;->mScheme:Ljava/lang/String;
 
-    const-string/jumbo v4, "https"
+    const-string v4, "https"
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_d2
+    if-eqz v3, :cond_cf
 
     .line 116
     iput v6, p0, Landroid/net/WebAddress;->mPort:I
 
-    goto :goto_89
+    goto :goto_88
 
     .line 118
-    :cond_d2
+    :cond_cf
     const/16 v3, 0x50
 
     iput v3, p0, Landroid/net/WebAddress;->mPort:I
 
-    goto :goto_89
+    goto :goto_88
 .end method
 
 
@@ -465,37 +465,37 @@
 
     const/16 v3, 0x1bb
 
-    if-eq v2, v3, :cond_13
+    if-eq v2, v3, :cond_12
 
     iget-object v2, p0, Landroid/net/WebAddress;->mScheme:Ljava/lang/String;
 
-    const-string/jumbo v3, "https"
+    const-string v3, "https"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_24
+    if-nez v2, :cond_22
 
-    :cond_13
+    :cond_12
     iget v2, p0, Landroid/net/WebAddress;->mPort:I
 
     const/16 v3, 0x50
 
-    if-eq v2, v3, :cond_3d
+    if-eq v2, v3, :cond_3b
 
     iget-object v2, p0, Landroid/net/WebAddress;->mScheme:Ljava/lang/String;
 
-    const-string/jumbo v3, "http"
+    const-string v3, "http"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_3d
+    if-eqz v2, :cond_3b
 
     .line 128
-    :cond_24
+    :cond_22
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -521,7 +521,7 @@
     move-result-object v1
 
     .line 130
-    :cond_3d
+    :cond_3b
     const-string v0, ""
 
     .line 131
@@ -532,7 +532,7 @@
 
     move-result v2
 
-    if-lez v2, :cond_5c
+    if-lez v2, :cond_5a
 
     .line 132
     new-instance v2, Ljava/lang/StringBuilder;
@@ -556,7 +556,7 @@
     move-result-object v0
 
     .line 135
-    :cond_5c
+    :cond_5a
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V

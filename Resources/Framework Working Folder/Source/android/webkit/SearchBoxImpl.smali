@@ -75,7 +75,7 @@
 
     .prologue
     .line 121
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 118
     const/4 v0, 0x1
@@ -113,7 +113,7 @@
 
     .prologue
     .line 178
-    if-eqz p2, :cond_2e
+    if-eqz p2, :cond_2d
 
     .line 179
     monitor-enter p0
@@ -139,11 +139,11 @@
     .line 182
     monitor-exit p0
     :try_end_13
-    .catchall {:try_start_3 .. :try_end_13} :catchall_2b
+    .catchall {:try_start_3 .. :try_end_13} :catchall_2a
 
     .line 186
     :goto_13
-    const-string/jumbo v2, "if (window.chrome && window.chrome.searchBox && window.chrome.searchBox.on%1$s) {  window.chrome.searchBox.on%1$s();  window.searchBoxJavaBridge_.dispatchCompleteCallback(\'%1$s\', %2$d, true);} else {  window.searchBoxJavaBridge_.dispatchCompleteCallback(\'%1$s\', %2$d, false);}"
+    const-string v2, "if (window.chrome && window.chrome.searchBox && window.chrome.searchBox.on%1$s) {  window.chrome.searchBox.on%1$s();  window.searchBoxJavaBridge_.dispatchCompleteCallback(\'%1$s\', %2$d, true);} else {  window.searchBoxJavaBridge_.dispatchCompleteCallback(\'%1$s\', %2$d, false);}"
 
     const/4 v3, 0x2
 
@@ -175,18 +175,18 @@
     .line 182
     .end local v0           #eventId:I
     .end local v1           #js:Ljava/lang/String;
-    :catchall_2b
+    :catchall_2a
     move-exception v2
 
-    :try_start_2c
+    :try_start_2b
     monitor-exit p0
-    :try_end_2d
-    .catchall {:try_start_2c .. :try_end_2d} :catchall_2b
+    :try_end_2c
+    .catchall {:try_start_2b .. :try_end_2c} :catchall_2a
 
     throw v2
 
     .line 184
-    :cond_2e
+    :cond_2d
     const/4 v0, 0x0
 
     .restart local v0       #eventId:I
@@ -553,7 +553,7 @@
     iput-object p1, p0, Landroid/webkit/SearchBoxImpl;->mSupportedCallback:Landroid/webkit/SearchBox$IsSupportedCallback;
 
     .line 211
-    const-string/jumbo v0, "if (window.searchBoxJavaBridge_) {  if (window.chrome && window.chrome.sv) {    window.searchBoxJavaBridge_.isSupportedCallback(true);  } else {    window.searchBoxJavaBridge_.isSupportedCallback(false);  }}"
+    const-string v0, "if (window.searchBoxJavaBridge_) {  if (window.chrome && window.chrome.sv) {    window.searchBoxJavaBridge_.isSupportedCallback(true);  } else {    window.searchBoxJavaBridge_.isSupportedCallback(false);  }}"
 
     invoke-direct {p0, v0}, Landroid/webkit/SearchBoxImpl;->dispatchJs(Ljava/lang/String;)V
 
@@ -673,7 +673,7 @@
 
     .prologue
     .line 152
-    const-string/jumbo v1, "if (window.chrome && window.chrome.searchBox) {   var f = window.chrome.searchBox;  f.x = %d;  f.y = %d;  f.width = %d;  f.height = %d;}"
+    const-string v1, "if (window.chrome && window.chrome.searchBox) {   var f = window.chrome.searchBox;  f.x = %d;  f.y = %d;  f.width = %d;  f.height = %d;}"
 
     const/4 v2, 0x4
 
@@ -735,10 +735,10 @@
 
     .line 131
     .local v0, formattedQuery:Ljava/lang/String;
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_15
 
     .line 132
-    const-string/jumbo v2, "if (window.chrome && window.chrome.searchBox) {  window.chrome.searchBox.setValue(%s);}"
+    const-string v2, "if (window.chrome && window.chrome.searchBox) {  window.chrome.searchBox.setValue(%s);}"
 
     const/4 v3, 0x1
 
@@ -758,7 +758,7 @@
 
     .line 135
     .end local v1           #js:Ljava/lang/String;
-    :cond_16
+    :cond_15
     return-void
 .end method
 
@@ -769,7 +769,7 @@
 
     .prologue
     .line 146
-    const-string/jumbo v1, "if (window.chrome && window.chrome.searchBox) {  var f = window.chrome.searchBox;  f.selectionStart = %d  f.selectionEnd = %d}"
+    const-string v1, "if (window.chrome && window.chrome.searchBox) {  var f = window.chrome.searchBox;  f.selectionStart = %d  f.selectionEnd = %d}"
 
     const/4 v2, 0x2
 
@@ -951,7 +951,7 @@
 
     .prologue
     .line 139
-    const-string/jumbo v1, "if (window.chrome && window.chrome.searchBox) {  window.chrome.searchBox.verbatim = %1$s;}"
+    const-string v1, "if (window.chrome && window.chrome.searchBox) {  window.chrome.searchBox.verbatim = %1$s;}"
 
     const/4 v2, 0x1
 

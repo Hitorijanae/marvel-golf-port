@@ -33,10 +33,10 @@
     .registers 1
 
     .prologue
-    .line 94
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 89
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 95
+    .line 90
     return-void
 .end method
 
@@ -47,29 +47,29 @@
     .parameter "resizer"
 
     .prologue
-    .line 78
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 73
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 79
+    .line 74
     iput-object p2, p0, Landroid/app/LauncherActivity$ListItem;->resolveInfo:Landroid/content/pm/ResolveInfo;
 
-    .line 80
+    .line 75
     invoke-virtual {p2, p1}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/app/LauncherActivity$ListItem;->label:Ljava/lang/CharSequence;
 
-    .line 81
+    .line 76
     iget-object v0, p2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    .line 82
+    .line 77
     .local v0, ci:Landroid/content/pm/ComponentInfo;
     if-nez v0, :cond_11
 
     iget-object v0, p2, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
-    .line 83
+    .line 78
     :cond_11
     iget-object v1, p0, Landroid/app/LauncherActivity$ListItem;->label:Ljava/lang/CharSequence;
 
@@ -77,18 +77,18 @@
 
     if-eqz v0, :cond_1d
 
-    .line 84
+    .line 79
     iget-object v1, p2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v1, v1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v1, v1, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
     iput-object v1, p0, Landroid/app/LauncherActivity$ListItem;->label:Ljava/lang/CharSequence;
 
-    .line 87
+    .line 82
     :cond_1d
     if-eqz p3, :cond_29
 
-    .line 88
+    .line 83
     invoke-virtual {p2, p1}, Landroid/content/pm/ResolveInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
@@ -99,19 +99,19 @@
 
     iput-object v1, p0, Landroid/app/LauncherActivity$ListItem;->icon:Landroid/graphics/drawable/Drawable;
 
-    .line 90
+    .line 85
     :cond_29
     iget-object v1, v0, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v1, v1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v1, v1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     iput-object v1, p0, Landroid/app/LauncherActivity$ListItem;->packageName:Ljava/lang/String;
 
-    .line 91
-    iget-object v1, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    .line 86
+    iget-object v1, v0, Landroid/content/pm/ComponentInfo;->name:Ljava/lang/String;
 
     iput-object v1, p0, Landroid/app/LauncherActivity$ListItem;->className:Ljava/lang/String;
 
-    .line 92
+    .line 87
     return-void
 .end method

@@ -90,7 +90,7 @@
     const/4 v0, 0x0
 
     .line 165
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 128
     iput v0, p0, Landroid/speech/srec/Recognizer;->mVocabulary:I
@@ -659,7 +659,7 @@
 
     invoke-static {v0}, Landroid/speech/srec/Recognizer;->SR_VocabularyDestroy(I)V
     :try_end_a
-    .catchall {:try_start_1 .. :try_end_a} :catchall_27
+    .catchall {:try_start_1 .. :try_end_a} :catchall_62
 
     .line 406
     :cond_a
@@ -675,7 +675,7 @@
 
     invoke-static {v0}, Landroid/speech/srec/Recognizer;->SR_RecognizerUnsetup(I)V
     :try_end_15
-    .catchall {:try_start_c .. :try_end_15} :catchall_80
+    .catchall {:try_start_c .. :try_end_15} :catchall_3b
 
     .line 411
     :cond_15
@@ -688,7 +688,7 @@
 
     invoke-static {v0}, Landroid/speech/srec/Recognizer;->SR_RecognizerDestroy(I)V
     :try_end_1e
-    .catchall {:try_start_15 .. :try_end_1e} :catchall_a7
+    .catchall {:try_start_15 .. :try_end_1e} :catchall_2c
 
     .line 413
     :cond_1e
@@ -698,7 +698,7 @@
     :try_start_20
     invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
     :try_end_23
-    .catchall {:try_start_20 .. :try_end_23} :catchall_b6
+    .catchall {:try_start_20 .. :try_end_23} :catchall_27
 
     .line 417
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
@@ -706,238 +706,228 @@
     .line 422
     return-void
 
-    .line 406
+    .line 417
     :catchall_27
+    move-exception v0
+
+    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
+
+    throw v0
+
+    .line 413
+    :catchall_2c
+    move-exception v0
+
+    iput v2, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
+
+    .line 415
+    :try_start_2f
+    invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
+    :try_end_32
+    .catchall {:try_start_2f .. :try_end_32} :catchall_36
+
+    .line 417
+    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
+
+    throw v0
+
+    :catchall_36
+    move-exception v0
+
+    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
+
+    throw v0
+
+    .line 410
+    :catchall_3b
+    move-exception v0
+
+    .line 411
+    :try_start_3c
+    iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
+
+    if-eqz v1, :cond_45
+
+    iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
+
+    invoke-static {v1}, Landroid/speech/srec/Recognizer;->SR_RecognizerDestroy(I)V
+    :try_end_45
+    .catchall {:try_start_3c .. :try_end_45} :catchall_53
+
+    .line 413
+    :cond_45
+    iput v2, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
+
+    .line 415
+    :try_start_47
+    invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
+    :try_end_4a
+    .catchall {:try_start_47 .. :try_end_4a} :catchall_4e
+
+    .line 417
+    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
+
+    throw v0
+
+    :catchall_4e
+    move-exception v0
+
+    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
+
+    throw v0
+
+    .line 413
+    :catchall_53
+    move-exception v0
+
+    iput v2, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
+
+    .line 415
+    :try_start_56
+    invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
+    :try_end_59
+    .catchall {:try_start_56 .. :try_end_59} :catchall_5d
+
+    .line 417
+    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
+
+    throw v0
+
+    :catchall_5d
+    move-exception v0
+
+    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
+
+    throw v0
+
+    .line 406
+    :catchall_62
     move-exception v0
 
     iput v2, p0, Landroid/speech/srec/Recognizer;->mVocabulary:I
 
     .line 408
-    :try_start_2a
+    :try_start_65
     iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
-    if-eqz v1, :cond_33
+    if-eqz v1, :cond_6e
 
     iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     invoke-static {v1}, Landroid/speech/srec/Recognizer;->SR_RecognizerUnsetup(I)V
-    :try_end_33
-    .catchall {:try_start_2a .. :try_end_33} :catchall_45
+    :try_end_6e
+    .catchall {:try_start_65 .. :try_end_6e} :catchall_94
 
     .line 411
-    :cond_33
-    :try_start_33
+    :cond_6e
+    :try_start_6e
     iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
-    if-eqz v1, :cond_3c
+    if-eqz v1, :cond_77
 
     iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     invoke-static {v1}, Landroid/speech/srec/Recognizer;->SR_RecognizerDestroy(I)V
-    :try_end_3c
-    .catchall {:try_start_33 .. :try_end_3c} :catchall_6c
+    :try_end_77
+    .catchall {:try_start_6e .. :try_end_77} :catchall_85
 
     .line 413
-    :cond_3c
+    :cond_77
     iput v2, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     .line 415
-    :try_start_3e
+    :try_start_79
     invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
-    :try_end_41
-    .catchall {:try_start_3e .. :try_end_41} :catchall_7b
+    :try_end_7c
+    .catchall {:try_start_79 .. :try_end_7c} :catchall_80
 
     .line 417
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
 
-    .line 406
     throw v0
 
-    .line 410
-    :catchall_45
-    move-exception v0
-
-    .line 411
-    :try_start_46
-    iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
-
-    if-eqz v1, :cond_4f
-
-    iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
-
-    invoke-static {v1}, Landroid/speech/srec/Recognizer;->SR_RecognizerDestroy(I)V
-    :try_end_4f
-    .catchall {:try_start_46 .. :try_end_4f} :catchall_58
-
-    .line 413
-    :cond_4f
-    iput v2, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
-
-    .line 415
-    :try_start_51
-    invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
-    :try_end_54
-    .catchall {:try_start_51 .. :try_end_54} :catchall_67
-
-    .line 417
-    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
-
-    .line 410
-    throw v0
-
-    .line 413
-    :catchall_58
-    move-exception v0
-
-    iput v2, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
-
-    .line 415
-    :try_start_5b
-    invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
-    :try_end_5e
-    .catchall {:try_start_5b .. :try_end_5e} :catchall_62
-
-    .line 417
-    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
-
-    .line 413
-    throw v0
-
-    .line 417
-    :catchall_62
-    move-exception v0
-
-    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
-
-    throw v0
-
-    :catchall_67
-    move-exception v0
-
-    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
-
-    throw v0
-
-    .line 413
-    :catchall_6c
-    move-exception v0
-
-    iput v2, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
-
-    .line 415
-    :try_start_6f
-    invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
-    :try_end_72
-    .catchall {:try_start_6f .. :try_end_72} :catchall_76
-
-    .line 417
-    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
-
-    .line 413
-    throw v0
-
-    .line 417
-    :catchall_76
-    move-exception v0
-
-    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
-
-    throw v0
-
-    :catchall_7b
-    move-exception v0
-
-    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
-
-    throw v0
-
-    .line 410
     :catchall_80
     move-exception v0
 
+    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
+
+    throw v0
+
+    .line 413
+    :catchall_85
+    move-exception v0
+
+    iput v2, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
+
+    .line 415
+    :try_start_88
+    invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
+    :try_end_8b
+    .catchall {:try_start_88 .. :try_end_8b} :catchall_8f
+
+    .line 417
+    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
+
+    throw v0
+
+    :catchall_8f
+    move-exception v0
+
+    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
+
+    throw v0
+
+    .line 410
+    :catchall_94
+    move-exception v0
+
     .line 411
-    :try_start_81
+    :try_start_95
     iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
-    if-eqz v1, :cond_8a
+    if-eqz v1, :cond_9e
 
     iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     invoke-static {v1}, Landroid/speech/srec/Recognizer;->SR_RecognizerDestroy(I)V
-    :try_end_8a
-    .catchall {:try_start_81 .. :try_end_8a} :catchall_93
+    :try_end_9e
+    .catchall {:try_start_95 .. :try_end_9e} :catchall_ac
 
     .line 413
-    :cond_8a
+    :cond_9e
     iput v2, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     .line 415
-    :try_start_8c
+    :try_start_a0
     invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
-    :try_end_8f
-    .catchall {:try_start_8c .. :try_end_8f} :catchall_a2
+    :try_end_a3
+    .catchall {:try_start_a0 .. :try_end_a3} :catchall_a7
 
     .line 417
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
 
-    .line 410
     throw v0
 
-    .line 413
-    :catchall_93
-    move-exception v0
-
-    iput v2, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
-
-    .line 415
-    :try_start_96
-    invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
-    :try_end_99
-    .catchall {:try_start_96 .. :try_end_99} :catchall_9d
-
-    .line 417
-    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
-
-    .line 413
-    throw v0
-
-    .line 417
-    :catchall_9d
-    move-exception v0
-
-    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
-
-    throw v0
-
-    :catchall_a2
-    move-exception v0
-
-    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
-
-    throw v0
-
-    .line 413
     :catchall_a7
     move-exception v0
 
+    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
+
+    throw v0
+
+    .line 413
+    :catchall_ac
+    move-exception v0
+
     iput v2, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     .line 415
-    :try_start_aa
+    :try_start_af
     invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
-    :try_end_ad
-    .catchall {:try_start_aa .. :try_end_ad} :catchall_b1
+    :try_end_b2
+    .catchall {:try_start_af .. :try_end_b2} :catchall_b6
 
     .line 417
-    invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
-
-    .line 413
-    throw v0
-
-    .line 417
-    :catchall_b1
-    move-exception v0
-
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
 
     throw v0

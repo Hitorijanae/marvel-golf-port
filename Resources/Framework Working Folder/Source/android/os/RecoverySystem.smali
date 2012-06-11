@@ -22,8 +22,6 @@
 
 .field private static LOG_FILE_MAX_LENGTH:I = 0x0
 
-.field private static MECHA_KEY_FILE:Ljava/io/File; = null
-
 .field private static final PUBLISH_PROGRESS_INTERVAL_MS:J = 0x1f4L
 
 .field private static RECOVERY_DIR:Ljava/io/File; = null
@@ -36,7 +34,7 @@
     .registers 3
 
     .prologue
-    .line 71
+    .line 63
     new-instance v0, Ljava/io/File;
 
     const-string v1, "/system/etc/security/otacerts.zip"
@@ -45,7 +43,7 @@
 
     sput-object v0, Landroid/os/RecoverySystem;->DEFAULT_KEYSTORE:Ljava/io/File;
 
-    .line 78
+    .line 70
     new-instance v0, Ljava/io/File;
 
     const-string v1, "/cache/recovery"
@@ -54,7 +52,7 @@
 
     sput-object v0, Landroid/os/RecoverySystem;->RECOVERY_DIR:Ljava/io/File;
 
-    .line 79
+    .line 71
     new-instance v0, Ljava/io/File;
 
     sget-object v1, Landroid/os/RecoverySystem;->RECOVERY_DIR:Ljava/io/File;
@@ -65,34 +63,23 @@
 
     sput-object v0, Landroid/os/RecoverySystem;->COMMAND_FILE:Ljava/io/File;
 
-    .line 80
+    .line 72
     new-instance v0, Ljava/io/File;
 
     sget-object v1, Landroid/os/RecoverySystem;->RECOVERY_DIR:Ljava/io/File;
 
-    const-string/jumbo v2, "log"
+    const-string v2, "log"
 
     invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     sput-object v0, Landroid/os/RecoverySystem;->LOG_FILE:Ljava/io/File;
 
-    .line 81
-    const-string/jumbo v0, "last_"
+    .line 73
+    const-string v0, "last_"
 
     sput-object v0, Landroid/os/RecoverySystem;->LAST_PREFIX:Ljava/lang/String;
 
-    .line 84
-    new-instance v0, Ljava/io/File;
-
-    sget-object v1, Landroid/os/RecoverySystem;->RECOVERY_DIR:Ljava/io/File;
-
-    const-string v2, "dmkey"
-
-    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    sput-object v0, Landroid/os/RecoverySystem;->MECHA_KEY_FILE:Ljava/io/File;
-
-    .line 88
+    .line 76
     const/high16 v0, 0x1
 
     sput v0, Landroid/os/RecoverySystem;->LOG_FILE_MAX_LENGTH:I
@@ -104,10 +91,10 @@
     .registers 1
 
     .prologue
-    .line 64
+    .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 94
+    .line 82
     return-void
 .end method
 
@@ -115,7 +102,7 @@
     .registers 1
 
     .prologue
-    .line 677
+    .line 425
     return-void
 .end method
 
@@ -130,44 +117,44 @@
     .end annotation
 
     .prologue
-    .line 625
+    .line 373
     sget-object v2, Landroid/os/RecoverySystem;->RECOVERY_DIR:Ljava/io/File;
 
     invoke-virtual {v2}, Ljava/io/File;->mkdirs()Z
 
-    .line 626
+    .line 374
     sget-object v2, Landroid/os/RecoverySystem;->COMMAND_FILE:Ljava/io/File;
 
     invoke-virtual {v2}, Ljava/io/File;->delete()Z
 
-    .line 627
+    .line 375
     sget-object v2, Landroid/os/RecoverySystem;->LOG_FILE:Ljava/io/File;
 
     invoke-virtual {v2}, Ljava/io/File;->delete()Z
 
-    .line 629
+    .line 377
     new-instance v0, Ljava/io/FileWriter;
 
     sget-object v2, Landroid/os/RecoverySystem;->COMMAND_FILE:Ljava/io/File;
 
     invoke-direct {v0, v2}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
 
-    .line 631
+    .line 379
     .local v0, command:Ljava/io/FileWriter;
     :try_start_16
     invoke-virtual {v0, p1}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
 
-    .line 632
+    .line 380
     const-string v2, "\n"
 
     invoke-virtual {v0, v2}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
     :try_end_1e
     .catchall {:try_start_16 .. :try_end_1e} :catchall_38
 
-    .line 634
+    .line 382
     invoke-virtual {v0}, Ljava/io/FileWriter;->close()V
 
-    .line 638
+    .line 386
     const-string/jumbo v2, "power"
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -176,13 +163,13 @@
 
     check-cast v1, Landroid/os/PowerManager;
 
-    .line 639
+    .line 387
     .local v1, pm:Landroid/os/PowerManager;
     const-string/jumbo v2, "recovery"
 
     invoke-virtual {v1, v2}, Landroid/os/PowerManager;->reboot(Ljava/lang/String;)V
 
-    .line 641
+    .line 389
     new-instance v2, Ljava/io/IOException;
 
     const-string v3, "Reboot failed (no permissions?)"
@@ -191,7 +178,7 @@
 
     throw v2
 
-    .line 634
+    .line 382
     .end local v1           #pm:Landroid/os/PowerManager;
     :catchall_38
     move-exception v2
@@ -199,566 +186,6 @@
     invoke-virtual {v0}, Ljava/io/FileWriter;->close()V
 
     throw v2
-.end method
-
-.method private static checkAndRestoreMiscRadioConfig()V
-    .registers 10
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    .prologue
-    .line 570
-    const-string v7, "RecoverySystem"
-
-    const-string v8, "checkAndRestoreMiscRadioConfig (Mecha only)"
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 571
-    const/4 v3, 0x0
-
-    .line 573
-    .local v3, readTempMisc:B
-    const/4 v7, 0x1
-
-    invoke-static {v7}, Landroid/os/RecoverySystem;->setupMechaKeyFile(I)V
-
-    .line 576
-    :try_start_c
-    new-instance v4, Ljava/net/Socket;
-
-    const-string v7, "127.0.0.1"
-
-    const/16 v8, 0x2606
-
-    invoke-direct {v4, v7, v8}, Ljava/net/Socket;-><init>(Ljava/lang/String;I)V
-
-    .line 577
-    .local v4, server:Ljava/net/Socket;
-    invoke-virtual {v4}, Ljava/net/Socket;->getInputStream()Ljava/io/InputStream;
-
-    move-result-object v0
-
-    .line 578
-    .local v0, In:Ljava/io/InputStream;
-    invoke-virtual {v4}, Ljava/net/Socket;->getOutputStream()Ljava/io/OutputStream;
-
-    move-result-object v2
-
-    .line 579
-    .local v2, out:Ljava/io/OutputStream;
-    const/4 v7, 0x3
-
-    new-array v5, v7, [B
-
-    fill-array-data v5, :array_92
-
-    .line 580
-    .local v5, setMisc8:[B
-    invoke-virtual {v2, v5}, Ljava/io/OutputStream;->write([B)V
-
-    .line 581
-    const/16 v7, 0x80
-
-    new-array v6, v7, [B
-
-    .line 582
-    .local v6, tempbyte:[B
-    invoke-virtual {v0, v6}, Ljava/io/InputStream;->read([B)I
-
-    .line 583
-    const/4 v7, 0x2
-
-    aget-byte v3, v6, v7
-
-    .line 584
-    invoke-virtual {v4}, Ljava/net/Socket;->close()V
-    :try_end_33
-    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_33} :catch_5e
-
-    .line 590
-    .end local v0           #In:Ljava/io/InputStream;
-    .end local v2           #out:Ljava/io/OutputStream;
-    .end local v4           #server:Ljava/net/Socket;
-    .end local v5           #setMisc8:[B
-    .end local v6           #tempbyte:[B
-    :goto_33
-    if-eqz v3, :cond_59
-
-    .line 593
-    :try_start_35
-    new-instance v4, Ljava/net/Socket;
-
-    const-string v7, "127.0.0.1"
-
-    const/16 v8, 0x2606
-
-    invoke-direct {v4, v7, v8}, Ljava/net/Socket;-><init>(Ljava/lang/String;I)V
-
-    .line 594
-    .restart local v4       #server:Ljava/net/Socket;
-    invoke-virtual {v4}, Ljava/net/Socket;->getInputStream()Ljava/io/InputStream;
-
-    move-result-object v0
-
-    .line 595
-    .restart local v0       #In:Ljava/io/InputStream;
-    invoke-virtual {v4}, Ljava/net/Socket;->getOutputStream()Ljava/io/OutputStream;
-
-    move-result-object v2
-
-    .line 596
-    .restart local v2       #out:Ljava/io/OutputStream;
-    const/4 v7, 0x3
-
-    new-array v5, v7, [B
-
-    fill-array-data v5, :array_98
-
-    .line 597
-    .restart local v5       #setMisc8:[B
-    invoke-virtual {v2, v5}, Ljava/io/OutputStream;->write([B)V
-
-    .line 598
-    const/16 v7, 0x80
-
-    new-array v6, v7, [B
-
-    .line 599
-    .restart local v6       #tempbyte:[B
-    invoke-virtual {v0, v6}, Ljava/io/InputStream;->read([B)I
-
-    .line 600
-    invoke-virtual {v4}, Ljava/net/Socket;->close()V
-    :try_end_59
-    .catch Ljava/lang/Exception; {:try_start_35 .. :try_end_59} :catch_78
-
-    .line 607
-    .end local v0           #In:Ljava/io/InputStream;
-    .end local v2           #out:Ljava/io/OutputStream;
-    .end local v4           #server:Ljava/net/Socket;
-    .end local v5           #setMisc8:[B
-    .end local v6           #tempbyte:[B
-    :cond_59
-    :goto_59
-    const/4 v7, 0x0
-
-    invoke-static {v7}, Landroid/os/RecoverySystem;->setupMechaKeyFile(I)V
-
-    .line 608
-    return-void
-
-    .line 586
-    :catch_5e
-    move-exception v1
-
-    .line 587
-    .local v1, e:Ljava/lang/Exception;
-    const-string v7, "RecoverySystem"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "Read MiscConfig "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_33
-
-    .line 602
-    .end local v1           #e:Ljava/lang/Exception;
-    :catch_78
-    move-exception v1
-
-    .line 603
-    .restart local v1       #e:Ljava/lang/Exception;
-    const-string v7, "RecoverySystem"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "Erase MiscConfig "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_59
-
-    .line 579
-    :array_92
-    .array-data 0x1
-        0xect
-        0x6t
-        0x0t
-    .end array-data
-
-    .line 596
-    :array_98
-    .array-data 0x1
-        0xect
-        0x5t
-        0x0t
-    .end array-data
-.end method
-
-.method private static composeMultipleOTAPath(Ljava/lang/String;)Ljava/lang/String;
-    .registers 9
-    .parameter "originalPath"
-
-    .prologue
-    .line 401
-    const-string v4, ""
-
-    .line 403
-    .local v4, refineList:Ljava/lang/String;
-    if-eqz p0, :cond_a
-
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
-
-    move-result v5
-
-    if-nez v5, :cond_14
-
-    .line 404
-    :cond_a
-    const-string v5, "RecoverySystem"
-
-    const-string v6, "The path of multiple path is not proper."
-
-    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 405
-    const-string v5, ""
-
-    .line 444
-    :goto_13
-    return-object v5
-
-    .line 408
-    :cond_14
-    const/4 v2, 0x0
-
-    .line 410
-    .local v2, filename:Ljava/lang/String;
-    :try_start_15
-    const-string v5, ","
-
-    invoke-virtual {p0, v5}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 411
-    .local v0, aryPath:[Ljava/lang/String;
-    const/4 v3, 0x0
-
-    .local v3, i:I
-    :goto_1c
-    array-length v5, v0
-
-    if-ge v3, v5, :cond_109
-
-    .line 412
-    aget-object v2, v0, v3
-
-    .line 413
-    const-string v5, "/cache/"
-
-    invoke-virtual {v2, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_61
-
-    .line 414
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "CACHE:"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const/4 v6, 0x7
-
-    invoke-virtual {v2, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 434
-    :goto_41
-    invoke-virtual {v4}, Ljava/lang/String;->length()I
-
-    move-result v5
-
-    if-lez v5, :cond_10c
-
-    .line 435
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string v6, ","
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    .line 411
-    :goto_5e
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_1c
-
-    .line 415
-    :cond_61
-    const-string v5, "/data/"
-
-    invoke-virtual {v2, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_82
-
-    .line 416
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "DATA:"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const/4 v6, 0x6
-
-    invoke-virtual {v2, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    goto :goto_41
-
-    .line 418
-    :cond_82
-    const-string v5, "/sdcard/"
-
-    invoke-virtual {v2, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_a4
-
-    .line 419
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "SDCARD:"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const/16 v6, 0x8
-
-    invoke-virtual {v2, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    goto :goto_41
-
-    .line 420
-    :cond_a4
-    const-string v5, "/mnt/sdcard/"
-
-    invoke-virtual {v2, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_c7
-
-    .line 427
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "SDCARD:"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const/16 v6, 0xc
-
-    invoke-virtual {v2, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    goto/16 :goto_41
-
-    .line 430
-    :cond_c7
-    new-instance v5, Ljava/lang/IllegalArgumentException;
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "Must start with /cache, /data or /sdcard: "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-direct {v5, v6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v5
-    :try_end_e0
-    .catch Ljava/lang/Exception; {:try_start_15 .. :try_end_e0} :catch_e0
-
-    .line 439
-    .end local v0           #aryPath:[Ljava/lang/String;
-    .end local v3           #i:I
-    :catch_e0
-    move-exception v1
-
-    .line 440
-    .local v1, e:Ljava/lang/Exception;
-    const-string v5, "RecoverySystem"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "Error in composeMultipleOTAPath. original path:["
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string v7, "], Err"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 441
-    const-string v4, ""
-
-    .end local v1           #e:Ljava/lang/Exception;
-    :cond_109
-    move-object v5, v4
-
-    .line 444
-    goto/16 :goto_13
-
-    .line 437
-    .restart local v0       #aryPath:[Ljava/lang/String;
-    .restart local v3       #i:I
-    :cond_10c
-    move-object v4, v2
-
-    goto/16 :goto_5e
 .end method
 
 .method private static getTrustedCerts(Ljava/io/File;)Ljava/util/HashSet;
@@ -784,25 +211,25 @@
     .end annotation
 
     .prologue
-    .line 108
+    .line 96
     new-instance v3, Ljava/util/HashSet;
 
     invoke-direct {v3}, Ljava/util/HashSet;-><init>()V
 
-    .line 109
+    .line 97
     .local v3, trusted:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/security/cert/Certificate;>;"
     if-nez p0, :cond_9
 
-    .line 110
+    .line 98
     sget-object p0, Landroid/os/RecoverySystem;->DEFAULT_KEYSTORE:Ljava/io/File;
 
-    .line 112
+    .line 100
     :cond_9
     new-instance v4, Ljava/util/zip/ZipFile;
 
     invoke-direct {v4, p0}, Ljava/util/zip/ZipFile;-><init>(Ljava/io/File;)V
 
-    .line 114
+    .line 102
     .local v4, zip:Ljava/util/zip/ZipFile;
     :try_start_e
     const-string v5, "X.509"
@@ -811,13 +238,13 @@
 
     move-result-object v0
 
-    .line 115
+    .line 103
     .local v0, cf:Ljava/security/cert/CertificateFactory;
     invoke-virtual {v4}, Ljava/util/zip/ZipFile;->entries()Ljava/util/Enumeration;
 
     move-result-object v1
 
-    .line 116
+    .line 104
     .local v1, entries:Ljava/util/Enumeration;,"Ljava/util/Enumeration<+Ljava/util/zip/ZipEntry;>;"
     :goto_18
     invoke-interface {v1}, Ljava/util/Enumeration;->hasMoreElements()Z
@@ -826,14 +253,14 @@
 
     if-eqz v5, :cond_35
 
-    .line 117
+    .line 105
     invoke-interface {v1}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Ljava/util/zip/ZipEntry;
 
-    .line 118
+    .line 106
     .local v2, entry:Ljava/util/zip/ZipEntry;
     invoke-virtual {v4, v2}, Ljava/util/zip/ZipFile;->getInputStream(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;
 
@@ -849,7 +276,7 @@
 
     goto :goto_18
 
-    .line 121
+    .line 109
     .end local v0           #cf:Ljava/security/cert/CertificateFactory;
     .end local v1           #entries:Ljava/util/Enumeration;,"Ljava/util/Enumeration<+Ljava/util/zip/ZipEntry;>;"
     .end local v2           #entry:Ljava/util/zip/ZipEntry;
@@ -865,7 +292,7 @@
     :cond_35
     invoke-virtual {v4}, Ljava/util/zip/ZipFile;->close()V
 
-    .line 123
+    .line 111
     return-object v3
 .end method
 
@@ -873,10 +300,10 @@
     .registers 8
 
     .prologue
-    .line 652
+    .line 400
     const/4 v3, 0x0
 
-    .line 654
+    .line 402
     .local v3, log:Ljava/lang/String;
     :try_start_1
     sget-object v5, Landroid/os/RecoverySystem;->LOG_FILE:Ljava/io/File;
@@ -894,7 +321,7 @@
 
     move-result-object v3
 
-    .line 663
+    .line 411
     :goto_c
     sget-object v5, Landroid/os/RecoverySystem;->RECOVERY_DIR:Ljava/io/File;
 
@@ -902,7 +329,7 @@
 
     move-result-object v4
 
-    .line 664
+    .line 412
     .local v4, names:[Ljava/lang/String;
     const/4 v2, 0x0
 
@@ -914,7 +341,7 @@
 
     if-ge v2, v5, :cond_78
 
-    .line 665
+    .line 413
     aget-object v5, v4, v2
 
     sget-object v6, Landroid/os/RecoverySystem;->LAST_PREFIX:Ljava/lang/String;
@@ -925,19 +352,19 @@
 
     if-eqz v5, :cond_37
 
-    .line 664
+    .line 412
     :goto_22
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_13
 
-    .line 655
+    .line 403
     .end local v2           #i:I
     .end local v4           #names:[Ljava/lang/String;
     :catch_25
     move-exception v0
 
-    .line 656
+    .line 404
     .local v0, e:Ljava/io/FileNotFoundException;
     const-string v5, "RecoverySystem"
 
@@ -947,12 +374,12 @@
 
     goto :goto_c
 
-    .line 657
+    .line 405
     .end local v0           #e:Ljava/io/FileNotFoundException;
     :catch_2e
     move-exception v0
 
-    .line 658
+    .line 406
     .local v0, e:Ljava/io/IOException;
     const-string v5, "RecoverySystem"
 
@@ -962,7 +389,7 @@
 
     goto :goto_c
 
-    .line 666
+    .line 414
     .end local v0           #e:Ljava/io/IOException;
     .restart local v2       #i:I
     .restart local v4       #names:[Ljava/lang/String;
@@ -975,7 +402,7 @@
 
     invoke-direct {v1, v5, v6}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 667
+    .line 415
     .local v1, f:Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->delete()Z
 
@@ -983,7 +410,7 @@
 
     if-nez v5, :cond_5f
 
-    .line 668
+    .line 416
     const-string v5, "RecoverySystem"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1008,7 +435,7 @@
 
     goto :goto_22
 
-    .line 670
+    .line 418
     :cond_5f
     const-string v5, "RecoverySystem"
 
@@ -1034,83 +461,10 @@
 
     goto :goto_22
 
-    .line 674
+    .line 422
     .end local v1           #f:Ljava/io/File;
     :cond_78
     return-object v3
-.end method
-
-.method public static installMultiplePackage(Landroid/content/Context;Ljava/lang/String;)V
-    .registers 7
-    .parameter "context"
-    .parameter "filePathList"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    .prologue
-    .line 386
-    invoke-static {p1}, Landroid/os/RecoverySystem;->composeMultipleOTAPath(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 388
-    .local v1, refinedFileList:Ljava/lang/String;
-    const-string v2, "RecoverySystem"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "!!! REBOOTING TO INSTALL MULTIPLE PACKAGE"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, " !!!"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 389
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "--multi-update="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 390
-    .local v0, arg:Ljava/lang/String;
-    invoke-static {p0, v0}, Landroid/os/RecoverySystem;->bootCommand(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 391
-    return-void
 .end method
 
 .method public static installPackage(Landroid/content/Context;Ljava/io/File;)V
@@ -1124,50 +478,13 @@
     .end annotation
 
     .prologue
-    const/16 v4, 0xc
-
-    .line 335
+    .line 323
     invoke-virtual {p1}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 337
+    .line 324
     .local v1, filename:Ljava/lang/String;
-    const-string v2, "/cache/"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_5b
-
-    .line 338
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "CACHE:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const/4 v3, 0x7
-
-    invoke-virtual {v1, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 375
-    :goto_26
     const-string v2, "RecoverySystem"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1196,7 +513,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 376
+    .line 325
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1215,290 +532,12 @@
 
     move-result-object v0
 
-    .line 377
+    .line 326
     .local v0, arg:Ljava/lang/String;
     invoke-static {p0, v0}, Landroid/os/RecoverySystem;->bootCommand(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 378
+    .line 327
     return-void
-
-    .line 339
-    .end local v0           #arg:Ljava/lang/String;
-    :cond_5b
-    const-string v2, "/data/"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_7c
-
-    .line 340
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "DATA:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const/4 v3, 0x6
-
-    invoke-virtual {v1, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_26
-
-    .line 342
-    :cond_7c
-    const-string v2, "/sdcard/"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_9e
-
-    .line 343
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "SDCARD:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const/16 v3, 0x8
-
-    invoke-virtual {v1, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_26
-
-    .line 344
-    :cond_9e
-    const-string v2, "/mnt/sdcard/"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_14a
-
-    .line 346
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0x28
-
-    if-eq v2, v3, :cond_118
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0x21
-
-    if-eq v2, v3, :cond_118
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0x22
-
-    if-eq v2, v3, :cond_118
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0x23
-
-    if-eq v2, v3, :cond_118
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0x24
-
-    if-eq v2, v3, :cond_118
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0x2b
-
-    if-eq v2, v3, :cond_118
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0x3e
-
-    if-eq v2, v3, :cond_118
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0x49
-
-    if-eq v2, v3, :cond_118
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0x4a
-
-    if-eq v2, v3, :cond_118
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0xad
-
-    if-eq v2, v3, :cond_118
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0xe0
-
-    if-eq v2, v3, :cond_118
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0xe1
-
-    if-eq v2, v3, :cond_118
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0x2d7
-
-    if-eq v2, v3, :cond_118
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0x8a
-
-    if-eq v2, v3, :cond_118
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0x89
-
-    if-eq v2, v3, :cond_118
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0x7c
-
-    if-eq v2, v3, :cond_118
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0x9f
-
-    if-eq v2, v3, :cond_118
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0x25
-
-    if-eq v2, v3, :cond_118
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0x26
-
-    if-ne v2, v3, :cond_131
-
-    .line 366
-    :cond_118
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "INTERNALSDCARD:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    goto/16 :goto_26
-
-    .line 369
-    :cond_131
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "SDCARD:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    goto/16 :goto_26
-
-    .line 372
-    :cond_14a
-    new-instance v2, Ljava/lang/IllegalArgumentException;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Must start with /cache, /data or /sdcard: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v2
 .end method
 
 .method public static rebootWipeCache(Landroid/content/Context;)V
@@ -1511,49 +550,12 @@
     .end annotation
 
     .prologue
-    .line 616
+    .line 364
     const-string v0, "--wipe_cache"
 
     invoke-static {p0, v0}, Landroid/os/RecoverySystem;->bootCommand(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 617
-    return-void
-.end method
-
-.method public static rebootWipeDataVzwHpst(Landroid/content/Context;)V
-    .registers 3
-    .parameter "context"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    .prologue
-    .line 517
-    const-string v0, "RecoverySystem"
-
-    const-string v1, "Execute \"--wipe_data_vzw_hpst\"! (VZW projects only)"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 518
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v1, 0x61
-
-    if-ne v0, v1, :cond_10
-
-    .line 520
-    invoke-static {}, Landroid/os/RecoverySystem;->checkAndRestoreMiscRadioConfig()V
-
-    .line 522
-    :cond_10
-    const-string v0, "--wipe_data_vzw_hpst"
-
-    invoke-static {p0, v0}, Landroid/os/RecoverySystem;->bootCommand(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 523
+    .line 365
     return-void
 .end method
 
@@ -1569,12 +571,12 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 461
+    .line 342
     new-instance v8, Landroid/os/ConditionVariable;
 
     invoke-direct {v8}, Landroid/os/ConditionVariable;-><init>()V
 
-    .line 463
+    .line 344
     .local v8, condition:Landroid/os/ConditionVariable;
     new-instance v1, Landroid/content/Intent;
 
@@ -1582,7 +584,7 @@
 
     invoke-direct {v1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 464
+    .line 345
     .local v1, intent:Landroid/content/Intent;
     const-string v2, "android.permission.MASTER_CLEAR"
 
@@ -1600,264 +602,16 @@
 
     invoke-virtual/range {v0 .. v7}, Landroid/content/Context;->sendOrderedBroadcast(Landroid/content/Intent;Ljava/lang/String;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V
 
-    .line 473
+    .line 354
     invoke-virtual {v8}, Landroid/os/ConditionVariable;->block()V
 
-    .line 475
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v2, 0x61
-
-    if-ne v0, v2, :cond_27
-
-    .line 477
-    invoke-static {}, Landroid/os/RecoverySystem;->checkAndRestoreMiscRadioConfig()V
-
-    .line 479
-    :cond_27
+    .line 356
     const-string v0, "--wipe_data"
 
     invoke-static {p0, v0}, Landroid/os/RecoverySystem;->bootCommand(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 480
+    .line 357
     return-void
-.end method
-
-.method public static rebootWipeUserDataOMADMLAB(Landroid/content/Context;)V
-    .registers 3
-    .parameter "context"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    .prologue
-    .line 500
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v1, 0x61
-
-    if-ne v0, v1, :cond_9
-
-    .line 502
-    invoke-static {}, Landroid/os/RecoverySystem;->checkAndRestoreMiscRadioConfig()V
-
-    .line 504
-    :cond_9
-    const-string v0, "--wipe_data_omadm_lab"
-
-    invoke-static {p0, v0}, Landroid/os/RecoverySystem;->bootCommand(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 505
-    return-void
-.end method
-
-.method public static rebootWipeUserData_KeepInternalSD(Landroid/content/Context;)V
-    .registers 3
-    .parameter "context"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    .prologue
-    .line 490
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v1, 0x61
-
-    if-ne v0, v1, :cond_9
-
-    .line 492
-    invoke-static {}, Landroid/os/RecoverySystem;->checkAndRestoreMiscRadioConfig()V
-
-    .line 494
-    :cond_9
-    const-string v0, "--wipe_data_keep_internal_sd"
-
-    invoke-static {p0, v0}, Landroid/os/RecoverySystem;->bootCommand(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 495
-    return-void
-.end method
-
-.method private static setupMechaKeyFile(I)V
-    .registers 7
-    .parameter "actions"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    .prologue
-    .line 536
-    const-string v3, "RecoverySystem"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "setupMechaKeyFile: ("
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string v5, ") (Mecha only)"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 537
-    sget-object v3, Landroid/os/RecoverySystem;->RECOVERY_DIR:Ljava/io/File;
-
-    invoke-virtual {v3}, Ljava/io/File;->mkdirs()Z
-
-    .line 539
-    const/4 v3, 0x1
-
-    if-ne p0, v3, :cond_62
-
-    .line 540
-    :try_start_27
-    new-instance v2, Ljava/io/FileWriter;
-
-    sget-object v3, Landroid/os/RecoverySystem;->MECHA_KEY_FILE:Ljava/io/File;
-
-    invoke-direct {v2, v3}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
-
-    .line 541
-    .local v2, tmpKey:Ljava/io/FileWriter;
-    new-instance v1, Ljava/io/BufferedWriter;
-
-    invoke-direct {v1, v2}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;)V
-    :try_end_33
-    .catch Ljava/lang/Exception; {:try_start_27 .. :try_end_33} :catch_47
-
-    .line 543
-    .local v1, tempout:Ljava/io/BufferedWriter;
-    :try_start_33
-    const-string v3, "1"
-
-    invoke-virtual {v1, v3}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
-    :try_end_38
-    .catchall {:try_start_33 .. :try_end_38} :catchall_3f
-
-    .line 545
-    :try_start_38
-    invoke-virtual {v1}, Ljava/io/BufferedWriter;->close()V
-
-    .line 546
-    invoke-virtual {v2}, Ljava/io/FileWriter;->close()V
-
-    .line 559
-    .end local v1           #tempout:Ljava/io/BufferedWriter;
-    .end local v2           #tmpKey:Ljava/io/FileWriter;
-    :goto_3e
-    return-void
-
-    .line 545
-    .restart local v1       #tempout:Ljava/io/BufferedWriter;
-    .restart local v2       #tmpKey:Ljava/io/FileWriter;
-    :catchall_3f
-    move-exception v3
-
-    invoke-virtual {v1}, Ljava/io/BufferedWriter;->close()V
-
-    .line 546
-    invoke-virtual {v2}, Ljava/io/FileWriter;->close()V
-
-    .line 545
-    throw v3
-    :try_end_47
-    .catch Ljava/lang/Exception; {:try_start_38 .. :try_end_47} :catch_47
-
-    .line 556
-    .end local v1           #tempout:Ljava/io/BufferedWriter;
-    .end local v2           #tmpKey:Ljava/io/FileWriter;
-    :catch_47
-    move-exception v0
-
-    .line 557
-    .local v0, e:Ljava/lang/Exception;
-    const-string v3, "RecoverySystem"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "setupMechaKeyFile "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_3e
-
-    .line 549
-    .end local v0           #e:Ljava/lang/Exception;
-    :cond_62
-    if-nez p0, :cond_6a
-
-    .line 550
-    :try_start_64
-    sget-object v3, Landroid/os/RecoverySystem;->MECHA_KEY_FILE:Ljava/io/File;
-
-    invoke-virtual {v3}, Ljava/io/File;->delete()Z
-
-    goto :goto_3e
-
-    .line 553
-    :cond_6a
-    const-string v3, "RecoverySystem"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "setupMechaKeyFile has wrong actions value "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_83
-    .catch Ljava/lang/Exception; {:try_start_64 .. :try_end_83} :catch_47
-
-    goto :goto_3e
 .end method
 
 .method public static verifyPackage(Ljava/io/File;Landroid/os/RecoverySystem$ProgressListener;Ljava/io/File;)V
@@ -1873,12 +627,12 @@
     .end annotation
 
     .prologue
-    .line 157
+    .line 145
     invoke-virtual/range {p0 .. p0}, Ljava/io/File;->length()J
 
     move-result-wide v13
 
-    .line 159
+    .line 147
     .local v13, fileLen:J
     new-instance v27, Ljava/io/RandomAccessFile;
 
@@ -1892,29 +646,29 @@
 
     invoke-direct {v0, v1, v2}, Ljava/io/RandomAccessFile;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 161
+    .line 149
     .local v27, raf:Ljava/io/RandomAccessFile;
     const/16 v21, 0x0
 
-    .line 162
+    .line 150
     .local v21, lastPercent:I
     :try_start_14
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v22
 
-    .line 163
+    .line 151
     .local v22, lastPublishTime:J
     if-eqz p1, :cond_21
 
-    .line 164
+    .line 152
     move-object/from16 v0, p1
 
     move/from16 v1, v21
 
     invoke-interface {v0, v1}, Landroid/os/RecoverySystem$ProgressListener;->onProgress(I)V
 
-    .line 167
+    .line 155
     :cond_21
     const-wide/16 v42, 0x6
 
@@ -1926,20 +680,20 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/io/RandomAccessFile;->seek(J)V
 
-    .line 168
+    .line 156
     const/16 v42, 0x6
 
     move/from16 v0, v42
 
     new-array v15, v0, [B
 
-    .line 169
+    .line 157
     .local v15, footer:[B
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v15}, Ljava/io/RandomAccessFile;->readFully([B)V
 
-    .line 171
+    .line 159
     const/16 v42, 0x2
 
     aget-byte v42, v15, v42
@@ -1964,7 +718,7 @@
 
     if-eq v0, v1, :cond_5d
 
-    .line 172
+    .line 160
     :cond_4f
     new-instance v42, Ljava/security/SignatureException;
 
@@ -1976,7 +730,7 @@
     :try_end_58
     .catchall {:try_start_14 .. :try_end_58} :catchall_58
 
-    .line 315
+    .line 303
     .end local v15           #footer:[B
     .end local v22           #lastPublishTime:J
     .end local p2
@@ -1987,7 +741,7 @@
 
     throw v42
 
-    .line 175
+    .line 163
     .restart local v15       #footer:[B
     .restart local v22       #lastPublishTime:J
     .restart local p2
@@ -2017,7 +771,7 @@
 
     or-int v8, v42, v43
 
-    .line 176
+    .line 164
     .local v8, commentSize:I
     const/16 v42, 0x0
 
@@ -2043,7 +797,7 @@
 
     or-int v33, v42, v43
 
-    .line 177
+    .line 165
     .local v33, signatureStart:I
     const-string v42, "RecoverySystem"
 
@@ -2079,14 +833,14 @@
 
     invoke-static/range {v42 .. v43}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 180
+    .line 168
     add-int/lit8 v42, v8, 0x16
 
     move/from16 v0, v42
 
     new-array v12, v0, [B
 
-    .line 181
+    .line 169
     .local v12, eocd:[B
     add-int/lit8 v42, v8, 0x16
 
@@ -2104,12 +858,12 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/io/RandomAccessFile;->seek(J)V
 
-    .line 182
+    .line 170
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v12}, Ljava/io/RandomAccessFile;->readFully([B)V
 
-    .line 186
+    .line 174
     const/16 v42, 0x0
 
     aget-byte v42, v12, v42
@@ -2158,7 +912,7 @@
 
     if-eq v0, v1, :cond_104
 
-    .line 188
+    .line 176
     :cond_fb
     new-instance v42, Ljava/security/SignatureException;
 
@@ -2168,7 +922,7 @@
 
     throw v42
 
-    .line 191
+    .line 179
     :cond_104
     const/16 v16, 0x4
 
@@ -2186,7 +940,7 @@
 
     if-ge v0, v1, :cond_14a
 
-    .line 192
+    .line 180
     aget-byte v42, v12, v16
 
     const/16 v43, 0x50
@@ -2233,7 +987,7 @@
 
     if-ne v0, v1, :cond_147
 
-    .line 194
+    .line 182
     new-instance v42, Ljava/security/SignatureException;
 
     const-string v43, "EOCD marker found after start of EOCD"
@@ -2242,13 +996,13 @@
 
     throw v42
 
-    .line 191
+    .line 179
     :cond_147
     add-int/lit8 v16, v16, 0x1
 
     goto :goto_106
 
-    .line 204
+    .line 192
     :cond_14a
     new-instance v4, Lorg/apache/harmony/security/asn1/BerInputStream;
 
@@ -2270,7 +1024,7 @@
 
     invoke-direct {v4, v0}, Lorg/apache/harmony/security/asn1/BerInputStream;-><init>(Ljava/io/InputStream;)V
 
-    .line 206
+    .line 194
     .local v4, bis:Lorg/apache/harmony/security/asn1/BerInputStream;
     sget-object v42, Lorg/apache/harmony/security/pkcs7/ContentInfo;->ASN1:Lorg/apache/harmony/security/asn1/ASN1Sequence;
 
@@ -2282,17 +1036,17 @@
 
     check-cast v18, Lorg/apache/harmony/security/pkcs7/ContentInfo;
 
-    .line 207
+    .line 195
     .local v18, info:Lorg/apache/harmony/security/pkcs7/ContentInfo;
     invoke-virtual/range {v18 .. v18}, Lorg/apache/harmony/security/pkcs7/ContentInfo;->getSignedData()Lorg/apache/harmony/security/pkcs7/SignedData;
 
     move-result-object v34
 
-    .line 208
+    .line 196
     .local v34, signedData:Lorg/apache/harmony/security/pkcs7/SignedData;
     if-nez v34, :cond_179
 
-    .line 209
+    .line 197
     new-instance v42, Ljava/io/IOException;
 
     const-string/jumbo v43, "signedData is null"
@@ -2301,13 +1055,13 @@
 
     throw v42
 
-    .line 211
+    .line 199
     :cond_179
     invoke-virtual/range {v34 .. v34}, Lorg/apache/harmony/security/pkcs7/SignedData;->getCertificates()Ljava/util/List;
 
     move-result-object v11
 
-    .line 212
+    .line 200
     .local v11, encCerts:Ljava/util/Collection;
     invoke-interface {v11}, Ljava/util/Collection;->isEmpty()Z
 
@@ -2315,7 +1069,7 @@
 
     if-eqz v42, :cond_18b
 
-    .line 213
+    .line 201
     new-instance v42, Ljava/io/IOException;
 
     const-string v43, "encCerts is empty"
@@ -2324,17 +1078,17 @@
 
     throw v42
 
-    .line 217
+    .line 205
     :cond_18b
     invoke-interface {v11}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v20
 
-    .line 218
+    .line 206
     .local v20, it:Ljava/util/Iterator;
     const/4 v7, 0x0
 
-    .line 219
+    .line 207
     .local v7, cert:Ljava/security/cert/X509Certificate;
     invoke-interface/range {v20 .. v20}, Ljava/util/Iterator;->hasNext()Z
 
@@ -2342,7 +1096,7 @@
 
     if-eqz v42, :cond_1f2
 
-    .line 220
+    .line 208
     new-instance v7, Lorg/apache/harmony/security/provider/cert/X509CertImpl;
 
     .end local v7           #cert:Ljava/security/cert/X509Certificate;
@@ -2356,13 +1110,13 @@
 
     invoke-direct {v7, v0}, Lorg/apache/harmony/security/provider/cert/X509CertImpl;-><init>(Lorg/apache/harmony/security/x509/Certificate;)V
 
-    .line 225
+    .line 213
     .restart local v7       #cert:Ljava/security/cert/X509Certificate;
     invoke-virtual/range {v34 .. v34}, Lorg/apache/harmony/security/pkcs7/SignedData;->getSignerInfos()Ljava/util/List;
 
     move-result-object v31
 
-    .line 227
+    .line 215
     .local v31, sigInfos:Ljava/util/List;
     invoke-interface/range {v31 .. v31}, Ljava/util/List;->isEmpty()Z
 
@@ -2370,7 +1124,7 @@
 
     if-nez v42, :cond_1fb
 
-    .line 228
+    .line 216
     const/16 v42, 0x0
 
     move-object/from16 v0, v31
@@ -2383,7 +1137,7 @@
 
     check-cast v30, Lorg/apache/harmony/security/pkcs7/SignerInfo;
 
-    .line 236
+    .line 224
     .local v30, sigInfo:Lorg/apache/harmony/security/pkcs7/SignerInfo;
     if-nez p2, :cond_1bd
 
@@ -2395,17 +1149,17 @@
 
     move-result-object v40
 
-    .line 239
+    .line 227
     .local v40, trusted:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/security/cert/Certificate;>;"
     invoke-virtual {v7}, Ljava/security/cert/X509Certificate;->getPublicKey()Ljava/security/PublicKey;
 
     move-result-object v32
 
-    .line 240
+    .line 228
     .local v32, signatureKey:Ljava/security/PublicKey;
     const/16 v41, 0x0
 
-    .line 241
+    .line 229
     .local v41, verified:Z
     invoke-virtual/range {v40 .. v40}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
 
@@ -2425,7 +1179,7 @@
 
     check-cast v6, Ljava/security/cert/Certificate;
 
-    .line 242
+    .line 230
     .local v6, c:Ljava/security/cert/Certificate;
     invoke-virtual {v6}, Ljava/security/cert/Certificate;->getPublicKey()Ljava/security/PublicKey;
 
@@ -2441,15 +1195,15 @@
 
     if-eqz v42, :cond_1cb
 
-    .line 243
+    .line 231
     const/16 v41, 0x1
 
-    .line 247
+    .line 235
     .end local v6           #c:Ljava/security/cert/Certificate;
     :cond_1e7
     if-nez v41, :cond_204
 
-    .line 248
+    .line 236
     new-instance v42, Ljava/security/SignatureException;
 
     const-string/jumbo v43, "signature doesn\'t match any trusted key"
@@ -2458,7 +1212,7 @@
 
     throw v42
 
-    .line 222
+    .line 210
     .end local v17           #i$:Ljava/util/Iterator;
     .end local v30           #sigInfo:Lorg/apache/harmony/security/pkcs7/SignerInfo;
     .end local v31           #sigInfos:Ljava/util/List;
@@ -2475,7 +1229,7 @@
 
     throw v42
 
-    .line 230
+    .line 218
     .restart local v31       #sigInfos:Ljava/util/List;
     :cond_1fb
     new-instance v42, Ljava/io/IOException;
@@ -2486,7 +1240,7 @@
 
     throw v42
 
-    .line 261
+    .line 249
     .end local p2
     .restart local v17       #i$:Ljava/util/Iterator;
     .restart local v30       #sigInfo:Lorg/apache/harmony/security/pkcs7/SignerInfo;
@@ -2498,41 +1252,41 @@
 
     move-result-object v9
 
-    .line 262
+    .line 250
     .local v9, da:Ljava/lang/String;
     invoke-virtual/range {v30 .. v30}, Lorg/apache/harmony/security/pkcs7/SignerInfo;->getDigestEncryptionAlgorithm()Ljava/lang/String;
 
     move-result-object v10
 
-    .line 263
+    .line 251
     .local v10, dea:Ljava/lang/String;
     const/4 v3, 0x0
 
-    .line 264
+    .line 252
     .local v3, alg:Ljava/lang/String;
     if-eqz v9, :cond_211
 
     if-nez v10, :cond_25a
 
-    .line 267
+    .line 255
     :cond_211
     invoke-virtual {v7}, Ljava/security/cert/X509Certificate;->getSigAlgName()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 271
+    .line 259
     :goto_215
     invoke-static {v3}, Ljava/security/Signature;->getInstance(Ljava/lang/String;)Ljava/security/Signature;
 
     move-result-object v29
 
-    .line 272
+    .line 260
     .local v29, sig:Ljava/security/Signature;
     move-object/from16 v0, v29
 
     invoke-virtual {v0, v7}, Ljava/security/Signature;->initVerify(Ljava/security/cert/Certificate;)V
 
-    .line 276
+    .line 264
     int-to-long v0, v8
 
     move-wide/from16 v42, v0
@@ -2543,11 +1297,11 @@
 
     sub-long v38, v42, v44
 
-    .line 277
+    .line 265
     .local v38, toRead:J
     const-wide/16 v36, 0x0
 
-    .line 278
+    .line 266
     .local v36, soFar:J
     const-wide/16 v42, 0x0
 
@@ -2557,18 +1311,18 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/io/RandomAccessFile;->seek(J)V
 
-    .line 279
+    .line 267
     const/16 v42, 0x1000
 
     move/from16 v0, v42
 
     new-array v5, v0, [B
 
-    .line 280
+    .line 268
     .local v5, buffer:[B
     const/16 v19, 0x0
 
-    .line 281
+    .line 269
     .local v19, interrupted:Z
     :cond_23a
     :goto_23a
@@ -2576,19 +1330,19 @@
 
     if-gez v42, :cond_244
 
-    .line 282
+    .line 270
     invoke-static {}, Ljava/lang/Thread;->interrupted()Z
 
     move-result v19
 
-    .line 283
+    .line 271
     if-eqz v19, :cond_277
 
-    .line 303
+    .line 291
     :cond_244
     if-eqz p1, :cond_24f
 
-    .line 304
+    .line 292
     const/16 v42, 0x64
 
     move-object/from16 v0, p1
@@ -2597,11 +1351,11 @@
 
     invoke-interface {v0, v1}, Landroid/os/RecoverySystem$ProgressListener;->onProgress(I)V
 
-    .line 307
+    .line 295
     :cond_24f
     if-eqz v19, :cond_2d6
 
-    .line 308
+    .line 296
     new-instance v42, Ljava/security/SignatureException;
 
     const-string/jumbo v43, "verification was interrupted"
@@ -2610,7 +1364,7 @@
 
     throw v42
 
-    .line 269
+    .line 257
     .end local v5           #buffer:[B
     .end local v19           #interrupted:Z
     .end local v29           #sig:Ljava/security/Signature;
@@ -2645,7 +1399,7 @@
 
     goto :goto_215
 
-    .line 284
+    .line 272
     .restart local v5       #buffer:[B
     .restart local v19       #interrupted:Z
     .restart local v29       #sig:Ljava/security/Signature;
@@ -2656,7 +1410,7 @@
 
     move/from16 v35, v0
 
-    .line 285
+    .line 273
     .local v35, size:I
     move/from16 v0, v35
 
@@ -2670,7 +1424,7 @@
 
     if-lez v42, :cond_28c
 
-    .line 286
+    .line 274
     sub-long v42, v38, v36
 
     move-wide/from16 v0, v42
@@ -2679,7 +1433,7 @@
 
     move/from16 v35, v0
 
-    .line 288
+    .line 276
     :cond_28c
     const/16 v42, 0x0
 
@@ -2693,7 +1447,7 @@
 
     move-result v28
 
-    .line 289
+    .line 277
     .local v28, read:I
     const/16 v42, 0x0
 
@@ -2705,7 +1459,7 @@
 
     invoke-virtual {v0, v5, v1, v2}, Ljava/security/Signature;->update([BII)V
 
-    .line 290
+    .line 278
     move/from16 v0, v28
 
     int-to-long v0, v0
@@ -2714,15 +1468,15 @@
 
     add-long v36, v36, v42
 
-    .line 292
+    .line 280
     if-eqz p1, :cond_23a
 
-    .line 293
+    .line 281
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v24
 
-    .line 294
+    .line 282
     .local v24, now:J
     const-wide/16 v42, 0x64
 
@@ -2736,7 +1490,7 @@
 
     move/from16 v26, v0
 
-    .line 295
+    .line 283
     .local v26, p:I
     move/from16 v0, v26
 
@@ -2752,13 +1506,13 @@
 
     if-lez v42, :cond_23a
 
-    .line 297
+    .line 285
     move/from16 v21, v26
 
-    .line 298
+    .line 286
     move-wide/from16 v22, v24
 
-    .line 299
+    .line 287
     move-object/from16 v0, p1
 
     move/from16 v1, v21
@@ -2767,7 +1521,7 @@
 
     goto/16 :goto_23a
 
-    .line 311
+    .line 299
     .end local v24           #now:J
     .end local v26           #p:I
     .end local v28           #read:I
@@ -2787,7 +1541,7 @@
 
     if-nez v42, :cond_2ed
 
-    .line 312
+    .line 300
     new-instance v42, Ljava/security/SignatureException;
 
     const-string/jumbo v43, "signature digest verification failed"
@@ -2798,10 +1552,10 @@
     :try_end_2ed
     .catchall {:try_start_5f .. :try_end_2ed} :catchall_58
 
-    .line 315
+    .line 303
     :cond_2ed
     invoke-virtual/range {v27 .. v27}, Ljava/io/RandomAccessFile;->close()V
 
-    .line 317
+    .line 305
     return-void
 .end method

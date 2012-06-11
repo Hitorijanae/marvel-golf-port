@@ -22,8 +22,6 @@
 
 .field public static final BATTERY_PLUGGED_USB:I = 0x2
 
-.field public static final BATTERY_PLUGGED_WIRELESS:I = 0x4
-
 .field public static final BATTERY_STATUS_CHARGING:I = 0x2
 
 .field public static final BATTERY_STATUS_DISCHARGING:I = 0x3
@@ -33,6 +31,22 @@
 .field public static final BATTERY_STATUS_NOT_CHARGING:I = 0x4
 
 .field public static final BATTERY_STATUS_UNKNOWN:I = 0x1
+
+.field public static final DOCK_STATE_CHARGING:I = 0x2
+
+.field public static final DOCK_STATE_DISCHARGING:I = 0x4
+
+.field public static final DOCK_STATE_DOCKED:I = 0x3
+
+.field public static final DOCK_STATE_UNDOCKED:I = 0x1
+
+.field public static final DOCK_STATE_UNKNOWN:I = 0x0
+
+.field public static final EXTRA_DOCK_AC_ONLINE:Ljava/lang/String; = "dock_ac_online"
+
+.field public static final EXTRA_DOCK_LEVEL:Ljava/lang/String; = "dock_level"
+
+.field public static final EXTRA_DOCK_STATUS:Ljava/lang/String; = "dock_status"
 
 .field public static final EXTRA_HEALTH:Ljava/lang/String; = "health"
 
@@ -63,7 +77,7 @@
 
     .prologue
     .line 23
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

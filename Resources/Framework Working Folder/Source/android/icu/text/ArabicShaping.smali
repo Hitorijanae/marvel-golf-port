@@ -1072,7 +1072,7 @@
     const/4 v2, 0x0
 
     .line 198
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 199
     iput p1, p0, Landroid/icu/text/ArabicShaping;->options:I
@@ -5474,14 +5474,14 @@
 
     .line 594
     :sswitch_6d
-    const-string/jumbo v1, "lamAlef auto"
+    const-string v1, "lamAlef auto"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_17
 
     .line 597
-    :sswitch_74
+    :sswitch_73
     const-string v1, ", logical"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -5489,7 +5489,7 @@
     goto :goto_1e
 
     .line 598
-    :sswitch_7a
+    :sswitch_79
     const-string v1, ", visual"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -5497,7 +5497,7 @@
     goto :goto_1e
 
     .line 601
-    :sswitch_80
+    :sswitch_7f
     const-string v1, ", no letter shaping"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -5505,7 +5505,7 @@
     goto :goto_25
 
     .line 602
-    :sswitch_86
+    :sswitch_85
     const-string v1, ", shape letters"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -5513,7 +5513,7 @@
     goto :goto_25
 
     .line 603
-    :sswitch_8c
+    :sswitch_8b
     const-string v1, ", shape letters tashkeel isolated"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -5521,7 +5521,7 @@
     goto :goto_25
 
     .line 604
-    :sswitch_92
+    :sswitch_91
     const-string v1, ", unshape letters"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -5529,7 +5529,7 @@
     goto :goto_25
 
     .line 607
-    :pswitch_98
+    :pswitch_97
     const-string v1, ", Seen at near"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -5537,7 +5537,7 @@
     goto :goto_2d
 
     .line 610
-    :pswitch_9e
+    :pswitch_9d
     const-string v1, ", Yeh Hamza at near"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -5545,7 +5545,7 @@
     goto :goto_35
 
     .line 613
-    :sswitch_a4
+    :sswitch_a3
     const-string v1, ", Tashkeel at begin"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -5553,7 +5553,7 @@
     goto :goto_3d
 
     .line 614
-    :sswitch_aa
+    :sswitch_a9
     const-string v1, ", Tashkeel at end"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -5561,7 +5561,7 @@
     goto :goto_3d
 
     .line 615
-    :sswitch_b0
+    :sswitch_af
     const-string v1, ", Tashkeel replace with tatweel"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -5569,7 +5569,7 @@
     goto :goto_3d
 
     .line 616
-    :sswitch_b6
+    :sswitch_b5
     const-string v1, ", Tashkeel resize"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -5577,7 +5577,7 @@
     goto :goto_3d
 
     .line 620
-    :sswitch_bc
+    :sswitch_bb
     const-string v1, ", no digit shaping"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -5585,7 +5585,7 @@
     goto :goto_44
 
     .line 621
-    :sswitch_c2
+    :sswitch_c1
     const-string v1, ", shape digits to AN"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -5593,7 +5593,7 @@
     goto/16 :goto_44
 
     .line 622
-    :sswitch_c9
+    :sswitch_c8
     const-string v1, ", shape digits to EN"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -5601,7 +5601,7 @@
     goto/16 :goto_44
 
     .line 623
-    :sswitch_d0
+    :sswitch_cf
     const-string v1, ", shape digits to AN contextually: default EN"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -5609,7 +5609,7 @@
     goto/16 :goto_44
 
     .line 624
-    :sswitch_d7
+    :sswitch_d6
     const-string v1, ", shape digits to AN contextually: default AL"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -5617,7 +5617,7 @@
     goto/16 :goto_44
 
     .line 627
-    :sswitch_de
+    :sswitch_dd
     const-string v1, ", standard Arabic-Indic digits"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -5625,7 +5625,7 @@
     goto/16 :goto_4b
 
     .line 628
-    :sswitch_e5
+    :sswitch_e4
     const-string v1, ", extended Arabic-Indic digits"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -5633,6 +5633,8 @@
     goto/16 :goto_4b
 
     .line 589
+    nop
+
     :sswitch_data_ec
     .sparse-switch
         0x0 -> :sswitch_55
@@ -5645,54 +5647,54 @@
     .line 596
     :sswitch_data_102
     .sparse-switch
-        0x0 -> :sswitch_74
-        0x4 -> :sswitch_7a
+        0x0 -> :sswitch_73
+        0x4 -> :sswitch_79
     .end sparse-switch
 
     .line 600
     :sswitch_data_10c
     .sparse-switch
-        0x0 -> :sswitch_80
-        0x8 -> :sswitch_86
-        0x10 -> :sswitch_92
-        0x18 -> :sswitch_8c
+        0x0 -> :sswitch_7f
+        0x8 -> :sswitch_85
+        0x10 -> :sswitch_91
+        0x18 -> :sswitch_8b
     .end sparse-switch
 
     .line 606
     :pswitch_data_11e
     .packed-switch 0x200000
-        :pswitch_98
+        :pswitch_97
     .end packed-switch
 
     .line 609
     :pswitch_data_124
     .packed-switch 0x1000000
-        :pswitch_9e
+        :pswitch_9d
     .end packed-switch
 
     .line 612
     :sswitch_data_12a
     .sparse-switch
-        0x40000 -> :sswitch_a4
-        0x60000 -> :sswitch_aa
-        0x80000 -> :sswitch_b6
-        0xc0000 -> :sswitch_b0
+        0x40000 -> :sswitch_a3
+        0x60000 -> :sswitch_a9
+        0x80000 -> :sswitch_b5
+        0xc0000 -> :sswitch_af
     .end sparse-switch
 
     .line 619
     :sswitch_data_13c
     .sparse-switch
-        0x0 -> :sswitch_bc
-        0x20 -> :sswitch_c2
-        0x40 -> :sswitch_c9
-        0x60 -> :sswitch_d0
-        0x80 -> :sswitch_d7
+        0x0 -> :sswitch_bb
+        0x20 -> :sswitch_c1
+        0x40 -> :sswitch_c8
+        0x60 -> :sswitch_cf
+        0x80 -> :sswitch_d6
     .end sparse-switch
 
     .line 626
     :sswitch_data_152
     .sparse-switch
-        0x0 -> :sswitch_de
-        0x100 -> :sswitch_e5
+        0x0 -> :sswitch_dd
+        0x100 -> :sswitch_e4
     .end sparse-switch
 .end method

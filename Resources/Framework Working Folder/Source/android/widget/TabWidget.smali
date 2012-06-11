@@ -162,7 +162,7 @@
     invoke-virtual {p0, v4}, Landroid/widget/TabWidget;->setChildrenDrawingOrderEnabled(Z)V
 
     .line 120
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/widget/TabWidget;->mContext:Landroid/content/Context;
 
     .line 121
     .local v0, context:Landroid/content/Context;
@@ -188,7 +188,7 @@
     if-nez v2, :cond_20
 
     .line 128
-    const v2, 0x1080574
+    const v2, 0x108059e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -203,7 +203,7 @@
     if-nez v2, :cond_2d
 
     .line 132
-    const v2, 0x1080576
+    const v2, 0x10805a0
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -229,7 +229,7 @@
     if-nez v2, :cond_41
 
     .line 138
-    const v2, 0x1080573
+    const v2, 0x108059d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -244,7 +244,7 @@
     if-nez v2, :cond_2d
 
     .line 142
-    const v2, 0x1080575
+    const v2, 0x108059f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

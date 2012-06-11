@@ -47,14 +47,6 @@
     .end annotation
 .end method
 
-.method public abstract glow(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract removeIcon(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

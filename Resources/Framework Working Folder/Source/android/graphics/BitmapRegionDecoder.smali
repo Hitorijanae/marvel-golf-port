@@ -16,7 +16,7 @@
 
     .prologue
     .line 167
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 168
     iput p1, p0, Landroid/graphics/BitmapRegionDecoder;->mNativeBitmapRegionDecoder:I
@@ -204,9 +204,9 @@
 
     .line 153
     :try_start_d
-    invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v2}, Ljava/io/InputStream;->close()V
     :try_end_10
-    .catch Ljava/io/IOException; {:try_start_d .. :try_end_10} :catch_1a
+    .catch Ljava/io/IOException; {:try_start_d .. :try_end_10} :catch_18
 
     .line 159
     :cond_10
@@ -224,29 +224,33 @@
 
     .line 153
     :try_start_14
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/InputStream;->close()V
     :try_end_17
-    .catch Ljava/io/IOException; {:try_start_14 .. :try_end_17} :catch_18
+    .catch Ljava/io/IOException; {:try_start_14 .. :try_end_17} :catch_1a
 
-    .line 151
+    .line 156
     :cond_17
     :goto_17
     throw v3
 
     .line 154
-    :catch_18
-    move-exception v4
-
-    goto :goto_17
-
     .end local v1           #stream:Ljava/io/InputStream;
     .restart local v2       #stream:Ljava/io/InputStream;
-    :catch_1a
+    :catch_18
     move-exception v3
 
     goto :goto_10
 
+    .end local v2           #stream:Ljava/io/InputStream;
+    .restart local v1       #stream:Ljava/io/InputStream;
+    :catch_1a
+    move-exception v4
+
+    goto :goto_17
+
     .line 151
+    .end local v1           #stream:Ljava/io/InputStream;
+    .restart local v2       #stream:Ljava/io/InputStream;
     :catchall_1c
     move-exception v3
 

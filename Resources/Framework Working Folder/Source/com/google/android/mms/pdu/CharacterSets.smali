@@ -122,7 +122,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_9e
+    if-nez v2, :cond_94
 
     move v2, v3
 
@@ -132,7 +132,7 @@
     .line 56
     new-array v2, v5, [I
 
-    fill-array-data v2, :array_d0
+    fill-array-data v2, :array_c6
 
     sput-object v2, Lcom/google/android/mms/pdu/CharacterSets;->MIBENUM_NUMBERS:[I
 
@@ -149,55 +149,55 @@
 
     const/4 v3, 0x2
 
-    const-string/jumbo v4, "iso-8859-1"
+    const-string v4, "iso-8859-1"
 
     aput-object v4, v2, v3
 
     const/4 v3, 0x3
 
-    const-string/jumbo v4, "iso-8859-2"
+    const-string v4, "iso-8859-2"
 
     aput-object v4, v2, v3
 
     const/4 v3, 0x4
 
-    const-string/jumbo v4, "iso-8859-3"
+    const-string v4, "iso-8859-3"
 
     aput-object v4, v2, v3
 
     const/4 v3, 0x5
 
-    const-string/jumbo v4, "iso-8859-4"
+    const-string v4, "iso-8859-4"
 
     aput-object v4, v2, v3
 
     const/4 v3, 0x6
 
-    const-string/jumbo v4, "iso-8859-5"
+    const-string v4, "iso-8859-5"
 
     aput-object v4, v2, v3
 
     const/4 v3, 0x7
 
-    const-string/jumbo v4, "iso-8859-6"
+    const-string v4, "iso-8859-6"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0x8
 
-    const-string/jumbo v4, "iso-8859-7"
+    const-string v4, "iso-8859-7"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0x9
 
-    const-string/jumbo v4, "iso-8859-8"
+    const-string v4, "iso-8859-8"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0xa
 
-    const-string/jumbo v4, "iso-8859-9"
+    const-string v4, "iso-8859-9"
 
     aput-object v4, v2, v3
 
@@ -221,7 +221,7 @@
 
     const/16 v3, 0xe
 
-    const-string/jumbo v4, "iso-10646-ucs-2"
+    const-string v4, "iso-10646-ucs-2"
 
     aput-object v4, v2, v3
 
@@ -250,7 +250,7 @@
     .line 126
     sget-boolean v2, Lcom/google/android/mms/pdu/CharacterSets;->$assertionsDisabled:Z
 
-    if-nez v2, :cond_a1
+    if-nez v2, :cond_97
 
     sget-object v2, Lcom/google/android/mms/pdu/CharacterSets;->MIBENUM_NUMBERS:[I
 
@@ -260,7 +260,7 @@
 
     array-length v3, v3
 
-    if-eq v2, v3, :cond_a1
+    if-eq v2, v3, :cond_97
 
     new-instance v2, Ljava/lang/AssertionError;
 
@@ -268,14 +268,14 @@
 
     throw v2
 
-    :cond_9e
+    :cond_94
     move v2, v4
 
     .line 23
     goto/16 :goto_d
 
     .line 127
-    :cond_a1
+    :cond_97
     sget-object v2, Lcom/google/android/mms/pdu/CharacterSets;->MIBENUM_NUMBERS:[I
 
     array-length v2, v2
@@ -287,8 +287,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_a7
-    if-gt v1, v0, :cond_ce
+    :goto_9d
+    if-gt v1, v0, :cond_c4
 
     .line 129
     sget-object v2, Lcom/google/android/mms/pdu/CharacterSets;->MIBENUM_TO_NAME_MAP:Ljava/util/HashMap;
@@ -327,16 +327,16 @@
     .line 128
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_a7
+    goto :goto_9d
 
     .line 132
-    :cond_ce
+    :cond_c4
     return-void
 
     .line 56
     nop
 
-    :array_d0
+    :array_c6
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x3t 0x0t 0x0t 0x0t
@@ -362,7 +362,7 @@
 
     .prologue
     .line 134
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

@@ -51,7 +51,7 @@
 
     .prologue
     .line 137
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 140
     new-instance v0, Ljava/lang/ref/WeakReference;
@@ -77,7 +77,7 @@
     :cond_16
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Landroid/media/SoundPool;->mLock:Ljava/lang/Object;
 
@@ -330,13 +330,13 @@
 
     .prologue
     .line 157
-    const-string/jumbo v0, "http:"
+    const-string v0, "http:"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_d
 
     .line 158
     invoke-direct {p0, p1, p2}, Landroid/media/SoundPool;->_load(Ljava/lang/String;I)I
@@ -344,24 +344,24 @@
     move-result v10
 
     .line 174
-    :cond_d
-    :goto_d
+    :cond_c
+    :goto_c
     return v10
 
     .line 161
-    :cond_e
+    :cond_d
     const/4 v10, 0x0
 
     .line 163
     .local v10, id:I
-    :try_start_f
+    :try_start_e
     new-instance v8, Ljava/io/File;
 
     invoke-direct {v8, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 164
     .local v8, f:Ljava/io/File;
-    if-eqz v8, :cond_d
+    if-eqz v8, :cond_c
 
     .line 165
     const/high16 v0, 0x1000
@@ -372,7 +372,7 @@
 
     .line 166
     .local v9, fd:Landroid/os/ParcelFileDescriptor;
-    if-eqz v9, :cond_d
+    if-eqz v9, :cond_c
 
     .line 167
     invoke-virtual {v9}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
@@ -395,15 +395,15 @@
 
     .line 168
     invoke-virtual {v9}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_31
-    .catch Ljava/io/IOException; {:try_start_f .. :try_end_31} :catch_32
+    :try_end_30
+    .catch Ljava/io/IOException; {:try_start_e .. :try_end_30} :catch_31
 
-    goto :goto_d
+    goto :goto_c
 
     .line 171
     .end local v8           #f:Ljava/io/File;
     .end local v9           #fd:Landroid/os/ParcelFileDescriptor;
-    :catch_32
+    :catch_31
     move-exception v7
 
     .line 172
@@ -430,7 +430,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_d
+    goto :goto_c
 .end method
 
 .method public final native pause(I)V

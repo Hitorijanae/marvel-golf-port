@@ -75,7 +75,7 @@
 
     .prologue
     .line 230
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 83
     const/4 v0, -0x1
@@ -94,7 +94,7 @@
     const/4 v1, 0x0
 
     .line 282
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 83
     const/4 v0, -0x1
@@ -460,7 +460,7 @@
 
     iget v0, p0, Landroid/content/pm/ResolveInfo;->icon:I
 
-    if-eqz v0, :cond_ed
+    if-eqz v0, :cond_ec
 
     .line 217
     :cond_b0
@@ -472,7 +472,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "labelRes=0x"
+    const-string v1, "labelRes=0x"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -523,10 +523,10 @@
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 221
-    :cond_ed
+    :cond_ec
     iget-object v0, p0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    if-eqz v0, :cond_120
+    if-eqz v0, :cond_11f
 
     .line 222
     new-instance v0, Ljava/lang/StringBuilder;
@@ -573,15 +573,15 @@
     invoke-virtual {v0, p1, v1}, Landroid/content/pm/ActivityInfo;->dump(Landroid/util/Printer;Ljava/lang/String;)V
 
     .line 228
-    :cond_11f
-    :goto_11f
+    :cond_11e
+    :goto_11e
     return-void
 
     .line 224
-    :cond_120
+    :cond_11f
     iget-object v0, p0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
-    if-eqz v0, :cond_11f
+    if-eqz v0, :cond_11e
 
     .line 225
     new-instance v0, Ljava/lang/StringBuilder;
@@ -627,7 +627,7 @@
 
     invoke-virtual {v0, p1, v1}, Landroid/content/pm/ServiceInfo;->dump(Landroid/util/Printer;Ljava/lang/String;)V
 
-    goto :goto_11f
+    goto :goto_11e
 .end method
 
 .method public final getIconResource()I
@@ -735,7 +735,7 @@
     if-eqz v3, :cond_2a
 
     .line 181
-    iget-object v3, v1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v3, v1, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
 
     iget v4, p0, Landroid/content/pm/ResolveInfo;->icon:I
 
@@ -840,7 +840,7 @@
     if-eqz v4, :cond_45
 
     .line 147
-    iget-object v4, v1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v4, v1, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
 
     iget v5, p0, Landroid/content/pm/ResolveInfo;->labelRes:I
 
@@ -937,7 +937,7 @@
 
     move-result-object v1
 
-    iget-object v2, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v2, v0, Landroid/content/pm/ComponentInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

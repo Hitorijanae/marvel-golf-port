@@ -48,7 +48,7 @@
 
     const/4 v2, 0x0
 
-    .line 59
+    .line 58
     new-instance v0, Landroid/widget/AppSecurityPermissions$State;
 
     const-string v1, "NO_PERMS"
@@ -57,7 +57,7 @@
 
     sput-object v0, Landroid/widget/AppSecurityPermissions$State;->NO_PERMS:Landroid/widget/AppSecurityPermissions$State;
 
-    .line 60
+    .line 59
     new-instance v0, Landroid/widget/AppSecurityPermissions$State;
 
     const-string v1, "DANGEROUS_ONLY"
@@ -66,7 +66,7 @@
 
     sput-object v0, Landroid/widget/AppSecurityPermissions$State;->DANGEROUS_ONLY:Landroid/widget/AppSecurityPermissions$State;
 
-    .line 61
+    .line 60
     new-instance v0, Landroid/widget/AppSecurityPermissions$State;
 
     const-string v1, "NORMAL_ONLY"
@@ -75,7 +75,7 @@
 
     sput-object v0, Landroid/widget/AppSecurityPermissions$State;->NORMAL_ONLY:Landroid/widget/AppSecurityPermissions$State;
 
-    .line 62
+    .line 61
     new-instance v0, Landroid/widget/AppSecurityPermissions$State;
 
     const-string v1, "BOTH"
@@ -84,7 +84,7 @@
 
     sput-object v0, Landroid/widget/AppSecurityPermissions$State;->BOTH:Landroid/widget/AppSecurityPermissions$State;
 
-    .line 58
+    .line 57
     const/4 v0, 0x4
 
     new-array v0, v0, [Landroid/widget/AppSecurityPermissions$State;
@@ -121,7 +121,7 @@
     .end annotation
 
     .prologue
-    .line 58
+    .line 57
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -132,7 +132,7 @@
     .parameter "name"
 
     .prologue
-    .line 58
+    .line 57
     const-class v0, Landroid/widget/AppSecurityPermissions$State;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -148,7 +148,7 @@
     .registers 1
 
     .prologue
-    .line 58
+    .line 57
     sget-object v0, Landroid/widget/AppSecurityPermissions$State;->$VALUES:[Landroid/widget/AppSecurityPermissions$State;
 
     invoke-virtual {v0}, [Landroid/widget/AppSecurityPermissions$State;->clone()Ljava/lang/Object;

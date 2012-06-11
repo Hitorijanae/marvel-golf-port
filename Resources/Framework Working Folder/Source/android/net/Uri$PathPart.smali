@@ -316,7 +316,7 @@
     const/4 v5, 0x0
 
     .line 2313
-    iget-object v6, p0, Landroid/net/Uri$AbstractPart;->encoded:Ljava/lang/String;
+    iget-object v6, p0, Landroid/net/Uri$PathPart;->encoded:Ljava/lang/String;
 
     invoke-static {}, Landroid/net/Uri;->access$300()Ljava/lang/String;
 
@@ -331,7 +331,7 @@
     :goto_b
     if-eqz v1, :cond_22
 
-    iget-object v4, p0, Landroid/net/Uri$AbstractPart;->encoded:Ljava/lang/String;
+    iget-object v4, p0, Landroid/net/Uri$PathPart;->encoded:Ljava/lang/String;
 
     .line 2319
     .local v4, oldPath:Ljava/lang/String;
@@ -370,7 +370,7 @@
     .line 2317
     .restart local v1       #encodedCached:Z
     :cond_22
-    iget-object v4, p0, Landroid/net/Uri$AbstractPart;->decoded:Ljava/lang/String;
+    iget-object v4, p0, Landroid/net/Uri$PathPart;->decoded:Ljava/lang/String;
 
     goto :goto_f
 
@@ -389,7 +389,7 @@
 
     move-result-object v6
 
-    iget-object v7, p0, Landroid/net/Uri$AbstractPart;->encoded:Ljava/lang/String;
+    iget-object v7, p0, Landroid/net/Uri$PathPart;->encoded:Ljava/lang/String;
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -402,7 +402,7 @@
     .line 2330
     .local v3, newEncoded:Ljava/lang/String;
     :goto_3c
-    iget-object v6, p0, Landroid/net/Uri$AbstractPart;->decoded:Ljava/lang/String;
+    iget-object v6, p0, Landroid/net/Uri$PathPart;->decoded:Ljava/lang/String;
 
     invoke-static {}, Landroid/net/Uri;->access$300()Ljava/lang/String;
 
@@ -425,7 +425,7 @@
 
     move-result-object v5
 
-    iget-object v6, p0, Landroid/net/Uri$AbstractPart;->decoded:Ljava/lang/String;
+    iget-object v6, p0, Landroid/net/Uri$PathPart;->decoded:Ljava/lang/String;
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -573,7 +573,7 @@
 
     .prologue
     .line 2169
-    iget-object v1, p0, Landroid/net/Uri$AbstractPart;->encoded:Ljava/lang/String;
+    iget-object v1, p0, Landroid/net/Uri$PathPart;->encoded:Ljava/lang/String;
 
     invoke-static {}, Landroid/net/Uri;->access$300()Ljava/lang/String;
 
@@ -588,7 +588,7 @@
     :goto_9
     if-eqz v0, :cond_10
 
-    iget-object v1, p0, Landroid/net/Uri$AbstractPart;->encoded:Ljava/lang/String;
+    iget-object v1, p0, Landroid/net/Uri$PathPart;->encoded:Ljava/lang/String;
 
     :goto_d
     return-object v1
@@ -603,7 +603,7 @@
     .line 2172
     .restart local v0       #hasEncoded:Z
     :cond_10
-    iget-object v1, p0, Landroid/net/Uri$AbstractPart;->decoded:Ljava/lang/String;
+    iget-object v1, p0, Landroid/net/Uri$PathPart;->decoded:Ljava/lang/String;
 
     const-string v2, "/"
 
@@ -611,7 +611,7 @@
 
     move-result-object v1
 
-    iput-object v1, p0, Landroid/net/Uri$AbstractPart;->encoded:Ljava/lang/String;
+    iput-object v1, p0, Landroid/net/Uri$PathPart;->encoded:Ljava/lang/String;
 
     goto :goto_d
 .end method

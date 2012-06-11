@@ -32,7 +32,7 @@
 
     .prologue
     .line 65
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 66
     iput-object p1, p0, Landroid/speech/tts/TtsEngines;->mContext:Landroid/content/Context;
@@ -188,7 +188,7 @@
 
     .line 244
     .local v0, engine:Landroid/speech/tts/TextToSpeech$EngineInfo;
-    iget-object v3, v2, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v3, v2, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
     iput-object v3, v0, Landroid/speech/tts/TextToSpeech$EngineInfo;->name:Ljava/lang/String;
 
@@ -381,7 +381,7 @@
 
     .prologue
     .line 140
-    iget-object v0, p1, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v0, p1, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     .line 141
     .local v0, appInfo:Landroid/content/pm/ApplicationInfo;
@@ -604,7 +604,6 @@
     :cond_27
     move-object v5, v7
 
-    .line 230
     :cond_28
     :goto_28
     return-object v5
@@ -612,7 +611,7 @@
     .line 199
     :cond_29
     :try_start_29
-    iget-object v8, p1, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v8, p1, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     invoke-virtual {p2, v8}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/Resources;
 
@@ -699,7 +698,6 @@
     :cond_71
     move-object v5, v7
 
-    .line 207
     goto :goto_28
 
     .line 210
@@ -755,7 +753,6 @@
     :cond_90
     move-object v5, v7
 
-    .line 221
     goto :goto_28
 
     .line 222
@@ -800,7 +797,6 @@
     :cond_b0
     move-object v5, v7
 
-    .line 224
     goto/16 :goto_28
 
     .line 225
@@ -854,7 +850,6 @@
     :cond_db
     move-object v5, v7
 
-    .line 227
     goto/16 :goto_28
 
     .line 228
@@ -908,7 +903,6 @@
     :cond_106
     move-object v5, v7
 
-    .line 230
     goto/16 :goto_28
 
     .line 232
@@ -921,7 +915,6 @@
     .line 233
     invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 232
     :cond_10f
     throw v7
 .end method

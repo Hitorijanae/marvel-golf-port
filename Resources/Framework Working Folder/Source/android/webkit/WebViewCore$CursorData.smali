@@ -31,8 +31,8 @@
     .registers 1
 
     .prologue
-    .line 809
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 802
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,21 +45,21 @@
     .parameter "y"
 
     .prologue
-    .line 810
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 803
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 811
+    .line 804
     iput p1, p0, Landroid/webkit/WebViewCore$CursorData;->mFrame:I
 
-    .line 812
+    .line 805
     iput p2, p0, Landroid/webkit/WebViewCore$CursorData;->mNode:I
 
-    .line 813
+    .line 806
     iput p3, p0, Landroid/webkit/WebViewCore$CursorData;->mX:I
 
-    .line 814
+    .line 807
     iput p4, p0, Landroid/webkit/WebViewCore$CursorData;->mY:I
 
-    .line 815
+    .line 808
     return-void
 .end method

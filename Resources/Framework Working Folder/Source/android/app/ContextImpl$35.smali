@@ -1,5 +1,5 @@
 .class final Landroid/app/ContextImpl$35;
-.super Landroid/app/ContextImpl$StaticServiceFetcher;
+.super Landroid/app/ContextImpl$ServiceFetcher;
 .source "ContextImpl.java"
 
 
@@ -19,34 +19,35 @@
     .registers 1
 
     .prologue
-    .line 507
-    invoke-direct {p0}, Landroid/app/ContextImpl$StaticServiceFetcher;-><init>()V
+    .line 468
+    invoke-direct {p0}, Landroid/app/ContextImpl$ServiceFetcher;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public createStaticService()Ljava/lang/Object;
-    .registers 4
+.method public createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
+    .registers 5
+    .parameter "ctx"
 
     .prologue
-    .line 509
-    const-string v1, "display"
-
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    .line 470
+    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 510
-    .local v0, b:Landroid/os/IBinder;
-    new-instance v1, Lcom/htc/service/DisplayManager;
+    .line 471
+    .local v0, outerContext:Landroid/content/Context;
+    new-instance v1, Landroid/app/ProfileManager;
 
-    invoke-static {v0}, Landroid/os/IDisplayService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IDisplayService;
+    iget-object v2, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
+
+    invoke-virtual {v2}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
 
     move-result-object v2
 
-    invoke-direct {v1, v2}, Lcom/htc/service/DisplayManager;-><init>(Landroid/os/IDisplayService;)V
+    invoke-direct {v1, v0, v2}, Landroid/app/ProfileManager;-><init>(Landroid/content/Context;Landroid/os/Handler;)V
 
     return-object v1
 .end method

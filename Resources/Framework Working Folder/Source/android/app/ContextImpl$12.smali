@@ -19,7 +19,7 @@
     .registers 1
 
     .prologue
-    .line 356
+    .line 318
     invoke-direct {p0}, Landroid/app/ContextImpl$ServiceFetcher;-><init>()V
 
     return-void
@@ -32,7 +32,7 @@
     .parameter "ctx"
 
     .prologue
-    .line 358
+    .line 320
     new-instance v0, Landroid/nfc/NfcManager;
 
     invoke-direct {v0, p1}, Landroid/nfc/NfcManager;-><init>(Landroid/content/Context;)V

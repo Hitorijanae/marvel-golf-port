@@ -37,10 +37,10 @@
     .parameter
 
     .prologue
-    .line 1088
+    .line 1076
     iput-object p1, p0, Landroid/view/ViewDebug$4;->val$view:Landroid/view/View;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -56,12 +56,12 @@
 
     const/4 v2, 0x0
 
-    .line 1109
+    .line 1097
     aget-object v0, p1, v1
 
     if-eqz v0, :cond_e
 
-    .line 1110
+    .line 1098
     aget-object v0, p1, v1
 
     check-cast v0, Landroid/graphics/Canvas;
@@ -70,20 +70,20 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1112
+    .line 1100
     :cond_e
     aget-object v0, p1, v2
 
     if-eqz v0, :cond_19
 
-    .line 1113
+    .line 1101
     aget-object v0, p1, v2
 
     check-cast v0, Landroid/graphics/Bitmap;
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
-    .line 1115
+    .line 1103
     :cond_19
     return-void
 .end method
@@ -94,7 +94,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1090
+    .line 1078
     iget-object v3, p0, Landroid/view/ViewDebug$4;->val$view:Landroid/view/View;
 
     if-eqz v3, :cond_34
@@ -117,7 +117,7 @@
 
     move-result-object v2
 
-    .line 1093
+    .line 1081
     .local v2, metrics:Landroid/util/DisplayMetrics;
     :goto_17
     if-eqz v2, :cond_36
@@ -132,7 +132,7 @@
 
     move-result-object v0
 
-    .line 1096
+    .line 1084
     .local v0, bitmap:Landroid/graphics/Bitmap;
     :goto_23
     if-eqz v0, :cond_2a
@@ -141,7 +141,7 @@
 
     invoke-direct {v1, v0}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    .line 1097
+    .line 1085
     .local v1, canvas:Landroid/graphics/Canvas;
     :cond_2a
     const/4 v3, 0x2
@@ -164,14 +164,14 @@
     :cond_34
     move-object v2, v1
 
-    .line 1090
+    .line 1078
     goto :goto_17
 
     .restart local v2       #metrics:Landroid/util/DisplayMetrics;
     :cond_36
     move-object v0, v1
 
-    .line 1093
+    .line 1081
     goto :goto_23
 .end method
 
@@ -182,12 +182,12 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 1103
+    .line 1091
     aget-object v0, p1, v2
 
     if-eqz v0, :cond_e
 
-    .line 1104
+    .line 1092
     iget-object v1, p0, Landroid/view/ViewDebug$4;->val$view:Landroid/view/View;
 
     aget-object v0, p1, v2
@@ -196,7 +196,7 @@
 
     invoke-virtual {v1, v0}, Landroid/view/View;->draw(Landroid/graphics/Canvas;)V
 
-    .line 1106
+    .line 1094
     :cond_e
     return-void
 .end method

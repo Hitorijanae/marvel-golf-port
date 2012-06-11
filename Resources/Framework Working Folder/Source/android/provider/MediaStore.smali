@@ -78,10 +78,10 @@
     .registers 1
 
     .prologue
-    .line 53
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 48
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1872
+    .line 1748
     return-void
 .end method
 
@@ -89,7 +89,7 @@
     .registers 1
 
     .prologue
-    .line 2190
+    .line 2040
     const-string v0, "content://media/none/media_scanner"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -106,7 +106,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 2215
+    .line 2065
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -127,37 +127,42 @@
 
     move-result-object v6
 
-    .line 2218
+    .line 2068
     .local v6, c:Landroid/database/Cursor;
     if-eqz v6, :cond_22
 
-    .line 2220
+    .line 2070
     :try_start_14
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_23
 
-    .line 2221
+    .line 2071
     const/4 v0, 0x0
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
     :try_end_1e
-    .catchall {:try_start_14 .. :try_end_1e} :catchall_23
+    .catchall {:try_start_14 .. :try_end_1e} :catchall_27
 
     move-result-object v2
 
-    .line 2224
-    :cond_1f
+    .line 2074
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 2227
+    .line 2077
     :cond_22
+    :goto_22
     return-object v2
 
-    .line 2224
-    :catchall_23
+    .line 2074
+    :cond_23
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    goto :goto_22
+
+    :catchall_27
     move-exception v0
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V

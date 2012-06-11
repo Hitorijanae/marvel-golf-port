@@ -18,15 +18,7 @@
 
 
 # static fields
-.field public static final CONTENT_URI:Landroid/net/Uri; = null
-
-.field public static final IS_ALARM:Ljava/lang/String; = "is_alarm"
-
-.field public static final IS_MUSIC:Ljava/lang/String; = "is_music"
-
-.field public static final IS_NOTIFICATION:Ljava/lang/String; = "is_notification"
-
-.field public static final IS_RINGTONE:Ljava/lang/String; = "is_ringtone"
+.field public static final CONTENT_URI:Landroid/net/Uri;
 
 
 # direct methods
@@ -34,7 +26,7 @@
     .registers 1
 
     .prologue
-    .line 222
+    .line 91
     const-string v0, "content://drm/audio"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;

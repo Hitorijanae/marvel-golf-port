@@ -17,20 +17,13 @@
 .end annotation
 
 
-# instance fields
-.field final synthetic val$context:Landroid/content/Context;
-
-
 # direct methods
-.method constructor <init>(Landroid/content/Context;)V
-    .registers 2
-    .parameter
+.method constructor <init>()V
+    .registers 1
 
     .prologue
-    .line 114
-    iput-object p1, p0, Lcom/android/internal/app/ShutdownThread$1;->val$context:Landroid/content/Context;
-
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 143
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,12 +36,14 @@
     .parameter "which"
 
     .prologue
-    .line 116
-    iget-object v0, p0, Lcom/android/internal/app/ShutdownThread$1;->val$context:Landroid/content/Context;
+    .line 145
+    const/4 v0, 0x0
 
-    #calls: Lcom/android/internal/app/ShutdownThread;->beginShutdownSequence(Landroid/content/Context;)V
-    invoke-static {v0}, Lcom/android/internal/app/ShutdownThread;->access$000(Landroid/content/Context;)V
+    invoke-static {v0}, Lcom/android/internal/app/ShutdownThread;->access$002(Z)Z
 
-    .line 117
+    .line 146
+    invoke-interface {p1}, Landroid/content/DialogInterface;->cancel()V
+
+    .line 147
     return-void
 .end method

@@ -92,7 +92,7 @@
     .prologue
     .line 108
     .local p0, this:Landroid/preference/GenericInflater;,"Landroid/preference/GenericInflater<TT;TP;>;"
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 45
     const/4 v0, 0x0
@@ -131,7 +131,7 @@
     .line 120
     .local p0, this:Landroid/preference/GenericInflater;,"Landroid/preference/GenericInflater<TT;TP;>;"
     .local p1, original:Landroid/preference/GenericInflater;,"Landroid/preference/GenericInflater<TT;TP;>;"
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 45
     const/4 v0, 0x0
@@ -784,10 +784,8 @@
     .line 265
     invoke-interface {v0}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 263
     return-object v1
 
-    .line 265
     :catchall_14
     move-exception v1
 

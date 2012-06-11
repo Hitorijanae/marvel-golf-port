@@ -20,8 +20,6 @@
 
 .field public static final ACTION_HDMI_PLUGGED:Ljava/lang/String; = "android.intent.action.HDMI_PLUGGED"
 
-.field public static final ACTION_NEED_INTERCEPT_BEFORE_DISPATCH:I = 0x8
-
 .field public static final ACTION_PASS_TO_USER:I = 0x1
 
 .field public static final ACTION_POKE_USER_ACTIVITY:I = 0x2
@@ -158,9 +156,6 @@
 .method public abstract checkAddPermission(Landroid/view/WindowManager$LayoutParams;)I
 .end method
 
-.method public abstract clearIdleScreen()V
-.end method
-
 .method public abstract createForceHideEnterAnimation()Landroid/view/animation/Animation;
 .end method
 
@@ -177,9 +172,6 @@
 .end method
 
 .method public abstract dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-.end method
-
-.method public abstract enableGuestMode(Z)V
 .end method
 
 .method public abstract enableKeyguard(Z)V
@@ -200,9 +192,6 @@
 .method public abstract focusChangedLw(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManagerPolicy$WindowState;)I
 .end method
 
-.method public abstract forcePasswordTimeout()V
-.end method
-
 .method public abstract getConfigDisplayHeight(III)I
 .end method
 
@@ -212,16 +201,7 @@
 .method public abstract getContentInsetHintLw(Landroid/view/WindowManager$LayoutParams;Landroid/graphics/Rect;)V
 .end method
 
-.method public abstract getIdleScreenLabel()Ljava/lang/String;
-.end method
-
 .method public abstract getMaxWallpaperLayer()I
-.end method
-
-.method public abstract getNavigationBarHeight()I
-.end method
-
-.method public abstract getNavigationBarWidth()I
 .end method
 
 .method public abstract getNonDecorDisplayHeight(III)I
@@ -234,9 +214,6 @@
 .end method
 
 .method public abstract hideBootMessages()V
-.end method
-
-.method public abstract hideIdleScreen()V
 .end method
 
 .method public abstract inKeyguardRestrictedKeyInputMode()Z
@@ -254,16 +231,10 @@
 .method public abstract interceptMotionBeforeQueueingWhenScreenOff(I)I
 .end method
 
-.method public abstract interceptPenBeforeDispatching(Landroid/view/WindowManagerPolicy$WindowState;IIIILandroid/view/MotionEvent;)Z
-.end method
-
 .method public abstract isKeyguardLocked()Z
 .end method
 
 .method public abstract isKeyguardSecure()Z
-.end method
-
-.method public abstract isMediaKey(I)Z
 .end method
 
 .method public abstract isScreenOnEarly()Z
@@ -272,10 +243,10 @@
 .method public abstract isScreenOnFully()Z
 .end method
 
-.method public abstract keyguardIsShowing()Z
+.method public abstract layoutWindowLw(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManager$LayoutParams;Landroid/view/WindowManagerPolicy$WindowState;)V
 .end method
 
-.method public abstract layoutWindowLw(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManager$LayoutParams;Landroid/view/WindowManagerPolicy$WindowState;)V
+.method public abstract lockNow()V
 .end method
 
 .method public abstract notifyLidSwitchChanged(JZ)V
@@ -317,40 +288,16 @@
 .method public abstract setCurrentOrientationLw(I)V
 .end method
 
-.method public abstract setIdleScreen(Landroid/content/ComponentName;)V
-.end method
-
 .method public abstract setInitialDisplaySize(II)V
 .end method
 
-.method public abstract setKeyEventsBlocked(Z)V
-.end method
-
-.method public abstract setLockScreenShowImmediately(Z)V
-.end method
-
-.method public abstract setNavigationBarVisibility(Z)V
-.end method
-
-.method public abstract setPenWorkingMode(I)V
-.end method
-
 .method public abstract setRotationLw(I)V
-.end method
-
-.method public abstract setShowKeyguard(Z)V
 .end method
 
 .method public abstract setUserRotationMode(II)V
 .end method
 
 .method public abstract showBootMessage(Ljava/lang/CharSequence;Z)V
-.end method
-
-.method public abstract showIdleScreen()V
-.end method
-
-.method public abstract showKeyguardWithAnimation(Z)V
 .end method
 
 .method public abstract subWindowTypeToLayerLw(I)I

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 11029
+    .line 9198
     iput-object p1, p0, Landroid/webkit/WebView$InvokeListBox$4;->this$1:Landroid/webkit/WebView$InvokeListBox;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,24 +42,13 @@
     .parameter "dialog"
 
     .prologue
-    .line 11032
-    iget-object v0, p0, Landroid/webkit/WebView$InvokeListBox$4;->this$1:Landroid/webkit/WebView$InvokeListBox;
-
-    iget-object v0, v0, Landroid/webkit/WebView$InvokeListBox;->this$0:Landroid/webkit/WebView;
-
-    invoke-virtual {v0}, Landroid/webkit/WebView;->isWebCoreReady()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_19
-
-    .line 11033
+    .line 9200
     iget-object v0, p0, Landroid/webkit/WebView$InvokeListBox$4;->this$1:Landroid/webkit/WebView$InvokeListBox;
 
     iget-object v0, v0, Landroid/webkit/WebView$InvokeListBox;->this$0:Landroid/webkit/WebView;
 
     #getter for: Landroid/webkit/WebView;->mWebViewCore:Landroid/webkit/WebViewCore;
-    invoke-static {v0}, Landroid/webkit/WebView;->access$600(Landroid/webkit/WebView;)Landroid/webkit/WebViewCore;
+    invoke-static {v0}, Landroid/webkit/WebView;->access$700(Landroid/webkit/WebView;)Landroid/webkit/WebViewCore;
 
     move-result-object v0
 
@@ -71,17 +60,16 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/webkit/WebViewCore;->sendMessage(III)V
 
-    .line 11036
-    :cond_19
+    .line 9202
     iget-object v0, p0, Landroid/webkit/WebView$InvokeListBox$4;->this$1:Landroid/webkit/WebView$InvokeListBox;
 
     iget-object v0, v0, Landroid/webkit/WebView$InvokeListBox;->this$0:Landroid/webkit/WebView;
 
     const/4 v1, 0x0
 
-    #setter for: Landroid/webkit/WebView;->mListBoxDialog:Lcom/htc/dialog/HtcAlertDialog;
-    invoke-static {v0, v1}, Landroid/webkit/WebView;->access$12402(Landroid/webkit/WebView;Lcom/htc/dialog/HtcAlertDialog;)Lcom/htc/dialog/HtcAlertDialog;
+    #setter for: Landroid/webkit/WebView;->mListBoxDialog:Landroid/app/AlertDialog;
+    invoke-static {v0, v1}, Landroid/webkit/WebView;->access$11102(Landroid/webkit/WebView;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
-    .line 11037
+    .line 9203
     return-void
 .end method

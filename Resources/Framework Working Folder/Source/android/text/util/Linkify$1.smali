@@ -22,8 +22,8 @@
     .registers 1
 
     .prologue
-    .line 126
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 95
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -39,15 +39,15 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 128
+    .line 97
     if-nez p2, :cond_4
 
-    .line 136
+    .line 105
     :cond_3
     :goto_3
     return v0
 
-    .line 132
+    .line 101
     :cond_4
     add-int/lit8 v1, p2, -0x1
 
@@ -59,7 +59,7 @@
 
     if-ne v1, v2, :cond_3
 
-    .line 133
+    .line 102
     const/4 v0, 0x0
 
     goto :goto_3

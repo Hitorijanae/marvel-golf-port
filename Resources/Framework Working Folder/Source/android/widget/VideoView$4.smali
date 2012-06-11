@@ -30,7 +30,7 @@
     .line 351
     iput-object p1, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -168,7 +168,7 @@
     .line 373
     iget-object v2, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
-    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
+    #getter for: Landroid/widget/VideoView;->mContext:Landroid/content/Context;
     invoke-static {v2}, Landroid/widget/VideoView;->access$1600(Landroid/widget/VideoView;)Landroid/content/Context;
 
     move-result-object v2
@@ -193,7 +193,7 @@
 
     iget-object v3, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
-    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
+    #getter for: Landroid/widget/VideoView;->mContext:Landroid/content/Context;
     invoke-static {v3}, Landroid/widget/VideoView;->access$1700(Landroid/widget/VideoView;)Landroid/content/Context;
 
     move-result-object v3

@@ -22,184 +22,112 @@
     .parameter "roaming"
 
     .prologue
-    .line 52
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 39
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 53
+    .line 40
     iput p1, p0, Landroid/net/NetworkIdentity;->mType:I
 
-    .line 54
+    .line 41
     iput p2, p0, Landroid/net/NetworkIdentity;->mSubType:I
 
-    .line 55
+    .line 42
     iput-object p3, p0, Landroid/net/NetworkIdentity;->mSubscriberId:Ljava/lang/String;
 
-    .line 56
+    .line 43
     iput-boolean p4, p0, Landroid/net/NetworkIdentity;->mRoaming:Z
 
-    .line 57
+    .line 44
     return-void
 .end method
 
 .method public static buildNetworkIdentity(Landroid/content/Context;Landroid/net/NetworkState;)Landroid/net/NetworkIdentity;
-    .registers 11
+    .registers 8
     .parameter "context"
     .parameter "state"
 
     .prologue
-    .line 123
-    iget-object v8, p1, Landroid/net/NetworkState;->networkInfo:Landroid/net/NetworkInfo;
+    .line 110
+    iget-object v5, p1, Landroid/net/NetworkState;->networkInfo:Landroid/net/NetworkInfo;
 
-    invoke-virtual {v8}, Landroid/net/NetworkInfo;->getType()I
-
-    move-result v7
-
-    .line 124
-    .local v7, type:I
-    iget-object v8, p1, Landroid/net/NetworkState;->networkInfo:Landroid/net/NetworkInfo;
-
-    invoke-virtual {v8}, Landroid/net/NetworkInfo;->getSubtype()I
+    invoke-virtual {v5}, Landroid/net/NetworkInfo;->getType()I
 
     move-result v4
 
-    .line 131
-    .local v4, subType:I
-    invoke-static {v7}, Landroid/net/ConnectivityManager;->isNetworkTypeMobile(I)Z
+    .line 111
+    .local v4, type:I
+    iget-object v5, p1, Landroid/net/NetworkState;->networkInfo:Landroid/net/NetworkInfo;
 
-    move-result v8
-
-    if-eqz v8, :cond_5a
-
-    .line 132
-    const-string/jumbo v8, "phone"
-
-    invoke-virtual {p0, v8}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/telephony/TelephonyManager;
-
-    .line 135
-    .local v6, telephony:Landroid/telephony/TelephonyManager;
-    const-string v8, "connectivity"
-
-    invoke-virtual {p0, v8}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/net/ConnectivityManager;
-
-    .line 137
-    .local v0, connectivity:Landroid/net/ConnectivityManager;
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v2
-
-    .line 138
-    .local v2, mDualPhoneEnable:Z
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualGSMPhoneEnable()Z
+    invoke-virtual {v5}, Landroid/net/NetworkInfo;->getSubtype()I
 
     move-result v1
 
-    .line 139
-    .local v1, mDualGSMPhoneEnable:Z
-    if-nez v2, :cond_2f
+    .line 118
+    .local v1, subType:I
+    invoke-static {v4}, Landroid/net/ConnectivityManager;->isNetworkTypeMobile(I)Z
 
-    if-eqz v1, :cond_43
+    move-result v5
 
-    .line 140
-    :cond_2f
-    invoke-virtual {v0, v7}, Landroid/net/ConnectivityManager;->getMobileDataPhoneType(I)I
+    if-eqz v5, :cond_30
 
-    move-result v8
+    .line 119
+    const-string/jumbo v5, "phone"
 
-    invoke-virtual {v6, v8}, Landroid/telephony/TelephonyManager;->isNetworkRoamingExt(I)Z
+    invoke-virtual {p0, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result v3
+    move-result-object v3
 
-    .line 147
-    .local v3, roaming:Z
-    :goto_37
-    iget-object v8, p1, Landroid/net/NetworkState;->subscriberId:Ljava/lang/String;
+    check-cast v3, Landroid/telephony/TelephonyManager;
 
-    if-eqz v8, :cond_48
+    .line 121
+    .local v3, telephony:Landroid/telephony/TelephonyManager;
+    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->isNetworkRoaming()Z
 
-    .line 148
+    move-result v0
+
+    .line 122
+    .local v0, roaming:Z
     iget-object v5, p1, Landroid/net/NetworkState;->subscriberId:Ljava/lang/String;
 
-    .line 164
-    .end local v0           #connectivity:Landroid/net/ConnectivityManager;
-    .end local v1           #mDualGSMPhoneEnable:Z
-    .end local v2           #mDualPhoneEnable:Z
-    .end local v6           #telephony:Landroid/telephony/TelephonyManager;
-    .local v5, subscriberId:Ljava/lang/String;
-    :goto_3d
-    new-instance v8, Landroid/net/NetworkIdentity;
+    if-eqz v5, :cond_2b
 
-    invoke-direct {v8, v7, v4, v5, v3}, Landroid/net/NetworkIdentity;-><init>(IILjava/lang/String;Z)V
+    .line 123
+    iget-object v2, p1, Landroid/net/NetworkState;->subscriberId:Ljava/lang/String;
 
-    return-object v8
+    .line 131
+    .end local v3           #telephony:Landroid/telephony/TelephonyManager;
+    .local v2, subscriberId:Ljava/lang/String;
+    :goto_25
+    new-instance v5, Landroid/net/NetworkIdentity;
 
-    .line 143
-    .end local v3           #roaming:Z
-    .end local v5           #subscriberId:Ljava/lang/String;
-    .restart local v0       #connectivity:Landroid/net/ConnectivityManager;
-    .restart local v1       #mDualGSMPhoneEnable:Z
-    .restart local v2       #mDualPhoneEnable:Z
-    .restart local v6       #telephony:Landroid/telephony/TelephonyManager;
-    :cond_43
-    invoke-virtual {v6}, Landroid/telephony/TelephonyManager;->isNetworkRoaming()Z
+    invoke-direct {v5, v4, v1, v2, v0}, Landroid/net/NetworkIdentity;-><init>(IILjava/lang/String;Z)V
 
-    move-result v3
+    return-object v5
 
-    .restart local v3       #roaming:Z
-    goto :goto_37
+    .line 125
+    .end local v2           #subscriberId:Ljava/lang/String;
+    .restart local v3       #telephony:Landroid/telephony/TelephonyManager;
+    :cond_2b
+    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getSubscriberId()Ljava/lang/String;
 
-    .line 151
-    :cond_48
-    if-nez v2, :cond_4c
+    move-result-object v2
 
-    if-eqz v1, :cond_55
+    .restart local v2       #subscriberId:Ljava/lang/String;
+    goto :goto_25
 
-    .line 152
-    :cond_4c
-    invoke-virtual {v0, v7}, Landroid/net/ConnectivityManager;->getMobileDataPhoneType(I)I
+    .line 128
+    .end local v0           #roaming:Z
+    .end local v2           #subscriberId:Ljava/lang/String;
+    .end local v3           #telephony:Landroid/telephony/TelephonyManager;
+    :cond_30
+    const/4 v2, 0x0
 
-    move-result v8
+    .line 129
+    .restart local v2       #subscriberId:Ljava/lang/String;
+    const/4 v0, 0x0
 
-    invoke-virtual {v6, v8}, Landroid/telephony/TelephonyManager;->getSubscriberIdExt(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    .restart local v5       #subscriberId:Ljava/lang/String;
-    goto :goto_3d
-
-    .line 155
-    .end local v5           #subscriberId:Ljava/lang/String;
-    :cond_55
-    invoke-virtual {v6}, Landroid/telephony/TelephonyManager;->getSubscriberId()Ljava/lang/String;
-
-    move-result-object v5
-
-    .restart local v5       #subscriberId:Ljava/lang/String;
-    goto :goto_3d
-
-    .line 161
-    .end local v0           #connectivity:Landroid/net/ConnectivityManager;
-    .end local v1           #mDualGSMPhoneEnable:Z
-    .end local v2           #mDualPhoneEnable:Z
-    .end local v3           #roaming:Z
-    .end local v5           #subscriberId:Ljava/lang/String;
-    .end local v6           #telephony:Landroid/telephony/TelephonyManager;
-    :cond_5a
-    const/4 v5, 0x0
-
-    .line 162
-    .restart local v5       #subscriberId:Ljava/lang/String;
-    const/4 v3, 0x0
-
-    .restart local v3       #roaming:Z
-    goto :goto_3d
+    .restart local v0       #roaming:Z
+    goto :goto_25
 .end method
 
 .method public static scrubSubscriberId(Ljava/lang/String;)Ljava/lang/String;
@@ -207,7 +135,7 @@
     .parameter "subscriberId"
 
     .prologue
-    .line 111
+    .line 98
     const-string v0, "eng"
 
     sget-object v1, Landroid/os/Build;->TYPE:Ljava/lang/String;
@@ -218,7 +146,7 @@
 
     if-eqz v0, :cond_b
 
-    .line 114
+    .line 101
     .end local p0
     :goto_a
     return-object p0
@@ -249,17 +177,17 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 66
+    .line 53
     instance-of v2, p1, Landroid/net/NetworkIdentity;
 
     if-eqz v2, :cond_25
 
     move-object v0, p1
 
-    .line 67
+    .line 54
     check-cast v0, Landroid/net/NetworkIdentity;
 
-    .line 68
+    .line 55
     .local v0, ident:Landroid/net/NetworkIdentity;
     iget v2, p0, Landroid/net/NetworkIdentity;->mType:I
 
@@ -291,7 +219,7 @@
 
     const/4 v1, 0x1
 
-    .line 72
+    .line 59
     .end local v0           #ident:Landroid/net/NetworkIdentity;
     :cond_25
     return v1
@@ -301,7 +229,7 @@
     .registers 2
 
     .prologue
-    .line 104
+    .line 91
     iget-boolean v0, p0, Landroid/net/NetworkIdentity;->mRoaming:Z
 
     return v0
@@ -311,7 +239,7 @@
     .registers 2
 
     .prologue
-    .line 96
+    .line 83
     iget v0, p0, Landroid/net/NetworkIdentity;->mSubType:I
 
     return v0
@@ -321,7 +249,7 @@
     .registers 2
 
     .prologue
-    .line 100
+    .line 87
     iget-object v0, p0, Landroid/net/NetworkIdentity;->mSubscriberId:Ljava/lang/String;
 
     return-object v0
@@ -331,7 +259,7 @@
     .registers 2
 
     .prologue
-    .line 92
+    .line 79
     iget v0, p0, Landroid/net/NetworkIdentity;->mType:I
 
     return v0
@@ -341,7 +269,7 @@
     .registers 4
 
     .prologue
-    .line 61
+    .line 48
     const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -383,14 +311,14 @@
     .registers 7
 
     .prologue
-    .line 77
+    .line 64
     iget v4, p0, Landroid/net/NetworkIdentity;->mType:I
 
     invoke-static {v4}, Landroid/net/ConnectivityManager;->getNetworkTypeName(I)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 79
+    .line 66
     .local v3, typeName:Ljava/lang/String;
     iget v4, p0, Landroid/net/NetworkIdentity;->mType:I
 
@@ -400,14 +328,14 @@
 
     if-eqz v4, :cond_52
 
-    .line 80
+    .line 67
     iget v4, p0, Landroid/net/NetworkIdentity;->mSubType:I
 
     invoke-static {v4}, Landroid/telephony/TelephonyManager;->getNetworkTypeName(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 85
+    .line 72
     .local v2, subTypeName:Ljava/lang/String;
     :goto_14
     iget-object v4, p0, Landroid/net/NetworkIdentity;->mSubscriberId:Ljava/lang/String;
@@ -416,7 +344,7 @@
 
     move-result-object v1
 
-    .line 86
+    .line 73
     .local v1, scrubSubscriberId:Ljava/lang/String;
     iget-boolean v4, p0, Landroid/net/NetworkIdentity;->mRoaming:Z
 
@@ -424,7 +352,7 @@
 
     const-string v0, ", ROAMING"
 
-    .line 87
+    .line 74
     .local v0, roaming:Ljava/lang/String;
     :goto_20
     new-instance v4, Ljava/lang/StringBuilder;
@@ -477,7 +405,7 @@
 
     return-object v4
 
-    .line 82
+    .line 69
     .end local v0           #roaming:Ljava/lang/String;
     .end local v1           #scrubSubscriberId:Ljava/lang/String;
     .end local v2           #subTypeName:Ljava/lang/String;
@@ -491,7 +419,7 @@
     .restart local v2       #subTypeName:Ljava/lang/String;
     goto :goto_14
 
-    .line 86
+    .line 73
     .restart local v1       #scrubSubscriberId:Ljava/lang/String;
     :cond_59
     const-string v0, ""

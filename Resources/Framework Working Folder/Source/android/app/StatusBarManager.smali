@@ -2,9 +2,6 @@
 .super Ljava/lang/Object;
 .source "StatusBarManager.java"
 
-# interfaces
-.implements Landroid/app/HtcIfStatusBarManager;
-
 
 # static fields
 .field public static final DISABLE_BACK:I = 0x400000
@@ -50,7 +47,7 @@
 
     .prologue
     .line 63
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 61
     new-instance v0, Landroid/os/Binder;
@@ -236,44 +233,6 @@
     move-exception v0
 
     .line 105
-    .local v0, ex:Landroid/os/RemoteException;
-    new-instance v2, Ljava/lang/RuntimeException;
-
-    invoke-direct {v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
-
-    throw v2
-.end method
-
-.method public glow(I)V
-    .registers 5
-    .parameter "mode"
-
-    .prologue
-    .line 164
-    :try_start_0
-    invoke-direct {p0}, Landroid/app/StatusBarManager;->getService()Lcom/android/internal/statusbar/IStatusBarService;
-
-    move-result-object v1
-
-    .line 165
-    .local v1, svc:Lcom/android/internal/statusbar/IStatusBarService;
-    if-eqz v1, :cond_9
-
-    .line 166
-    invoke-interface {v1, p1}, Lcom/android/internal/statusbar/IStatusBarService;->glow(I)V
-    :try_end_9
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_9} :catch_a
-
-    .line 172
-    :cond_9
-    return-void
-
-    .line 168
-    .end local v1           #svc:Lcom/android/internal/statusbar/IStatusBarService;
-    :catch_a
-    move-exception v0
-
-    .line 170
     .local v0, ex:Landroid/os/RemoteException;
     new-instance v2, Ljava/lang/RuntimeException;
 

@@ -36,7 +36,7 @@
     .registers 2
 
     .prologue
-    .line 2114
+    .line 2063
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "profile"
@@ -47,7 +47,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$Profile;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 2122
+    .line 2071
     sget-object v0, Landroid/provider/ContactsContract$Profile;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "as_vcard"
@@ -58,7 +58,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$Profile;->CONTENT_VCARD_URI:Landroid/net/Uri;
 
-    .line 2132
+    .line 2081
     sget-object v0, Landroid/provider/ContactsContract$Profile;->CONTENT_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "raw_contacts"
@@ -76,9 +76,9 @@
     .registers 1
 
     .prologue
-    .line 2107
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 2056
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2108
+    .line 2057
     return-void
 .end method

@@ -44,14 +44,14 @@
     .registers 1
 
     .prologue
-    .line 402
+    .line 398
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/view/Display;->sStaticInit:Ljava/lang/Object;
 
-    .line 403
+    .line 399
     const/4 v0, 0x0
 
     sput-boolean v0, Landroid/view/Display;->sInitialized:Z
@@ -66,16 +66,16 @@
 
     .prologue
     .line 46
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 398
+    .line 394
     new-instance v0, Landroid/graphics/Point;
 
     invoke-direct {v0}, Landroid/graphics/Point;-><init>()V
 
     iput-object v0, p0, Landroid/view/Display;->mTmpPoint:Landroid/graphics/Point;
 
-    .line 399
+    .line 395
     new-instance v0, Landroid/util/DisplayMetrics;
 
     invoke-direct {v0}, Landroid/util/DisplayMetrics;-><init>()V
@@ -151,7 +151,7 @@
     .parameter "compat"
 
     .prologue
-    .line 411
+    .line 407
     new-instance v0, Landroid/view/Display;
 
     invoke-direct {v0, p0, p1}, Landroid/view/Display;-><init>(ILandroid/view/CompatibilityInfoHolder;)V
@@ -315,18 +315,18 @@
     .registers 2
 
     .prologue
-    .line 372
+    .line 368
     sget-object v1, Landroid/view/Display;->sStaticInit:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 373
+    .line 369
     :try_start_3
     sget-object v0, Landroid/view/Display;->sWindowManager:Landroid/view/IWindowManager;
 
     if-nez v0, :cond_14
 
-    .line 374
+    .line 370
     const-string/jumbo v0, "window"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -339,7 +339,7 @@
 
     sput-object v0, Landroid/view/Display;->sWindowManager:Landroid/view/IWindowManager;
 
-    .line 377
+    .line 373
     :cond_14
     sget-object v0, Landroid/view/Display;->sWindowManager:Landroid/view/IWindowManager;
 
@@ -347,7 +347,7 @@
 
     return-object v0
 
-    .line 378
+    .line 374
     :catchall_18
     move-exception v0
 
@@ -554,7 +554,7 @@
     .parameter "height"
 
     .prologue
-    .line 360
+    .line 356
     iget v0, p0, Landroid/view/Display;->mDensity:F
 
     const/high16 v1, 0x4320
@@ -569,45 +569,45 @@
 
     iput v0, p1, Landroid/util/DisplayMetrics;->densityDpi:I
 
-    .line 362
+    .line 358
     iput p2, p1, Landroid/util/DisplayMetrics;->widthPixels:I
 
     iput p2, p1, Landroid/util/DisplayMetrics;->noncompatWidthPixels:I
 
-    .line 363
+    .line 359
     iput p3, p1, Landroid/util/DisplayMetrics;->heightPixels:I
 
     iput p3, p1, Landroid/util/DisplayMetrics;->noncompatHeightPixels:I
 
-    .line 365
+    .line 361
     iget v0, p0, Landroid/view/Display;->mDensity:F
 
     iput v0, p1, Landroid/util/DisplayMetrics;->noncompatDensity:F
 
     iput v0, p1, Landroid/util/DisplayMetrics;->density:F
 
-    .line 366
+    .line 362
     iget v0, p1, Landroid/util/DisplayMetrics;->density:F
 
     iput v0, p1, Landroid/util/DisplayMetrics;->noncompatScaledDensity:F
 
     iput v0, p1, Landroid/util/DisplayMetrics;->scaledDensity:F
 
-    .line 367
+    .line 363
     iget v0, p0, Landroid/view/Display;->mDpiX:F
 
     iput v0, p1, Landroid/util/DisplayMetrics;->noncompatXdpi:F
 
     iput v0, p1, Landroid/util/DisplayMetrics;->xdpi:F
 
-    .line 368
+    .line 364
     iget v0, p0, Landroid/view/Display;->mDpiY:F
 
     iput v0, p1, Landroid/util/DisplayMetrics;->noncompatYdpi:F
 
     iput v0, p1, Landroid/util/DisplayMetrics;->ydpi:F
 
-    .line 369
+    .line 365
     return-void
 .end method
 
@@ -627,30 +627,13 @@
 .end method
 
 .method public getRawExternalHeight()I
-    .registers 3
+    .registers 2
 
     .prologue
-    const/16 v1, 0x2d0
-
     .line 347
-    invoke-virtual {p0}, Landroid/view/Display;->getRawHeight()I
+    const/16 v0, 0x2d0
 
-    move-result v0
-
-    .line 348
-    .local v0, h:I
-    if-le v0, v1, :cond_9
-
-    .line 351
-    .end local v0           #h:I
-    :goto_8
     return v0
-
-    .restart local v0       #h:I
-    :cond_9
-    move v0, v1
-
-    goto :goto_8
 .end method
 
 .method public getRawExternalWidth()I

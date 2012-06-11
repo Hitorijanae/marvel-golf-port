@@ -65,7 +65,7 @@
     iput-object p3, p0, Landroid/accounts/ChooseTypeAndAccountActivity$AccountArrayAdapter;->mInfos:Ljava/util/ArrayList;
 
     .line 446
-    const-string/jumbo v0, "layout_inflater"
+    const-string v0, "layout_inflater"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -109,7 +109,7 @@
 
     .line 457
     .local v1, holder:Landroid/accounts/ChooseTypeAndAccountActivity$ViewHolder;
-    const v2, 0x1020258
+    const v2, 0x102025f
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -120,7 +120,7 @@
     iput-object v2, v1, Landroid/accounts/ChooseTypeAndAccountActivity$ViewHolder;->text:Landroid/widget/TextView;
 
     .line 458
-    const v2, 0x1020257
+    const v2, 0x102025e
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -131,7 +131,7 @@
     iput-object v2, v1, Landroid/accounts/ChooseTypeAndAccountActivity$ViewHolder;->icon:Landroid/widget/ImageView;
 
     .line 459
-    const v2, 0x1020259
+    const v2, 0x1020260
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

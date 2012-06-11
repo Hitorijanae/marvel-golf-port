@@ -91,7 +91,7 @@
     .parameter "attrs"
 
     .prologue
-    const v5, 0x1080395
+    const v5, 0x10803bd
 
     const/4 v2, 0x1
 
@@ -162,9 +162,9 @@
     .line 457
     new-instance v2, Lcom/android/internal/widget/SlidingTab$Slider;
 
-    const v3, 0x1080387
+    const v3, 0x10803af
 
-    const v4, 0x1080376
+    const v4, 0x108039e
 
     invoke-direct {v2, p0, v3, v4, v5}, Lcom/android/internal/widget/SlidingTab$Slider;-><init>(Landroid/view/ViewGroup;III)V
 
@@ -173,9 +173,9 @@
     .line 461
     new-instance v2, Lcom/android/internal/widget/SlidingTab$Slider;
 
-    const v3, 0x1080390
+    const v3, 0x10803b8
 
-    const v4, 0x108037f
+    const v4, 0x10803a7
 
     invoke-direct {v2, p0, v3, v4, v5}, Lcom/android/internal/widget/SlidingTab$Slider;-><init>(Landroid/view/ViewGroup;III)V
 
@@ -389,13 +389,13 @@
     .line 734
     float-to-int v4, p1
 
-    invoke-virtual {v3}, Landroid/widget/ImageView;->getLeft()I
+    invoke-virtual {v3}, Landroid/view/View;->getLeft()I
 
     move-result v5
 
     sub-int/2addr v4, v5
 
-    invoke-virtual {v3}, Landroid/widget/ImageView;->getWidth()I
+    invoke-virtual {v3}, Landroid/view/View;->getWidth()I
 
     move-result v5
 
@@ -405,10 +405,10 @@
 
     .line 735
     .local v1, deltaX:I
-    invoke-virtual {v3, v1}, Landroid/widget/ImageView;->offsetLeftAndRight(I)V
+    invoke-virtual {v3, v1}, Landroid/view/View;->offsetLeftAndRight(I)V
 
     .line 736
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->offsetLeftAndRight(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->offsetLeftAndRight(I)V
 
     .line 742
     .end local v1           #deltaX:I
@@ -422,13 +422,13 @@
     :cond_2a
     float-to-int v4, p2
 
-    invoke-virtual {v3}, Landroid/widget/ImageView;->getTop()I
+    invoke-virtual {v3}, Landroid/view/View;->getTop()I
 
     move-result v5
 
     sub-int/2addr v4, v5
 
-    invoke-virtual {v3}, Landroid/widget/ImageView;->getHeight()I
+    invoke-virtual {v3}, Landroid/view/View;->getHeight()I
 
     move-result v5
 
@@ -438,10 +438,10 @@
 
     .line 739
     .local v2, deltaY:I
-    invoke-virtual {v3, v2}, Landroid/widget/ImageView;->offsetTopAndBottom(I)V
+    invoke-virtual {v3, v2}, Landroid/view/View;->offsetTopAndBottom(I)V
 
     .line 740
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->offsetTopAndBottom(I)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->offsetTopAndBottom(I)V
 
     goto :goto_26
 .end method
@@ -1711,7 +1711,7 @@
 
     move-wide/from16 v0, v19
 
-    invoke-virtual {v14, v0, v1}, Landroid/view/animation/TranslateAnimation;->setDuration(J)V
+    invoke-virtual {v14, v0, v1}, Landroid/view/animation/Animation;->setDuration(J)V
 
     .line 661
     new-instance v19, Landroid/view/animation/LinearInterpolator;
@@ -1727,7 +1727,7 @@
 
     move/from16 v0, v19
 
-    invoke-virtual {v14, v0}, Landroid/view/animation/TranslateAnimation;->setFillAfter(Z)V
+    invoke-virtual {v14, v0}, Landroid/view/animation/Animation;->setFillAfter(Z)V
 
     .line 663
     new-instance v15, Landroid/view/animation/TranslateAnimation;
@@ -1760,7 +1760,7 @@
 
     move-wide/from16 v0, v19
 
-    invoke-virtual {v15, v0, v1}, Landroid/view/animation/TranslateAnimation;->setDuration(J)V
+    invoke-virtual {v15, v0, v1}, Landroid/view/animation/Animation;->setDuration(J)V
 
     .line 665
     new-instance v19, Landroid/view/animation/LinearInterpolator;
@@ -1776,7 +1776,7 @@
 
     move/from16 v0, v19
 
-    invoke-virtual {v15, v0}, Landroid/view/animation/TranslateAnimation;->setFillAfter(Z)V
+    invoke-virtual {v15, v0}, Landroid/view/animation/Animation;->setFillAfter(Z)V
 
     .line 668
     new-instance v19, Lcom/android/internal/widget/SlidingTab$2;

@@ -33,7 +33,7 @@
 
     .prologue
     .line 79
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -51,40 +51,30 @@
     .end annotation
 
     .prologue
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     .line 87
-    const-string v3, "authority"
+    const-string v2, "authority"
 
-    invoke-interface {p1, v2, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p1, v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
     .line 88
     .local v1, authority:Ljava/lang/String;
-    const-string v3, "accountType"
+    const-string v2, "accountType"
 
-    invoke-interface {p1, v2, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p1, v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 90
+    .line 89
     .local v0, accountType:Ljava/lang/String;
-    if-eqz v1, :cond_11
-
-    if-nez v0, :cond_12
-
-    .line 94
-    :cond_11
-    :goto_11
-    return-object v2
-
-    :cond_12
     invoke-static {v1, v0}, Landroid/content/SyncAdapterType;->newKey(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SyncAdapterType;
 
     move-result-object v2
 
-    goto :goto_11
+    return-object v2
 .end method
 
 .method public bridge synthetic createFromXml(Lorg/xmlpull/v1/XmlPullParser;)Ljava/lang/Object;

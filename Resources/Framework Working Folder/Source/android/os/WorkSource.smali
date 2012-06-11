@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator; = null
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/Parcelable$Creator",
@@ -17,8 +17,6 @@
         }
     .end annotation
 .end field
-
-.field static final TAG:Ljava/lang/String; = "WorkSource"
 
 .field static sGoneWork:Landroid/os/WorkSource;
 
@@ -38,7 +36,7 @@
     .registers 2
 
     .prologue
-    .line 21
+    .line 17
     new-instance v0, Landroid/os/WorkSource;
 
     const/4 v1, 0x0
@@ -47,7 +45,7 @@
 
     sput-object v0, Landroid/os/WorkSource;->sTmpWorkSource:Landroid/os/WorkSource;
 
-    .line 338
+    .line 302
     new-instance v0, Landroid/os/WorkSource$1;
 
     invoke-direct {v0}, Landroid/os/WorkSource$1;-><init>()V
@@ -61,15 +59,15 @@
     .registers 2
 
     .prologue
-    .line 34
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 30
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 35
+    .line 31
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/os/WorkSource;->mNum:I
 
-    .line 36
+    .line 32
     return-void
 .end method
 
@@ -82,13 +80,13 @@
 
     const/4 v1, 0x0
 
-    .line 56
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 52
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 57
+    .line 53
     iput v2, p0, Landroid/os/WorkSource;->mNum:I
 
-    .line 58
+    .line 54
     const/4 v0, 0x2
 
     new-array v0, v0, [I
@@ -99,7 +97,7 @@
 
     iput-object v0, p0, Landroid/os/WorkSource;->mUids:[I
 
-    .line 59
+    .line 55
     return-void
 .end method
 
@@ -108,24 +106,24 @@
     .parameter "in"
 
     .prologue
-    .line 61
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 57
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 62
+    .line 58
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/WorkSource;->mNum:I
 
-    .line 63
+    .line 59
     invoke-virtual {p1}, Landroid/os/Parcel;->createIntArray()[I
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/os/WorkSource;->mUids:[I
 
-    .line 64
+    .line 60
     return-void
 .end method
 
@@ -134,33 +132,33 @@
     .parameter "orig"
 
     .prologue
-    .line 42
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 38
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 43
+    .line 39
     if-nez p1, :cond_9
 
-    .line 44
+    .line 40
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/os/WorkSource;->mNum:I
 
-    .line 53
+    .line 49
     :goto_8
     return-void
 
-    .line 47
+    .line 43
     :cond_9
     iget v0, p1, Landroid/os/WorkSource;->mNum:I
 
     iput v0, p0, Landroid/os/WorkSource;->mNum:I
 
-    .line 48
+    .line 44
     iget-object v0, p1, Landroid/os/WorkSource;->mUids:[I
 
     if-eqz v0, :cond_1c
 
-    .line 49
+    .line 45
     iget-object v0, p1, Landroid/os/WorkSource;->mUids:[I
 
     invoke-virtual {v0}, [I->clone()Ljava/lang/Object;
@@ -173,7 +171,7 @@
 
     goto :goto_8
 
-    .line 51
+    .line 47
     :cond_1c
     const/4 v0, 0x0
 
@@ -189,33 +187,33 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 311
+    .line 275
     iget-object v1, p0, Landroid/os/WorkSource;->mUids:[I
 
     if-nez v1, :cond_12
 
-    .line 312
+    .line 276
     const/4 v1, 0x4
 
     new-array v1, v1, [I
 
     iput-object v1, p0, Landroid/os/WorkSource;->mUids:[I
 
-    .line 313
+    .line 277
     iget-object v1, p0, Landroid/os/WorkSource;->mUids:[I
 
     aput p1, v1, v3
 
-    .line 314
+    .line 278
     const/4 v1, 0x1
 
     iput v1, p0, Landroid/os/WorkSource;->mNum:I
 
-    .line 325
+    .line 289
     :goto_11
     return-void
 
-    .line 317
+    .line 281
     :cond_12
     iget v1, p0, Landroid/os/WorkSource;->mNum:I
 
@@ -225,7 +223,7 @@
 
     if-lt v1, v2, :cond_2a
 
-    .line 318
+    .line 282
     iget v1, p0, Landroid/os/WorkSource;->mNum:I
 
     mul-int/lit8 v1, v1, 0x3
@@ -234,7 +232,7 @@
 
     new-array v0, v1, [I
 
-    .line 319
+    .line 283
     .local v0, newuids:[I
     iget-object v1, p0, Landroid/os/WorkSource;->mUids:[I
 
@@ -242,10 +240,10 @@
 
     invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 320
+    .line 284
     iput-object v0, p0, Landroid/os/WorkSource;->mUids:[I
 
-    .line 323
+    .line 287
     .end local v0           #newuids:[I
     :cond_2a
     iget-object v1, p0, Landroid/os/WorkSource;->mUids:[I
@@ -254,7 +252,7 @@
 
     aput p1, v1, v2
 
-    .line 324
+    .line 288
     iget v1, p0, Landroid/os/WorkSource;->mNum:I
 
     add-int/lit8 v1, v1, 0x1
@@ -265,307 +263,280 @@
 .end method
 
 .method private updateLocked(Landroid/os/WorkSource;ZZ)Z
-    .registers 18
+    .registers 16
     .parameter "other"
     .parameter "set"
     .parameter "returnNewbs"
 
     .prologue
-    .line 224
+    const/4 v11, 0x0
+
+    .line 206
     iget v0, p0, Landroid/os/WorkSource;->mNum:I
 
-    .line 225
+    .line 207
     .local v0, N1:I
-    iget-object v9, p0, Landroid/os/WorkSource;->mUids:[I
+    iget-object v7, p0, Landroid/os/WorkSource;->mUids:[I
 
-    .line 226
-    .local v9, uids1:[I
+    .line 208
+    .local v7, uids1:[I
     iget v1, p1, Landroid/os/WorkSource;->mNum:I
 
-    .line 227
+    .line 209
     .local v1, N2:I
-    iget-object v10, p1, Landroid/os/WorkSource;->mUids:[I
+    iget-object v8, p1, Landroid/os/WorkSource;->mUids:[I
 
-    .line 232
-    .local v10, uids2:[I
+    .line 210
+    .local v8, uids2:[I
     const/4 v2, 0x0
 
-    .line 233
+    .line 211
     .local v2, changed:Z
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
-    .line 234
-    .local v5, i1:I
-    const/4 v6, 0x0
+    .line 212
+    .local v3, i1:I
+    const/4 v4, 0x0
 
-    .local v6, i2:I
-    :goto_b
-    if-ge v6, v1, :cond_ba
+    .local v4, i2:I
+    :goto_c
+    if-ge v4, v1, :cond_ae
 
-    .line 235
-    if-ge v5, v0, :cond_15
+    .line 213
+    if-ge v3, v0, :cond_16
 
-    aget v12, v10, v6
+    aget v9, v8, v4
 
-    aget v13, v9, v5
+    aget v10, v7, v3
 
-    if-ge v12, v13, :cond_75
+    if-ge v9, v10, :cond_6a
 
-    .line 237
-    :cond_15
+    .line 215
+    :cond_16
     const/4 v2, 0x1
 
-    .line 238
-    if-nez v9, :cond_36
+    .line 216
+    if-nez v7, :cond_36
 
-    .line 239
-    const/4 v12, 0x4
+    .line 217
+    const/4 v9, 0x4
 
-    new-array v9, v12, [I
+    new-array v7, v9, [I
 
-    .line 240
-    const/4 v12, 0x0
+    .line 218
+    aget v9, v8, v4
 
-    aget v13, v10, v6
+    aput v9, v7, v11
 
-    aput v13, v9, v12
-
-    .line 265
+    .line 229
     :goto_20
     if-eqz p3, :cond_2f
 
-    .line 266
-    sget-object v12, Landroid/os/WorkSource;->sNewbWork:Landroid/os/WorkSource;
+    .line 230
+    sget-object v9, Landroid/os/WorkSource;->sNewbWork:Landroid/os/WorkSource;
 
-    if-nez v12, :cond_6d
+    if-nez v9, :cond_62
 
-    .line 267
-    new-instance v12, Landroid/os/WorkSource;
+    .line 231
+    new-instance v9, Landroid/os/WorkSource;
 
-    aget v13, v10, v6
+    aget v10, v8, v4
 
-    invoke-direct {v12, v13}, Landroid/os/WorkSource;-><init>(I)V
+    invoke-direct {v9, v10}, Landroid/os/WorkSource;-><init>(I)V
 
-    sput-object v12, Landroid/os/WorkSource;->sNewbWork:Landroid/os/WorkSource;
+    sput-object v9, Landroid/os/WorkSource;->sNewbWork:Landroid/os/WorkSource;
 
-    .line 272
+    .line 236
     :cond_2f
     :goto_2f
     add-int/lit8 v0, v0, 0x1
 
-    .line 273
-    add-int/lit8 v5, v5, 0x1
+    .line 237
+    add-int/lit8 v3, v3, 0x1
 
-    .line 234
+    .line 212
     :cond_33
     :goto_33
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v4, v4, 0x1
 
-    goto :goto_b
+    goto :goto_c
 
-    .line 241
+    .line 219
     :cond_36
-    array-length v12, v9
+    array-length v9, v7
 
-    if-lt v5, v12, :cond_56
+    if-lt v3, v9, :cond_54
 
-    .line 242
-    array-length v12, v9
+    .line 220
+    array-length v9, v7
 
-    mul-int/lit8 v12, v12, 0x3
+    mul-int/lit8 v9, v9, 0x3
 
-    div-int/lit8 v12, v12, 0x2
+    div-int/lit8 v9, v9, 0x2
 
-    new-array v7, v12, [I
+    new-array v5, v9, [I
 
-    .line 243
-    .local v7, newuids:[I
-    if-lez v5, :cond_47
+    .line 221
+    .local v5, newuids:[I
+    if-lez v3, :cond_45
 
-    const/4 v12, 0x0
+    invoke-static {v7, v11, v5, v11, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    const/4 v13, 0x0
+    .line 222
+    :cond_45
+    if-ge v3, v0, :cond_4e
 
-    invoke-static {v9, v12, v7, v13, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    add-int/lit8 v9, v3, 0x1
 
-    .line 244
-    :cond_47
-    if-ge v5, v0, :cond_50
+    sub-int v10, v0, v3
 
-    add-int/lit8 v12, v5, 0x1
+    invoke-static {v7, v3, v5, v9, v10}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    sub-int v13, v0, v5
+    .line 223
+    :cond_4e
+    move-object v7, v5
 
-    invoke-static {v9, v5, v7, v12, v13}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    .line 224
+    aget v9, v8, v4
 
-    .line 245
-    :cond_50
-    move-object v9, v7
-
-    .line 246
-    aget v12, v10, v6
-
-    aput v12, v9, v5
+    aput v9, v7, v3
 
     goto :goto_20
 
-    .line 248
-    .end local v7           #newuids:[I
-    :cond_56
-    if-ge v5, v0, :cond_68
+    .line 226
+    .end local v5           #newuids:[I
+    :cond_54
+    if-ge v3, v0, :cond_5d
 
-    .line 250
-    sub-int v3, v0, v5
+    add-int/lit8 v9, v3, 0x1
 
-    .line 251
-    .local v3, copylength:I
-    add-int v4, v5, v3
+    sub-int v10, v0, v3
 
-    .line 252
-    .local v4, finalposition:I
-    array-length v12, v9
+    invoke-static {v7, v3, v7, v9, v10}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    add-int/lit8 v11, v12, -0x1
+    .line 227
+    :cond_5d
+    aget v9, v8, v4
 
-    .line 253
-    .local v11, validfinalposition:I
-    if-le v4, v11, :cond_63
-
-    .line 256
-    sub-int v3, v11, v5
-
-    .line 260
-    :cond_63
-    add-int/lit8 v12, v5, 0x1
-
-    invoke-static {v9, v5, v9, v12, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 263
-    .end local v3           #copylength:I
-    .end local v4           #finalposition:I
-    .end local v11           #validfinalposition:I
-    :cond_68
-    aget v12, v10, v6
-
-    aput v12, v9, v5
+    aput v9, v7, v3
 
     goto :goto_20
 
-    .line 269
-    :cond_6d
-    sget-object v12, Landroid/os/WorkSource;->sNewbWork:Landroid/os/WorkSource;
+    .line 233
+    :cond_62
+    sget-object v9, Landroid/os/WorkSource;->sNewbWork:Landroid/os/WorkSource;
 
-    aget v13, v10, v6
+    aget v10, v8, v4
 
-    invoke-direct {v12, v13}, Landroid/os/WorkSource;->addLocked(I)V
+    invoke-direct {v9, v10}, Landroid/os/WorkSource;->addLocked(I)V
 
     goto :goto_2f
 
-    .line 275
-    :cond_75
-    if-nez p2, :cond_82
+    .line 239
+    :cond_6a
+    if-nez p2, :cond_77
 
-    .line 278
-    :cond_77
-    add-int/lit8 v5, v5, 0x1
+    .line 242
+    :cond_6c
+    add-int/lit8 v3, v3, 0x1
 
-    .line 279
-    if-ge v5, v0, :cond_33
+    .line 243
+    if-ge v3, v0, :cond_33
 
-    aget v12, v10, v6
+    aget v9, v8, v4
 
-    aget v13, v9, v5
+    aget v10, v7, v3
 
-    if-ge v12, v13, :cond_77
+    if-ge v9, v10, :cond_6c
 
     goto :goto_33
 
-    .line 282
-    :cond_82
-    move v8, v5
+    .line 246
+    :cond_77
+    move v6, v3
 
-    .line 283
-    .local v8, start:I
-    :goto_83
-    if-ge v5, v0, :cond_a3
+    .line 247
+    .local v6, start:I
+    :goto_78
+    if-ge v3, v0, :cond_98
 
-    aget v12, v10, v6
+    aget v9, v8, v4
 
-    aget v13, v9, v5
+    aget v10, v7, v3
 
-    if-le v12, v13, :cond_a3
+    if-le v9, v10, :cond_98
 
-    .line 284
-    sget-object v12, Landroid/os/WorkSource;->sGoneWork:Landroid/os/WorkSource;
+    .line 248
+    sget-object v9, Landroid/os/WorkSource;->sGoneWork:Landroid/os/WorkSource;
 
-    if-nez v12, :cond_9b
+    if-nez v9, :cond_90
 
-    .line 285
-    new-instance v12, Landroid/os/WorkSource;
+    .line 249
+    new-instance v9, Landroid/os/WorkSource;
 
-    aget v13, v9, v5
+    aget v10, v7, v3
 
-    invoke-direct {v12, v13}, Landroid/os/WorkSource;-><init>(I)V
+    invoke-direct {v9, v10}, Landroid/os/WorkSource;-><init>(I)V
 
-    sput-object v12, Landroid/os/WorkSource;->sGoneWork:Landroid/os/WorkSource;
+    sput-object v9, Landroid/os/WorkSource;->sGoneWork:Landroid/os/WorkSource;
 
-    .line 289
-    :goto_98
-    add-int/lit8 v5, v5, 0x1
+    .line 253
+    :goto_8d
+    add-int/lit8 v3, v3, 0x1
 
-    goto :goto_83
+    goto :goto_78
 
-    .line 287
-    :cond_9b
-    sget-object v12, Landroid/os/WorkSource;->sGoneWork:Landroid/os/WorkSource;
+    .line 251
+    :cond_90
+    sget-object v9, Landroid/os/WorkSource;->sGoneWork:Landroid/os/WorkSource;
 
-    aget v13, v9, v5
+    aget v10, v7, v3
 
-    invoke-direct {v12, v13}, Landroid/os/WorkSource;->addLocked(I)V
+    invoke-direct {v9, v10}, Landroid/os/WorkSource;->addLocked(I)V
 
-    goto :goto_98
+    goto :goto_8d
 
-    .line 291
+    .line 255
+    :cond_98
+    if-ge v6, v3, :cond_a3
+
+    .line 256
+    sub-int v9, v3, v6
+
+    invoke-static {v7, v3, v7, v6, v9}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    .line 257
+    sub-int v9, v3, v6
+
+    sub-int/2addr v0, v9
+
+    .line 258
+    move v3, v6
+
+    .line 261
     :cond_a3
-    if-ge v8, v5, :cond_ae
+    if-ge v3, v0, :cond_33
 
-    .line 292
-    sub-int v12, v5, v8
+    aget v9, v8, v3
 
-    invoke-static {v9, v5, v9, v8, v12}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    aget v10, v7, v3
 
-    .line 293
-    sub-int v12, v5, v8
+    if-ne v9, v10, :cond_33
 
-    sub-int/2addr v0, v12
+    .line 262
+    add-int/lit8 v3, v3, 0x1
 
-    .line 294
-    move v5, v8
+    goto :goto_33
 
-    .line 297
+    .line 268
+    .end local v6           #start:I
     :cond_ae
-    if-ge v5, v0, :cond_33
-
-    aget v12, v10, v5
-
-    aget v13, v9, v5
-
-    if-ne v12, v13, :cond_33
-
-    .line 298
-    add-int/lit8 v5, v5, 0x1
-
-    goto/16 :goto_33
-
-    .line 304
-    .end local v8           #start:I
-    :cond_ba
     iput v0, p0, Landroid/os/WorkSource;->mNum:I
 
-    .line 305
-    iput-object v9, p0, Landroid/os/WorkSource;->mUids:[I
+    .line 269
+    iput-object v7, p0, Landroid/os/WorkSource;->mUids:[I
 
-    .line 307
+    .line 271
     return v2
 .end method
 
@@ -576,12 +547,12 @@
     .parameter "uid"
 
     .prologue
-    .line 171
+    .line 167
     sget-object v1, Landroid/os/WorkSource;->sTmpWorkSource:Landroid/os/WorkSource;
 
     monitor-enter v1
 
-    .line 172
+    .line 168
     :try_start_3
     sget-object v0, Landroid/os/WorkSource;->sTmpWorkSource:Landroid/os/WorkSource;
 
@@ -591,7 +562,7 @@
 
     aput p1, v0, v2
 
-    .line 173
+    .line 169
     sget-object v0, Landroid/os/WorkSource;->sTmpWorkSource:Landroid/os/WorkSource;
 
     const/4 v2, 0x0
@@ -606,7 +577,7 @@
 
     return v0
 
-    .line 174
+    .line 170
     :catchall_14
     move-exception v0
 
@@ -622,12 +593,12 @@
     .parameter "other"
 
     .prologue
-    .line 155
+    .line 151
     sget-object v1, Landroid/os/WorkSource;->sTmpWorkSource:Landroid/os/WorkSource;
 
     monitor-enter v1
 
-    .line 156
+    .line 152
     const/4 v0, 0x0
 
     const/4 v2, 0x0
@@ -641,7 +612,7 @@
 
     return v0
 
-    .line 157
+    .line 153
     :catchall_b
     move-exception v0
 
@@ -657,18 +628,18 @@
     .parameter "uid"
 
     .prologue
-    .line 179
+    .line 175
     sget-object v1, Landroid/os/WorkSource;->sTmpWorkSource:Landroid/os/WorkSource;
 
     monitor-enter v1
 
-    .line 180
+    .line 176
     const/4 v0, 0x0
 
     :try_start_4
     sput-object v0, Landroid/os/WorkSource;->sNewbWork:Landroid/os/WorkSource;
 
-    .line 181
+    .line 177
     sget-object v0, Landroid/os/WorkSource;->sTmpWorkSource:Landroid/os/WorkSource;
 
     iget-object v0, v0, Landroid/os/WorkSource;->mUids:[I
@@ -677,7 +648,7 @@
 
     aput p1, v0, v2
 
-    .line 182
+    .line 178
     sget-object v0, Landroid/os/WorkSource;->sTmpWorkSource:Landroid/os/WorkSource;
 
     const/4 v2, 0x0
@@ -686,14 +657,14 @@
 
     invoke-direct {p0, v0, v2, v3}, Landroid/os/WorkSource;->updateLocked(Landroid/os/WorkSource;ZZ)Z
 
-    .line 183
+    .line 179
     sget-object v0, Landroid/os/WorkSource;->sNewbWork:Landroid/os/WorkSource;
 
     monitor-exit v1
 
     return-object v0
 
-    .line 184
+    .line 180
     :catchall_18
     move-exception v0
 
@@ -709,32 +680,32 @@
     .parameter "other"
 
     .prologue
-    .line 162
+    .line 158
     sget-object v1, Landroid/os/WorkSource;->sTmpWorkSource:Landroid/os/WorkSource;
 
     monitor-enter v1
 
-    .line 163
+    .line 159
     const/4 v0, 0x0
 
     :try_start_4
     sput-object v0, Landroid/os/WorkSource;->sNewbWork:Landroid/os/WorkSource;
 
-    .line 164
+    .line 160
     const/4 v0, 0x0
 
     const/4 v2, 0x1
 
     invoke-direct {p0, p1, v0, v2}, Landroid/os/WorkSource;->updateLocked(Landroid/os/WorkSource;ZZ)Z
 
-    .line 165
+    .line 161
     sget-object v0, Landroid/os/WorkSource;->sNewbWork:Landroid/os/WorkSource;
 
     monitor-exit v1
 
     return-object v0
 
-    .line 166
+    .line 162
     :catchall_f
     move-exception v0
 
@@ -749,12 +720,12 @@
     .registers 2
 
     .prologue
-    .line 80
+    .line 76
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/os/WorkSource;->mNum:I
 
-    .line 81
+    .line 77
     return-void
 .end method
 
@@ -762,7 +733,7 @@
     .registers 2
 
     .prologue
-    .line 329
+    .line 293
     const/4 v0, 0x0
 
     return v0
@@ -775,29 +746,29 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 89
+    .line 85
     iget v0, p0, Landroid/os/WorkSource;->mNum:I
 
-    .line 90
+    .line 86
     .local v0, N:I
     iget v5, p1, Landroid/os/WorkSource;->mNum:I
 
     if-eq v0, v5, :cond_8
 
-    .line 100
+    .line 96
     :cond_7
     :goto_7
     return v4
 
-    .line 93
+    .line 89
     :cond_8
     iget-object v2, p0, Landroid/os/WorkSource;->mUids:[I
 
-    .line 94
+    .line 90
     .local v2, uids1:[I
     iget-object v3, p1, Landroid/os/WorkSource;->mUids:[I
 
-    .line 95
+    .line 91
     .local v3, uids2:[I
     const/4 v1, 0x0
 
@@ -805,19 +776,19 @@
     :goto_d
     if-ge v1, v0, :cond_18
 
-    .line 96
+    .line 92
     aget v5, v2, v1
 
     aget v6, v3, v1
 
     if-ne v5, v6, :cond_7
 
-    .line 95
+    .line 91
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_d
 
-    .line 100
+    .line 96
     :cond_18
     const/4 v4, 0x0
 
@@ -829,7 +800,7 @@
     .parameter "index"
 
     .prologue
-    .line 73
+    .line 69
     iget-object v0, p0, Landroid/os/WorkSource;->mUids:[I
 
     aget v0, v0, p1
@@ -838,112 +809,89 @@
 .end method
 
 .method public remove(Landroid/os/WorkSource;)Z
-    .registers 14
+    .registers 11
     .parameter "other"
 
     .prologue
-    .line 188
+    .line 184
     iget v0, p0, Landroid/os/WorkSource;->mNum:I
 
-    .line 189
+    .line 185
     .local v0, N1:I
-    iget-object v7, p0, Landroid/os/WorkSource;->mUids:[I
+    iget-object v5, p0, Landroid/os/WorkSource;->mUids:[I
 
-    .line 190
-    .local v7, uids1:[I
+    .line 186
+    .local v5, uids1:[I
     iget v1, p1, Landroid/os/WorkSource;->mNum:I
 
-    .line 191
+    .line 187
     .local v1, N2:I
-    iget-object v8, p1, Landroid/os/WorkSource;->mUids:[I
+    iget-object v6, p1, Landroid/os/WorkSource;->mUids:[I
 
-    .line 192
-    .local v8, uids2:[I
+    .line 188
+    .local v6, uids2:[I
     const/4 v2, 0x0
 
-    .line 193
+    .line 189
     .local v2, changed:Z
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
-    .line 194
-    .local v5, i1:I
-    const/4 v6, 0x0
+    .line 190
+    .local v3, i1:I
+    const/4 v4, 0x0
 
-    .local v6, i2:I
+    .local v4, i2:I
     :goto_b
-    if-ge v6, v1, :cond_37
+    if-ge v4, v1, :cond_2e
 
-    if-ge v5, v0, :cond_37
+    if-ge v3, v0, :cond_2e
 
-    .line 195
-    aget v10, v8, v6
+    .line 191
+    aget v7, v6, v4
 
-    aget v11, v7, v5
+    aget v8, v5, v3
 
-    if-ne v10, v11, :cond_29
+    if-ne v7, v8, :cond_20
 
-    .line 196
+    .line 192
     add-int/lit8 v0, v0, -0x1
 
-    .line 197
-    if-ge v5, v0, :cond_29
+    .line 193
+    if-ge v3, v0, :cond_20
 
-    .line 199
-    sub-int v3, v0, v5
+    add-int/lit8 v7, v3, 0x1
 
-    .line 200
-    .local v3, copylength:I
-    add-int v4, v5, v3
+    sub-int v8, v0, v3
 
-    .line 201
-    .local v4, finalposition:I
-    array-length v10, v7
+    invoke-static {v5, v7, v5, v3, v8}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    add-int/lit8 v9, v10, -0x1
+    .line 195
+    :cond_20
+    :goto_20
+    if-ge v3, v0, :cond_2b
 
-    .line 202
-    .local v9, validfinalposition:I
-    if-le v4, v9, :cond_24
+    aget v7, v6, v4
 
-    .line 205
-    sub-int v3, v9, v5
+    aget v8, v5, v3
 
-    .line 209
-    :cond_24
-    add-int/lit8 v10, v5, 0x1
+    if-le v7, v8, :cond_2b
 
-    invoke-static {v7, v10, v7, v5, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    .line 196
+    add-int/lit8 v3, v3, 0x1
 
-    .line 213
-    .end local v3           #copylength:I
-    .end local v4           #finalposition:I
-    .end local v9           #validfinalposition:I
-    :cond_29
-    :goto_29
-    if-ge v5, v0, :cond_34
+    goto :goto_20
 
-    aget v10, v8, v6
-
-    aget v11, v7, v5
-
-    if-le v10, v11, :cond_34
-
-    .line 214
-    add-int/lit8 v5, v5, 0x1
-
-    goto :goto_29
-
-    .line 194
-    :cond_34
-    add-int/lit8 v6, v6, 0x1
+    .line 190
+    :cond_2b
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_b
 
-    .line 218
-    :cond_37
+    .line 200
+    :cond_2e
     iput v0, p0, Landroid/os/WorkSource;->mNum:I
 
-    .line 220
+    .line 202
     return v2
 .end method
 
@@ -952,12 +900,12 @@
     .parameter "uid"
 
     .prologue
-    .line 127
+    .line 123
     const/4 v0, 0x1
 
     iput v0, p0, Landroid/os/WorkSource;->mNum:I
 
-    .line 128
+    .line 124
     iget-object v0, p0, Landroid/os/WorkSource;->mUids:[I
 
     if-nez v0, :cond_c
@@ -968,7 +916,7 @@
 
     iput-object v0, p0, Landroid/os/WorkSource;->mUids:[I
 
-    .line 129
+    .line 125
     :cond_c
     iget-object v0, p0, Landroid/os/WorkSource;->mUids:[I
 
@@ -976,7 +924,7 @@
 
     aput p1, v0, v1
 
-    .line 130
+    .line 126
     return-void
 .end method
 
@@ -987,28 +935,28 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 109
+    .line 105
     if-nez p1, :cond_6
 
-    .line 110
+    .line 106
     iput v3, p0, Landroid/os/WorkSource;->mNum:I
 
-    .line 123
+    .line 119
     :goto_5
     return-void
 
-    .line 113
+    .line 109
     :cond_6
     iget v0, p1, Landroid/os/WorkSource;->mNum:I
 
     iput v0, p0, Landroid/os/WorkSource;->mNum:I
 
-    .line 114
+    .line 110
     iget-object v0, p1, Landroid/os/WorkSource;->mUids:[I
 
     if-eqz v0, :cond_2e
 
-    .line 115
+    .line 111
     iget-object v0, p0, Landroid/os/WorkSource;->mUids:[I
 
     if-eqz v0, :cond_23
@@ -1021,7 +969,7 @@
 
     if-lt v0, v1, :cond_23
 
-    .line 116
+    .line 112
     iget-object v0, p1, Landroid/os/WorkSource;->mUids:[I
 
     iget-object v1, p0, Landroid/os/WorkSource;->mUids:[I
@@ -1032,7 +980,7 @@
 
     goto :goto_5
 
-    .line 118
+    .line 114
     :cond_23
     iget-object v0, p1, Landroid/os/WorkSource;->mUids:[I
 
@@ -1046,7 +994,7 @@
 
     goto :goto_5
 
-    .line 121
+    .line 117
     :cond_2e
     const/4 v0, 0x0
 
@@ -1062,30 +1010,30 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 134
+    .line 130
     sget-object v2, Landroid/os/WorkSource;->sTmpWorkSource:Landroid/os/WorkSource;
 
     monitor-enter v2
 
-    .line 135
+    .line 131
     const/4 v1, 0x0
 
     :try_start_5
     sput-object v1, Landroid/os/WorkSource;->sNewbWork:Landroid/os/WorkSource;
 
-    .line 136
+    .line 132
     const/4 v1, 0x0
 
     sput-object v1, Landroid/os/WorkSource;->sGoneWork:Landroid/os/WorkSource;
 
-    .line 137
+    .line 133
     const/4 v1, 0x1
 
     const/4 v3, 0x1
 
     invoke-direct {p0, p1, v1, v3}, Landroid/os/WorkSource;->updateLocked(Landroid/os/WorkSource;ZZ)Z
 
-    .line 138
+    .line 134
     sget-object v1, Landroid/os/WorkSource;->sNewbWork:Landroid/os/WorkSource;
 
     if-nez v1, :cond_17
@@ -1094,13 +1042,13 @@
 
     if-eqz v1, :cond_26
 
-    .line 139
+    .line 135
     :cond_17
     const/4 v1, 0x2
 
     new-array v0, v1, [Landroid/os/WorkSource;
 
-    .line 140
+    .line 136
     .local v0, diffs:[Landroid/os/WorkSource;
     const/4 v1, 0x0
 
@@ -1108,17 +1056,17 @@
 
     aput-object v3, v0, v1
 
-    .line 141
+    .line 137
     const/4 v1, 0x1
 
     sget-object v3, Landroid/os/WorkSource;->sGoneWork:Landroid/os/WorkSource;
 
     aput-object v3, v0, v1
 
-    .line 142
+    .line 138
     monitor-exit v2
 
-    .line 144
+    .line 140
     .end local v0           #diffs:[Landroid/os/WorkSource;
     :goto_25
     return-object v0
@@ -1128,7 +1076,7 @@
 
     goto :goto_25
 
-    .line 145
+    .line 141
     :catchall_28
     move-exception v1
 
@@ -1143,7 +1091,7 @@
     .registers 2
 
     .prologue
-    .line 68
+    .line 64
     iget v0, p0, Landroid/os/WorkSource;->mNum:I
 
     return v0
@@ -1155,16 +1103,16 @@
     .parameter "flags"
 
     .prologue
-    .line 334
+    .line 298
     iget v0, p0, Landroid/os/WorkSource;->mNum:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 335
+    .line 299
     iget-object v0, p0, Landroid/os/WorkSource;->mUids:[I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeIntArray([I)V
 
-    .line 336
+    .line 300
     return-void
 .end method

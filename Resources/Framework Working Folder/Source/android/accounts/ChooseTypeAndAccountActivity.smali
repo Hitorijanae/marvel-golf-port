@@ -925,7 +925,7 @@
     if-nez v23, :cond_84
 
     .line 141
-    const v23, 0x102025a
+    const v23, 0x1020261
 
     move-object/from16 v0, p0
 
@@ -1338,7 +1338,7 @@
     invoke-virtual {v14, v0}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     .line 210
-    const v23, 0x102025b
+    const v23, 0x1020262
 
     move-object/from16 v0, p0
 
@@ -1615,7 +1615,7 @@
 
     .line 338
     .local v0, accountManagerResult:Landroid/os/Bundle;
-    const-string/jumbo v4, "intent"
+    const-string v4, "intent"
 
     invoke-virtual {v0, v4}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -1625,7 +1625,7 @@
 
     .line 340
     .local v3, intent:Landroid/content/Intent;
-    if-eqz v3, :cond_38
+    if-eqz v3, :cond_37
 
     .line 341
     const/4 v4, 0x2
@@ -1658,19 +1658,19 @@
     const/4 v4, 0x2
 
     invoke-virtual {p0, v3, v4}, Landroid/accounts/ChooseTypeAndAccountActivity;->startActivityForResult(Landroid/content/Intent;I)V
-    :try_end_2d
-    .catch Landroid/accounts/OperationCanceledException; {:try_start_0 .. :try_end_2d} :catch_2e
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_2d} :catch_55
-    .catch Landroid/accounts/AuthenticatorException; {:try_start_0 .. :try_end_2d} :catch_37
+    :try_end_2c
+    .catch Landroid/accounts/OperationCanceledException; {:try_start_0 .. :try_end_2c} :catch_2d
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_2c} :catch_54
+    .catch Landroid/accounts/AuthenticatorException; {:try_start_0 .. :try_end_2c} :catch_36
 
     .line 358
     .end local v0           #accountManagerResult:Landroid/os/Bundle;
     .end local v3           #intent:Landroid/content/Intent;
-    :goto_2d
+    :goto_2c
     return-void
 
     .line 347
-    :catch_2e
+    :catch_2d
     move-exception v2
 
     .line 348
@@ -1682,16 +1682,16 @@
     .line 349
     invoke-virtual {p0}, Landroid/accounts/ChooseTypeAndAccountActivity;->finish()V
 
-    goto :goto_2d
+    goto :goto_2c
 
     .line 352
     .end local v2           #e:Landroid/accounts/OperationCanceledException;
-    :catch_37
+    :catch_36
     move-exception v4
 
     .line 354
-    :cond_38
-    :goto_38
+    :cond_37
+    :goto_37
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
@@ -1720,14 +1720,14 @@
     .line 357
     invoke-virtual {p0}, Landroid/accounts/ChooseTypeAndAccountActivity;->finish()V
 
-    goto :goto_2d
+    goto :goto_2c
 
     .line 351
     .end local v1           #bundle:Landroid/os/Bundle;
-    :catch_55
+    :catch_54
     move-exception v4
 
-    goto :goto_38
+    goto :goto_37
 .end method
 
 .method protected runAddAccountForAuthenticator(Ljava/lang/String;)V

@@ -31,7 +31,7 @@
 
     .prologue
     .line 38
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 39
     iput-object p1, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
@@ -121,7 +121,7 @@
 
     invoke-interface {v1, v2}, Landroid/nfc/INfcTag;->reconnect(I)I
     :try_end_19
-    .catchall {:try_start_1 .. :try_end_19} :catchall_2e
+    .catchall {:try_start_1 .. :try_end_19} :catchall_31
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_19} :catch_21
 
     .line 127
@@ -130,10 +130,10 @@
     .line 128
     iget-object v1, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
 
-    :goto_1d
     invoke-virtual {v1}, Landroid/nfc/Tag;->setTechnologyDisconnected()V
 
     .line 130
+    :goto_20
     return-void
 
     .line 124
@@ -149,7 +149,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_29
-    .catchall {:try_start_22 .. :try_end_29} :catchall_2e
+    .catchall {:try_start_22 .. :try_end_29} :catchall_31
 
     .line 127
     iput-boolean v3, p0, Landroid/nfc/tech/BasicTagTechnology;->mIsConnected:Z
@@ -157,11 +157,13 @@
     .line 128
     iget-object v1, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
 
-    goto :goto_1d
+    invoke-virtual {v1}, Landroid/nfc/Tag;->setTechnologyDisconnected()V
+
+    goto :goto_20
 
     .line 127
     .end local v0           #e:Landroid/os/RemoteException;
-    :catchall_2e
+    :catchall_31
     move-exception v1
 
     iput-boolean v3, p0, Landroid/nfc/tech/BasicTagTechnology;->mIsConnected:Z
@@ -171,7 +173,6 @@
 
     invoke-virtual {v2}, Landroid/nfc/Tag;->setTechnologyDisconnected()V
 
-    .line 127
     throw v1
 .end method
 

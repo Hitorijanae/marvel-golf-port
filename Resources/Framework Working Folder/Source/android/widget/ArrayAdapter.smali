@@ -84,7 +84,7 @@
     .line 60
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Landroid/widget/ArrayAdapter;->mLock:Ljava/lang/Object;
 
@@ -121,7 +121,7 @@
     .line 60
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Landroid/widget/ArrayAdapter;->mLock:Ljava/lang/Object;
 
@@ -171,7 +171,7 @@
     .line 60
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Landroid/widget/ArrayAdapter;->mLock:Ljava/lang/Object;
 
@@ -215,7 +215,7 @@
     .line 60
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Landroid/widget/ArrayAdapter;->mLock:Ljava/lang/Object;
 
@@ -266,7 +266,7 @@
     .line 60
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Landroid/widget/ArrayAdapter;->mLock:Ljava/lang/Object;
 
@@ -309,7 +309,7 @@
     .line 60
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Landroid/widget/ArrayAdapter;->mLock:Ljava/lang/Object;
 
@@ -570,7 +570,7 @@
     iput-object p1, p0, Landroid/widget/ArrayAdapter;->mContext:Landroid/content/Context;
 
     .line 310
-    const-string/jumbo v0, "layout_inflater"
+    const-string v0, "layout_inflater"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -1141,39 +1141,6 @@
     .catchall {:try_start_15 .. :try_end_1d} :catchall_1b
 
     throw v0
-.end method
-
-.method protected setDataSource(Ljava/util/List;)V
-    .registers 3
-    .parameter
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<TT;>;)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 527
-    .local p0, this:Landroid/widget/ArrayAdapter;,"Landroid/widget/ArrayAdapter<TT;>;"
-    .local p1, results:Ljava/util/List;,"Ljava/util/List<TT;>;"
-    if-nez p1, :cond_8
-
-    .line 528
-    iget-object v0, p0, Landroid/widget/ArrayAdapter;->mObjects:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->clear()V
-
-    .line 534
-    :goto_7
-    return-void
-
-    .line 533
-    :cond_8
-    iput-object p1, p0, Landroid/widget/ArrayAdapter;->mObjects:Ljava/util/List;
-
-    goto :goto_7
 .end method
 
 .method public setDropDownViewResource(I)V

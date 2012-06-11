@@ -30,7 +30,7 @@
     .line 80
     iput-object p1, p0, Landroid/webkit/HTML5VideoFullScreen$1;->this$0:Landroid/webkit/HTML5VideoFullScreen;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,7 +48,7 @@
     .line 84
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen$1;->this$0:Landroid/webkit/HTML5VideoFullScreen;
 
-    iget-object v0, v0, Landroid/webkit/HTML5VideoView;->mPlayer:Landroid/media/MediaPlayer;
+    iget-object v0, v0, Landroid/webkit/HTML5VideoFullScreen;->mPlayer:Landroid/media/MediaPlayer;
 
     if-eqz v0, :cond_33
 
@@ -63,7 +63,7 @@
 
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen$1;->this$0:Landroid/webkit/HTML5VideoFullScreen;
 
-    iget v0, v0, Landroid/webkit/HTML5VideoView;->mCurrentState:I
+    iget v0, v0, Landroid/webkit/HTML5VideoFullScreen;->mCurrentState:I
 
     const/4 v1, 0x2
 
@@ -148,14 +148,14 @@
 
     iget-object v1, p0, Landroid/webkit/HTML5VideoFullScreen$1;->this$0:Landroid/webkit/HTML5VideoFullScreen;
 
-    iget-object v1, v1, Landroid/webkit/HTML5VideoView;->mProxy:Landroid/webkit/HTML5VideoViewProxy;
+    iget-object v1, v1, Landroid/webkit/HTML5VideoFullScreen;->mProxy:Landroid/webkit/HTML5VideoViewProxy;
 
     invoke-virtual {v0, v1}, Landroid/webkit/HTML5VideoFullScreen;->pauseAndDispatch(Landroid/webkit/HTML5VideoViewProxy;)V
 
     .line 107
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen$1;->this$0:Landroid/webkit/HTML5VideoFullScreen;
 
-    iget-object v0, v0, Landroid/webkit/HTML5VideoView;->mPlayer:Landroid/media/MediaPlayer;
+    iget-object v0, v0, Landroid/webkit/HTML5VideoFullScreen;->mPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->release()V
 

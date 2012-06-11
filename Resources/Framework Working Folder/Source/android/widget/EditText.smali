@@ -54,14 +54,14 @@
     .parameter "index"
 
     .prologue
-    .line 110
+    .line 106
     invoke-virtual {p0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
     move-result-object v0
 
     invoke-static {v0, p1}, Landroid/text/Selection;->extendSelection(Landroid/text/Spannable;I)V
 
-    .line 111
+    .line 107
     return-void
 .end method
 
@@ -79,14 +79,7 @@
     .registers 2
 
     .prologue
-    .line 70
-    invoke-static {}, Lcom/htc/textselection/HtcTextSelectionManager;->getInstance()Lcom/htc/textselection/HtcTextSelectionManager;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/widget/TextView;->mSelectionManager:Lcom/htc/textselection/HtcTextSelectionManager;
-
-    .line 72
+    .line 68
     invoke-static {}, Landroid/text/method/ArrowKeyMovementMethod;->getInstance()Landroid/text/method/MovementMethod;
 
     move-result-object v0
@@ -98,7 +91,7 @@
     .registers 2
 
     .prologue
-    .line 77
+    .line 73
     invoke-super {p0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v0
@@ -124,14 +117,14 @@
     .registers 2
 
     .prologue
-    .line 103
+    .line 99
     invoke-virtual {p0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
     move-result-object v0
 
     invoke-static {v0}, Landroid/text/Selection;->selectAll(Landroid/text/Spannable;)V
 
-    .line 104
+    .line 100
     return-void
 .end method
 
@@ -140,12 +133,12 @@
     .parameter "ellipsis"
 
     .prologue
-    .line 115
+    .line 111
     sget-object v0, Landroid/text/TextUtils$TruncateAt;->MARQUEE:Landroid/text/TextUtils$TruncateAt;
 
     if-ne p1, v0, :cond_c
 
-    .line 116
+    .line 112
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "EditText cannot use the ellipsize mode TextUtils.TruncateAt.MARQUEE"
@@ -154,11 +147,11 @@
 
     throw v0
 
-    .line 119
+    .line 115
     :cond_c
     invoke-super {p0, p1}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 120
+    .line 116
     return-void
 .end method
 
@@ -167,14 +160,14 @@
     .parameter "index"
 
     .prologue
-    .line 96
+    .line 92
     invoke-virtual {p0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
     move-result-object v0
 
     invoke-static {v0, p1}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;I)V
 
-    .line 97
+    .line 93
     return-void
 .end method
 
@@ -184,14 +177,14 @@
     .parameter "stop"
 
     .prologue
-    .line 89
+    .line 85
     invoke-virtual {p0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
     move-result-object v0
 
     invoke-static {v0, p1, p2}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;II)V
 
-    .line 90
+    .line 86
     return-void
 .end method
 
@@ -201,11 +194,11 @@
     .parameter "type"
 
     .prologue
-    .line 82
+    .line 78
     sget-object v0, Landroid/widget/TextView$BufferType;->EDITABLE:Landroid/widget/TextView$BufferType;
 
     invoke-super {p0, p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V
 
-    .line 83
+    .line 79
     return-void
 .end method

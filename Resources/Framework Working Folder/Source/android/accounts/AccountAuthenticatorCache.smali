@@ -164,7 +164,7 @@
     .local v7, customTokens:Z
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
     :try_end_2c
-    .catchall {:try_start_7 .. :try_end_2c} :catchall_3b
+    .catchall {:try_start_7 .. :try_end_2c} :catchall_3e
 
     move-result v0
 
@@ -174,12 +174,12 @@
     const/4 v0, 0x0
 
     .line 75
-    :goto_30
     invoke-virtual {v8}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 72
+    :goto_33
     return-object v0
 
+    .line 72
     :cond_34
     :try_start_34
     new-instance v0, Landroid/accounts/AuthenticatorDescription;
@@ -188,18 +188,20 @@
 
     invoke-direct/range {v0 .. v7}, Landroid/accounts/AuthenticatorDescription;-><init>(Ljava/lang/String;Ljava/lang/String;IIIIZ)V
     :try_end_3a
-    .catchall {:try_start_34 .. :try_end_3a} :catchall_3b
-
-    goto :goto_30
+    .catchall {:try_start_34 .. :try_end_3a} :catchall_3e
 
     .line 75
+    invoke-virtual {v8}, Landroid/content/res/TypedArray;->recycle()V
+
+    goto :goto_33
+
     .end local v1           #accountType:Ljava/lang/String;
     .end local v3           #labelId:I
     .end local v4           #iconId:I
     .end local v5           #smallIconId:I
     .end local v6           #prefId:I
     .end local v7           #customTokens:Z
-    :catchall_3b
+    :catchall_3e
     move-exception v0
 
     invoke-virtual {v8}, Landroid/content/res/TypedArray;->recycle()V

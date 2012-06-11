@@ -82,7 +82,7 @@
 
     .prologue
     .line 59
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 52
     new-instance v0, Landroid/graphics/RectF;
@@ -982,7 +982,7 @@
     :try_start_13
     invoke-virtual {p0, v2}, Landroid/gesture/Gesture;->serialize(Ljava/io/DataOutputStream;)V
     :try_end_16
-    .catchall {:try_start_13 .. :try_end_16} :catchall_33
+    .catchall {:try_start_13 .. :try_end_16} :catchall_36
     .catch Ljava/io/IOException; {:try_start_13 .. :try_end_16} :catch_27
 
     .line 321
@@ -992,10 +992,10 @@
     invoke-static {v2}, Landroid/gesture/GestureUtils;->closeStream(Ljava/io/Closeable;)V
 
     .line 326
-    :goto_1a
     invoke-static {v0}, Landroid/gesture/GestureUtils;->closeStream(Ljava/io/Closeable;)V
 
     .line 329
+    :goto_1d
     if-eqz v3, :cond_26
 
     .line 330
@@ -1022,15 +1022,19 @@
 
     invoke-static {v4, v5, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_2f
-    .catchall {:try_start_28 .. :try_end_2f} :catchall_33
+    .catchall {:try_start_28 .. :try_end_2f} :catchall_36
 
     .line 325
     invoke-static {v2}, Landroid/gesture/GestureUtils;->closeStream(Ljava/io/Closeable;)V
 
-    goto :goto_1a
+    .line 326
+    invoke-static {v0}, Landroid/gesture/GestureUtils;->closeStream(Ljava/io/Closeable;)V
 
+    goto :goto_1d
+
+    .line 325
     .end local v1           #e:Ljava/io/IOException;
-    :catchall_33
+    :catchall_36
     move-exception v4
 
     invoke-static {v2}, Landroid/gesture/GestureUtils;->closeStream(Ljava/io/Closeable;)V
@@ -1038,6 +1042,5 @@
     .line 326
     invoke-static {v0}, Landroid/gesture/GestureUtils;->closeStream(Ljava/io/Closeable;)V
 
-    .line 325
     throw v4
 .end method

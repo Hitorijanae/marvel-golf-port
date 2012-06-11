@@ -48,18 +48,18 @@
     .registers 2
 
     .prologue
-    .line 77
+    .line 60
     .local p0, this:Landroid/net/LinkProperties$CompareResult;,"Landroid/net/LinkProperties$CompareResult<TT;>;"
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 78
+    .line 61
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/net/LinkProperties$CompareResult;->removed:Ljava/util/Collection;
 
-    .line 79
+    .line 62
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -75,11 +75,11 @@
     .registers 6
 
     .prologue
-    .line 83
+    .line 66
     .local p0, this:Landroid/net/LinkProperties$CompareResult;,"Landroid/net/LinkProperties$CompareResult<TT;>;"
     const-string/jumbo v2, "removed=["
 
-    .line 84
+    .line 67
     .local v2, retVal:Ljava/lang/String;
     iget-object v3, p0, Landroid/net/LinkProperties$CompareResult;->removed:Ljava/util/Collection;
 
@@ -128,7 +128,7 @@
 
     goto :goto_9
 
-    .line 85
+    .line 68
     .end local v0           #addr:Ljava/lang/Object;,"TT;"
     :cond_2f
     new-instance v3, Ljava/lang/StringBuilder;
@@ -149,7 +149,7 @@
 
     move-result-object v2
 
-    .line 86
+    .line 69
     iget-object v3, p0, Landroid/net/LinkProperties$CompareResult;->added:Ljava/util/Collection;
 
     invoke-interface {v3}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
@@ -196,7 +196,7 @@
 
     goto :goto_48
 
-    .line 87
+    .line 70
     .end local v0           #addr:Ljava/lang/Object;,"TT;"
     :cond_6e
     new-instance v3, Ljava/lang/StringBuilder;
@@ -217,6 +217,6 @@
 
     move-result-object v2
 
-    .line 88
+    .line 71
     return-object v2
 .end method

@@ -26,8 +26,6 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.content.IIntentSender"
 
-.field static final TRANSACTION_getIntent:I = 0x2
-
 .field static final TRANSACTION_send:I = 0x1
 
 
@@ -120,9 +118,9 @@
     const/4 v7, 0x1
 
     .line 39
-    sparse-switch p1, :sswitch_data_62
+    sparse-switch p1, :sswitch_data_46
 
-    .line 84
+    .line 70
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v0
@@ -224,53 +222,10 @@
     .restart local v2       #_arg1:Landroid/content/Intent;
     goto :goto_27
 
-    .line 71
-    .end local v1           #_arg0:I
-    .end local v2           #_arg1:Landroid/content/Intent;
-    :sswitch_46
-    const-string v0, "android.content.IIntentSender"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 72
-    invoke-virtual {p0}, Landroid/content/IIntentSender$Stub;->getIntent()Landroid/content/Intent;
-
-    move-result-object v6
-
-    .line 73
-    .local v6, _result:Landroid/content/Intent;
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 74
-    if-eqz v6, :cond_5c
-
-    .line 75
-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 76
-    invoke-virtual {v6, p3, v7}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
-
-    :goto_5a
-    move v0, v7
-
-    .line 81
-    goto :goto_8
-
-    .line 79
-    :cond_5c
-    const/4 v0, 0x0
-
-    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_5a
-
     .line 39
-    nop
-
-    :sswitch_data_62
+    :sswitch_data_46
     .sparse-switch
         0x1 -> :sswitch_10
-        0x2 -> :sswitch_46
         0x5f4e5446 -> :sswitch_9
     .end sparse-switch
 .end method

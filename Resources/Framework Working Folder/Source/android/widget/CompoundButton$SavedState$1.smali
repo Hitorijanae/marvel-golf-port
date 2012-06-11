@@ -32,8 +32,8 @@
     .registers 1
 
     .prologue
-    .line 349
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 315
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,7 +45,7 @@
     .parameter "in"
 
     .prologue
-    .line 351
+    .line 317
     new-instance v0, Landroid/widget/CompoundButton$SavedState;
 
     const/4 v1, 0x0
@@ -60,7 +60,7 @@
     .parameter "x0"
 
     .prologue
-    .line 349
+    .line 315
     invoke-virtual {p0, p1}, Landroid/widget/CompoundButton$SavedState$1;->createFromParcel(Landroid/os/Parcel;)Landroid/widget/CompoundButton$SavedState;
 
     move-result-object v0
@@ -73,7 +73,7 @@
     .parameter "size"
 
     .prologue
-    .line 355
+    .line 321
     new-array v0, p1, [Landroid/widget/CompoundButton$SavedState;
 
     return-object v0
@@ -84,7 +84,7 @@
     .parameter "x0"
 
     .prologue
-    .line 349
+    .line 315
     invoke-virtual {p0, p1}, Landroid/widget/CompoundButton$SavedState$1;->newArray(I)[Landroid/widget/CompoundButton$SavedState;
 
     move-result-object v0

@@ -19,10 +19,10 @@
     .registers 1
 
     .prologue
-    .line 70
+    .line 74
     invoke-direct {p0}, Ljava/lang/RuntimeException;-><init>()V
 
-    .line 71
+    .line 75
     return-void
 .end method
 
@@ -31,9 +31,9 @@
     .parameter "name"
 
     .prologue
-    .line 74
+    .line 78
     invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    .line 75
+    .line 79
     return-void
 .end method

@@ -88,9 +88,9 @@
 
     invoke-virtual {p1, p0, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_9
-    .catchall {:try_start_4 .. :try_end_9} :catchall_5b
+    .catchall {:try_start_4 .. :try_end_9} :catchall_61
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_4 .. :try_end_9} :catch_28
-    .catch Ljava/lang/IllegalAccessException; {:try_start_4 .. :try_end_9} :catch_43
+    .catch Ljava/lang/IllegalAccessException; {:try_start_4 .. :try_end_9} :catch_46
 
     .line 215
     const/4 v1, 0x0
@@ -117,12 +117,12 @@
 
     move-result-object v4
 
-    :goto_1c
     invoke-virtual {v4, v6, v2}, Landroid/app/Instrumentation;->sendStatus(ILandroid/os/Bundle;)V
 
     .line 231
     .end local v2           #iterations:Landroid/os/Bundle;
     :cond_1f
+    :goto_1f
     if-ge v3, p2, :cond_25
 
     if-nez p3, :cond_3
@@ -131,7 +131,7 @@
 
     .line 233
     :cond_25
-    if-eqz v1, :cond_72
+    if-eqz v1, :cond_78
 
     .line 234
     throw v1
@@ -148,7 +148,7 @@
     .line 218
     invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->getTargetException()Ljava/lang/Throwable;
     :try_end_2f
-    .catchall {:try_start_29 .. :try_end_2f} :catchall_5b
+    .catchall {:try_start_29 .. :try_end_2f} :catchall_61
 
     move-result-object v1
 
@@ -174,20 +174,22 @@
 
     move-result-object v4
 
-    goto :goto_1c
+    invoke-virtual {v4, v6, v2}, Landroid/app/Instrumentation;->sendStatus(ILandroid/os/Bundle;)V
+
+    goto :goto_1f
 
     .line 219
     .end local v0           #e:Ljava/lang/reflect/InvocationTargetException;
     .end local v2           #iterations:Landroid/os/Bundle;
-    :catch_43
+    :catch_46
     move-exception v0
 
     .line 220
     .local v0, e:Ljava/lang/IllegalAccessException;
-    :try_start_44
+    :try_start_47
     invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->fillInStackTrace()Ljava/lang/Throwable;
-    :try_end_47
-    .catchall {:try_start_44 .. :try_end_47} :catchall_5b
+    :try_end_4a
+    .catchall {:try_start_47 .. :try_end_4a} :catchall_61
 
     .line 221
     move-object v1, v0
@@ -214,18 +216,20 @@
 
     move-result-object v4
 
-    goto :goto_1c
+    invoke-virtual {v4, v6, v2}, Landroid/app/Instrumentation;->sendStatus(ILandroid/os/Bundle;)V
+
+    goto :goto_1f
 
     .line 223
     .end local v0           #e:Ljava/lang/IllegalAccessException;
     .end local v2           #iterations:Landroid/os/Bundle;
-    :catchall_5b
+    :catchall_61
     move-exception v4
 
     add-int/lit8 v3, v3, 0x1
 
     .line 225
-    if-eqz p3, :cond_71
+    if-eqz p3, :cond_77
 
     .line 226
     new-instance v2, Landroid/os/Bundle;
@@ -245,13 +249,13 @@
 
     invoke-virtual {v5, v6, v2}, Landroid/app/Instrumentation;->sendStatus(ILandroid/os/Bundle;)V
 
-    .line 223
+    .line 229
     .end local v2           #iterations:Landroid/os/Bundle;
-    :cond_71
+    :cond_77
     throw v4
 
     .line 236
-    :cond_72
+    :cond_78
     return-void
 .end method
 

@@ -30,18 +30,18 @@
     .parameter "h"
 
     .prologue
-    .line 1418
+    .line 1450
     iput-object p1, p0, Landroid/hardware/Camera$Size;->this$0:Landroid/hardware/Camera;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1419
+    .line 1451
     iput p2, p0, Landroid/hardware/Camera$Size;->width:I
 
-    .line 1420
+    .line 1452
     iput p3, p0, Landroid/hardware/Camera$Size;->height:I
 
-    .line 1421
+    .line 1453
     return-void
 .end method
 
@@ -54,12 +54,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1431
+    .line 1463
     instance-of v2, p1, Landroid/hardware/Camera$Size;
 
     if-nez v2, :cond_6
 
-    .line 1435
+    .line 1467
     :cond_5
     :goto_5
     return v1
@@ -67,10 +67,10 @@
     :cond_6
     move-object v0, p1
 
-    .line 1434
+    .line 1466
     check-cast v0, Landroid/hardware/Camera$Size;
 
-    .line 1435
+    .line 1467
     .local v0, s:Landroid/hardware/Camera$Size;
     iget v2, p0, Landroid/hardware/Camera$Size;->width:I
 
@@ -93,7 +93,7 @@
     .registers 3
 
     .prologue
-    .line 1439
+    .line 1471
     iget v0, p0, Landroid/hardware/Camera$Size;->width:I
 
     mul-int/lit16 v0, v0, 0x7fc9

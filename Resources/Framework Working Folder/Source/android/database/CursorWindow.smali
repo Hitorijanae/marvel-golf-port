@@ -18,11 +18,6 @@
     .end annotation
 .end field
 
-#the value of this static final field might be set in the static constructor
-.field public static final DEFAULT_WINDOW_SIZE:I = 0x0
-
-.field public static final MIN_WINDOW_SIZE:I = 0x100000
-
 .field private static final STATS_TAG:Ljava/lang/String; = "CursorWindowStats"
 
 .field private static final sCursorWindowSize:I
@@ -42,17 +37,17 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 4
+    .registers 2
 
     .prologue
-    const v3, 0x10e002a
-
-    .line 50
+    .line 47
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getInteger(I)I
+    const v1, 0x10e0029
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0
 
@@ -60,52 +55,14 @@
 
     sput v0, Landroid/database/CursorWindow;->sCursorWindowSize:I
 
-    .line 74
-    const-string v0, "CursorWindowStats"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Get CursorWindow size from framework resource:"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v2
-
-    mul-int/lit16 v2, v2, 0x400
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 76
-    sget v0, Landroid/database/CursorWindow;->sCursorWindowSize:I
-
-    sput v0, Landroid/database/CursorWindow;->DEFAULT_WINDOW_SIZE:I
-
-    .line 735
+    .line 686
     new-instance v0, Landroid/database/CursorWindow$1;
 
     invoke-direct {v0}, Landroid/database/CursorWindow$1;-><init>()V
 
     sput-object v0, Landroid/database/CursorWindow;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 768
+    .line 719
     new-instance v0, Landroid/util/SparseIntArray;
 
     invoke-direct {v0}, Landroid/util/SparseIntArray;-><init>()V
@@ -120,36 +77,36 @@
     .parameter "source"
 
     .prologue
-    .line 175
+    .line 129
     invoke-direct {p0}, Landroid/database/sqlite/SQLiteClosable;-><init>()V
 
-    .line 80
+    .line 60
     invoke-static {}, Ldalvik/system/CloseGuard;->get()Ldalvik/system/CloseGuard;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/database/CursorWindow;->mCloseGuard:Ldalvik/system/CloseGuard;
 
-    .line 176
+    .line 130
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/database/CursorWindow;->mStartPos:I
 
-    .line 177
+    .line 131
     invoke-static {p1}, Landroid/database/CursorWindow;->nativeCreateFromParcel(Landroid/os/Parcel;)I
 
     move-result v0
 
     iput v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
-    .line 178
+    .line 132
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
     if-nez v0, :cond_21
 
-    .line 179
+    .line 133
     new-instance v0, Landroid/database/CursorWindowAllocationException;
 
     const-string v1, "Cursor window could not be created from binder."
@@ -158,7 +115,7 @@
 
     throw v0
 
-    .line 182
+    .line 136
     :cond_21
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
@@ -168,14 +125,14 @@
 
     iput-object v0, p0, Landroid/database/CursorWindow;->mName:Ljava/lang/String;
 
-    .line 183
+    .line 137
     iget-object v0, p0, Landroid/database/CursorWindow;->mCloseGuard:Ldalvik/system/CloseGuard;
 
     const-string v1, "close"
 
     invoke-virtual {v0, v1}, Ldalvik/system/CloseGuard;->open(Ljava/lang/String;)V
 
-    .line 184
+    .line 138
     return-void
 .end method
 
@@ -185,171 +142,110 @@
     .parameter "x1"
 
     .prologue
-    .line 44
+    .line 41
     invoke-direct {p0, p1}, Landroid/database/CursorWindow;-><init>(Landroid/os/Parcel;)V
 
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .registers 5
     .parameter "name"
 
     .prologue
-    .line 121
-    sget v0, Landroid/database/CursorWindow;->sCursorWindowSize:I
-
-    invoke-direct {p0, p1, v0}, Landroid/database/CursorWindow;-><init>(Ljava/lang/String;I)V
-
-    .line 122
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/lang/String;I)V
-    .registers 7
-    .parameter "name"
-    .parameter "cursorWindowsSize"
-
-    .prologue
-    const/high16 v0, 0x10
-
-    .line 134
+    .line 99
     invoke-direct {p0}, Landroid/database/sqlite/SQLiteClosable;-><init>()V
 
-    .line 80
+    .line 60
     invoke-static {}, Ldalvik/system/CloseGuard;->get()Ldalvik/system/CloseGuard;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/database/CursorWindow;->mCloseGuard:Ldalvik/system/CloseGuard;
+
+    .line 100
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroid/database/CursorWindow;->mStartPos:I
+
+    .line 101
+    iput-object p1, p0, Landroid/database/CursorWindow;->mName:Ljava/lang/String;
+
+    .line 102
+    sget v0, Landroid/database/CursorWindow;->sCursorWindowSize:I
+
+    invoke-static {p1, v0}, Landroid/database/CursorWindow;->nativeCreate(Ljava/lang/String;I)I
+
+    move-result v0
+
+    iput v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
+
+    .line 103
+    iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
+
+    if-nez v0, :cond_45
+
+    .line 104
+    new-instance v0, Landroid/database/CursorWindowAllocationException;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Cursor window allocation of "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    iput-object v1, p0, Landroid/database/CursorWindow;->mCloseGuard:Ldalvik/system/CloseGuard;
+    sget v2, Landroid/database/CursorWindow;->sCursorWindowSize:I
 
-    .line 135
-    if-le p2, v0, :cond_e
+    div-int/lit16 v2, v2, 0x400
 
-    move v0, p2
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 136
-    .local v0, size:I
-    :cond_e
-    sget v1, Landroid/database/CursorWindow;->DEFAULT_WINDOW_SIZE:I
+    move-result-object v1
 
-    if-le v0, v1, :cond_36
+    const-string v2, " kb failed. "
 
-    .line 137
-    const-string v1, "CursorWindowStats"
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Allocate Cursor Window larger than default value, size: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, ", default:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    sget v3, Landroid/database/CursorWindow;->DEFAULT_WINDOW_SIZE:I
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 140
-    :cond_36
-    const/4 v1, 0x0
-
-    iput v1, p0, Landroid/database/CursorWindow;->mStartPos:I
-
-    .line 141
-    iput-object p1, p0, Landroid/database/CursorWindow;->mName:Ljava/lang/String;
-
-    .line 144
-    invoke-static {p1, v0}, Landroid/database/CursorWindow;->nativeCreate(Ljava/lang/String;I)I
-
-    move-result v1
-
-    iput v1, p0, Landroid/database/CursorWindow;->mWindowPtr:I
-
-    .line 146
-    iget v1, p0, Landroid/database/CursorWindow;->mWindowPtr:I
-
-    if-nez v1, :cond_6e
-
-    .line 147
-    new-instance v1, Landroid/database/CursorWindowAllocationException;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Cursor window allocation of "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    div-int/lit16 v3, v0, 0x400
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, " kb failed. "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
+    move-result-object v1
 
     invoke-direct {p0}, Landroid/database/CursorWindow;->printStats()Ljava/lang/String;
 
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v2
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v1, v2}, Landroid/database/CursorWindowAllocationException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v1
+    move-result-object v1
 
-    .line 153
-    :cond_6e
-    iget-object v1, p0, Landroid/database/CursorWindow;->mCloseGuard:Ldalvik/system/CloseGuard;
+    invoke-direct {v0, v1}, Landroid/database/CursorWindowAllocationException;-><init>(Ljava/lang/String;)V
 
-    const-string v2, "close"
+    throw v0
 
-    invoke-virtual {v1, v2}, Ldalvik/system/CloseGuard;->open(Ljava/lang/String;)V
+    .line 107
+    :cond_45
+    iget-object v0, p0, Landroid/database/CursorWindow;->mCloseGuard:Ldalvik/system/CloseGuard;
 
-    .line 154
+    const-string v1, "close"
+
+    invoke-virtual {v0, v1}, Ldalvik/system/CloseGuard;->open(Ljava/lang/String;)V
+
+    .line 108
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v1
+    move-result v0
 
-    iget v2, p0, Landroid/database/CursorWindow;->mWindowPtr:I
+    iget v1, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
-    invoke-direct {p0, v1, v2}, Landroid/database/CursorWindow;->recordNewWindow(II)V
+    invoke-direct {p0, v0, v1}, Landroid/database/CursorWindow;->recordNewWindow(II)V
 
-    .line 155
+    .line 109
     return-void
 .end method
 
@@ -360,14 +256,14 @@
     .end annotation
 
     .prologue
-    .line 172
+    .line 126
     const/4 v0, 0x0
 
     check-cast v0, Ljava/lang/String;
 
     invoke-direct {p0, v0}, Landroid/database/CursorWindow;-><init>(Ljava/lang/String;)V
 
-    .line 173
+    .line 127
     return-void
 .end method
 
@@ -375,38 +271,38 @@
     .registers 2
 
     .prologue
-    .line 199
+    .line 153
     iget-object v0, p0, Landroid/database/CursorWindow;->mCloseGuard:Ldalvik/system/CloseGuard;
 
     if-eqz v0, :cond_9
 
-    .line 200
+    .line 154
     iget-object v0, p0, Landroid/database/CursorWindow;->mCloseGuard:Ldalvik/system/CloseGuard;
 
     invoke-virtual {v0}, Ldalvik/system/CloseGuard;->close()V
 
-    .line 202
+    .line 156
     :cond_9
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
     if-eqz v0, :cond_1a
 
-    .line 203
+    .line 157
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
     invoke-direct {p0, v0}, Landroid/database/CursorWindow;->recordClosingOfWindow(I)V
 
-    .line 204
+    .line 158
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
     invoke-static {v0}, Landroid/database/CursorWindow;->nativeDispose(I)V
 
-    .line 205
+    .line 159
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
-    .line 207
+    .line 161
     :cond_1a
     return-void
 .end method
@@ -479,7 +375,7 @@
     .parameter "p"
 
     .prologue
-    .line 747
+    .line 698
     sget-object v0, Landroid/database/CursorWindow;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -497,34 +393,34 @@
     .prologue
     const/16 v14, 0x3d4
 
-    .line 790
+    .line 741
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 791
+    .line 742
     .local v0, buff:Ljava/lang/StringBuilder;
     invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v3
 
-    .line 792
+    .line 743
     .local v3, myPid:I
     const/4 v10, 0x0
 
-    .line 793
+    .line 744
     .local v10, total:I
     new-instance v7, Landroid/util/SparseIntArray;
 
     invoke-direct {v7}, Landroid/util/SparseIntArray;-><init>()V
 
-    .line 794
+    .line 745
     .local v7, pidCounts:Landroid/util/SparseIntArray;
     sget-object v13, Landroid/database/CursorWindow;->sWindowToPidMap:Landroid/util/SparseIntArray;
 
     monitor-enter v13
 
-    .line 795
+    .line 746
     :try_start_14
     sget-object v12, Landroid/database/CursorWindow;->sWindowToPidMap:Landroid/util/SparseIntArray;
 
@@ -532,20 +428,20 @@
 
     move-result v9
 
-    .line 796
+    .line 747
     .local v9, size:I
     if-nez v9, :cond_20
 
-    .line 798
+    .line 749
     const-string v12, ""
 
     monitor-exit v13
 
-    .line 821
+    .line 772
     :goto_1f
     return-object v12
 
-    .line 800
+    .line 751
     :cond_20
     const/4 v2, 0x0
 
@@ -553,31 +449,31 @@
     :goto_21
     if-ge v2, v9, :cond_35
 
-    .line 801
+    .line 752
     sget-object v12, Landroid/database/CursorWindow;->sWindowToPidMap:Landroid/util/SparseIntArray;
 
     invoke-virtual {v12, v2}, Landroid/util/SparseIntArray;->valueAt(I)I
 
     move-result v6
 
-    .line 802
+    .line 753
     .local v6, pid:I
     invoke-virtual {v7, v6}, Landroid/util/SparseIntArray;->get(I)I
 
     move-result v11
 
-    .line 803
+    .line 754
     .local v11, value:I
     add-int/lit8 v11, v11, 0x1
 
     invoke-virtual {v7, v6, v11}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 800
+    .line 751
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_21
 
-    .line 805
+    .line 756
     .end local v6           #pid:I
     .end local v11           #value:I
     :cond_35
@@ -585,12 +481,12 @@
     :try_end_36
     .catchall {:try_start_14 .. :try_end_36} :catchall_6c
 
-    .line 806
+    .line 757
     invoke-virtual {v7}, Landroid/util/SparseIntArray;->size()I
 
     move-result v5
 
-    .line 807
+    .line 758
     .local v5, numPids:I
     const/4 v1, 0x0
 
@@ -598,32 +494,32 @@
     :goto_3b
     if-ge v1, v5, :cond_8d
 
-    .line 808
+    .line 759
     const-string v12, " (# cursors opened by "
 
     invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 809
+    .line 760
     invoke-virtual {v7, v1}, Landroid/util/SparseIntArray;->keyAt(I)I
 
     move-result v6
 
-    .line 810
+    .line 761
     .restart local v6       #pid:I
     if-ne v6, v3, :cond_6f
 
-    .line 811
+    .line 762
     const-string/jumbo v12, "this proc="
 
     invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 815
+    .line 766
     :goto_4e
     invoke-virtual {v7, v6}, Landroid/util/SparseIntArray;->get(I)I
 
     move-result v4
 
-    .line 816
+    .line 767
     .local v4, num:I
     new-instance v12, Ljava/lang/StringBuilder;
 
@@ -645,15 +541,15 @@
 
     invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 817
+    .line 768
     add-int/2addr v10, v4
 
-    .line 807
+    .line 758
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_3b
 
-    .line 805
+    .line 756
     .end local v1           #i:I
     .end local v2           #indx:I
     .end local v4           #num:I
@@ -670,7 +566,7 @@
 
     throw v12
 
-    .line 813
+    .line 764
     .restart local v1       #i:I
     .restart local v2       #indx:I
     .restart local v5       #numPids:I
@@ -705,7 +601,7 @@
 
     goto :goto_4e
 
-    .line 820
+    .line 771
     .end local v6           #pid:I
     :cond_8d
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
@@ -720,7 +616,7 @@
 
     move-result-object v8
 
-    .line 821
+    .line 772
     .local v8, s:Ljava/lang/String;
     :goto_98
     new-instance v12, Ljava/lang/StringBuilder;
@@ -747,7 +643,7 @@
 
     goto/16 :goto_1f
 
-    .line 820
+    .line 771
     .end local v8           #s:Ljava/lang/String;
     :cond_b1
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -762,12 +658,12 @@
     .parameter "window"
 
     .prologue
-    .line 780
+    .line 731
     sget-object v1, Landroid/database/CursorWindow;->sWindowToPidMap:Landroid/util/SparseIntArray;
 
     monitor-enter v1
 
-    .line 781
+    .line 732
     :try_start_3
     sget-object v0, Landroid/database/CursorWindow;->sWindowToPidMap:Landroid/util/SparseIntArray;
 
@@ -777,20 +673,20 @@
 
     if-nez v0, :cond_d
 
-    .line 783
+    .line 734
     monitor-exit v1
 
-    .line 787
+    .line 738
     :goto_c
     return-void
 
-    .line 785
+    .line 736
     :cond_d
     sget-object v0, Landroid/database/CursorWindow;->sWindowToPidMap:Landroid/util/SparseIntArray;
 
     invoke-virtual {v0, p1}, Landroid/util/SparseIntArray;->delete(I)V
 
-    .line 786
+    .line 737
     monitor-exit v1
 
     goto :goto_c
@@ -811,18 +707,18 @@
     .parameter "window"
 
     .prologue
-    .line 771
+    .line 722
     sget-object v1, Landroid/database/CursorWindow;->sWindowToPidMap:Landroid/util/SparseIntArray;
 
     monitor-enter v1
 
-    .line 772
+    .line 723
     :try_start_3
     sget-object v0, Landroid/database/CursorWindow;->sWindowToPidMap:Landroid/util/SparseIntArray;
 
     invoke-virtual {v0, p2, p1}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 773
+    .line 724
     const-string v0, "CursorWindowStats"
 
     const/4 v2, 0x2
@@ -833,7 +729,7 @@
 
     if-eqz v0, :cond_2d
 
-    .line 774
+    .line 725
     const-string v0, "CursorWindowStats"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -860,14 +756,14 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 776
+    .line 727
     :cond_2d
     monitor-exit v1
 
-    .line 777
+    .line 728
     return-void
 
-    .line 776
+    .line 727
     :catchall_2f
     move-exception v0
 
@@ -884,10 +780,10 @@
     .registers 2
 
     .prologue
-    .line 312
+    .line 263
     invoke-virtual {p0}, Landroid/database/CursorWindow;->acquireReference()V
 
-    .line 314
+    .line 265
     :try_start_3
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
@@ -897,13 +793,11 @@
 
     move-result v0
 
-    .line 316
+    .line 267
     invoke-virtual {p0}, Landroid/database/CursorWindow;->releaseReference()V
 
-    .line 314
     return v0
 
-    .line 316
     :catchall_d
     move-exception v0
 
@@ -916,29 +810,29 @@
     .registers 2
 
     .prologue
-    .line 234
+    .line 188
     invoke-virtual {p0}, Landroid/database/CursorWindow;->acquireReference()V
 
-    .line 236
+    .line 190
     const/4 v0, 0x0
 
     :try_start_4
     iput v0, p0, Landroid/database/CursorWindow;->mStartPos:I
 
-    .line 237
+    .line 191
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
     invoke-static {v0}, Landroid/database/CursorWindow;->nativeClear(I)V
     :try_end_b
     .catchall {:try_start_4 .. :try_end_b} :catchall_f
 
-    .line 239
+    .line 193
     invoke-virtual {p0}, Landroid/database/CursorWindow;->releaseReference()V
 
-    .line 241
+    .line 195
     return-void
 
-    .line 239
+    .line 193
     :catchall_f
     move-exception v0
 
@@ -951,10 +845,10 @@
     .registers 1
 
     .prologue
-    .line 222
+    .line 176
     invoke-virtual {p0}, Landroid/database/CursorWindow;->releaseReference()V
 
-    .line 223
+    .line 177
     return-void
 .end method
 
@@ -965,10 +859,10 @@
     .parameter "buffer"
 
     .prologue
-    .line 528
+    .line 479
     if-nez p3, :cond_a
 
-    .line 529
+    .line 480
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "CharArrayBuffer should not be null"
@@ -977,11 +871,11 @@
 
     throw v0
 
-    .line 531
+    .line 482
     :cond_a
     invoke-virtual {p0}, Landroid/database/CursorWindow;->acquireReference()V
 
-    .line 533
+    .line 484
     :try_start_d
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
@@ -993,13 +887,13 @@
     :try_end_16
     .catchall {:try_start_d .. :try_end_16} :catchall_1a
 
-    .line 535
+    .line 486
     invoke-virtual {p0}, Landroid/database/CursorWindow;->releaseReference()V
 
-    .line 537
+    .line 488
     return-void
 
-    .line 535
+    .line 486
     :catchall_1a
     move-exception v0
 
@@ -1012,7 +906,7 @@
     .registers 2
 
     .prologue
-    .line 751
+    .line 702
     const/4 v0, 0x0
 
     return v0
@@ -1027,30 +921,30 @@
     .end annotation
 
     .prologue
-    .line 189
+    .line 143
     :try_start_0
     iget-object v0, p0, Landroid/database/CursorWindow;->mCloseGuard:Ldalvik/system/CloseGuard;
 
     if-eqz v0, :cond_9
 
-    .line 190
+    .line 144
     iget-object v0, p0, Landroid/database/CursorWindow;->mCloseGuard:Ldalvik/system/CloseGuard;
 
     invoke-virtual {v0}, Ldalvik/system/CloseGuard;->warnIfOpen()V
 
-    .line 192
+    .line 146
     :cond_9
     invoke-direct {p0}, Landroid/database/CursorWindow;->dispose()V
     :try_end_c
     .catchall {:try_start_0 .. :try_end_c} :catchall_10
 
-    .line 194
+    .line 148
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 196
+    .line 150
     return-void
 
-    .line 194
+    .line 148
     :catchall_10
     move-exception v0
 
@@ -1063,10 +957,10 @@
     .registers 2
 
     .prologue
-    .line 324
+    .line 275
     invoke-virtual {p0}, Landroid/database/CursorWindow;->acquireReference()V
 
-    .line 326
+    .line 277
     :try_start_3
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
@@ -1074,13 +968,13 @@
     :try_end_8
     .catchall {:try_start_3 .. :try_end_8} :catchall_c
 
-    .line 328
+    .line 279
     invoke-virtual {p0}, Landroid/database/CursorWindow;->releaseReference()V
 
-    .line 330
+    .line 281
     return-void
 
-    .line 328
+    .line 279
     :catchall_c
     move-exception v0
 
@@ -1095,10 +989,10 @@
     .parameter "column"
 
     .prologue
-    .line 454
+    .line 405
     invoke-virtual {p0}, Landroid/database/CursorWindow;->acquireReference()V
 
-    .line 456
+    .line 407
     :try_start_3
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
@@ -1112,13 +1006,11 @@
 
     move-result-object v0
 
-    .line 458
+    .line 409
     invoke-virtual {p0}, Landroid/database/CursorWindow;->releaseReference()V
 
-    .line 456
     return-object v0
 
-    .line 458
     :catchall_11
     move-exception v0
 
@@ -1133,10 +1025,10 @@
     .parameter "column"
 
     .prologue
-    .line 594
+    .line 545
     invoke-virtual {p0}, Landroid/database/CursorWindow;->acquireReference()V
 
-    .line 596
+    .line 547
     :try_start_3
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
@@ -1150,13 +1042,11 @@
 
     move-result-wide v0
 
-    .line 598
+    .line 549
     invoke-virtual {p0}, Landroid/database/CursorWindow;->releaseReference()V
 
-    .line 596
     return-wide v0
 
-    .line 598
     :catchall_11
     move-exception v0
 
@@ -1171,7 +1061,7 @@
     .parameter "column"
 
     .prologue
-    .line 647
+    .line 598
     invoke-virtual {p0, p1, p2}, Landroid/database/CursorWindow;->getDouble(II)D
 
     move-result-wide v0
@@ -1187,7 +1077,7 @@
     .parameter "column"
 
     .prologue
-    .line 631
+    .line 582
     invoke-virtual {p0, p1, p2}, Landroid/database/CursorWindow;->getLong(II)J
 
     move-result-wide v0
@@ -1203,10 +1093,10 @@
     .parameter "column"
 
     .prologue
-    .line 562
+    .line 513
     invoke-virtual {p0}, Landroid/database/CursorWindow;->acquireReference()V
 
-    .line 564
+    .line 515
     :try_start_3
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
@@ -1220,13 +1110,11 @@
 
     move-result-wide v0
 
-    .line 566
+    .line 517
     invoke-virtual {p0}, Landroid/database/CursorWindow;->releaseReference()V
 
-    .line 564
     return-wide v0
 
-    .line 566
     :catchall_11
     move-exception v0
 
@@ -1239,7 +1127,7 @@
     .registers 2
 
     .prologue
-    .line 214
+    .line 168
     iget-object v0, p0, Landroid/database/CursorWindow;->mName:Ljava/lang/String;
 
     return-object v0
@@ -1249,10 +1137,10 @@
     .registers 2
 
     .prologue
-    .line 278
+    .line 229
     invoke-virtual {p0}, Landroid/database/CursorWindow;->acquireReference()V
 
-    .line 280
+    .line 231
     :try_start_3
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
@@ -1262,13 +1150,11 @@
 
     move-result v0
 
-    .line 282
+    .line 233
     invoke-virtual {p0}, Landroid/database/CursorWindow;->releaseReference()V
 
-    .line 280
     return v0
 
-    .line 282
     :catchall_d
     move-exception v0
 
@@ -1283,7 +1169,7 @@
     .parameter "column"
 
     .prologue
-    .line 615
+    .line 566
     invoke-virtual {p0, p1, p2}, Landroid/database/CursorWindow;->getLong(II)J
 
     move-result-wide v0
@@ -1299,7 +1185,7 @@
     .registers 2
 
     .prologue
-    .line 253
+    .line 207
     iget v0, p0, Landroid/database/CursorWindow;->mStartPos:I
 
     return v0
@@ -1311,10 +1197,10 @@
     .parameter "column"
 
     .prologue
-    .line 489
+    .line 440
     invoke-virtual {p0}, Landroid/database/CursorWindow;->acquireReference()V
 
-    .line 491
+    .line 442
     :try_start_3
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
@@ -1328,13 +1214,11 @@
 
     move-result-object v0
 
-    .line 493
+    .line 444
     invoke-virtual {p0}, Landroid/database/CursorWindow;->releaseReference()V
 
-    .line 491
     return-object v0
 
-    .line 493
     :catchall_11
     move-exception v0
 
@@ -1349,10 +1233,10 @@
     .parameter "column"
 
     .prologue
-    .line 424
+    .line 375
     invoke-virtual {p0}, Landroid/database/CursorWindow;->acquireReference()V
 
-    .line 426
+    .line 377
     :try_start_3
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
@@ -1366,13 +1250,11 @@
 
     move-result v0
 
-    .line 428
+    .line 379
     invoke-virtual {p0}, Landroid/database/CursorWindow;->releaseReference()V
 
-    .line 426
     return v0
 
-    .line 428
     :catchall_11
     move-exception v0
 
@@ -1389,12 +1271,12 @@
     .end annotation
 
     .prologue
-    .line 358
+    .line 309
     invoke-virtual {p0, p1, p2}, Landroid/database/CursorWindow;->getType(II)I
 
     move-result v0
 
-    .line 359
+    .line 310
     .local v0, type:I
     const/4 v1, 0x4
 
@@ -1422,7 +1304,7 @@
     .end annotation
 
     .prologue
-    .line 387
+    .line 338
     invoke-virtual {p0, p1, p2}, Landroid/database/CursorWindow;->getType(II)I
 
     move-result v0
@@ -1452,7 +1334,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 373
+    .line 324
     invoke-virtual {p0, p1, p2}, Landroid/database/CursorWindow;->getType(II)I
 
     move-result v1
@@ -1476,7 +1358,7 @@
     .end annotation
 
     .prologue
-    .line 343
+    .line 294
     invoke-virtual {p0, p1, p2}, Landroid/database/CursorWindow;->getType(II)I
 
     move-result v0
@@ -1502,12 +1384,12 @@
     .end annotation
 
     .prologue
-    .line 402
+    .line 353
     invoke-virtual {p0, p1, p2}, Landroid/database/CursorWindow;->getType(II)I
 
     move-result v0
 
-    .line 403
+    .line 354
     .local v0, type:I
     const/4 v1, 0x3
 
@@ -1531,10 +1413,10 @@
     .registers 1
 
     .prologue
-    .line 765
+    .line 716
     invoke-direct {p0}, Landroid/database/CursorWindow;->dispose()V
 
-    .line 766
+    .line 717
     return-void
 .end method
 
@@ -1545,10 +1427,10 @@
     .parameter "column"
 
     .prologue
-    .line 659
+    .line 610
     invoke-virtual {p0}, Landroid/database/CursorWindow;->acquireReference()V
 
-    .line 661
+    .line 612
     :try_start_3
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
@@ -1562,13 +1444,11 @@
 
     move-result v0
 
-    .line 663
+    .line 614
     invoke-virtual {p0}, Landroid/database/CursorWindow;->releaseReference()V
 
-    .line 661
     return v0
 
-    .line 663
     :catchall_11
     move-exception v0
 
@@ -1584,10 +1464,10 @@
     .parameter "column"
 
     .prologue
-    .line 711
+    .line 662
     invoke-virtual {p0}, Landroid/database/CursorWindow;->acquireReference()V
 
-    .line 713
+    .line 664
     :try_start_3
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
@@ -1601,13 +1481,11 @@
 
     move-result v0
 
-    .line 715
+    .line 666
     invoke-virtual {p0}, Landroid/database/CursorWindow;->releaseReference()V
 
-    .line 713
     return v0
 
-    .line 715
     :catchall_11
     move-exception v0
 
@@ -1623,10 +1501,10 @@
     .parameter "column"
 
     .prologue
-    .line 693
+    .line 644
     invoke-virtual {p0}, Landroid/database/CursorWindow;->acquireReference()V
 
-    .line 695
+    .line 646
     :try_start_3
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
@@ -1640,13 +1518,11 @@
 
     move-result v0
 
-    .line 697
+    .line 648
     invoke-virtual {p0}, Landroid/database/CursorWindow;->releaseReference()V
 
-    .line 695
     return v0
 
-    .line 697
     :catchall_11
     move-exception v0
 
@@ -1661,10 +1537,10 @@
     .parameter "column"
 
     .prologue
-    .line 727
+    .line 678
     invoke-virtual {p0}, Landroid/database/CursorWindow;->acquireReference()V
 
-    .line 729
+    .line 680
     :try_start_3
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
@@ -1678,13 +1554,11 @@
 
     move-result v0
 
-    .line 731
+    .line 682
     invoke-virtual {p0}, Landroid/database/CursorWindow;->releaseReference()V
 
-    .line 729
     return v0
 
-    .line 731
     :catchall_11
     move-exception v0
 
@@ -1700,10 +1574,10 @@
     .parameter "column"
 
     .prologue
-    .line 676
+    .line 627
     invoke-virtual {p0}, Landroid/database/CursorWindow;->acquireReference()V
 
-    .line 678
+    .line 629
     :try_start_3
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
@@ -1717,13 +1591,11 @@
 
     move-result v0
 
-    .line 680
+    .line 631
     invoke-virtual {p0}, Landroid/database/CursorWindow;->releaseReference()V
 
-    .line 678
     return v0
 
-    .line 680
     :catchall_11
     move-exception v0
 
@@ -1737,10 +1609,10 @@
     .parameter "columnNum"
 
     .prologue
-    .line 298
+    .line 249
     invoke-virtual {p0}, Landroid/database/CursorWindow;->acquireReference()V
 
-    .line 300
+    .line 251
     :try_start_3
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
@@ -1750,13 +1622,11 @@
 
     move-result v0
 
-    .line 302
+    .line 253
     invoke-virtual {p0}, Landroid/database/CursorWindow;->releaseReference()V
 
-    .line 300
     return v0
 
-    .line 302
     :catchall_d
     move-exception v0
 
@@ -1770,10 +1640,10 @@
     .parameter "pos"
 
     .prologue
-    .line 269
+    .line 220
     iput p1, p0, Landroid/database/CursorWindow;->mStartPos:I
 
-    .line 270
+    .line 221
     return-void
 .end method
 
@@ -1781,7 +1651,7 @@
     .registers 3
 
     .prologue
-    .line 826
+    .line 777
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1829,25 +1699,25 @@
     .parameter "flags"
 
     .prologue
-    .line 755
+    .line 706
     iget v0, p0, Landroid/database/CursorWindow;->mStartPos:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 756
+    .line 707
     iget v0, p0, Landroid/database/CursorWindow;->mWindowPtr:I
 
     invoke-static {v0, p1}, Landroid/database/CursorWindow;->nativeWriteToParcel(ILandroid/os/Parcel;)V
 
-    .line 758
+    .line 709
     and-int/lit8 v0, p2, 0x1
 
     if-eqz v0, :cond_11
 
-    .line 759
+    .line 710
     invoke-virtual {p0}, Landroid/database/CursorWindow;->releaseReference()V
 
-    .line 761
+    .line 712
     :cond_11
     return-void
 .end method

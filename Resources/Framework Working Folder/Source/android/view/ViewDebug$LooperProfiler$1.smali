@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 533
+    .line 521
     iput-object p1, p0, Landroid/view/ViewDebug$LooperProfiler$1;->this$0:Landroid/view/ViewDebug$LooperProfiler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,12 +41,12 @@
     .registers 2
 
     .prologue
-    .line 536
+    .line 524
     iget-object v0, p0, Landroid/view/ViewDebug$LooperProfiler$1;->this$0:Landroid/view/ViewDebug$LooperProfiler;
 
     #calls: Landroid/view/ViewDebug$LooperProfiler;->saveTraces()V
     invoke-static {v0}, Landroid/view/ViewDebug$LooperProfiler;->access$000(Landroid/view/ViewDebug$LooperProfiler;)V
 
-    .line 537
+    .line 525
     return-void
 .end method

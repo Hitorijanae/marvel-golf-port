@@ -121,7 +121,7 @@
 
     .prologue
     .line 226
-    const v0, 0x10403e8
+    const v0, 0x10403f0
 
     invoke-direct {p0, p1, v0}, Lcom/android/internal/app/RingtonePickerActivity;->addStaticItem(Landroid/widget/ListView;I)I
 
@@ -136,7 +136,7 @@
 
     .prologue
     .line 230
-    const v0, 0x10403ea
+    const v0, 0x10403f2
 
     invoke-direct {p0, p1, v0}, Lcom/android/internal/app/RingtonePickerActivity;->addStaticItem(Landroid/widget/ListView;I)I
 
@@ -561,7 +561,7 @@
     iput-object v4, p0, Lcom/android/internal/app/RingtonePickerActivity;->mExistingUri:Landroid/net/Uri;
 
     .line 155
-    iget-object v2, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
+    iget-object v2, p0, Lcom/android/internal/app/RingtonePickerActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
     .line 156
     .local v2, p:Lcom/android/internal/app/AlertController$AlertParams;
@@ -627,7 +627,7 @@
     if-nez v4, :cond_b5
 
     .line 169
-    const v4, 0x10403eb
+    const v4, 0x10403f3
 
     invoke-virtual {p0, v4}, Lcom/android/internal/app/RingtonePickerActivity;->getString(I)Ljava/lang/String;
 
@@ -762,7 +762,7 @@
 
     .line 205
     :cond_3b
-    iget-object v0, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
+    iget-object v0, p0, Lcom/android/internal/app/RingtonePickerActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
     iget v1, p0, Lcom/android/internal/app/RingtonePickerActivity;->mClickedPos:I
 

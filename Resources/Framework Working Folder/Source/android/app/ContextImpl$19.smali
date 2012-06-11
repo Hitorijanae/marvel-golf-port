@@ -1,5 +1,5 @@
 .class final Landroid/app/ContextImpl$19;
-.super Landroid/app/ContextImpl$StaticServiceFetcher;
+.super Landroid/app/ContextImpl$ServiceFetcher;
 .source "ContextImpl.java"
 
 
@@ -19,34 +19,33 @@
     .registers 1
 
     .prologue
-    .line 396
-    invoke-direct {p0}, Landroid/app/ContextImpl$StaticServiceFetcher;-><init>()V
+    .line 358
+    invoke-direct {p0}, Landroid/app/ContextImpl$ServiceFetcher;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public createStaticService()Ljava/lang/Object;
+.method public createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .registers 4
+    .parameter "ctx"
 
     .prologue
-    .line 398
-    const-string/jumbo v1, "mount"
+    .line 361
+    new-instance v0, Landroid/net/NetworkPolicyManager;
+
+    const-string/jumbo v1, "netpolicy"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object v1
 
-    .line 399
-    .local v0, b:Landroid/os/IBinder;
-    new-instance v1, Lcom/htc/service/MountManager;
+    invoke-static {v1}, Landroid/net/INetworkPolicyManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/INetworkPolicyManager;
 
-    invoke-static {v0}, Landroid/os/storage/IMountService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/storage/IMountService;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-direct {v0, v1}, Landroid/net/NetworkPolicyManager;-><init>(Landroid/net/INetworkPolicyManager;)V
 
-    invoke-direct {v1, v2}, Lcom/htc/service/MountManager;-><init>(Landroid/os/storage/IMountService;)V
-
-    return-object v1
+    return-object v0
 .end method

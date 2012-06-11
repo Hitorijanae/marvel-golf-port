@@ -21,7 +21,7 @@
         "Ljava/lang/Object;",
         "Ljava/util/Comparator",
         "<",
-        "Landroid/content/SyncManager$AccountSyncStats;",
+        "Landroid/content/SyncManager$AuthoritySyncStats;",
         ">;"
     }
 .end annotation
@@ -37,45 +37,45 @@
     .parameter
 
     .prologue
-    .line 1388
+    .line 1298
     iput-object p1, p0, Landroid/content/SyncManager$9;->this$0:Landroid/content/SyncManager;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public compare(Landroid/content/SyncManager$AccountSyncStats;Landroid/content/SyncManager$AccountSyncStats;)I
+.method public compare(Landroid/content/SyncManager$AuthoritySyncStats;Landroid/content/SyncManager$AuthoritySyncStats;)I
     .registers 8
     .parameter "lhs"
     .parameter "rhs"
 
     .prologue
-    .line 1392
-    iget v1, p2, Landroid/content/SyncManager$AccountSyncStats;->times:I
+    .line 1302
+    iget v1, p2, Landroid/content/SyncManager$AuthoritySyncStats;->times:I
 
-    iget v2, p1, Landroid/content/SyncManager$AccountSyncStats;->times:I
+    iget v2, p1, Landroid/content/SyncManager$AuthoritySyncStats;->times:I
 
     invoke-static {v1, v2}, Ljava/lang/Integer;->compare(II)I
 
     move-result v0
 
-    .line 1393
+    .line 1303
     .local v0, compare:I
     if-nez v0, :cond_12
 
-    .line 1394
-    iget-wide v1, p2, Landroid/content/SyncManager$AccountSyncStats;->elapsedTime:J
+    .line 1304
+    iget-wide v1, p2, Landroid/content/SyncManager$AuthoritySyncStats;->elapsedTime:J
 
-    iget-wide v3, p1, Landroid/content/SyncManager$AccountSyncStats;->elapsedTime:J
+    iget-wide v3, p1, Landroid/content/SyncManager$AuthoritySyncStats;->elapsedTime:J
 
     invoke-static {v1, v2, v3, v4}, Ljava/lang/Long;->compare(JJ)I
 
     move-result v0
 
-    .line 1396
+    .line 1306
     :cond_12
     return v0
 .end method
@@ -86,14 +86,14 @@
     .parameter "x1"
 
     .prologue
-    .line 1388
-    check-cast p1, Landroid/content/SyncManager$AccountSyncStats;
+    .line 1298
+    check-cast p1, Landroid/content/SyncManager$AuthoritySyncStats;
 
     .end local p1
-    check-cast p2, Landroid/content/SyncManager$AccountSyncStats;
+    check-cast p2, Landroid/content/SyncManager$AuthoritySyncStats;
 
     .end local p2
-    invoke-virtual {p0, p1, p2}, Landroid/content/SyncManager$9;->compare(Landroid/content/SyncManager$AccountSyncStats;Landroid/content/SyncManager$AccountSyncStats;)I
+    invoke-virtual {p0, p1, p2}, Landroid/content/SyncManager$9;->compare(Landroid/content/SyncManager$AuthoritySyncStats;Landroid/content/SyncManager$AuthoritySyncStats;)I
 
     move-result v0
 

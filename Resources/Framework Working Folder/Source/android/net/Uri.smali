@@ -149,7 +149,7 @@
 
     .prologue
     .line 130
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -1127,34 +1127,34 @@
 
     .line 1658
     :cond_10
-    if-nez p1, :cond_1b
+    if-nez p1, :cond_1a
 
     .line 1659
     new-instance v7, Ljava/lang/NullPointerException;
 
-    const-string/jumbo v8, "key"
+    const-string v8, "key"
 
     invoke-direct {v7, v8}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     throw v7
 
     .line 1662
-    :cond_1b
+    :cond_1a
     invoke-virtual {p0}, Landroid/net/Uri;->getEncodedQuery()Ljava/lang/String;
 
     move-result-object v4
 
     .line 1663
     .local v4, query:Ljava/lang/String;
-    if-nez v4, :cond_22
+    if-nez v4, :cond_21
 
     .line 1695
-    :cond_21
-    :goto_21
+    :cond_20
+    :goto_20
     return-object v7
 
     .line 1667
-    :cond_22
+    :cond_21
     invoke-static {p1, v7}, Landroid/net/Uri;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -1171,7 +1171,7 @@
 
     .line 1671
     .local v6, start:I
-    :goto_2b
+    :goto_2a
     const/16 v8, 0x26
 
     invoke-virtual {v4, v8, v6}, Ljava/lang/String;->indexOf(II)I
@@ -1180,13 +1180,13 @@
 
     .line 1672
     .local v3, nextAmpersand:I
-    if-eq v3, v10, :cond_57
+    if-eq v3, v10, :cond_56
 
     move v1, v3
 
     .line 1674
     .local v1, end:I
-    :goto_34
+    :goto_33
     const/16 v8, 0x3d
 
     invoke-virtual {v4, v8, v6}, Ljava/lang/String;->indexOf(II)I
@@ -1195,23 +1195,23 @@
 
     .line 1675
     .local v5, separator:I
-    if-gt v5, v1, :cond_3e
+    if-gt v5, v1, :cond_3d
 
-    if-ne v5, v10, :cond_3f
+    if-ne v5, v10, :cond_3e
 
     .line 1676
-    :cond_3e
+    :cond_3d
     move v5, v1
 
     .line 1679
-    :cond_3f
+    :cond_3e
     sub-int v8, v5, v6
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v9
 
-    if-ne v8, v9, :cond_64
+    if-ne v8, v9, :cond_63
 
     const/4 v8, 0x0
 
@@ -1223,28 +1223,28 @@
 
     move-result v8
 
-    if-eqz v8, :cond_64
+    if-eqz v8, :cond_63
 
     .line 1681
-    if-ne v5, v1, :cond_59
+    if-ne v5, v1, :cond_58
 
     .line 1682
     const-string v7, ""
 
-    goto :goto_21
+    goto :goto_20
 
     .end local v1           #end:I
     .end local v5           #separator:I
-    :cond_57
+    :cond_56
     move v1, v2
 
     .line 1672
-    goto :goto_34
+    goto :goto_33
 
     .line 1684
     .restart local v1       #end:I
     .restart local v5       #separator:I
-    :cond_59
+    :cond_58
     add-int/lit8 v7, v5, 0x1
 
     invoke-virtual {v4, v7, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -1255,17 +1255,17 @@
 
     move-result-object v7
 
-    goto :goto_21
+    goto :goto_20
 
     .line 1689
-    :cond_64
-    if-eq v3, v10, :cond_21
+    :cond_63
+    if-eq v3, v10, :cond_20
 
     .line 1690
     add-int/lit8 v6, v3, 0x1
 
     .line 1694
-    goto :goto_2b
+    goto :goto_2a
 .end method
 
 .method public getQueryParameterNames()Ljava/util/Set;
@@ -1441,26 +1441,26 @@
 
     .line 1598
     :cond_f
-    if-nez p1, :cond_1a
+    if-nez p1, :cond_19
 
     .line 1599
     new-instance v8, Ljava/lang/NullPointerException;
 
-    const-string/jumbo v9, "key"
+    const-string v9, "key"
 
     invoke-direct {v8, v9}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     throw v8
 
     .line 1602
-    :cond_1a
+    :cond_19
     invoke-virtual {p0}, Landroid/net/Uri;->getEncodedQuery()Ljava/lang/String;
 
     move-result-object v4
 
     .line 1603
     .local v4, query:Ljava/lang/String;
-    if-nez v4, :cond_25
+    if-nez v4, :cond_24
 
     .line 1604
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
@@ -1468,17 +1468,17 @@
     move-result-object v8
 
     .line 1643
-    :goto_24
+    :goto_23
     return-object v8
 
     .line 1609
-    :cond_25
-    :try_start_25
+    :cond_24
+    :try_start_24
     const-string v8, "UTF-8"
 
     invoke-static {p1, v8}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    :try_end_2a
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_25 .. :try_end_2a} :catch_64
+    :try_end_29
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_24 .. :try_end_29} :catch_63
 
     move-result-object v1
 
@@ -1494,7 +1494,7 @@
 
     .line 1618
     .local v6, start:I
-    :goto_31
+    :goto_30
     const/16 v8, 0x26
 
     invoke-virtual {v4, v8, v6}, Ljava/lang/String;->indexOf(II)I
@@ -1503,13 +1503,13 @@
 
     .line 1619
     .local v3, nextAmpersand:I
-    if-eq v3, v10, :cond_6b
+    if-eq v3, v10, :cond_6a
 
     move v2, v3
 
     .line 1621
     .local v2, end:I
-    :goto_3a
+    :goto_39
     const/16 v8, 0x3d
 
     invoke-virtual {v4, v8, v6}, Ljava/lang/String;->indexOf(II)I
@@ -1518,23 +1518,23 @@
 
     .line 1622
     .local v5, separator:I
-    if-gt v5, v2, :cond_44
+    if-gt v5, v2, :cond_43
 
-    if-ne v5, v10, :cond_45
+    if-ne v5, v10, :cond_44
 
     .line 1623
-    :cond_44
+    :cond_43
     move v5, v2
 
     .line 1626
-    :cond_45
+    :cond_44
     sub-int v8, v5, v6
 
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
     move-result v9
 
-    if-ne v8, v9, :cond_5f
+    if-ne v8, v9, :cond_5e
 
     const/4 v8, 0x0
 
@@ -1546,10 +1546,10 @@
 
     move-result v8
 
-    if-eqz v8, :cond_5f
+    if-eqz v8, :cond_5e
 
     .line 1628
-    if-ne v5, v2, :cond_70
+    if-ne v5, v2, :cond_6f
 
     .line 1629
     const-string v8, ""
@@ -1557,15 +1557,15 @@
     invoke-virtual {v7, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 1636
-    :cond_5f
-    :goto_5f
-    if-eq v3, v10, :cond_7e
+    :cond_5e
+    :goto_5e
+    if-eq v3, v10, :cond_7d
 
     .line 1637
     add-int/lit8 v6, v3, 0x1
 
     .line 1641
-    goto :goto_31
+    goto :goto_30
 
     .line 1610
     .end local v1           #encodedKey:Ljava/lang/String;
@@ -1574,7 +1574,7 @@
     .end local v5           #separator:I
     .end local v6           #start:I
     .end local v7           #values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :catch_64
+    :catch_63
     move-exception v0
 
     .line 1611
@@ -1591,17 +1591,17 @@
     .restart local v3       #nextAmpersand:I
     .restart local v6       #start:I
     .restart local v7       #values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :cond_6b
+    :cond_6a
     invoke-virtual {v4}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    goto :goto_3a
+    goto :goto_39
 
     .line 1631
     .restart local v2       #end:I
     .restart local v5       #separator:I
-    :cond_70
+    :cond_6f
     add-int/lit8 v8, v5, 0x1
 
     invoke-virtual {v4, v8, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -1614,15 +1614,15 @@
 
     invoke-virtual {v7, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_5f
+    goto :goto_5e
 
     .line 1643
-    :cond_7e
+    :cond_7d
     invoke-static {v7}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
     move-result-object v8
 
-    goto :goto_24
+    goto :goto_23
 .end method
 
 .method public abstract getScheme()Ljava/lang/String;

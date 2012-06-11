@@ -26,7 +26,7 @@
 
     .prologue
     .line 52
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 53
     iput-object p1, p0, Lcom/android/internal/util/BitwiseInputStream;->mBuf:[B
@@ -102,7 +102,7 @@
 
     iget v4, p0, Lcom/android/internal/util/BitwiseInputStream;->mEnd:I
 
-    if-le v3, v4, :cond_51
+    if-le v3, v4, :cond_50
 
     .line 78
     :cond_19
@@ -112,7 +112,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "illegal read (pos "
+    const-string v5, "illegal read (pos "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -161,7 +161,7 @@
     throw v3
 
     .line 81
-    :cond_51
+    :cond_50
     iget-object v3, p0, Lcom/android/internal/util/BitwiseInputStream;->mBuf:[B
 
     aget-byte v3, v3, v1
@@ -172,7 +172,7 @@
 
     .line 82
     .local v0, data:I
-    if-ge v2, v5, :cond_64
+    if-ge v2, v5, :cond_63
 
     iget-object v3, p0, Lcom/android/internal/util/BitwiseInputStream;->mBuf:[B
 
@@ -185,7 +185,7 @@
     or-int/2addr v0, v3
 
     .line 83
-    :cond_64
+    :cond_63
     ushr-int/2addr v0, v2
 
     .line 84
@@ -307,7 +307,7 @@
 
     iget v1, p0, Lcom/android/internal/util/BitwiseInputStream;->mEnd:I
 
-    if-le v0, v1, :cond_3f
+    if-le v0, v1, :cond_3e
 
     .line 112
     new-instance v0, Lcom/android/internal/util/BitwiseInputStream$AccessException;
@@ -316,7 +316,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "illegal skip (pos "
+    const-string v2, "illegal skip (pos "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -365,7 +365,7 @@
     throw v0
 
     .line 115
-    :cond_3f
+    :cond_3e
     iget v0, p0, Lcom/android/internal/util/BitwiseInputStream;->mPos:I
 
     add-int/2addr v0, p1

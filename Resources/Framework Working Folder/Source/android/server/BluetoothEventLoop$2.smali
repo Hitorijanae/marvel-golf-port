@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 159
+    .line 129
     iput-object p1, p0, Landroid/server/BluetoothEventLoop$2;->this$0:Landroid/server/BluetoothEventLoop;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,21 +43,21 @@
     .parameter "proxy"
 
     .prologue
-    .line 161
+    .line 131
     const/4 v0, 0x2
 
     if-ne p1, v0, :cond_a
 
-    .line 162
+    .line 132
     iget-object v0, p0, Landroid/server/BluetoothEventLoop$2;->this$0:Landroid/server/BluetoothEventLoop;
 
     check-cast p2, Landroid/bluetooth/BluetoothA2dp;
 
     .end local p2
     #setter for: Landroid/server/BluetoothEventLoop;->mA2dp:Landroid/bluetooth/BluetoothA2dp;
-    invoke-static {v0, p2}, Landroid/server/BluetoothEventLoop;->access$202(Landroid/server/BluetoothEventLoop;Landroid/bluetooth/BluetoothA2dp;)Landroid/bluetooth/BluetoothA2dp;
+    invoke-static {v0, p2}, Landroid/server/BluetoothEventLoop;->access$102(Landroid/server/BluetoothEventLoop;Landroid/bluetooth/BluetoothA2dp;)Landroid/bluetooth/BluetoothA2dp;
 
-    .line 164
+    .line 134
     :cond_a
     return-void
 .end method
@@ -67,20 +67,20 @@
     .parameter "profile"
 
     .prologue
-    .line 166
+    .line 136
     const/4 v0, 0x2
 
     if-ne p1, v0, :cond_9
 
-    .line 167
+    .line 137
     iget-object v0, p0, Landroid/server/BluetoothEventLoop$2;->this$0:Landroid/server/BluetoothEventLoop;
 
     const/4 v1, 0x0
 
     #setter for: Landroid/server/BluetoothEventLoop;->mA2dp:Landroid/bluetooth/BluetoothA2dp;
-    invoke-static {v0, v1}, Landroid/server/BluetoothEventLoop;->access$202(Landroid/server/BluetoothEventLoop;Landroid/bluetooth/BluetoothA2dp;)Landroid/bluetooth/BluetoothA2dp;
+    invoke-static {v0, v1}, Landroid/server/BluetoothEventLoop;->access$102(Landroid/server/BluetoothEventLoop;Landroid/bluetooth/BluetoothA2dp;)Landroid/bluetooth/BluetoothA2dp;
 
-    .line 169
+    .line 139
     :cond_9
     return-void
 .end method

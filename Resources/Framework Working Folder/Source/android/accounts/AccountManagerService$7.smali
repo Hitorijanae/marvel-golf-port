@@ -31,7 +31,7 @@
     .parameter
 
     .prologue
-    .line 1256
+    .line 1241
     iput-object p1, p0, Landroid/accounts/AccountManagerService$7;->this$0:Landroid/accounts/AccountManagerService;
 
     iput-object p6, p0, Landroid/accounts/AccountManagerService$7;->val$accountType:Ljava/lang/String;
@@ -52,14 +52,14 @@
     .end annotation
 
     .prologue
-    .line 1258
-    iget-object v0, p0, Landroid/accounts/AccountManagerService$Session;->mAuthenticator:Landroid/accounts/IAccountAuthenticator;
+    .line 1243
+    iget-object v0, p0, Landroid/accounts/AccountManagerService$7;->mAuthenticator:Landroid/accounts/IAccountAuthenticator;
 
-    iget-object v1, p0, Landroid/accounts/AccountManagerService$Session;->mAccountType:Ljava/lang/String;
+    iget-object v1, p0, Landroid/accounts/AccountManagerService$7;->mAccountType:Ljava/lang/String;
 
     invoke-interface {v0, p0, v1}, Landroid/accounts/IAccountAuthenticator;->editProperties(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;)V
 
-    .line 1259
+    .line 1244
     return-void
 .end method
 
@@ -68,7 +68,7 @@
     .parameter "now"
 
     .prologue
-    .line 1261
+    .line 1246
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

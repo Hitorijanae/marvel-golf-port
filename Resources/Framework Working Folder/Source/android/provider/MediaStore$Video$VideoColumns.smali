@@ -36,8 +36,6 @@
 
 .field public static final DURATION:Ljava/lang/String; = "duration"
 
-.field public static final FAVORITE:Ljava/lang/String; = "favorite"
-
 .field public static final IS_PRIVATE:Ljava/lang/String; = "isprivate"
 
 .field public static final LANGUAGE:Ljava/lang/String; = "language"

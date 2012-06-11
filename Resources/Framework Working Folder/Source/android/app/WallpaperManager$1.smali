@@ -36,7 +36,7 @@
     .parameter
 
     .prologue
-    .line 786
+    .line 629
     iput-object p1, p0, Landroid/app/WallpaperManager$1;->this$0:Landroid/app/WallpaperManager;
 
     iput-object p2, p0, Landroid/app/WallpaperManager$1;->val$fWindowToken:Landroid/os/IBinder;
@@ -45,7 +45,7 @@
 
     iput p4, p0, Landroid/app/WallpaperManager$1;->val$fYOffset:F
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -56,12 +56,12 @@
     .registers 7
 
     .prologue
-    .line 790
+    .line 633
     :try_start_0
     iget-object v0, p0, Landroid/app/WallpaperManager$1;->this$0:Landroid/app/WallpaperManager;
 
     #getter for: Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Landroid/app/WallpaperManager;->access$1000(Landroid/app/WallpaperManager;)Landroid/content/Context;
+    invoke-static {v0}, Landroid/app/WallpaperManager;->access$700(Landroid/app/WallpaperManager;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -82,14 +82,14 @@
     iget-object v4, p0, Landroid/app/WallpaperManager$1;->this$0:Landroid/app/WallpaperManager;
 
     #getter for: Landroid/app/WallpaperManager;->mWallpaperXStep:F
-    invoke-static {v4}, Landroid/app/WallpaperManager;->access$800(Landroid/app/WallpaperManager;)F
+    invoke-static {v4}, Landroid/app/WallpaperManager;->access$500(Landroid/app/WallpaperManager;)F
 
     move-result v4
 
     iget-object v5, p0, Landroid/app/WallpaperManager$1;->this$0:Landroid/app/WallpaperManager;
 
     #getter for: Landroid/app/WallpaperManager;->mWallpaperYStep:F
-    invoke-static {v5}, Landroid/app/WallpaperManager;->access$900(Landroid/app/WallpaperManager;)F
+    invoke-static {v5}, Landroid/app/WallpaperManager;->access$600(Landroid/app/WallpaperManager;)F
 
     move-result v5
 
@@ -98,17 +98,17 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_23} :catch_26
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_23} :catch_24
 
-    .line 799
+    .line 642
     :goto_23
     return-void
 
-    .line 795
+    .line 638
     :catch_24
     move-exception v0
 
     goto :goto_23
 
-    .line 793
+    .line 636
     :catch_26
     move-exception v0
 

@@ -55,18 +55,14 @@
 
 .field public static final wifi_available_detailed:I = 0x1130012
 
-.field public static final wimax_available:I = 0x1130014
-
-.field public static final wimax_available_detailed:I = 0x1130015
-
 
 # direct methods
 .method public constructor <init>()V
     .registers 1
 
     .prologue
-    .line 17079
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 14957
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

@@ -82,7 +82,7 @@
 
     .prologue
     .line 72
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 66
     const/high16 v0, -0x1
@@ -100,7 +100,7 @@
 
     .prologue
     .line 78
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 66
     const/high16 v1, -0x1
@@ -342,7 +342,7 @@
 
     move/from16 v1, v22
 
-    if-eq v0, v1, :cond_106
+    if-eq v0, v1, :cond_105
 
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
@@ -357,7 +357,7 @@
 
     move/from16 v1, v22
 
-    if-eq v0, v1, :cond_106
+    if-eq v0, v1, :cond_105
 
     .line 189
     :cond_29
@@ -376,7 +376,7 @@
 
     move-result-object v22
 
-    const-string/jumbo v23, "item"
+    const-string v23, "item"
 
     invoke-virtual/range {v22 .. v23}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -422,10 +422,10 @@
 
     .end local v11           #j:I
     .local v12, j:I
-    :goto_51
+    :goto_50
     move/from16 v0, v17
 
-    if-ge v9, v0, :cond_5d
+    if-ge v9, v0, :cond_5c
 
     .line 206
     move-object/from16 v0, p3
@@ -436,11 +436,11 @@
 
     .line 207
     .local v18, stateResId:I
-    if-nez v18, :cond_af
+    if-nez v18, :cond_ae
 
     .line 221
     .end local v18           #stateResId:I
-    :cond_5d
+    :cond_5c
     move-object/from16 v0, v19
 
     invoke-static {v0, v12}, Landroid/util/StateSet;->trimStateSet([II)[I
@@ -448,7 +448,7 @@
     move-result-object v19
 
     .line 223
-    if-eqz v6, :cond_e7
+    if-eqz v6, :cond_e6
 
     .line 224
     move-object/from16 v0, p1
@@ -458,8 +458,8 @@
     move-result v4
 
     .line 231
-    :cond_6b
-    if-eqz v14, :cond_74
+    :cond_6a
+    if-eqz v14, :cond_73
 
     move-object/from16 v0, v19
 
@@ -467,21 +467,21 @@
 
     move/from16 v22, v0
 
-    if-nez v22, :cond_78
+    if-nez v22, :cond_77
 
     .line 232
-    :cond_74
+    :cond_73
     move-object/from16 v0, p0
 
     iput v4, v0, Landroid/content/res/ColorStateList;->mDefaultColor:I
 
     .line 235
-    :cond_78
+    :cond_77
     add-int/lit8 v22, v14, 0x1
 
     move/from16 v0, v22
 
-    if-lt v0, v13, :cond_a7
+    if-lt v0, v13, :cond_a6
 
     .line 236
     add-int/lit8 v22, v14, 0x1
@@ -535,7 +535,7 @@
     .line 248
     .end local v15           #ncolor:[I
     .end local v16           #nstate:[[I
-    :cond_a7
+    :cond_a6
     aput v4, v5, v14
 
     .line 249
@@ -549,14 +549,14 @@
 
     .line 208
     .restart local v18       #stateResId:I
-    :cond_af
+    :cond_ae
     const v22, 0x10101a5
 
     move/from16 v0, v18
 
     move/from16 v1, v22
 
-    if-ne v0, v1, :cond_d0
+    if-ne v0, v1, :cond_cf
 
     .line 209
     const/16 v22, 0x0
@@ -570,7 +570,7 @@
     move-result v6
 
     .line 211
-    if-nez v6, :cond_143
+    if-nez v6, :cond_142
 
     .line 212
     move-object/from16 v0, p3
@@ -588,18 +588,18 @@
     .end local v12           #j:I
     .end local v18           #stateResId:I
     .restart local v11       #j:I
-    :goto_cc
+    :goto_cb
     add-int/lit8 v9, v9, 0x1
 
     move v12, v11
 
     .end local v11           #j:I
     .restart local v12       #j:I
-    goto :goto_51
+    goto :goto_50
 
     .line 216
     .restart local v18       #stateResId:I
-    :cond_d0
+    :cond_cf
     add-int/lit8 v11, v12, 0x1
 
     .end local v12           #j:I
@@ -614,30 +614,30 @@
 
     move-result v22
 
-    if-eqz v22, :cond_e1
+    if-eqz v22, :cond_e0
 
     .end local v18           #stateResId:I
-    :goto_de
+    :goto_dd
     aput v18, v19, v12
 
-    goto :goto_cc
+    goto :goto_cb
 
     .restart local v18       #stateResId:I
-    :cond_e1
+    :cond_e0
     move/from16 v0, v18
 
     neg-int v0, v0
 
     move/from16 v18, v0
 
-    goto :goto_de
+    goto :goto_dd
 
     .line 225
     .end local v11           #j:I
     .end local v18           #stateResId:I
     .restart local v12       #j:I
-    :cond_e7
-    if-nez v8, :cond_6b
+    :cond_e6
+    if-nez v8, :cond_6a
 
     .line 226
     new-instance v22, Lorg/xmlpull/v1/XmlPullParserException;
@@ -677,7 +677,7 @@
     .end local v12           #j:I
     .end local v17           #numAttrs:I
     .end local v19           #stateSpec:[I
-    :cond_106
+    :cond_105
     new-array v0, v14, [I
 
     move-object/from16 v22, v0
@@ -751,12 +751,12 @@
     .restart local v17       #numAttrs:I
     .restart local v18       #stateResId:I
     .restart local v19       #stateSpec:[I
-    :cond_143
+    :cond_142
     move v11, v12
 
     .end local v12           #j:I
     .restart local v11       #j:I
-    goto :goto_cc
+    goto :goto_cb
 .end method
 
 .method public static valueOf(I)Landroid/content/res/ColorStateList;
@@ -985,7 +985,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "mColors="
+    const-string v1, "mColors="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1001,7 +1001,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "mDefaultColor="
+    const-string v1, "mDefaultColor="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

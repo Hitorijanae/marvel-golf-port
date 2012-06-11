@@ -7,8 +7,6 @@
 
 
 # instance fields
-.field private enableCustomItem:Z
-
 .field private mCallback:Lcom/android/internal/view/menu/MenuPresenter$Callback;
 
 .field protected mContext:Landroid/content/Context;
@@ -39,12 +37,7 @@
 
     .prologue
     .line 53
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
-
-    .line 244
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/internal/view/menu/BaseMenuPresenter;->enableCustomItem:Z
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 54
     iput-object p1, p0, Lcom/android/internal/view/menu/BaseMenuPresenter;->mSystemContext:Landroid/content/Context;
@@ -109,56 +102,30 @@
     .parameter "item"
 
     .prologue
-    .line 231
+    .line 219
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public createItemView(Landroid/view/ViewGroup;)Lcom/android/internal/view/menu/MenuView$ItemView;
-    .registers 6
+    .registers 5
     .parameter "parent"
 
     .prologue
-    .line 157
-    const/4 v0, 0x0
+    .line 153
+    iget-object v0, p0, Lcom/android/internal/view/menu/BaseMenuPresenter;->mSystemInflater:Landroid/view/LayoutInflater;
 
-    .line 158
-    .local v0, menuItemView:Lcom/android/internal/view/menu/MenuView$ItemView;
-    iget-object v1, p0, Lcom/android/internal/view/menu/BaseMenuPresenter;->mSystemInflater:Landroid/view/LayoutInflater;
+    iget v1, p0, Lcom/android/internal/view/menu/BaseMenuPresenter;->mItemLayoutRes:I
 
-    iget v2, p0, Lcom/android/internal/view/menu/BaseMenuPresenter;->mItemLayoutRes:I
+    const/4 v2, 0x0
 
-    const/4 v3, 0x0
-
-    invoke-virtual {v1, v2, p1, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v0, v1, p1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
 
-    .end local v0           #menuItemView:Lcom/android/internal/view/menu/MenuView$ItemView;
     check-cast v0, Lcom/android/internal/view/menu/MenuView$ItemView;
 
-    .line 161
-    .restart local v0       #menuItemView:Lcom/android/internal/view/menu/MenuView$ItemView;
-    iget-boolean v1, p0, Lcom/android/internal/view/menu/BaseMenuPresenter;->enableCustomItem:Z
-
-    const/4 v2, 0x1
-
-    if-ne v1, v2, :cond_1b
-
-    instance-of v1, v0, Lcom/android/internal/view/menu/ActionMenuItemView;
-
-    if-eqz v1, :cond_1b
-
-    move-object v1, v0
-
-    .line 162
-    check-cast v1, Lcom/android/internal/view/menu/ActionMenuItemView;
-
-    invoke-virtual {v1}, Lcom/android/internal/view/menu/ActionMenuItemView;->enableItemText()V
-
-    .line 164
-    :cond_1b
     return-object v0
 .end method
 
@@ -168,7 +135,7 @@
     .parameter "item"
 
     .prologue
-    .line 227
+    .line 215
     const/4 v0, 0x0
 
     return v0
@@ -193,7 +160,7 @@
     .registers 2
 
     .prologue
-    .line 223
+    .line 211
     const/4 v0, 0x0
 
     return v0
@@ -203,7 +170,7 @@
     .registers 2
 
     .prologue
-    .line 235
+    .line 223
     iget v0, p0, Lcom/android/internal/view/menu/BaseMenuPresenter;->mId:I
 
     return v0
@@ -216,28 +183,28 @@
     .parameter "parent"
 
     .prologue
-    .line 181
+    .line 169
     instance-of v1, p2, Lcom/android/internal/view/menu/MenuView$ItemView;
 
     if-eqz v1, :cond_d
 
     move-object v0, p2
 
-    .line 182
+    .line 170
     check-cast v0, Lcom/android/internal/view/menu/MenuView$ItemView;
 
-    .line 186
+    .line 174
     .local v0, itemView:Lcom/android/internal/view/menu/MenuView$ItemView;
     :goto_7
     invoke-virtual {p0, p1, v0}, Lcom/android/internal/view/menu/BaseMenuPresenter;->bindItemView(Lcom/android/internal/view/menu/MenuItemImpl;Lcom/android/internal/view/menu/MenuView$ItemView;)V
 
-    .line 187
+    .line 175
     check-cast v0, Landroid/view/View;
 
     .end local v0           #itemView:Lcom/android/internal/view/menu/MenuView$ItemView;
     return-object v0
 
-    .line 184
+    .line 172
     :cond_d
     invoke-virtual {p0, p3}, Lcom/android/internal/view/menu/BaseMenuPresenter;->createItemView(Landroid/view/ViewGroup;)Lcom/android/internal/view/menu/MenuView$ItemView;
 
@@ -322,17 +289,17 @@
     .parameter "allMenusAreClosing"
 
     .prologue
-    .line 210
+    .line 198
     iget-object v0, p0, Lcom/android/internal/view/menu/BaseMenuPresenter;->mCallback:Lcom/android/internal/view/menu/MenuPresenter$Callback;
 
     if-eqz v0, :cond_9
 
-    .line 211
+    .line 199
     iget-object v0, p0, Lcom/android/internal/view/menu/BaseMenuPresenter;->mCallback:Lcom/android/internal/view/menu/MenuPresenter$Callback;
 
     invoke-interface {v0, p1, p2}, Lcom/android/internal/view/menu/MenuPresenter$Callback;->onCloseMenu(Lcom/android/internal/view/menu/MenuBuilder;Z)V
 
-    .line 213
+    .line 201
     :cond_9
     return-void
 .end method
@@ -342,19 +309,19 @@
     .parameter "menu"
 
     .prologue
-    .line 216
+    .line 204
     iget-object v0, p0, Lcom/android/internal/view/menu/BaseMenuPresenter;->mCallback:Lcom/android/internal/view/menu/MenuPresenter$Callback;
 
     if-eqz v0, :cond_b
 
-    .line 217
+    .line 205
     iget-object v0, p0, Lcom/android/internal/view/menu/BaseMenuPresenter;->mCallback:Lcom/android/internal/view/menu/MenuPresenter$Callback;
 
     invoke-interface {v0, p1}, Lcom/android/internal/view/menu/MenuPresenter$Callback;->onOpenSubMenu(Lcom/android/internal/view/menu/MenuBuilder;)Z
 
     move-result v0
 
-    .line 219
+    .line 207
     :goto_a
     return v0
 
@@ -376,36 +343,15 @@
     return-void
 .end method
 
-.method public setCustomItemRes(I)V
-    .registers 3
-    .parameter "customResource"
-
-    .prologue
-    .line 250
-    if-eqz p1, :cond_7
-
-    .line 252
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/internal/view/menu/BaseMenuPresenter;->enableCustomItem:Z
-
-    .line 253
-    iput p1, p0, Lcom/android/internal/view/menu/BaseMenuPresenter;->mItemLayoutRes:I
-
-    .line 255
-    :cond_7
-    return-void
-.end method
-
 .method public setId(I)V
     .registers 2
     .parameter "id"
 
     .prologue
-    .line 239
+    .line 227
     iput p1, p0, Lcom/android/internal/view/menu/BaseMenuPresenter;->mId:I
 
-    .line 240
+    .line 228
     return-void
 .end method
 
@@ -415,7 +361,7 @@
     .parameter "item"
 
     .prologue
-    .line 206
+    .line 194
     const/4 v0, 0x1
 
     return v0

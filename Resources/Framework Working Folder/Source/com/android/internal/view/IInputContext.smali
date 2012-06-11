@@ -103,38 +103,6 @@
     .end annotation
 .end method
 
-.method public abstract getSelectionEnd(Lcom/android/internal/view/IInputContextCallback;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getSelectionStart(Lcom/android/internal/view/IInputContextCallback;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getSubText(IILcom/android/internal/view/IInputContextCallback;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getText(Lcom/android/internal/view/IInputContextCallback;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getTextAfterCursor(IIILcom/android/internal/view/IInputContextCallback;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -168,14 +136,6 @@
 .end method
 
 .method public abstract performPrivateCommand(Ljava/lang/String;Landroid/os/Bundle;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract replaceText(IILjava/lang/CharSequence;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

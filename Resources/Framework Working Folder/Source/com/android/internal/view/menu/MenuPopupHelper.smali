@@ -9,7 +9,6 @@
 .implements Landroid/widget/PopupWindow$OnDismissListener;
 .implements Landroid/view/View$OnAttachStateChangeListener;
 .implements Lcom/android/internal/view/menu/MenuPresenter;
-.implements Lcom/htc/widget/internal/PopupBubbleWindow$OnDismissListener;
 
 
 # annotations
@@ -29,12 +28,6 @@
 
 
 # instance fields
-.field private enableCloseAnimation:Z
-
-.field private enableHtcPopup:Z
-
-.field private htcPopupWindowWidth:I
-
 .field private mAdapter:Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
 
 .field private mAnchorView:Landroid/view/View;
@@ -55,13 +48,9 @@
 
 .field private mPopupMaxWidth:I
 
-.field private mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
-
 .field private mPresenterCallback:Lcom/android/internal/view/menu/MenuPresenter$Callback;
 
 .field private mTreeObserver:Landroid/view/ViewTreeObserver;
-
-.field private onTouchListener:Landroid/view/View$OnTouchListener;
 
 
 # direct methods
@@ -71,14 +60,14 @@
     .parameter "menu"
 
     .prologue
-    .line 101
+    .line 68
     const/4 v0, 0x0
 
     const/4 v1, 0x0
 
     invoke-direct {p0, p1, p2, v0, v1}, Lcom/android/internal/view/menu/MenuPopupHelper;-><init>(Landroid/content/Context;Lcom/android/internal/view/menu/MenuBuilder;Landroid/view/View;Z)V
 
-    .line 102
+    .line 69
     return-void
 .end method
 
@@ -89,12 +78,12 @@
     .parameter "anchorView"
 
     .prologue
-    .line 105
+    .line 72
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/internal/view/menu/MenuPopupHelper;-><init>(Landroid/content/Context;Lcom/android/internal/view/menu/MenuBuilder;Landroid/view/View;Z)V
 
-    .line 106
+    .line 73
     return-void
 .end method
 
@@ -106,51 +95,31 @@
     .parameter "overflowOnly"
 
     .prologue
-    .line 109
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 76
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 82
-    const/4 v1, 0x0
-
-    iput-boolean v1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->enableHtcPopup:Z
-
-    .line 83
-    const/4 v1, 0x1
-
-    iput-boolean v1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->enableCloseAnimation:Z
-
-    .line 84
-    const/high16 v1, -0x8000
-
-    iput v1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->htcPopupWindowWidth:I
-
-    .line 668
-    const/4 v1, 0x0
-
-    iput-object v1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->onTouchListener:Landroid/view/View$OnTouchListener;
-
-    .line 110
+    .line 77
     iput-object p1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
 
-    .line 111
+    .line 78
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 112
+    .line 79
     iput-object p2, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
-    .line 113
+    .line 80
     iput-boolean p4, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mOverflowOnly:Z
 
-    .line 115
+    .line 82
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 116
+    .line 83
     .local v0, res:Landroid/content/res/Resources;
     invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
@@ -172,13 +141,13 @@
 
     iput v1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupMaxWidth:I
 
-    .line 119
+    .line 86
     iput-object p3, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAnchorView:Landroid/view/View;
 
-    .line 121
+    .line 88
     invoke-virtual {p2, p0}, Lcom/android/internal/view/menu/MenuBuilder;->addMenuPresenter(Lcom/android/internal/view/menu/MenuPresenter;)V
 
-    .line 122
+    .line 89
     return-void
 .end method
 
@@ -187,7 +156,7 @@
     .parameter "x0"
 
     .prologue
-    .line 56
+    .line 43
     iget-boolean v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mOverflowOnly:Z
 
     return v0
@@ -198,340 +167,137 @@
     .parameter "x0"
 
     .prologue
-    .line 56
+    .line 43
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mInflater:Landroid/view/LayoutInflater;
 
     return-object v0
 .end method
 
-.method static synthetic access$400(Lcom/android/internal/view/menu/MenuPopupHelper;)Z
+.method static synthetic access$400(Lcom/android/internal/view/menu/MenuPopupHelper;)Lcom/android/internal/view/menu/MenuBuilder;
     .registers 2
     .parameter "x0"
 
     .prologue
-    .line 56
-    iget-boolean v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->enableHtcPopup:Z
-
-    return v0
-.end method
-
-.method static synthetic access$500(Lcom/android/internal/view/menu/MenuPopupHelper;)Landroid/content/Context;
-    .registers 2
-    .parameter "x0"
-
-    .prologue
-    .line 56
-    iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
-
-    return-object v0
-.end method
-
-.method static synthetic access$600(Lcom/android/internal/view/menu/MenuPopupHelper;)Lcom/android/internal/view/menu/MenuBuilder;
-    .registers 2
-    .parameter "x0"
-
-    .prologue
-    .line 56
+    .line 43
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     return-object v0
 .end method
 
-.method static synthetic access$700(Lcom/android/internal/view/menu/MenuPopupHelper;)Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
+.method static synthetic access$500(Lcom/android/internal/view/menu/MenuPopupHelper;)Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
     .registers 2
     .parameter "x0"
 
     .prologue
-    .line 56
+    .line 43
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAdapter:Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
 
     return-object v0
 .end method
 
 .method private measureContentWidth(Landroid/widget/ListAdapter;)I
-    .registers 11
+    .registers 12
     .parameter "adapter"
 
     .prologue
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
-    .line 371
-    const/4 v5, 0x0
+    .line 169
+    const/4 v6, 0x0
 
-    .line 372
-    .local v5, width:I
+    .line 170
+    .local v6, width:I
     const/4 v4, 0x0
 
-    .line 373
+    .line 171
     .local v4, itemView:Landroid/view/View;
     const/4 v3, 0x0
 
-    .line 374
+    .line 172
     .local v3, itemType:I
-    invoke-static {v7, v7}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    invoke-static {v8, v8}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
-    move-result v6
+    move-result v7
 
-    .line 376
-    .local v6, widthMeasureSpec:I
-    invoke-static {v7, v7}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    .line 174
+    .local v7, widthMeasureSpec:I
+    invoke-static {v8, v8}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v1
 
-    .line 378
+    .line 176
     .local v1, heightMeasureSpec:I
     invoke-interface {p1}, Landroid/widget/ListAdapter;->getCount()I
 
     move-result v0
 
-    .line 379
+    .line 177
     .local v0, count:I
     const/4 v2, 0x0
 
     .local v2, i:I
     :goto_11
-    if-ge v2, v0, :cond_34
+    if-ge v2, v0, :cond_3c
 
-    .line 390
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mMeasureParent:Landroid/view/ViewGroup;
-
-    if-nez v7, :cond_20
-
-    .line 391
-    new-instance v7, Landroid/widget/FrameLayout;
-
-    iget-object v8, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
-
-    invoke-direct {v7, v8}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
-
-    iput-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mMeasureParent:Landroid/view/ViewGroup;
-
-    .line 393
-    :cond_20
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mMeasureParent:Landroid/view/ViewGroup;
-
-    invoke-interface {p1, v2, v4, v7}, Landroid/widget/ListAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v4
-
-    .line 394
-    invoke-virtual {v4, v6, v1}, Landroid/view/View;->measure(II)V
-
-    .line 395
-    invoke-virtual {v4}, Landroid/view/View;->getMeasuredWidth()I
-
-    move-result v7
-
-    invoke-static {v5, v7}, Ljava/lang/Math;->max(II)I
+    .line 178
+    invoke-interface {p1, v2}, Landroid/widget/ListAdapter;->getItemViewType(I)I
 
     move-result v5
 
-    .line 379
+    .line 179
+    .local v5, positionType:I
+    if-eq v5, v3, :cond_1b
+
+    .line 180
+    move v3, v5
+
+    .line 181
+    const/4 v4, 0x0
+
+    .line 183
+    :cond_1b
+    iget-object v8, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mMeasureParent:Landroid/view/ViewGroup;
+
+    if-nez v8, :cond_28
+
+    .line 184
+    new-instance v8, Landroid/widget/FrameLayout;
+
+    iget-object v9, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
+
+    invoke-direct {v8, v9}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
+
+    iput-object v8, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mMeasureParent:Landroid/view/ViewGroup;
+
+    .line 186
+    :cond_28
+    iget-object v8, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mMeasureParent:Landroid/view/ViewGroup;
+
+    invoke-interface {p1, v2, v4, v8}, Landroid/widget/ListAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v4
+
+    .line 187
+    invoke-virtual {v4, v7, v1}, Landroid/view/View;->measure(II)V
+
+    .line 188
+    invoke-virtual {v4}, Landroid/view/View;->getMeasuredWidth()I
+
+    move-result v8
+
+    invoke-static {v6, v8}, Ljava/lang/Math;->max(II)I
+
+    move-result v6
+
+    .line 177
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_11
 
-    .line 397
-    :cond_34
-    return v5
-.end method
-
-.method private measureContentWidthSpecial(Landroid/widget/ListAdapter;)I
-    .registers 16
-    .parameter "adapter"
-
-    .prologue
-    .line 322
-    const/4 v9, 0x0
-
-    .line 323
-    .local v9, width:I
-    const/4 v5, 0x0
-
-    .line 324
-    .local v5, itemView:Landroid/view/View;
-    const/4 v4, 0x0
-
-    .line 325
-    .local v4, itemType:I
-    const/4 v11, 0x0
-
-    const/4 v12, 0x0
-
-    invoke-static {v11, v12}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
-
-    move-result v10
-
-    .line 327
-    .local v10, widthMeasureSpec:I
-    const/4 v11, 0x0
-
-    const/4 v12, 0x0
-
-    invoke-static {v11, v12}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
-
-    move-result v2
-
-    .line 329
-    .local v2, heightMeasureSpec:I
-    invoke-interface {p1}, Landroid/widget/ListAdapter;->getCount()I
-
-    move-result v1
-
-    .line 331
-    .local v1, count:I
-    const/4 v0, 0x0
-
-    .line 332
-    .local v0, MaxStringLength:I
-    const/4 v6, 0x0
-
-    .line 334
-    .local v6, tempItemView:Landroid/view/View;
-    const/4 v3, 0x0
-
-    .local v3, i:I
-    :goto_16
-    if-ge v3, v1, :cond_6a
-
-    .line 336
-    const/4 v7, 0x0
-
-    .line 338
-    .local v7, tempStringLength:I
-    iget-object v11, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mMeasureParent:Landroid/view/ViewGroup;
-
-    if-nez v11, :cond_26
-
-    .line 339
-    new-instance v11, Landroid/widget/FrameLayout;
-
-    iget-object v12, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
-
-    invoke-direct {v11, v12}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
-
-    iput-object v11, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mMeasureParent:Landroid/view/ViewGroup;
-
-    .line 341
-    :cond_26
-    iget-object v11, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mMeasureParent:Landroid/view/ViewGroup;
-
-    invoke-interface {p1, v3, v5, v11}, Landroid/widget/ListAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v5
-
-    move-object v11, v5
-
-    .line 342
-    check-cast v11, Landroid/view/ViewGroup;
-
-    const/4 v12, 0x0
-
-    invoke-virtual {v11, v12}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v11
-
-    check-cast v11, Landroid/view/ViewGroup;
-
-    const/4 v12, 0x0
-
-    invoke-virtual {v11, v12}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v11
-
-    check-cast v11, Landroid/widget/TextView;
-
-    move-object v8, v11
-
-    check-cast v8, Landroid/widget/TextView;
-
-    .line 343
-    .local v8, tv:Landroid/widget/TextView;
-    if-eqz v8, :cond_51
-
-    .line 344
-    invoke-virtual {v8}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
-
-    move-result-object v11
-
-    invoke-interface {v11}, Ljava/lang/CharSequence;->length()I
-
-    move-result v7
-
-    .line 350
-    :goto_4a
-    if-ge v0, v7, :cond_4e
-
-    .line 351
-    move v0, v7
-
-    .line 352
-    move-object v6, v5
-
-    .line 334
-    :cond_4e
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_16
-
-    .line 346
-    :cond_51
-    const-string v11, "MenuPopupHelper"
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v13, "does not find menu title at index i ="
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_4a
-
-    .line 357
-    .end local v7           #tempStringLength:I
-    .end local v8           #tv:Landroid/widget/TextView;
-    :cond_6a
-    iget-object v11, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mMeasureParent:Landroid/view/ViewGroup;
-
-    if-nez v11, :cond_77
-
-    .line 358
-    new-instance v11, Landroid/widget/FrameLayout;
-
-    iget-object v12, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
-
-    invoke-direct {v11, v12}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
-
-    iput-object v11, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mMeasureParent:Landroid/view/ViewGroup;
-
-    .line 361
-    :cond_77
-    invoke-virtual {v6, v10, v2}, Landroid/view/View;->measure(II)V
-
-    .line 362
-    invoke-virtual {v6}, Landroid/view/View;->getMeasuredWidth()I
-
-    move-result v11
-
-    invoke-static {v9, v11}, Ljava/lang/Math;->max(II)I
-
-    move-result v9
-
-    .line 365
-    return v9
+    .line 190
+    .end local v5           #positionType:I
+    :cond_3c
+    return v6
 .end method
 
 
@@ -542,7 +308,7 @@
     .parameter "item"
 
     .prologue
-    .line 502
+    .line 287
     const/4 v0, 0x0
 
     return v0
@@ -552,97 +318,20 @@
     .registers 2
 
     .prologue
-    .line 254
-    iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
-
-    if-eqz v0, :cond_11
-
-    .line 255
-    iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
-
-    invoke-virtual {v0}, Landroid/widget/ListPopupWindow;->isShowing()Z
+    .line 133
+    invoke-virtual {p0}, Lcom/android/internal/view/menu/MenuPopupHelper;->isShowing()Z
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_b
 
-    .line 256
+    .line 134
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
 
     invoke-virtual {v0}, Landroid/widget/ListPopupWindow;->dismiss()V
 
-    .line 260
-    :cond_11
-    iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
-
-    if-eqz v0, :cond_26
-
-    .line 261
-    iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
-
-    invoke-virtual {v0}, Lcom/htc/widget/internal/ListPopupBubbleWindow;->isShowing()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_26
-
-    .line 262
-    iget-boolean v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->enableCloseAnimation:Z
-
-    if-eqz v0, :cond_27
-
-    .line 264
-    iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
-
-    invoke-virtual {v0}, Lcom/htc/widget/internal/ListPopupBubbleWindow;->internalDismiss()V
-
-    .line 272
-    :cond_26
-    :goto_26
-    return-void
-
-    .line 266
-    :cond_27
-    iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
-
-    invoke-virtual {v0}, Lcom/htc/widget/internal/ListPopupBubbleWindow;->dismissWithoutAnimation()V
-
-    goto :goto_26
-.end method
-
-.method public enableHtcPopup(Z)V
-    .registers 4
-    .parameter "enable"
-
-    .prologue
-    .line 88
-    iput-boolean p1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->enableHtcPopup:Z
-
-    .line 90
-    iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x10500dc
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->htcPopupWindowWidth:I
-
-    .line 91
-    iget v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->htcPopupWindowWidth:I
-
-    mul-int/lit8 v0, v0, 0x4
-
-    add-int/lit8 v0, v0, 0x5
-
-    iput v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->htcPopupWindowWidth:I
-
-    .line 92
+    .line 136
+    :cond_b
     return-void
 .end method
 
@@ -652,7 +341,7 @@
     .parameter "item"
 
     .prologue
-    .line 498
+    .line 283
     const/4 v0, 0x0
 
     return v0
@@ -662,7 +351,7 @@
     .registers 2
 
     .prologue
-    .line 494
+    .line 279
     const/4 v0, 0x0
 
     return v0
@@ -672,7 +361,7 @@
     .registers 2
 
     .prologue
-    .line 507
+    .line 292
     const/4 v0, 0x0
 
     return v0
@@ -683,7 +372,7 @@
     .parameter "root"
 
     .prologue
-    .line 441
+    .line 226
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "MenuPopupHelpers manage their own views"
@@ -699,65 +388,36 @@
     .parameter "menu"
 
     .prologue
-    .line 437
+    .line 222
     return-void
 .end method
 
 .method public isShowing()Z
-    .registers 4
+    .registers 2
 
     .prologue
+    .line 150
+    iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
+
+    if-eqz v0, :cond_e
+
+    iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
+
+    invoke-virtual {v0}, Landroid/widget/ListPopupWindow;->isShowing()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_e
+
     const/4 v0, 0x1
 
-    const/4 v1, 0x0
-
-    .line 299
-    iget-boolean v2, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->enableHtcPopup:Z
-
-    if-eqz v2, :cond_15
-
-    .line 300
-    iget-object v2, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
-
-    if-eqz v2, :cond_13
-
-    iget-object v2, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
-
-    invoke-virtual {v2}, Lcom/htc/widget/internal/ListPopupBubbleWindow;->isShowing()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_13
-
-    .line 302
-    :cond_12
-    :goto_12
+    :goto_d
     return v0
 
-    :cond_13
-    move v0, v1
+    :cond_e
+    const/4 v0, 0x0
 
-    .line 300
-    goto :goto_12
-
-    .line 302
-    :cond_15
-    iget-object v2, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
-
-    if-eqz v2, :cond_21
-
-    iget-object v2, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
-
-    invoke-virtual {v2}, Landroid/widget/ListPopupWindow;->isShowing()Z
-
-    move-result v2
-
-    if-nez v2, :cond_12
-
-    :cond_21
-    move v0, v1
-
-    goto :goto_12
+    goto :goto_d
 .end method
 
 .method public onCloseMenu(Lcom/android/internal/view/menu/MenuBuilder;Z)V
@@ -766,26 +426,26 @@
     .parameter "allMenusAreClosing"
 
     .prologue
-    .line 484
+    .line 269
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     if-eq p1, v0, :cond_5
 
-    .line 490
+    .line 275
     :cond_4
     :goto_4
     return-void
 
-    .line 486
+    .line 271
     :cond_5
     invoke-virtual {p0}, Lcom/android/internal/view/menu/MenuPopupHelper;->dismiss()V
 
-    .line 487
+    .line 272
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPresenterCallback:Lcom/android/internal/view/menu/MenuPresenter$Callback;
 
     if-eqz v0, :cond_4
 
-    .line 488
+    .line 273
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPresenterCallback:Lcom/android/internal/view/menu/MenuPresenter$Callback;
 
     invoke-interface {v0, p1, p2}, Lcom/android/internal/view/menu/MenuPresenter$Callback;->onCloseMenu(Lcom/android/internal/view/menu/MenuBuilder;Z)V
@@ -794,67 +454,32 @@
 .end method
 
 .method public onDismiss()V
-    .registers 4
+    .registers 3
 
     .prologue
-    const/4 v2, 0x0
-
     const/4 v1, 0x0
 
-    .line 276
-    iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAnchorView:Landroid/view/View;
-
-    instance-of v0, v0, Lcom/android/internal/view/menu/ActionMenuItemView;
-
-    if-eqz v0, :cond_f
-
-    .line 277
-    iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAnchorView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/internal/view/menu/ActionMenuItemView;
-
-    invoke-virtual {v0, v2}, Lcom/android/internal/view/menu/ActionMenuItemView;->setMultiplyForceEnabled(Z)V
-
-    .line 280
-    :cond_f
-    iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAnchorView:Landroid/view/View;
-
-    instance-of v0, v0, Lcom/android/internal/view/menu/OverflowMenuView;
-
-    if-eqz v0, :cond_1c
-
-    .line 281
-    iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAnchorView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/internal/view/menu/OverflowMenuView;
-
-    invoke-virtual {v0, v2}, Lcom/android/internal/view/menu/OverflowMenuView;->setMultiplyForceEnabled(Z)V
-
-    .line 286
-    :cond_1c
-    iput-object v1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
-
-    .line 288
+    .line 139
     iput-object v1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
 
-    .line 289
+    .line 140
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     invoke-virtual {v0}, Lcom/android/internal/view/menu/MenuBuilder;->close()V
 
-    .line 290
+    .line 141
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mTreeObserver:Landroid/view/ViewTreeObserver;
 
-    if-eqz v0, :cond_40
+    if-eqz v0, :cond_23
 
-    .line 291
+    .line 142
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mTreeObserver:Landroid/view/ViewTreeObserver;
 
     invoke-virtual {v0}, Landroid/view/ViewTreeObserver;->isAlive()Z
 
     move-result v0
 
-    if-nez v0, :cond_39
+    if-nez v0, :cond_1c
 
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAnchorView:Landroid/view/View;
 
@@ -864,22 +489,22 @@
 
     iput-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mTreeObserver:Landroid/view/ViewTreeObserver;
 
-    .line 292
-    :cond_39
+    .line 143
+    :cond_1c
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mTreeObserver:Landroid/view/ViewTreeObserver;
 
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeGlobalOnLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
-    .line 293
+    .line 144
     iput-object v1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mTreeObserver:Landroid/view/ViewTreeObserver;
 
-    .line 295
-    :cond_40
+    .line 146
+    :cond_23
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAnchorView:Landroid/view/View;
 
     invoke-virtual {v0, p0}, Landroid/view/View;->removeOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
-    .line 296
+    .line 147
     return-void
 .end method
 
@@ -887,17 +512,17 @@
     .registers 3
 
     .prologue
-    .line 402
+    .line 195
     invoke-virtual {p0}, Lcom/android/internal/view/menu/MenuPopupHelper;->isShowing()Z
 
     move-result v1
 
     if-eqz v1, :cond_13
 
-    .line 403
+    .line 196
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAnchorView:Landroid/view/View;
 
-    .line 404
+    .line 197
     .local v0, anchor:Landroid/view/View;
     if-eqz v0, :cond_10
 
@@ -907,17 +532,17 @@
 
     if-nez v1, :cond_14
 
-    .line 405
+    .line 198
     :cond_10
     invoke-virtual {p0}, Lcom/android/internal/view/menu/MenuPopupHelper;->dismiss()V
 
-    .line 419
+    .line 204
     .end local v0           #anchor:Landroid/view/View;
     :cond_13
     :goto_13
     return-void
 
-    .line 406
+    .line 199
     .restart local v0       #anchor:Landroid/view/View;
     :cond_14
     invoke-virtual {p0}, Lcom/android/internal/view/menu/MenuPopupHelper;->isShowing()Z
@@ -926,20 +551,7 @@
 
     if-eqz v1, :cond_13
 
-    .line 410
-    iget-boolean v1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->enableHtcPopup:Z
-
-    if-eqz v1, :cond_24
-
-    .line 411
-    iget-object v1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
-
-    invoke-virtual {v1}, Lcom/htc/widget/internal/ListPopupBubbleWindow;->show()V
-
-    goto :goto_13
-
-    .line 414
-    :cond_24
+    .line 201
     iget-object v1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
 
     invoke-virtual {v1}, Landroid/widget/ListPopupWindow;->show()V
@@ -964,11 +576,11 @@
     .end annotation
 
     .prologue
-    .line 308
+    .line 155
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAdapter:Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
 
-    .line 309
+    .line 156
     .local v0, adapter:Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
     #getter for: Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;->mAdapterMenu:Lcom/android/internal/view/menu/MenuBuilder;
     invoke-static {v0}, Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;->access$000(Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;)Lcom/android/internal/view/menu/MenuBuilder;
@@ -983,7 +595,7 @@
 
     invoke-virtual {v1, v2, v3}, Lcom/android/internal/view/menu/MenuBuilder;->performItemAction(Landroid/view/MenuItem;I)Z
 
-    .line 310
+    .line 157
     return-void
 .end method
 
@@ -996,7 +608,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 313
+    .line 160
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v1
@@ -1007,10 +619,10 @@
 
     if-ne p2, v1, :cond_f
 
-    .line 314
+    .line 161
     invoke-virtual {p0}, Lcom/android/internal/view/menu/MenuPopupHelper;->dismiss()V
 
-    .line 317
+    .line 164
     :goto_e
     return v0
 
@@ -1025,7 +637,7 @@
     .parameter "state"
 
     .prologue
-    .line 517
+    .line 302
     return-void
 .end method
 
@@ -1033,7 +645,7 @@
     .registers 2
 
     .prologue
-    .line 512
+    .line 297
     const/4 v0, 0x0
 
     return-object v0
@@ -1046,14 +658,14 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 456
+    .line 241
     invoke-virtual {p1}, Lcom/android/internal/view/menu/SubMenuBuilder;->hasVisibleItems()Z
 
     move-result v6
 
     if-eqz v6, :cond_41
 
-    .line 457
+    .line 242
     new-instance v4, Lcom/android/internal/view/menu/MenuPopupHelper;
 
     iget-object v6, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
@@ -1062,22 +674,22 @@
 
     invoke-direct {v4, v6, p1, v7, v5}, Lcom/android/internal/view/menu/MenuPopupHelper;-><init>(Landroid/content/Context;Lcom/android/internal/view/menu/MenuBuilder;Landroid/view/View;Z)V
 
-    .line 458
+    .line 243
     .local v4, subPopup:Lcom/android/internal/view/menu/MenuPopupHelper;
     iget-object v6, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPresenterCallback:Lcom/android/internal/view/menu/MenuPresenter$Callback;
 
     invoke-virtual {v4, v6}, Lcom/android/internal/view/menu/MenuPopupHelper;->setCallback(Lcom/android/internal/view/menu/MenuPresenter$Callback;)V
 
-    .line 460
+    .line 245
     const/4 v3, 0x0
 
-    .line 461
+    .line 246
     .local v3, preserveIconSpacing:Z
     invoke-virtual {p1}, Lcom/android/internal/view/menu/SubMenuBuilder;->size()I
 
     move-result v1
 
-    .line 462
+    .line 247
     .local v1, count:I
     const/4 v2, 0x0
 
@@ -1085,12 +697,12 @@
     :goto_1b
     if-ge v2, v1, :cond_2e
 
-    .line 463
+    .line 248
     invoke-virtual {p1, v2}, Lcom/android/internal/view/menu/SubMenuBuilder;->getItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    .line 464
+    .line 249
     .local v0, childItem:Landroid/view/MenuItem;
     invoke-interface {v0}, Landroid/view/MenuItem;->isVisible()Z
 
@@ -1104,36 +716,36 @@
 
     if-eqz v6, :cond_42
 
-    .line 465
+    .line 250
     const/4 v3, 0x1
 
-    .line 469
+    .line 254
     .end local v0           #childItem:Landroid/view/MenuItem;
     :cond_2e
     invoke-virtual {v4, v3}, Lcom/android/internal/view/menu/MenuPopupHelper;->setForceShowIcon(Z)V
 
-    .line 471
+    .line 256
     invoke-virtual {v4}, Lcom/android/internal/view/menu/MenuPopupHelper;->tryShow()Z
 
     move-result v6
 
     if-eqz v6, :cond_41
 
-    .line 472
+    .line 257
     iget-object v5, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPresenterCallback:Lcom/android/internal/view/menu/MenuPresenter$Callback;
 
     if-eqz v5, :cond_40
 
-    .line 473
+    .line 258
     iget-object v5, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPresenterCallback:Lcom/android/internal/view/menu/MenuPresenter$Callback;
 
     invoke-interface {v5, p1}, Lcom/android/internal/view/menu/MenuPresenter$Callback;->onOpenSubMenu(Lcom/android/internal/view/menu/MenuBuilder;)Z
 
-    .line 475
+    .line 260
     :cond_40
     const/4 v5, 0x1
 
-    .line 478
+    .line 263
     .end local v1           #count:I
     .end local v2           #i:I
     .end local v3           #preserveIconSpacing:Z
@@ -1141,7 +753,7 @@
     :cond_41
     return v5
 
-    .line 462
+    .line 247
     .restart local v0       #childItem:Landroid/view/MenuItem;
     .restart local v1       #count:I
     .restart local v2       #i:I
@@ -1158,7 +770,7 @@
     .parameter "v"
 
     .prologue
-    .line 423
+    .line 208
     return-void
 .end method
 
@@ -1167,12 +779,12 @@
     .parameter "v"
 
     .prologue
-    .line 427
+    .line 212
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mTreeObserver:Landroid/view/ViewTreeObserver;
 
     if-eqz v0, :cond_17
 
-    .line 428
+    .line 213
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mTreeObserver:Landroid/view/ViewTreeObserver;
 
     invoke-virtual {v0}, Landroid/view/ViewTreeObserver;->isAlive()Z
@@ -1187,17 +799,17 @@
 
     iput-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mTreeObserver:Landroid/view/ViewTreeObserver;
 
-    .line 429
+    .line 214
     :cond_12
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mTreeObserver:Landroid/view/ViewTreeObserver;
 
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeGlobalOnLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
-    .line 431
+    .line 216
     :cond_17
     invoke-virtual {p1, p0}, Landroid/view/View;->removeOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
-    .line 432
+    .line 217
     return-void
 .end method
 
@@ -1206,10 +818,10 @@
     .parameter "anchor"
 
     .prologue
-    .line 125
+    .line 92
     iput-object p1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAnchorView:Landroid/view/View;
 
-    .line 126
+    .line 93
     return-void
 .end method
 
@@ -1218,22 +830,10 @@
     .parameter "cb"
 
     .prologue
-    .line 451
+    .line 236
     iput-object p1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPresenterCallback:Lcom/android/internal/view/menu/MenuPresenter$Callback;
 
-    .line 452
-    return-void
-.end method
-
-.method public setCloseAnimationEnabled(Z)V
-    .registers 2
-    .parameter "enable"
-
-    .prologue
-    .line 95
-    iput-boolean p1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->enableCloseAnimation:Z
-
-    .line 96
+    .line 237
     return-void
 .end method
 
@@ -1242,45 +842,10 @@
     .parameter "forceShow"
 
     .prologue
-    .line 129
+    .line 96
     iput-boolean p1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mForceShowIcon:Z
 
-    .line 130
-    return-void
-.end method
-
-.method public setListMenuOnTouchListener(Landroid/view/View$OnTouchListener;)V
-    .registers 3
-    .parameter "listener"
-
-    .prologue
-    .line 672
-    iput-object p1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->onTouchListener:Landroid/view/View$OnTouchListener;
-
-    .line 675
-    iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
-
-    if-eqz v0, :cond_17
-
-    iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
-
-    invoke-virtual {v0}, Lcom/htc/widget/internal/ListPopupBubbleWindow;->getListView()Landroid/widget/ListView;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_17
-
-    .line 676
-    iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
-
-    invoke-virtual {v0}, Lcom/htc/widget/internal/ListPopupBubbleWindow;->getListView()Landroid/widget/ListView;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Landroid/widget/ListView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
-
-    .line 677
-    :cond_17
+    .line 97
     return-void
 .end method
 
@@ -1288,14 +853,14 @@
     .registers 3
 
     .prologue
-    .line 133
+    .line 100
     invoke-virtual {p0}, Lcom/android/internal/view/menu/MenuPopupHelper;->tryShow()Z
 
     move-result v0
 
     if-nez v0, :cond_e
 
-    .line 134
+    .line 101
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "MenuPopupHelper cannot be used without an anchor"
@@ -1304,503 +869,150 @@
 
     throw v0
 
-    .line 136
+    .line 103
     :cond_e
     return-void
 .end method
 
 .method public tryShow()Z
-    .registers 15
+    .registers 8
 
     .prologue
-    const/4 v13, 0x2
-
-    const v12, 0x1080361
-
     const/4 v0, 0x0
 
-    const/4 v8, 0x1
+    const/4 v2, 0x1
 
-    .line 141
-    iget-boolean v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->enableHtcPopup:Z
+    .line 106
+    new-instance v3, Landroid/widget/ListPopupWindow;
 
-    if-eqz v7, :cond_9c
+    iget-object v4, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
 
-    .line 142
-    new-instance v7, Lcom/htc/widget/internal/ListPopupBubbleWindow;
+    const/4 v5, 0x0
 
-    iget-object v9, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
+    const v6, 0x1010300
 
-    invoke-direct {v7, v9}, Lcom/htc/widget/internal/ListPopupBubbleWindow;-><init>(Landroid/content/Context;)V
+    invoke-direct {v3, v4, v5, v6}, Landroid/widget/ListPopupWindow;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    iput-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
+    iput-object v3, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
 
-    .line 143
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
+    .line 107
+    iget-object v3, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
 
-    invoke-virtual {v7, p0}, Lcom/htc/widget/internal/ListPopupBubbleWindow;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v3, p0}, Landroid/widget/ListPopupWindow;->setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V
 
-    .line 144
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
+    .line 108
+    iget-object v3, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
 
-    invoke-virtual {v7, p0}, Lcom/htc/widget/internal/ListPopupBubbleWindow;->setOnDismissListener(Lcom/htc/widget/internal/PopupBubbleWindow$OnDismissListener;)V
+    invoke-virtual {v3, p0}, Landroid/widget/ListPopupWindow;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 146
-    new-instance v7, Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
+    .line 110
+    new-instance v3, Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
 
-    iget-object v9, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
+    iget-object v4, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
-    invoke-direct {v7, p0, v9}, Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;-><init>(Lcom/android/internal/view/menu/MenuPopupHelper;Lcom/android/internal/view/menu/MenuBuilder;)V
+    invoke-direct {v3, p0, v4}, Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;-><init>(Lcom/android/internal/view/menu/MenuPopupHelper;Lcom/android/internal/view/menu/MenuBuilder;)V
 
-    iput-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAdapter:Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
+    iput-object v3, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAdapter:Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
 
-    .line 147
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
+    .line 111
+    iget-object v3, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
 
-    iget-object v9, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAdapter:Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
+    iget-object v4, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAdapter:Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
 
-    invoke-virtual {v7, v9}, Lcom/htc/widget/internal/ListPopupBubbleWindow;->setAdapter(Landroid/widget/ListAdapter;)V
+    invoke-virtual {v3, v4}, Landroid/widget/ListPopupWindow;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 148
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
+    .line 112
+    iget-object v3, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
 
-    invoke-virtual {v7, v8}, Lcom/htc/widget/internal/ListPopupBubbleWindow;->setModal(Z)V
+    invoke-virtual {v3, v2}, Landroid/widget/ListPopupWindow;->setModal(Z)V
 
-    .line 150
+    .line 114
     iget-object v1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAnchorView:Landroid/view/View;
 
-    .line 151
+    .line 115
     .local v1, anchor:Landroid/view/View;
-    if-eqz v1, :cond_9b
+    if-eqz v1, :cond_72
 
-    .line 152
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mTreeObserver:Landroid/view/ViewTreeObserver;
+    .line 116
+    iget-object v3, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mTreeObserver:Landroid/view/ViewTreeObserver;
 
-    if-nez v7, :cond_3b
+    if-nez v3, :cond_37
 
-    move v0, v8
+    move v0, v2
 
-    .line 153
+    .line 117
     .local v0, addGlobalListener:Z
-    :cond_3b
+    :cond_37
     invoke-virtual {v1}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
-
-    move-result-object v7
-
-    iput-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mTreeObserver:Landroid/view/ViewTreeObserver;
-
-    .line 154
-    if-eqz v0, :cond_48
-
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mTreeObserver:Landroid/view/ViewTreeObserver;
-
-    invoke-virtual {v7, p0}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
-
-    .line 155
-    :cond_48
-    invoke-virtual {v1, p0}, Landroid/view/View;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
-
-    .line 156
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
-
-    invoke-virtual {v7, v1}, Lcom/htc/widget/internal/ListPopupBubbleWindow;->setAnchorView(Landroid/view/View;)V
-
-    .line 161
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
-
-    iget-object v9, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAdapter:Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
-
-    invoke-direct {p0, v9}, Lcom/android/internal/view/menu/MenuPopupHelper;->measureContentWidthSpecial(Landroid/widget/ListAdapter;)I
-
-    move-result v9
-
-    iget v10, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->htcPopupWindowWidth:I
-
-    invoke-static {v9, v10}, Ljava/lang/Math;->max(II)I
-
-    move-result v9
-
-    invoke-virtual {v7, v9}, Lcom/htc/widget/internal/ListPopupBubbleWindow;->setContentWidth(I)V
-
-    .line 162
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
-
-    invoke-virtual {v7, v13}, Lcom/htc/widget/internal/ListPopupBubbleWindow;->setInputMethodMode(I)V
-
-    .line 164
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAdapter:Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
-
-    invoke-virtual {v7}, Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;->getCount()I
-
-    move-result v7
-
-    if-eqz v7, :cond_9b
-
-    .line 165
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
-
-    invoke-virtual {v7}, Lcom/htc/widget/internal/ListPopupBubbleWindow;->show()V
-
-    .line 170
-    instance-of v7, v1, Lcom/android/internal/view/menu/ActionMenuItemView;
-
-    if-eqz v7, :cond_7d
-
-    move-object v7, v1
-
-    .line 171
-    check-cast v7, Lcom/android/internal/view/menu/ActionMenuItemView;
-
-    invoke-virtual {v7, v8}, Lcom/android/internal/view/menu/ActionMenuItemView;->setMultiplyForceEnabled(Z)V
-
-    .line 174
-    :cond_7d
-    instance-of v7, v1, Lcom/android/internal/view/menu/OverflowMenuView;
-
-    if-eqz v7, :cond_87
-
-    move-object v7, v1
-
-    .line 175
-    check-cast v7, Lcom/android/internal/view/menu/OverflowMenuView;
-
-    invoke-virtual {v7, v8}, Lcom/android/internal/view/menu/OverflowMenuView;->setMultiplyForceEnabled(Z)V
-
-    .line 179
-    :cond_87
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
-
-    invoke-virtual {v7}, Lcom/htc/widget/internal/ListPopupBubbleWindow;->getListView()Landroid/widget/ListView;
-
-    move-result-object v7
-
-    invoke-virtual {v7, p0}, Landroid/widget/ListView;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
-
-    .line 180
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupSpecial:Lcom/htc/widget/internal/ListPopupBubbleWindow;
-
-    invoke-virtual {v7}, Lcom/htc/widget/internal/ListPopupBubbleWindow;->getListView()Landroid/widget/ListView;
-
-    move-result-object v7
-
-    iget-object v9, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->onTouchListener:Landroid/view/View$OnTouchListener;
-
-    invoke-virtual {v7, v9}, Landroid/widget/ListView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
-
-    .line 241
-    .end local v0           #addGlobalListener:Z
-    :cond_9b
-    :goto_9b
-    return v8
-
-    .line 185
-    .end local v1           #anchor:Landroid/view/View;
-    :cond_9c
-    new-instance v7, Landroid/widget/ListPopupWindow;
-
-    iget-object v9, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
-
-    const/4 v10, 0x0
-
-    const v11, 0x1010300
-
-    invoke-direct {v7, v9, v10, v11}, Landroid/widget/ListPopupWindow;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-
-    iput-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
-
-    .line 186
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
-
-    invoke-virtual {v7, p0}, Landroid/widget/ListPopupWindow;->setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V
-
-    .line 187
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
-
-    invoke-virtual {v7, p0}, Landroid/widget/ListPopupWindow;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
-
-    .line 189
-    new-instance v7, Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
-
-    iget-object v9, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
-
-    invoke-direct {v7, p0, v9}, Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;-><init>(Lcom/android/internal/view/menu/MenuPopupHelper;Lcom/android/internal/view/menu/MenuBuilder;)V
-
-    iput-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAdapter:Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
-
-    .line 190
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
-
-    iget-object v9, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAdapter:Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
-
-    invoke-virtual {v7, v9}, Landroid/widget/ListPopupWindow;->setAdapter(Landroid/widget/ListAdapter;)V
-
-    .line 191
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
-
-    invoke-virtual {v7, v8}, Landroid/widget/ListPopupWindow;->setModal(Z)V
-
-    .line 193
-    iget-object v1, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAnchorView:Landroid/view/View;
-
-    .line 194
-    .restart local v1       #anchor:Landroid/view/View;
-    if-eqz v1, :cond_158
-
-    .line 195
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mTreeObserver:Landroid/view/ViewTreeObserver;
-
-    if-nez v7, :cond_d1
-
-    move v0, v8
-
-    .line 196
-    .restart local v0       #addGlobalListener:Z
-    :cond_d1
-    invoke-virtual {v1}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
-
-    move-result-object v7
-
-    iput-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mTreeObserver:Landroid/view/ViewTreeObserver;
-
-    .line 197
-    if-eqz v0, :cond_de
-
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mTreeObserver:Landroid/view/ViewTreeObserver;
-
-    invoke-virtual {v7, p0}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
-
-    .line 198
-    :cond_de
-    invoke-virtual {v1, p0}, Landroid/view/View;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
-
-    .line 199
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
-
-    invoke-virtual {v7, v1}, Landroid/widget/ListPopupWindow;->setAnchorView(Landroid/view/View;)V
-
-    .line 204
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
-
-    iget-object v9, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAdapter:Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
-
-    invoke-direct {p0, v9}, Lcom/android/internal/view/menu/MenuPopupHelper;->measureContentWidth(Landroid/widget/ListAdapter;)I
-
-    move-result v9
-
-    iget v10, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupMaxWidth:I
-
-    invoke-static {v9, v10}, Ljava/lang/Math;->min(II)I
-
-    move-result v9
-
-    invoke-virtual {v7, v9}, Landroid/widget/ListPopupWindow;->setContentWidth(I)V
-
-    .line 205
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
-
-    invoke-virtual {v7, v13}, Landroid/widget/ListPopupWindow;->setInputMethodMode(I)V
-
-    .line 206
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
-
-    invoke-virtual {v7}, Landroid/widget/ListPopupWindow;->show()V
-
-    .line 207
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
-
-    invoke-virtual {v7}, Landroid/widget/ListPopupWindow;->getListView()Landroid/widget/ListView;
-
-    move-result-object v7
-
-    invoke-virtual {v7, p0}, Landroid/widget/ListView;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
-
-    .line 210
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    .line 211
-    .local v3, resource:Landroid/content/res/Resources;
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
+    iput-object v3, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mTreeObserver:Landroid/view/ViewTreeObserver;
 
-    invoke-virtual {v7}, Landroid/widget/ListPopupWindow;->getListView()Landroid/widget/ListView;
+    .line 118
+    if-eqz v0, :cond_44
 
-    move-result-object v7
+    iget-object v3, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mTreeObserver:Landroid/view/ViewTreeObserver;
 
-    if-eqz v7, :cond_9b
+    invoke-virtual {v3, p0}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
-    if-eqz v3, :cond_9b
+    .line 119
+    :cond_44
+    invoke-virtual {v1, p0}, Landroid/view/View;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
+    .line 120
+    iget-object v3, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
 
-    invoke-virtual {v7}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+    invoke-virtual {v3, v1}, Landroid/widget/ListPopupWindow;->setAnchorView(Landroid/view/View;)V
 
-    move-result-object v7
+    .line 125
+    iget-object v3, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
 
-    iget-boolean v7, v7, Landroid/content/pm/ApplicationInfo;->allowSkinChange:Z
+    iget-object v4, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAdapter:Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
 
-    if-eqz v7, :cond_9b
-
-    .line 214
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
-
-    invoke-virtual {v7}, Landroid/widget/ListPopupWindow;->getListView()Landroid/widget/ListView;
-
-    move-result-object v7
-
-    const v9, 0x108022e
-
-    invoke-virtual {v3, v9}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v9
-
-    invoke-virtual {v7, v9}, Landroid/widget/ListView;->setDivider(Landroid/graphics/drawable/Drawable;)V
-
-    .line 217
-    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v7
-
-    iget-object v5, v7, Landroid/content/res/Configuration;->skin:Ljava/lang/String;
-
-    .line 219
-    .local v5, skin:Ljava/lang/String;
-    if-eqz v5, :cond_144
-
-    const-string v7, "default"
-
-    invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_15b
-
-    .line 220
-    :cond_144
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
-
-    invoke-virtual {v7}, Landroid/widget/ListPopupWindow;->getListView()Landroid/widget/ListView;
-
-    move-result-object v7
-
-    iget-object v9, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v10, "list_selector_background"
-
-    invoke-static {v9, v10, v12}, Landroid/widget/HtcSkinUtil;->getDrawableResIdentifier(Landroid/content/Context;Ljava/lang/String;I)I
-
-    move-result v9
-
-    invoke-virtual {v7, v9}, Landroid/widget/ListView;->setSelector(I)V
-
-    goto/16 :goto_9b
-
-    .end local v0           #addGlobalListener:Z
-    .end local v3           #resource:Landroid/content/res/Resources;
-    .end local v5           #skin:Ljava/lang/String;
-    :cond_158
-    move v8, v0
-
-    .line 201
-    goto/16 :goto_9b
-
-    .line 224
-    .restart local v0       #addGlobalListener:Z
-    .restart local v3       #resource:Landroid/content/res/Resources;
-    .restart local v5       #skin:Ljava/lang/String;
-    :cond_15b
-    :try_start_15b
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v7}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v5}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
-
-    move-result-object v6
-
-    .line 225
-    .local v6, skinPackageResources:Landroid/content/res/Resources;
-    const-string/jumbo v7, "list_selector_background"
-
-    const-string v9, "drawable"
-
-    invoke-virtual {v6, v7, v9, v5}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {p0, v4}, Lcom/android/internal/view/menu/MenuPopupHelper;->measureContentWidth(Landroid/widget/ListAdapter;)I
 
     move-result v4
 
-    .line 227
-    .local v4, resourceID:I
-    if-eqz v4, :cond_18e
+    iget v5, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopupMaxWidth:I
 
-    .line 228
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
+    invoke-static {v4, v5}, Ljava/lang/Math;->min(II)I
 
-    invoke-virtual {v7}, Landroid/widget/ListPopupWindow;->getListView()Landroid/widget/ListView;
+    move-result v4
 
-    move-result-object v7
+    invoke-virtual {v3, v4}, Landroid/widget/ListPopupWindow;->setContentWidth(I)V
 
-    invoke-virtual {v6, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    .line 126
+    iget-object v3, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
 
-    move-result-object v9
+    const/4 v4, 0x2
 
-    invoke-virtual {v7, v9}, Landroid/widget/ListView;->setSelector(Landroid/graphics/drawable/Drawable;)V
-    :try_end_17d
-    .catch Ljava/lang/Exception; {:try_start_15b .. :try_end_17d} :catch_17f
+    invoke-virtual {v3, v4}, Landroid/widget/ListPopupWindow;->setInputMethodMode(I)V
 
-    goto/16 :goto_9b
+    .line 127
+    iget-object v3, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
 
-    .line 233
-    .end local v4           #resourceID:I
-    .end local v6           #skinPackageResources:Landroid/content/res/Resources;
-    :catch_17f
-    move-exception v2
+    invoke-virtual {v3}, Landroid/widget/ListPopupWindow;->show()V
 
-    .line 234
-    .local v2, e:Ljava/lang/Exception;
-    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
+    .line 128
+    iget-object v3, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
 
-    .line 235
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
+    invoke-virtual {v3}, Landroid/widget/ListPopupWindow;->getListView()Landroid/widget/ListView;
 
-    invoke-virtual {v7}, Landroid/widget/ListPopupWindow;->getListView()Landroid/widget/ListView;
+    move-result-object v3
 
-    move-result-object v7
+    invoke-virtual {v3, p0}, Landroid/widget/ListView;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    invoke-virtual {v7, v12}, Landroid/widget/ListView;->setSelector(I)V
+    .line 129
+    .end local v0           #addGlobalListener:Z
+    :goto_71
+    return v2
 
-    goto/16 :goto_9b
+    :cond_72
+    move v2, v0
 
-    .line 230
-    .end local v2           #e:Ljava/lang/Exception;
-    .restart local v4       #resourceID:I
-    .restart local v6       #skinPackageResources:Landroid/content/res/Resources;
-    :cond_18e
-    :try_start_18e
-    iget-object v7, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mPopup:Landroid/widget/ListPopupWindow;
-
-    invoke-virtual {v7}, Landroid/widget/ListPopupWindow;->getListView()Landroid/widget/ListView;
-
-    move-result-object v7
-
-    iget-object v9, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v10, "list_selector_background"
-
-    const v11, 0x1080361
-
-    invoke-static {v9, v10, v11}, Landroid/widget/HtcSkinUtil;->getDrawableResIdentifier(Landroid/content/Context;Ljava/lang/String;I)I
-
-    move-result v9
-
-    invoke-virtual {v7, v9}, Landroid/widget/ListView;->setSelector(I)V
-    :try_end_1a3
-    .catch Ljava/lang/Exception; {:try_start_18e .. :try_end_1a3} :catch_17f
-
-    goto/16 :goto_9b
+    .line 122
+    goto :goto_71
 .end method
 
 .method public updateMenuView(Z)V
@@ -1808,7 +1020,7 @@
     .parameter "cleared"
 
     .prologue
-    .line 446
+    .line 231
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuPopupHelper;->mAdapter:Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;
 
     if-eqz v0, :cond_9
@@ -1817,7 +1029,7 @@
 
     invoke-virtual {v0}, Lcom/android/internal/view/menu/MenuPopupHelper$MenuAdapter;->notifyDataSetChanged()V
 
-    .line 447
+    .line 232
     :cond_9
     return-void
 .end method

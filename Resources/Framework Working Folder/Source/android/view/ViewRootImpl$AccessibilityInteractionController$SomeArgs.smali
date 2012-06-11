@@ -51,10 +51,10 @@
     .parameter
 
     .prologue
-    .line 5078
+    .line 4661
     iput-object p1, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionController$SomeArgs;->this$1:Landroid/view/ViewRootImpl$AccessibilityInteractionController;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -64,7 +64,7 @@
     .parameter "x0"
 
     .prologue
-    .line 5078
+    .line 4661
     invoke-direct {p0}, Landroid/view/ViewRootImpl$AccessibilityInteractionController$SomeArgs;->clear()V
 
     return-void
@@ -78,22 +78,22 @@
 
     const/4 v0, 0x0
 
-    .line 5105
+    .line 4688
     iput-object v1, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionController$SomeArgs;->arg1:Ljava/lang/Object;
 
-    .line 5106
+    .line 4689
     iput-object v1, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionController$SomeArgs;->arg2:Ljava/lang/Object;
 
-    .line 5107
+    .line 4690
     iput v0, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionController$SomeArgs;->argi1:I
 
-    .line 5108
+    .line 4691
     iput v0, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionController$SomeArgs;->argi2:I
 
-    .line 5109
+    .line 4692
     iput v0, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionController$SomeArgs;->argi3:I
 
-    .line 5110
+    .line 4693
     return-void
 .end method
 
@@ -103,7 +103,7 @@
     .registers 2
 
     .prologue
-    .line 5089
+    .line 4672
     iget-object v0, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionController$SomeArgs;->mNext:Landroid/view/ViewRootImpl$AccessibilityInteractionController$SomeArgs;
 
     return-object v0
@@ -113,7 +113,7 @@
     .registers 2
 
     .prologue
-    .line 5078
+    .line 4661
     invoke-virtual {p0}, Landroid/view/ViewRootImpl$AccessibilityInteractionController$SomeArgs;->getNextPoolable()Landroid/view/ViewRootImpl$AccessibilityInteractionController$SomeArgs;
 
     move-result-object v0
@@ -125,7 +125,7 @@
     .registers 2
 
     .prologue
-    .line 5093
+    .line 4676
     iget-boolean v0, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionController$SomeArgs;->mIsPooled:Z
 
     return v0
@@ -136,10 +136,10 @@
     .parameter "args"
 
     .prologue
-    .line 5097
+    .line 4680
     iput-object p1, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionController$SomeArgs;->mNext:Landroid/view/ViewRootImpl$AccessibilityInteractionController$SomeArgs;
 
-    .line 5098
+    .line 4681
     return-void
 .end method
 
@@ -148,7 +148,7 @@
     .parameter "x0"
 
     .prologue
-    .line 5078
+    .line 4661
     check-cast p1, Landroid/view/ViewRootImpl$AccessibilityInteractionController$SomeArgs;
 
     .end local p1
@@ -162,9 +162,9 @@
     .parameter "isPooled"
 
     .prologue
-    .line 5101
+    .line 4684
     iput-boolean p1, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionController$SomeArgs;->mIsPooled:Z
 
-    .line 5102
+    .line 4685
     return-void
 .end method

@@ -36,7 +36,7 @@
 
     .prologue
     .line 393
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 391
     new-instance v0, Ljava/util/ArrayList;
@@ -814,7 +814,7 @@
     const/4 v2, 0x0
 
     .line 441
-    const-string/jumbo v3, "k"
+    const-string v3, "k"
 
     const/16 v4, 0x3d
 
@@ -824,15 +824,15 @@
 
     .line 442
     .local v1, encryption:Ljava/lang/String;
-    if-nez v1, :cond_d
+    if-nez v1, :cond_c
 
     .line 446
-    :cond_c
-    :goto_c
+    :cond_b
+    :goto_b
     return-object v2
 
     .line 445
-    :cond_d
+    :cond_c
     const/16 v3, 0x3a
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->indexOf(I)I
@@ -843,7 +843,7 @@
     .local v0, colon:I
     const/4 v3, -0x1
 
-    if-eq v0, v3, :cond_c
+    if-eq v0, v3, :cond_b
 
     const/4 v2, 0x0
 
@@ -853,7 +853,7 @@
 
     move-result-object v2
 
-    goto :goto_c
+    goto :goto_b
 .end method
 
 .method public getEncryptionMethod()Ljava/lang/String;
@@ -861,7 +861,7 @@
 
     .prologue
     .line 429
-    const-string/jumbo v2, "k"
+    const-string v2, "k"
 
     const/16 v3, 0x3d
 
@@ -871,20 +871,20 @@
 
     .line 430
     .local v1, encryption:Ljava/lang/String;
-    if-nez v1, :cond_d
+    if-nez v1, :cond_c
 
     .line 431
     const/4 v1, 0x0
 
     .line 434
     .end local v1           #encryption:Ljava/lang/String;
-    :cond_c
-    :goto_c
+    :cond_b
+    :goto_b
     return-object v1
 
     .line 433
     .restart local v1       #encryption:Ljava/lang/String;
-    :cond_d
+    :cond_c
     const/16 v2, 0x3a
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->indexOf(I)I
@@ -895,7 +895,7 @@
     .local v0, colon:I
     const/4 v2, -0x1
 
-    if-eq v0, v2, :cond_c
+    if-eq v0, v2, :cond_b
 
     const/4 v2, 0x0
 
@@ -903,7 +903,7 @@
 
     move-result-object v1
 
-    goto :goto_c
+    goto :goto_b
 .end method
 
 .method public setAddress(Ljava/lang/String;)V
@@ -1046,17 +1046,17 @@
 
     .prologue
     .line 454
-    const-string/jumbo v0, "k"
+    const-string v0, "k"
 
     const/16 v1, 0x3d
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_8
 
-    if-nez p2, :cond_d
+    if-nez p2, :cond_c
 
     .end local p1
-    :cond_9
-    :goto_9
+    :cond_8
+    :goto_8
     invoke-direct {p0, v0, v1, p1}, Landroid/net/sip/SimpleSessionDescription$Fields;->set(Ljava/lang/String;CLjava/lang/String;)V
 
     .line 456
@@ -1064,7 +1064,7 @@
 
     .line 454
     .restart local p1
-    :cond_d
+    :cond_c
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1087,5 +1087,5 @@
 
     move-result-object p1
 
-    goto :goto_9
+    goto :goto_8
 .end method

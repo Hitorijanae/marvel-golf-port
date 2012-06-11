@@ -19,7 +19,7 @@
     .registers 1
 
     .prologue
-    .line 439
+    .line 400
     invoke-direct {p0}, Landroid/app/ContextImpl$ServiceFetcher;-><init>()V
 
     return-void
@@ -32,20 +32,14 @@
     .parameter "ctx"
 
     .prologue
-    .line 441
-    new-instance v0, Landroid/hardware/SensorManager;
+    .line 402
+    new-instance v0, Landroid/app/StatusBarManager;
 
-    iget-object v1, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
-
-    invoke-virtual {v1}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
+    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Landroid/hardware/SensorManager;-><init>(Landroid/os/Looper;)V
+    invoke-direct {v0, v1}, Landroid/app/StatusBarManager;-><init>(Landroid/content/Context;)V
 
     return-object v0
 .end method

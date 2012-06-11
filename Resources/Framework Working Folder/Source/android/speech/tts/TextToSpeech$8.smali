@@ -45,7 +45,7 @@
 
     iput-object p2, p0, Landroid/speech/tts/TextToSpeech$8;->val$loc:Ljava/util/Locale;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -110,7 +110,7 @@
 
     .line 1018
     .local v2, result:I
-    if-ltz v2, :cond_4f
+    if-ltz v2, :cond_4e
 
     .line 1019
     const/4 v4, 0x2
@@ -137,7 +137,7 @@
 
     move-result-object v4
 
-    const-string/jumbo v5, "language"
+    const-string v5, "language"
 
     invoke-virtual {v4, v5, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -166,7 +166,7 @@
     invoke-virtual {v4, v5, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1029
-    :cond_4f
+    :cond_4e
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4

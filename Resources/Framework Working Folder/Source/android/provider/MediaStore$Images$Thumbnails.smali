@@ -38,8 +38,6 @@
 
 .field public static final MINI_KIND:I = 0x1
 
-.field public static final PHONE_CONTENT_URI:Landroid/net/Uri; = null
-
 .field public static final THUMB_DATA:Ljava/lang/String; = "thumb_data"
 
 .field public static final WIDTH:Ljava/lang/String; = "width"
@@ -50,8 +48,8 @@
     .registers 1
 
     .prologue
-    .line 1003
-    const-string/jumbo v0, "internal"
+    .line 975
+    const-string v0, "internal"
 
     invoke-static {v0}, Landroid/provider/MediaStore$Images$Thumbnails;->getContentUri(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -59,7 +57,7 @@
 
     sput-object v0, Landroid/provider/MediaStore$Images$Thumbnails;->INTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    .line 1010
+    .line 982
     const-string v0, "external"
 
     invoke-static {v0}, Landroid/provider/MediaStore$Images$Thumbnails;->getContentUri(Ljava/lang/String;)Landroid/net/Uri;
@@ -68,15 +66,6 @@
 
     sput-object v0, Landroid/provider/MediaStore$Images$Thumbnails;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    .line 1019
-    const-string/jumbo v0, "phoneStorage"
-
-    invoke-static {v0}, Landroid/provider/MediaStore$Images$Thumbnails;->getContentUri(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v0
-
-    sput-object v0, Landroid/provider/MediaStore$Images$Thumbnails;->PHONE_CONTENT_URI:Landroid/net/Uri;
-
     return-void
 .end method
 
@@ -84,8 +73,8 @@
     .registers 1
 
     .prologue
-    .line 909
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 881
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -96,7 +85,7 @@
     .parameter "origId"
 
     .prologue
-    .line 935
+    .line 907
     sget-object v3, Landroid/provider/MediaStore$Images$Thumbnails;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
     const-wide/16 v4, 0x0
@@ -107,7 +96,7 @@
 
     invoke-static/range {v0 .. v5}, Landroid/provider/MediaStore$InternalThumbnails;->cancelThumbnailRequest(Landroid/content/ContentResolver;JLandroid/net/Uri;J)V
 
-    .line 937
+    .line 909
     return-void
 .end method
 
@@ -118,7 +107,7 @@
     .parameter "groupId"
 
     .prologue
-    .line 967
+    .line 939
     sget-object v3, Landroid/provider/MediaStore$Images$Thumbnails;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
     move-object v0, p0
@@ -129,7 +118,7 @@
 
     invoke-static/range {v0 .. v5}, Landroid/provider/MediaStore$InternalThumbnails;->cancelThumbnailRequest(Landroid/content/ContentResolver;JLandroid/net/Uri;J)V
 
-    .line 968
+    .line 940
     return-void
 .end method
 
@@ -138,7 +127,7 @@
     .parameter "volumeName"
 
     .prologue
-    .line 996
+    .line 968
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -178,7 +167,7 @@
     .parameter "options"
 
     .prologue
-    .line 952
+    .line 924
     const-wide/16 v3, 0x0
 
     sget-object v7, Landroid/provider/MediaStore$Images$Thumbnails;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
@@ -209,7 +198,7 @@
     .parameter "options"
 
     .prologue
-    .line 984
+    .line 956
     sget-object v7, Landroid/provider/MediaStore$Images$Thumbnails;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
     const/4 v8, 0x0
@@ -240,8 +229,8 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 911
-    const-string/jumbo v5, "image_id ASC"
+    .line 883
+    const-string v5, "image_id ASC"
 
     move-object v0, p0
 
@@ -268,14 +257,14 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 921
+    .line 893
     sget-object v1, Landroid/provider/MediaStore$Images$Thumbnails;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "image_id = "
+    const-string v2, "image_id = "
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -291,7 +280,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v2, "kind"
+    const-string v2, "kind"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -332,12 +321,12 @@
     .parameter "projection"
 
     .prologue
-    .line 916
+    .line 888
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "kind = "
+    const-string v1, "kind = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -353,7 +342,7 @@
 
     const/4 v4, 0x0
 
-    const-string/jumbo v5, "image_id ASC"
+    const-string v5, "image_id ASC"
 
     move-object v0, p0
 

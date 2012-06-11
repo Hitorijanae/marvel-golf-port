@@ -359,13 +359,13 @@
     .line 399
     iget v0, p0, Landroid/app/DialogFragment;->mStyle:I
 
-    packed-switch v0, :pswitch_data_46
+    packed-switch v0, :pswitch_data_44
 
     .line 409
     :goto_14
     iget-object v0, p0, Landroid/app/DialogFragment;->mDialog:Landroid/app/Dialog;
 
-    if-eqz v0, :cond_3a
+    if-eqz v0, :cond_39
 
     .line 410
     iget-object v0, p0, Landroid/app/DialogFragment;->mDialog:Landroid/app/Dialog;
@@ -374,7 +374,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "layout_inflater"
+    const-string v1, "layout_inflater"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -385,7 +385,7 @@
     goto :goto_8
 
     .line 401
-    :pswitch_28
+    :pswitch_27
     iget-object v0, p0, Landroid/app/DialogFragment;->mDialog:Landroid/app/Dialog;
 
     invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
@@ -397,7 +397,7 @@
     invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
 
     .line 407
-    :pswitch_33
+    :pswitch_32
     iget-object v0, p0, Landroid/app/DialogFragment;->mDialog:Landroid/app/Dialog;
 
     const/4 v1, 0x1
@@ -407,10 +407,10 @@
     goto :goto_14
 
     .line 413
-    :cond_3a
-    iget-object v0, p0, Landroid/app/Fragment;->mActivity:Landroid/app/Activity;
+    :cond_39
+    iget-object v0, p0, Landroid/app/DialogFragment;->mActivity:Landroid/app/Activity;
 
-    const-string/jumbo v1, "layout_inflater"
+    const-string v1, "layout_inflater"
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -421,11 +421,11 @@
     goto :goto_8
 
     .line 399
-    :pswitch_data_46
+    :pswitch_data_44
     .packed-switch 0x1
-        :pswitch_33
-        :pswitch_33
-        :pswitch_28
+        :pswitch_32
+        :pswitch_32
+        :pswitch_27
     .end packed-switch
 .end method
 
@@ -614,7 +614,7 @@
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 379
-    iget v0, p0, Landroid/app/Fragment;->mContainerId:I
+    iget v0, p0, Landroid/app/DialogFragment;->mContainerId:I
 
     if-nez v0, :cond_3a
 

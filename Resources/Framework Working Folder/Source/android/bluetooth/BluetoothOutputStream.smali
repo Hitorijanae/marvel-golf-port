@@ -76,7 +76,7 @@
 .end method
 
 .method public write([BII)V
-    .registers 8
+    .registers 6
     .parameter "b"
     .parameter "offset"
     .parameter "count"
@@ -91,61 +91,42 @@
     if-nez p1, :cond_a
 
     .line 80
-    new-instance v1, Ljava/lang/NullPointerException;
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v2, "buffer is null"
+    const-string v1, "buffer is null"
 
-    invoke-direct {v1, v2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 
     .line 82
     :cond_a
-    or-int v1, p2, p3
+    or-int v0, p2, p3
 
-    if-ltz v1, :cond_12
+    if-ltz v0, :cond_12
 
-    array-length v1, p1
+    array-length v0, p1
 
-    sub-int/2addr v1, p2
+    sub-int/2addr v0, p2
 
-    if-le p3, v1, :cond_1b
+    if-le p3, v0, :cond_1a
 
     .line 83
     :cond_12
-    new-instance v1, Ljava/lang/IndexOutOfBoundsException;
+    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
-    const-string/jumbo v2, "invalid offset or length"
+    const-string v1, "invalid offset or length"
 
-    invoke-direct {v1, v2}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 
-    .line 87
-    :cond_1b
-    const/4 v0, 0x0
+    .line 85
+    :cond_1a
+    iget-object v0, p0, Landroid/bluetooth/BluetoothOutputStream;->mSocket:Landroid/bluetooth/BluetoothSocket;
 
-    .line 88
-    .local v0, written:I
-    :goto_1c
-    if-ge v0, p3, :cond_2a
+    invoke-virtual {v0, p1, p2, p3}, Landroid/bluetooth/BluetoothSocket;->write([BII)I
 
-    .line 89
-    iget-object v1, p0, Landroid/bluetooth/BluetoothOutputStream;->mSocket:Landroid/bluetooth/BluetoothSocket;
-
-    add-int v2, p2, v0
-
-    sub-int v3, p3, v0
-
-    invoke-virtual {v1, p1, v2, v3}, Landroid/bluetooth/BluetoothSocket;->write([BII)I
-
-    move-result v1
-
-    add-int/2addr v0, v1
-
-    goto :goto_1c
-
-    .line 91
-    :cond_2a
+    .line 86
     return-void
 .end method

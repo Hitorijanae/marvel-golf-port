@@ -12,9 +12,9 @@
 
 .field static final FILE_PROPERTIES:[I = null
 
-.field private static final FORMAT_PARENT_WHERE:Ljava/lang/String; = "format=? AND parent=?"
+.field private static final FORMAT_PARENT_WHERE:Ljava/lang/String; = "parent=? AND parent=?"
 
-.field private static final FORMAT_WHERE:Ljava/lang/String; = "format=?"
+.field private static final FORMAT_WHERE:Ljava/lang/String; = "parent=?"
 
 .field private static final ID_PROJECTION:[Ljava/lang/String; = null
 
@@ -24,7 +24,7 @@
 
 .field private static final OBJECT_INFO_PROJECTION:[Ljava/lang/String; = null
 
-.field private static final PARENT_WHERE:Ljava/lang/String; = "parent=?"
+.field private static final PARENT_WHERE:Ljava/lang/String; = "format=?"
 
 .field private static final PATH_PROJECTION:[Ljava/lang/String; = null
 
@@ -43,14 +43,6 @@
 .field private static final TAG:Ljava/lang/String; = "MtpDatabase"
 
 .field static final VIDEO_PROPERTIES:[I
-
-.field private static bCheckStorageId:Z
-
-.field private static iStorageID1:I
-
-.field private static iStorageID2:I
-
-.field private static szStoragePath2:Ljava/lang/String;
 
 
 # instance fields
@@ -120,50 +112,48 @@
     .registers 7
 
     .prologue
-    const/4 v6, 0x3
+    const/4 v6, 0x4
 
-    const/4 v5, -0x1
+    const/4 v5, 0x3
 
     const/4 v4, 0x2
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    .line 84
-    new-array v0, v2, [Ljava/lang/String;
+    .line 80
+    new-array v0, v3, [Ljava/lang/String;
 
     const-string v1, "_id"
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v2
 
     sput-object v0, Landroid/mtp/MtpDatabase;->ID_PROJECTION:[Ljava/lang/String;
 
-    .line 87
+    .line 83
     new-array v0, v4, [Ljava/lang/String;
 
     const-string v1, "_id"
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v2
 
     const-string v1, "_data"
 
-    aput-object v1, v0, v2
+    aput-object v1, v0, v3
 
     sput-object v0, Landroid/mtp/MtpDatabase;->PATH_PROJECTION:[Ljava/lang/String;
 
-    .line 91
-    const/4 v0, 0x4
-
-    new-array v0, v0, [Ljava/lang/String;
+    .line 87
+    new-array v0, v6, [Ljava/lang/String;
 
     const-string v1, "_id"
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v2
 
     const-string v1, "_data"
 
-    aput-object v1, v0, v2
+    aput-object v1, v0, v3
 
     const-string v1, "_size"
 
@@ -171,22 +161,22 @@
 
     const-string v1, "format"
 
-    aput-object v1, v0, v6
+    aput-object v1, v0, v5
 
     sput-object v0, Landroid/mtp/MtpDatabase;->PATH_SIZE_FORMAT_PROJECTION:[Ljava/lang/String;
 
-    .line 97
+    .line 93
     const/4 v0, 0x7
 
     new-array v0, v0, [Ljava/lang/String;
 
     const-string v1, "_id"
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v2
 
     const-string/jumbo v1, "storage_id"
 
-    aput-object v1, v0, v2
+    aput-object v1, v0, v3
 
     const-string v1, "format"
 
@@ -194,13 +184,11 @@
 
     const-string/jumbo v1, "parent"
 
+    aput-object v1, v0, v5
+
+    const-string v1, "_data"
+
     aput-object v1, v0, v6
-
-    const/4 v1, 0x4
-
-    const-string v2, "_data"
-
-    aput-object v2, v0, v1
 
     const/4 v1, 0x5
 
@@ -216,73 +204,60 @@
 
     sput-object v0, Landroid/mtp/MtpDatabase;->OBJECT_INFO_PROJECTION:[Ljava/lang/String;
 
-    .line 124
+    .line 120
     const-string/jumbo v0, "media_jni"
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
-    .line 344
-    sput v5, Landroid/mtp/MtpDatabase;->iStorageID1:I
-
-    sput v5, Landroid/mtp/MtpDatabase;->iStorageID2:I
-
-    .line 345
-    const-string v0, ""
-
-    sput-object v0, Landroid/mtp/MtpDatabase;->szStoragePath2:Ljava/lang/String;
-
-    .line 346
-    sput-boolean v3, Landroid/mtp/MtpDatabase;->bCheckStorageId:Z
-
-    .line 595
+    .line 519
     const/16 v0, 0xa
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_92
+    fill-array-data v0, :array_86
 
     sput-object v0, Landroid/mtp/MtpDatabase;->FILE_PROPERTIES:[I
 
-    .line 610
+    .line 534
     const/16 v0, 0x13
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_aa
+    fill-array-data v0, :array_9e
 
     sput-object v0, Landroid/mtp/MtpDatabase;->AUDIO_PROPERTIES:[I
 
-    .line 635
+    .line 559
     const/16 v0, 0xf
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_d4
+    fill-array-data v0, :array_c8
 
     sput-object v0, Landroid/mtp/MtpDatabase;->VIDEO_PROPERTIES:[I
 
-    .line 656
+    .line 580
     const/16 v0, 0xc
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_f6
+    fill-array-data v0, :array_ea
 
     sput-object v0, Landroid/mtp/MtpDatabase;->IMAGE_PROPERTIES:[I
 
-    .line 674
+    .line 598
     const/16 v0, 0x19
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_112
+    fill-array-data v0, :array_106
 
     sput-object v0, Landroid/mtp/MtpDatabase;->ALL_PROPERTIES:[I
 
     return-void
 
-    .line 595
-    :array_92
+    .line 519
+    :array_86
     .array-data 0x4
         0x1t 0xdct 0x0t 0x0t
         0x2t 0xdct 0x0t 0x0t
@@ -296,8 +271,8 @@
         0x4et 0xdct 0x0t 0x0t
     .end array-data
 
-    .line 610
-    :array_aa
+    .line 534
+    :array_9e
     .array-data 0x4
         0x1t 0xdct 0x0t 0x0t
         0x2t 0xdct 0x0t 0x0t
@@ -320,8 +295,8 @@
         0x96t 0xdct 0x0t 0x0t
     .end array-data
 
-    .line 635
-    :array_d4
+    .line 559
+    :array_c8
     .array-data 0x4
         0x1t 0xdct 0x0t 0x0t
         0x2t 0xdct 0x0t 0x0t
@@ -340,8 +315,8 @@
         0x48t 0xdct 0x0t 0x0t
     .end array-data
 
-    .line 656
-    :array_f6
+    .line 580
+    :array_ea
     .array-data 0x4
         0x1t 0xdct 0x0t 0x0t
         0x2t 0xdct 0x0t 0x0t
@@ -357,8 +332,8 @@
         0x48t 0xdct 0x0t 0x0t
     .end array-data
 
-    .line 674
-    :array_112
+    .line 598
+    :array_106
     .array-data 0x4
         0x1t 0xdct 0x0t 0x0t
         0x2t 0xdct 0x0t 0x0t
@@ -396,37 +371,37 @@
     .parameter "subDirectories"
 
     .prologue
-    .line 128
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 124
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 67
+    .line 63
     new-instance v10, Ljava/util/HashMap;
 
     invoke-direct {v10}, Ljava/util/HashMap;-><init>()V
 
     iput-object v10, p0, Landroid/mtp/MtpDatabase;->mStorageMap:Ljava/util/HashMap;
 
-    .line 70
+    .line 66
     new-instance v10, Ljava/util/HashMap;
 
     invoke-direct {v10}, Ljava/util/HashMap;-><init>()V
 
     iput-object v10, p0, Landroid/mtp/MtpDatabase;->mPropertyGroupsByProperty:Ljava/util/HashMap;
 
-    .line 74
+    .line 70
     new-instance v10, Ljava/util/HashMap;
 
     invoke-direct {v10}, Ljava/util/HashMap;-><init>()V
 
     iput-object v10, p0, Landroid/mtp/MtpDatabase;->mPropertyGroupsByFormat:Ljava/util/HashMap;
 
-    .line 129
+    .line 125
     invoke-direct {p0}, Landroid/mtp/MtpDatabase;->native_setup()V
 
-    .line 131
+    .line 127
     iput-object p1, p0, Landroid/mtp/MtpDatabase;->mContext:Landroid/content/Context;
 
-    .line 132
+    .line 128
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v10
@@ -439,53 +414,53 @@
 
     iput-object v10, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
 
-    .line 133
+    .line 129
     iput-object p2, p0, Landroid/mtp/MtpDatabase;->mVolumeName:Ljava/lang/String;
 
-    .line 134
+    .line 130
     move-object/from16 v0, p3
 
     iput-object v0, p0, Landroid/mtp/MtpDatabase;->mMediaStoragePath:Ljava/lang/String;
 
-    .line 135
+    .line 131
     invoke-static {p2}, Landroid/provider/MediaStore$Files;->getMtpObjectsUri(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v10
 
     iput-object v10, p0, Landroid/mtp/MtpDatabase;->mObjectsUri:Landroid/net/Uri;
 
-    .line 136
+    .line 132
     new-instance v10, Landroid/media/MediaScanner;
 
     invoke-direct {v10, p1}, Landroid/media/MediaScanner;-><init>(Landroid/content/Context;)V
 
     iput-object v10, p0, Landroid/mtp/MtpDatabase;->mMediaScanner:Landroid/media/MediaScanner;
 
-    .line 138
+    .line 134
     move-object/from16 v0, p4
 
     iput-object v0, p0, Landroid/mtp/MtpDatabase;->mSubDirectories:[Ljava/lang/String;
 
-    .line 139
+    .line 135
     if-eqz p4, :cond_9e
 
-    .line 141
+    .line 137
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 142
+    .line 138
     .local v1, builder:Ljava/lang/StringBuilder;
     const-string v10, "("
 
     invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 143
+    .line 139
     move-object/from16 v0, p4
 
     array-length v2, v0
 
-    .line 144
+    .line 140
     .local v2, count:I
     const/4 v4, 0x0
 
@@ -493,48 +468,48 @@
     :goto_51
     if-ge v4, v2, :cond_64
 
-    .line 145
+    .line 141
     const-string v10, "_data=? OR _data LIKE ?"
 
     invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 147
+    .line 143
     add-int/lit8 v10, v2, -0x1
 
     if-eq v4, v10, :cond_61
 
-    .line 148
+    .line 144
     const-string v10, " OR "
 
     invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 144
+    .line 140
     :cond_61
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_51
 
-    .line 151
+    .line 147
     :cond_64
     const-string v10, ")"
 
     invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 152
+    .line 148
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v10
 
     iput-object v10, p0, Landroid/mtp/MtpDatabase;->mSubDirectoriesWhere:Ljava/lang/String;
 
-    .line 155
+    .line 151
     mul-int/lit8 v10, v2, 0x2
 
     new-array v10, v10, [Ljava/lang/String;
 
     iput-object v10, p0, Landroid/mtp/MtpDatabase;->mSubDirectoriesWhereArgs:[Ljava/lang/String;
 
-    .line 156
+    .line 152
     const/4 v4, 0x0
 
     const/4 v5, 0x0
@@ -547,10 +522,10 @@
     :goto_78
     if-ge v4, v2, :cond_9e
 
-    .line 157
+    .line 153
     aget-object v9, p4, v4
 
-    .line 158
+    .line 154
     .local v9, path:Ljava/lang/String;
     iget-object v10, p0, Landroid/mtp/MtpDatabase;->mSubDirectoriesWhereArgs:[Ljava/lang/String;
 
@@ -560,7 +535,7 @@
     .restart local v5       #j:I
     aput-object v9, v10, v6
 
-    .line 159
+    .line 155
     iget-object v10, p0, Landroid/mtp/MtpDatabase;->mSubDirectoriesWhereArgs:[Ljava/lang/String;
 
     add-int/lit8 v6, v5, 0x1
@@ -587,12 +562,12 @@
 
     aput-object v11, v10, v5
 
-    .line 156
+    .line 152
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_78
 
-    .line 164
+    .line 160
     .end local v1           #builder:Ljava/lang/StringBuilder;
     .end local v2           #count:I
     .end local v4           #i:I
@@ -609,29 +584,29 @@
 
     iget-object v8, v10, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
-    .line 165
+    .line 161
     .local v8, locale:Ljava/util/Locale;
     if-eqz v8, :cond_d2
 
-    .line 166
+    .line 162
     invoke-virtual {v8}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
     move-result-object v7
 
-    .line 167
+    .line 163
     .local v7, language:Ljava/lang/String;
     invoke-virtual {v8}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 168
+    .line 164
     .local v3, country:Ljava/lang/String;
     if-eqz v7, :cond_d2
 
-    .line 169
+    .line 165
     if-eqz v3, :cond_d6
 
-    .line 170
+    .line 166
     iget-object v10, p0, Landroid/mtp/MtpDatabase;->mMediaScanner:Landroid/media/MediaScanner;
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -658,17 +633,17 @@
 
     invoke-virtual {v10, v11}, Landroid/media/MediaScanner;->setLocale(Ljava/lang/String;)V
 
-    .line 176
+    .line 172
     .end local v3           #country:Ljava/lang/String;
     .end local v7           #language:Ljava/lang/String;
     :cond_d2
     :goto_d2
     invoke-direct {p0, p1}, Landroid/mtp/MtpDatabase;->initDeviceProperties(Landroid/content/Context;)V
 
-    .line 177
+    .line 173
     return-void
 
-    .line 172
+    .line 168
     .restart local v3       #country:Ljava/lang/String;
     .restart local v7       #language:Ljava/lang/String;
     :cond_d6
@@ -677,257 +652,6 @@
     invoke-virtual {v10, v7}, Landroid/media/MediaScanner;->setLocale(Ljava/lang/String;)V
 
     goto :goto_d2
-.end method
-
-.method private CheckStorage(II)I
-    .registers 13
-    .parameter "iStorageID"
-    .parameter "iParent"
-
-    .prologue
-    const/4 v5, 0x1
-
-    const/4 v9, -0x1
-
-    .line 350
-    sget-boolean v6, Landroid/mtp/MtpDatabase;->bCheckStorageId:Z
-
-    if-nez v6, :cond_6c
-
-    .line 352
-    const-string v6, "EXTERNAL_STORAGE"
-
-    invoke-static {v6}, Ljava/lang/System;->getenv(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    .line 353
-    .local v4, szStoragePath1:Ljava/lang/String;
-    iget-object v6, p0, Landroid/mtp/MtpDatabase;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v7, "storage"
-
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/os/storage/StorageManager;
-
-    .line 354
-    .local v2, mStorageManager:Landroid/os/storage/StorageManager;
-    invoke-virtual {v2}, Landroid/os/storage/StorageManager;->getVolumeList()[Landroid/os/storage/StorageVolume;
-
-    move-result-object v0
-
-    .line 356
-    .local v0, aVolumes:[Landroid/os/storage/StorageVolume;
-    if-nez v4, :cond_1f
-
-    .line 357
-    const-string v4, "/mnt/sdcard"
-
-    .line 358
-    :cond_1f
-    invoke-static {}, Landroid/os/Environment;->getRemovableStorageDirectory()Ljava/io/File;
-
-    move-result-object v6
-
-    if-eqz v6, :cond_39
-
-    invoke-static {}, Landroid/os/Environment;->getRemovableStorageDirectory()Ljava/io/File;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/io/File;->getPath()Ljava/lang/String;
-
-    move-result-object v6
-
-    if-eqz v6, :cond_39
-
-    .line 360
-    invoke-static {}, Landroid/os/Environment;->getRemovableStorageDirectory()Ljava/io/File;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/io/File;->getPath()Ljava/lang/String;
-
-    move-result-object v6
-
-    sput-object v6, Landroid/mtp/MtpDatabase;->szStoragePath2:Ljava/lang/String;
-
-    .line 362
-    :cond_39
-    const/4 v1, 0x0
-
-    .local v1, ii:I
-    :goto_3a
-    array-length v6, v0
-
-    if-ge v1, v6, :cond_6a
-
-    .line 363
-    aget-object v6, v0, v1
-
-    invoke-virtual {v6}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 365
-    .local v3, szPath:Ljava/lang/String;
-    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_54
-
-    .line 367
-    aget-object v6, v0, v1
-
-    invoke-virtual {v6}, Landroid/os/storage/StorageVolume;->getStorageId()I
-
-    move-result v6
-
-    sput v6, Landroid/mtp/MtpDatabase;->iStorageID1:I
-
-    .line 362
-    :cond_51
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_3a
-
-    .line 370
-    :cond_54
-    sget-object v6, Landroid/mtp/MtpDatabase;->szStoragePath2:Ljava/lang/String;
-
-    invoke-virtual {v6, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_51
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_51
-
-    .line 372
-    aget-object v6, v0, v1
-
-    invoke-virtual {v6}, Landroid/os/storage/StorageVolume;->getStorageId()I
-
-    move-result v6
-
-    sput v6, Landroid/mtp/MtpDatabase;->iStorageID2:I
-
-    .line 376
-    .end local v3           #szPath:Ljava/lang/String;
-    :cond_6a
-    sput-boolean v5, Landroid/mtp/MtpDatabase;->bCheckStorageId:Z
-
-    .line 379
-    .end local v0           #aVolumes:[Landroid/os/storage/StorageVolume;
-    .end local v1           #ii:I
-    .end local v2           #mStorageManager:Landroid/os/storage/StorageManager;
-    .end local v4           #szStoragePath1:Ljava/lang/String;
-    :cond_6c
-    const-string v6, "MtpDatabase"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "StorageID1="
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    sget v8, Landroid/mtp/MtpDatabase;->iStorageID1:I
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, ",StorageID2="
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    sget v8, Landroid/mtp/MtpDatabase;->iStorageID2:I
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 380
-    if-nez p2, :cond_bf
-
-    .line 381
-    sget v6, Landroid/mtp/MtpDatabase;->iStorageID1:I
-
-    if-eq v6, v9, :cond_bf
-
-    sget v6, Landroid/mtp/MtpDatabase;->iStorageID2:I
-
-    if-eq v6, v9, :cond_bf
-
-    .line 383
-    sget v6, Landroid/mtp/MtpDatabase;->iStorageID1:I
-
-    if-ne p1, v6, :cond_a1
-
-    .line 391
-    :goto_a0
-    return v5
-
-    .line 385
-    :cond_a1
-    sget v5, Landroid/mtp/MtpDatabase;->iStorageID2:I
-
-    if-ne p1, v5, :cond_a7
-
-    .line 386
-    const/4 v5, 0x2
-
-    goto :goto_a0
-
-    .line 388
-    :cond_a7
-    const-string v5, "MtpDatabase"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "Unhandled StorageID="
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 391
-    :cond_bf
-    const/4 v5, 0x0
-
-    goto :goto_a0
 .end method
 
 .method private beginSendObject(Ljava/lang/String;IIIJJ)I
@@ -940,7 +664,7 @@
     .parameter "modified"
 
     .prologue
-    .line 266
+    .line 262
     invoke-direct {p0, p1}, Landroid/mtp/MtpDatabase;->inStorageSubDirectory(Ljava/lang/String;)Z
 
     move-result v0
@@ -949,19 +673,19 @@
 
     const/4 v0, -0x1
 
-    .line 305
+    .line 301
     :cond_7
     :goto_7
     return v0
 
-    .line 269
+    .line 265
     :cond_8
-    if-eqz p1, :cond_52
+    if-eqz p1, :cond_4a
 
-    .line 270
+    .line 266
     const/4 v6, 0x0
 
-    .line 272
+    .line 268
     .local v6, c:Landroid/database/Cursor;
     :try_start_b
     iget-object v0, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
@@ -986,16 +710,16 @@
 
     move-result-object v6
 
-    .line 274
-    if-eqz v6, :cond_be
+    .line 270
+    if-eqz v6, :cond_45
 
     invoke-interface {v6}, Landroid/database/Cursor;->getCount()I
 
     move-result v0
 
-    if-lez v0, :cond_be
+    if-lez v0, :cond_45
 
-    .line 275
+    .line 271
     const-string v0, "MtpDatabase"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1018,62 +742,47 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_3e
-    .catchall {:try_start_b .. :try_end_3e} :catchall_a9
-    .catch Landroid/os/RemoteException; {:try_start_b .. :try_end_3e} :catch_45
+    .catchall {:try_start_b .. :try_end_3e} :catchall_af
+    .catch Landroid/os/RemoteException; {:try_start_b .. :try_end_3e} :catch_a1
 
-    .line 276
+    .line 272
     const/4 v0, -0x1
 
-    .line 281
+    .line 277
     if-eqz v6, :cond_7
 
-    .line 282
+    .line 278
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     goto :goto_7
 
+    .line 277
+    :cond_45
+    if-eqz v6, :cond_4a
+
     .line 278
-    :catch_45
-    move-exception v7
-
-    .line 279
-    .local v7, e:Landroid/os/RemoteException;
-    :try_start_46
-    const-string v0, "MtpDatabase"
-
-    const-string v1, "RemoteException in beginSendObject"
-
-    invoke-static {v0, v1, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_4d
-    .catchall {:try_start_46 .. :try_end_4d} :catchall_a9
-
-    .line 281
-    if-eqz v6, :cond_52
-
-    .line 282
-    .end local v7           #e:Landroid/os/RemoteException;
-    :goto_4f
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 287
+    .line 283
     .end local v6           #c:Landroid/database/Cursor;
-    :cond_52
+    :cond_4a
+    :goto_4a
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/mtp/MtpDatabase;->mDatabaseModified:Z
 
-    .line 288
+    .line 284
     new-instance v9, Landroid/content/ContentValues;
 
     invoke-direct {v9}, Landroid/content/ContentValues;-><init>()V
 
-    .line 289
+    .line 285
     .local v9, values:Landroid/content/ContentValues;
     const-string v0, "_data"
 
     invoke-virtual {v9, v0, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 290
+    .line 286
     const-string v0, "format"
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1082,7 +791,7 @@
 
     invoke-virtual {v9, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 291
+    .line 287
     const-string/jumbo v0, "parent"
 
     invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1091,7 +800,7 @@
 
     invoke-virtual {v9, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 292
+    .line 288
     const-string/jumbo v0, "storage_id"
 
     invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1100,7 +809,7 @@
 
     invoke-virtual {v9, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 293
+    .line 289
     const-string v0, "_size"
 
     invoke-static/range {p5 .. p6}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -1109,7 +818,7 @@
 
     invoke-virtual {v9, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    .line 294
+    .line 290
     const-string v0, "date_modified"
 
     invoke-static/range {p7 .. p8}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -1118,8 +827,8 @@
 
     invoke-virtual {v9, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    .line 297
-    :try_start_8e
+    .line 293
+    :try_start_86
     iget-object v0, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
 
     iget-object v1, p0, Landroid/mtp/MtpDatabase;->mObjectsUri:Landroid/net/Uri;
@@ -1128,11 +837,11 @@
 
     move-result-object v8
 
-    .line 298
+    .line 294
     .local v8, uri:Landroid/net/Uri;
-    if-eqz v8, :cond_b0
+    if-eqz v8, :cond_b6
 
-    .line 299
+    .line 295
     invoke-virtual {v8}, Landroid/net/Uri;->getPathSegments()Ljava/util/List;
 
     move-result-object v0
@@ -1146,44 +855,67 @@
     check-cast v0, Ljava/lang/String;
 
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_a6
-    .catch Landroid/os/RemoteException; {:try_start_8e .. :try_end_a6} :catch_b3
+    :try_end_9e
+    .catch Landroid/os/RemoteException; {:try_start_86 .. :try_end_9e} :catch_b9
 
     move-result v0
 
     goto/16 :goto_7
 
-    .line 281
+    .line 274
     .end local v8           #uri:Landroid/net/Uri;
     .end local v9           #values:Landroid/content/ContentValues;
     .restart local v6       #c:Landroid/database/Cursor;
-    :catchall_a9
-    move-exception v0
+    :catch_a1
+    move-exception v7
 
-    if-eqz v6, :cond_af
+    .line 275
+    .local v7, e:Landroid/os/RemoteException;
+    :try_start_a2
+    const-string v0, "MtpDatabase"
 
-    .line 282
+    const-string v1, "RemoteException in beginSendObject"
+
+    invoke-static {v0, v1, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_a9
+    .catchall {:try_start_a2 .. :try_end_a9} :catchall_af
+
+    .line 277
+    if-eqz v6, :cond_4a
+
+    .line 278
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 281
-    :cond_af
+    goto :goto_4a
+
+    .line 277
+    .end local v7           #e:Landroid/os/RemoteException;
+    :catchall_af
+    move-exception v0
+
+    if-eqz v6, :cond_b5
+
+    .line 278
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    :cond_b5
     throw v0
 
-    .line 301
+    .line 297
     .end local v6           #c:Landroid/database/Cursor;
     .restart local v8       #uri:Landroid/net/Uri;
     .restart local v9       #values:Landroid/content/ContentValues;
-    :cond_b0
+    :cond_b6
     const/4 v0, -0x1
 
     goto/16 :goto_7
 
-    .line 303
+    .line 299
     .end local v8           #uri:Landroid/net/Uri;
-    :catch_b3
+    :catch_b9
     move-exception v7
 
-    .line 304
+    .line 300
     .restart local v7       #e:Landroid/os/RemoteException;
     const-string v0, "MtpDatabase"
 
@@ -1191,23 +923,14 @@
 
     invoke-static {v0, v1, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 305
+    .line 301
     const/4 v0, -0x1
 
     goto/16 :goto_7
-
-    .line 281
-    .end local v7           #e:Landroid/os/RemoteException;
-    .end local v9           #values:Landroid/content/ContentValues;
-    .restart local v6       #c:Landroid/database/Cursor;
-    :cond_be
-    if-eqz v6, :cond_52
-
-    goto :goto_4f
 .end method
 
 .method private createObjectQuery(III)Landroid/database/Cursor;
-    .registers 16
+    .registers 13
     .parameter "storageID"
     .parameter "format"
     .parameter "parent"
@@ -1218,48 +941,47 @@
     .end annotation
 
     .prologue
-    const/4 v0, -0x1
-
     const/4 v5, 0x2
 
-    const/4 v2, 0x0
+    const/4 v0, -0x1
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    .line 398
-    if-ne p1, v0, :cond_52
+    const/4 v1, 0x0
 
-    .line 400
-    if-nez p2, :cond_31
+    .line 344
+    if-ne p1, v0, :cond_53
 
-    .line 402
+    .line 346
+    if-nez p2, :cond_30
+
+    .line 348
     if-nez p3, :cond_22
 
-    .line 404
+    .line 350
     const/4 v3, 0x0
 
-    .line 405
+    .line 351
     .local v3, where:Ljava/lang/String;
     const/4 v4, 0x0
 
-    .line 491
+    .line 415
     .local v4, whereArgs:[Ljava/lang/String;
-    :cond_c
     :goto_c
     iget-object v0, p0, Landroid/mtp/MtpDatabase;->mSubDirectoriesWhere:Ljava/lang/String;
 
     if-eqz v0, :cond_16
 
-    .line 492
-    if-nez v3, :cond_13d
+    .line 416
+    if-nez v3, :cond_a9
 
-    .line 493
+    .line 417
     iget-object v3, p0, Landroid/mtp/MtpDatabase;->mSubDirectoriesWhere:Ljava/lang/String;
 
-    .line 494
+    .line 418
     iget-object v4, p0, Landroid/mtp/MtpDatabase;->mSubDirectoriesWhereArgs:[Ljava/lang/String;
 
-    .line 512
+    .line 436
     :cond_16
     :goto_16
     iget-object v0, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
@@ -1276,68 +998,68 @@
 
     return-object v0
 
-    .line 407
+    .line 353
     .end local v3           #where:Ljava/lang/String;
     .end local v4           #whereArgs:[Ljava/lang/String;
     :cond_22
     if-ne p3, v0, :cond_25
 
-    .line 409
+    .line 355
     const/4 p3, 0x0
 
-    .line 411
+    .line 357
     :cond_25
-    const-string/jumbo v3, "parent=?"
+    const-string v3, "format=?"
 
-    .line 412
+    .line 358
     .restart local v3       #where:Ljava/lang/String;
-    new-array v4, v1, [Ljava/lang/String;
+    new-array v4, v2, [Ljava/lang/String;
 
     invoke-static {p3}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    aput-object v0, v4, v2
+    aput-object v0, v4, v1
 
     .restart local v4       #whereArgs:[Ljava/lang/String;
     goto :goto_c
 
-    .line 416
+    .line 362
     .end local v3           #where:Ljava/lang/String;
     .end local v4           #whereArgs:[Ljava/lang/String;
-    :cond_31
+    :cond_30
     if-nez p3, :cond_3e
 
-    .line 418
-    const-string v3, "format=?"
+    .line 364
+    const-string/jumbo v3, "parent=?"
 
-    .line 419
+    .line 365
     .restart local v3       #where:Ljava/lang/String;
-    new-array v4, v1, [Ljava/lang/String;
+    new-array v4, v2, [Ljava/lang/String;
 
     invoke-static {p2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    aput-object v0, v4, v2
+    aput-object v0, v4, v1
 
     .restart local v4       #whereArgs:[Ljava/lang/String;
     goto :goto_c
 
-    .line 421
+    .line 367
     .end local v3           #where:Ljava/lang/String;
     .end local v4           #whereArgs:[Ljava/lang/String;
     :cond_3e
     if-ne p3, v0, :cond_41
 
-    .line 423
+    .line 369
     const/4 p3, 0x0
 
-    .line 425
+    .line 371
     :cond_41
-    const-string v3, "format=? AND parent=?"
+    const-string/jumbo v3, "parent=? AND parent=?"
 
-    .line 426
+    .line 372
     .restart local v3       #where:Ljava/lang/String;
     new-array v4, v5, [Ljava/lang/String;
 
@@ -1345,34 +1067,66 @@
 
     move-result-object v0
 
-    aput-object v0, v4, v2
+    aput-object v0, v4, v1
 
     invoke-static {p3}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    aput-object v0, v4, v1
+    aput-object v0, v4, v2
 
     .restart local v4       #whereArgs:[Ljava/lang/String;
     goto :goto_c
 
-    .line 432
+    .line 378
     .end local v3           #where:Ljava/lang/String;
     .end local v4           #whereArgs:[Ljava/lang/String;
-    :cond_52
-    if-nez p2, :cond_10b
+    :cond_53
+    if-nez p2, :cond_78
 
-    .line 434
-    if-nez p3, :cond_62
+    .line 380
+    if-nez p3, :cond_63
 
-    .line 436
+    .line 382
     const-string/jumbo v3, "storage_id=?"
 
-    .line 437
+    .line 383
     .restart local v3       #where:Ljava/lang/String;
-    new-array v4, v1, [Ljava/lang/String;
+    new-array v4, v2, [Ljava/lang/String;
 
     invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    aput-object v0, v4, v1
+
+    .restart local v4       #whereArgs:[Ljava/lang/String;
+    goto :goto_c
+
+    .line 385
+    .end local v3           #where:Ljava/lang/String;
+    .end local v4           #whereArgs:[Ljava/lang/String;
+    :cond_63
+    if-ne p3, v0, :cond_66
+
+    .line 387
+    const/4 p3, 0x0
+
+    .line 389
+    :cond_66
+    const-string/jumbo v3, "storage_id=? AND parent=?"
+
+    .line 390
+    .restart local v3       #where:Ljava/lang/String;
+    new-array v4, v5, [Ljava/lang/String;
+
+    invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    aput-object v0, v4, v1
+
+    invoke-static {p3}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1381,259 +1135,48 @@
     .restart local v4       #whereArgs:[Ljava/lang/String;
     goto :goto_c
 
-    .line 439
+    .line 395
     .end local v3           #where:Ljava/lang/String;
     .end local v4           #whereArgs:[Ljava/lang/String;
-    :cond_62
-    const/4 v7, 0x0
+    :cond_78
+    if-nez p3, :cond_8c
 
-    .line 441
-    .local v7, iStorageID:I
-    if-ne p3, v0, :cond_6a
+    .line 397
+    const-string/jumbo v3, "storage_id=? AND format=?"
 
-    .line 443
-    const/4 p3, 0x0
-
-    .line 444
-    invoke-direct {p0, p1, p3}, Landroid/mtp/MtpDatabase;->CheckStorage(II)I
-
-    move-result v7
-
-    .line 446
-    :cond_6a
-    const-string/jumbo v3, "storage_id=? AND parent=?"
-
-    .line 447
+    .line 398
     .restart local v3       #where:Ljava/lang/String;
     new-array v4, v5, [Ljava/lang/String;
 
     invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    aput-object v0, v4, v2
-
-    invoke-static {p3}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
 
     aput-object v0, v4, v1
-
-    .line 449
-    .restart local v4       #whereArgs:[Ljava/lang/String;
-    if-eq v7, v1, :cond_7f
-
-    if-ne v7, v5, :cond_c
-
-    .line 451
-    :cond_7f
-    const-string/jumbo v3, "parent=?"
-
-    .line 452
-    new-array v11, v5, [Ljava/lang/String;
-
-    invoke-static {p3}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    aput-object v0, v11, v2
-
-    const-string v0, ""
-
-    aput-object v0, v11, v1
-
-    .line 454
-    .local v11, newWhereArgs:[Ljava/lang/String;
-    array-length v0, v11
-
-    add-int/lit8 v8, v0, -0x1
-
-    .line 456
-    .local v8, ii:I
-    if-ne v7, v1, :cond_cf
-
-    .line 458
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, " AND "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, "_data"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, " NOT LIKE ?"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 459
-    add-int/lit8 v9, v8, 0x1
-
-    .end local v8           #ii:I
-    .local v9, ii:I
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    sget-object v1, Landroid/mtp/MtpDatabase;->szStoragePath2:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, "%"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    aput-object v0, v11, v8
-
-    move v8, v9
-
-    .line 466
-    .end local v9           #ii:I
-    .restart local v8       #ii:I
-    :cond_cc
-    :goto_cc
-    move-object v4, v11
-
-    goto/16 :goto_c
-
-    .line 461
-    :cond_cf
-    if-ne v7, v5, :cond_cc
-
-    .line 463
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, " AND "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, "_data"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, " LIKE ?"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 464
-    add-int/lit8 v9, v8, 0x1
-
-    .end local v8           #ii:I
-    .restart local v9       #ii:I
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    sget-object v1, Landroid/mtp/MtpDatabase;->szStoragePath2:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, "/%"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    aput-object v0, v11, v8
-
-    move v8, v9
-
-    .end local v9           #ii:I
-    .restart local v8       #ii:I
-    goto :goto_cc
-
-    .line 471
-    .end local v3           #where:Ljava/lang/String;
-    .end local v4           #whereArgs:[Ljava/lang/String;
-    .end local v7           #iStorageID:I
-    .end local v8           #ii:I
-    .end local v11           #newWhereArgs:[Ljava/lang/String;
-    :cond_10b
-    if-nez p3, :cond_120
-
-    .line 473
-    const-string/jumbo v3, "storage_id=? AND format=?"
-
-    .line 474
-    .restart local v3       #where:Ljava/lang/String;
-    new-array v4, v5, [Ljava/lang/String;
-
-    invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    aput-object v0, v4, v2
 
     invoke-static {p2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    aput-object v0, v4, v1
+    aput-object v0, v4, v2
 
     .restart local v4       #whereArgs:[Ljava/lang/String;
-    goto/16 :goto_c
+    goto :goto_c
 
-    .line 477
+    .line 401
     .end local v3           #where:Ljava/lang/String;
     .end local v4           #whereArgs:[Ljava/lang/String;
-    :cond_120
-    if-ne p3, v0, :cond_123
+    :cond_8c
+    if-ne p3, v0, :cond_8f
 
-    .line 479
+    .line 403
     const/4 p3, 0x0
 
-    .line 481
-    :cond_123
+    .line 405
+    :cond_8f
     const-string/jumbo v3, "storage_id=? AND format=? AND parent=?"
 
-    .line 482
+    .line 406
     .restart local v3       #where:Ljava/lang/String;
     const/4 v0, 0x3
 
@@ -1643,13 +1186,13 @@
 
     move-result-object v0
 
-    aput-object v0, v4, v2
+    aput-object v0, v4, v1
 
     invoke-static {p2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    aput-object v0, v4, v1
+    aput-object v0, v4, v2
 
     invoke-static {p3}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
@@ -1660,8 +1203,8 @@
     .restart local v4       #whereArgs:[Ljava/lang/String;
     goto/16 :goto_c
 
-    .line 496
-    :cond_13d
+    .line 420
+    :cond_a9
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1686,7 +1229,7 @@
 
     move-result-object v3
 
-    .line 499
+    .line 423
     array-length v0, v4
 
     iget-object v1, p0, Landroid/mtp/MtpDatabase;->mSubDirectoriesWhereArgs:[Ljava/lang/String;
@@ -1695,57 +1238,57 @@
 
     add-int/2addr v0, v1
 
-    new-array v11, v0, [Ljava/lang/String;
+    new-array v8, v0, [Ljava/lang/String;
 
-    .line 502
-    .restart local v11       #newWhereArgs:[Ljava/lang/String;
+    .line 426
+    .local v8, newWhereArgs:[Ljava/lang/String;
     const/4 v6, 0x0
 
     .local v6, i:I
-    :goto_15e
+    :goto_ca
     array-length v0, v4
 
-    if-ge v6, v0, :cond_168
+    if-ge v6, v0, :cond_d4
 
-    .line 503
+    .line 427
     aget-object v0, v4, v6
 
-    aput-object v0, v11, v6
+    aput-object v0, v8, v6
 
-    .line 502
+    .line 426
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_15e
+    goto :goto_ca
 
-    .line 505
-    :cond_168
-    const/4 v10, 0x0
+    .line 429
+    :cond_d4
+    const/4 v7, 0x0
 
-    .local v10, j:I
-    :goto_169
+    .local v7, j:I
+    :goto_d5
     iget-object v0, p0, Landroid/mtp/MtpDatabase;->mSubDirectoriesWhereArgs:[Ljava/lang/String;
 
     array-length v0, v0
 
-    if-ge v10, v0, :cond_179
+    if-ge v7, v0, :cond_e5
 
-    .line 506
+    .line 430
     iget-object v0, p0, Landroid/mtp/MtpDatabase;->mSubDirectoriesWhereArgs:[Ljava/lang/String;
 
-    aget-object v0, v0, v10
+    aget-object v0, v0, v7
 
-    aput-object v0, v11, v6
+    aput-object v0, v8, v6
 
-    .line 505
+    .line 429
     add-int/lit8 v6, v6, 0x1
 
-    add-int/lit8 v10, v10, 0x1
+    add-int/lit8 v7, v7, 0x1
 
-    goto :goto_169
+    goto :goto_d5
 
-    .line 508
-    :cond_179
-    move-object v4, v11
+    .line 432
+    :cond_e5
+    move-object v4, v8
 
     goto/16 :goto_16
 .end method
@@ -1761,21 +1304,21 @@
 
     const/4 v0, 0x1
 
-    .line 970
+    .line 883
     iput-boolean v0, p0, Landroid/mtp/MtpDatabase;->mDatabaseModified:Z
 
-    .line 971
+    .line 884
     const/4 v9, 0x0
 
-    .line 972
+    .line 885
     .local v9, path:Ljava/lang/String;
     const/4 v8, 0x0
 
-    .line 974
+    .line 887
     .local v8, format:I
     const/4 v6, 0x0
 
-    .line 976
+    .line 889
     .local v6, c:Landroid/database/Cursor;
     :try_start_a
     iget-object v0, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
@@ -1804,7 +1347,7 @@
 
     move-result-object v6
 
-    .line 978
+    .line 891
     if-eqz v6, :cond_3e
 
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
@@ -1813,87 +1356,84 @@
 
     if-eqz v0, :cond_3e
 
-    .line 981
+    .line 894
     const/4 v0, 0x1
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v9
 
-    .line 982
+    .line 895
     const/4 v0, 0x3
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getInt(I)I
     :try_end_32
-    .catchall {:try_start_a .. :try_end_32} :catchall_a9
-    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_32} :catch_9a
+    .catchall {:try_start_a .. :try_end_32} :catchall_ac
+    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_32} :catch_9d
 
     move-result v8
 
-    .line 987
+    .line 900
     if-eqz v9, :cond_37
 
     if-nez v8, :cond_45
 
-    .line 1013
+    .line 926
     :cond_37
     if-eqz v6, :cond_3c
 
-    .line 1014
+    .line 927
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     :cond_3c
     move v0, v12
 
-    .line 1011
     :cond_3d
     :goto_3d
     return v0
 
-    .line 1013
+    .line 926
     :cond_3e
     if-eqz v6, :cond_43
 
-    .line 1014
+    .line 927
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     :cond_43
     move v0, v11
 
-    .line 984
     goto :goto_3d
 
-    .line 992
+    .line 905
     :cond_45
     :try_start_45
     invoke-direct {p0, v9}, Landroid/mtp/MtpDatabase;->isStorageSubDirectory(Ljava/lang/String;)Z
     :try_end_48
-    .catchall {:try_start_45 .. :try_end_48} :catchall_a9
-    .catch Landroid/os/RemoteException; {:try_start_45 .. :try_end_48} :catch_9a
+    .catchall {:try_start_45 .. :try_end_48} :catchall_ac
+    .catch Landroid/os/RemoteException; {:try_start_45 .. :try_end_48} :catch_9d
 
     move-result v0
 
     if-eqz v0, :cond_53
 
-    .line 993
+    .line 906
     const/16 v0, 0x200d
 
-    .line 1013
+    .line 926
     if-eqz v6, :cond_3d
 
-    .line 1014
-    :goto_4f
+    .line 927
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     goto :goto_3d
 
-    .line 996
+    .line 909
     :cond_53
     const/16 v0, 0x3001
 
     if-ne v8, v0, :cond_7d
 
-    .line 998
+    .line 911
     :try_start_57
     iget-object v0, p0, Landroid/mtp/MtpDatabase;->mVolumeName:Ljava/lang/String;
 
@@ -1901,7 +1441,7 @@
 
     move-result-object v10
 
-    .line 999
+    .line 912
     .local v10, uri:Landroid/net/Uri;
     iget-object v0, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
 
@@ -1935,7 +1475,7 @@
 
     invoke-interface {v0, v10, v1, v2}, Landroid/content/IContentProvider;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
 
-    .line 1003
+    .line 916
     .end local v10           #uri:Landroid/net/Uri;
     :cond_7d
     iget-object v0, p0, Landroid/mtp/MtpDatabase;->mVolumeName:Ljava/lang/String;
@@ -1946,7 +1486,7 @@
 
     move-result-object v10
 
-    .line 1004
+    .line 917
     .restart local v10       #uri:Landroid/net/Uri;
     iget-object v0, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
 
@@ -1956,73 +1496,74 @@
 
     invoke-interface {v0, v10, v1, v2}, Landroid/content/IContentProvider;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
     :try_end_8b
-    .catchall {:try_start_57 .. :try_end_8b} :catchall_a9
-    .catch Landroid/os/RemoteException; {:try_start_57 .. :try_end_8b} :catch_9a
+    .catchall {:try_start_57 .. :try_end_8b} :catchall_ac
+    .catch Landroid/os/RemoteException; {:try_start_57 .. :try_end_8b} :catch_9d
 
     move-result v0
 
-    if-lez v0, :cond_93
+    if-lez v0, :cond_96
 
-    .line 1005
+    .line 918
     const/16 v0, 0x2001
 
-    .line 1013
+    .line 926
     if-eqz v6, :cond_3d
 
-    goto :goto_4f
-
-    :cond_93
-    if-eqz v6, :cond_98
-
-    .line 1014
+    .line 927
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_98
-    move v0, v11
-
-    .line 1007
     goto :goto_3d
 
-    .line 1009
+    .line 926
+    :cond_96
+    if-eqz v6, :cond_9b
+
+    .line 927
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    :cond_9b
+    move v0, v11
+
+    goto :goto_3d
+
+    .line 922
     .end local v10           #uri:Landroid/net/Uri;
-    :catch_9a
+    :catch_9d
     move-exception v7
 
-    .line 1010
+    .line 923
     .local v7, e:Landroid/os/RemoteException;
-    :try_start_9b
+    :try_start_9e
     const-string v0, "MtpDatabase"
 
     const-string v1, "RemoteException in deleteFile"
 
     invoke-static {v0, v1, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_a2
-    .catchall {:try_start_9b .. :try_end_a2} :catchall_a9
+    :try_end_a5
+    .catchall {:try_start_9e .. :try_end_a5} :catchall_ac
 
-    .line 1013
-    if-eqz v6, :cond_a7
+    .line 926
+    if-eqz v6, :cond_aa
 
-    .line 1014
+    .line 927
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_a7
+    :cond_aa
     move v0, v12
 
-    .line 1011
     goto :goto_3d
 
-    .line 1013
+    .line 926
     .end local v7           #e:Landroid/os/RemoteException;
-    :catchall_a9
+    :catchall_ac
     move-exception v0
 
-    if-eqz v6, :cond_af
+    if-eqz v6, :cond_b2
 
-    .line 1014
+    .line 927
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 1013
-    :cond_af
+    :cond_b2
     throw v0
 .end method
 
@@ -2034,18 +1575,18 @@
     .parameter "succeeded"
 
     .prologue
-    .line 310
+    .line 306
     if-eqz p4, :cond_76
 
-    .line 313
+    .line 309
     const v4, 0xba05
 
     if-ne p3, v4, :cond_6e
 
-    .line 315
+    .line 311
     move-object v2, p1
 
-    .line 316
+    .line 312
     .local v2, name:Ljava/lang/String;
     const/16 v4, 0x2f
 
@@ -2053,18 +1594,18 @@
 
     move-result v1
 
-    .line 317
+    .line 313
     .local v1, lastSlash:I
     if-ltz v1, :cond_16
 
-    .line 318
+    .line 314
     add-int/lit8 v4, v1, 0x1
 
     invoke-virtual {v2, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 321
+    .line 317
     :cond_16
     const-string v4, ".pla"
 
@@ -2074,7 +1615,7 @@
 
     if-eqz v4, :cond_29
 
-    .line 322
+    .line 318
     const/4 v4, 0x0
 
     invoke-virtual {v2}, Ljava/lang/String;->length()I
@@ -2087,7 +1628,7 @@
 
     move-result-object v2
 
-    .line 325
+    .line 321
     :cond_29
     new-instance v3, Landroid/content/ContentValues;
 
@@ -2095,18 +1636,18 @@
 
     invoke-direct {v3, v4}, Landroid/content/ContentValues;-><init>(I)V
 
-    .line 326
+    .line 322
     .local v3, values:Landroid/content/ContentValues;
     const-string v4, "_data"
 
     invoke-virtual {v3, v4, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 327
+    .line 323
     const-string/jumbo v4, "name"
 
     invoke-virtual {v3, v4, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 328
+    .line 324
     const-string v4, "format"
 
     invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -2115,7 +1656,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 329
+    .line 325
     const-string v4, "date_modified"
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -2132,7 +1673,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    .line 330
+    .line 326
     const-string/jumbo v4, "media_scanner_new_object_id"
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -2141,7 +1682,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 332
+    .line 328
     :try_start_5d
     iget-object v4, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
 
@@ -2151,21 +1692,21 @@
     :try_end_64
     .catch Landroid/os/RemoteException; {:try_start_5d .. :try_end_64} :catch_65
 
-    .line 342
+    .line 338
     .end local v1           #lastSlash:I
     .end local v2           #name:Ljava/lang/String;
     .end local v3           #values:Landroid/content/ContentValues;
     :goto_64
     return-void
 
-    .line 333
+    .line 329
     .restart local v1       #lastSlash:I
     .restart local v2       #name:Ljava/lang/String;
     .restart local v3       #values:Landroid/content/ContentValues;
     :catch_65
     move-exception v0
 
-    .line 334
+    .line 330
     .local v0, e:Landroid/os/RemoteException;
     const-string v4, "MtpDatabase"
 
@@ -2175,7 +1716,7 @@
 
     goto :goto_64
 
-    .line 337
+    .line 333
     .end local v0           #e:Landroid/os/RemoteException;
     .end local v1           #lastSlash:I
     .end local v2           #name:Ljava/lang/String;
@@ -2189,7 +1730,7 @@
 
     goto :goto_64
 
-    .line 340
+    .line 336
     :cond_76
     invoke-direct {p0, p2}, Landroid/mtp/MtpDatabase;->deleteFile(I)I
 
@@ -2207,16 +1748,16 @@
 
     const/4 v10, 0x0
 
-    .line 857
+    .line 770
     sparse-switch p1, :sswitch_data_6c
 
-    .line 882
+    .line 795
     const/16 v6, 0x200a
 
     :goto_8
     return v6
 
-    .line 861
+    .line 774
     :sswitch_9
     iget-object v6, p0, Landroid/mtp/MtpDatabase;->mDeviceProperties:Landroid/content/SharedPreferences;
 
@@ -2230,34 +1771,34 @@
 
     move-result-object v4
 
-    .line 862
+    .line 775
     .local v4, value:Ljava/lang/String;
     invoke-virtual {v4}, Ljava/lang/String;->length()I
 
     move-result v3
 
-    .line 863
+    .line 776
     .local v3, length:I
     const/16 v6, 0xff
 
     if-le v3, v6, :cond_1f
 
-    .line 864
+    .line 777
     const/16 v3, 0xff
 
-    .line 866
+    .line 779
     :cond_1f
     invoke-virtual {v4, v10, v3, p3, v10}, Ljava/lang/String;->getChars(II[CI)V
 
-    .line 867
+    .line 780
     aput-char v10, p3, v3
 
     move v6, v7
 
-    .line 868
+    .line 781
     goto :goto_8
 
-    .line 872
+    .line 785
     .end local v3           #length:I
     .end local v4           #value:Ljava/lang/String;
     :sswitch_26
@@ -2275,19 +1816,19 @@
 
     move-result-object v0
 
-    .line 874
+    .line 787
     .local v0, display:Landroid/view/Display;
     invoke-virtual {v0}, Landroid/view/Display;->getMaximumSizeDimension()I
 
     move-result v5
 
-    .line 875
+    .line 788
     .local v5, width:I
     invoke-virtual {v0}, Landroid/view/Display;->getMaximumSizeDimension()I
 
     move-result v1
 
-    .line 876
+    .line 789
     .local v1, height:I
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -2319,7 +1860,7 @@
 
     move-result-object v2
 
-    .line 877
+    .line 790
     .local v2, imageSize:Ljava/lang/String;
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
@@ -2327,7 +1868,7 @@
 
     invoke-virtual {v2, v10, v6, p3, v10}, Ljava/lang/String;->getChars(II[CI)V
 
-    .line 878
+    .line 791
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
     move-result v6
@@ -2336,10 +1877,10 @@
 
     move v6, v7
 
-    .line 879
+    .line 792
     goto :goto_8
 
-    .line 857
+    .line 770
     :sswitch_data_6c
     .sparse-switch
         0x5003 -> :sswitch_26
@@ -2355,84 +1896,87 @@
     .parameter "parent"
 
     .prologue
-    .line 542
+    .line 466
     const/4 v0, 0x0
 
-    .line 544
+    .line 468
     .local v0, c:Landroid/database/Cursor;
     :try_start_1
     invoke-direct {p0, p1, p2, p3}, Landroid/mtp/MtpDatabase;->createObjectQuery(III)Landroid/database/Cursor;
 
     move-result-object v0
 
-    .line 545
-    if-eqz v0, :cond_27
+    .line 469
+    if-eqz v0, :cond_11
 
-    .line 546
+    .line 470
     invoke-interface {v0}, Landroid/database/Cursor;->getCount()I
     :try_end_a
-    .catchall {:try_start_1 .. :try_end_a} :catchall_20
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_a} :catch_11
+    .catchall {:try_start_1 .. :try_end_a} :catchall_26
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_a} :catch_18
 
     move-result v2
 
-    .line 551
+    .line 475
     if-eqz v0, :cond_10
 
-    .line 552
+    .line 476
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
-    .line 555
+    .line 479
     :cond_10
     :goto_10
     return v2
 
-    .line 548
-    :catch_11
+    .line 475
+    :cond_11
+    if-eqz v0, :cond_16
+
+    .line 476
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    .line 479
+    :cond_16
+    :goto_16
+    const/4 v2, -0x1
+
+    goto :goto_10
+
+    .line 472
+    :catch_18
     move-exception v1
 
-    .line 549
+    .line 473
     .local v1, e:Landroid/os/RemoteException;
-    :try_start_12
+    :try_start_19
     const-string v2, "MtpDatabase"
 
     const-string v3, "RemoteException in getNumObjects"
 
     invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_19
-    .catchall {:try_start_12 .. :try_end_19} :catchall_20
+    :try_end_20
+    .catchall {:try_start_19 .. :try_end_20} :catchall_26
 
-    .line 551
-    if-eqz v0, :cond_1e
+    .line 475
+    if-eqz v0, :cond_16
 
-    .line 552
-    .end local v1           #e:Landroid/os/RemoteException;
-    :goto_1b
+    .line 476
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
-    .line 555
-    :cond_1e
-    const/4 v2, -0x1
+    goto :goto_16
 
-    goto :goto_10
-
-    .line 551
-    :catchall_20
+    .line 475
+    .end local v1           #e:Landroid/os/RemoteException;
+    :catchall_26
     move-exception v2
 
-    if-eqz v0, :cond_26
+    if-eqz v0, :cond_2c
 
-    .line 552
+    .line 476
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
-    .line 551
-    :cond_26
+    :cond_2c
     throw v2
-
-    :cond_27
-    if-eqz v0, :cond_1e
-
-    goto :goto_1b
 .end method
 
 .method private getObjectFilePath(I[C[J)I
@@ -2448,10 +1992,10 @@
 
     const/4 v2, 0x0
 
-    .line 937
+    .line 850
     if-nez p1, :cond_23
 
-    .line 939
+    .line 852
     iget-object v0, p0, Landroid/mtp/MtpDatabase;->mMediaStoragePath:Ljava/lang/String;
 
     iget-object v1, p0, Landroid/mtp/MtpDatabase;->mMediaStoragePath:Ljava/lang/String;
@@ -2462,7 +2006,7 @@
 
     invoke-virtual {v0, v2, v1, p2, v2}, Ljava/lang/String;->getChars(II[CI)V
 
-    .line 940
+    .line 853
     iget-object v0, p0, Landroid/mtp/MtpDatabase;->mMediaStoragePath:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
@@ -2471,28 +2015,28 @@
 
     aput-char v2, p2, v0
 
-    .line 941
+    .line 854
     const-wide/16 v0, 0x0
 
     aput-wide v0, p3, v2
 
-    .line 942
+    .line 855
     const-wide/16 v0, 0x3001
 
     aput-wide v0, p3, v3
 
     move v0, v9
 
-    .line 961
+    .line 877
     :cond_22
     :goto_22
     return v0
 
-    .line 945
+    .line 858
     :cond_23
     const/4 v6, 0x0
 
-    .line 947
+    .line 860
     .local v6, c:Landroid/database/Cursor;
     :try_start_24
     iget-object v0, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
@@ -2521,7 +2065,7 @@
 
     move-result-object v6
 
-    .line 949
+    .line 862
     if-eqz v6, :cond_6f
 
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
@@ -2530,14 +2074,14 @@
 
     if-eqz v0, :cond_6f
 
-    .line 950
+    .line 863
     const/4 v0, 0x1
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v8
 
-    .line 951
+    .line 864
     .local v8, path:Ljava/lang/String;
     const/4 v0, 0x0
 
@@ -2549,7 +2093,7 @@
 
     invoke-virtual {v8, v0, v1, p2, v2}, Ljava/lang/String;->getChars(II[CI)V
 
-    .line 952
+    .line 865
     invoke-virtual {v8}, Ljava/lang/String;->length()I
 
     move-result v0
@@ -2558,7 +2102,7 @@
 
     aput-char v1, p2, v0
 
-    .line 953
+    .line 866
     const/4 v0, 0x0
 
     const/4 v1, 0x2
@@ -2569,7 +2113,7 @@
 
     aput-wide v1, p3, v0
 
-    .line 954
+    .line 867
     const/4 v0, 0x1
 
     const/4 v1, 0x3
@@ -2580,40 +2124,38 @@
 
     aput-wide v1, p3, v0
     :try_end_68
-    .catchall {:try_start_24 .. :try_end_68} :catchall_84
+    .catchall {:try_start_24 .. :try_end_68} :catchall_87
     .catch Landroid/os/RemoteException; {:try_start_24 .. :try_end_68} :catch_77
 
-    .line 963
+    .line 876
     if-eqz v6, :cond_6d
 
-    .line 964
+    .line 877
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     :cond_6d
     move v0, v9
 
-    .line 955
     goto :goto_22
 
-    .line 957
+    .line 870
     .end local v8           #path:Ljava/lang/String;
     :cond_6f
     const/16 v0, 0x2009
 
-    .line 963
+    .line 876
     if-eqz v6, :cond_22
 
-    .line 964
-    :goto_73
+    .line 877
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     goto :goto_22
 
-    .line 959
+    .line 872
     :catch_77
     move-exception v7
 
-    .line 960
+    .line 873
     .local v7, e:Landroid/os/RemoteException;
     :try_start_78
     const-string v0, "MtpDatabase"
@@ -2622,27 +2164,30 @@
 
     invoke-static {v0, v1, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_7f
-    .catchall {:try_start_78 .. :try_end_7f} :catchall_84
+    .catchall {:try_start_78 .. :try_end_7f} :catchall_87
 
-    .line 961
+    .line 874
     const/16 v0, 0x2002
 
-    .line 963
+    .line 876
     if-eqz v6, :cond_22
 
-    goto :goto_73
-
-    .end local v7           #e:Landroid/os/RemoteException;
-    :catchall_84
-    move-exception v0
-
-    if-eqz v6, :cond_8a
-
-    .line 964
+    .line 877
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 963
-    :cond_8a
+    goto :goto_22
+
+    .line 876
+    .end local v7           #e:Landroid/os/RemoteException;
+    :catchall_87
+    move-exception v0
+
+    if-eqz v6, :cond_8d
+
+    .line 877
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    :cond_8d
     throw v0
 .end method
 
@@ -2654,10 +2199,10 @@
     .parameter "outSizeModified"
 
     .prologue
-    .line 902
+    .line 815
     const/4 v7, 0x0
 
-    .line 904
+    .line 817
     .local v7, c:Landroid/database/Cursor;
     :try_start_1
     iget-object v1, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
@@ -2686,16 +2231,16 @@
 
     move-result-object v7
 
-    .line 906
-    if-eqz v7, :cond_8d
+    .line 819
+    if-eqz v7, :cond_77
 
     invoke-interface {v7}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_8d
+    if-eqz v1, :cond_77
 
-    .line 907
+    .line 820
     const/4 v1, 0x0
 
     const/4 v2, 0x1
@@ -2706,7 +2251,7 @@
 
     aput v2, p2, v1
 
-    .line 908
+    .line 821
     const/4 v1, 0x1
 
     const/4 v2, 0x2
@@ -2717,7 +2262,7 @@
 
     aput v2, p2, v1
 
-    .line 909
+    .line 822
     const/4 v1, 0x2
 
     const/4 v2, 0x3
@@ -2728,14 +2273,14 @@
 
     aput v2, p2, v1
 
-    .line 912
+    .line 825
     const/4 v1, 0x4
 
     invoke-interface {v7, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v11
 
-    .line 913
+    .line 826
     .local v11, path:Ljava/lang/String;
     const/16 v1, 0x2f
 
@@ -2743,20 +2288,20 @@
 
     move-result v10
 
-    .line 914
+    .line 827
     .local v10, lastSlash:I
     if-ltz v10, :cond_75
 
     add-int/lit8 v12, v10, 0x1
 
-    .line 915
+    .line 828
     .local v12, start:I
     :goto_47
     invoke-virtual {v11}, Ljava/lang/String;->length()I
 
     move-result v9
 
-    .line 916
+    .line 829
     .local v9, end:I
     sub-int v1, v9, v12
 
@@ -2764,10 +2309,10 @@
 
     if-le v1, v2, :cond_53
 
-    .line 917
+    .line 830
     add-int/lit16 v9, v12, 0xff
 
-    .line 919
+    .line 832
     :cond_53
     const/4 v1, 0x0
 
@@ -2775,14 +2320,14 @@
 
     invoke-virtual {v11, v12, v9, v0, v1}, Ljava/lang/String;->getChars(II[CI)V
 
-    .line 920
+    .line 833
     sub-int v1, v9, v12
 
     const/4 v2, 0x0
 
     aput-char v2, p3, v1
 
-    .line 922
+    .line 835
     const/4 v1, 0x0
 
     const/4 v2, 0x5
@@ -2793,7 +2338,7 @@
 
     aput-wide v2, p4, v1
 
-    .line 923
+    .line 836
     const/4 v1, 0x1
 
     const/4 v2, 0x6
@@ -2804,19 +2349,19 @@
 
     aput-wide v2, p4, v1
     :try_end_6e
-    .catchall {:try_start_1 .. :try_end_6e} :catchall_86
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_6e} :catch_77
+    .catchall {:try_start_1 .. :try_end_6e} :catchall_8c
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_6e} :catch_7e
 
-    .line 924
+    .line 837
     const/4 v1, 0x1
 
-    .line 929
+    .line 842
     if-eqz v7, :cond_74
 
-    .line 930
+    .line 843
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
-    .line 933
+    .line 846
     .end local v9           #end:I
     .end local v10           #lastSlash:I
     .end local v11           #path:Ljava/lang/String;
@@ -2825,7 +2370,7 @@
     :goto_74
     return v1
 
-    .line 914
+    .line 827
     .restart local v10       #lastSlash:I
     .restart local v11       #path:Ljava/lang/String;
     :cond_75
@@ -2833,54 +2378,57 @@
 
     goto :goto_47
 
-    .line 926
+    .line 842
     .end local v10           #lastSlash:I
     .end local v11           #path:Ljava/lang/String;
-    :catch_77
+    :cond_77
+    if-eqz v7, :cond_7c
+
+    .line 843
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
+
+    .line 846
+    :cond_7c
+    :goto_7c
+    const/4 v1, 0x0
+
+    goto :goto_74
+
+    .line 839
+    :catch_7e
     move-exception v8
 
-    .line 927
+    .line 840
     .local v8, e:Landroid/os/RemoteException;
-    :try_start_78
+    :try_start_7f
     const-string v1, "MtpDatabase"
 
     const-string v2, "RemoteException in getObjectInfo"
 
     invoke-static {v1, v2, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_7f
-    .catchall {:try_start_78 .. :try_end_7f} :catchall_86
+    :try_end_86
+    .catchall {:try_start_7f .. :try_end_86} :catchall_8c
 
-    .line 929
-    if-eqz v7, :cond_84
+    .line 842
+    if-eqz v7, :cond_7c
 
-    .line 930
-    .end local v8           #e:Landroid/os/RemoteException;
-    :goto_81
+    .line 843
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
-    .line 933
-    :cond_84
-    const/4 v1, 0x0
+    goto :goto_7c
 
-    goto :goto_74
-
-    .line 929
-    :catchall_86
+    .line 842
+    .end local v8           #e:Landroid/os/RemoteException;
+    :catchall_8c
     move-exception v1
 
-    if-eqz v7, :cond_8c
+    if-eqz v7, :cond_92
 
-    .line 930
+    .line 843
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
-    .line 929
-    :cond_8c
+    :cond_92
     throw v1
-
-    :cond_8d
-    if-eqz v7, :cond_84
-
-    goto :goto_81
 .end method
 
 .method private getObjectList(III)[I
@@ -2892,62 +2440,62 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 516
+    .line 440
     const/4 v0, 0x0
 
-    .line 518
+    .line 442
     .local v0, c:Landroid/database/Cursor;
     :try_start_2
     invoke-direct {p0, p1, p2, p3}, Landroid/mtp/MtpDatabase;->createObjectQuery(III)Landroid/database/Cursor;
     :try_end_5
-    .catchall {:try_start_2 .. :try_end_5} :catchall_36
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_5} :catch_27
+    .catchall {:try_start_2 .. :try_end_5} :catchall_42
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_5} :catch_34
 
     move-result-object v0
 
-    .line 519
+    .line 443
     if-nez v0, :cond_f
 
-    .line 534
+    .line 458
     if-eqz v0, :cond_d
 
-    .line 535
+    .line 459
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
     :cond_d
     move-object v4, v5
 
-    .line 538
+    .line 462
     :cond_e
     :goto_e
     return-object v4
 
-    .line 522
+    .line 446
     :cond_f
     :try_start_f
     invoke-interface {v0}, Landroid/database/Cursor;->getCount()I
 
     move-result v1
 
-    .line 523
+    .line 447
     .local v1, count:I
-    if-lez v1, :cond_43
+    if-lez v1, :cond_2d
 
-    .line 524
+    .line 448
     new-array v4, v1, [I
 
-    .line 525
+    .line 449
     .local v4, result:[I
     const/4 v3, 0x0
 
     .local v3, i:I
     :goto_18
-    if-ge v3, v1, :cond_3d
+    if-ge v3, v1, :cond_27
 
-    .line 526
+    .line 450
     invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
 
-    .line 527
+    .line 451
     const/4 v6, 0x0
 
     invoke-interface {v0, v6}, Landroid/database/Cursor;->getInt(I)I
@@ -2956,77 +2504,75 @@
 
     aput v6, v4, v3
     :try_end_24
-    .catchall {:try_start_f .. :try_end_24} :catchall_36
-    .catch Landroid/os/RemoteException; {:try_start_f .. :try_end_24} :catch_27
+    .catchall {:try_start_f .. :try_end_24} :catchall_42
+    .catch Landroid/os/RemoteException; {:try_start_f .. :try_end_24} :catch_34
 
-    .line 525
+    .line 449
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_18
 
-    .line 531
-    .end local v1           #count:I
+    .line 458
+    :cond_27
+    if-eqz v0, :cond_e
+
+    .line 459
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    goto :goto_e
+
+    .line 458
     .end local v3           #i:I
     .end local v4           #result:[I
-    :catch_27
+    :cond_2d
+    if-eqz v0, :cond_32
+
+    .line 459
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    .end local v1           #count:I
+    :cond_32
+    :goto_32
+    move-object v4, v5
+
+    .line 462
+    goto :goto_e
+
+    .line 455
+    :catch_34
     move-exception v2
 
-    .line 532
+    .line 456
     .local v2, e:Landroid/os/RemoteException;
-    :try_start_28
+    :try_start_35
     const-string v6, "MtpDatabase"
 
     const-string v7, "RemoteException in getObjectList"
 
     invoke-static {v6, v7, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_2f
-    .catchall {:try_start_28 .. :try_end_2f} :catchall_36
+    :try_end_3c
+    .catchall {:try_start_35 .. :try_end_3c} :catchall_42
 
-    .line 534
-    if-eqz v0, :cond_34
+    .line 458
+    if-eqz v0, :cond_32
 
-    .line 535
-    .end local v2           #e:Landroid/os/RemoteException;
-    :goto_31
+    .line 459
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
-    :cond_34
-    move-object v4, v5
+    goto :goto_32
 
-    .line 538
-    goto :goto_e
-
-    .line 534
-    :catchall_36
+    .line 458
+    .end local v2           #e:Landroid/os/RemoteException;
+    :catchall_42
     move-exception v5
 
-    if-eqz v0, :cond_3c
+    if-eqz v0, :cond_48
 
-    .line 535
+    .line 459
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
-    .line 534
-    :cond_3c
+    :cond_48
     throw v5
-
-    .restart local v1       #count:I
-    .restart local v3       #i:I
-    .restart local v4       #result:[I
-    :cond_3d
-    if-eqz v0, :cond_e
-
-    .line 535
-    invoke-interface {v0}, Landroid/database/Cursor;->close()V
-
-    goto :goto_e
-
-    .line 534
-    .end local v3           #i:I
-    .end local v4           #result:[I
-    :cond_43
-    if-eqz v0, :cond_34
-
-    goto :goto_31
 .end method
 
 .method private getObjectPropertyList(JIJII)Landroid/mtp/MtpPropertyList;
@@ -3040,21 +2586,21 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 758
+    .line 671
     if-eqz p6, :cond_c
 
-    .line 759
+    .line 672
     new-instance v2, Landroid/mtp/MtpPropertyList;
 
     const v3, 0xa807
 
     invoke-direct {v2, v4, v3}, Landroid/mtp/MtpPropertyList;-><init>(II)V
 
-    .line 779
+    .line 692
     :goto_b
     return-object v2
 
-    .line 763
+    .line 676
     :cond_c
     const-wide v2, 0xffffffffL
 
@@ -3062,7 +2608,7 @@
 
     if-nez v2, :cond_40
 
-    .line 764
+    .line 677
     iget-object v2, p0, Landroid/mtp/MtpDatabase;->mPropertyGroupsByFormat:Ljava/util/HashMap;
 
     invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -3075,16 +2621,16 @@
 
     check-cast v0, Landroid/mtp/MtpPropertyGroup;
 
-    .line 765
+    .line 678
     .local v0, propertyGroup:Landroid/mtp/MtpPropertyGroup;
     if-nez v0, :cond_3a
 
-    .line 766
+    .line 679
     invoke-direct {p0, p3}, Landroid/mtp/MtpDatabase;->getSupportedObjectProperties(I)[I
 
     move-result-object v1
 
-    .line 767
+    .line 680
     .local v1, propertyList:[I
     new-instance v0, Landroid/mtp/MtpPropertyGroup;
 
@@ -3095,7 +2641,7 @@
 
     invoke-direct {v0, p0, v2, v3, v1}, Landroid/mtp/MtpPropertyGroup;-><init>(Landroid/mtp/MtpDatabase;Landroid/content/IContentProvider;Ljava/lang/String;[I)V
 
-    .line 768
+    .line 681
     .restart local v0       #propertyGroup:Landroid/mtp/MtpPropertyGroup;
     iget-object v2, p0, Landroid/mtp/MtpDatabase;->mPropertyGroupsByFormat:Ljava/util/HashMap;
 
@@ -3105,7 +2651,7 @@
 
     invoke-virtual {v2, v3, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 779
+    .line 692
     .end local v1           #propertyList:[I
     :cond_3a
     :goto_3a
@@ -3117,7 +2663,7 @@
 
     goto :goto_b
 
-    .line 771
+    .line 684
     .end local v0           #propertyGroup:Landroid/mtp/MtpPropertyGroup;
     :cond_40
     iget-object v2, p0, Landroid/mtp/MtpDatabase;->mPropertyGroupsByProperty:Ljava/util/HashMap;
@@ -3132,11 +2678,11 @@
 
     check-cast v0, Landroid/mtp/MtpPropertyGroup;
 
-    .line 772
+    .line 685
     .restart local v0       #propertyGroup:Landroid/mtp/MtpPropertyGroup;
     if-nez v0, :cond_3a
 
-    .line 773
+    .line 686
     const/4 v2, 0x1
 
     new-array v1, v2, [I
@@ -3145,7 +2691,7 @@
 
     aput v2, v1, v4
 
-    .line 774
+    .line 687
     .restart local v1       #propertyList:[I
     new-instance v0, Landroid/mtp/MtpPropertyGroup;
 
@@ -3156,7 +2702,7 @@
 
     invoke-direct {v0, p0, v2, v3, v1}, Landroid/mtp/MtpPropertyGroup;-><init>(Landroid/mtp/MtpDatabase;Landroid/content/IContentProvider;Ljava/lang/String;[I)V
 
-    .line 775
+    .line 688
     .restart local v0       #propertyGroup:Landroid/mtp/MtpPropertyGroup;
     iget-object v2, p0, Landroid/mtp/MtpDatabase;->mPropertyGroupsByProperty:Ljava/util/HashMap;
 
@@ -3178,7 +2724,7 @@
     .prologue
     const/4 v11, 0x0
 
-    .line 1020
+    .line 933
     iget-object v0, p0, Landroid/mtp/MtpDatabase;->mVolumeName:Ljava/lang/String;
 
     int-to-long v2, p1
@@ -3187,11 +2733,11 @@
 
     move-result-object v1
 
-    .line 1021
+    .line 934
     .local v1, uri:Landroid/net/Uri;
     const/4 v6, 0x0
 
-    .line 1023
+    .line 936
     .local v6, c:Landroid/database/Cursor;
     :try_start_9
     iget-object v0, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
@@ -3206,54 +2752,54 @@
 
     invoke-interface/range {v0 .. v5}, Landroid/content/IContentProvider;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
     :try_end_13
-    .catchall {:try_start_9 .. :try_end_13} :catchall_44
-    .catch Landroid/os/RemoteException; {:try_start_9 .. :try_end_13} :catch_35
+    .catchall {:try_start_9 .. :try_end_13} :catchall_50
+    .catch Landroid/os/RemoteException; {:try_start_9 .. :try_end_13} :catch_42
 
     move-result-object v6
 
-    .line 1024
+    .line 937
     if-nez v6, :cond_1d
 
-    .line 1039
+    .line 952
     if-eqz v6, :cond_1b
 
-    .line 1040
+    .line 953
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     :cond_1b
     move-object v10, v11
 
-    .line 1043
+    .line 956
     :cond_1c
     :goto_1c
     return-object v10
 
-    .line 1027
+    .line 940
     :cond_1d
     :try_start_1d
     invoke-interface {v6}, Landroid/database/Cursor;->getCount()I
 
     move-result v7
 
-    .line 1028
+    .line 941
     .local v7, count:I
-    if-lez v7, :cond_51
+    if-lez v7, :cond_3b
 
-    .line 1029
+    .line 942
     new-array v10, v7, [I
 
-    .line 1030
+    .line 943
     .local v10, result:[I
     const/4 v9, 0x0
 
     .local v9, i:I
     :goto_26
-    if-ge v9, v7, :cond_4b
+    if-ge v9, v7, :cond_35
 
-    .line 1031
+    .line 944
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
 
-    .line 1032
+    .line 945
     const/4 v0, 0x0
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getInt(I)I
@@ -3262,141 +2808,82 @@
 
     aput v0, v10, v9
     :try_end_32
-    .catchall {:try_start_1d .. :try_end_32} :catchall_44
-    .catch Landroid/os/RemoteException; {:try_start_1d .. :try_end_32} :catch_35
+    .catchall {:try_start_1d .. :try_end_32} :catchall_50
+    .catch Landroid/os/RemoteException; {:try_start_1d .. :try_end_32} :catch_42
 
-    .line 1030
+    .line 943
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_26
 
-    .line 1036
-    .end local v7           #count:I
-    .end local v9           #i:I
-    .end local v10           #result:[I
-    :catch_35
-    move-exception v8
-
-    .line 1037
-    .local v8, e:Landroid/os/RemoteException;
-    :try_start_36
-    const-string v0, "MtpDatabase"
-
-    const-string v2, "RemoteException in getObjectReferences"
-
-    invoke-static {v0, v2, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_3d
-    .catchall {:try_start_36 .. :try_end_3d} :catchall_44
-
-    .line 1039
-    if-eqz v6, :cond_42
-
-    .line 1040
-    .end local v8           #e:Landroid/os/RemoteException;
-    :goto_3f
-    invoke-interface {v6}, Landroid/database/Cursor;->close()V
-
-    :cond_42
-    move-object v10, v11
-
-    .line 1043
-    goto :goto_1c
-
-    .line 1039
-    :catchall_44
-    move-exception v0
-
-    if-eqz v6, :cond_4a
-
-    .line 1040
-    invoke-interface {v6}, Landroid/database/Cursor;->close()V
-
-    .line 1039
-    :cond_4a
-    throw v0
-
-    .restart local v7       #count:I
-    .restart local v9       #i:I
-    .restart local v10       #result:[I
-    :cond_4b
+    .line 952
+    :cond_35
     if-eqz v6, :cond_1c
 
-    .line 1040
+    .line 953
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     goto :goto_1c
 
-    .line 1039
+    .line 952
     .end local v9           #i:I
     .end local v10           #result:[I
-    :cond_51
-    if-eqz v6, :cond_42
+    :cond_3b
+    if-eqz v6, :cond_40
 
-    goto :goto_3f
-.end method
+    .line 953
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-.method private getPhoneDeviceId(I[C[J)I
-    .registers 9
-    .parameter "handle"
-    .parameter "szDeviceIdBuf"
-    .parameter "outFileLengthFormat"
+    .end local v7           #count:I
+    :cond_40
+    :goto_40
+    move-object v10, v11
 
-    .prologue
-    const/4 v4, 0x0
+    .line 956
+    goto :goto_1c
 
-    .line 739
-    iget-object v2, p0, Landroid/mtp/MtpDatabase;->mContext:Landroid/content/Context;
+    .line 949
+    :catch_42
+    move-exception v8
 
-    const-string/jumbo v3, "phone"
+    .line 950
+    .local v8, e:Landroid/os/RemoteException;
+    :try_start_43
+    const-string v0, "MtpDatabase"
 
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    const-string v2, "RemoteException in getObjectList"
 
-    move-result-object v0
+    invoke-static {v0, v2, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_4a
+    .catchall {:try_start_43 .. :try_end_4a} :catchall_50
 
-    check-cast v0, Landroid/telephony/TelephonyManager;
+    .line 952
+    if-eqz v6, :cond_40
 
-    .line 740
-    .local v0, mTelephonyManager:Landroid/telephony/TelephonyManager;
-    if-eqz v0, :cond_22
+    .line 953
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+    goto :goto_40
 
-    move-result-object v1
+    .line 952
+    .end local v8           #e:Landroid/os/RemoteException;
+    :catchall_50
+    move-exception v0
 
-    .line 741
-    .local v1, szDevId:Ljava/lang/String;
-    :goto_12
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    if-eqz v6, :cond_56
 
-    move-result v2
+    .line 953
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    invoke-virtual {v1, v4, v2, p2, v4}, Ljava/lang/String;->getChars(II[CI)V
-
-    .line 742
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
-
-    move-result v2
-
-    aput-char v4, p2, v2
-
-    .line 743
-    const/16 v2, 0x2001
-
-    return v2
-
-    .line 740
-    .end local v1           #szDevId:Ljava/lang/String;
-    :cond_22
-    const-string v1, "NA"
-
-    goto :goto_12
+    :cond_56
+    throw v0
 .end method
 
 .method private getSupportedCaptureFormats()[I
     .registers 2
 
     .prologue
-    .line 592
+    .line 516
     const/4 v0, 0x0
 
     return-object v0
@@ -3406,7 +2893,7 @@
     .registers 2
 
     .prologue
-    .line 747
+    .line 660
     const/4 v0, 0x3
 
     new-array v0, v0, [I
@@ -3430,40 +2917,40 @@
     .parameter "format"
 
     .prologue
-    .line 712
+    .line 636
     sparse-switch p1, :sswitch_data_12
 
-    .line 731
+    .line 655
     sget-object v0, Landroid/mtp/MtpDatabase;->FILE_PROPERTIES:[I
 
     :goto_5
     return-object v0
 
-    .line 718
+    .line 642
     :sswitch_6
     sget-object v0, Landroid/mtp/MtpDatabase;->AUDIO_PROPERTIES:[I
 
     goto :goto_5
 
-    .line 722
+    .line 646
     :sswitch_9
     sget-object v0, Landroid/mtp/MtpDatabase;->VIDEO_PROPERTIES:[I
 
     goto :goto_5
 
-    .line 727
+    .line 651
     :sswitch_c
     sget-object v0, Landroid/mtp/MtpDatabase;->IMAGE_PROPERTIES:[I
 
     goto :goto_5
 
-    .line 729
+    .line 653
     :sswitch_f
     sget-object v0, Landroid/mtp/MtpDatabase;->ALL_PROPERTIES:[I
 
     goto :goto_5
 
-    .line 712
+    .line 636
     :sswitch_data_12
     .sparse-switch
         0x0 -> :sswitch_f
@@ -3486,7 +2973,7 @@
     .registers 2
 
     .prologue
-    .line 559
+    .line 483
     const/16 v0, 0x19
 
     new-array v0, v0, [I
@@ -3530,19 +3017,19 @@
     .parameter "path"
 
     .prologue
-    .line 234
+    .line 230
     iget-object v5, p0, Landroid/mtp/MtpDatabase;->mSubDirectories:[Ljava/lang/String;
 
     if-nez v5, :cond_6
 
     const/4 v0, 0x1
 
-    .line 248
+    .line 244
     :cond_5
     :goto_5
     return v0
 
-    .line 235
+    .line 231
     :cond_6
     if-nez p1, :cond_a
 
@@ -3550,17 +3037,17 @@
 
     goto :goto_5
 
-    .line 237
+    .line 233
     :cond_a
     const/4 v0, 0x0
 
-    .line 238
+    .line 234
     .local v0, allowed:Z
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    .line 239
+    .line 235
     .local v2, pathLength:I
     const/4 v1, 0x0
 
@@ -3574,18 +3061,18 @@
 
     if-nez v0, :cond_5
 
-    .line 240
+    .line 236
     iget-object v5, p0, Landroid/mtp/MtpDatabase;->mSubDirectories:[Ljava/lang/String;
 
     aget-object v3, v5, v1
 
-    .line 241
+    .line 237
     .local v3, subdir:Ljava/lang/String;
     invoke-virtual {v3}, Ljava/lang/String;->length()I
 
     move-result v4
 
-    .line 242
+    .line 238
     .local v4, subdirLength:I
     if-ge v4, v2, :cond_30
 
@@ -3603,10 +3090,10 @@
 
     if-eqz v5, :cond_30
 
-    .line 245
+    .line 241
     const/4 v0, 0x1
 
-    .line 239
+    .line 235
     :cond_30
     add-int/lit8 v1, v1, 0x1
 
@@ -3620,10 +3107,10 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 197
+    .line 193
     const-string v10, "device-properties"
 
-    .line 198
+    .line 194
     .local v10, devicePropertiesName:Ljava/lang/String;
     const-string v1, "device-properties"
 
@@ -3633,14 +3120,14 @@
 
     iput-object v1, p0, Landroid/mtp/MtpDatabase;->mDeviceProperties:Landroid/content/SharedPreferences;
 
-    .line 199
+    .line 195
     const-string v1, "device-properties"
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDatabasePath(Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v9
 
-    .line 201
+    .line 197
     .local v9, databaseFile:Ljava/io/File;
     invoke-virtual {v9}, Ljava/io/File;->exists()Z
 
@@ -3648,14 +3135,14 @@
 
     if-eqz v1, :cond_73
 
-    .line 204
+    .line 200
     const/4 v0, 0x0
 
-    .line 205
+    .line 201
     .local v0, db:Landroid/database/sqlite/SQLiteDatabase;
     const/4 v8, 0x0
 
-    .line 207
+    .line 203
     .local v8, c:Landroid/database/Cursor;
     :try_start_19
     const-string v1, "device-properties"
@@ -3668,10 +3155,10 @@
 
     move-result-object v0
 
-    .line 208
+    .line 204
     if-eqz v0, :cond_77
 
-    .line 209
+    .line 205
     const-string/jumbo v1, "properties"
 
     const/4 v2, 0x3
@@ -3710,17 +3197,17 @@
 
     move-result-object v8
 
-    .line 211
+    .line 207
     if-eqz v8, :cond_77
 
-    .line 212
+    .line 208
     iget-object v1, p0, Landroid/mtp/MtpDatabase;->mDeviceProperties:Landroid/content/SharedPreferences;
 
     invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v11
 
-    .line 213
+    .line 209
     .local v11, e:Landroid/content/SharedPreferences$Editor;
     :goto_4a
     invoke-interface {v8}, Landroid/database/Cursor;->moveToNext()Z
@@ -3729,14 +3216,14 @@
 
     if-eqz v1, :cond_74
 
-    .line 214
+    .line 210
     const/4 v1, 0x1
 
     invoke-interface {v8, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v12
 
-    .line 215
+    .line 211
     .local v12, name:Ljava/lang/String;
     const/4 v1, 0x2
 
@@ -3744,23 +3231,23 @@
 
     move-result-object v13
 
-    .line 216
+    .line 212
     .local v13, value:Ljava/lang/String;
     invoke-interface {v11, v12, v13}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
     :try_end_5d
-    .catchall {:try_start_19 .. :try_end_5d} :catchall_7f
+    .catchall {:try_start_19 .. :try_end_5d} :catchall_82
     .catch Ljava/lang/Exception; {:try_start_19 .. :try_end_5d} :catch_5e
 
     goto :goto_4a
 
-    .line 221
+    .line 217
     .end local v11           #e:Landroid/content/SharedPreferences$Editor;
     .end local v12           #name:Ljava/lang/String;
     .end local v13           #value:Ljava/lang/String;
     :catch_5e
     move-exception v11
 
-    .line 222
+    .line 218
     .local v11, e:Ljava/lang/Exception;
     :try_start_5f
     const-string v1, "MtpDatabase"
@@ -3769,32 +3256,32 @@
 
     invoke-static {v1, v2, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_66
-    .catchall {:try_start_5f .. :try_end_66} :catchall_7f
+    .catchall {:try_start_5f .. :try_end_66} :catchall_82
 
-    .line 224
+    .line 220
     if-eqz v8, :cond_6b
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    .line 225
+    .line 221
     :cond_6b
     if-eqz v0, :cond_70
 
-    .end local v11           #e:Ljava/lang/Exception;
-    :goto_6d
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V
 
-    .line 227
+    .line 223
+    .end local v11           #e:Ljava/lang/Exception;
     :cond_70
+    :goto_70
     invoke-virtual {v9}, Ljava/io/File;->delete()Z
 
-    .line 229
+    .line 225
     .end local v0           #db:Landroid/database/sqlite/SQLiteDatabase;
     .end local v8           #c:Landroid/database/Cursor;
     :cond_73
     return-void
 
-    .line 218
+    .line 214
     .restart local v0       #db:Landroid/database/sqlite/SQLiteDatabase;
     .restart local v8       #c:Landroid/database/Cursor;
     .local v11, e:Landroid/content/SharedPreferences$Editor;
@@ -3802,38 +3289,39 @@
     :try_start_74
     invoke-interface {v11}, Landroid/content/SharedPreferences$Editor;->commit()Z
     :try_end_77
-    .catchall {:try_start_74 .. :try_end_77} :catchall_7f
+    .catchall {:try_start_74 .. :try_end_77} :catchall_82
     .catch Ljava/lang/Exception; {:try_start_74 .. :try_end_77} :catch_5e
 
-    .line 224
+    .line 220
     .end local v11           #e:Landroid/content/SharedPreferences$Editor;
     :cond_77
     if-eqz v8, :cond_7c
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    .line 225
+    .line 221
     :cond_7c
     if-eqz v0, :cond_70
 
-    goto :goto_6d
+    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V
 
-    .line 224
-    :catchall_7f
+    goto :goto_70
+
+    .line 220
+    :catchall_82
     move-exception v1
 
-    if-eqz v8, :cond_85
+    if-eqz v8, :cond_88
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    .line 225
-    :cond_85
-    if-eqz v0, :cond_8a
+    .line 221
+    :cond_88
+    if-eqz v0, :cond_8d
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V
 
-    .line 224
-    :cond_8a
+    :cond_8d
     throw v1
 .end method
 
@@ -3844,17 +3332,17 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 254
+    .line 250
     iget-object v2, p0, Landroid/mtp/MtpDatabase;->mSubDirectories:[Ljava/lang/String;
 
     if-nez v2, :cond_6
 
-    .line 260
+    .line 256
     :cond_5
     :goto_5
     return v1
 
-    .line 255
+    .line 251
     :cond_6
     const/4 v0, 0x0
 
@@ -3866,7 +3354,7 @@
 
     if-ge v0, v2, :cond_5
 
-    .line 256
+    .line 252
     iget-object v2, p0, Landroid/mtp/MtpDatabase;->mSubDirectories:[Ljava/lang/String;
 
     aget-object v2, v2, v0
@@ -3877,12 +3365,12 @@
 
     if-eqz v2, :cond_18
 
-    .line 257
+    .line 253
     const/4 v1, 0x1
 
     goto :goto_5
 
-    .line 255
+    .line 251
     :cond_18
     add-int/lit8 v0, v0, 0x1
 
@@ -3901,14 +3389,14 @@
     .parameter "newName"
 
     .prologue
-    .line 783
+    .line 696
     const/4 v7, 0x0
 
-    .line 786
+    .line 699
     .local v7, c:Landroid/database/Cursor;
     const/4 v13, 0x0
 
-    .line 787
+    .line 700
     .local v13, path:Ljava/lang/String;
     const/4 v1, 0x1
 
@@ -3922,7 +3410,7 @@
 
     aput-object v2, v5, v1
 
-    .line 789
+    .line 702
     .local v5, whereArgs:[Ljava/lang/String;
     :try_start_c
     move-object/from16 v0, p0
@@ -3943,7 +3431,7 @@
 
     move-result-object v7
 
-    .line 790
+    .line 703
     if-eqz v7, :cond_2a
 
     invoke-interface {v7}, Landroid/database/Cursor;->moveToNext()Z
@@ -3952,7 +3440,7 @@
 
     if-eqz v1, :cond_2a
 
-    .line 791
+    .line 704
     const/4 v1, 0x1
 
     invoke-interface {v7, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -3962,30 +3450,30 @@
 
     move-result-object v13
 
-    .line 797
+    .line 710
     :cond_2a
     if-eqz v7, :cond_2f
 
-    .line 798
+    .line 711
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
-    .line 801
+    .line 714
     :cond_2f
     if-nez v13, :cond_4b
 
-    .line 802
+    .line 715
     const/16 v1, 0x2009
 
-    .line 842
+    .line 755
     :cond_33
     :goto_33
     return v1
 
-    .line 793
+    .line 706
     :catch_34
     move-exception v8
 
-    .line 794
+    .line 707
     .local v8, e:Landroid/os/RemoteException;
     :try_start_35
     const-string v1, "MtpDatabase"
@@ -3996,32 +3484,31 @@
     :try_end_3c
     .catchall {:try_start_35 .. :try_end_3c} :catchall_44
 
-    .line 795
+    .line 708
     const/16 v1, 0x2002
 
-    .line 797
+    .line 710
     if-eqz v7, :cond_33
 
-    .line 798
+    .line 711
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     goto :goto_33
 
-    .line 797
+    .line 710
     .end local v8           #e:Landroid/os/RemoteException;
     :catchall_44
     move-exception v1
 
     if-eqz v7, :cond_4a
 
-    .line 798
+    .line 711
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
-    .line 797
     :cond_4a
     throw v1
 
-    .line 806
+    .line 719
     :cond_4b
     move-object/from16 v0, p0
 
@@ -4031,18 +3518,18 @@
 
     if-eqz v1, :cond_56
 
-    .line 807
+    .line 720
     const/16 v1, 0x200d
 
     goto :goto_33
 
-    .line 811
+    .line 724
     :cond_56
     new-instance v12, Ljava/io/File;
 
     invoke-direct {v12, v13}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 812
+    .line 725
     .local v12, oldFile:Ljava/io/File;
     const/16 v1, 0x2f
 
@@ -4050,18 +3537,18 @@
 
     move-result v9
 
-    .line 813
+    .line 726
     .local v9, lastSlash:I
     const/4 v1, 0x1
 
     if-gt v9, v1, :cond_67
 
-    .line 814
+    .line 727
     const/16 v1, 0x2002
 
     goto :goto_33
 
-    .line 816
+    .line 729
     :cond_67
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -4089,23 +3576,23 @@
 
     move-result-object v11
 
-    .line 817
+    .line 730
     .local v11, newPath:Ljava/lang/String;
     new-instance v10, Ljava/io/File;
 
     invoke-direct {v10, v11}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 818
+    .line 731
     .local v10, newFile:Ljava/io/File;
     invoke-virtual {v12, v10}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
     move-result v14
 
-    .line 819
+    .line 732
     .local v14, success:Z
     if-nez v14, :cond_b9
 
-    .line 820
+    .line 733
     const-string v1, "MtpDatabase"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -4144,18 +3631,18 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 821
+    .line 734
     const/16 v1, 0x2002
 
     goto/16 :goto_33
 
-    .line 825
+    .line 738
     :cond_b9
     new-instance v16, Landroid/content/ContentValues;
 
     invoke-direct/range {v16 .. v16}, Landroid/content/ContentValues;-><init>()V
 
-    .line 826
+    .line 739
     .local v16, values:Landroid/content/ContentValues;
     const-string v1, "_data"
 
@@ -4163,10 +3650,10 @@
 
     invoke-virtual {v0, v1, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 827
+    .line 740
     const/4 v15, 0x0
 
-    .line 831
+    .line 744
     .local v15, updated:I
     :try_start_c6
     move-object/from16 v0, p0
@@ -4187,11 +3674,11 @@
 
     move-result v15
 
-    .line 835
+    .line 748
     :goto_d6
     if-nez v15, :cond_10a
 
-    .line 836
+    .line 749
     const-string v1, "MtpDatabase"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -4224,19 +3711,19 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 838
+    .line 751
     invoke-virtual {v10, v12}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
-    .line 839
+    .line 752
     const/16 v1, 0x2002
 
     goto/16 :goto_33
 
-    .line 832
+    .line 745
     :catch_101
     move-exception v8
 
-    .line 833
+    .line 746
     .restart local v8       #e:Landroid/os/RemoteException;
     const-string v1, "MtpDatabase"
 
@@ -4246,7 +3733,7 @@
 
     goto :goto_d6
 
-    .line 842
+    .line 755
     .end local v8           #e:Landroid/os/RemoteException;
     :cond_10a
     const/16 v1, 0x2001
@@ -4258,12 +3745,12 @@
     .registers 4
 
     .prologue
-    .line 1071
+    .line 984
     iget-boolean v0, p0, Landroid/mtp/MtpDatabase;->mDatabaseModified:Z
 
     if-eqz v0, :cond_13
 
-    .line 1072
+    .line 985
     iget-object v0, p0, Landroid/mtp/MtpDatabase;->mContext:Landroid/content/Context;
 
     new-instance v1, Landroid/content/Intent;
@@ -4274,12 +3761,12 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 1073
+    .line 986
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/mtp/MtpDatabase;->mDatabaseModified:Z
 
-    .line 1075
+    .line 988
     :cond_13
     return-void
 .end method
@@ -4288,12 +3775,12 @@
     .registers 2
 
     .prologue
-    .line 1067
+    .line 980
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/mtp/MtpDatabase;->mDatabaseModified:Z
 
-    .line 1068
+    .line 981
     return-void
 .end method
 
@@ -4304,16 +3791,16 @@
     .parameter "stringValue"
 
     .prologue
-    .line 887
+    .line 800
     packed-switch p1, :pswitch_data_20
 
-    .line 897
+    .line 810
     const/16 v1, 0x200a
 
     :goto_5
     return v1
 
-    .line 891
+    .line 804
     :pswitch_6
     iget-object v1, p0, Landroid/mtp/MtpDatabase;->mDeviceProperties:Landroid/content/SharedPreferences;
 
@@ -4321,7 +3808,7 @@
 
     move-result-object v0
 
-    .line 892
+    .line 805
     .local v0, e:Landroid/content/SharedPreferences$Editor;
     invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
@@ -4329,7 +3816,7 @@
 
     invoke-interface {v0, v1, p4}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 893
+    .line 806
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
     move-result v1
@@ -4345,7 +3832,7 @@
 
     goto :goto_5
 
-    .line 887
+    .line 800
     nop
 
     :pswitch_data_20
@@ -4363,16 +3850,16 @@
     .parameter "stringValue"
 
     .prologue
-    .line 847
+    .line 760
     packed-switch p2, :pswitch_data_c
 
-    .line 852
+    .line 765
     const v0, 0xa80a
 
     :goto_6
     return v0
 
-    .line 849
+    .line 762
     :pswitch_7
     invoke-direct {p0, p1, p5}, Landroid/mtp/MtpDatabase;->renameFile(ILjava/lang/String;)I
 
@@ -4380,7 +3867,7 @@
 
     goto :goto_6
 
-    .line 847
+    .line 760
     :pswitch_data_c
     .packed-switch 0xdc07
         :pswitch_7
@@ -4393,12 +3880,12 @@
     .parameter "references"
 
     .prologue
-    .line 1047
+    .line 960
     const/4 v6, 0x1
 
     iput-boolean v6, p0, Landroid/mtp/MtpDatabase;->mDatabaseModified:Z
 
-    .line 1048
+    .line 961
     iget-object v6, p0, Landroid/mtp/MtpDatabase;->mVolumeName:Ljava/lang/String;
 
     int-to-long v7, p1
@@ -4407,15 +3894,15 @@
 
     move-result-object v3
 
-    .line 1049
+    .line 962
     .local v3, uri:Landroid/net/Uri;
     array-length v0, p2
 
-    .line 1050
+    .line 963
     .local v0, count:I
     new-array v5, v0, [Landroid/content/ContentValues;
 
-    .line 1051
+    .line 964
     .local v5, valuesList:[Landroid/content/ContentValues;
     const/4 v2, 0x0
 
@@ -4423,12 +3910,12 @@
     :goto_e
     if-ge v2, v0, :cond_25
 
-    .line 1052
+    .line 965
     new-instance v4, Landroid/content/ContentValues;
 
     invoke-direct {v4}, Landroid/content/ContentValues;-><init>()V
 
-    .line 1053
+    .line 966
     .local v4, values:Landroid/content/ContentValues;
     const-string v6, "_id"
 
@@ -4440,15 +3927,15 @@
 
     invoke-virtual {v4, v6, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 1054
+    .line 967
     aput-object v4, v5, v2
 
-    .line 1051
+    .line 964
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_e
 
-    .line 1057
+    .line 970
     .end local v4           #values:Landroid/content/ContentValues;
     :cond_25
     :try_start_25
@@ -4462,18 +3949,18 @@
 
     if-lez v6, :cond_38
 
-    .line 1058
+    .line 971
     const/16 v6, 0x2001
 
-    .line 1063
+    .line 976
     :goto_2f
     return v6
 
-    .line 1060
+    .line 973
     :catch_30
     move-exception v1
 
-    .line 1061
+    .line 974
     .local v1, e:Landroid/os/RemoteException;
     const-string v6, "MtpDatabase"
 
@@ -4481,7 +3968,7 @@
 
     invoke-static {v6, v7, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 1063
+    .line 976
     .end local v1           #e:Landroid/os/RemoteException;
     :cond_38
     const/16 v6, 0x2002
@@ -4496,7 +3983,7 @@
     .parameter "storage"
 
     .prologue
-    .line 189
+    .line 185
     iget-object v0, p0, Landroid/mtp/MtpDatabase;->mStorageMap:Ljava/util/HashMap;
 
     invoke-virtual {p1}, Landroid/mtp/MtpStorage;->getPath()Ljava/lang/String;
@@ -4505,7 +3992,7 @@
 
     invoke-virtual {v0, v1, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 190
+    .line 186
     return-void
 .end method
 
@@ -4518,19 +4005,19 @@
     .end annotation
 
     .prologue
-    .line 182
+    .line 178
     :try_start_0
     invoke-direct {p0}, Landroid/mtp/MtpDatabase;->native_finalize()V
     :try_end_3
     .catchall {:try_start_0 .. :try_end_3} :catchall_7
 
-    .line 184
+    .line 180
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 186
+    .line 182
     return-void
 
-    .line 184
+    .line 180
     :catchall_7
     move-exception v0
 
@@ -4544,7 +4031,7 @@
     .parameter "storage"
 
     .prologue
-    .line 193
+    .line 189
     iget-object v0, p0, Landroid/mtp/MtpDatabase;->mStorageMap:Ljava/util/HashMap;
 
     invoke-virtual {p1}, Landroid/mtp/MtpStorage;->getPath()Ljava/lang/String;
@@ -4553,6 +4040,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 194
+    .line 190
     return-void
 .end method

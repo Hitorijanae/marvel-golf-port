@@ -70,28 +70,28 @@
 
     .line 933
     .local v0, protocol:Ljava/lang/String;
-    if-eqz p0, :cond_7
+    if-eqz p0, :cond_6
 
     .line 934
-    const-string/jumbo v0, "http://"
+    const-string v0, "http://"
 
     .line 937
-    :cond_7
-    if-nez p1, :cond_b
+    :cond_6
+    if-nez p1, :cond_a
 
     .line 938
     const-string p1, ""
 
     .line 941
-    :cond_b
-    if-nez p3, :cond_37
+    :cond_a
+    if-nez p3, :cond_36
 
     .line 942
     const-string p3, ""
 
     .line 947
-    :cond_f
-    :goto_f
+    :cond_e
+    :goto_e
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -131,12 +131,12 @@
     return-object v1
 
     .line 943
-    :cond_37
+    :cond_36
     invoke-virtual {p3}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    if-lez v1, :cond_f
+    if-lez v1, :cond_e
 
     .line 944
     new-instance v1, Ljava/lang/StringBuilder;
@@ -157,7 +157,7 @@
 
     move-result-object p3
 
-    goto :goto_f
+    goto :goto_e
 .end method
 
 .method public static getRssUrl(Ljava/lang/String;)Ljava/lang/String;
@@ -170,7 +170,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "http://youtube.com/watch?v="
+    const-string v1, "http://youtube.com/watch?v="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -209,7 +209,7 @@
 
     .prologue
     .line 916
-    if-nez p1, :cond_24
+    if-nez p1, :cond_23
 
     .line 917
     const-string p1, ""
@@ -221,7 +221,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "http://youtube.com/watch?"
+    const-string v1, "http://youtube.com/watch?"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -248,7 +248,7 @@
     return-object v0
 
     .line 918
-    :cond_24
+    :cond_23
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0

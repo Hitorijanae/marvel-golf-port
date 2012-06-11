@@ -51,7 +51,7 @@
     .line 347
     iput-object p1, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;->this$0:Landroid/widget/RemoteViewsAdapter;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 345
     new-instance v0, Ljava/util/HashMap;
@@ -140,7 +140,7 @@
 
     .line 405
     .local v7, loadingView:Landroid/view/View;
-    const v8, 0x1020225
+    const v8, 0x102022c
 
     new-instance v10, Ljava/lang/Integer;
 

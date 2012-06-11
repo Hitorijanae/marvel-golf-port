@@ -35,10 +35,10 @@
     .registers 2
 
     .prologue
-    .line 867
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 860
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 874
+    .line 867
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V

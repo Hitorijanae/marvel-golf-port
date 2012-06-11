@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 953
+    .line 601
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$2;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,42 +35,18 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 10
+    .registers 5
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 956
-    const-string v2, "availableArray"
+    .line 604
+    iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$2;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringArrayListExtra(Ljava/lang/String;)Ljava/util/ArrayList;
+    const/4 v1, 0x0
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Landroid/net/wifi/WifiStateMachine;->startScan(Z)V
 
-    .line 958
-    .local v1, available:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    const-string v2, "activeArray"
-
-    invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringArrayListExtra(Ljava/lang/String;)Ljava/util/ArrayList;
-
-    move-result-object v0
-
-    .line 962
-    .local v0, active:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$2;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    const v3, 0x2001d
-
-    new-instance v4, Landroid/net/wifi/WifiStateMachine$TetherStateChange;
-
-    iget-object v5, p0, Landroid/net/wifi/WifiStateMachine$2;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    invoke-direct {v4, v5, v1, v0}, Landroid/net/wifi/WifiStateMachine$TetherStateChange;-><init>(Landroid/net/wifi/WifiStateMachine;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
-
-    const-wide/16 v5, 0xbb8
-
-    invoke-virtual {v2, v3, v4, v5, v6}, Landroid/net/wifi/WifiStateMachine;->sendMessageDelayed(ILjava/lang/Object;J)V
-
-    .line 964
+    .line 605
     return-void
 .end method

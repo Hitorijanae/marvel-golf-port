@@ -23,14 +23,6 @@
     .end annotation
 .end method
 
-.method public abstract getActiveApnState()[Lcom/htc/net/ApnState;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getActiveLinkProperties()Landroid/net/LinkProperties;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -87,14 +79,6 @@
     .end annotation
 .end method
 
-.method public abstract getInterestedNetworkInfo(Landroid/net/NetworkInfo;)Landroid/net/NetworkInfo;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getLastTetherError(Ljava/lang/String;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -127,14 +111,6 @@
     .end annotation
 .end method
 
-.method public abstract getMobileDataPhoneType()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getNetworkInfo(I)Landroid/net/NetworkInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -143,23 +119,7 @@
     .end annotation
 .end method
 
-.method public abstract getNetworkNameServers(I)[Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getNetworkPreference()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getPhoneMobileDataEnabled(I)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -224,30 +184,6 @@
 .end method
 
 .method public abstract getTetheringErroredIfaces()[Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract htcRegisterPermittedTether(ZIILjava/lang/String;Ljava/lang/String;)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract htcRequestPermittedTether(IILjava/lang/String;)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract htcSetupPermittedTether(Ljava/lang/String;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -336,14 +272,6 @@
 .end method
 
 .method public abstract setMobileDataEnabled(Z)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setMobileDataPhoneType(I)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

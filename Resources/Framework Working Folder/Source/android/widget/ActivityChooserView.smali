@@ -92,7 +92,7 @@
     .prologue
     const/4 v9, 0x0
 
-    const v8, 0x1020234
+    const v8, 0x102023b
 
     const/4 v7, 0x4
 
@@ -145,7 +145,7 @@
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 219
-    iget-object v4, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Landroid/widget/ActivityChooserView;->mContext:Landroid/content/Context;
 
     invoke-static {v4}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
@@ -165,7 +165,7 @@
     iput-object v4, p0, Landroid/widget/ActivityChooserView;->mCallbacks:Landroid/widget/ActivityChooserView$Callbacks;
 
     .line 224
-    const v4, 0x1020232
+    const v4, 0x1020239
 
     invoke-virtual {p0, v4}, Landroid/widget/ActivityChooserView;->findViewById(I)Landroid/view/View;
 
@@ -185,7 +185,7 @@
     iput-object v4, p0, Landroid/widget/ActivityChooserView;->mActivityChooserContentBackground:Landroid/graphics/drawable/Drawable;
 
     .line 227
-    const v4, 0x1020235
+    const v4, 0x102023c
 
     invoke-virtual {p0, v4}, Landroid/widget/ActivityChooserView;->findViewById(I)Landroid/view/View;
 
@@ -221,7 +221,7 @@
     iput-object v4, p0, Landroid/widget/ActivityChooserView;->mDefaultActivityButtonImage:Landroid/widget/ImageView;
 
     .line 232
-    const v4, 0x1020233
+    const v4, 0x102023a
 
     invoke-virtual {p0, v4}, Landroid/widget/ActivityChooserView;->findViewById(I)Landroid/view/View;
 
@@ -375,7 +375,7 @@
 
     .prologue
     .line 63
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/widget/ActivityChooserView;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -386,7 +386,7 @@
 
     .prologue
     .line 63
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/widget/ActivityChooserView;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -443,7 +443,7 @@
 
     .prologue
     .line 63
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/widget/ActivityChooserView;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -465,7 +465,7 @@
 
     .prologue
     .line 63
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/widget/ActivityChooserView;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -680,9 +680,9 @@
 
     move-result-object v5
 
-    iget-object v6, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Landroid/widget/ActivityChooserView;->mContext:Landroid/content/Context;
 
-    const v7, 0x10404a6
+    const v7, 0x10404ae
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -795,7 +795,7 @@
 
     .line 504
     .local v0, activity:Landroid/content/pm/ResolveInfo;
-    iget-object v6, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Landroid/widget/ActivityChooserView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -823,7 +823,7 @@
 
     .line 508
     .local v4, label:Ljava/lang/CharSequence;
-    iget-object v6, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Landroid/widget/ActivityChooserView;->mContext:Landroid/content/Context;
 
     iget v7, p0, Landroid/widget/ActivityChooserView;->mDefaultActionButtonContentDescription:I
 
@@ -1147,11 +1147,11 @@
     invoke-virtual {p0, v0, p1, p2}, Landroid/widget/ActivityChooserView;->measureChild(Landroid/view/View;II)V
 
     .line 419
-    invoke-virtual {v0}, Landroid/widget/LinearLayout;->getMeasuredWidth()I
+    invoke-virtual {v0}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v1
 
-    invoke-virtual {v0}, Landroid/widget/LinearLayout;->getMeasuredHeight()I
+    invoke-virtual {v0}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v2
 
@@ -1207,7 +1207,7 @@
 
     .prologue
     .line 289
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/ActivityChooserView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

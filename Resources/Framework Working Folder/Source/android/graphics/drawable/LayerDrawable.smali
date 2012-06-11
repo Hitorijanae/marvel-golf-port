@@ -1031,7 +1031,7 @@
     .local v13, type:I
     const/4 v2, 0x1
 
-    if-eq v13, v2, :cond_b3
+    if-eq v13, v2, :cond_b2
 
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
@@ -1042,7 +1042,7 @@
 
     const/4 v2, 0x3
 
-    if-eq v13, v2, :cond_b3
+    if-eq v13, v2, :cond_b2
 
     .line 128
     :cond_30
@@ -1057,7 +1057,7 @@
 
     move-result-object v2
 
-    const-string/jumbo v14, "item"
+    const-string v14, "item"
 
     invoke-virtual {v2, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1140,7 +1140,7 @@
     invoke-virtual {v9}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 155
-    if-eqz v11, :cond_81
+    if-eqz v11, :cond_80
 
     .line 156
     move-object/from16 v0, p1
@@ -1150,7 +1150,7 @@
     move-result-object v3
 
     .local v3, dr:Landroid/graphics/drawable/Drawable;
-    :goto_7b
+    :goto_7a
     move-object/from16 v2, p0
 
     .line 168
@@ -1160,19 +1160,19 @@
 
     .line 158
     .end local v3           #dr:Landroid/graphics/drawable/Drawable;
-    :cond_81
+    :cond_80
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v13
 
     const/4 v2, 0x4
 
-    if-eq v13, v2, :cond_81
+    if-eq v13, v2, :cond_80
 
     .line 160
     const/4 v2, 0x2
 
-    if-eq v13, v2, :cond_ae
+    if-eq v13, v2, :cond_ad
 
     .line 161
     new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
@@ -1210,13 +1210,13 @@
     throw v2
 
     .line 165
-    :cond_ae
+    :cond_ad
     invoke-static/range {p1 .. p3}, Landroid/graphics/drawable/Drawable;->createFromXmlInner(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
 
     .restart local v3       #dr:Landroid/graphics/drawable/Drawable;
-    goto :goto_7b
+    goto :goto_7a
 
     .line 171
     .end local v3           #dr:Landroid/graphics/drawable/Drawable;
@@ -1227,7 +1227,7 @@
     .end local v8           #bottom:I
     .end local v10           #depth:I
     .end local v11           #drawableRes:I
-    :cond_b3
+    :cond_b2
     invoke-direct/range {p0 .. p0}, Landroid/graphics/drawable/LayerDrawable;->ensurePadding()V
 
     .line 172

@@ -42,7 +42,7 @@
 
     .prologue
     .line 521
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 522
     return-void
@@ -54,7 +54,7 @@
 
     .prologue
     .line 529
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 530
     new-instance v2, Ljava/util/StringTokenizer;
@@ -118,7 +118,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_56
+    if-nez v4, :cond_55
 
     .line 537
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -127,7 +127,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "invalid settings for EnvironmentalReverb: "
+    const-string v6, "invalid settings for EnvironmentalReverb: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -146,8 +146,8 @@
     throw v4
 
     .line 542
-    :cond_56
-    :try_start_56
+    :cond_55
+    :try_start_55
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v0
@@ -159,7 +159,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_98
+    if-nez v4, :cond_95
 
     .line 544
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -168,7 +168,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "invalid key name: "
+    const-string v6, "invalid key name: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -185,11 +185,11 @@
     invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v4
-    :try_end_7d
-    .catch Ljava/lang/NumberFormatException; {:try_start_56 .. :try_end_7d} :catch_7d
+    :try_end_7b
+    .catch Ljava/lang/NumberFormatException; {:try_start_55 .. :try_end_7b} :catch_7b
 
     .line 592
-    :catch_7d
+    :catch_7b
     move-exception v1
 
     .line 593
@@ -200,7 +200,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "invalid value for key: "
+    const-string v6, "invalid value for key: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -220,8 +220,8 @@
 
     .line 546
     .end local v1           #nfe:Ljava/lang/NumberFormatException;
-    :cond_98
-    :try_start_98
+    :cond_95
+    :try_start_95
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -244,7 +244,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_c9
+    if-nez v4, :cond_c5
 
     .line 549
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -253,7 +253,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "invalid key name: "
+    const-string v6, "invalid key name: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -272,7 +272,7 @@
     throw v4
 
     .line 551
-    :cond_c9
+    :cond_c5
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -295,7 +295,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_f9
+    if-nez v4, :cond_f4
 
     .line 554
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -304,7 +304,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "invalid key name: "
+    const-string v6, "invalid key name: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -323,7 +323,7 @@
     throw v4
 
     .line 556
-    :cond_f9
+    :cond_f4
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -346,7 +346,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_129
+    if-nez v4, :cond_123
 
     .line 559
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -355,7 +355,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "invalid key name: "
+    const-string v6, "invalid key name: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -374,7 +374,7 @@
     throw v4
 
     .line 561
-    :cond_129
+    :cond_123
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -397,7 +397,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_15a
+    if-nez v4, :cond_153
 
     .line 564
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -406,7 +406,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "invalid key name: "
+    const-string v6, "invalid key name: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -425,7 +425,7 @@
     throw v4
 
     .line 566
-    :cond_15a
+    :cond_153
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -448,7 +448,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_18b
+    if-nez v4, :cond_183
 
     .line 569
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -457,7 +457,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "invalid key name: "
+    const-string v6, "invalid key name: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -476,7 +476,7 @@
     throw v4
 
     .line 571
-    :cond_18b
+    :cond_183
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -499,7 +499,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_1bc
+    if-nez v4, :cond_1b3
 
     .line 574
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -508,7 +508,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "invalid key name: "
+    const-string v6, "invalid key name: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -527,7 +527,7 @@
     throw v4
 
     .line 576
-    :cond_1bc
+    :cond_1b3
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -550,7 +550,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_1ed
+    if-nez v4, :cond_1e3
 
     .line 579
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -559,7 +559,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "invalid key name: "
+    const-string v6, "invalid key name: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -578,7 +578,7 @@
     throw v4
 
     .line 581
-    :cond_1ed
+    :cond_1e3
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -601,7 +601,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_21d
+    if-nez v4, :cond_212
 
     .line 584
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -610,7 +610,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "invalid key name: "
+    const-string v6, "invalid key name: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -629,7 +629,7 @@
     throw v4
 
     .line 586
-    :cond_21d
+    :cond_212
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -652,7 +652,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_24d
+    if-nez v4, :cond_241
 
     .line 589
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -661,7 +661,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "invalid key name: "
+    const-string v6, "invalid key name: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -680,7 +680,7 @@
     throw v4
 
     .line 591
-    :cond_24d
+    :cond_241
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -690,8 +690,8 @@
     move-result v4
 
     iput-short v4, p0, Landroid/media/audiofx/EnvironmentalReverb$Settings;->density:S
-    :try_end_257
-    .catch Ljava/lang/NumberFormatException; {:try_start_98 .. :try_end_257} :catch_7d
+    :try_end_24b
+    .catch Ljava/lang/NumberFormatException; {:try_start_95 .. :try_end_24b} :catch_7b
 
     .line 595
     return-void

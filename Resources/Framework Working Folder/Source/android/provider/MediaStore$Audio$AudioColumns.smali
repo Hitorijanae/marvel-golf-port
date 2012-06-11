@@ -20,8 +20,6 @@
 # static fields
 .field public static final ALBUM:Ljava/lang/String; = "album"
 
-.field public static final ALBUM_ART:Ljava/lang/String; = "album_art"
-
 .field public static final ALBUM_ARTIST:Ljava/lang/String; = "album_artist"
 
 .field public static final ALBUM_ID:Ljava/lang/String; = "album_id"

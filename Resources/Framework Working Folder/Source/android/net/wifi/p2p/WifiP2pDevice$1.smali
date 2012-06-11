@@ -32,8 +32,8 @@
     .registers 1
 
     .prologue
-    .line 297
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 287
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,100 +41,81 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/p2p/WifiP2pDevice;
-    .registers 5
+    .registers 4
     .parameter "in"
 
     .prologue
-    const/4 v1, 0x1
-
-    .line 299
+    .line 289
     new-instance v0, Landroid/net/wifi/p2p/WifiP2pDevice;
 
     invoke-direct {v0}, Landroid/net/wifi/p2p/WifiP2pDevice;-><init>()V
 
-    .line 300
+    .line 290
     .local v0, device:Landroid/net/wifi/p2p/WifiP2pDevice;
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    iput-object v2, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceName:Ljava/lang/String;
+    iput-object v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceName:Ljava/lang/String;
 
-    .line 301
+    .line 291
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    iput-object v2, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
+    iput-object v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
 
-    .line 302
+    .line 292
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    iput-object v2, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->interfaceAddress:Ljava/lang/String;
+    iput-object v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->interfaceAddress:Ljava/lang/String;
 
-    .line 303
+    .line 293
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    iput-object v2, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->primaryDeviceType:Ljava/lang/String;
+    iput-object v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->primaryDeviceType:Ljava/lang/String;
 
-    .line 304
+    .line 294
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    iput-object v2, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->secondaryDeviceType:Ljava/lang/String;
+    iput-object v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->secondaryDeviceType:Ljava/lang/String;
 
-    .line 305
+    .line 295
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v1
 
-    iput v2, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->wpsConfigMethodsSupported:I
+    iput v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->wpsConfigMethodsSupported:I
 
-    .line 306
+    .line 296
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v1
 
-    iput v2, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceCapability:I
+    iput v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceCapability:I
 
-    .line 307
+    .line 297
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v1
 
-    iput v2, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->groupCapability:I
+    iput v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->groupCapability:I
 
-    .line 308
+    .line 298
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v1
 
-    iput v2, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->status:I
+    iput v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->status:I
 
-    .line 310
-    invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
-
-    move-result v2
-
-    if-ne v2, v1, :cond_46
-
-    :goto_42
-    #setter for: Landroid/net/wifi/p2p/WifiP2pDevice;->mIsCreateGroupOwner:Z
-    invoke-static {v0, v1}, Landroid/net/wifi/p2p/WifiP2pDevice;->access$002(Landroid/net/wifi/p2p/WifiP2pDevice;Z)Z
-
-    .line 312
+    .line 299
     return-object v0
-
-    .line 310
-    :cond_46
-    const/4 v1, 0x0
-
-    goto :goto_42
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -142,7 +123,7 @@
     .parameter "x0"
 
     .prologue
-    .line 297
+    .line 287
     invoke-virtual {p0, p1}, Landroid/net/wifi/p2p/WifiP2pDevice$1;->createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/p2p/WifiP2pDevice;
 
     move-result-object v0
@@ -155,7 +136,7 @@
     .parameter "size"
 
     .prologue
-    .line 316
+    .line 303
     new-array v0, p1, [Landroid/net/wifi/p2p/WifiP2pDevice;
 
     return-object v0
@@ -166,7 +147,7 @@
     .parameter "x0"
 
     .prologue
-    .line 297
+    .line 287
     invoke-virtual {p0, p1}, Landroid/net/wifi/p2p/WifiP2pDevice$1;->newArray(I)[Landroid/net/wifi/p2p/WifiP2pDevice;
 
     move-result-object v0

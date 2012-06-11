@@ -24,7 +24,7 @@
     const/4 v0, 0x0
 
     .line 43
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 44
     iput v0, p0, Landroid/media/videoeditor/WaveformData;->mFrameDurationMs:I
@@ -54,7 +54,7 @@
     const/4 v10, 0x4
 
     .line 66
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 68
     if-nez p1, :cond_e
@@ -85,7 +85,7 @@
 
     invoke-direct {v2, v0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
     :try_end_19
-    .catchall {:try_start_f .. :try_end_19} :catchall_60
+    .catchall {:try_start_f .. :try_end_19} :catchall_66
 
     .line 81
     .end local v1           #audioGraphFileReadHandle:Ljava/io/FileInputStream;
@@ -188,7 +188,7 @@
     :goto_50
     iget v8, p0, Landroid/media/videoeditor/WaveformData;->mFramesCount:I
 
-    if-ge v3, v8, :cond_67
+    if-ge v3, v8, :cond_60
 
     .line 111
     iget-object v8, p0, Landroid/media/videoeditor/WaveformData;->mGains:[S
@@ -209,6 +209,17 @@
     goto :goto_50
 
     .line 114
+    :cond_60
+    if-eqz v2, :cond_65
+
+    .line 115
+    invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
+
+    .line 118
+    :cond_65
+    return-void
+
+    .line 114
     .end local v0           #audioGraphFileContext:Ljava/io/File;
     .end local v2           #audioGraphFileReadHandle:Ljava/io/FileInputStream;
     .end local v3           #i:I
@@ -217,43 +228,22 @@
     .end local v6           #tempFramesCount:[B
     .end local v7           #tempFramesCounter:I
     .restart local v1       #audioGraphFileReadHandle:Ljava/io/FileInputStream;
-    :catchall_60
+    :catchall_66
     move-exception v8
 
-    :goto_61
-    if-eqz v1, :cond_66
+    :goto_67
+    if-eqz v1, :cond_6c
 
     .line 115
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
 
-    .line 114
-    :cond_66
+    :cond_6c
     throw v8
 
+    .line 114
     .end local v1           #audioGraphFileReadHandle:Ljava/io/FileInputStream;
     .restart local v0       #audioGraphFileContext:Ljava/io/File;
     .restart local v2       #audioGraphFileReadHandle:Ljava/io/FileInputStream;
-    .restart local v3       #i:I
-    .restart local v4       #tempFrameDuration:[B
-    .restart local v5       #tempFrameDurationMs:I
-    .restart local v6       #tempFramesCount:[B
-    .restart local v7       #tempFramesCounter:I
-    :cond_67
-    if-eqz v2, :cond_6c
-
-    .line 115
-    invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
-
-    .line 118
-    :cond_6c
-    return-void
-
-    .line 114
-    .end local v3           #i:I
-    .end local v4           #tempFrameDuration:[B
-    .end local v5           #tempFrameDurationMs:I
-    .end local v6           #tempFramesCount:[B
-    .end local v7           #tempFramesCounter:I
     :catchall_6d
     move-exception v8
 
@@ -261,7 +251,7 @@
 
     .end local v2           #audioGraphFileReadHandle:Ljava/io/FileInputStream;
     .restart local v1       #audioGraphFileReadHandle:Ljava/io/FileInputStream;
-    goto :goto_61
+    goto :goto_67
 .end method
 
 

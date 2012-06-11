@@ -27,8 +27,6 @@
 
 .field public static final DEBUG_SQL_TIME:Z
 
-.field public static final DEBUG_THREAD_LOCK_POINT:Z
-
 .field private static sNumActiveCursorsFinalized:I
 
 
@@ -39,16 +37,7 @@
     .prologue
     const/4 v1, 0x2
 
-    .line 35
-    const-string v0, "SQLiteLockPoint"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v0
-
-    sput-boolean v0, Landroid/database/sqlite/SQLiteDebug;->DEBUG_THREAD_LOCK_POINT:Z
-
-    .line 42
+    .line 34
     const-string v0, "SQLiteStatements"
 
     invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -57,7 +46,7 @@
 
     sput-boolean v0, Landroid/database/sqlite/SQLiteDebug;->DEBUG_SQL_STATEMENTS:Z
 
-    .line 52
+    .line 41
     const-string v0, "SQLiteTime"
 
     invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -66,7 +55,7 @@
 
     sput-boolean v0, Landroid/database/sqlite/SQLiteDebug;->DEBUG_SQL_TIME:Z
 
-    .line 61
+    .line 47
     const-string v0, "SQLiteCompiledSql"
 
     invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -75,7 +64,7 @@
 
     sput-boolean v0, Landroid/database/sqlite/SQLiteDebug;->DEBUG_SQL_CACHE:Z
 
-    .line 68
+    .line 54
     const-string v0, "SQLiteCursorClosing"
 
     invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -84,7 +73,7 @@
 
     sput-boolean v0, Landroid/database/sqlite/SQLiteDebug;->DEBUG_ACTIVE_CURSOR_FINALIZATION:Z
 
-    .line 74
+    .line 60
     const-string v0, "SQLiteLockTime"
 
     invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -93,7 +82,7 @@
 
     sput-boolean v0, Landroid/database/sqlite/SQLiteDebug;->DEBUG_LOCK_TIME_TRACKING:Z
 
-    .line 83
+    .line 66
     const-string v0, "SQLiteLockStackTrace"
 
     invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -102,12 +91,12 @@
 
     sput-boolean v0, Landroid/database/sqlite/SQLiteDebug;->DEBUG_LOCK_TIME_TRACKING_STACK_TRACE:Z
 
-    .line 90
+    .line 73
     sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
 
     sput-boolean v0, Landroid/database/sqlite/SQLiteDebug;->DEBUG_LOG_SLOW_QUERIES:Z
 
-    .line 230
+    .line 213
     const/4 v0, 0x0
 
     sput v0, Landroid/database/sqlite/SQLiteDebug;->sNumActiveCursorsFinalized:I
@@ -119,10 +108,10 @@
     .registers 1
 
     .prologue
-    .line 33
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 30
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 163
+    .line 146
     return-void
 .end method
 
@@ -130,23 +119,23 @@
     .registers 2
 
     .prologue
-    .line 194
+    .line 177
     new-instance v0, Landroid/database/sqlite/SQLiteDebug$PagerStats;
 
     invoke-direct {v0}, Landroid/database/sqlite/SQLiteDebug$PagerStats;-><init>()V
 
-    .line 195
+    .line 178
     .local v0, stats:Landroid/database/sqlite/SQLiteDebug$PagerStats;
     invoke-static {v0}, Landroid/database/sqlite/SQLiteDebug;->getPagerStats(Landroid/database/sqlite/SQLiteDebug$PagerStats;)V
 
-    .line 196
+    .line 179
     invoke-static {}, Landroid/database/sqlite/SQLiteDatabase;->getDbStats()Ljava/util/ArrayList;
 
     move-result-object v1
 
     iput-object v1, v0, Landroid/database/sqlite/SQLiteDebug$PagerStats;->dbStats:Ljava/util/ArrayList;
 
-    .line 197
+    .line 180
     return-object v0
 .end method
 
@@ -166,7 +155,7 @@
     .registers 1
 
     .prologue
-    .line 237
+    .line 220
     sget v0, Landroid/database/sqlite/SQLiteDebug;->sNumActiveCursorsFinalized:I
 
     return v0
@@ -179,7 +168,7 @@
     .registers 2
 
     .prologue
-    .line 241
+    .line 224
     const-class v1, Landroid/database/sqlite/SQLiteDebug;
 
     monitor-enter v1
@@ -193,12 +182,12 @@
     :try_end_9
     .catchall {:try_start_3 .. :try_end_9} :catchall_b
 
-    .line 242
+    .line 225
     monitor-exit v1
 
     return-void
 
-    .line 241
+    .line 224
     :catchall_b
     move-exception v0
 
@@ -212,7 +201,7 @@
     .parameter "elapsedTimeMillis"
 
     .prologue
-    .line 104
+    .line 87
     const-string v1, "db.log.slow_query_threshold"
 
     const/4 v2, -0x1
@@ -221,7 +210,7 @@
 
     move-result v0
 
-    .line 105
+    .line 88
     .local v0, slowQueryMillis:I
     if-ltz v0, :cond_10
 

@@ -1,83 +1,58 @@
-.class Lcom/android/internal/app/ShutdownThread$4;
-.super Landroid/os/storage/IMountShutdownObserver$Stub;
+.class final Lcom/android/internal/app/ShutdownThread$4;
+.super Ljava/lang/Object;
 .source "ShutdownThread.java"
+
+# interfaces
+.implements Landroid/content/DialogInterface$OnKeyListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/app/ShutdownThread;->run()V
+    value = Lcom/android/internal/app/ShutdownThread;->shutdown(Landroid/content/Context;Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x8
     name = null
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/internal/app/ShutdownThread;
-
-
 # direct methods
-.method constructor <init>(Lcom/android/internal/app/ShutdownThread;)V
-    .registers 2
-    .parameter
+.method constructor <init>()V
+    .registers 1
 
     .prologue
-    .line 348
-    iput-object p1, p0, Lcom/android/internal/app/ShutdownThread$4;->this$0:Lcom/android/internal/app/ShutdownThread;
-
-    invoke-direct {p0}, Landroid/os/storage/IMountShutdownObserver$Stub;-><init>()V
+    .line 150
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onShutDownComplete(I)V
+.method public onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z
     .registers 5
-    .parameter "statusCode"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
+    .parameter "dialog"
+    .parameter "keyCode"
+    .parameter "event"
 
     .prologue
-    .line 350
-    const-string v0, "ShutdownThread"
+    .line 152
+    const/4 v0, 0x4
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    if-ne p2, v0, :cond_a
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    .line 153
+    const/4 v0, 0x0
 
-    const-string v2, "Result code "
+    invoke-static {v0}, Lcom/android/internal/app/ShutdownThread;->access$002(Z)Z
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 154
+    invoke-interface {p1}, Landroid/content/DialogInterface;->cancel()V
 
-    move-result-object v1
+    .line 156
+    :cond_a
+    const/4 v0, 0x1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, " from MountService.shutdown"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 351
-    iget-object v0, p0, Lcom/android/internal/app/ShutdownThread$4;->this$0:Lcom/android/internal/app/ShutdownThread;
-
-    invoke-virtual {v0}, Lcom/android/internal/app/ShutdownThread;->actionDone()V
-
-    .line 352
-    return-void
+    return v0
 .end method

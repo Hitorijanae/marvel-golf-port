@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 6204
+    .line 2730
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$ScanModeState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -38,7 +38,7 @@
     .registers 3
 
     .prologue
-    .line 6208
+    .line 2734
     const v0, 0xc365
 
     invoke-virtual {p0}, Landroid/net/wifi/WifiStateMachine$ScanModeState;->getName()Ljava/lang/String;
@@ -47,7 +47,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
 
-    .line 6209
+    .line 2735
     return-void
 .end method
 
@@ -60,19 +60,19 @@
 
     const/4 v1, 0x0
 
-    .line 6213
+    .line 2739
     iget v2, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v2, :sswitch_data_4a
+    sparse-switch v2, :sswitch_data_30
 
     move v0, v1
 
-    .line 6245
+    .line 2763
     :cond_8
     :goto_8
     return v0
 
-    .line 6215
+    .line 2741
     :sswitch_9
     iget v2, p1, Landroid/os/Message;->arg1:I
 
@@ -80,55 +80,35 @@
 
     if-eq v2, v3, :cond_8
 
-    .line 6219
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0xe5
-
-    if-ne v2, v3, :cond_44
-
-    .line 6220
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$ScanModeState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mAssociateManual:Z
-    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$9600(Landroid/net/wifi/WifiStateMachine;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3e
-
-    .line 6221
+    .line 2745
     iget v2, p1, Landroid/os/Message;->arg1:I
-
-    neg-int v2, v2
 
     invoke-static {v2}, Landroid/net/wifi/WifiNative;->setScanResultHandlingCommand(I)Z
 
-    .line 6228
-    :goto_22
+    .line 2746
     invoke-static {}, Landroid/net/wifi/WifiNative;->reconnectCommand()Z
 
-    .line 6229
+    .line 2747
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$ScanModeState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #setter for: Landroid/net/wifi/WifiStateMachine;->mIsScanMode:Z
-    invoke-static {v2, v1}, Landroid/net/wifi/WifiStateMachine;->access$6602(Landroid/net/wifi/WifiStateMachine;Z)Z
+    invoke-static {v2, v1}, Landroid/net/wifi/WifiStateMachine;->access$5002(Landroid/net/wifi/WifiStateMachine;Z)Z
 
-    .line 6230
+    .line 2748
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$ScanModeState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$ScanModeState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mDisconnectedState:Lcom/android/internal/util/State;
-    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$9900(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
+    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$7600(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
 
     move-result-object v2
 
     #calls: Landroid/net/wifi/WifiStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v1, v2}, Landroid/net/wifi/WifiStateMachine;->access$11900(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
+    invoke-static {v1, v2}, Landroid/net/wifi/WifiStateMachine;->access$9100(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
 
-    .line 6244
-    :sswitch_35
+    .line 2762
+    :sswitch_26
     const v1, 0xc366
 
     iget v2, p1, Landroid/os/Message;->what:I
@@ -137,31 +117,17 @@
 
     goto :goto_8
 
-    .line 6223
-    :cond_3e
-    iget v2, p1, Landroid/os/Message;->arg1:I
+    .line 2739
+    nop
 
-    invoke-static {v2}, Landroid/net/wifi/WifiNative;->setScanResultHandlingCommand(I)Z
-
-    goto :goto_22
-
-    .line 6226
-    :cond_44
-    iget v2, p1, Landroid/os/Message;->arg1:I
-
-    invoke-static {v2}, Landroid/net/wifi/WifiNative;->setScanResultHandlingCommand(I)Z
-
-    goto :goto_22
-
-    .line 6213
-    :sswitch_data_4a
+    :sswitch_data_30
     .sparse-switch
         0x20048 -> :sswitch_9
-        0x2004a -> :sswitch_35
-        0x2004b -> :sswitch_35
-        0x2004c -> :sswitch_35
-        0x24003 -> :sswitch_35
-        0x24004 -> :sswitch_35
-        0x24006 -> :sswitch_35
+        0x2004a -> :sswitch_26
+        0x2004b -> :sswitch_26
+        0x2004c -> :sswitch_26
+        0x24003 -> :sswitch_26
+        0x24004 -> :sswitch_26
+        0x24006 -> :sswitch_26
     .end sparse-switch
 .end method

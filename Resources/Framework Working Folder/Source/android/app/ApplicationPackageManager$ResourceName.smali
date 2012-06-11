@@ -27,12 +27,12 @@
     .parameter "_iconId"
 
     .prologue
-    .line 858
-    iget-object v0, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    .line 826
+    iget-object v0, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     invoke-direct {p0, v0, p2}, Landroid/app/ApplicationPackageManager$ResourceName;-><init>(Ljava/lang/String;I)V
 
-    .line 859
+    .line 827
     return-void
 .end method
 
@@ -42,14 +42,14 @@
     .parameter "_iconId"
 
     .prologue
-    .line 862
+    .line 830
     iget-object v0, p1, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     invoke-direct {p0, v0, p2}, Landroid/app/ApplicationPackageManager$ResourceName;-><init>(Ljava/lang/String;I)V
 
-    .line 863
+    .line 831
     return-void
 .end method
 
@@ -59,16 +59,16 @@
     .parameter "_iconId"
 
     .prologue
-    .line 866
+    .line 834
     iget-object v0, p1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v0, v0, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     invoke-direct {p0, v0, p2}, Landroid/app/ApplicationPackageManager$ResourceName;-><init>(Ljava/lang/String;I)V
 
-    .line 867
+    .line 835
     return-void
 .end method
 
@@ -78,16 +78,16 @@
     .parameter "_iconId"
 
     .prologue
-    .line 852
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 820
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 853
+    .line 821
     iput-object p1, p0, Landroid/app/ApplicationPackageManager$ResourceName;->packageName:Ljava/lang/String;
 
-    .line 854
+    .line 822
     iput p2, p0, Landroid/app/ApplicationPackageManager$ResourceName;->iconId:I
 
-    .line 855
+    .line 823
     return-void
 .end method
 
@@ -102,15 +102,15 @@
 
     const/4 v2, 0x0
 
-    .line 871
+    .line 839
     if-ne p0, p1, :cond_5
 
-    .line 877
+    .line 845
     :cond_4
     :goto_4
     return v1
 
-    .line 872
+    .line 840
     :cond_5
     if-eqz p1, :cond_11
 
@@ -132,10 +132,10 @@
     :cond_13
     move-object v0, p1
 
-    .line 874
+    .line 842
     check-cast v0, Landroid/app/ApplicationPackageManager$ResourceName;
 
-    .line 876
+    .line 844
     .local v0, that:Landroid/app/ApplicationPackageManager$ResourceName;
     iget v3, p0, Landroid/app/ApplicationPackageManager$ResourceName;->iconId:I
 
@@ -147,7 +147,7 @@
 
     goto :goto_4
 
-    .line 877
+    .line 845
     :cond_1e
     iget-object v3, p0, Landroid/app/ApplicationPackageManager$ResourceName;->packageName:Ljava/lang/String;
 
@@ -180,14 +180,14 @@
     .registers 4
 
     .prologue
-    .line 885
+    .line 853
     iget-object v1, p0, Landroid/app/ApplicationPackageManager$ResourceName;->packageName:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
 
     move-result v0
 
-    .line 886
+    .line 854
     .local v0, result:I
     mul-int/lit8 v1, v0, 0x1f
 
@@ -195,7 +195,7 @@
 
     add-int v0, v1, v2
 
-    .line 887
+    .line 855
     return v0
 .end method
 
@@ -203,7 +203,7 @@
     .registers 3
 
     .prologue
-    .line 892
+    .line 860
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

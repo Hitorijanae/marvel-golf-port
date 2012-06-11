@@ -155,7 +155,7 @@
 
     .prologue
     .line 291
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 48
     new-instance v0, Ljava/util/ArrayList;
@@ -674,7 +674,7 @@
     .line 583
     iget v4, p0, Landroid/view/InputDevice;->mKeyboardType:I
 
-    packed-switch v4, :pswitch_data_130
+    packed-switch v4, :pswitch_data_12e
 
     .line 594
     :goto_2c
@@ -723,7 +723,7 @@
     .line 599
     const/16 v4, 0x101
 
-    const-string/jumbo v5, "keyboard"
+    const-string v5, "keyboard"
 
     invoke-direct {p0, v0, v4, v5}, Landroid/view/InputDevice;->appendSourceDescriptionIfApplicable(Ljava/lang/StringBuilder;ILjava/lang/String;)V
 
@@ -772,7 +772,7 @@
     .line 606
     const v4, 0x1000010
 
-    const-string/jumbo v5, "joystick"
+    const-string v5, "joystick"
 
     invoke-direct {p0, v0, v4, v5}, Landroid/view/InputDevice;->appendSourceDescriptionIfApplicable(Ljava/lang/StringBuilder;ILjava/lang/String;)V
 
@@ -800,8 +800,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_ac
-    if-ge v1, v2, :cond_12b
+    :goto_aa
+    if-ge v1, v2, :cond_129
 
     .line 612
     iget-object v4, p0, Landroid/view/InputDevice;->mMotionRanges:Ljava/util/ArrayList;
@@ -913,13 +913,13 @@
     .line 611
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_ac
+    goto :goto_aa
 
     .line 585
     .end local v1           #i:I
     .end local v2           #numAxes:I
     .end local v3           #range:Landroid/view/InputDevice$MotionRange;
-    :pswitch_114
+    :pswitch_112
     const-string/jumbo v4, "none"
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -927,7 +927,7 @@
     goto/16 :goto_2c
 
     .line 588
-    :pswitch_11c
+    :pswitch_11a
     const-string/jumbo v4, "non-alphabetic"
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -935,7 +935,7 @@
     goto/16 :goto_2c
 
     .line 591
-    :pswitch_124
+    :pswitch_122
     const-string v4, "alphabetic"
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -945,7 +945,7 @@
     .line 621
     .restart local v1       #i:I
     .restart local v2       #numAxes:I
-    :cond_12b
+    :cond_129
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
@@ -953,11 +953,11 @@
     return-object v4
 
     .line 583
-    :pswitch_data_130
+    :pswitch_data_12e
     .packed-switch 0x0
-        :pswitch_114
-        :pswitch_11c
-        :pswitch_124
+        :pswitch_112
+        :pswitch_11a
+        :pswitch_122
     .end packed-switch
 .end method
 

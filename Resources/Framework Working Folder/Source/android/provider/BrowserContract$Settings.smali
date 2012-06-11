@@ -48,7 +48,7 @@
 
     .prologue
     .line 513
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -84,7 +84,7 @@
 
     aput-object v4, v2, v3
 
-    const-string/jumbo v3, "key=?"
+    const-string v3, "key=?"
 
     const/4 v4, 0x1
 
@@ -103,67 +103,67 @@
     move-result-object v6
 
     .line 543
-    if-eqz v6, :cond_2b
+    if-eqz v6, :cond_2a
 
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
-    :try_end_28
-    .catchall {:try_start_3 .. :try_end_28} :catchall_42
+    :try_end_27
+    .catchall {:try_start_3 .. :try_end_27} :catchall_41
 
     move-result v0
 
-    if-nez v0, :cond_32
+    if-nez v0, :cond_31
 
     .line 548
-    :cond_2b
-    if-eqz v6, :cond_30
+    :cond_2a
+    if-eqz v6, :cond_2f
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_30
+    :cond_2f
     move v0, v8
+
+    :cond_30
+    :goto_30
+    return v0
 
     .line 546
     :cond_31
-    :goto_31
-    return v0
-
-    :cond_32
     const/4 v0, 0x0
 
-    :try_start_33
+    :try_start_32
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getInt(I)I
-    :try_end_36
-    .catchall {:try_start_33 .. :try_end_36} :catchall_42
+    :try_end_35
+    .catchall {:try_start_32 .. :try_end_35} :catchall_41
 
     move-result v0
 
-    if-eqz v0, :cond_40
+    if-eqz v0, :cond_3f
 
     move v0, v7
 
     .line 548
-    :goto_3a
-    if-eqz v6, :cond_31
+    :goto_39
+    if-eqz v6, :cond_30
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    goto :goto_31
+    goto :goto_30
 
-    :cond_40
+    :cond_3f
     move v0, v8
 
     .line 546
-    goto :goto_3a
+    goto :goto_39
 
     .line 548
-    :catchall_42
+    :catchall_41
     move-exception v0
 
-    if-eqz v6, :cond_48
+    if-eqz v6, :cond_47
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_48
+    :cond_47
     throw v0
 .end method
 
@@ -180,7 +180,7 @@
 
     .line 557
     .local v0, values:Landroid/content/ContentValues;
-    const-string/jumbo v1, "key"
+    const-string v1, "key"
 
     const-string/jumbo v2, "sync_enabled"
 
@@ -189,11 +189,11 @@
     .line 558
     const-string/jumbo v2, "value"
 
-    if-eqz p1, :cond_25
+    if-eqz p1, :cond_24
 
     const/4 v1, 0x1
 
-    :goto_14
+    :goto_13
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -213,8 +213,8 @@
     return-void
 
     .line 558
-    :cond_25
+    :cond_24
     const/4 v1, 0x0
 
-    goto :goto_14
+    goto :goto_13
 .end method

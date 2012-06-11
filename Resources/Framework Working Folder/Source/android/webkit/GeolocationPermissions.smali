@@ -22,8 +22,6 @@
 
 .field static final CLEAR_ALL:I = 0x4
 
-.field static final DISALLOW:I = 0x5
-
 .field static final GET_ALLOWED:I = 0x1
 
 .field static final GET_ORIGINS:I = 0x0
@@ -64,7 +62,7 @@
 
     .prologue
     .line 47
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -138,34 +136,23 @@
     return-void
 .end method
 
-.method static synthetic access$600(Ljava/lang/String;)V
-    .registers 1
-    .parameter "x0"
-
-    .prologue
-    .line 47
-    invoke-static {p0}, Landroid/webkit/GeolocationPermissions;->nativeDisAllow(Ljava/lang/String;)V
-
-    return-void
-.end method
-
 .method public static getInstance()Landroid/webkit/GeolocationPermissions;
     .registers 1
 
     .prologue
-    .line 89
+    .line 88
     sget-object v0, Landroid/webkit/GeolocationPermissions;->sInstance:Landroid/webkit/GeolocationPermissions;
 
     if-nez v0, :cond_b
 
-    .line 90
+    .line 89
     new-instance v0, Landroid/webkit/GeolocationPermissions;
 
     invoke-direct {v0}, Landroid/webkit/GeolocationPermissions;-><init>()V
 
     sput-object v0, Landroid/webkit/GeolocationPermissions;->sInstance:Landroid/webkit/GeolocationPermissions;
 
-    .line 92
+    .line 91
     :cond_b
     sget-object v0, Landroid/webkit/GeolocationPermissions;->sInstance:Landroid/webkit/GeolocationPermissions;
 
@@ -181,9 +168,6 @@
 .method private static native nativeClearAll()V
 .end method
 
-.method private static native nativeDisAllow(Ljava/lang/String;)V
-.end method
-
 .method private static native nativeGetAllowed(Ljava/lang/String;)Z
 .end method
 
@@ -195,7 +179,7 @@
     .parameter "msg"
 
     .prologue
-    .line 184
+    .line 179
     monitor-enter p0
 
     :try_start_1
@@ -203,19 +187,19 @@
 
     if-nez v0, :cond_17
 
-    .line 185
+    .line 180
     iget-object v0, p0, Landroid/webkit/GeolocationPermissions;->mQueuedMessages:Ljava/util/Vector;
 
     if-nez v0, :cond_10
 
-    .line 186
+    .line 181
     new-instance v0, Ljava/util/Vector;
 
     invoke-direct {v0}, Ljava/util/Vector;-><init>()V
 
     iput-object v0, p0, Landroid/webkit/GeolocationPermissions;->mQueuedMessages:Ljava/util/Vector;
 
-    .line 188
+    .line 183
     :cond_10
     iget-object v0, p0, Landroid/webkit/GeolocationPermissions;->mQueuedMessages:Ljava/util/Vector;
 
@@ -223,13 +207,13 @@
     :try_end_15
     .catchall {:try_start_1 .. :try_end_15} :catchall_1d
 
-    .line 192
+    .line 187
     :goto_15
     monitor-exit p0
 
     return-void
 
-    .line 190
+    .line 185
     :cond_17
     :try_start_17
     iget-object v0, p0, Landroid/webkit/GeolocationPermissions;->mHandler:Landroid/os/Handler;
@@ -240,7 +224,7 @@
 
     goto :goto_15
 
-    .line 184
+    .line 179
     :catchall_1d
     move-exception v0
 
@@ -254,17 +238,17 @@
     .parameter "msg"
 
     .prologue
-    .line 198
+    .line 193
     iget-object v0, p0, Landroid/webkit/GeolocationPermissions;->mUIHandler:Landroid/os/Handler;
 
     if-eqz v0, :cond_9
 
-    .line 199
+    .line 194
     iget-object v0, p0, Landroid/webkit/GeolocationPermissions;->mUIHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, p1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 201
+    .line 196
     :cond_9
     return-void
 .end method
@@ -276,7 +260,7 @@
     .parameter "origin"
 
     .prologue
-    .line 266
+    .line 261
     const/4 v0, 0x0
 
     const/4 v1, 0x3
@@ -287,7 +271,7 @@
 
     invoke-direct {p0, v0}, Landroid/webkit/GeolocationPermissions;->postMessage(Landroid/os/Message;)V
 
-    .line 267
+    .line 262
     return-void
 .end method
 
@@ -296,7 +280,7 @@
     .parameter "origin"
 
     .prologue
-    .line 256
+    .line 251
     const/4 v0, 0x0
 
     const/4 v1, 0x2
@@ -307,7 +291,7 @@
 
     invoke-direct {p0, v0}, Landroid/webkit/GeolocationPermissions;->postMessage(Landroid/os/Message;)V
 
-    .line 257
+    .line 252
     return-void
 .end method
 
@@ -315,7 +299,7 @@
     .registers 3
 
     .prologue
-    .line 274
+    .line 269
     const/4 v0, 0x0
 
     const/4 v1, 0x4
@@ -326,7 +310,7 @@
 
     invoke-direct {p0, v0}, Landroid/webkit/GeolocationPermissions;->postMessage(Landroid/os/Message;)V
 
-    .line 275
+    .line 270
     return-void
 .end method
 
@@ -334,7 +318,7 @@
     .registers 4
 
     .prologue
-    .line 129
+    .line 128
     monitor-enter p0
 
     :try_start_1
@@ -342,19 +326,19 @@
 
     if-nez v0, :cond_2d
 
-    .line 130
+    .line 129
     new-instance v0, Landroid/webkit/GeolocationPermissions$2;
 
     invoke-direct {v0, p0}, Landroid/webkit/GeolocationPermissions$2;-><init>(Landroid/webkit/GeolocationPermissions;)V
 
     iput-object v0, p0, Landroid/webkit/GeolocationPermissions;->mHandler:Landroid/os/Handler;
 
-    .line 171
+    .line 166
     iget-object v0, p0, Landroid/webkit/GeolocationPermissions;->mQueuedMessages:Ljava/util/Vector;
 
     if-eqz v0, :cond_2d
 
-    .line 172
+    .line 167
     :goto_10
     iget-object v0, p0, Landroid/webkit/GeolocationPermissions;->mQueuedMessages:Ljava/util/Vector;
 
@@ -364,7 +348,7 @@
 
     if-nez v0, :cond_2a
 
-    .line 173
+    .line 168
     iget-object v1, p0, Landroid/webkit/GeolocationPermissions;->mHandler:Landroid/os/Handler;
 
     iget-object v0, p0, Landroid/webkit/GeolocationPermissions;->mQueuedMessages:Ljava/util/Vector;
@@ -383,7 +367,7 @@
 
     goto :goto_10
 
-    .line 129
+    .line 128
     :catchall_27
     move-exception v0
 
@@ -391,7 +375,7 @@
 
     throw v0
 
-    .line 175
+    .line 170
     :cond_2a
     const/4 v0, 0x0
 
@@ -400,7 +384,7 @@
     :try_end_2d
     .catchall {:try_start_2b .. :try_end_2d} :catchall_27
 
-    .line 178
+    .line 173
     :cond_2d
     monitor-exit p0
 
@@ -411,40 +395,20 @@
     .registers 2
 
     .prologue
-    .line 100
+    .line 99
     iget-object v0, p0, Landroid/webkit/GeolocationPermissions;->mUIHandler:Landroid/os/Handler;
 
     if-nez v0, :cond_b
 
-    .line 101
+    .line 100
     new-instance v0, Landroid/webkit/GeolocationPermissions$1;
 
     invoke-direct {v0, p0}, Landroid/webkit/GeolocationPermissions$1;-><init>(Landroid/webkit/GeolocationPermissions;)V
 
     iput-object v0, p0, Landroid/webkit/GeolocationPermissions;->mUIHandler:Landroid/os/Handler;
 
-    .line 122
+    .line 121
     :cond_b
-    return-void
-.end method
-
-.method public disAllow(Ljava/lang/String;)V
-    .registers 4
-    .parameter "origin"
-
-    .prologue
-    .line 279
-    const/4 v0, 0x0
-
-    const/4 v1, 0x5
-
-    invoke-static {v0, v1, p1}, Landroid/os/Message;->obtain(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Landroid/webkit/GeolocationPermissions;->postMessage(Landroid/os/Message;)V
-
-    .line 280
     return-void
 .end method
 
@@ -467,23 +431,23 @@
     .local p2, callback:Landroid/webkit/ValueCallback;,"Landroid/webkit/ValueCallback<Ljava/lang/Boolean;>;"
     const/4 v4, 0x0
 
-    .line 231
+    .line 226
     if-nez p2, :cond_4
 
-    .line 247
+    .line 242
     :goto_3
     return-void
 
-    .line 234
+    .line 229
     :cond_4
     if-nez p1, :cond_a
 
-    .line 235
+    .line 230
     invoke-interface {p2, v4}, Landroid/webkit/ValueCallback;->onReceiveValue(Ljava/lang/Object;)V
 
     goto :goto_3
 
-    .line 238
+    .line 233
     :cond_a
     const-string v2, "WebViewCoreThread"
 
@@ -501,12 +465,12 @@
 
     if-eqz v2, :cond_27
 
-    .line 239
+    .line 234
     invoke-static {p1}, Landroid/webkit/GeolocationPermissions;->nativeGetAllowed(Ljava/lang/String;)Z
 
     move-result v0
 
-    .line 240
+    .line 235
     .local v0, allowed:Z
     new-instance v2, Ljava/lang/Boolean;
 
@@ -516,25 +480,25 @@
 
     goto :goto_3
 
-    .line 242
+    .line 237
     .end local v0           #allowed:Z
     :cond_27
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
-    .line 243
+    .line 238
     .local v1, values:Ljava/util/Map;
     const-string/jumbo v2, "origin"
 
     invoke-interface {v1, v2, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 244
+    .line 239
     const-string v2, "callback"
 
     invoke-interface {v1, v2, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 245
+    .line 240
     const/4 v2, 0x1
 
     invoke-static {v4, v2, v1}, Landroid/os/Message;->obtain(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
@@ -562,11 +526,11 @@
     .end annotation
 
     .prologue
-    .line 214
+    .line 209
     .local p1, callback:Landroid/webkit/ValueCallback;,"Landroid/webkit/ValueCallback<Ljava/util/Set<Ljava/lang/String;>;>;"
     if-eqz p1, :cond_19
 
-    .line 215
+    .line 210
     const-string v1, "WebViewCoreThread"
 
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -583,22 +547,22 @@
 
     if-eqz v1, :cond_1a
 
-    .line 216
+    .line 211
     invoke-static {}, Landroid/webkit/GeolocationPermissions;->nativeGetOrigins()Ljava/util/Set;
 
     move-result-object v0
 
-    .line 217
+    .line 212
     .local v0, origins:Ljava/util/Set;
     invoke-interface {p1, v0}, Landroid/webkit/ValueCallback;->onReceiveValue(Ljava/lang/Object;)V
 
-    .line 222
+    .line 217
     .end local v0           #origins:Ljava/util/Set;
     :cond_19
     :goto_19
     return-void
 
-    .line 219
+    .line 214
     :cond_1a
     const/4 v1, 0x0
 

@@ -2,9 +2,6 @@
 .super Ljava/lang/Object;
 .source "InputType.java"
 
-# interfaces
-.implements Landroid/text/HtcIfInputType;
-
 
 # static fields
 .field public static final TYPE_CLASS_DATETIME:I = 0x4

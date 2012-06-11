@@ -47,7 +47,7 @@
 
     .prologue
     .line 35
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 36
     return-void
@@ -157,14 +157,14 @@
 
     .line 41
     .local v0, str:Ljava/lang/StringBuffer;
-    const-string/jumbo v1, "ipddress "
+    const-string v1, "ipddress "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 42
     iget-object v1, p0, Landroid/net/InterfaceConfiguration;->addr:Landroid/net/LinkAddress;
 
-    if-eqz v1, :cond_33
+    if-eqz v1, :cond_32
 
     iget-object v1, p0, Landroid/net/InterfaceConfiguration;->addr:Landroid/net/LinkAddress;
 
@@ -172,7 +172,7 @@
 
     move-result-object v1
 
-    :goto_15
+    :goto_14
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 43
@@ -205,10 +205,10 @@
     return-object v1
 
     .line 42
-    :cond_33
+    :cond_32
     const-string v1, "NULL"
 
-    goto :goto_15
+    goto :goto_14
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 194
+    .line 163
     iput-object p1, p0, Landroid/content/SyncManager$1;->this$0:Landroid/content/SyncManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -44,12 +44,12 @@
 
     const/4 v2, 0x2
 
-    .line 196
+    .line 165
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 197
+    .line 166
     .local v0, action:Ljava/lang/String;
     const-string v1, "android.intent.action.DEVICE_STORAGE_LOW"
 
@@ -59,7 +59,7 @@
 
     if-eqz v1, :cond_29
 
-    .line 198
+    .line 167
     const-string v1, "SyncManager"
 
     invoke-static {v1, v2}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -68,14 +68,14 @@
 
     if-eqz v1, :cond_1d
 
-    .line 199
+    .line 168
     const-string v1, "SyncManager"
 
     const-string v2, "Internal storage is low."
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 201
+    .line 170
     :cond_1d
     iget-object v1, p0, Landroid/content/SyncManager$1;->this$0:Landroid/content/SyncManager;
 
@@ -84,17 +84,17 @@
     #setter for: Landroid/content/SyncManager;->mStorageIsLow:Z
     invoke-static {v1, v2}, Landroid/content/SyncManager;->access$002(Landroid/content/SyncManager;Z)Z
 
-    .line 202
+    .line 171
     iget-object v1, p0, Landroid/content/SyncManager$1;->this$0:Landroid/content/SyncManager;
 
     invoke-virtual {v1, v3, v3}, Landroid/content/SyncManager;->cancelActiveSync(Landroid/accounts/Account;Ljava/lang/String;)V
 
-    .line 210
+    .line 179
     :cond_28
     :goto_28
     return-void
 
-    .line 203
+    .line 172
     :cond_29
     const-string v1, "android.intent.action.DEVICE_STORAGE_OK"
 
@@ -104,7 +104,7 @@
 
     if-eqz v1, :cond_28
 
-    .line 204
+    .line 173
     const-string v1, "SyncManager"
 
     invoke-static {v1, v2}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -113,14 +113,14 @@
 
     if-eqz v1, :cond_40
 
-    .line 205
+    .line 174
     const-string v1, "SyncManager"
 
     const-string v2, "Internal storage is ok."
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 207
+    .line 176
     :cond_40
     iget-object v1, p0, Landroid/content/SyncManager$1;->this$0:Landroid/content/SyncManager;
 
@@ -129,7 +129,7 @@
     #setter for: Landroid/content/SyncManager;->mStorageIsLow:Z
     invoke-static {v1, v2}, Landroid/content/SyncManager;->access$002(Landroid/content/SyncManager;Z)Z
 
-    .line 208
+    .line 177
     iget-object v1, p0, Landroid/content/SyncManager$1;->this$0:Landroid/content/SyncManager;
 
     #calls: Landroid/content/SyncManager;->sendCheckAlarmsMessage()V

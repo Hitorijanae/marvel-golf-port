@@ -46,7 +46,7 @@
 
     .prologue
     .line 373
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 374
     new-instance v0, Lcom/android/internal/app/AlertController$AlertParams;
@@ -862,25 +862,6 @@
 
     .line 799
     return-object p0
-.end method
-
-.method public setSkinSelector()V
-    .registers 2
-
-    .prologue
-    .line 941
-    iget-object v0, p0, Landroid/app/AlertDialog$Builder;->P:Lcom/android/internal/app/AlertController$AlertParams;
-
-    if-eqz v0, :cond_9
-
-    .line 942
-    iget-object v0, p0, Landroid/app/AlertDialog$Builder;->P:Lcom/android/internal/app/AlertController$AlertParams;
-
-    invoke-virtual {v0}, Lcom/android/internal/app/AlertController$AlertParams;->setSkinSelector()V
-
-    .line 943
-    :cond_9
-    return-void
 .end method
 
 .method public setTitle(I)Landroid/app/AlertDialog$Builder;

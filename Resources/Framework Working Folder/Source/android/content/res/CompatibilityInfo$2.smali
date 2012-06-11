@@ -32,8 +32,8 @@
     .registers 1
 
     .prologue
-    .line 577
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 587
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,7 +45,7 @@
     .parameter "source"
 
     .prologue
-    .line 579
+    .line 589
     new-instance v0, Landroid/content/res/CompatibilityInfo;
 
     const/4 v1, 0x0
@@ -60,7 +60,7 @@
     .parameter "x0"
 
     .prologue
-    .line 577
+    .line 587
     invoke-virtual {p0, p1}, Landroid/content/res/CompatibilityInfo$2;->createFromParcel(Landroid/os/Parcel;)Landroid/content/res/CompatibilityInfo;
 
     move-result-object v0
@@ -73,7 +73,7 @@
     .parameter "size"
 
     .prologue
-    .line 583
+    .line 593
     new-array v0, p1, [Landroid/content/res/CompatibilityInfo;
 
     return-object v0
@@ -84,7 +84,7 @@
     .parameter "x0"
 
     .prologue
-    .line 577
+    .line 587
     invoke-virtual {p0, p1}, Landroid/content/res/CompatibilityInfo$2;->newArray(I)[Landroid/content/res/CompatibilityInfo;
 
     move-result-object v0

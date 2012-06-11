@@ -28,7 +28,6 @@
         Landroid/provider/ContactsContract$CommonDataKinds$StructuredPostal;,
         Landroid/provider/ContactsContract$CommonDataKinds$Email;,
         Landroid/provider/ContactsContract$CommonDataKinds$Phone;,
-        Landroid/provider/ContactsContract$CommonDataKinds$ContactLocation;,
         Landroid/provider/ContactsContract$CommonDataKinds$Nickname;,
         Landroid/provider/ContactsContract$CommonDataKinds$StructuredName;,
         Landroid/provider/ContactsContract$CommonDataKinds$CommonColumns;,
@@ -46,8 +45,8 @@
     .registers 1
 
     .prologue
-    .line 5092
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 5012
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

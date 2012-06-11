@@ -10,11 +10,7 @@
 
 
 # instance fields
-.field private mContext:Landroid/content/Context;
-
 .field private mTextureNames:[I
-
-.field private wl:Landroid/os/PowerManager$WakeLock;
 
 
 # direct methods
@@ -22,12 +18,12 @@
     .registers 1
 
     .prologue
-    .line 26
+    .line 23
     const/4 v0, 0x0
 
     sput-object v0, Landroid/webkit/HTML5VideoInline;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
-    .line 30
+    .line 27
     const/4 v0, -0x1
 
     sput v0, Landroid/webkit/HTML5VideoInline;->mVideoLayerUsingSurfaceTexture:I
@@ -42,24 +38,18 @@
     .parameter "autoStart"
 
     .prologue
-    const/4 v0, 0x0
-
-    .line 58
+    .line 38
     invoke-direct {p0}, Landroid/webkit/HTML5VideoView;-><init>()V
 
-    .line 135
-    iput-object v0, p0, Landroid/webkit/HTML5VideoInline;->wl:Landroid/os/PowerManager$WakeLock;
-
-    .line 136
-    iput-object v0, p0, Landroid/webkit/HTML5VideoInline;->mContext:Landroid/content/Context;
-
-    .line 59
+    .line 39
     invoke-virtual {p0, p1, p2, p3}, Landroid/webkit/HTML5VideoInline;->init(IIZ)V
 
-    .line 60
+    .line 40
+    const/4 v0, 0x0
+
     iput-object v0, p0, Landroid/webkit/HTML5VideoInline;->mTextureNames:[I
 
-    .line 61
+    .line 41
     return-void
 .end method
 
@@ -68,55 +58,13 @@
     .parameter "l"
 
     .prologue
-    .line 131
+    .line 111
     sget-object v0, Landroid/webkit/HTML5VideoInline;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
     invoke-virtual {v0, p1}, Landroid/graphics/SurfaceTexture;->setOnFrameAvailableListener(Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;)V
 
-    .line 132
+    .line 112
     return-void
-.end method
-
-.method private wakeLockPermission()I
-    .registers 6
-
-    .prologue
-    const/4 v0, -0x1
-
-    .line 139
-    iget-object v1, p0, Landroid/webkit/HTML5VideoInline;->mContext:Landroid/content/Context;
-
-    if-nez v1, :cond_6
-
-    .line 147
-    :cond_5
-    :goto_5
-    return v0
-
-    .line 142
-    :cond_6
-    iget-object v1, p0, Landroid/webkit/HTML5VideoInline;->mContext:Landroid/content/Context;
-
-    const-string v2, "android.permission.WAKE_LOCK"
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v3
-
-    invoke-static {}, Landroid/os/Process;->myUid()I
-
-    move-result v4
-
-    invoke-virtual {v1, v2, v3, v4}, Landroid/content/Context;->checkPermission(Ljava/lang/String;II)I
-
-    move-result v1
-
-    if-nez v1, :cond_5
-
-    .line 147
-    const/4 v0, 0x0
-
-    goto :goto_5
 .end method
 
 
@@ -125,7 +73,7 @@
     .registers 4
 
     .prologue
-    .line 65
+    .line 45
     invoke-virtual {p0}, Landroid/webkit/HTML5VideoInline;->getVideoLayerId()I
 
     move-result v2
@@ -134,22 +82,22 @@
 
     move-result-object v1
 
-    .line 66
+    .line 46
     .local v1, surfaceTexture:Landroid/graphics/SurfaceTexture;
     new-instance v0, Landroid/view/Surface;
 
     invoke-direct {v0, v1}, Landroid/view/Surface;-><init>(Landroid/graphics/SurfaceTexture;)V
 
-    .line 67
+    .line 47
     .local v0, surface:Landroid/view/Surface;
-    iget-object v2, p0, Landroid/webkit/HTML5VideoView;->mPlayer:Landroid/media/MediaPlayer;
+    iget-object v2, p0, Landroid/webkit/HTML5VideoInline;->mPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v2, v0}, Landroid/media/MediaPlayer;->setSurface(Landroid/view/Surface;)V
 
-    .line 68
+    .line 48
     invoke-virtual {v0}, Landroid/view/Surface;->release()V
 
-    .line 69
+    .line 49
     return-void
 .end method
 
@@ -157,17 +105,17 @@
     .registers 2
 
     .prologue
-    .line 116
+    .line 96
     const/4 v0, 0x0
 
     sput-object v0, Landroid/webkit/HTML5VideoInline;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
-    .line 117
+    .line 97
     const/4 v0, -0x1
 
     sput v0, Landroid/webkit/HTML5VideoInline;->mVideoLayerUsingSurfaceTexture:I
 
-    .line 118
+    .line 98
     return-void
 .end method
 
@@ -180,7 +128,7 @@
 
     const/4 v2, 0x0
 
-    .line 96
+    .line 76
     sget v0, Landroid/webkit/HTML5VideoInline;->mVideoLayerUsingSurfaceTexture:I
 
     if-ne p1, v0, :cond_e
@@ -193,29 +141,29 @@
 
     if-nez v0, :cond_2b
 
-    .line 99
+    .line 79
     :cond_e
     iget-object v0, p0, Landroid/webkit/HTML5VideoInline;->mTextureNames:[I
 
     if-eqz v0, :cond_17
 
-    .line 100
+    .line 80
     iget-object v0, p0, Landroid/webkit/HTML5VideoInline;->mTextureNames:[I
 
     invoke-static {v1, v0, v2}, Landroid/opengl/GLES20;->glDeleteTextures(I[II)V
 
-    .line 102
+    .line 82
     :cond_17
     new-array v0, v1, [I
 
     iput-object v0, p0, Landroid/webkit/HTML5VideoInline;->mTextureNames:[I
 
-    .line 103
+    .line 83
     iget-object v0, p0, Landroid/webkit/HTML5VideoInline;->mTextureNames:[I
 
     invoke-static {v1, v0, v2}, Landroid/opengl/GLES20;->glGenTextures(I[II)V
 
-    .line 104
+    .line 84
     new-instance v0, Landroid/graphics/SurfaceTexture;
 
     iget-object v1, p0, Landroid/webkit/HTML5VideoInline;->mTextureNames:[I
@@ -226,11 +174,11 @@
 
     sput-object v0, Landroid/webkit/HTML5VideoInline;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
-    .line 106
+    .line 86
     :cond_2b
     sput p1, Landroid/webkit/HTML5VideoInline;->mVideoLayerUsingSurfaceTexture:I
 
-    .line 107
+    .line 87
     sget-object v0, Landroid/webkit/HTML5VideoInline;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
     return-object v0
@@ -242,62 +190,19 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 123
+    .line 103
     iget-object v1, p0, Landroid/webkit/HTML5VideoInline;->mTextureNames:[I
 
     if-eqz v1, :cond_9
 
-    .line 124
+    .line 104
     iget-object v1, p0, Landroid/webkit/HTML5VideoInline;->mTextureNames:[I
 
     aget v0, v1, v0
 
-    .line 126
+    .line 106
     :cond_9
     return v0
-.end method
-
-.method public pause()V
-    .registers 3
-
-    .prologue
-    .line 152
-    invoke-super {p0}, Landroid/webkit/HTML5VideoView;->pause()V
-
-    .line 154
-    invoke-direct {p0}, Landroid/webkit/HTML5VideoInline;->wakeLockPermission()I
-
-    move-result v0
-
-    if-nez v0, :cond_21
-
-    iget-object v0, p0, Landroid/webkit/HTML5VideoInline;->wl:Landroid/os/PowerManager$WakeLock;
-
-    if-eqz v0, :cond_21
-
-    iget-object v0, p0, Landroid/webkit/HTML5VideoInline;->wl:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->isHeld()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_21
-
-    .line 156
-    const-string v0, "HTML5VideoInline"
-
-    const-string v1, "-release wakelock"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 157
-    iget-object v0, p0, Landroid/webkit/HTML5VideoInline;->wl:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
-
-    .line 159
-    :cond_21
-    return-void
 .end method
 
 .method public pauseAndDispatch(Landroid/webkit/HTML5VideoViewProxy;)V
@@ -305,10 +210,10 @@
     .parameter "proxy"
 
     .prologue
-    .line 88
+    .line 68
     invoke-super {p0, p1}, Landroid/webkit/HTML5VideoView;->pauseAndDispatch(Landroid/webkit/HTML5VideoViewProxy;)V
 
-    .line 89
+    .line 69
     return-void
 .end method
 
@@ -317,14 +222,14 @@
     .parameter "proxy"
 
     .prologue
-    .line 75
+    .line 55
     invoke-super {p0, p1}, Landroid/webkit/HTML5VideoView;->prepareDataAndDisplayMode(Landroid/webkit/HTML5VideoViewProxy;)V
 
-    .line 76
+    .line 56
     invoke-direct {p0, p1}, Landroid/webkit/HTML5VideoInline;->setFrameAvailableListener(Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;)V
 
-    .line 79
-    iget-object v0, p0, Landroid/webkit/HTML5VideoView;->mProxy:Landroid/webkit/HTML5VideoViewProxy;
+    .line 59
+    iget-object v0, p0, Landroid/webkit/HTML5VideoInline;->mProxy:Landroid/webkit/HTML5VideoViewProxy;
 
     invoke-virtual {v0}, Landroid/webkit/HTML5VideoViewProxy;->getContext()Landroid/content/Context;
 
@@ -338,8 +243,8 @@
 
     if-nez v0, :cond_1f
 
-    .line 81
-    iget-object v0, p0, Landroid/webkit/HTML5VideoView;->mPlayer:Landroid/media/MediaPlayer;
+    .line 61
+    iget-object v0, p0, Landroid/webkit/HTML5VideoInline;->mPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {p1}, Landroid/webkit/HTML5VideoViewProxy;->getContext()Landroid/content/Context;
 
@@ -349,109 +254,27 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/media/MediaPlayer;->setWakeMode(Landroid/content/Context;I)V
 
-    .line 83
+    .line 63
     :cond_1f
     return-void
 .end method
 
 .method public start()V
-    .registers 4
+    .registers 2
 
     .prologue
-    .line 35
+    .line 32
     invoke-virtual {p0}, Landroid/webkit/HTML5VideoInline;->getPauseDuringPreparing()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_53
+    if-nez v0, :cond_9
 
-    .line 36
+    .line 33
     invoke-super {p0}, Landroid/webkit/HTML5VideoView;->start()V
 
-    .line 39
-    iget-object v1, p0, Landroid/webkit/HTML5VideoInline;->wl:Landroid/os/PowerManager$WakeLock;
-
-    if-nez v1, :cond_35
-
-    .line 40
-    iget-object v1, p0, Landroid/webkit/HTML5VideoView;->mProxy:Landroid/webkit/HTML5VideoViewProxy;
-
-    invoke-virtual {v1}, Landroid/webkit/HTML5VideoViewProxy;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    iput-object v1, p0, Landroid/webkit/HTML5VideoInline;->mContext:Landroid/content/Context;
-
-    .line 41
-    iget-object v1, p0, Landroid/webkit/HTML5VideoInline;->mContext:Landroid/content/Context;
-
-    if-eqz v1, :cond_35
-
-    .line 42
-    iget-object v1, p0, Landroid/webkit/HTML5VideoInline;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v2, "power"
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/os/PowerManager;
-
-    .line 43
-    .local v0, pm:Landroid/os/PowerManager;
-    const v1, 0x2000000a
-
-    const-string v2, "HTML5VideoInline"
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
-
-    move-result-object v1
-
-    iput-object v1, p0, Landroid/webkit/HTML5VideoInline;->wl:Landroid/os/PowerManager$WakeLock;
-
-    .line 44
-    iget-object v1, p0, Landroid/webkit/HTML5VideoInline;->wl:Landroid/os/PowerManager$WakeLock;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
-
-    .line 48
-    .end local v0           #pm:Landroid/os/PowerManager;
-    :cond_35
-    invoke-direct {p0}, Landroid/webkit/HTML5VideoInline;->wakeLockPermission()I
-
-    move-result v1
-
-    if-nez v1, :cond_53
-
-    iget-object v1, p0, Landroid/webkit/HTML5VideoInline;->wl:Landroid/os/PowerManager$WakeLock;
-
-    if-eqz v1, :cond_53
-
-    iget-object v1, p0, Landroid/webkit/HTML5VideoInline;->wl:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->isHeld()Z
-
-    move-result v1
-
-    if-nez v1, :cond_53
-
-    .line 50
-    const-string v1, "HTML5VideoInline"
-
-    const-string v2, "+acquire wakelock"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 51
-    iget-object v1, p0, Landroid/webkit/HTML5VideoInline;->wl:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->acquire()V
-
-    .line 55
-    :cond_53
+    .line 35
+    :cond_9
     return-void
 .end method
 
@@ -459,7 +282,7 @@
     .registers 2
 
     .prologue
-    .line 111
+    .line 91
     sget-object v0, Landroid/webkit/HTML5VideoInline;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
     if-nez v0, :cond_6

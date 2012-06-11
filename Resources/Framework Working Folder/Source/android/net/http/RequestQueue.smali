@@ -68,7 +68,7 @@
 
     .prologue
     .line 212
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 61
     const/4 v0, 0x0
@@ -169,9 +169,9 @@
     .line 404
     iget-object v0, p0, Landroid/net/http/RequestQueue;->mProxyHost:Lorg/apache/http/HttpHost;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_10
 
-    const-string/jumbo v0, "https"
+    const-string v0, "https"
 
     invoke-virtual {p1}, Lorg/apache/http/HttpHost;->getSchemeName()Ljava/lang/String;
 
@@ -181,18 +181,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_11
 
     .end local p1
-    :cond_11
-    :goto_11
+    :cond_10
+    :goto_10
     return-object p1
 
     .restart local p1
-    :cond_12
+    :cond_11
     iget-object p1, p0, Landroid/net/http/RequestQueue;->mProxyHost:Lorg/apache/http/HttpHost;
 
-    goto :goto_11
+    goto :goto_10
 .end method
 
 .method private removeFirst(Ljava/util/LinkedHashMap;)Landroid/net/http/Request;
@@ -370,13 +370,13 @@
 
     move-result v3
 
-    const-string/jumbo v4, "http"
+    const-string v4, "http"
 
     invoke-direct {v2, v0, v3, v4}, Lorg/apache/http/HttpHost;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     iput-object v2, p0, Landroid/net/http/RequestQueue;->mProxyHost:Lorg/apache/http/HttpHost;
-    :try_end_39
-    .catchall {:try_start_24 .. :try_end_39} :catchall_21
+    :try_end_38
+    .catchall {:try_start_24 .. :try_end_38} :catchall_21
 
     goto :goto_13
 .end method

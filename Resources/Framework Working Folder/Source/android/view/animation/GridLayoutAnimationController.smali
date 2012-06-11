@@ -209,7 +209,7 @@
     .line 351
     .end local v1           #index:I
     :pswitch_20
-    iget-object v2, p0, Landroid/view/animation/LayoutAnimationController;->mRandomizer:Ljava/util/Random;
+    iget-object v2, p0, Landroid/view/animation/GridLayoutAnimationController;->mRandomizer:Ljava/util/Random;
 
     if-nez v2, :cond_2b
 
@@ -218,7 +218,7 @@
 
     invoke-direct {v2}, Ljava/util/Random;-><init>()V
 
-    iput-object v2, p0, Landroid/view/animation/LayoutAnimationController;->mRandomizer:Ljava/util/Random;
+    iput-object v2, p0, Landroid/view/animation/GridLayoutAnimationController;->mRandomizer:Ljava/util/Random;
 
     .line 354
     :cond_2b
@@ -226,7 +226,7 @@
 
     int-to-float v2, v2
 
-    iget-object v3, p0, Landroid/view/animation/LayoutAnimationController;->mRandomizer:Ljava/util/Random;
+    iget-object v3, p0, Landroid/view/animation/GridLayoutAnimationController;->mRandomizer:Ljava/util/Random;
 
     invoke-virtual {v3}, Ljava/util/Random;->nextFloat()F
 
@@ -308,7 +308,7 @@
     .line 377
     .end local v1           #index:I
     :pswitch_20
-    iget-object v2, p0, Landroid/view/animation/LayoutAnimationController;->mRandomizer:Ljava/util/Random;
+    iget-object v2, p0, Landroid/view/animation/GridLayoutAnimationController;->mRandomizer:Ljava/util/Random;
 
     if-nez v2, :cond_2b
 
@@ -317,7 +317,7 @@
 
     invoke-direct {v2}, Ljava/util/Random;-><init>()V
 
-    iput-object v2, p0, Landroid/view/animation/LayoutAnimationController;->mRandomizer:Ljava/util/Random;
+    iput-object v2, p0, Landroid/view/animation/GridLayoutAnimationController;->mRandomizer:Ljava/util/Random;
 
     .line 380
     :cond_2b
@@ -325,7 +325,7 @@
 
     int-to-float v2, v2
 
-    iget-object v3, p0, Landroid/view/animation/LayoutAnimationController;->mRandomizer:Ljava/util/Random;
+    iget-object v3, p0, Landroid/view/animation/GridLayoutAnimationController;->mRandomizer:Ljava/util/Random;
 
     invoke-virtual {v3}, Ljava/util/Random;->nextFloat()F
 
@@ -416,7 +416,7 @@
     .local v3, columnsCount:I
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/view/animation/LayoutAnimationController;->mAnimation:Landroid/view/animation/Animation;
+    iget-object v15, v0, Landroid/view/animation/GridLayoutAnimationController;->mAnimation:Landroid/view/animation/Animation;
 
     invoke-virtual {v15}, Landroid/view/animation/Animation;->getDuration()J
 
@@ -450,7 +450,7 @@
     .local v10, rowDelay:F
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/view/animation/LayoutAnimationController;->mInterpolator:Landroid/view/animation/Interpolator;
+    iget-object v15, v0, Landroid/view/animation/GridLayoutAnimationController;->mInterpolator:Landroid/view/animation/Interpolator;
 
     if-nez v15, :cond_46
 
@@ -461,7 +461,7 @@
 
     move-object/from16 v0, p0
 
-    iput-object v15, v0, Landroid/view/animation/LayoutAnimationController;->mInterpolator:Landroid/view/animation/Interpolator;
+    iput-object v15, v0, Landroid/view/animation/GridLayoutAnimationController;->mInterpolator:Landroid/view/animation/Interpolator;
 
     .line 322
     :cond_46
@@ -511,7 +511,7 @@
     .local v7, normalizedDelay:F
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/view/animation/LayoutAnimationController;->mInterpolator:Landroid/view/animation/Interpolator;
+    iget-object v15, v0, Landroid/view/animation/GridLayoutAnimationController;->mInterpolator:Landroid/view/animation/Interpolator;
 
     invoke-interface {v15, v7}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
 

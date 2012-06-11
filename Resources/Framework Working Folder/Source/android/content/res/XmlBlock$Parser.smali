@@ -46,7 +46,7 @@
     .line 78
     iput-object p1, p0, Landroid/content/res/XmlBlock$Parser;->this$0:Landroid/content/res/XmlBlock;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 463
     iput-boolean v0, p0, Landroid/content/res/XmlBlock$Parser;->mStarted:Z
@@ -956,33 +956,33 @@
     const/4 v0, 0x1
 
     .line 94
-    const-string/jumbo v1, "http://xmlpull.org/v1/doc/features.html#process-namespaces"
+    const-string v1, "http://xmlpull.org/v1/doc/features.html#process-namespaces"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_a
 
     .line 100
-    :cond_a
-    :goto_a
+    :cond_9
+    :goto_9
     return v0
 
     .line 97
-    :cond_b
-    const-string/jumbo v1, "http://xmlpull.org/v1/doc/features.html#report-namespace-prefixes"
+    :cond_a
+    const-string v1, "http://xmlpull.org/v1/doc/features.html#report-namespace-prefixes"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_9
 
     .line 100
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_9
 .end method
 
 .method public getIdAttribute()Ljava/lang/String;
@@ -1030,7 +1030,7 @@
     .line 436
     const/4 v0, 0x0
 
-    const-string/jumbo v1, "id"
+    const-string v1, "id"
 
     invoke-virtual {p0, v0, v1, p1}, Landroid/content/res/XmlBlock$Parser;->getAttributeResourceValue(Ljava/lang/String;Ljava/lang/String;I)I
 
@@ -1879,34 +1879,34 @@
 
     .prologue
     .line 85
-    const-string/jumbo v0, "http://xmlpull.org/v1/doc/features.html#process-namespaces"
+    const-string v0, "http://xmlpull.org/v1/doc/features.html#process-namespaces"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_b
 
-    if-eqz p2, :cond_c
+    if-eqz p2, :cond_b
 
     .line 89
-    :cond_b
+    :cond_a
     return-void
 
     .line 88
-    :cond_c
-    const-string/jumbo v0, "http://xmlpull.org/v1/doc/features.html#report-namespace-prefixes"
+    :cond_b
+    const-string v0, "http://xmlpull.org/v1/doc/features.html#report-namespace-prefixes"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_15
 
-    if-nez p2, :cond_b
+    if-nez p2, :cond_a
 
     .line 91
-    :cond_17
+    :cond_15
     new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance v1, Ljava/lang/StringBuilder;

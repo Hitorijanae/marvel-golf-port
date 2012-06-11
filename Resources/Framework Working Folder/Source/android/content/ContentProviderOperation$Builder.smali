@@ -51,13 +51,13 @@
     .parameter "uri"
 
     .prologue
-    .line 429
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 413
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 430
+    .line 414
     if-nez p2, :cond_e
 
-    .line 431
+    .line 415
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "uri must not be null"
@@ -66,14 +66,14 @@
 
     throw v0
 
-    .line 433
+    .line 417
     :cond_e
     iput p1, p0, Landroid/content/ContentProviderOperation$Builder;->mType:I
 
-    .line 434
+    .line 418
     iput-object p2, p0, Landroid/content/ContentProviderOperation$Builder;->mUri:Landroid/net/Uri;
 
-    .line 435
+    .line 419
     return-void
 .end method
 
@@ -84,7 +84,7 @@
     .parameter "x2"
 
     .prologue
-    .line 417
+    .line 401
     invoke-direct {p0, p1, p2}, Landroid/content/ContentProviderOperation$Builder;-><init>(ILandroid/net/Uri;)V
 
     return-void
@@ -95,7 +95,7 @@
     .parameter "x0"
 
     .prologue
-    .line 417
+    .line 401
     iget v0, p0, Landroid/content/ContentProviderOperation$Builder;->mType:I
 
     return v0
@@ -106,7 +106,7 @@
     .parameter "x0"
 
     .prologue
-    .line 417
+    .line 401
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mUri:Landroid/net/Uri;
 
     return-object v0
@@ -117,7 +117,7 @@
     .parameter "x0"
 
     .prologue
-    .line 417
+    .line 401
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
     return-object v0
@@ -128,7 +128,7 @@
     .parameter "x0"
 
     .prologue
-    .line 417
+    .line 401
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mSelection:Ljava/lang/String;
 
     return-object v0
@@ -139,7 +139,7 @@
     .parameter "x0"
 
     .prologue
-    .line 417
+    .line 401
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mSelectionArgs:[Ljava/lang/String;
 
     return-object v0
@@ -150,7 +150,7 @@
     .parameter "x0"
 
     .prologue
-    .line 417
+    .line 401
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mExpectedCount:Ljava/lang/Integer;
 
     return-object v0
@@ -161,7 +161,7 @@
     .parameter "x0"
 
     .prologue
-    .line 417
+    .line 401
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mSelectionArgsBackReferences:Ljava/util/Map;
 
     return-object v0
@@ -172,7 +172,7 @@
     .parameter "x0"
 
     .prologue
-    .line 417
+    .line 401
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValuesBackReferences:Landroid/content/ContentValues;
 
     return-object v0
@@ -183,7 +183,7 @@
     .parameter "x0"
 
     .prologue
-    .line 417
+    .line 401
     iget-boolean v0, p0, Landroid/content/ContentProviderOperation$Builder;->mYieldAllowed:Z
 
     return v0
@@ -195,14 +195,14 @@
     .registers 3
 
     .prologue
-    .line 439
+    .line 423
     iget v0, p0, Landroid/content/ContentProviderOperation$Builder;->mType:I
 
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_25
 
-    .line 440
+    .line 424
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
     if-eqz v0, :cond_11
@@ -228,7 +228,7 @@
 
     if-nez v0, :cond_25
 
-    .line 442
+    .line 426
     :cond_1d
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -238,7 +238,7 @@
 
     throw v0
 
-    .line 445
+    .line 429
     :cond_25
     iget v0, p0, Landroid/content/ContentProviderOperation$Builder;->mType:I
 
@@ -246,7 +246,7 @@
 
     if-ne v0, v1, :cond_4e
 
-    .line 446
+    .line 430
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
     if-eqz v0, :cond_36
@@ -277,7 +277,7 @@
 
     if-nez v0, :cond_4e
 
-    .line 449
+    .line 433
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Empty values"
@@ -286,7 +286,7 @@
 
     throw v0
 
-    .line 452
+    .line 436
     :cond_4e
     new-instance v0, Landroid/content/ContentProviderOperation;
 
@@ -302,7 +302,7 @@
     .parameter "count"
 
     .prologue
-    .line 601
+    .line 585
     iget v0, p0, Landroid/content/ContentProviderOperation$Builder;->mType:I
 
     const/4 v1, 0x2
@@ -321,7 +321,7 @@
 
     if-eq v0, v1, :cond_18
 
-    .line 602
+    .line 586
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "only updates, deletes, and asserts can have expected counts"
@@ -330,7 +330,7 @@
 
     throw v0
 
-    .line 605
+    .line 589
     :cond_18
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -338,7 +338,7 @@
 
     iput-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mExpectedCount:Ljava/lang/Integer;
 
-    .line 606
+    .line 590
     return-object p0
 .end method
 
@@ -350,7 +350,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 580
+    .line 564
     iget v0, p0, Landroid/content/ContentProviderOperation$Builder;->mType:I
 
     const/4 v1, 0x2
@@ -369,7 +369,7 @@
 
     if-eq v0, v1, :cond_19
 
-    .line 581
+    .line 565
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "only updates, deletes, and asserts can have selections"
@@ -378,23 +378,23 @@
 
     throw v0
 
-    .line 584
+    .line 568
     :cond_19
     iput-object p1, p0, Landroid/content/ContentProviderOperation$Builder;->mSelection:Ljava/lang/String;
 
-    .line 585
+    .line 569
     if-nez p2, :cond_21
 
-    .line 586
+    .line 570
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mSelectionArgs:[Ljava/lang/String;
 
-    .line 591
+    .line 575
     :goto_20
     return-object p0
 
-    .line 588
+    .line 572
     :cond_21
     array-length v0, p2
 
@@ -402,7 +402,7 @@
 
     iput-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mSelectionArgs:[Ljava/lang/String;
 
-    .line 589
+    .line 573
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mSelectionArgs:[Ljava/lang/String;
 
     array-length v1, p2
@@ -418,7 +418,7 @@
     .parameter "previousResult"
 
     .prologue
-    .line 499
+    .line 483
     iget v0, p0, Landroid/content/ContentProviderOperation$Builder;->mType:I
 
     const/4 v1, 0x2
@@ -437,7 +437,7 @@
 
     if-eq v0, v1, :cond_18
 
-    .line 500
+    .line 484
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "only updates, deletes, and asserts can have selection back-references"
@@ -446,20 +446,20 @@
 
     throw v0
 
-    .line 503
+    .line 487
     :cond_18
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mSelectionArgsBackReferences:Ljava/util/Map;
 
     if-nez v0, :cond_23
 
-    .line 504
+    .line 488
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mSelectionArgsBackReferences:Ljava/util/Map;
 
-    .line 506
+    .line 490
     :cond_23
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mSelectionArgsBackReferences:Ljava/util/Map;
 
@@ -473,7 +473,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 507
+    .line 491
     return-object p0
 .end method
 
@@ -483,7 +483,7 @@
     .parameter "value"
 
     .prologue
-    .line 539
+    .line 523
     iget v0, p0, Landroid/content/ContentProviderOperation$Builder;->mType:I
 
     const/4 v1, 0x1
@@ -502,7 +502,7 @@
 
     if-eq v0, v1, :cond_18
 
-    .line 540
+    .line 524
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "only inserts and updates can have values"
@@ -511,41 +511,41 @@
 
     throw v0
 
-    .line 542
+    .line 526
     :cond_18
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
     if-nez v0, :cond_23
 
-    .line 543
+    .line 527
     new-instance v0, Landroid/content/ContentValues;
 
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
     iput-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
-    .line 545
+    .line 529
     :cond_23
     if-nez p2, :cond_2b
 
-    .line 546
+    .line 530
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
     invoke-virtual {v0, p1}, Landroid/content/ContentValues;->putNull(Ljava/lang/String;)V
 
-    .line 568
+    .line 552
     .end local p2
     :goto_2a
     return-object p0
 
-    .line 547
+    .line 531
     .restart local p2
     :cond_2b
     instance-of v0, p2, Ljava/lang/String;
 
     if-eqz v0, :cond_37
 
-    .line 548
+    .line 532
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
     check-cast p2, Ljava/lang/String;
@@ -555,14 +555,14 @@
 
     goto :goto_2a
 
-    .line 549
+    .line 533
     .restart local p2
     :cond_37
     instance-of v0, p2, Ljava/lang/Byte;
 
     if-eqz v0, :cond_43
 
-    .line 550
+    .line 534
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
     check-cast p2, Ljava/lang/Byte;
@@ -572,14 +572,14 @@
 
     goto :goto_2a
 
-    .line 551
+    .line 535
     .restart local p2
     :cond_43
     instance-of v0, p2, Ljava/lang/Short;
 
     if-eqz v0, :cond_4f
 
-    .line 552
+    .line 536
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
     check-cast p2, Ljava/lang/Short;
@@ -589,14 +589,14 @@
 
     goto :goto_2a
 
-    .line 553
+    .line 537
     .restart local p2
     :cond_4f
     instance-of v0, p2, Ljava/lang/Integer;
 
     if-eqz v0, :cond_5b
 
-    .line 554
+    .line 538
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
     check-cast p2, Ljava/lang/Integer;
@@ -606,14 +606,14 @@
 
     goto :goto_2a
 
-    .line 555
+    .line 539
     .restart local p2
     :cond_5b
     instance-of v0, p2, Ljava/lang/Long;
 
     if-eqz v0, :cond_67
 
-    .line 556
+    .line 540
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
     check-cast p2, Ljava/lang/Long;
@@ -623,14 +623,14 @@
 
     goto :goto_2a
 
-    .line 557
+    .line 541
     .restart local p2
     :cond_67
     instance-of v0, p2, Ljava/lang/Float;
 
     if-eqz v0, :cond_73
 
-    .line 558
+    .line 542
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
     check-cast p2, Ljava/lang/Float;
@@ -640,14 +640,14 @@
 
     goto :goto_2a
 
-    .line 559
+    .line 543
     .restart local p2
     :cond_73
     instance-of v0, p2, Ljava/lang/Double;
 
     if-eqz v0, :cond_7f
 
-    .line 560
+    .line 544
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
     check-cast p2, Ljava/lang/Double;
@@ -657,14 +657,14 @@
 
     goto :goto_2a
 
-    .line 561
+    .line 545
     .restart local p2
     :cond_7f
     instance-of v0, p2, Ljava/lang/Boolean;
 
     if-eqz v0, :cond_8b
 
-    .line 562
+    .line 546
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
     check-cast p2, Ljava/lang/Boolean;
@@ -674,14 +674,14 @@
 
     goto :goto_2a
 
-    .line 563
+    .line 547
     .restart local p2
     :cond_8b
     instance-of v0, p2, [B
 
     if-eqz v0, :cond_99
 
-    .line 564
+    .line 548
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
     check-cast p2, [B
@@ -693,7 +693,7 @@
 
     goto :goto_2a
 
-    .line 566
+    .line 550
     .restart local p2
     :cond_99
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -735,66 +735,6 @@
     .parameter "previousResult"
 
     .prologue
-    .line 481
-    iget v0, p0, Landroid/content/ContentProviderOperation$Builder;->mType:I
-
-    const/4 v1, 0x1
-
-    if-eq v0, v1, :cond_18
-
-    iget v0, p0, Landroid/content/ContentProviderOperation$Builder;->mType:I
-
-    const/4 v1, 0x2
-
-    if-eq v0, v1, :cond_18
-
-    iget v0, p0, Landroid/content/ContentProviderOperation$Builder;->mType:I
-
-    const/4 v1, 0x4
-
-    if-eq v0, v1, :cond_18
-
-    .line 482
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v1, "only inserts, updates, and asserts can have value back-references"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    .line 485
-    :cond_18
-    iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValuesBackReferences:Landroid/content/ContentValues;
-
-    if-nez v0, :cond_23
-
-    .line 486
-    new-instance v0, Landroid/content/ContentValues;
-
-    invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
-
-    iput-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValuesBackReferences:Landroid/content/ContentValues;
-
-    .line 488
-    :cond_23
-    iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValuesBackReferences:Landroid/content/ContentValues;
-
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-virtual {v0, p1, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    .line 489
-    return-object p0
-.end method
-
-.method public withValueBackReferences(Landroid/content/ContentValues;)Landroid/content/ContentProviderOperation$Builder;
-    .registers 4
-    .parameter "backReferences"
-
-    .prologue
     .line 465
     iget v0, p0, Landroid/content/ContentProviderOperation$Builder;->mType:I
 
@@ -825,18 +765,37 @@
 
     .line 469
     :cond_18
-    iput-object p1, p0, Landroid/content/ContentProviderOperation$Builder;->mValuesBackReferences:Landroid/content/ContentValues;
+    iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValuesBackReferences:Landroid/content/ContentValues;
+
+    if-nez v0, :cond_23
 
     .line 470
+    new-instance v0, Landroid/content/ContentValues;
+
+    invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
+
+    iput-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValuesBackReferences:Landroid/content/ContentValues;
+
+    .line 472
+    :cond_23
+    iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValuesBackReferences:Landroid/content/ContentValues;
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v0, p1, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    .line 473
     return-object p0
 .end method
 
-.method public withValues(Landroid/content/ContentValues;)Landroid/content/ContentProviderOperation$Builder;
+.method public withValueBackReferences(Landroid/content/ContentValues;)Landroid/content/ContentProviderOperation$Builder;
     .registers 4
-    .parameter "values"
+    .parameter "backReferences"
 
     .prologue
-    .line 518
+    .line 449
     iget v0, p0, Landroid/content/ContentProviderOperation$Builder;->mType:I
 
     const/4 v1, 0x1
@@ -855,7 +814,48 @@
 
     if-eq v0, v1, :cond_18
 
-    .line 519
+    .line 450
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v1, "only inserts, updates, and asserts can have value back-references"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 453
+    :cond_18
+    iput-object p1, p0, Landroid/content/ContentProviderOperation$Builder;->mValuesBackReferences:Landroid/content/ContentValues;
+
+    .line 454
+    return-object p0
+.end method
+
+.method public withValues(Landroid/content/ContentValues;)Landroid/content/ContentProviderOperation$Builder;
+    .registers 4
+    .parameter "values"
+
+    .prologue
+    .line 502
+    iget v0, p0, Landroid/content/ContentProviderOperation$Builder;->mType:I
+
+    const/4 v1, 0x1
+
+    if-eq v0, v1, :cond_18
+
+    iget v0, p0, Landroid/content/ContentProviderOperation$Builder;->mType:I
+
+    const/4 v1, 0x2
+
+    if-eq v0, v1, :cond_18
+
+    iget v0, p0, Landroid/content/ContentProviderOperation$Builder;->mType:I
+
+    const/4 v1, 0x4
+
+    if-eq v0, v1, :cond_18
+
+    .line 503
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "only inserts, updates, and asserts can have values"
@@ -864,26 +864,26 @@
 
     throw v0
 
-    .line 522
+    .line 506
     :cond_18
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
     if-nez v0, :cond_23
 
-    .line 523
+    .line 507
     new-instance v0, Landroid/content/ContentValues;
 
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
     iput-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
-    .line 525
+    .line 509
     :cond_23
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
     invoke-virtual {v0, p1}, Landroid/content/ContentValues;->putAll(Landroid/content/ContentValues;)V
 
-    .line 526
+    .line 510
     return-object p0
 .end method
 
@@ -892,9 +892,9 @@
     .parameter "yieldAllowed"
 
     .prologue
-    .line 610
+    .line 594
     iput-boolean p1, p0, Landroid/content/ContentProviderOperation$Builder;->mYieldAllowed:Z
 
-    .line 611
+    .line 595
     return-object p0
 .end method

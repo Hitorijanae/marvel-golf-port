@@ -537,8 +537,6 @@
 
 .field public static final Theme_DeviceDefault:I = 0x1030128
 
-.field public static final Theme_DeviceDefault_CompactMenu:I = 0x1030303
-
 .field public static final Theme_DeviceDefault_Dialog:I = 0x103012e
 
 .field public static final Theme_DeviceDefault_DialogWhenLarge:I = 0x1030136
@@ -558,8 +556,6 @@
 .field public static final Theme_DeviceDefault_InputMethod:I = 0x103013e
 
 .field public static final Theme_DeviceDefault_Light:I = 0x103012b
-
-.field public static final Theme_DeviceDefault_Light_CompactMenu:I = 0x1030304
 
 .field public static final Theme_DeviceDefault_Light_DarkActionBar:I = 0x103013f
 
@@ -1561,15 +1557,14 @@
 
 .field public static final ZoomControls:I = 0x103022b
 
-.field public static final label_off_m:I = 0x1030305
-
 
 # direct methods
 .method public constructor <init>()V
     .registers 1
 
     .prologue
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 18910
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
